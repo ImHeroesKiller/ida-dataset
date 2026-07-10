@@ -27,6 +27,11 @@ on:
 permissions:
   contents: read
 
+# P0-2: queue behind production writers (read-only but avoids race on reports)
+concurrency:
+  group: factory-production
+  cancel-in-progress: false
+
 jobs:
   review:
     name: Review summary

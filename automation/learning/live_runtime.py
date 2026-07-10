@@ -805,20 +805,46 @@ def _run_live_session_body(
             )
         else:
             def _publish() -> None:
+                from automation.quality.integrity_guard import filter_append_rows
+
                 with industry_csv.open("r", encoding="utf-8-sig", newline="") as handle:
                     headers = [(h or "").lstrip("\ufeff") for h in next(csv.reader(handle))]
                 row = {h: seed.get(h, "") for h in headers}
-                append_csv_rows(industry_csv, [row], fieldnames=headers)
+                filtered = filter_append_rows(industry_csv, [row], repo_root=root)
+                if filtered["rejected_count"]:
+                    reason = filtered["rejected"][0]["reason"]
+                    raise RuntimeError(f"integrity_reject:{reason}")
+                append_csv_rows(
+                    industry_csv, filtered["accepted"], fieldnames=headers
+                )
                 growth.record_daily_counters(added=1, root=root)
 
-            run_with_recovery(
-                _publish,
-                component="publisher.csv",
-                session_id=session_id,
-                correlation_id=correlation_id,
-                repo_root=root,
-            )
-            published = True
+            try:
+                run_with_recovery(
+                    _publish,
+                    component="publisher.csv",
+                    session_id=session_id,
+                    correlation_id=correlation_id,
+                    repo_root=root,
+                )
+                published = True
+            except Exception as exc:  # noqa: BLE001
+                if "integrity_reject" in str(exc):
+                    _emit(
+                        session_id,
+                        "Publishing",
+                        f"Integrity guard rejected row: {exc}",
+                        stage="publish",
+                        progress=98,
+                        status="completed",
+                        mission_id=mission_id,
+                        dataset=dataset,
+                        current_entity=seed["Industry Name"],
+                    )
+                    published = False
+                    growth.record_daily_counters(rejected=1, root=root)
+                else:
+                    raise
             runtime_channels.log(
                 "publish",
                 f"Published {seed['Industry Name']} → industry_library.csv",

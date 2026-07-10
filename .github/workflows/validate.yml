@@ -28,6 +28,9 @@ on:
 permissions:
   contents: read
 
+# Validate may run in parallel with production (read-only) — no write concurrency required.
+# paths-ignore not needed; validate does not commit (prevents commit loops).
+
 jobs:
   validate:
     name: Repository validation

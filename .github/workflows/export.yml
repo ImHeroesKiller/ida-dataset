@@ -12,12 +12,19 @@ on:
 permissions:
   contents: write
 
+# P0-2: serialize export with production writers
+concurrency:
+  group: factory-production
+  cancel-in-progress: false
+
 jobs:
   export:
     name: Export datasets
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Export industry library
         run: |
           python3 - <<'PY'

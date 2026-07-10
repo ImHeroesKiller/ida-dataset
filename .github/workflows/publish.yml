@@ -43,6 +43,11 @@ on:
 permissions:
   contents: write
 
+# P0-2: serialize with other production writers
+concurrency:
+  group: factory-production
+  cancel-in-progress: false
+
 jobs:
   publish:
     name: Publish approved knowledge
@@ -73,7 +78,6 @@ jobs:
         id: flags
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
-            # Scheduled publish: real env, dry-run false, commit+push for production knowledge
             echo "dry_run=false" >> "$GITHUB_OUTPUT"
             echo "commit=true" >> "$GITHUB_OUTPUT"
             echo "push=true" >> "$GITHUB_OUTPUT"

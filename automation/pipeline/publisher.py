@@ -158,6 +158,30 @@ def run(ctx: "PipelineContext") -> StageResult:
         target = _resolve_target_csv(ctx, candidate.target_dataset)
         headers = read_csv_headers(target)
 
+        # Integrity guard — reject rows that would increase debt (append-only safe)
+        try:
+            from automation.quality.integrity_guard import filter_append_rows
+
+            probe_row = candidate.with_provenance_on_payload()
+            filtered = filter_append_rows(target, [probe_row], repo_root=paths.root)
+            if filtered["rejected_count"]:
+                skipped.append(
+                    {
+                        "candidate_id": candidate.candidate_id,
+                        "reason": filtered["rejected"][0]["reason"],
+                        "integrity_guard": True,
+                    }
+                )
+                continue
+        except Exception as exc:  # noqa: BLE001
+            skipped.append(
+                {
+                    "candidate_id": candidate.candidate_id,
+                    "reason": f"integrity_guard_error:{exc}",
+                }
+            )
+            continue
+
         # Ensure provenance columns exist when creating a brand-new file
         if not headers:
             # Prefer payload keys + provenance

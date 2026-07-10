@@ -415,17 +415,44 @@ def main(argv: Optional[list[str]] = None) -> int:
         print(json.dumps({"ok": False, "error": str(exc)}), file=sys.stderr)
         return EXIT_CONFIG_ERROR
 
-    instruction = (
+    raw_instruction = (
         (args.instruction or args.mission or os.environ.get("IDA_LEARNING_INSTRUCTION") or "")
         .strip()
-        or "Learn Industry Library knowledge — continuous learning session"
     )
-    mission = (args.mission or instruction).strip()
     trigger = _resolve_trigger(os.environ.get("GITHUB_EVENT_NAME"), args.trigger)
     if trigger == "hourly":
         trigger = "schedule"
     if trigger == "daily":
         trigger = "schedule"
+
+    # Dynamic mission selection (P0-4): no hardcoded default when auto/schedule
+    selector_meta: dict[str, Any] = {}
+    try:
+        from automation.scheduler.mission_selector import (
+            is_default_or_empty_instruction,
+            select_next_mission,
+        )
+
+        if is_default_or_empty_instruction(raw_instruction) or trigger == "schedule":
+            selector_meta = select_next_mission(repo_root)
+            selected = (selector_meta or {}).get("selected") or {}
+            instruction = str(
+                selected.get("instruction")
+                or raw_instruction
+                or "Produce Industry Dataset — expand industry_library toward product target"
+            )
+            selector_meta["applied"] = True
+        else:
+            instruction = raw_instruction
+            selector_meta = {"applied": False, "reason": "explicit_mission_provided"}
+    except Exception as exc:  # noqa: BLE001
+        instruction = (
+            raw_instruction
+            or "Produce Industry Dataset — expand industry_library toward product target"
+        )
+        selector_meta = {"applied": False, "error": str(exc)}
+
+    mission = (args.mission or instruction).strip()
 
     ctx = RunContext(
         name="learning",
@@ -436,6 +463,11 @@ def main(argv: Optional[list[str]] = None) -> int:
     )
     ctx.messages.append(f"instruction={instruction[:120]}")
     ctx.messages.append(f"trigger={trigger}")
+    if selector_meta:
+        ctx.messages.append(
+            f"mission_selector={selector_meta.get('selected', {}).get('batch_id', selector_meta)}"
+        )
+        ctx.metrics["mission_selector"] = selector_meta
 
     # Publish only when env allows and not dry-run
     allow_publish = bool(env_config.get("allow_publish")) and not dry_run

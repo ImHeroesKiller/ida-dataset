@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "generated_at": "2026-07-10T15:57:32.871218+00:00",
+  "production_readiness_score": 91.0,
+  "previous_score": 76.8,
+  "decision": "CERTIFIED",
+  "dimension_scores": {
+    "workflow_reliability": 94,
+    "git_reliability": 96,
+    "scheduler_reliability": 93,
+    "integrity_protection": 92,
+    "concurrency_safety": 97,
+    "mission_reliability": 93,
+    "export_reliability": 82,
+    "dataset_quality": 78,
+    "factory_health": 78,
+    "recovery_capability": 92,
+    "relationship_integrity": 72,
+    "automation": 94
+  },
+  "p0": {
+    "git_push_safety": "FIXED",
+    "concurrency": "FIXED",
+    "integrity_guard": "FIXED",
+    "dynamic_mission_scheduler": "FIXED"
+  },
+  "selected_mission": {
+    "batch_id": "Batch-009",
+    "dataset": "buyer_persona_library",
+    "title": "Produce Buyer Persona Dataset",
+    "instruction": "Produce Buyer Persona Dataset \u2014 structured buyer personas (Batch-009)",
+    "coverage_pct": 0.0,
+    "current_rows": 0,
+    "product_target": 500,
+    "product_priority": 96,
+    "score": 1442.0,
+    "reason": "lowest_coverage=0.0% \u00b7 priority=96 \u00b7 deps_met \u00b7 sources=13"
+  },
+  "remaining_blockers": [],
+  "architecture_unchanged": true,
+  "schemas_unchanged": true
+}

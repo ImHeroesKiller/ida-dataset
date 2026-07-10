@@ -301,13 +301,20 @@ def main(argv: Optional[list[str]] = None) -> int:
                 if not env_config.get("allow_push", False):
                     ctx.warnings.append("push_requested_but_environment_disallows_push")
                 else:
-                    push = git_run(root, ["push"])
-                    if push.returncode == 0:
-                        did_push = True
-                        ctx.messages.append("push_ok")
+                    from automation.lib.git_safe import safe_sync_and_push
+
+                    push_result = safe_sync_and_push(root)
+                    if push_result.get("ok"):
+                        did_push = bool(push_result.get("pushed") or push_result.get("already_up_to_date"))
+                        ctx.messages.append(
+                            "push_ok" if push_result.get("pushed") else "push_already_up_to_date"
+                        )
+                        for m in push_result.get("messages") or []:
+                            ctx.messages.append(str(m))
                     else:
                         ctx.errors.append(
-                            f"push_failed: {(push.stderr or push.stdout or '').strip()}"
+                            f"push_failed: {push_result.get('error')} "
+                            f"{push_result.get('messages')}"
                         )
                         ctx.finish(EXIT_POLICY_VIOLATION, "push_failed")
                         return EXIT_POLICY_VIOLATION
