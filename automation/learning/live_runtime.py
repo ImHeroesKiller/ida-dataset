@@ -486,6 +486,21 @@ def _run_live_session_body(
                 health={"runtime": "failed", "connector": "failed"},
             )
             lifecycle.release(force=True)
+        try:
+            from automation.lib.source_health import record_session_sources
+
+            # Attribute failure to default high-trust production sources used by planner
+            record_session_sources(
+                ["SRC-000001", "SRC-000004"],
+                success=False,
+                documents=0,
+                rows=0,
+                duration_ms=float(elapsed()),
+                mission_id=mission_id,
+                root=root,
+            )
+        except Exception:  # noqa: BLE001
+            pass
         return {
             "ok": False,
             "session_id": session_id,
@@ -958,11 +973,51 @@ def _run_live_session_body(
         "industry_name": seed["Industry Name"],
         "candidate_id": candidate.candidate_id,
         "document_id": doc.get("document_id"),
+        "source_id": str(doc.get("source_id") or ""),
+        "connector_id": str(doc.get("connector_id") or ""),
         "duration_ms": elapsed(),
         "snapshot": snap,
         "growth": vs,
         "replay": f"automation/learning/state/sessions/{session_id}.jsonl",
     }
+
+    # EPIC-1: auto-update trusted source production metrics
+    try:
+        from automation.lib.source_health import (
+            extract_source_ids_from_text,
+            record_session_sources,
+            recompute_from_datasets,
+        )
+
+        sids = []
+        sid = str(doc.get("source_id") or "")
+        if sid.startswith("SRC-"):
+            sids.append(sid)
+        sids.extend(
+            extract_source_ids_from_text(
+                f"{seed.get('Data Sources', '')} {seed.get('Notes', '')}"
+            )
+        )
+        # unique preserve order
+        seen: set[str] = set()
+        uniq = []
+        for s in sids:
+            if s not in seen:
+                seen.add(s)
+                uniq.append(s)
+        record_session_sources(
+            uniq,
+            success=True,
+            documents=1,
+            rows=1 if published else 0,
+            duration_ms=float(elapsed()),
+            mission_id=mission_id,
+            root=root,
+        )
+        recompute_from_datasets(root)
+    except Exception:  # noqa: BLE001
+        pass
+
     out = root / "reports" / "learning" / f"live_session_{session_id}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

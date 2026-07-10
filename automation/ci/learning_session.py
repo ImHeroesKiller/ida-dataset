@@ -249,6 +249,14 @@ def run_session(
         session["telemetry"]["growth"] = live.get("growth")
         session["telemetry"]["snapshot"] = live.get("snapshot")
 
+        # EPIC-1: ensure source health metrics recompute after every session
+        try:
+            from automation.lib.source_health import recompute_from_datasets
+
+            recompute_from_datasets(repo_root)
+        except Exception:  # noqa: BLE001
+            pass
+
         if live.get("ok"):
             summary = (
                 f"Session completed · added={session['knowledge_added']} "

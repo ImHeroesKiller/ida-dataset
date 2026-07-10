@@ -131,6 +131,28 @@ sources:
     allowed: true
     notes: Employers association industry and labor policy views.
 
+  - source_id: SRC-000014
+    name: LKPP
+    base_url: https://www.lkpp.go.id
+    category: government
+    country: ID
+    trust_score: 0.90
+    update_frequency: monthly
+    status: active
+    allowed: true
+    notes: National public procurement agency — tenders and procurement knowledge.
+
+  - source_id: SRC-000015
+    name: OSS Indonesia
+    base_url: https://oss.go.id
+    category: government
+    country: ID
+    trust_score: 0.88
+    update_frequency: monthly
+    status: active
+    allowed: true
+    notes: Online Single Submission — business licensing public information.
+
 domains:
   whitelist: []
   blacklist:

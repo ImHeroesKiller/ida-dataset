@@ -1180,6 +1180,32 @@ def run() -> dict[str, Any]:
         repo_root=root,
     )
 
+    # EPIC-1: attribute production stats to sources used in this cycle
+    try:
+        from automation.lib.source_health import (
+            record_session_sources,
+            recompute_from_datasets,
+        )
+
+        record_session_sources(
+            [
+                "SRC-000001",
+                "SRC-000004",
+                "SRC-000005",
+                "SRC-000007",
+                "SRC-000010",
+            ],
+            success=True,
+            documents=4,
+            rows=max(0, after_n - before_n) + updated,
+            duration_ms=0.0,
+            mission_id=mission_id,
+            root=root,
+        )
+        recompute_from_datasets(root)
+    except Exception:  # noqa: BLE001
+        pass
+
     report = {
         "ok": True,
         "sprint": "knowledge-v1.0",
