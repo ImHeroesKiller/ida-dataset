@@ -374,8 +374,22 @@ def run_session(
     except Exception:  # noqa: BLE001
         pass
 
-    # Development progressive auto-publish (architecture unchanged — review bypassed by config)
-    if not dry_run and session.get("status") == "completed":
+    # Progressive publish ONLY when the in-session acquisition path did not already
+    # publish and the publish queue still has candidates (prevents double-publish /
+    # empty-queue noise). One publish path per session.
+    publish_q = repo_root / "automation" / "queue" / "publish"
+    queue_pending = (
+        list(publish_q.glob("*.json")) if publish_q.exists() else []
+    )
+    already_published = int(session.get("knowledge_added") or 0) > 0 or bool(
+        (session.get("publish_summary") or {}).get("published")
+    )
+    if (
+        not dry_run
+        and session.get("status") == "completed"
+        and queue_pending
+        and not already_published
+    ):
         try:
             import subprocess
 
@@ -388,6 +402,13 @@ def run_session(
             )
         except Exception:  # noqa: BLE001
             pass
+    elif not dry_run and session.get("status") == "completed":
+        # Explicit single-publish telemetry (no second publisher)
+        session.setdefault("telemetry", {})["publish_once"] = {
+            "already_published_in_session": already_published,
+            "publish_queue_remaining": len(queue_pending),
+            "progressive_publish_skipped": True,
+        }
 
     journal.write_activity(
         {

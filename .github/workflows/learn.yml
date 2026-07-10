@@ -124,6 +124,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+      - name: Worktree trace (pre-acquire)
+        if: always()
+        run: python automation/ci/worktree_trace.py --stage pre_acquire || true
+
       - name: Run learning session
         id: learn
         env:
@@ -156,6 +160,10 @@ jobs:
           fi
           exit ${code}
 
+      - name: Worktree trace (post-session / pre-commit)
+        if: always()
+        run: python automation/ci/worktree_trace.py --stage post_session_pre_commit || true
+
       - name: Upload learning session artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -164,33 +172,101 @@ jobs:
           path: |
             automation/sessions/
             reports/learning/
+            reports/reliability/
+            reports/production/
+            reports/discovery/
+            reports/performance/
+            reports/manufacturing/
             automation/learning/state/
           if-no-files-found: warn
 
-      # P0-1: commit then safe sync+push (never force-push; abort on conflict)
-      - name: Commit session + knowledge updates
+      # Atomic production commit: stage ALL factory outputs, then single commit, then verify clean.
+      # Never write after this step (except residual recovery inside git_safe_sync_push).
+      - name: Atomic commit (session + knowledge + reports)
         if: always() && steps.cfg.outputs.commit_session == 'true'
         id: commit
         run: |
-          git add automation/sessions/ reports/learning/ automation/learning/state/ || true
+          set -euo pipefail
+          python automation/ci/worktree_trace.py --stage pre_atomic_commit || true
+
+          # Stage complete production footprint (tracked + new allowlisted paths)
+          git add \
+            automation/sessions/ \
+            automation/learning/state/ \
+            automation/queue/ \
+            automation/missions/ \
+            reports/learning/ \
+            reports/reliability/ \
+            reports/production/ \
+            reports/discovery/ \
+            reports/performance/ \
+            reports/manufacturing/ \
+            reports/quality/ \
+            2>/dev/null || true
+
           if [ "${{ steps.cfg.outputs.dry_run }}" != "true" ]; then
-            git add domains/ automation/queue/ || true
+            git add domains/ 2>/dev/null || true
           fi
+
+          # Include any other already-tracked dirty files so tree is clean post-commit
+          # (avoids "cannot pull with rebase: You have unstaged changes")
+          while IFS= read -r line; do
+            [[ -z "${line}" ]] && continue
+            path="${line:3}"
+            # skip ignored-only noise handled by status porcelain for untracked large caches
+            if [[ "${line:0:2}" == "??" ]]; then
+              case "${path}" in
+                automation/connectors/cache/*|automation/raw_documents/*|automation/documents/*|node_modules/*|.next/*)
+                  continue
+                  ;;
+              esac
+            fi
+            git add -- "${path}" 2>/dev/null || true
+          done < <(git status --porcelain 2>/dev/null || true)
+
           if git diff --cached --quiet; then
             echo "No session artifacts to commit"
             echo "committed=false" >> "$GITHUB_OUTPUT"
+            python automation/ci/worktree_trace.py --stage atomic_commit_empty || true
             exit 0
           fi
+
           SID="${{ steps.learn.outputs.session_id || github.run_id }}"
           git commit -m "chore(learning): session ${SID} via GitHub Actions"
           echo "committed=true" >> "$GITHUB_OUTPUT"
+
+          python automation/ci/worktree_trace.py --stage post_commit || true
+
+          # Verify clean tree (tracked). Untracked ignored caches may remain.
+          if ! git diff --exit-code >/dev/null 2>&1; then
+            echo "ERROR: unstaged tracked changes after commit"
+            git diff --stat || true
+            git status --porcelain || true
+            exit 1
+          fi
+          if ! git diff --cached --exit-code >/dev/null 2>&1; then
+            echo "ERROR: staged changes remain after commit"
+            git diff --cached --stat || true
+            exit 1
+          fi
+          # Porcelain may still list untracked gitignored paths — filter noise
+          DIRTY="$(git status --porcelain --untracked-files=no 2>/dev/null || true)"
+          if [[ -n "${DIRTY}" ]]; then
+            echo "ERROR: dirty tracked tree after atomic commit:"
+            echo "${DIRTY}"
+            exit 1
+          fi
+          echo "Atomic commit verified: tracked tree clean"
+          python automation/ci/worktree_trace.py --stage pre_fetch_clean || true
 
       - name: Safe git sync and push
         if: always() && steps.cfg.outputs.commit_session == 'true' && steps.commit.outputs.committed == 'true'
         id: push
         run: |
           chmod +x scripts/git_safe_sync_push.sh
+          python automation/ci/worktree_trace.py --stage before_safe_push || true
           scripts/git_safe_sync_push.sh origin "${{ github.ref_name }}"
+          python automation/ci/worktree_trace.py --stage after_safe_push || true
         env:
           GIT_SAFE_PUSH_RETRIES: "3"
 

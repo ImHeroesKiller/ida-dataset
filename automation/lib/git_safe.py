@@ -18,6 +18,15 @@ def git_run(root: Path, args: list[str]) -> subprocess.CompletedProcess[str]:
     )
 
 
+def is_worktree_clean(root: Path) -> tuple[bool, list[str]]:
+    st = git_run(root, ["status", "--porcelain"])
+    lines = [ln for ln in (st.stdout or "").splitlines() if ln.strip()]
+    d1 = git_run(root, ["diff", "--exit-code"])
+    d2 = git_run(root, ["diff", "--cached", "--exit-code"])
+    clean = not lines and d1.returncode == 0 and d2.returncode == 0
+    return clean, lines
+
+
 def safe_sync_and_push(
     root: Path,
     *,
@@ -25,26 +34,60 @@ def safe_sync_and_push(
     branch: str | None = None,
     max_retries: int = 3,
 ) -> dict[str, Any]:
-    """Fetch, rebase onto remote, push with retries. Never force-push.
-
-    On unresolvable conflict: abort rebase and return ok=False.
-    Local commits are preserved.
-    """
+    """Delegate to scripts/git_safe_sync_push.sh (canonical implementation)."""
     root = Path(root)
+    script = root / "scripts" / "git_safe_sync_push.sh"
     if not branch:
         br = git_run(root, ["rev-parse", "--abbrev-ref", "HEAD"])
         branch = (br.stdout or "main").strip() or "main"
 
+    if script.exists():
+        proc = subprocess.run(
+            ["bash", str(script), remote, branch],
+            cwd=str(root),
+            capture_output=True,
+            text=True,
+            check=False,
+            env={
+                **dict(**{k: v for k, v in __import__("os").environ.items()}),
+                "GIT_SAFE_PUSH_RETRIES": str(max_retries),
+            },
+        )
+        return {
+            "ok": proc.returncode == 0,
+            "pushed": "push ok" in (proc.stdout or ""),
+            "returncode": proc.returncode,
+            "stdout": proc.stdout or "",
+            "stderr": proc.stderr or "",
+            "branch": branch,
+            "messages": [ln for ln in (proc.stdout or "").splitlines() if ln.strip()],
+        }
+
+    # Fallback pure-Python path (no force-push)
     messages: list[str] = []
     for attempt in range(1, max_retries + 1):
         messages.append(f"attempt={attempt}")
+        clean, dirty = is_worktree_clean(root)
+        if not clean:
+            messages.append(f"dirty_pre_rebase:{dirty[:20]}")
+            git_run(
+                root,
+                [
+                    "stash",
+                    "push",
+                    "--include-untracked",
+                    "-m",
+                    f"factory-safe-sync-{attempt}",
+                ],
+            )
+            messages.append("stashed")
+
         fetch = git_run(root, ["fetch", remote, "--prune"])
         if fetch.returncode != 0:
             messages.append(f"fetch_failed: {(fetch.stderr or fetch.stdout or '').strip()}")
             time.sleep(attempt * 2)
             continue
 
-        # remote branch may not exist
         has_remote = (
             git_run(root, ["rev-parse", "--verify", f"{remote}/{branch}"]).returncode
             == 0
@@ -65,6 +108,7 @@ def safe_sync_and_push(
                 root, ["rev-parse", f"{remote}/{branch}"]
             ).stdout.strip()
             if local and remote_sha and local == remote_sha:
+                git_run(root, ["stash", "pop"])
                 return {
                     "ok": True,
                     "pushed": False,
@@ -74,6 +118,7 @@ def safe_sync_and_push(
                 }
 
         push = git_run(root, ["push", remote, f"HEAD:{branch}"])
+        git_run(root, ["stash", "pop"])
         if push.returncode == 0:
             messages.append("push_ok")
             return {

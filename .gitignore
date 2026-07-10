@@ -93,3 +93,5 @@ automation/queue/candidates/**
 !reports/manufacturing/
 !reports/manufacturing/**
 !automation/learning/state/manufacturing_state.json
+!reports/reliability/
+!reports/reliability/**
