@@ -2,94 +2,61 @@
 
 ## Purpose
 
-Ship the Executive Control Center as a Vercel web app while keeping monorepo knowledge assets readable.
+Ship the Executive Control Center as a Vercel web app.
 
 ## Status: Active
 
-## Critical setting (this fixes the build error)
+## Project settings (required)
 
-In the Vercel project:
-
-**Settings → General → Root Directory → `ecc` → Save**
-
-Then **Redeploy**.
+Import GitHub repo: `ImHeroesKiller/ida-dataset`
 
 | Setting | Value |
 | --- | --- |
-| Framework Preset | Next.js |
-| **Root Directory** | **`ecc`** |
+| Framework Preset | **Next.js** |
+| **Root Directory** | **empty** (repository root) — do **not** set to `ecc` |
 | Build Command | `npm run build` (default) |
 | Install Command | `npm install` (default) |
-| Output Directory | *leave default* (do not set `ecc/.next` manually) |
+| Output Directory | leave default |
 | Node.js Version | 20.x or 22.x |
 
-### Why this matters
+### If you previously set Root Directory to `ecc`
 
-`package.json` with the `next` dependency lives in `ecc/`, not the repo root.
+1. Vercel → Project → **Settings → General → Root Directory**  
+2. Clear it / set to `.` / leave empty  
+3. Framework → **Next.js**  
+4. Save → **Redeploy**
 
-If Root Directory is empty (repo root), Vercel looks for `next` in the root `package.json`, fails with:
+### Why 404 NOT_FOUND happened
 
-```text
-Error: No Next.js version detected
-```
+Deployment finished with `framework: null` (no Next.js runtime).  
+That produces a READY deployment with no routes → `404: NOT_FOUND`.
 
-Do **not** use a root `installCommand` like `cd ecc && npm install` without Root Directory `ecc` — Vercel will still not detect Next.js correctly.
+Cause: app lived under `ecc/` while Root Directory was not configured, so Vercel never attached the Next.js builder.
 
-There is intentionally **no** root `vercel.json` build override for this reason. Config lives in `ecc/vercel.json`.
+**Fix applied in repo:** ECC app now lives at the repository root (`app/`, `package.json`, `next.config.ts`).
 
-## Environment variables (optional)
+## Domains
 
-| Name | Purpose |
-| --- | --- |
-| `IDA_REPO_ROOT` | Absolute path override (usually unnecessary on Vercel) |
-| `ECC_DISABLE_PYTHON` | Force-skip Python orchestration (`1`) |
-| `ECC_ENABLE_GIT` | Attempt local git exec (not recommended on Vercel) |
-
-Vercel provides automatically:
-
-- `VERCEL=1`
-- `VERCEL_GIT_COMMIT_SHA`
-- `VERCEL_GIT_COMMIT_REF`
-- `VERCEL_GIT_COMMIT_MESSAGE`
+Production project example: `ida-brain-monitor-eight.vercel.app`  
+After a successful redeploy, `/` should render the ECC dashboard (not NOT_FOUND).
 
 ## What works on Vercel
 
-- Dashboard status from live CSV/YAML inventory
-- Ontology browser
-- Dataset read-only browser
-- Policy viewer
-- Review queue viewer
-- Report browser
-- Global search
-- Console / progress UI
+- Dashboard, ontology, datasets, policies, review, reports, search  
+- Git metadata from `VERCEL_GIT_*` env vars  
 
-## What is limited on Vercel
+## Limited on Vercel
 
 | Feature | Behavior |
 | --- | --- |
 | Python CI orchestration | Skipped; use GitHub Actions |
-| Live publish | Blocked in UI; use `publish.yml` |
-| Local git porcelain | Replaced by Vercel commit metadata |
+| Live publish from UI | Blocked; use `publish.yml` |
 
-## CLI deploy
+## Local
 
 ```bash
-# from repo, after: npm i -g vercel && vercel login
-cd ecc
-npx vercel        # preview
-npx vercel --prod # production
+npm install
+npm run dev
 ```
 
-When linking, set the project Root Directory to `ecc` if prompted.
-
-## Production checklist
-
-1. Push `main` to GitHub  
-2. Vercel → Project → Settings → Root Directory = **`ecc`**  
-3. Deploy / Redeploy  
-4. Open `/` and confirm ontology + datasets load  
-5. Keep acquisition jobs on GitHub Actions  
-
-## Regions
-
-Sample region in `ecc/vercel.json`: `sin1` (Singapore). Change in the Vercel project settings if needed.
+Open http://localhost:3000

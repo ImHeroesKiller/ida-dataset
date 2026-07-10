@@ -1,0 +1,37 @@
+import type { NextConfig } from "next";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const configDir = path.dirname(fileURLToPath(import.meta.url));
+
+/**
+ * ECC lives at the repository root so Vercel auto-detects Next.js.
+ * Knowledge assets (domains/, metadata/, automation/, …) are siblings.
+ */
+const knowledgeGlobs = [
+  "./VERSION",
+  "./domains/**/*",
+  "./relationships/**/*",
+  "./metadata/**/*",
+  "./automation/config/**/*",
+  "./automation/queue/**/*",
+  "./automation/review/**/*",
+  "./automation/ci/**/*",
+  "./automation/README.md",
+  "./reports/**/*",
+  "./config/**/*",
+  "./docs/**/*",
+];
+
+const nextConfig: NextConfig = {
+  outputFileTracingRoot: configDir,
+  outputFileTracingIncludes: {
+    "/*": knowledgeGlobs,
+    "/**": knowledgeGlobs,
+    "/api/*": knowledgeGlobs,
+    "/api/**/*": knowledgeGlobs,
+  },
+  serverExternalPackages: [],
+};
+
+export default nextConfig;

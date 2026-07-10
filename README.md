@@ -1,31 +1,33 @@
 # IDA Dataset
 
-Scalable knowledge repository for the IDA Executive AI platform.
+Scalable knowledge repository for the IDA Executive AI platform, including the **Executive Control Center** web UI.
 
 ## Contents
 
 | Path | Purpose |
 | --- | --- |
+| `app/` `components/` `lib/` | Executive Control Center (Next.js) |
 | `domains/` | Domain knowledge datasets (CSV) |
 | `metadata/ontology/` | Knowledge Ontology Engine (KOE) |
 | `automation/` | Knowledge Acquisition System (KAS) + CI tools |
-| `ecc/` | **Executive Control Center** (Next.js dashboard) |
 | `reports/` | Validation / planner / review / publish reports |
 | `docs/` | Architecture and operations docs |
 
-## Executive Control Center (web UI)
+## Run the dashboard
 
 ```bash
-cd ecc
 npm install
 npm run dev
 ```
 
+Open http://localhost:3000
+
 ### Deploy on Vercel
 
 1. Import this GitHub repository  
-2. **Root Directory must be `ecc`** (Project Settings → General)  
-3. Deploy  
+2. **Root Directory: leave empty** (repo root)  
+3. Framework: **Next.js**  
+4. Deploy  
 
 See [docs/vercel.md](docs/vercel.md).
 

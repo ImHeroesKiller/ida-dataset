@@ -1,8 +1,8 @@
 {
-  "name": "ida-ecc",
+  "name": "ida-dataset",
   "version": "0.1.0",
   "private": true,
-  "description": "IDA Executive Control Center — operational cockpit for Knowledge Acquisition System",
+  "description": "IDA Knowledge Repository + Executive Control Center",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
