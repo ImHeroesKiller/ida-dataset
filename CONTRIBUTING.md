@@ -1,5 +1,12 @@
 # Contributing — IDA Dataset Factory
 
+## Production freeze (v2.0)
+
+Core architecture is **frozen**. See [PRODUCTION_FREEZE.md](./PRODUCTION_FREEZE.md).
+
+**Allowed:** new connectors, dataset expansion, source registry config, production bug fixes, documentation.  
+**Forbidden:** architecture/schema/queue redesign, RAG, agents, decision/reasoning engines.
+
 ## Rule
 
 Every change must answer **yes**:

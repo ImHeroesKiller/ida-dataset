@@ -70,6 +70,10 @@ python3 -m automation.export.packager
 
 ## Documentation
 
+### Governance (production freeze)
+
+- [PRODUCTION_FREEZE.md](./PRODUCTION_FREEZE.md) — **v2.0 Production Freeze Declaration** (ACTIVE · frozen core · knowledge expansion only)
+
 ### Product (2026–2027)
 
 - [BACKLOG.md](./BACKLOG.md) — official product backlog (epics)

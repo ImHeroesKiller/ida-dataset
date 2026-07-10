@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0 — Production Freeze — 2026-07-11
+
+### Governance
+
+- **Production Freeze Declaration** active ([PRODUCTION_FREEZE.md](./PRODUCTION_FREEZE.md))
+- Core architecture, queues, mission engine, acquisition, connectors, DPS, dashboard, and exports declared **FROZEN**
+- Growth strategy: **knowledge expansion only** (connectors, datasets, coverage, quality, production fixes)
+- Forbidden: architecture/schema/queue redesign, RAG, agents, decision/reasoning engines
+
 ## 2.0.0 — 2026-07-10
 
 ### IDA Dataset Factory (Knowledge Factory reset)
