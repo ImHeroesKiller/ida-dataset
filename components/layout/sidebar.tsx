@@ -9,22 +9,22 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex h-full w-[var(--sidebar-w)] shrink-0 flex-col border-r border-zinc-800/90 bg-[#0b0b0d]">
-      <div className="flex h-[var(--topbar-h)] items-center gap-2 border-b border-zinc-800/90 px-4">
-        <div className="flex h-6 w-6 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-[10px] font-semibold tracking-wide text-zinc-100">
+    <aside className="flex h-full w-[var(--sidebar-w)] shrink-0 flex-col border-r border-zinc-800/50 bg-[#0a0a0c]">
+      <div className="flex h-[var(--topbar-h)] items-center gap-3 px-5">
+        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 text-[11px] font-bold tracking-wide text-zinc-900">
           IDA
         </div>
         <div className="min-w-0">
-          <div className="truncate text-xs font-semibold tracking-tight text-zinc-100">
-            Executive Control
+          <div className="truncate text-sm font-semibold tracking-tight text-zinc-50">
+            IDA Learning
           </div>
-          <div className="truncate text-[10px] text-zinc-500">
-            Knowledge Platform
+          <div className="truncate text-[11px] text-zinc-500">
+            Executive AI
           </div>
         </div>
       </div>
 
-      <nav className="flex-1 space-y-0.5 overflow-y-auto p-2 scrollbar-thin">
+      <nav className="flex-1 space-y-1 px-3 py-4">
         {NAV_ITEMS.map((item) => {
           const active =
             item.href === "/"
@@ -36,29 +36,23 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "flex items-center gap-2 rounded-md px-2.5 py-1.5 text-xs transition-colors",
+                "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors",
                 active
-                  ? "bg-zinc-900 text-zinc-50 ring-1 ring-zinc-800"
-                  : "text-zinc-400 hover:bg-zinc-900/70 hover:text-zinc-200"
+                  ? "bg-zinc-100 font-medium text-zinc-900"
+                  : "text-zinc-400 hover:bg-zinc-900/80 hover:text-zinc-100"
               )}
             >
-              <Icon className="h-3.5 w-3.5 shrink-0 opacity-80" />
+              <Icon className="h-4 w-4 shrink-0 opacity-80" />
               <span className="truncate">{item.label}</span>
             </Link>
           );
         })}
       </nav>
 
-      <div className="border-t border-zinc-800/90 p-3">
-        <div className="rounded-md border border-zinc-800 bg-zinc-950/80 p-2.5">
-          <div className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-            Control model
-          </div>
-          <p className="mt-1 text-[11px] leading-relaxed text-zinc-400">
-            Planner proposes. Policy governs. Human decides. Pipeline executes.
-            Publisher publishes.
-          </p>
-        </div>
+      <div className="px-4 pb-5">
+        <p className="text-[11px] leading-relaxed text-zinc-600">
+          Learn · Review · Grow knowledge
+        </p>
       </div>
     </aside>
   );

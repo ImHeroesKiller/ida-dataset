@@ -7,21 +7,15 @@ export const dynamic = "force-dynamic";
 export default function ReviewPage() {
   const queues = getReviewQueues();
   return (
-    <Shell title="Review Queue">
-      <div className="mb-3 space-y-1">
-        <p className="text-sm text-zinc-300">
-          Human decisions only. No direct publishing from this view.
-        </p>
-        <p className="text-xs text-zinc-500">
-          Pending {queues.counts.pending} · Approved {queues.counts.approved} ·
-          Rejected {queues.counts.rejected}
-        </p>
-      </div>
+    <Shell title="Review">
       <ReviewClient
-        pending={queues.pending}
-        approved={queues.approved}
-        rejected={queues.rejected}
-        waiting={queues.waiting}
+        initial={{
+          pending: queues.pending,
+          approved: queues.approved,
+          rejected: queues.rejected,
+          counts: queues.counts,
+          waiting: queues.waiting,
+        }}
       />
     </Shell>
   );

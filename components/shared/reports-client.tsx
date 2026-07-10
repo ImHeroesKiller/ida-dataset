@@ -1,164 +1,240 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Card, CardBody, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useInspector } from "@/components/layout/inspector-context";
+import { useMemo, useState } from "react";
+import { Card, CardBody } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-type Item = {
-  kind: string;
-  name: string;
-  relativePath: string;
-  mtime: string | null;
-  size: number;
+type SessionSummary = {
+  session_id: string;
+  start_time?: string | null;
+  end_time?: string | null;
+  duration_seconds?: number | null;
+  status?: string;
+  mission?: string;
+  knowledge_added?: number;
+  knowledge_updated?: number;
+  knowledge_rejected?: number;
+  summary?: string;
+};
+
+type History = {
+  today: Period;
+  this_week: Period;
+  this_month: Period;
+  total: Period;
+  knowledge_growth: { added: number; updated: number; rejected: number };
+};
+
+type Period = {
+  sessions: number;
+  success: number;
+  failed: number;
+  success_rate: number;
+  knowledge_added: number;
+  knowledge_updated: number;
+  knowledge_rejected: number;
+  avg_duration_seconds: number;
+  avg_knowledge_added: number;
 };
 
 export function ReportsClient({
-  items,
-  waiting,
-  message,
+  initialHistory,
+  initialSessions,
 }: {
-  items: Item[];
-  waiting: boolean;
-  message: string | null;
+  initialHistory: History | null;
+  initialSessions: SessionSummary[];
 }) {
-  const { inspect } = useInspector();
-  const [kind, setKind] = useState("all");
-  const [selected, setSelected] = useState<string | null>(null);
-  const [content, setContent] = useState<string | null>(null);
+  const [tab, setTab] = useState<"today" | "week" | "month">("today");
 
-  const kinds = useMemo(
-    () => Array.from(new Set(items.map((i) => i.kind))).sort(),
-    [items]
-  );
+  const history = initialHistory;
+  const sessions = initialSessions;
 
-  const filtered = useMemo(
-    () => items.filter((i) => kind === "all" || i.kind === kind),
-    [items, kind]
-  );
+  const period = useMemo(() => {
+    if (!history) return null;
+    if (tab === "today") return history.today;
+    if (tab === "week") return history.this_week;
+    return history.this_month;
+  }, [history, tab]);
 
-  useEffect(() => {
-    if (!selected) return;
-    let alive = true;
-    (async () => {
-      const res = await fetch(
-        `/api/reports?file=${encodeURIComponent(selected)}`
-      );
-      const data = await res.json();
-      if (alive) setContent(data.content ?? data.error ?? "");
-    })();
-    return () => {
-      alive = false;
-    };
-  }, [selected]);
-
-  function download(path: string, name: string, body: string) {
-    const blob = new Blob([body], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = name;
-    a.click();
-    URL.revokeObjectURL(url);
-  }
+  const filtered = useMemo(() => {
+    const now = Date.now();
+    const day = 86400000;
+    return sessions.filter((s) => {
+      if (!s.start_time) return false;
+      const t = Date.parse(s.start_time);
+      if (Number.isNaN(t)) return false;
+      if (tab === "today") {
+        const start = new Date();
+        start.setUTCHours(0, 0, 0, 0);
+        return t >= start.getTime();
+      }
+      if (tab === "week") return now - t < 7 * day;
+      return now - t < 30 * day;
+    });
+  }, [sessions, tab]);
 
   return (
-    <div className="grid gap-3 xl:grid-cols-[320px_1fr]">
-      <Card>
-        <CardHeader title="Run history" description="reports/** artifacts" />
-        <CardBody className="space-y-2">
-          <div className="flex flex-wrap gap-1">
-            <Button
-              size="sm"
-              variant={kind === "all" ? "default" : "ghost"}
-              onClick={() => setKind("all")}
-            >
-              all
-            </Button>
-            {kinds.map((k) => (
-              <Button
-                key={k}
-                size="sm"
-                variant={kind === k ? "default" : "ghost"}
-                onClick={() => setKind(k)}
-              >
-                {k}
-              </Button>
-            ))}
-          </div>
-          {waiting ? (
-            <p className="text-xs text-zinc-500">{message}</p>
-          ) : (
-            <div className="max-h-[520px] space-y-0.5 overflow-y-auto scrollbar-thin">
-              {filtered.map((item) => (
-                <button
-                  key={item.relativePath}
-                  className={cn(
-                    "flex w-full flex-col rounded-md px-2 py-1.5 text-left hover:bg-zinc-900",
-                    selected === item.relativePath &&
-                      "bg-zinc-900 ring-1 ring-zinc-700"
-                  )}
-                  onClick={() => {
-                    setSelected(item.relativePath);
-                    inspect({
-                      kind: "report",
-                      title: item.name,
-                      subtitle: item.relativePath,
-                      meta: {
-                        Kind: item.kind,
-                        Size: String(item.size),
-                        Modified: item.mtime ?? "—",
-                      },
-                    });
-                  }}
-                >
-                  <span className="text-xs text-zinc-100">{item.name}</span>
-                  <span className="text-[10px] text-zinc-500">
-                    {item.kind}
-                    {item.mtime ? ` · ${item.mtime.slice(0, 19)}` : ""}
-                  </span>
-                </button>
-              ))}
+    <div className="mx-auto max-w-6xl space-y-8">
+      <header>
+        <h1 className="text-3xl font-semibold tracking-tight text-zinc-50">
+          Reports
+        </h1>
+        <p className="mt-2 text-base text-zinc-400">
+          Knowledge growth and learning quality — kept simple.
+        </p>
+      </header>
+
+      <div className="flex gap-2">
+        {(
+          [
+            ["today", "Today"],
+            ["week", "This Week"],
+            ["month", "This Month"],
+          ] as const
+        ).map(([id, label]) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() => setTab(id)}
+            className={cn(
+              "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+              tab === id
+                ? "bg-zinc-100 text-zinc-900"
+                : "bg-zinc-900 text-zinc-400 hover:text-zinc-200"
+            )}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Metric
+          label="Sessions"
+          value={String(period?.sessions ?? 0)}
+          tone="neutral"
+        />
+        <Metric
+          label="Success rate"
+          value={`${period?.success_rate ?? 0}%`}
+          tone="green"
+        />
+        <Metric
+          label="Knowledge added"
+          value={`+${period?.knowledge_added ?? 0}`}
+          tone="blue"
+        />
+        <Metric
+          label="Avg knowledge / session"
+          value={String(period?.avg_knowledge_added ?? 0)}
+          tone="neutral"
+        />
+      </div>
+
+      <Card className="border-zinc-800/50 bg-zinc-950/40">
+        <CardBody className="p-6">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-zinc-500">
+            Quality snapshot
+          </h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            <div>
+              <p className="text-2xl font-semibold text-emerald-300">
+                +{history?.knowledge_growth?.added ?? 0}
+              </p>
+              <p className="text-xs text-zinc-500">Total knowledge added</p>
             </div>
-          )}
+            <div>
+              <p className="text-2xl font-semibold text-sky-300">
+                ~{history?.knowledge_growth?.updated ?? 0}
+              </p>
+              <p className="text-xs text-zinc-500">Total updated</p>
+            </div>
+            <div>
+              <p className="text-2xl font-semibold text-zinc-300">
+                ×{history?.knowledge_growth?.rejected ?? 0}
+              </p>
+              <p className="text-xs text-zinc-500">Total rejected</p>
+            </div>
+          </div>
         </CardBody>
       </Card>
 
-      <Card>
-        <CardHeader
-          title="Open report"
-          description={selected ?? "Select a report"}
-          action={
-            content && selected ? (
-              <Button
-                size="sm"
-                variant="secondary"
-                onClick={() =>
-                  download(
-                    selected,
-                    selected.split("/").pop() ?? "report.txt",
-                    content
-                  )
-                }
-              >
-                Download
-              </Button>
-            ) : null
-          }
-        />
-        <CardBody>
-          {!selected ? (
-            <p className="text-xs text-zinc-500">
-              Waiting for first execution / select a report
+      <Card className="border-zinc-800/50 bg-zinc-950/40">
+        <CardBody className="p-0">
+          <div className="border-b border-zinc-800/60 px-6 py-4">
+            <h2 className="text-base font-medium text-zinc-100">
+              Learning sessions
+            </h2>
+          </div>
+          {filtered.length === 0 ? (
+            <p className="px-6 py-10 text-sm text-zinc-500">
+              No sessions in this period yet.
             </p>
           ) : (
-            <pre className="max-h-[640px] overflow-auto rounded-md border border-zinc-900 bg-zinc-950 p-3 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-zinc-400 scrollbar-thin">
-              {content ?? "Loading…"}
-            </pre>
+            <ul className="divide-y divide-zinc-900/80">
+              {filtered.slice(0, 20).map((s) => (
+                <li
+                  key={s.session_id}
+                  className="flex flex-wrap items-center justify-between gap-3 px-6 py-4"
+                >
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-medium text-zinc-100">
+                      {s.mission || s.summary || s.session_id}
+                    </p>
+                    <p className="mt-0.5 font-mono text-[11px] text-zinc-600">
+                      {s.session_id}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-4 text-xs text-zinc-500">
+                    <span
+                      className={cn(
+                        s.status === "completed" && "text-emerald-400",
+                        s.status === "failed" && "text-red-400"
+                      )}
+                    >
+                      {s.status}
+                    </span>
+                    <span>+{s.knowledge_added ?? 0}</span>
+                    <span>
+                      {s.duration_seconds != null
+                        ? `${Math.round(Number(s.duration_seconds))}s`
+                        : "—"}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
           )}
         </CardBody>
       </Card>
     </div>
+  );
+}
+
+function Metric({
+  label,
+  value,
+  tone,
+}: {
+  label: string;
+  value: string;
+  tone: "green" | "blue" | "neutral";
+}) {
+  return (
+    <Card className="border-zinc-800/50 bg-zinc-950/40">
+      <CardBody className="p-5">
+        <p className="text-xs uppercase tracking-wider text-zinc-500">{label}</p>
+        <p
+          className={cn(
+            "mt-2 text-3xl font-semibold",
+            tone === "green" && "text-emerald-300",
+            tone === "blue" && "text-sky-300",
+            tone === "neutral" && "text-zinc-100"
+          )}
+        >
+          {value}
+        </p>
+      </CardBody>
+    </Card>
   );
 }

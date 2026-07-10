@@ -1,48 +1,31 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
   BookOpen,
-  Boxes,
-  Brain,
   ClipboardCheck,
   FileBarChart2,
-  FileText,
-  GitBranch,
-  Globe2,
   LayoutDashboard,
-  ListChecks,
-  Network,
   Settings,
-  Shield,
   Target,
-  UploadCloud,
 } from "lucide-react";
 
 export type NavItem = {
   href: string;
   label: string;
   icon: LucideIcon;
-  section?: string;
+  emoji?: string;
 };
 
+/** Executive navigation only — implementation modules stay internal. */
 export const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Learning Dashboard", icon: LayoutDashboard },
-  { href: "/learning", label: "Learning Brain", icon: Brain },
-  { href: "/missions", label: "Missions", icon: Target },
-  { href: "/datasets", label: "Datasets", icon: Boxes },
-  { href: "/documents", label: "Documents", icon: FileText },
-  { href: "/review", label: "Review Queue", icon: ClipboardCheck },
-  { href: "/network", label: "Knowledge Network", icon: Globe2 },
-  { href: "/sources", label: "Sources", icon: BookOpen },
-  { href: "/planner", label: "Knowledge Planner", icon: ListChecks },
-  { href: "/policies", label: "Knowledge Policies", icon: Shield },
-  { href: "/ontology", label: "Ontology", icon: Network },
-  { href: "/publisher", label: "Publisher", icon: UploadCloud },
-  { href: "/reports", label: "Reports", icon: FileBarChart2 },
-  { href: "/settings", label: "Settings", icon: Settings },
-  { href: "/system", label: "System", icon: Activity },
+  { href: "/", label: "Dashboard", icon: LayoutDashboard, emoji: "🏠" },
+  { href: "/knowledge", label: "Knowledge", icon: BookOpen, emoji: "📚" },
+  { href: "/missions", label: "Missions", icon: Target, emoji: "🎯" },
+  { href: "/review", label: "Review", icon: ClipboardCheck, emoji: "✅" },
+  { href: "/reports", label: "Reports", icon: FileBarChart2, emoji: "📈" },
+  { href: "/settings", label: "Settings", icon: Settings, emoji: "⚙" },
 ];
 
+/** Internal architecture flow (not shown in executive nav). */
 export const FLOW_HINT = [
   "Scheduler",
   "Planner",
@@ -53,5 +36,3 @@ export const FLOW_HINT = [
   "Review",
   "Publisher",
 ] as const;
-
-export { BookOpen, GitBranch };
