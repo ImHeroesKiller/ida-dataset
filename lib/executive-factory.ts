@@ -190,6 +190,24 @@ export type ExecutiveFactoryView = {
     candidates_validated: number;
     publish_queue_size: number;
     rows_appended: number;
+    documents_queued: number;
+    candidates_queued: number;
+  };
+  /** Latest real production trace snapshot (no simulation) */
+  production: {
+    current_stage: string;
+    current_connector: string;
+    current_document: string;
+    last_connector: string;
+    last_document: string;
+    last_published_entity: string;
+    documents_queued: number;
+    documents_processed: number;
+    candidates_queued: number;
+    publish_queue: number;
+    rows_appended_today: number;
+    publish_balance: Record<string, unknown> | null;
+    connectors: Array<Record<string, unknown>>;
   };
   coverage: Array<{
     key: string;
@@ -295,8 +313,13 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
       "industry_library"
   );
 
+  const productionTrace =
+    readJson(repoPath("automation/learning/state/production_trace.json")) || {};
   const currentSource = String(
-    activity.current_source || "—"
+    activity.current_source ||
+      productionTrace.current_connector ||
+      productionTrace.last_connector ||
+      "—"
   );
 
   const workflow =
@@ -449,9 +472,44 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
   const publishQueueSize =
     countJson("automation/queue/publish") +
     countJson("automation/queue/candidates/pending");
+  const docsQueued =
+    countJson("automation/queue/documents/incoming") +
+    countJson("automation/queue/documents/processing");
+  const candidatesQueued =
+    countJson("automation/queue/candidates/pending") +
+    countJson("automation/queue/publish");
   const docsToday = documentsDownloaded || sessions.filter((s) =>
     String(s.start_time || "").startsWith(day)
   ).length;
+
+  // Prefer live production trace counters when present
+  const ptSummary = (productionTrace.summary || {}) as Record<string, unknown>;
+  const ptPublish = (productionTrace.publish || {}) as Record<string, unknown>;
+  const ptDq = (productionTrace.document_queue || {}) as Record<string, unknown>;
+  if (Number(ptSummary.documents_discovered || 0) > 0) {
+    documentsDiscovered = Math.max(
+      documentsDiscovered,
+      Number(ptSummary.documents_discovered || 0)
+    );
+  }
+  if (Number(ptSummary.documents_downloaded || 0) > 0) {
+    documentsDownloaded = Math.max(
+      documentsDownloaded,
+      Number(ptSummary.documents_downloaded || 0)
+    );
+  }
+  if (Number(ptPublish.extracted || ptSummary.candidates_extracted || 0) > 0) {
+    candidatesExtracted = Math.max(
+      candidatesExtracted,
+      Number(ptPublish.extracted || ptSummary.candidates_extracted || 0)
+    );
+  }
+  if (Number(ptPublish.validated || ptSummary.candidates_validated || 0) > 0) {
+    candidatesValidated = Math.max(
+      candidatesValidated,
+      Number(ptPublish.validated || ptSummary.candidates_validated || 0)
+    );
+  }
 
   const lastEvent =
     kpis.recent_activity?.[0]?.detail ||
@@ -486,7 +544,9 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
     current_dataset: currentDataset,
     current_stage: stageId,
     current_stage_label:
-      PIPELINE_STAGES.find((s) => s.id === stageId)?.label || stageId,
+      String(productionTrace.current_stage || "").replace(/_/g, " ") ||
+      PIPELINE_STAGES.find((s) => s.id === stageId)?.label ||
+      stageId,
     current_source: currentSource,
     current_workflow: workflow,
     current_batch: batch,
@@ -510,6 +570,50 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
       candidates_validated: candidatesValidated,
       publish_queue_size: publishQueueSize,
       rows_appended: rowsAppended || kpis.rows_added_today,
+      documents_queued: docsQueued || Number(ptDq.queued || 0),
+      candidates_queued: candidatesQueued || Number(ptPublish.queued || 0),
+    },
+    production: {
+      current_stage: String(
+        productionTrace.current_stage ||
+          activity.current_stage ||
+          stageId ||
+          "idle"
+      ),
+      current_connector: String(
+        productionTrace.current_connector ||
+          activity.current_connector ||
+          "—"
+      ),
+      current_document: String(
+        productionTrace.current_document ||
+          activity.current_document ||
+          "—"
+      ),
+      last_connector: String(
+        productionTrace.last_connector || activity.last_connector || "—"
+      ),
+      last_document: String(
+        productionTrace.last_document || activity.last_document || "—"
+      ),
+      last_published_entity: String(
+        productionTrace.last_published_entity ||
+          activity.last_published_entity ||
+          activity.last_learned ||
+          "—"
+      ),
+      documents_queued: docsQueued || Number(ptDq.queued || 0),
+      documents_processed:
+        documentsDownloaded ||
+        Number(ptDq.completed || 0) ||
+        Number(ptSummary.documents_downloaded || 0),
+      candidates_queued: candidatesQueued || Number(ptPublish.queued || 0),
+      publish_queue: publishQueueSize,
+      rows_appended_today: rowsAppended || kpis.rows_added_today,
+      publish_balance: Object.keys(ptPublish).length ? ptPublish : null,
+      connectors: Array.isArray(productionTrace.connectors)
+        ? (productionTrace.connectors as Array<Record<string, unknown>>).slice(0, 12)
+        : [],
     },
     coverage,
     knowledge_feed: knowledge_feed.slice(0, 24),

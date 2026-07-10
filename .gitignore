@@ -58,6 +58,7 @@ automation/learning/state/**
 !automation/learning/state/sessions/**
 !automation/learning/state/knowledge_feed.jsonl
 !automation/learning/state/publish_state.json
+!automation/learning/state/production_trace.json
 
 # GitHub Actions learning sessions (committed by learning.yml — keep all)
 !automation/sessions/
@@ -77,3 +78,7 @@ automation/queue/documents/**
 !automation/queue/documents/**/.gitkeep
 automation/queue/candidates/**
 !automation/queue/candidates/**/.gitkeep
+
+# Production observability reports (committed for audit)
+!reports/production/
+!reports/production/**

@@ -450,6 +450,35 @@ def _run_live_session_body(
     cand_meta = (acq.get("candidates") or [{}])[0]
     industry_id = cand_meta.get("entity_id") or ""
     industry_name = entity_name or cand_meta.get("name") or ""
+    production_trace = acq.get("production_trace") or {}
+    publish_balance = acq.get("publish") or (production_trace.get("publish") or {})
+    console_text = str(acq.get("console") or "")
+
+    # Emit structured production console into journal (real data only)
+    if console_text:
+        _emit(
+            session_id,
+            "Production Console",
+            console_text[:4000],
+            stage="publish",
+            progress=97,
+            status="completed",
+            mission_id=mission_id,
+            dataset=dataset,
+            meta={
+                "publish": publish_balance,
+                "connectors": [
+                    {
+                        "name": c.get("name"),
+                        "status": c.get("status"),
+                        "http_status": c.get("http_status"),
+                        "documents_discovered": c.get("documents_discovered"),
+                        "documents_downloaded": c.get("documents_downloaded"),
+                    }
+                    for c in (acq.get("connectors") or [])[:12]
+                ],
+            },
+        )
 
     if lifecycle:
         lifecycle.mark_progress(
@@ -635,6 +664,8 @@ def _run_live_session_body(
     snap = growth.snapshot_today(root)
     vs = growth.growth_vs_yesterday(root)
 
+    last_conn = (production_trace.get("last_connector") or "")
+    last_doc = (production_trace.get("last_document") or doc.get("document_id") or "")
     journal.write_activity(
         {
             "status": "idle",
@@ -647,9 +678,20 @@ def _run_live_session_body(
             "current_entity": industry_name,
             "current_dataset": dataset,
             "last_learned": industry_name,
+            "current_stage": production_trace.get("current_stage") or "completed",
+            "current_connector": production_trace.get("current_connector") or last_conn,
+            "current_document": production_trace.get("current_document") or last_doc,
+            "last_connector": last_conn,
+            "last_document": last_doc,
+            "last_published_entity": industry_name,
+            "documents_discovered": acq.get("documents_discovered"),
             "documents_downloaded": acq.get("documents_downloaded"),
             "candidates_extracted": acq.get("candidates_extracted"),
+            "candidates_validated": publish_balance.get("validated"),
+            "candidates_rejected": publish_balance.get("rejected"),
+            "publish_queue_size": publish_balance.get("queued"),
             "rows_appended": published_n,
+            "publish_balance": publish_balance,
             "updated_at": utc_now_iso(),
         },
         repo_root=root,
@@ -712,15 +754,24 @@ def _run_live_session_body(
         "duration_ms": elapsed(),
         "snapshot": snap,
         "growth": vs,
+        "console": console_text,
+        "production_trace": production_trace,
+        "publish_balance": publish_balance,
         "acquisition": {
             "sources_contacted": acq.get("sources_contacted"),
             "documents_discovered": acq.get("documents_discovered"),
             "documents_downloaded": acq.get("documents_downloaded"),
             "candidates_extracted": acq.get("candidates_extracted"),
             "candidates_validated": acq.get("candidates_validated"),
+            "candidates_rejected": acq.get("candidates_rejected"),
             "rows_published": published_n,
             "queue_stats": acq.get("queue_stats"),
+            "document_queue": acq.get("document_queue"),
+            "connectors": acq.get("connectors"),
+            "publish": publish_balance,
+            "evidence_chains": acq.get("evidence_chains"),
             "failures": acq.get("failures"),
+            "reports": acq.get("reports"),
         },
         "replay": f"automation/learning/state/sessions/{session_id}.jsonl",
     }

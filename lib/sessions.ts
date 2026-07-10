@@ -77,6 +77,8 @@ export type SessionSummary = {
   events?: number;
   github?: Record<string, unknown>;
   knowledge_delta?: Record<string, unknown> | null;
+  production_trace?: Record<string, unknown> | null;
+  publish_summary?: Record<string, unknown> | null;
 };
 
 export type HistoryStats = {
@@ -216,6 +218,8 @@ export function listSessions(opts: {
       events: Array.isArray(data.events) ? data.events.length : 0,
       github: (data.github as Record<string, unknown>) || {},
       knowledge_delta: (data.knowledge_delta as Record<string, unknown>) || null,
+      production_trace: (data.production_trace as Record<string, unknown>) || null,
+      publish_summary: (data.publish_summary as Record<string, unknown>) || null,
     });
   }
 

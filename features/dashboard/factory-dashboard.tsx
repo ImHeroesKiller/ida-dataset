@@ -251,7 +251,10 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
     candidates_validated: 0,
     publish_queue_size: 0,
     rows_appended: 0,
+    documents_queued: 0,
+    candidates_queued: 0,
   };
+  const production = exec?.production;
 
   const coverage = exec?.coverage || [];
   const feed = exec?.knowledge_feed || [];
@@ -369,6 +372,14 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
           <Stat label="Current mission" value={String(exec?.current_mission || kpis.current_mission).slice(0, 42)} />
           <Stat label="Current dataset" value={exec?.current_dataset || "—"} />
           <Stat label="Current stage" value={exec?.current_stage_label || liveStage} />
+          <Stat
+            label="Current connector"
+            value={String(production?.current_connector || exec?.current_source || activity.current_source || "—").slice(0, 42)}
+          />
+          <Stat
+            label="Current document"
+            value={String(production?.current_document || activity.current_document || "—").slice(0, 42)}
+          />
           <Stat label="Current source" value={exec?.current_source || activity.current_source || "—"} />
           <Stat
             label="Current workflow"
@@ -402,28 +413,106 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
         ) : null}
       </Card>
 
-      {/* PANEL 2 — Live counters */}
+      {/* PANEL 2 — Live counters (real runtime only) */}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <CounterCard label="Rows today" value={counters.rows_today} prefix="+" tone="green" />
         <CounterCard label="Rows rejected today" value={counters.rows_rejected_today} tone="neutral" />
         <CounterCard label="Sessions today" value={counters.sessions_today} tone="blue" />
-        <CounterCard label="Docs downloaded" value={counters.documents_downloaded || counters.documents_processed_today} tone="blue" />
+        <CounterCard
+          label="Docs queued"
+          value={production?.documents_queued ?? counters.documents_queued ?? 0}
+          tone="blue"
+        />
+        <CounterCard
+          label="Docs processed"
+          value={
+            production?.documents_processed ??
+            counters.documents_downloaded ??
+            counters.documents_processed_today ??
+            0
+          }
+          tone="blue"
+        />
         <CounterCard label="Docs discovered" value={counters.documents_discovered || 0} tone="blue" />
+        <CounterCard
+          label="Candidates queued"
+          value={production?.candidates_queued ?? counters.candidates_queued ?? 0}
+          tone="blue"
+        />
         <CounterCard label="Candidates extracted" value={counters.candidates_extracted || 0} tone="blue" />
         <CounterCard label="Candidates validated" value={counters.candidates_validated || 0} tone="green" />
-        <CounterCard label="Publish queue" value={counters.publish_queue_size || 0} tone="neutral" />
-        <CounterCard label="Rows appended" value={counters.rows_appended || counters.rows_today} prefix="+" tone="green" />
-        <CounterCard label="Rows this week" value={counters.rows_week} prefix="+" tone="green" />
-        <CounterCard label="Rows this month" value={counters.rows_month} prefix="+" tone="green" />
-        <MetricSimple
-          label="Avg confidence"
-          value={
-            counters.average_confidence != null
-              ? `${Math.round(counters.average_confidence * 100)}%`
-              : "—"
-          }
+        <CounterCard
+          label="Publish queue"
+          value={production?.publish_queue ?? counters.publish_queue_size ?? 0}
+          tone="neutral"
         />
+        <CounterCard
+          label="Rows appended today"
+          value={production?.rows_appended_today ?? counters.rows_appended ?? counters.rows_today}
+          prefix="+"
+          tone="green"
+        />
+        <CounterCard label="Rows this week" value={counters.rows_week} prefix="+" tone="green" />
       </div>
+
+      {/* Production line visibility */}
+      <Card>
+        <CardHeader
+          title="Production line"
+          description="Live acquisition trace · connectors · last published entity"
+        />
+        <CardBody className="grid gap-3 p-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Stat label="Current stage" value={String(production?.current_stage || exec?.current_stage_label || "idle")} />
+          <Stat label="Last connector" value={String(production?.last_connector || "—").slice(0, 48)} />
+          <Stat label="Last document" value={String(production?.last_document || "—").slice(0, 48)} />
+          <Stat
+            label="Last published entity"
+            value={String(production?.last_published_entity || "—").slice(0, 48)}
+          />
+        </CardBody>
+        {production?.connectors && production.connectors.length > 0 ? (
+          <div className="border-t border-[var(--border)] px-6 py-4">
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-faint)]">
+              Connectors (last run)
+            </p>
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {production.connectors.map((c, i) => {
+                const ok =
+                  String(c.status || "") === "ok" ||
+                  String(c.status || "") === "success" ||
+                  String(c.status || "") === "no_updates";
+                return (
+                  <div
+                    key={`${c.connector_id || c.name || i}`}
+                    className="rounded-xl border border-[var(--border)] bg-[var(--panel-2)] px-3 py-2 text-xs"
+                  >
+                    <div className="font-medium text-[var(--text)]">
+                      {ok ? "✓" : "✗"} {String(c.name || c.connector_id || "—")}
+                    </div>
+                    <div className="mt-1 text-[10px] text-[var(--text-faint)]">
+                      {c.http_status != null ? `HTTP ${c.http_status}` : String(c.status || "")}
+                      {" · "}
+                      {Number(c.documents_discovered || 0)} found
+                      {" · "}
+                      {Number(c.documents_downloaded || 0)} downloaded
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
+        {production?.publish_balance ? (
+          <div className="border-t border-[var(--border)] px-6 py-3 text-[11px] text-[var(--text-muted)]">
+            Publish balance · extracted={String(production.publish_balance.extracted ?? "—")} ·
+            validated={String(production.publish_balance.validated ?? "—")} · rejected=
+            {String(production.publish_balance.rejected ?? "—")} · queued=
+            {String(production.publish_balance.queued ?? "—")} · published=
+            {String(production.publish_balance.published ?? "—")} · duplicate=
+            {String(production.publish_balance.duplicate ?? "—")}
+          </div>
+        ) : null}
+      </Card>
 
       {/* PANEL 3 — Dataset coverage */}
       <Card>

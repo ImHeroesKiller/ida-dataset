@@ -41,6 +41,9 @@ type SessionSummary = {
   summary?: string;
   trigger?: string;
   events?: number;
+  knowledge_delta?: Record<string, unknown> | null;
+  production_trace?: Record<string, unknown> | null;
+  publish_summary?: Record<string, unknown> | null;
 };
 
 function mapStatus(
@@ -136,6 +139,7 @@ export function MissionsClient({
   const [missions, setMissions] = useState(initialMissions);
   const [reports, setReports] = useState(initialReports);
   const [sessions, setSessions] = useState<SessionSummary[]>([]);
+  const [selectedSession, setSelectedSession] = useState<SessionSummary | null>(null);
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
@@ -525,15 +529,23 @@ export function MissionsClient({
                   <button
                     key={s.session_id}
                     type="button"
-                    onClick={() => void loadSessionEvents(s.session_id)}
-                    className="w-full rounded-xl border border-[var(--border)] bg-[var(--panel-2)] px-3 py-2.5 text-left hover:border-emerald-500/30"
+                    onClick={() => {
+                      setSelectedSession(s);
+                      void loadSessionEvents(s.session_id);
+                    }}
+                    className={cn(
+                      "w-full rounded-xl border bg-[var(--panel-2)] px-3 py-2.5 text-left hover:border-emerald-500/30",
+                      selectedSession?.session_id === s.session_id
+                        ? "border-emerald-500/40"
+                        : "border-[var(--border)]"
+                    )}
                   >
                     <div className="flex items-center justify-between gap-2">
                       <span className="truncate text-xs font-medium text-[var(--text)]">
                         {s.mission || s.session_id}
                       </span>
                       <span className="shrink-0 text-[10px] text-emerald-600 dark:text-emerald-300">
-                        +{Number(s.knowledge_added || 0)} rows
+                        +{Number(s.knowledge_added || 0)} published
                       </span>
                     </div>
                     <div className="mt-1 flex flex-wrap gap-x-3 text-[10px] text-[var(--text-faint)]">
@@ -624,6 +636,137 @@ export function MissionsClient({
           </CardBody>
         </Card>
       </div>
+
+      {/* Mission production detail — real session telemetry only */}
+      {selectedSession ? (
+        <Card>
+          <CardHeader
+            title="Mission production detail"
+            description={`${selectedSession.session_id} · real acquisition telemetry`}
+          />
+          <CardBody className="grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-4">
+            {(() => {
+              const d = selectedSession.knowledge_delta || {};
+              const ps = selectedSession.publish_summary || {};
+              const pt = selectedSession.production_trace || {};
+              const connectors = (d.connectors ||
+                pt.connectors ||
+                []) as Array<Record<string, unknown>>;
+              const stages = (pt.stages || []) as Array<Record<string, unknown>>;
+              return (
+                <>
+                  <StatMini
+                    label="Duration"
+                    value={
+                      selectedSession.duration_seconds != null
+                        ? `${Math.round(Number(selectedSession.duration_seconds))}s`
+                        : "—"
+                    }
+                  />
+                  <StatMini
+                    label="Documents"
+                    value={`${Number(d.documents_downloaded || 0)} / ${Number(d.documents_discovered || 0)}`}
+                  />
+                  <StatMini
+                    label="Candidates"
+                    value={`${Number(d.candidates_extracted || 0)} ext · ${Number(d.candidates_validated || 0)} ok · ${Number(d.candidates_rejected || d.rejected || 0)} rej`}
+                  />
+                  <StatMini
+                    label="Published rows"
+                    value={`+${Number(selectedSession.knowledge_added || ps.rows_published || 0)}`}
+                  />
+                  <div className="sm:col-span-2 lg:col-span-4">
+                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-faint)]">
+                      Connectors used
+                    </p>
+                    {connectors.length === 0 ? (
+                      <p className="text-xs text-[var(--text-faint)]">
+                        No connector telemetry on this session record.
+                      </p>
+                    ) : (
+                      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                        {connectors.map((c, i) => (
+                          <div
+                            key={String(c.connector_id || i)}
+                            className="rounded-lg border border-[var(--border)] bg-[var(--panel-2)] px-3 py-2 text-xs"
+                          >
+                            <div className="font-medium text-[var(--text)]">
+                              {String(c.name || c.connector_id)}
+                            </div>
+                            <div className="text-[10px] text-[var(--text-faint)]">
+                              {c.http_status != null
+                                ? `HTTP ${c.http_status}`
+                                : String(c.status || "")}
+                              {" · "}
+                              {Number(c.documents_discovered || 0)} found
+                              {" · "}
+                              {Number(c.documents_downloaded || 0)} down
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  {stages.length > 0 ? (
+                    <div className="sm:col-span-2 lg:col-span-4">
+                      <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-faint)]">
+                        Mission timeline
+                      </p>
+                      <div className="overflow-x-auto">
+                        <table className="w-full min-w-[640px] text-left text-xs">
+                          <thead className="text-[10px] uppercase text-[var(--text-faint)]">
+                            <tr>
+                              <th className="pb-1 pr-2">Stage</th>
+                              <th className="pb-1 pr-2">Status</th>
+                              <th className="pb-1 pr-2">ms</th>
+                              <th className="pb-1 pr-2">Docs</th>
+                              <th className="pb-1">Rows</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {stages.map((st) => (
+                              <tr
+                                key={String(st.name)}
+                                className="border-t border-[var(--border)] text-[var(--text-muted)]"
+                              >
+                                <td className="py-1.5 pr-2 font-medium text-[var(--text)]">
+                                  {String(st.name)}
+                                </td>
+                                <td className="py-1.5 pr-2">{String(st.status)}</td>
+                                <td className="py-1.5 pr-2">{Number(st.duration_ms || 0)}</td>
+                                <td className="py-1.5 pr-2">{Number(st.documents || 0)}</td>
+                                <td className="py-1.5">{Number(st.rows || 0)}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  ) : null}
+                  <div className="sm:col-span-2 lg:col-span-4 text-[11px] text-[var(--text-muted)]">
+                    Publish balance · extracted={String(ps.extracted ?? d.candidates_extracted ?? "—")} ·
+                    validated={String(ps.validated ?? d.candidates_validated ?? "—")} · rejected=
+                    {String(ps.rejected ?? d.candidates_rejected ?? "—")} · published=
+                    {String(ps.rows_published ?? selectedSession.knowledge_added ?? "—")} ·
+                    duplicate={String(ps.duplicate ?? d.publish_duplicate ?? "—")}
+                  </div>
+                </>
+              );
+            })()}
+          </CardBody>
+        </Card>
+      ) : null}
+    </div>
+  );
+}
+
+function StatMini({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-xl border border-[var(--border)] bg-[var(--panel-2)] px-3 py-2">
+      <div className="text-[10px] uppercase tracking-wider text-[var(--text-faint)]">
+        {label}
+      </div>
+      <div className="mt-0.5 text-sm font-semibold text-[var(--text)]">{value}</div>
     </div>
   );
 }

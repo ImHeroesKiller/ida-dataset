@@ -208,6 +208,12 @@ def run_session(
             "error": live.get("error"),
         }
         acq = live.get("acquisition") or {}
+        production_trace = live.get("production_trace") or acq.get("production_trace") or {}
+        publish_balance = (
+            live.get("publish_balance")
+            or acq.get("publish")
+            or (production_trace.get("publish") or {})
+        )
         knowledge_delta = {
             "added": int(
                 live.get("knowledge_added")
@@ -215,32 +221,82 @@ def run_session(
                 else (1 if live.get("published") else 0)
             ),
             "updated": 0,
-            "rejected": int(acq.get("candidates_rejected") or 0)
-            + (1 if live.get("error") in {"no_document", "no_documents_discovered", "no_documents_downloaded", "no_candidates_extracted"} else 0),
+            "rejected": int(
+                publish_balance.get("rejected")
+                or acq.get("candidates_rejected")
+                or 0
+            )
+            + (
+                1
+                if live.get("error")
+                in {
+                    "no_document",
+                    "no_documents_discovered",
+                    "no_documents_downloaded",
+                    "no_candidates_extracted",
+                }
+                else 0
+            ),
             "industry_id": live.get("industry_id"),
             "industry_name": live.get("industry_name"),
             "candidate_id": live.get("candidate_id"),
+            "document_id": live.get("document_id"),
+            "connector_id": live.get("connector_id"),
+            "source_id": live.get("source_id"),
             "published": bool(live.get("published")),
             "pending_review": bool(live.get("pending_review")),
             "documents_discovered": acq.get("documents_discovered"),
             "documents_downloaded": acq.get("documents_downloaded"),
-            "candidates_extracted": acq.get("candidates_extracted"),
-            "candidates_validated": acq.get("candidates_validated"),
+            "candidates_extracted": acq.get("candidates_extracted")
+            or publish_balance.get("extracted"),
+            "candidates_validated": acq.get("candidates_validated")
+            or publish_balance.get("validated"),
+            "candidates_rejected": publish_balance.get("rejected"),
+            "publish_queued": publish_balance.get("queued"),
+            "publish_published": publish_balance.get("published"),
+            "publish_duplicate": publish_balance.get("duplicate"),
+            "publish_skipped": publish_balance.get("skipped"),
+            "publish_by_dataset": publish_balance.get("by_dataset"),
+            "connectors": acq.get("connectors") or production_trace.get("connectors"),
+            "evidence_chains": acq.get("evidence_chains")
+            or production_trace.get("evidence_chains"),
+            "document_queue": acq.get("document_queue")
+            or production_trace.get("document_queue"),
+            "last_connector": production_trace.get("last_connector"),
+            "last_document": production_trace.get("last_document"),
+            "last_published_entity": production_trace.get("last_published_entity")
+            or live.get("industry_name"),
         }
         publish_summary = {
             "published": bool(live.get("published")),
             "dry_run": dry_run,
             "dataset": "industry_library",
             "entity": live.get("industry_name"),
+            "rows_published": int(publish_balance.get("published") or knowledge_delta["added"]),
+            "extracted": publish_balance.get("extracted"),
+            "validated": publish_balance.get("validated"),
+            "rejected": publish_balance.get("rejected"),
+            "queued": publish_balance.get("queued"),
+            "duplicate": publish_balance.get("duplicate"),
+            "skipped": publish_balance.get("skipped"),
+            "by_dataset": publish_balance.get("by_dataset"),
+            "balance_ok": publish_balance.get("balance_ok"),
             "blocked_reason": None
             if live.get("ok")
             else (live.get("message") or live.get("error")),
         }
 
         session["planner_output"] = planner_output
-        session["connector_output"] = connector_output
+        session["connector_output"] = {
+            **connector_output,
+            "connectors": knowledge_delta.get("connectors"),
+            "documents_discovered": knowledge_delta.get("documents_discovered"),
+            "documents_downloaded": knowledge_delta.get("documents_downloaded"),
+        }
         session["knowledge_delta"] = knowledge_delta
         session["publish_summary"] = publish_summary
+        session["production_trace"] = production_trace
+        session["console"] = live.get("console") or ""
         session["knowledge_added"] = int(knowledge_delta["added"])
         session["knowledge_updated"] = int(knowledge_delta["updated"])
         session["knowledge_rejected"] = int(knowledge_delta["rejected"])
@@ -254,10 +310,15 @@ def run_session(
                 "duration_ms",
                 "error",
                 "message",
+                "knowledge_added",
             )
         }
         session["telemetry"]["growth"] = live.get("growth")
         session["telemetry"]["snapshot"] = live.get("snapshot")
+        session["telemetry"]["publish_balance"] = publish_balance
+        session["telemetry"]["production_summary"] = (
+            production_trace.get("summary") if isinstance(production_trace, dict) else {}
+        )
 
         # EPIC-1: ensure source health metrics recompute after every session
         try:
@@ -268,9 +329,12 @@ def run_session(
             pass
 
         if live.get("ok"):
+            pb = publish_balance or {}
             summary = (
-                f"Session completed · added={session['knowledge_added']} "
-                f"updated={session['knowledge_updated']} "
+                f"Session completed · published={session['knowledge_added']} "
+                f"extracted={pb.get('extracted', session.get('knowledge_delta', {}).get('candidates_extracted'))} "
+                f"validated={pb.get('validated')} rejected={pb.get('rejected')} "
+                f"docs={acq.get('documents_downloaded')} "
                 f"entity={live.get('industry_name') or '—'}"
             )
             if dry_run:
@@ -547,6 +611,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     )
 
     # Machine-readable stdout for GHA step outputs
+    kd = session.get("knowledge_delta") or {}
+    ps = session.get("publish_summary") or {}
     print(
         json.dumps(
             {
@@ -557,6 +623,23 @@ def main(argv: Optional[list[str]] = None) -> int:
                 "knowledge_added": session.get("knowledge_added"),
                 "knowledge_updated": session.get("knowledge_updated"),
                 "knowledge_rejected": session.get("knowledge_rejected"),
+                "documents_discovered": kd.get("documents_discovered"),
+                "documents_downloaded": kd.get("documents_downloaded"),
+                "candidates_extracted": kd.get("candidates_extracted"),
+                "candidates_validated": kd.get("candidates_validated"),
+                "publish": {
+                    "extracted": ps.get("extracted"),
+                    "validated": ps.get("validated"),
+                    "rejected": ps.get("rejected"),
+                    "queued": ps.get("queued"),
+                    "published": ps.get("rows_published") or session.get("knowledge_added"),
+                    "duplicate": ps.get("duplicate"),
+                    "skipped": ps.get("skipped"),
+                    "by_dataset": ps.get("by_dataset"),
+                },
+                "last_connector": kd.get("last_connector"),
+                "last_document": kd.get("last_document"),
+                "last_published_entity": kd.get("last_published_entity"),
                 "summary": session.get("summary"),
                 "dry_run": dry_run,
                 "environment": environment,
