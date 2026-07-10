@@ -1,0 +1,250 @@
+No,Sheet,Kolom,Keterangan,Contoh
+REG-001,Opportunity Analysis,Opportunity ID,ID unik peluang,OPP-000001
+REG-002,Opportunity Analysis,Company ID,Referensi ke Company Profile,COMP-000001
+REG-003,Opportunity Analysis,Opportunity Name,Nama peluang,Managed Service IT 2027
+REG-004,Opportunity Analysis,Opportunity Type,Jenis peluang,New Business
+REG-005,Opportunity Analysis,Industry,Industri klien,Telekomunikasi
+REG-006,Opportunity Analysis,Business Unit,Unit bisnis yang dituju,IT Infrastructure
+REG-007,Opportunity Analysis,Current Situation,Kondisi saat ini,Infrastruktur IT dikelola oleh beberapa vendor
+REG-008,Opportunity Analysis,Business Challenge,Tantangan bisnis utama,SLA tidak konsisten dan biaya operasional tinggi
+REG-009,Opportunity Analysis,Pain Point,Masalah yang dirasakan klien,"Helpdesk lambat, aset sulit dipantau"
+REG-010,Opportunity Analysis,Business Need,Kebutuhan bisnis,Efisiensi operasional dan konsolidasi layanan
+REG-011,Opportunity Analysis,Opportunity Description,Ringkasan peluang,Peluang menyediakan Managed Service terintegrasi
+REG-012,Opportunity Analysis,Proposed Solution,Solusi yang direkomendasikan,Managed Service + AI Service Desk
+REG-013,Opportunity Analysis,Value Proposition,Nilai yang ditawarkan,"SLA meningkat, biaya operasional turun"
+REG-014,Opportunity Analysis,Estimated Budget,Estimasi anggaran,Rp5 Miliar
+REG-015,Opportunity Analysis,Estimated Revenue,Estimasi nilai kontrak,Rp5 Miliar
+REG-016,Opportunity Analysis,Estimated Gross Margin,Estimasi margin,35%
+REG-017,Opportunity Analysis,Decision Maker,Pengambil keputusan,IT Director
+REG-018,Opportunity Analysis,Influencer,Pihak yang memengaruhi keputusan,Procurement Manager
+REG-019,Opportunity Analysis,Procurement Method,Cara pengadaan,Tender
+REG-020,Opportunity Analysis,Timeline,Target implementasi,Q4 2026
+REG-021,Opportunity Analysis,Competitors,Kompetitor utama,"Vendor A, Vendor B"
+REG-022,Opportunity Analysis,Win Strategy,Strategi memenangkan peluang,Tawarkan bundling dan SLA lebih baik
+REG-023,Opportunity Analysis,Risks,Risiko utama,Harga kompetitor lebih rendah
+REG-024,Opportunity Analysis,Mitigation Plan,Mitigasi risiko,Fokus pada value dan ROI
+REG-025,Opportunity Analysis,Cross Selling Opportunity,Peluang cross selling,"HRIS, Asset Management"
+REG-026,Opportunity Analysis,Upselling Opportunity,Peluang upselling,AI Analytics
+REG-027,Opportunity Analysis,Probability (%),Probabilitas menang,75
+REG-028,Opportunity Analysis,Opportunity Score,Skor peluang (0–100),88
+REG-029,Opportunity Analysis,Next Action,Langkah berikutnya,Jadwalkan meeting dengan IT Director
+REG-030,Opportunity Analysis,Opportunity Status,Status peluang,Proposal Submitted
+REG-031,Opportunity Analysis,Owner,PIC internal,Ary Wibowo
+REG-032,Opportunity Analysis,Last Updated,Update terakhir,2026-07-10
+REG-033,Opportunity Analysis,Notes,Catatan tambahan,Menunggu jadwal presentasi
+REG-034,Company Profile,Company ID,ID unik perusahaan,COMP-000001
+REG-035,Company Profile,Company Name,Nama perusahaan,PT Telkom Indonesia
+REG-036,Company Profile,Alias,Nama singkat / brand,Telkom
+REG-037,Company Profile,Industry ID,Referensi ke master industri,IND-000001
+REG-038,Company Profile,Industry,Nama industri,Telekomunikasi
+REG-039,Company Profile,Sub Industry,Sub kategori,Digital Infrastructure
+REG-040,Company Profile,Company Type,"BUMN, Swasta, Startup, dll",BUMN
+REG-041,Company Profile,Headquarters,Kota kantor pusat,Jakarta
+REG-042,Company Profile,Country,Negara,Indonesia
+REG-043,Company Profile,Website,Website resmi,www.telkom.co.id
+REG-044,Company Profile,LinkedIn,URL LinkedIn perusahaan,linkedin.com/company/...
+REG-045,Company Profile,Company Size,"Kategori (Small, Medium, Enterprise)",Enterprise
+REG-046,Company Profile,Employee Count,Jumlah karyawan,24
+REG-047,Company Profile,Annual Revenue Estimate,Estimasi omzet tahunan,Rp150 Triliun
+REG-048,Company Profile,Business Description,Deskripsi singkat bisnis,Penyedia layanan telekomunikasi dan digital
+REG-049,Company Profile,Main Products/Services,Produk atau layanan utama,"Internet, Data Center, Cloud"
+REG-050,Company Profile,Current Technologies,Teknologi yang digunakan,"SAP, Microsoft 365, Azure"
+REG-051,Company Profile,Branch Count,Jumlah cabang,52
+REG-052,Company Profile,Operating Regions,Wilayah operasional,Seluruh Indonesia
+REG-053,Company Profile,Decision Maker Level,Level pengambil keputusan,Director
+REG-054,Company Profile,Existing Vendor,Vendor yang sudah bekerja sama,"IBM, Accenture"
+REG-055,Company Profile,Existing Relationship,Status hubungan,Existing Client
+REG-056,Company Profile,Potential Score,Skor potensi bisnis (0–100),92
+REG-057,Company Profile,Strategic Priority,Prioritas,High
+REG-058,Company Profile,Business Challenges,Tantangan utama,Efisiensi operasional
+REG-059,Company Profile,Known Pain Points,Pain point yang sudah diketahui,"Helpdesk lambat, Asset tidak terpusat"
+REG-060,Company Profile,Potential Needs,Kebutuhan potensial,"Managed Service, AI Agent"
+REG-061,Company Profile,Cross Selling Potential,Potensi cross selling,Sangat Tinggi
+REG-062,Company Profile,Upselling Potential,Potensi upselling,Tinggi
+REG-063,Company Profile,Risk Level,Risiko peluang,Medium
+REG-064,Company Profile,Last Updated,Tanggal update terakhir,2026-07-10
+REG-065,Company Profile,Data Source,Sumber data,"Website, Annual Report, Meeting"
+REG-066,Company Profile,Notes,Catatan tambahan,Sedang ekspansi data center
+REG-067,Product Catalog,Product ID,ID unik produk,PROD-000001
+REG-068,Product Catalog,Product Name,Nama produk atau layanan,Managed IT Service
+REG-069,Product Catalog,Product Category,Kategori utama produk,IT Services
+REG-070,Product Catalog,Product Sub Category,Sub kategori produk,Infrastructure Management
+REG-071,Product Catalog,Product Type,Jenis produk,Service
+REG-072,Product Catalog,Product Description,Penjelasan singkat produk,Layanan pengelolaan infrastruktur IT secara end-to-end
+REG-073,Product Catalog,Business Problem Solved,Masalah bisnis yang diselesaikan,Tingginya downtime dan lambatnya respon IT
+REG-074,Product Catalog,Target Industry,Industri yang menjadi target,"Manufacturing, Banking, Telecommunication"
+REG-075,Product Catalog,Target Company Size,Ukuran perusahaan yang cocok,Enterprise
+REG-076,Product Catalog,Target Department,Departemen pengguna,IT Department
+REG-077,Product Catalog,Ideal Customer Profile,Profil pelanggan ideal,Perusahaan dengan lebih dari 500 karyawan dan multi lokasi
+REG-078,Product Catalog,Key Features,Fitur utama produk,"Helpdesk 24/7, Preventive Maintenance, Asset Management"
+REG-079,Product Catalog,Key Benefits,Manfaat utama,Efisiensi operasional dan peningkatan SLA
+REG-080,Product Catalog,Customer Value Proposition,Nilai yang diterima pelanggan,Menurunkan biaya operasional hingga 20%
+REG-081,Product Catalog,Business Outcome,Dampak bisnis yang diharapkan,Downtime turun dan produktivitas meningkat
+REG-082,Product Catalog,Implementation Time,Lama implementasi,3 Bulan
+REG-083,Product Catalog,Implementation Complexity,Tingkat kompleksitas implementasi,Medium
+REG-084,Product Catalog,Required Resources,Sumber daya yang dibutuhkan,"Engineer, Service Manager, Helpdesk"
+REG-085,Product Catalog,Pricing Model,Model penjualan,Monthly Subscription
+REG-086,Product Catalog,Pricing Range,Kisaran harga,Rp150.000 - Rp300.000 / Device / Bulan
+REG-087,Product Catalog,Estimated Gross Margin,Estimasi margin,40%
+REG-088,Product Catalog,Sales Cycle,Rata-rata lama penjualan,3–6 Bulan
+REG-089,Product Catalog,Typical Decision Maker,Pengambil keputusan,IT Director
+REG-090,Product Catalog,Buying Trigger,Pemicu pembelian,Kontrak vendor berakhir atau SLA buruk
+REG-091,Product Catalog,Common Objections,Keberatan yang sering muncul,Harga terlalu tinggi
+REG-092,Product Catalog,Objection Handling,Cara mengatasi keberatan,Tunjukkan ROI dan SLA Improvement
+REG-093,Product Catalog,Cross Sell Products,Produk yang dapat ditawarkan bersamaan,"AI Helpdesk, Asset Management"
+REG-094,Product Catalog,Upsell Products,Produk lanjutan,SOC Service
+REG-095,Product Catalog,Related Pain Point IDs,Referensi ke Pain Point Library,"PAIN-000001, PAIN-000005"
+REG-096,Product Catalog,Related Solution IDs,Referensi ke Solution Library,SOL-000001
+REG-097,Product Catalog,Success Metrics,KPI keberhasilan implementasi,"SLA >99%, MTTR <4 jam"
+REG-098,Product Catalog,Product Status,Status produk,Active
+REG-099,Product Catalog,Owner Business Unit,Unit pemilik produk,Managed Service Division
+REG-100,Product Catalog,Reference Project,Proyek referensi,PT XYZ Manufacturing
+REG-101,Product Catalog,Last Updated,Tanggal pembaruan,2026-07-10
+REG-102,Product Catalog,Notes,Catatan tambahan,Fokus untuk perusahaan multi-site
+REG-103,Industry Library,Industry ID,ID unik industri,IND-000001
+REG-104,Industry Library,Industry Name,Nama industri,Manufacturing
+REG-105,Industry Library,Industry Category,Kategori utama industri,Industrial
+REG-106,Industry Library,Industry Description,Penjelasan singkat,Industri yang mengubah bahan baku menjadi produk jadi.
+REG-107,Industry Library,Business Characteristics,Karakteristik bisnis,"Operasional 24/7, bergantung pada supply chain dan mesin produksi."
+REG-108,Industry Library,Typical Company Size,Ukuran perusahaan yang umum,"Medium, Large, Enterprise"
+REG-109,Industry Library,Average Employee Range,Kisaran jumlah karyawan,500–20.000
+REG-110,Industry Library,Typical Annual Revenue,Kisaran omzet,Rp500 Miliar – Rp50 Triliun
+REG-111,Industry Library,Main Business Processes,Proses bisnis utama,"Procurement, Production, Quality Control, Distribution"
+REG-112,Industry Library,Common Departments,Departemen yang umum,"Production, Engineering, HR, IT, Finance, Procurement"
+REG-113,Industry Library,Digital Maturity Level,Tingkat kematangan digital,Medium
+REG-114,Industry Library,Common Technologies,Teknologi yang sering digunakan,"SAP, Oracle, Microsoft 365, MES, SCADA"
+REG-115,Industry Library,Common Business Challenges,Tantangan bisnis utama,"Efisiensi produksi, downtime mesin, biaya operasional"
+REG-116,Industry Library,Common Pain Points,Pain point yang sering muncul,"Asset Management, Helpdesk, Turnover, Maintenance"
+REG-117,Industry Library,Business Goals,Target bisnis yang umum,"Efisiensi biaya, peningkatan produktivitas, digitalisasi"
+REG-118,Industry Library,Buying Triggers,Pemicu pembelian,"Ekspansi pabrik, audit, kontrak vendor berakhir"
+REG-119,Industry Library,Buying Criteria,Faktor penentu pembelian,"Harga, SLA, pengalaman vendor, ROI"
+REG-120,Industry Library,Typical Decision Makers,Pengambil keputusan,"Plant Director, IT Manager, Procurement Manager"
+REG-121,Industry Library,Procurement Method,Metode pengadaan yang umum,"Tender, RFQ"
+REG-122,Industry Library,Average Sales Cycle,Siklus penjualan,6–12 Bulan
+REG-123,Industry Library,Budget Characteristics,Karakteristik anggaran,CAPEX dan OPEX
+REG-124,Industry Library,Major Risks,Risiko utama,"Downtime, gangguan supply chain, keselamatan kerja"
+REG-125,Industry Library,Recommended Products,Produk yang cocok,"Managed Service, Asset Management, AI Helpdesk"
+REG-126,Industry Library,Cross Selling Opportunities,Peluang cross selling,"HRIS, Cyber Security, Analytics"
+REG-127,Industry Library,Upselling Opportunities,Peluang upselling,AI Predictive Maintenance
+REG-128,Industry Library,Main Competitors,Vendor yang sering ditemui,"IBM, Accenture, NTT DATA"
+REG-129,Industry Library,Industry Regulations,Regulasi utama,"ISO 9001, ISO 45001, SMK3"
+REG-130,Industry Library,Industry Trends,Tren industri,"Smart Factory, IoT, AI, ESG"
+REG-131,Industry Library,SWOT Summary,Ringkasan SWOT industri,"Permintaan stabil, persaingan tinggi"
+REG-132,Industry Library,Data Sources,Sumber referensi,"BPS, Annual Report, McKinsey, Gartner"
+REG-133,Industry Library,Last Updated,Tanggal pembaruan,2026-07-10
+REG-134,Industry Library,Notes,Catatan tambahan,Fokus pada digital transformation
+REG-135,Pain Point Library,Pain ID,ID unik pain point,PAIN-000001
+REG-136,Pain Point Library,Pain Point,Nama pain point,SLA Helpdesk Lambat
+REG-137,Pain Point Library,Pain Category,Kategori masalah,IT Operations
+REG-138,Pain Point Library,Industry ID,Referensi ke Industry Library,IND-000001
+REG-139,Pain Point Library,Industry,Nama industri,Manufacturing
+REG-140,Pain Point Library,Business Function,Fungsi bisnis yang terdampak,IT Operations
+REG-141,Pain Point Library,Department,Departemen terkait,IT Department
+REG-142,Pain Point Library,Description,Penjelasan pain point,Respon tiket terlalu lama sehingga mengganggu operasional
+REG-143,Pain Point Library,Symptoms,Gejala yang terlihat,"Banyak komplain, backlog tiket tinggi"
+REG-144,Pain Point Library,Root Cause,Penyebab utama,"Kekurangan SDM, proses manual, tools tidak terintegrasi"
+REG-145,Pain Point Library,Business Impact,Dampak bisnis,Produktivitas menurun dan SLA tidak tercapai
+REG-146,Pain Point Library,Operational Impact,Dampak operasional,"MTTR tinggi, downtime meningkat"
+REG-147,Pain Point Library,Financial Impact,Dampak finansial,Biaya operasional meningkat
+REG-148,Pain Point Library,Risk Level,Tingkat risiko,High
+REG-149,Pain Point Library,Severity,Tingkat keparahan,Critical
+REG-150,Pain Point Library,Frequency,Frekuensi terjadi,Daily
+REG-151,Pain Point Library,Urgency,Tingkat urgensi,High
+REG-152,Pain Point Library,Typical Customer Statement,Kalimat yang sering diucapkan klien,"""Tim IT kami kewalahan menangani tiket."""
+REG-153,Pain Point Library,Trigger Events,Pemicu munculnya pain point,"Ekspansi bisnis, kenaikan jumlah pengguna"
+REG-154,Pain Point Library,Discovery Questions,Pertanyaan untuk menggali masalah,Berapa rata-rata waktu penyelesaian tiket?
+REG-155,Pain Point Library,KPI Affected,KPI yang terdampak,"SLA, MTTR, User Satisfaction"
+REG-156,Pain Point Library,Related Product IDs,Produk yang dapat mengatasi,PROD-000001
+REG-157,Pain Point Library,Related Solution IDs,Solusi yang relevan,SOL-000001
+REG-158,Pain Point Library,Business Value After Solved,Nilai setelah masalah teratasi,"SLA meningkat, downtime berkurang"
+REG-159,Pain Point Library,Typical ROI,Estimasi manfaat,Penghematan biaya operasional 20%
+REG-160,Pain Point Library,Success Metrics,Indikator keberhasilan,"SLA >99%, MTTR <4 jam"
+REG-161,Pain Point Library,Difficulty to Solve,Tingkat kesulitan,Medium
+REG-162,Pain Point Library,Related Case IDs,Studi kasus terkait,CASE-000001
+REG-163,Pain Point Library,References,Referensi,ITIL v4
+REG-164,Pain Point Library,Last Updated,Tanggal pembaruan,2026-07-10
+REG-165,Pain Point Library,Notes,Catatan tambahan,Umum terjadi pada perusahaan multi-site
+REG-166,Solution Library,Solution ID,ID unik solusi,SOL-000001
+REG-167,Solution Library,Solution Name,Nama solusi,Managed IT Service
+REG-168,Solution Library,Solution Category,Kategori solusi,IT Managed Services
+REG-169,Solution Library,Related Pain ID,Referensi ke Pain Point,PAIN-000001
+REG-170,Solution Library,Pain Point,Nama pain point,SLA Helpdesk Lambat
+REG-171,Solution Library,Business Objective,Tujuan bisnis,Meningkatkan kualitas layanan IT
+REG-172,Solution Library,Solution Description,Penjelasan solusi,Layanan pengelolaan operasional IT secara end-to-end
+REG-173,Solution Library,Recommended Product IDs,Produk yang digunakan,"PROD-000001, PROD-000007"
+REG-174,Solution Library,Implementation Approach,Cara implementasi,Assessment → Transition → Go Live → Continuous Improvement
+REG-175,Solution Library,Implementation Duration,Lama implementasi,3 Bulan
+REG-176,Solution Library,Implementation Complexity,Tingkat kompleksitas,Medium
+REG-177,Solution Library,Required Resources,SDM yang dibutuhkan,"Service Manager, Engineer, Helpdesk"
+REG-178,Solution Library,Prerequisites,Prasyarat,Inventaris aset tersedia
+REG-179,Solution Library,Expected Business Outcome,Hasil bisnis,"SLA meningkat, downtime menurun"
+REG-180,Solution Library,Operational Benefits,Manfaat operasional,Tiket lebih cepat selesai
+REG-181,Solution Library,Financial Benefits,Manfaat finansial,Efisiensi biaya operasional
+REG-182,Solution Library,Estimated ROI,Estimasi ROI,18 Bulan
+REG-183,Solution Library,Success Metrics,KPI keberhasilan,"SLA >99%, MTTR <4 jam"
+REG-184,Solution Library,Risks,Risiko implementasi,Resistensi perubahan
+REG-185,Solution Library,Risk Mitigation,Cara mitigasi,Training dan change management
+REG-186,Solution Library,Cross Sell Product IDs,Produk pendukung,PROD-000010
+REG-187,Solution Library,Upsell Product IDs,Produk lanjutan,PROD-000015
+REG-188,Solution Library,Suitable Industries,Industri yang cocok,"Manufacturing, Banking"
+REG-189,Solution Library,Suitable Company Size,Ukuran perusahaan,Enterprise
+REG-190,Solution Library,Typical Decision Maker,Pengambil keputusan,IT Director
+REG-191,Solution Library,Sales Difficulty,Tingkat kesulitan penjualan,Medium
+REG-192,Solution Library,Competitive Advantage,Keunggulan solusi,SLA dan monitoring real-time
+REG-193,Solution Library,Reference Case IDs,Studi kasus terkait,CASE-000001
+REG-194,Solution Library,Supporting Framework,Framework,ITIL v4
+REG-195,Solution Library,Status,Status solusi,Active
+REG-196,Solution Library,Last Updated,Tanggal pembaruan,2026-07-10
+REG-197,Solution Library,Notes,Catatan tambahan,Cocok untuk perusahaan multi-site
+REG-198,Discovery Question Library,Question ID,ID unik pertanyaan,QST-000001
+REG-199,Discovery Question Library,Question Category,Kategori pertanyaan,Pain Discovery
+REG-200,Discovery Question Library,Question Type,Jenis pertanyaan,Open-ended
+REG-201,Discovery Question Library,Related Framework,Framework yang digunakan,SPIN
+REG-202,Discovery Question Library,Framework Stage,Tahapan framework,Problem
+REG-203,Discovery Question Library,Industry ID,Industri terkait,IND-000001
+REG-204,Discovery Question Library,Industry,Nama industri,Manufacturing
+REG-205,Discovery Question Library,Business Function,Area bisnis,IT Operations
+REG-206,Discovery Question Library,Related Pain ID,Pain point terkait,PAIN-000001
+REG-207,Discovery Question Library,Related Solution ID,Solusi terkait,SOL-000001
+REG-208,Discovery Question Library,Target Persona,Siapa yang ditanya,IT Director
+REG-209,Discovery Question Library,Buyer Journey Stage,Tahap pembelian,Discovery
+REG-210,Discovery Question Library,Priority,Prioritas pertanyaan,High
+REG-211,Discovery Question Library,Question,Pertanyaan yang diajukan,Bagaimana proses penanganan tiket IT saat ini?
+REG-212,Discovery Question Library,Purpose,Tujuan pertanyaan,Memahami proses yang berjalan
+REG-213,Discovery Question Library,Expected Insight,Informasi yang ingin diperoleh,"SLA, workflow, bottleneck"
+REG-214,Discovery Question Library,Expected Answer Type,Bentuk jawaban,Deskriptif
+REG-215,Discovery Question Library,Follow-up Question,Pertanyaan lanjutan,Berapa rata-rata waktu penyelesaian tiket?
+REG-216,Discovery Question Library,Positive Indicators,Indikasi peluang,"SLA >8 jam, backlog tinggi"
+REG-217,Discovery Question Library,Red Flags,Indikasi risiko,Tidak ada anggaran atau sponsor proyek
+REG-218,Discovery Question Library,Next Recommended Action,Langkah selanjutnya,Lanjut ke analisis SLA
+REG-219,Discovery Question Library,Confidence Impact,Pengaruh terhadap analisis,High
+REG-220,Discovery Question Library,Usage Notes,Kapan digunakan,Meeting pertama
+REG-221,Discovery Question Library,Last Updated,Tanggal pembaruan,2026-07-10
+REG-222,Competitor Library,Competitor ID,ID unik kompetitor,COMPET-000001
+REG-223,Competitor Library,Competitor Name,Nama perusahaan kompetitor,Accenture
+REG-224,Competitor Library,Industry Category,Industri yang dilayani,IT Consulting
+REG-225,Competitor Library,Company Description,Deskripsi singkat,Perusahaan konsultan teknologi global
+REG-226,Competitor Library,Headquarters,Kantor pusat,"Dublin, Ireland"
+REG-227,Competitor Library,Operating Region,Wilayah operasional,Global
+REG-228,Competitor Library,Target Customer,Target pelanggan,Enterprise
+REG-229,Competitor Library,Main Products/Services,Produk/layanan utama,"Consulting, SI, Managed Service"
+REG-230,Competitor Library,Strengths,Kekuatan utama,"Brand global, SDM besar"
+REG-231,Competitor Library,Weaknesses,Kelemahan utama,"Harga tinggi, implementasi kompleks"
+REG-232,Competitor Library,Unique Selling Proposition (USP),Nilai jual utama,Pengalaman proyek global
+REG-233,Competitor Library,Pricing Level,Tingkat harga,Premium
+REG-234,Competitor Library,Pricing Model,Model harga,Project Based
+REG-235,Competitor Library,Typical Sales Strategy,Strategi penjualan,Executive Relationship
+REG-236,Competitor Library,Typical Decision Makers,Pengambil keputusan yang dituju,"CIO, CTO"
+REG-237,Competitor Library,Industries Served,Industri utama,"Banking, Manufacturing, Government"
+REG-238,Competitor Library,Competitive Advantages,Keunggulan dibanding pasar,Metodologi dan sertifikasi global
+REG-239,Competitor Library,Competitive Disadvantages,Kekurangan dibanding pasar,Kurang fleksibel untuk proyek kecil
+REG-240,Competitor Library,Our Competitive Advantage,Keunggulan kita terhadap kompetitor,"Respons lebih cepat, solusi lebih fleksibel"
+REG-241,Competitor Library,Win Strategy,Strategi mengalahkan kompetitor,"Fokus ROI, layanan personal, implementasi cepat"
+REG-242,Competitor Library,Common Customer Objections,Keberatan pelanggan,"""Kompetitor lebih terkenal."""
+REG-243,Competitor Library,Recommended Response,Cara menjawab keberatan,Tunjukkan studi kasus dan hasil implementasi
+REG-244,Competitor Library,Market Position,Posisi di pasar,Market Leader
+REG-245,Competitor Library,Threat Level,Tingkat ancaman,High
+REG-246,Competitor Library,Reference Projects,Proyek referensi,Transformasi digital bank nasional
+REG-247,Competitor Library,Information Source,Sumber informasi,"Website, Proposal, Media"
+REG-248,Competitor Library,Last Updated,Tanggal pembaruan,2026-07-10
+REG-249,Competitor Library,Notes,Catatan tambahan,Kuat pada proyek transformasi besar
