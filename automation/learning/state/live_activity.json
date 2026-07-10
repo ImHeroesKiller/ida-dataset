@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260710-19B207",
-  "mission_id": "MIS-20260710-083DBD",
+  "session_id": "SESSION-20260710-65AAEC",
+  "mission_id": "MIS-20260710-E9C70B",
   "progress": 100,
   "current_thought": "Session completed · added=0 updated=1 entity=— · dry_run",
   "current_task": "Idle",
   "last_learned": null,
-  "updated_at": "2026-07-10T13:48:05+00:00",
+  "updated_at": "2026-07-10T13:48:46+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }
