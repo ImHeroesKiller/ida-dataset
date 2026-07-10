@@ -1,0 +1,14 @@
+Alias ID,Canonical Name,Alias,Entity ID,Entity Name,Notes,Status,Version
+EALS-001,Microsoft,MSFT,ENT-003,Company,Ticker / short form,active,1.0.0
+EALS-002,Microsoft,Microsoft Corporation,ENT-003,Company,Legal form,active,1.0.0
+EALS-003,IBM,International Business Machines,ENT-003,Company,Legal expansion,active,1.0.0
+EALS-004,IBM,International Business Machines Corporation,ENT-003,Company,Full legal name,active,1.0.0
+EALS-005,PLN,Perusahaan Listrik Negara,ENT-003,Company,Indonesian state electricity company expansion,active,1.0.0
+EALS-006,PLN,PT PLN (Persero),ENT-003,Company,Legal form,active,1.0.0
+EALS-007,Telkom,PT Telkom Indonesia Tbk,ENT-003,Company,Legal form,active,1.0.0
+EALS-008,Telkom,Telkom Indonesia,ENT-003,Company,Brand form,active,1.0.0
+EALS-009,AWS,Amazon Web Services,ENT-004,Product,Cloud product brand expansion,active,1.0.0
+EALS-010,Azure,Microsoft Azure,ENT-004,Product,Cloud product brand expansion,active,1.0.0
+EALS-011,GCP,Google Cloud Platform,ENT-004,Product,Cloud product brand expansion,active,1.0.0
+EALS-012,Accenture,ACN,ENT-020,Competitor,Ticker form,active,1.0.0
+EALS-013,SAP,Systems Applications and Products,ENT-004,Product,Historical expansion (brand remains SAP),active,1.0.0

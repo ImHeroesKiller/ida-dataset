@@ -1,0 +1,66 @@
+Rule ID,Source Entity,Source Entity ID,Relationship,Relationship Type ID,Target Entity,Target Entity ID,Constraint,Description,Status,Version
+RRULE-001,Company,ENT-003,BELONGS_TO,RTYPE-002,Industry,ENT-005,Allowed,Allowed: Company BELONGS_TO Industry,active,1.0.0
+RRULE-002,Company,ENT-003,USES,RTYPE-003,Technology,ENT-008,Allowed,Allowed: Company USES Technology,active,1.0.0
+RRULE-003,Company,ENT-003,HAS,RTYPE-001,Opportunity,ENT-026,Allowed,Allowed: Company HAS Opportunity,active,1.0.0
+RRULE-004,Opportunity,ENT-026,HAS,RTYPE-001,Pain Point,ENT-007,Allowed,Allowed: Opportunity HAS Pain Point,active,1.0.0
+RRULE-005,Pain Point,ENT-007,SOLVED_BY,RTYPE-015,Solution,ENT-006,Allowed,Allowed: Pain Point SOLVED_BY Solution,active,1.0.0
+RRULE-006,Solution,ENT-006,IMPLEMENTED_USING,RTYPE-016,Product,ENT-004,Allowed,Allowed: Solution IMPLEMENTED_USING Product,active,1.0.0
+RRULE-007,Company,ENT-003,HAS,RTYPE-001,Department,ENT-012,Allowed,Allowed: Company HAS Department,active,1.0.0
+RRULE-008,Company,ENT-003,COMPETES_WITH,RTYPE-010,Company,ENT-003,Allowed,Allowed: Company COMPETES_WITH Company,active,1.0.0
+RRULE-009,Competitor,ENT-020,OFFERS,RTYPE-017,Product,ENT-004,Allowed,Allowed: Competitor OFFERS Product,active,1.0.0
+RRULE-010,Project,ENT-021,GENERATES,RTYPE-006,Case Study,ENT-022,Allowed,Allowed: Project GENERATES Case Study,active,1.0.0
+RRULE-011,Company,ENT-003,LOCATED_IN,RTYPE-012,Country,ENT-017,Allowed,Allowed: Company LOCATED_IN Country,active,1.0.0
+RRULE-012,City,ENT-018,LOCATED_IN,RTYPE-012,Country,ENT-017,Allowed,Allowed: City LOCATED_IN Country,active,1.0.0
+RRULE-013,Country,ENT-017,BELONGS_TO,RTYPE-002,Location,ENT-002,Allowed,Allowed: Country BELONGS_TO Location,active,1.0.0
+RRULE-014,City,ENT-018,BELONGS_TO,RTYPE-002,Location,ENT-002,Allowed,Allowed: City BELONGS_TO Location,active,1.0.0
+RRULE-015,Company,ENT-003,HAS,RTYPE-001,Risk,ENT-025,Allowed,Allowed: Company HAS Risk,active,1.0.0
+RRULE-016,Opportunity,ENT-026,GENERATES,RTYPE-006,Proposal,ENT-028,Allowed,Allowed: Opportunity GENERATES Proposal,active,1.0.0
+RRULE-017,Proposal,ENT-028,GENERATES,RTYPE-006,Contract,ENT-029,Allowed,Allowed: Proposal GENERATES Contract,active,1.0.0
+RRULE-018,Opportunity,ENT-026,RELATED_TO,RTYPE-014,Meeting,ENT-027,Allowed,Allowed: Opportunity RELATED_TO Meeting,active,1.0.0
+RRULE-019,Solution,ENT-006,SUPPORTS,RTYPE-008,KPI,ENT-014,Allowed,Allowed: Solution SUPPORTS KPI,active,1.0.0
+RRULE-020,Product,ENT-004,TARGETS,RTYPE-019,Industry,ENT-005,Allowed,Allowed: Product TARGETS Industry,active,1.0.0
+RRULE-021,Product,ENT-004,TARGETS,RTYPE-019,Persona,ENT-016,Allowed,Allowed: Product TARGETS Persona,active,1.0.0
+RRULE-022,Case Study,ENT-022,REFERENCES,RTYPE-020,Company,ENT-003,Allowed,Allowed: Case Study REFERENCES Company,active,1.0.0
+RRULE-023,Case Study,ENT-022,REFERENCES,RTYPE-020,Product,ENT-004,Allowed,Allowed: Case Study REFERENCES Product,active,1.0.0
+RRULE-024,Customer,ENT-030,BELONGS_TO,RTYPE-002,Company,ENT-003,Allowed,Allowed: Customer BELONGS_TO Company,active,1.0.0
+RRULE-025,Vendor,ENT-019,BELONGS_TO,RTYPE-002,Company,ENT-003,Allowed,Allowed: Vendor BELONGS_TO Company,active,1.0.0
+RRULE-026,Partner,ENT-031,BELONGS_TO,RTYPE-002,Company,ENT-003,Allowed,Allowed: Partner BELONGS_TO Company,active,1.0.0
+RRULE-027,Competitor,ENT-020,BELONGS_TO,RTYPE-002,Company,ENT-003,Allowed,Allowed: Competitor BELONGS_TO Company,active,1.0.0
+RRULE-028,Department,ENT-012,REPORTS_TO,RTYPE-011,Department,ENT-012,Allowed,Allowed: Department REPORTS_TO Department,active,1.0.0
+RRULE-029,Role,ENT-015,BELONGS_TO,RTYPE-002,Department,ENT-012,Allowed,Allowed: Role BELONGS_TO Department,active,1.0.0
+RRULE-030,Company,ENT-003,EMPLOYS,RTYPE-018,Person,ENT-033,Allowed,Allowed: Company EMPLOYS Person,active,1.0.0
+RRULE-031,Person,ENT-033,RELATED_TO,RTYPE-014,Role,ENT-015,Allowed,Allowed: Person RELATED_TO Role,active,1.0.0
+RRULE-032,Project,ENT-021,USES,RTYPE-003,Product,ENT-004,Allowed,Allowed: Project USES Product,active,1.0.0
+RRULE-033,Project,ENT-021,IMPLEMENTS,RTYPE-007,Solution,ENT-006,Allowed,Allowed: Project IMPLEMENTS Solution,active,1.0.0
+RRULE-034,Document,ENT-023,REFERENCES,RTYPE-020,Source,ENT-024,Allowed,Allowed: Document REFERENCES Source,active,1.0.0
+RRULE-035,Opportunity,ENT-026,DEPENDS_ON,RTYPE-009,Persona,ENT-016,Allowed,Allowed: Opportunity DEPENDS_ON Persona,active,1.0.0
+RRULE-036,Business Signal,ENT-035,RELATED_TO,RTYPE-014,Opportunity,ENT-026,Allowed,Allowed: Business Signal RELATED_TO Opportunity,active,1.0.0
+RRULE-037,Discovery Question,ENT-036,RELATED_TO,RTYPE-014,Pain Point,ENT-007,Allowed,Allowed: Discovery Question RELATED_TO Pain Point,active,1.0.0
+RRULE-038,Framework,ENT-009,SUPPORTS,RTYPE-008,Discovery Question,ENT-036,Allowed,Allowed: Framework SUPPORTS Discovery Question,active,1.0.0
+RRULE-039,Regulation,ENT-010,RELATED_TO,RTYPE-014,Industry,ENT-005,Allowed,Allowed: Regulation RELATED_TO Industry,active,1.0.0
+RRULE-040,Standard,ENT-011,SUPPORTS,RTYPE-008,Regulation,ENT-010,Allowed,Allowed: Standard SUPPORTS Regulation,active,1.0.0
+RRULE-041,Asset,ENT-032,BELONGS_TO,RTYPE-002,Company,ENT-003,Allowed,Allowed: Asset BELONGS_TO Company,active,1.0.0
+RRULE-042,Service,ENT-037,BELONGS_TO,RTYPE-002,Product,ENT-004,Allowed,Allowed: Service BELONGS_TO Product,active,1.0.0
+RRULE-043,KPI,ENT-014,RELATED_TO,RTYPE-014,Metric,ENT-038,Allowed,Allowed: KPI RELATED_TO Metric,active,1.0.0
+RRULE-044,Market,ENT-034,RELATED_TO,RTYPE-014,Industry,ENT-005,Allowed,Allowed: Market RELATED_TO Industry,active,1.0.0
+RRULE-045,Opportunity,ENT-026,TARGETS,RTYPE-019,Market,ENT-034,Allowed,Allowed: Opportunity TARGETS Market,active,1.0.0
+RRULE-046,Contract,ENT-029,RELATED_TO,RTYPE-014,Customer,ENT-030,Allowed,Allowed: Contract RELATED_TO Customer,active,1.0.0
+RRULE-047,Meeting,ENT-027,RELATED_TO,RTYPE-014,Customer,ENT-030,Allowed,Allowed: Meeting RELATED_TO Customer,active,1.0.0
+RRULE-048,Source,ENT-024,PROVIDES,RTYPE-005,Document,ENT-023,Allowed,Allowed: Source PROVIDES Document,active,1.0.0
+RRULE-049,Dataset,ENT-040,REFERENCES,RTYPE-020,Source,ENT-024,Allowed,Allowed: Dataset REFERENCES Source,active,1.0.0
+RRULE-050,Company,ENT-003,BELONGS_TO,RTYPE-002,Organization,ENT-001,Allowed,Allowed: Company BELONGS_TO Organization,active,1.0.0
+RRULE-051,Company,ENT-003,OWNS,RTYPE-004,Asset,ENT-032,Allowed,Allowed: Company OWNS Asset,active,1.0.0
+RRULE-052,Company,ENT-003,MANAGES,RTYPE-013,Business Process,ENT-013,Allowed,Allowed: Company MANAGES Business Process,active,1.0.0
+RRULE-053,Opportunity,ENT-026,RELATED_TO,RTYPE-014,Competitor,ENT-020,Allowed,Allowed: Opportunity RELATED_TO Competitor,active,1.0.0
+RRULE-054,Solution,ENT-006,DEPENDS_ON,RTYPE-009,Technology,ENT-008,Allowed,Allowed: Solution DEPENDS_ON Technology,active,1.0.0
+RRULE-055,Product,ENT-004,USES,RTYPE-003,Technology,ENT-008,Allowed,Allowed: Product USES Technology,active,1.0.0
+RRULE-056,Industry,ENT-005,SOLVED_BY,RTYPE-015,Company,ENT-003,Forbidden,Industries are not solved by companies; pain points are,active,1.0.0
+RRULE-057,Pain Point,ENT-007,BELONGS_TO,RTYPE-002,Product,ENT-004,Forbidden,Pain points do not belong to products as classification,active,1.0.0
+RRULE-058,KPI,ENT-014,EMPLOYS,RTYPE-018,Company,ENT-003,Forbidden,KPIs cannot employ companies,active,1.0.0
+RRULE-059,City,ENT-018,BELONGS_TO,RTYPE-002,Company,ENT-003,Forbidden,Cities do not belong to companies,active,1.0.0
+RRULE-060,Regulation,ENT-010,OFFERS,RTYPE-017,Product,ENT-004,Forbidden,Regulations do not offer products,active,1.0.0
+RRULE-061,Document,ENT-023,COMPETES_WITH,RTYPE-010,Company,ENT-003,Forbidden,Documents do not compete with companies,active,1.0.0
+RRULE-062,Country,ENT-017,HAS,RTYPE-001,Opportunity,ENT-026,Forbidden,Countries do not own commercial opportunities in this ontology,active,1.0.0
+RRULE-063,Technology,ENT-008,REPORTS_TO,RTYPE-011,Role,ENT-015,Forbidden,Technologies do not report to roles,active,1.0.0
+RRULE-064,Product,ENT-004,SOLVED_BY,RTYPE-015,Pain Point,ENT-007,Forbidden,Direction inverted; use Pain Point SOLVED_BY Solution,active,1.0.0
+RRULE-065,Solution,ENT-006,BELONGS_TO,RTYPE-002,Pain Point,ENT-007,Forbidden,Solutions do not classify under pain points,active,1.0.0

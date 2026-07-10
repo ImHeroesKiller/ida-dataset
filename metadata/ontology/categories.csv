@@ -1,0 +1,17 @@
+Category ID,Category Name,Description,Status,Version
+CAT-001,Business,General business concepts and commercial constructs,active,1.0.0
+CAT-002,Technology,"Technology products, platforms, and engineering concepts",active,1.0.0
+CAT-003,Finance,Financial management and commercial finance concepts,active,1.0.0
+CAT-004,HR,Human resources and people-related concepts,active,1.0.0
+CAT-005,Legal,"Legal, compliance, and contractual concepts",active,1.0.0
+CAT-006,Operations,Operational processes and delivery concepts,active,1.0.0
+CAT-007,Marketing,Go-to-market and brand concepts,active,1.0.0
+CAT-008,Sales,Sales process and revenue motion concepts,active,1.0.0
+CAT-009,Executive,Executive decision-making and leadership concepts,active,1.0.0
+CAT-010,Government,Public sector and regulatory authority concepts,active,1.0.0
+CAT-011,Security,"Security, risk controls, and cyber concepts",active,1.0.0
+CAT-012,Infrastructure,Infrastructure and facilities concepts,active,1.0.0
+CAT-013,Energy,Energy sector concepts,active,1.0.0
+CAT-014,Healthcare,Healthcare sector concepts,active,1.0.0
+CAT-015,Education,Education sector concepts,active,1.0.0
+CAT-016,Knowledge Management,"Knowledge organization, provenance, and ontology concepts",active,1.0.0

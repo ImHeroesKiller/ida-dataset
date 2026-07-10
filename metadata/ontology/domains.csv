@@ -1,0 +1,12 @@
+Domain ID,Domain Name,Description,Status,Version
+DOM-001,Business Development,"Opportunity, account, and solution development knowledge",active,1.0.0
+DOM-002,Sales,"Pipeline, negotiation, and deal execution knowledge",active,1.0.0
+DOM-003,Marketing,"Positioning, campaigns, and market signal knowledge",active,1.0.0
+DOM-004,Finance,"Pricing, margin, and commercial finance knowledge",active,1.0.0
+DOM-005,Procurement,Sourcing and vendor selection knowledge,active,1.0.0
+DOM-006,Operations,Delivery and operational excellence knowledge,active,1.0.0
+DOM-007,HR,"People, roles, and organizational knowledge",active,1.0.0
+DOM-008,Legal,"Contracts, compliance, and risk language knowledge",active,1.0.0
+DOM-009,Executive,"Strategy, prioritization, and board-level knowledge",active,1.0.0
+DOM-010,AI Engineering,"Model, retrieval, and agent engineering knowledge",active,1.0.0
+DOM-011,Knowledge Management,"Ontology, taxonomy, and knowledge ops knowledge",active,1.0.0

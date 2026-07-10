@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "name": "IDA Knowledge Ontology Engine",
+  "created": "2026-07-10",
+  "updated": "2026-07-10",
+  "compatible_dataset_version": "0.1.0",
+  "compatible_kas_version": "0.1.0",
+  "status": "active",
+  "format": {
+    "entities": "CSV",
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "id_policy": "stable-prefixed"
+  },
+  "exports_supported": [
+    "CSV",
+    "PostgreSQL",
+    "Neo4j",
+    "RDF",
+    "OWL",
+    "Property Graph",
+    "Vector Database metadata"
+  ],
+  "prefixes": {
+    "entity": "ENT-",
+    "entity_type": "ETYPE-",
+    "entity_property": "EPROP-",
+    "entity_synonym": "ESYN-",
+    "entity_alias": "EALS-",
+    "relationship": "REL-",
+    "relationship_type": "RTYPE-",
+    "relationship_rule": "RRULE-",
+    "category": "CAT-",
+    "domain": "DOM-"
+  },
+  "counts": {
+    "entities": 40,
+    "entity_types": 7,
+    "entity_properties": 83,
+    "entity_synonyms": 38,
+    "entity_aliases": 13,
+    "relationships": 55,
+    "relationship_types": 20,
+    "relationship_rules": 65,
+    "categories": 16,
+    "domains": 11
+  },
+  "notes": [
+    "Ontology defines entity classes and allowed relationship patterns, not business instance data.",
+    "Designed for export to graph, relational, RDF, and vector systems without structural redesign."
+  ]
+}

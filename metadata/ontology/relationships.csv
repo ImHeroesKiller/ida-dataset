@@ -1,0 +1,56 @@
+Relationship ID,Source Entity,Source Entity ID,Relationship,Relationship Type ID,Target Entity,Target Entity ID,Description,Direction,Status,Version
+REL-001,Company,ENT-003,BELONGS_TO,RTYPE-002,Industry,ENT-005,A company is classified into an industry,forward,active,1.0.0
+REL-002,Company,ENT-003,USES,RTYPE-003,Technology,ENT-008,A company uses technologies in operations,forward,active,1.0.0
+REL-003,Company,ENT-003,HAS,RTYPE-001,Opportunity,ENT-026,A company may have commercial opportunities,forward,active,1.0.0
+REL-004,Opportunity,ENT-026,HAS,RTYPE-001,Pain Point,ENT-007,An opportunity is driven by one or more pain points,forward,active,1.0.0
+REL-005,Pain Point,ENT-007,SOLVED_BY,RTYPE-015,Solution,ENT-006,A pain point can be addressed by a solution,forward,active,1.0.0
+REL-006,Solution,ENT-006,IMPLEMENTED_USING,RTYPE-016,Product,ENT-004,A solution is implemented using products,forward,active,1.0.0
+REL-007,Company,ENT-003,HAS,RTYPE-001,Department,ENT-012,A company has organizational departments,forward,active,1.0.0
+REL-008,Company,ENT-003,COMPETES_WITH,RTYPE-010,Company,ENT-003,Companies may compete with each other,bidirectional,active,1.0.0
+REL-009,Competitor,ENT-020,OFFERS,RTYPE-017,Product,ENT-004,A competitor offers products in the market,forward,active,1.0.0
+REL-010,Project,ENT-021,GENERATES,RTYPE-006,Case Study,ENT-022,Successful projects generate case studies,forward,active,1.0.0
+REL-011,Company,ENT-003,LOCATED_IN,RTYPE-012,Country,ENT-017,A company is located in a country,forward,active,1.0.0
+REL-012,City,ENT-018,LOCATED_IN,RTYPE-012,Country,ENT-017,A city belongs to a country,forward,active,1.0.0
+REL-013,Country,ENT-017,BELONGS_TO,RTYPE-002,Location,ENT-002,Country specializes Location,forward,active,1.0.0
+REL-014,City,ENT-018,BELONGS_TO,RTYPE-002,Location,ENT-002,City specializes Location,forward,active,1.0.0
+REL-015,Company,ENT-003,HAS,RTYPE-001,Risk,ENT-025,A company is exposed to risks,forward,active,1.0.0
+REL-016,Opportunity,ENT-026,GENERATES,RTYPE-006,Proposal,ENT-028,An opportunity may generate proposals,forward,active,1.0.0
+REL-017,Proposal,ENT-028,GENERATES,RTYPE-006,Contract,ENT-029,A won proposal may generate a contract,forward,active,1.0.0
+REL-018,Opportunity,ENT-026,RELATED_TO,RTYPE-014,Meeting,ENT-027,Opportunities are progressed through meetings,bidirectional,active,1.0.0
+REL-019,Solution,ENT-006,SUPPORTS,RTYPE-008,KPI,ENT-014,Solutions improve or support KPIs,forward,active,1.0.0
+REL-020,Product,ENT-004,TARGETS,RTYPE-019,Industry,ENT-005,Products target specific industries,forward,active,1.0.0
+REL-021,Product,ENT-004,TARGETS,RTYPE-019,Persona,ENT-016,Products target buyer personas,forward,active,1.0.0
+REL-022,Case Study,ENT-022,REFERENCES,RTYPE-020,Company,ENT-003,A case study references a customer company,forward,active,1.0.0
+REL-023,Case Study,ENT-022,REFERENCES,RTYPE-020,Product,ENT-004,A case study references products used,forward,active,1.0.0
+REL-024,Customer,ENT-030,BELONGS_TO,RTYPE-002,Company,ENT-003,Customer is a role specialization of company,forward,active,1.0.0
+REL-025,Vendor,ENT-019,BELONGS_TO,RTYPE-002,Company,ENT-003,Vendor is a role specialization of company,forward,active,1.0.0
+REL-026,Partner,ENT-031,BELONGS_TO,RTYPE-002,Company,ENT-003,Partner is a role specialization of company,forward,active,1.0.0
+REL-027,Competitor,ENT-020,BELONGS_TO,RTYPE-002,Company,ENT-003,Competitor is a role specialization of company,forward,active,1.0.0
+REL-028,Department,ENT-012,REPORTS_TO,RTYPE-011,Department,ENT-012,Departments may report to parent departments,forward,active,1.0.0
+REL-029,Role,ENT-015,BELONGS_TO,RTYPE-002,Department,ENT-012,Roles often belong to departments,forward,active,1.0.0
+REL-030,Company,ENT-003,EMPLOYS,RTYPE-018,Person,ENT-033,A company employs people,forward,active,1.0.0
+REL-031,Person,ENT-033,RELATED_TO,RTYPE-014,Role,ENT-015,A person may be associated with a role,bidirectional,active,1.0.0
+REL-032,Project,ENT-021,USES,RTYPE-003,Product,ENT-004,Projects use products during delivery,forward,active,1.0.0
+REL-033,Project,ENT-021,IMPLEMENTS,RTYPE-007,Solution,ENT-006,Projects implement solutions,forward,active,1.0.0
+REL-034,Document,ENT-023,REFERENCES,RTYPE-020,Source,ENT-024,Documents may reference provenance sources,forward,active,1.0.0
+REL-035,Opportunity,ENT-026,DEPENDS_ON,RTYPE-009,Persona,ENT-016,Opportunities depend on buyer personas,forward,active,1.0.0
+REL-036,Business Signal,ENT-035,RELATED_TO,RTYPE-014,Opportunity,ENT-026,Signals may indicate opportunities,bidirectional,active,1.0.0
+REL-037,Discovery Question,ENT-036,RELATED_TO,RTYPE-014,Pain Point,ENT-007,Discovery questions explore pain points,bidirectional,active,1.0.0
+REL-038,Framework,ENT-009,SUPPORTS,RTYPE-008,Discovery Question,ENT-036,Frameworks structure discovery questions,forward,active,1.0.0
+REL-039,Regulation,ENT-010,RELATED_TO,RTYPE-014,Industry,ENT-005,Regulations often apply within industries,bidirectional,active,1.0.0
+REL-040,Standard,ENT-011,SUPPORTS,RTYPE-008,Regulation,ENT-010,Standards may support regulatory compliance,forward,active,1.0.0
+REL-041,Asset,ENT-032,BELONGS_TO,RTYPE-002,Company,ENT-003,Assets are owned or operated by companies,forward,active,1.0.0
+REL-042,Service,ENT-037,BELONGS_TO,RTYPE-002,Product,ENT-004,Services may be modeled as product specializations,forward,active,1.0.0
+REL-043,KPI,ENT-014,RELATED_TO,RTYPE-014,Metric,ENT-038,KPIs are composed of or related to metrics,bidirectional,active,1.0.0
+REL-044,Market,ENT-034,RELATED_TO,RTYPE-014,Industry,ENT-005,Markets relate to industries,bidirectional,active,1.0.0
+REL-045,Opportunity,ENT-026,TARGETS,RTYPE-019,Market,ENT-034,Opportunities target markets,forward,active,1.0.0
+REL-046,Contract,ENT-029,RELATED_TO,RTYPE-014,Customer,ENT-030,Contracts bind customers,bidirectional,active,1.0.0
+REL-047,Meeting,ENT-027,RELATED_TO,RTYPE-014,Customer,ENT-030,Meetings involve customers,bidirectional,active,1.0.0
+REL-048,Source,ENT-024,PROVIDES,RTYPE-005,Document,ENT-023,Sources provide documents,forward,active,1.0.0
+REL-049,Dataset,ENT-040,REFERENCES,RTYPE-020,Source,ENT-024,Datasets may reference sources,forward,active,1.0.0
+REL-050,Company,ENT-003,BELONGS_TO,RTYPE-002,Organization,ENT-001,Company specializes Organization,forward,active,1.0.0
+REL-051,Company,ENT-003,OWNS,RTYPE-004,Asset,ENT-032,Company may own assets,forward,active,1.0.0
+REL-052,Company,ENT-003,MANAGES,RTYPE-013,Business Process,ENT-013,Company manages business processes,forward,active,1.0.0
+REL-053,Opportunity,ENT-026,RELATED_TO,RTYPE-014,Competitor,ENT-020,Opportunities may involve competitors,bidirectional,active,1.0.0
+REL-054,Solution,ENT-006,DEPENDS_ON,RTYPE-009,Technology,ENT-008,Solutions may depend on technologies,forward,active,1.0.0
+REL-055,Product,ENT-004,USES,RTYPE-003,Technology,ENT-008,Products may use technologies,forward,active,1.0.0

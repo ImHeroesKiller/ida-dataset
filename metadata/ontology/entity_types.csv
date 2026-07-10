@@ -1,0 +1,8 @@
+Entity Type ID,Entity Type Name,Description,Status,Version
+ETYPE-001,Master,Core master data entities that define durable business objects,active,1.0.0
+ETYPE-002,Reference,Lookup and classification entities used for normalization,active,1.0.0
+ETYPE-003,Transactional,Time-bound operational or commercial events,active,1.0.0
+ETYPE-004,Knowledge,"Reusable knowledge assets such as frameworks, case studies, and patterns",active,1.0.0
+ETYPE-005,External,Entities originating outside the organization boundary,active,1.0.0
+ETYPE-006,System,Technical or platform entities used by IDA runtime,active,1.0.0
+ETYPE-007,Configuration,"Controlling entities for policies, enums, and acquisition settings",active,1.0.0

@@ -1,0 +1,84 @@
+Property ID,Entity ID,Entity Name,Property Name,Data Type,Required,Description,Status,Version
+EPROP-001,ENT-003,Company,Company Name,string,true,Legal or trading name of the company,active,1.0.0
+EPROP-002,ENT-003,Company,Alias,string,false,Short brand or common name,active,1.0.0
+EPROP-003,ENT-003,Company,Industry ID,entity_ref,false,Reference to Industry entity,active,1.0.0
+EPROP-004,ENT-003,Company,Company Type,enum,false,"Classification such as BUMN, Swasta, Startup",active,1.0.0
+EPROP-005,ENT-003,Company,Company Size,enum,false,"Size band such as SMB, Mid-Market, Enterprise",active,1.0.0
+EPROP-006,ENT-003,Company,Headquarters,string,false,Primary HQ city or location,active,1.0.0
+EPROP-007,ENT-003,Company,Country,entity_ref,false,Reference to Country entity,active,1.0.0
+EPROP-008,ENT-003,Company,Website,url,false,Primary public website,active,1.0.0
+EPROP-009,ENT-003,Company,Employee Count,integer,false,Approximate employee headcount,active,1.0.0
+EPROP-010,ENT-003,Company,Annual Revenue Estimate,string,false,Estimated annual revenue band or value,active,1.0.0
+EPROP-011,ENT-003,Company,Risk Level,enum,false,Commercial or delivery risk level,active,1.0.0
+EPROP-012,ENT-005,Industry,Industry Name,string,true,Canonical industry name,active,1.0.0
+EPROP-013,ENT-005,Industry,Industry Category,string,false,Higher-level industry grouping,active,1.0.0
+EPROP-014,ENT-005,Industry,Description,text,false,Narrative description of the industry,active,1.0.0
+EPROP-015,ENT-005,Industry,Digital Maturity Level,enum,false,Typical digital maturity of the industry,active,1.0.0
+EPROP-016,ENT-004,Product,Product Name,string,true,Canonical product name,active,1.0.0
+EPROP-017,ENT-004,Product,Product Category,enum,false,Primary product category,active,1.0.0
+EPROP-018,ENT-004,Product,Pricing Model,string,false,Commercial pricing model,active,1.0.0
+EPROP-019,ENT-004,Product,Pricing Range,string,false,Indicative pricing range,active,1.0.0
+EPROP-020,ENT-004,Product,Implementation Complexity,enum,false,Relative implementation complexity,active,1.0.0
+EPROP-021,ENT-004,Product,Target Industry,string,false,Industries best fit for the product,active,1.0.0
+EPROP-022,ENT-007,Pain Point,Pain Point,string,true,Canonical pain point name,active,1.0.0
+EPROP-023,ENT-007,Pain Point,Severity,enum,false,Severity of the pain point,active,1.0.0
+EPROP-024,ENT-007,Pain Point,Risk Level,enum,false,Business risk if unaddressed,active,1.0.0
+EPROP-025,ENT-007,Pain Point,Frequency,string,false,How often the pain occurs,active,1.0.0
+EPROP-026,ENT-007,Pain Point,Business Impact,text,false,Impact narrative,active,1.0.0
+EPROP-027,ENT-006,Solution,Solution Name,string,true,Canonical solution name,active,1.0.0
+EPROP-028,ENT-006,Solution,Solution Category,enum,false,Solution category classification,active,1.0.0
+EPROP-029,ENT-006,Solution,Implementation Complexity,enum,false,Relative implementation complexity,active,1.0.0
+EPROP-030,ENT-006,Solution,Implementation Duration,string,false,Typical duration to implement,active,1.0.0
+EPROP-031,ENT-006,Solution,Estimated ROI,string,false,Indicative return profile,active,1.0.0
+EPROP-032,ENT-026,Opportunity,Opportunity Name,string,true,Canonical opportunity title,active,1.0.0
+EPROP-033,ENT-026,Opportunity,Opportunity Status,enum,false,Pipeline status,active,1.0.0
+EPROP-034,ENT-026,Opportunity,Estimated Revenue,string,false,Estimated commercial value,active,1.0.0
+EPROP-035,ENT-026,Opportunity,Probability,number,false,Win probability 0-100,active,1.0.0
+EPROP-036,ENT-026,Opportunity,Owner,string,false,Internal opportunity owner,active,1.0.0
+EPROP-037,ENT-020,Competitor,Competitor Name,string,true,Canonical competitor name,active,1.0.0
+EPROP-038,ENT-020,Competitor,Threat Level,enum,false,Competitive threat level,active,1.0.0
+EPROP-039,ENT-020,Competitor,Market Position,string,false,Positioning in the market,active,1.0.0
+EPROP-040,ENT-008,Technology,Technology Name,string,true,Canonical technology name,active,1.0.0
+EPROP-041,ENT-008,Technology,Technology Category,string,false,Technology family or stack layer,active,1.0.0
+EPROP-042,ENT-009,Framework,Framework Name,string,true,Canonical framework name,active,1.0.0
+EPROP-043,ENT-009,Framework,Framework Category,string,false,Framework family,active,1.0.0
+EPROP-044,ENT-014,KPI,KPI Name,string,true,Canonical KPI name,active,1.0.0
+EPROP-045,ENT-014,KPI,Unit,string,false,Measurement unit,active,1.0.0
+EPROP-046,ENT-014,KPI,Direction,string,false,Whether higher or lower is better,active,1.0.0
+EPROP-047,ENT-022,Case Study,Case Name,string,true,Canonical case study title,active,1.0.0
+EPROP-048,ENT-022,Case Study,Outcome,text,false,Measured or qualitative outcome,active,1.0.0
+EPROP-049,ENT-025,Risk,Risk Name,string,true,Canonical risk name,active,1.0.0
+EPROP-050,ENT-025,Risk,Risk Level,enum,false,Severity classification,active,1.0.0
+EPROP-051,ENT-024,Source,Source Name,string,true,Canonical knowledge source name,active,1.0.0
+EPROP-052,ENT-024,Source,Base URL,url,false,Primary URL of the source,active,1.0.0
+EPROP-053,ENT-024,Source,Trust Score,number,false,Trust score 0-1 used by KAS,active,1.0.0
+EPROP-054,ENT-012,Department,Department Name,string,true,Canonical department name,active,1.0.0
+EPROP-055,ENT-015,Role,Role Name,string,true,Canonical role title,active,1.0.0
+EPROP-056,ENT-016,Persona,Persona Name,string,true,Canonical persona name,active,1.0.0
+EPROP-057,ENT-021,Project,Project Name,string,true,Canonical project name,active,1.0.0
+EPROP-058,ENT-029,Contract,Contract Name,string,true,Canonical contract identifier or title,active,1.0.0
+EPROP-059,ENT-028,Proposal,Proposal Name,string,true,Canonical proposal title,active,1.0.0
+EPROP-060,ENT-027,Meeting,Meeting Title,string,true,Meeting subject,active,1.0.0
+EPROP-061,ENT-023,Document,Document Title,string,true,Document title,active,1.0.0
+EPROP-062,ENT-017,Country,Country Name,string,true,Canonical country name,active,1.0.0
+EPROP-063,ENT-017,Country,ISO Code,string,false,ISO 3166 country code,active,1.0.0
+EPROP-064,ENT-018,City,City Name,string,true,Canonical city name,active,1.0.0
+EPROP-065,ENT-032,Asset,Asset Name,string,true,Canonical asset name,active,1.0.0
+EPROP-066,ENT-035,Business Signal,Signal Name,string,true,Canonical signal name,active,1.0.0
+EPROP-067,ENT-035,Business Signal,Signal Type,string,false,Signal classification,active,1.0.0
+EPROP-068,ENT-036,Discovery Question,Question,text,true,Canonical discovery question text,active,1.0.0
+EPROP-069,ENT-036,Discovery Question,Priority,enum,false,Question priority,active,1.0.0
+EPROP-070,ENT-037,Service,Service Name,string,true,Canonical service name,active,1.0.0
+EPROP-071,ENT-038,Metric,Metric Name,string,true,Canonical metric name,active,1.0.0
+EPROP-072,ENT-002,Location,Location Name,string,true,Canonical location name,active,1.0.0
+EPROP-073,ENT-039,Policy,Policy Name,string,true,Canonical policy name,active,1.0.0
+EPROP-074,ENT-040,Dataset,Dataset Name,string,true,Canonical dataset name,active,1.0.0
+EPROP-075,ENT-001,Organization,Organization Name,string,true,Canonical organization name,active,1.0.0
+EPROP-076,ENT-033,Person,Full Name,string,true,Person full name,active,1.0.0
+EPROP-077,ENT-034,Market,Market Name,string,true,Canonical market name,active,1.0.0
+EPROP-078,ENT-013,Business Process,Process Name,string,true,Canonical process name,active,1.0.0
+EPROP-079,ENT-019,Vendor,Vendor Name,string,true,Canonical vendor name,active,1.0.0
+EPROP-080,ENT-031,Partner,Partner Name,string,true,Canonical partner name,active,1.0.0
+EPROP-081,ENT-030,Customer,Customer Name,string,true,Canonical customer account name,active,1.0.0
+EPROP-082,ENT-010,Regulation,Regulation Name,string,true,Canonical regulation name,active,1.0.0
+EPROP-083,ENT-011,Standard,Standard Name,string,true,Canonical standard name,active,1.0.0

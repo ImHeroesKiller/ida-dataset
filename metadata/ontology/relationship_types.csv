@@ -1,0 +1,21 @@
+Relationship Type ID,Relationship Type Name,Description,Default Direction,Status,Version
+RTYPE-001,HAS,Composition or possession from source to target,forward,active,1.0.0
+RTYPE-002,BELONGS_TO,Membership or classification of source under target,forward,active,1.0.0
+RTYPE-003,USES,Source consumes or operates with target,forward,active,1.0.0
+RTYPE-004,OWNS,Strong ownership of target by source,forward,active,1.0.0
+RTYPE-005,PROVIDES,Source supplies target to others,forward,active,1.0.0
+RTYPE-006,GENERATES,Source produces target as an outcome,forward,active,1.0.0
+RTYPE-007,IMPLEMENTS,Source realizes target in practice,forward,active,1.0.0
+RTYPE-008,SUPPORTS,Source enables or reinforces target,forward,active,1.0.0
+RTYPE-009,DEPENDS_ON,Source requires target to function,forward,active,1.0.0
+RTYPE-010,COMPETES_WITH,Adversarial or market competition relation,bidirectional,active,1.0.0
+RTYPE-011,REPORTS_TO,Organizational reporting line,forward,active,1.0.0
+RTYPE-012,LOCATED_IN,Geographic containment,forward,active,1.0.0
+RTYPE-013,MANAGES,Source governs or administers target,forward,active,1.0.0
+RTYPE-014,RELATED_TO,Generic non-directional association,bidirectional,active,1.0.0
+RTYPE-015,SOLVED_BY,Problem addressed by a solution,forward,active,1.0.0
+RTYPE-016,IMPLEMENTED_USING,Solution or project uses product/technology means,forward,active,1.0.0
+RTYPE-017,OFFERS,Source markets or sells target,forward,active,1.0.0
+RTYPE-018,EMPLOYS,Organization employs a person,forward,active,1.0.0
+RTYPE-019,TARGETS,"Source is aimed at a market, persona, or industry",forward,active,1.0.0
+RTYPE-020,REFERENCES,Source cites target as evidence or provenance,forward,active,1.0.0

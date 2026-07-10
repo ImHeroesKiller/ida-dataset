@@ -1,0 +1,39 @@
+Synonym ID,Synonym,Canonical Entity ID,Canonical Entity Name,Language,Notes,Status,Version
+ESYN-001,AI,ENT-008,Technology,en,Concept class mapping; specific AI products are Product instances,active,1.0.0
+ESYN-002,Artificial Intelligence,ENT-008,Technology,en,Full form of AI,active,1.0.0
+ESYN-003,Machine Learning,ENT-008,Technology,en,Related AI subfield treated as Technology concept,active,1.0.0
+ESYN-004,ML,ENT-008,Technology,en,Abbreviation for Machine Learning,active,1.0.0
+ESYN-005,HRIS,ENT-004,Product,en,Human Resource Information System product class,active,1.0.0
+ESYN-006,Human Resource Information System,ENT-004,Product,en,Full form of HRIS,active,1.0.0
+ESYN-007,ERP,ENT-004,Product,en,Enterprise Resource Planning product class,active,1.0.0
+ESYN-008,Enterprise Resource Planning,ENT-004,Product,en,Full form of ERP,active,1.0.0
+ESYN-009,CRM,ENT-004,Product,en,Customer Relationship Management product class,active,1.0.0
+ESYN-010,Customer Relationship Management,ENT-004,Product,en,Full form of CRM,active,1.0.0
+ESYN-011,CEO,ENT-015,Role,en,Chief Executive Officer role,active,1.0.0
+ESYN-012,Chief Executive Officer,ENT-015,Role,en,Full form of CEO,active,1.0.0
+ESYN-013,CTO,ENT-015,Role,en,Chief Technology Officer role,active,1.0.0
+ESYN-014,Chief Technology Officer,ENT-015,Role,en,Full form of CTO,active,1.0.0
+ESYN-015,CIO,ENT-015,Role,en,Chief Information Officer role,active,1.0.0
+ESYN-016,CFO,ENT-015,Role,en,Chief Financial Officer role,active,1.0.0
+ESYN-017,CISO,ENT-015,Role,en,Chief Information Security Officer role,active,1.0.0
+ESYN-018,Key Performance Indicator,ENT-014,KPI,en,Full form of KPI,active,1.0.0
+ESYN-019,SLA,ENT-014,KPI,en,Service level metric commonly tracked as KPI context,active,1.0.0
+ESYN-020,Service Level Agreement,ENT-029,Contract,en,Agreement construct; related metrics map to KPI,active,1.0.0
+ESYN-021,BUMN,ENT-003,Company,id,Badan Usaha Milik Negara company type context,active,1.0.0
+ESYN-022,SME,ENT-003,Company,en,Small and Medium Enterprise size class applied to Company,active,1.0.0
+ESYN-023,SMB,ENT-003,Company,en,Small and Medium Business size class applied to Company,active,1.0.0
+ESYN-024,RFI,ENT-023,Document,en,Request for Information document type,active,1.0.0
+ESYN-025,RFP,ENT-023,Document,en,Request for Proposal document type,active,1.0.0
+ESYN-026,RFQ,ENT-023,Document,en,Request for Quotation document type,active,1.0.0
+ESYN-027,PoC,ENT-021,Project,en,Proof of Concept project type,active,1.0.0
+ESYN-028,Proof of Concept,ENT-021,Project,en,Full form of PoC,active,1.0.0
+ESYN-029,MSA,ENT-029,Contract,en,Master Service Agreement,active,1.0.0
+ESYN-030,NDA,ENT-029,Contract,en,Non-Disclosure Agreement,active,1.0.0
+ESYN-031,SOW,ENT-029,Contract,en,Statement of Work,active,1.0.0
+ESYN-032,ITIL,ENT-009,Framework,en,IT Infrastructure Library framework,active,1.0.0
+ESYN-033,SPIN,ENT-009,Framework,en,SPIN selling framework,active,1.0.0
+ESYN-034,MEDDIC,ENT-009,Framework,en,MEDDIC qualification framework,active,1.0.0
+ESYN-035,ISO 27001,ENT-011,Standard,en,Information security management standard,active,1.0.0
+ESYN-036,ISO 9001,ENT-011,Standard,en,Quality management standard,active,1.0.0
+ESYN-037,GDPR,ENT-010,Regulation,en,General Data Protection Regulation,active,1.0.0
+ESYN-038,PDP,ENT-010,Regulation,id,Personal Data Protection regulation context,active,1.0.0

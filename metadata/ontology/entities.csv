@@ -1,0 +1,41 @@
+Entity ID,Entity Name,Entity Type,Entity Type ID,Category,Category ID,Description,Parent Entity,Parent Entity ID,Status,Version
+ENT-001,Organization,Master,ETYPE-001,Business,CAT-001,Generic organizational actor; conceptual parent for company specializations,,,active,1.0.0
+ENT-002,Location,Reference,ETYPE-002,Government,CAT-010,Generic geo entity; parent for country and city specializations,,,active,1.0.0
+ENT-003,Company,Master,ETYPE-001,Business,CAT-001,"A legally recognized organization that buys, sells, or partners",,,active,1.0.0
+ENT-004,Product,Master,ETYPE-001,Business,CAT-001,A sellable product or packaged service offered to customers,,,active,1.0.0
+ENT-005,Industry,Reference,ETYPE-002,Business,CAT-001,A sector classification describing a company market context,,,active,1.0.0
+ENT-006,Solution,Knowledge,ETYPE-004,Business,CAT-001,A structured approach that resolves one or more pain points using products and methods,,,active,1.0.0
+ENT-007,Pain Point,Knowledge,ETYPE-004,Business,CAT-001,A business problem or friction experienced by a customer or market,,,active,1.0.0
+ENT-008,Technology,Reference,ETYPE-002,Technology,CAT-002,"A technology, platform, or tool used by organizations",,,active,1.0.0
+ENT-009,Framework,Knowledge,ETYPE-004,Business,CAT-001,A reusable methodology or structured thinking model,,,active,1.0.0
+ENT-010,Regulation,Reference,ETYPE-002,Legal,CAT-005,A binding regulatory requirement issued by an authority,,,active,1.0.0
+ENT-011,Standard,Reference,ETYPE-002,Legal,CAT-005,A formal or de-facto standard used for compliance or interoperability,,,active,1.0.0
+ENT-012,Department,Reference,ETYPE-002,Business,CAT-001,An organizational unit within a company,,,active,1.0.0
+ENT-013,Business Process,Knowledge,ETYPE-004,Operations,CAT-006,A sequence of activities that produces a business outcome,,,active,1.0.0
+ENT-014,KPI,Reference,ETYPE-002,Executive,CAT-009,A key performance indicator used to measure outcomes,,,active,1.0.0
+ENT-015,Role,Reference,ETYPE-002,HR,CAT-004,A formal responsibility within an organization,,,active,1.0.0
+ENT-016,Persona,Knowledge,ETYPE-004,Sales,CAT-008,A generalized buyer or stakeholder profile used in discovery and messaging,,,active,1.0.0
+ENT-017,Country,Reference,ETYPE-002,Government,CAT-010,A sovereign country used for geo-normalization,Location,ENT-002,active,1.0.0
+ENT-018,City,Reference,ETYPE-002,Government,CAT-010,A city or metropolitan location,Location,ENT-002,active,1.0.0
+ENT-019,Vendor,External,ETYPE-005,Business,CAT-001,An external provider that supplies goods or services,Company,ENT-003,active,1.0.0
+ENT-020,Competitor,External,ETYPE-005,Business,CAT-001,An organization that competes for the same customer demand,Company,ENT-003,active,1.0.0
+ENT-021,Project,Transactional,ETYPE-003,Operations,CAT-006,A time-bounded delivery initiative,,,active,1.0.0
+ENT-022,Case Study,Knowledge,ETYPE-004,Business,CAT-001,A documented proof of value from a real engagement,,,active,1.0.0
+ENT-023,Document,Knowledge,ETYPE-004,Knowledge Management,CAT-016,A knowledge-bearing document artifact,,,active,1.0.0
+ENT-024,Source,External,ETYPE-005,Knowledge Management,CAT-016,A provenance source used for knowledge acquisition,,,active,1.0.0
+ENT-025,Risk,Knowledge,ETYPE-004,Security,CAT-011,A potential adverse event or exposure,,,active,1.0.0
+ENT-026,Opportunity,Transactional,ETYPE-003,Sales,CAT-008,A qualified commercial opportunity with a customer,,,active,1.0.0
+ENT-027,Meeting,Transactional,ETYPE-003,Sales,CAT-008,A scheduled or completed interaction with stakeholders,,,active,1.0.0
+ENT-028,Proposal,Transactional,ETYPE-003,Sales,CAT-008,A commercial proposal offered to a customer,,,active,1.0.0
+ENT-029,Contract,Transactional,ETYPE-003,Legal,CAT-005,A binding commercial agreement,,,active,1.0.0
+ENT-030,Customer,Master,ETYPE-001,Business,CAT-001,A company or account with a buying relationship,Company,ENT-003,active,1.0.0
+ENT-031,Partner,External,ETYPE-005,Business,CAT-001,An alliance or channel partner organization,Company,ENT-003,active,1.0.0
+ENT-032,Asset,Master,ETYPE-001,Infrastructure,CAT-012,A managed physical or digital asset,,,active,1.0.0
+ENT-033,Person,Master,ETYPE-001,HR,CAT-004,An individual human actor,,,active,1.0.0
+ENT-034,Market,Reference,ETYPE-002,Business,CAT-001,"A market segment defined by industry, geography, or need",,,active,1.0.0
+ENT-035,Business Signal,Knowledge,ETYPE-004,Marketing,CAT-007,An observable market or account signal that may indicate opportunity,,,active,1.0.0
+ENT-036,Discovery Question,Knowledge,ETYPE-004,Sales,CAT-008,A reusable question used during discovery conversations,,,active,1.0.0
+ENT-037,Service,Master,ETYPE-001,Business,CAT-001,"A delivered service capability, often productized",Product,ENT-004,active,1.0.0
+ENT-038,Metric,Reference,ETYPE-002,Executive,CAT-009,A quantitative measure; may underpin KPIs,,,active,1.0.0
+ENT-039,Policy,Configuration,ETYPE-007,Legal,CAT-005,A governing rule applied to process or system behavior,,,active,1.0.0
+ENT-040,Dataset,System,ETYPE-006,Knowledge Management,CAT-016,A named dataset within the IDA knowledge repository,,,active,1.0.0
