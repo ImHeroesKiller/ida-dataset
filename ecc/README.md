@@ -3,6 +3,9 @@
 The Executive Control Center Next.js app was moved to the **repository root**
 so Vercel auto-detects Next.js without a subdirectory Root Directory setting.
 
+Build output uses the default **`.next`** directory (not `ecc/.next`).
+Do **not** set Output Directory in Vercel project settings.
+
 Run from repo root:
 
 ```bash

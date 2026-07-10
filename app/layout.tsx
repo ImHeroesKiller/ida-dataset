@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ChunkErrorRecovery } from "@/components/chunk-error-recovery";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${inter.variable}`} suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen antialiased`}>
+        <ChunkErrorRecovery />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

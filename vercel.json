@@ -3,6 +3,6 @@
   "framework": "nextjs",
   "installCommand": "npm install",
   "buildCommand": "npm run build",
-  "outputDirectory": "ecc/.next",
-  "regions": ["sin1"]
+  "regions": ["sin1"],
+  "ignoreCommand": "bash scripts/vercel-ignore-build.sh"
 }

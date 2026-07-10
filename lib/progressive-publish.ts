@@ -13,16 +13,35 @@ function nowIso(): string {
   return new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
 }
 
+/** True on Vercel / any read-only serverless FS — never write state files. */
+function isReadOnlyFs(): boolean {
+  return Boolean(process.env.VERCEL) || process.env.IDA_READ_ONLY_FS === "1";
+}
+
 function writeJson(file: string, data: unknown): void {
-  fs.mkdirSync(path.dirname(file), { recursive: true });
-  const tmp = `${file}.tmp.${process.pid}`;
-  fs.writeFileSync(tmp, JSON.stringify(data, null, 2) + "\n", "utf8");
-  fs.renameSync(tmp, file);
+  if (isReadOnlyFs()) return;
+  try {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    const tmp = `${file}.tmp.${process.pid}`;
+    fs.writeFileSync(tmp, JSON.stringify(data, null, 2) + "\n", "utf8");
+    fs.renameSync(tmp, file);
+  } catch (e) {
+    const err = e as NodeJS.ErrnoException;
+    if (err?.code === "EROFS" || err?.code === "EACCES") return;
+    throw e;
+  }
 }
 
 function appendJsonl(file: string, row: unknown): void {
-  fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.appendFileSync(file, JSON.stringify(row) + "\n", "utf8");
+  if (isReadOnlyFs()) return;
+  try {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.appendFileSync(file, JSON.stringify(row) + "\n", "utf8");
+  } catch (e) {
+    const err = e as NodeJS.ErrnoException;
+    if (err?.code === "EROFS" || err?.code === "EACCES") return;
+    throw e;
+  }
 }
 
 export function publishQueueDir(): string {
@@ -530,14 +549,55 @@ export function maybeAutoPublishTick(): PublishState {
 
 export function getPublishDashboard(): PublishStateView {
   const mode = getLearningMode();
-  // Development: auto-move pending into publish queue + rate-limited tick
-  if (mode.auto_publish) {
-    maybeAutoPublishTick();
-  } else {
-    recomputeState();
+  // Never mutate FS on GET when the host is read-only (Vercel serverless).
+  // Local dev: auto-move pending into publish queue + rate-limited tick.
+  if (!isReadOnlyFs()) {
+    try {
+      if (mode.auto_publish) {
+        maybeAutoPublishTick();
+      } else {
+        recomputeState();
+      }
+    } catch (e) {
+      const err = e as NodeJS.ErrnoException;
+      if (err?.code !== "EROFS" && err?.code !== "EACCES") throw e;
+    }
   }
-  const state = readPublishState();
-  const queue = listPublishFiles().map((f) => {
+
+  // In-memory dashboard view (safe on read-only FS).
+  const prev = readPublishState();
+  const files = listPublishFiles();
+  const remaining = files.length;
+  const next = files[0]
+    ? loadCandidateFromFile(path.join(publishQueueDir(), files[0]))
+    : null;
+  const speed = mode.publish_rate || 1;
+  const state: PublishState = {
+    ...prev,
+    remaining,
+    speed,
+    unit: mode.publish_rate_unit,
+    eta_seconds:
+      remaining === 0 || speed <= 0 ? 0 : Math.ceil(remaining / speed),
+    next_knowledge: next
+      ? String(next.canonical_name || next.entity_id)
+      : null,
+    current_dataset: next?.target_dataset || prev.current_dataset,
+    updated_at: nowIso(),
+    mode: mode.mode,
+    auto_publish: mode.auto_publish,
+    total: Math.max(prev.total, prev.published + remaining),
+    status:
+      remaining > 0
+        ? prev.status === "publishing"
+          ? "publishing"
+          : "idle"
+        : prev.published > 0
+          ? "completed"
+          : "idle",
+  };
+
+  const queue = files.map((f) => {
     const c = loadCandidateFromFile(path.join(publishQueueDir(), f));
     return {
       candidate_id: c?.candidate_id || f.replace(/\.json$/, ""),

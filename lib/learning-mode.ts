@@ -42,6 +42,11 @@ export function getLearningMode(): LearningModeConfig {
   const block = (raw.learning_mode || {}) as Record<string, unknown>;
   const envMode = (process.env.IDA_LEARNING_MODE || "").toLowerCase();
   let mode = String(block.mode || "development").toLowerCase();
+  // Vercel is always a read-only production host unless explicitly overridden.
+  // Prevents auto_publish GET side-effects (EROFS on publish_state.json).
+  if (process.env.VERCEL && envMode !== "development") {
+    mode = "production";
+  }
   if (envMode === "production" || envMode === "development") mode = envMode;
   if (mode !== "production") mode = "development";
 

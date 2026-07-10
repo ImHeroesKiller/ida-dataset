@@ -242,7 +242,7 @@ export async function withApiJson(
       exception: err.name || "Error",
       stack_trace: err.stack,
       recovery_suggestion:
-        "Inspect server logs and GET /api/runtime/debug for the last exception.",
+        "Inspect server logs and GET /api/sessions for the latest session diagnostics.",
       recovery_action: "inspect_runtime_debug",
       httpStatus: 500,
     });
