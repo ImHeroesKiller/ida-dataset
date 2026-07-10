@@ -255,6 +255,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
     candidates_queued: 0,
   };
   const production = exec?.production;
+  const discovery = exec?.discovery;
 
   const coverage = exec?.coverage || [];
   const feed = exec?.knowledge_feed || [];
@@ -512,6 +513,34 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
             {String(production.publish_balance.duplicate ?? "—")}
           </div>
         ) : null}
+      </Card>
+
+      {/* Discovery metrics — real analytics only; search engines are not knowledge sources */}
+      <Card>
+        <CardHeader
+          title="Knowledge discovery"
+          description="Discovery tools find URLs · knowledge comes only from trusted sources"
+        />
+        <CardBody className="grid gap-3 p-6 sm:grid-cols-2 lg:grid-cols-5">
+          <CounterCard label="Queries (last run)" value={discovery?.queries_today || 0} tone="blue" />
+          <CounterCard label="URLs found" value={discovery?.urls_found || 0} tone="blue" />
+          <CounterCard label="URLs accepted" value={discovery?.urls_accepted || 0} tone="green" />
+          <CounterCard label="URLs rejected" value={discovery?.urls_rejected || 0} tone="neutral" />
+          <CounterCard
+            label="Providers ready"
+            value={discovery?.providers_ready || 0}
+            tone="blue"
+          />
+        </CardBody>
+        <div className="grid gap-3 border-t border-[var(--border)] px-6 py-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Stat label="Top discovery provider" value={String(discovery?.top_provider || "—")} />
+          <Stat label="Top trusted source" value={String(discovery?.top_trusted_source || "—")} />
+          <Stat label="Providers offline" value={String(discovery?.providers_offline ?? "—")} />
+          <Stat
+            label="Top producing connector"
+            value={String(production?.last_connector || "—")}
+          />
+        </div>
       </Card>
 
       {/* PANEL 3 — Dataset coverage */}

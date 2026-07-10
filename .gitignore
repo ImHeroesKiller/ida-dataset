@@ -87,3 +87,6 @@ automation/queue/candidates/**
 !reports/performance/**
 !automation/learning/state/source_performance.json
 !automation/learning/state/acquisition_performance.json
+!reports/discovery/
+!reports/discovery/**
+!automation/learning/state/discovery_analytics.json

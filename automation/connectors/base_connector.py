@@ -88,13 +88,20 @@ class BaseConnector(ABC):
         return list(self.config.get("blocked_domains") or [])
 
     def domain_allowed(self, url: str) -> bool:
-        host = (urlparse(url).hostname or "").lower().lstrip("www.")
+        host = (urlparse(url).hostname or "").lower()
+        if host.startswith("www."):
+            host = host[4:]
         if not host and url.startswith("file:"):
             return True
-        blocked = {d.lower().lstrip("www.") for d in self.blocked_domains()}
+
+        def _norm(d: str) -> str:
+            d = (d or "").lower()
+            return d[4:] if d.startswith("www.") else d
+
+        blocked = {_norm(d) for d in self.blocked_domains()}
         if host in blocked or any(host.endswith("." + b) for b in blocked):
             return False
-        allowed = {d.lower().lstrip("www.") for d in self.allowed_domains()}
+        allowed = {_norm(d) for d in self.allowed_domains()}
         if not allowed:
             # empty allow-list: only internal/local style connectors may proceed
             return self.connector_type in {"internal", "rss"} or url.startswith("file:")

@@ -1,0 +1,268 @@
+# Discovery Provider Registry — NOT trusted knowledge sources.
+# Search engines only discover URLs. Knowledge is extracted only from
+# domains verified against source_registry.yaml (Trusted Source Registry).
+#
+# Credentials: environment variables only. Providers auto-disable without keys.
+
+version: "1.0"
+description: "Discovery tools for finding candidate documents on trusted domains"
+
+defaults:
+  enabled: true
+  priority: 50
+  rate_limit: 10
+  timeout: 20
+  daily_quota: 100
+  cost_per_request: 0
+  supports_site_filter: true
+  supports_date_filter: false
+  supports_language_filter: false
+  supports_country_filter: false
+  authentication: none
+  status: idle
+  health: unknown
+
+providers:
+  - id: DISC-GOOGLE-CSE
+    name: Google Programmable Search
+    enabled: true
+    priority: 90
+    api_type: google_cse
+    authentication: api_key
+    base_url: https://www.googleapis.com/customsearch/v1
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 20
+    daily_quota: 100
+    cost_per_request: 0.005
+    supports_site_filter: true
+    supports_date_filter: true
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_ENGINE_ID]
+    status: idle
+    health: unknown
+
+  - id: DISC-BING
+    name: Bing Web Search API
+    enabled: true
+    priority: 85
+    api_type: bing
+    authentication: api_key
+    base_url: https://api.bing.microsoft.com/v7.0/search
+    query_template: "{query}"
+    rate_limit: 30
+    timeout: 20
+    daily_quota: 1000
+    cost_per_request: 0
+    supports_site_filter: true
+    supports_date_filter: true
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [BING_SEARCH_API_KEY]
+    status: idle
+    health: unknown
+
+  - id: DISC-BRAVE
+    name: Brave Search API
+    enabled: true
+    priority: 80
+    api_type: brave
+    authentication: api_key
+    base_url: https://api.search.brave.com/res/v1/web/search
+    query_template: "{query}"
+    rate_limit: 20
+    timeout: 20
+    daily_quota: 2000
+    cost_per_request: 0
+    supports_site_filter: true
+    supports_date_filter: false
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [BRAVE_SEARCH_API_KEY]
+    status: idle
+    health: unknown
+
+  - id: DISC-SERPAPI
+    name: SerpAPI
+    enabled: true
+    priority: 75
+    api_type: serpapi
+    authentication: api_key
+    base_url: https://serpapi.com/search.json
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 25
+    daily_quota: 100
+    cost_per_request: 0.01
+    supports_site_filter: true
+    supports_date_filter: true
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [SERPAPI_API_KEY]
+    status: idle
+    health: unknown
+
+  - id: DISC-TAVILY
+    name: Tavily
+    enabled: true
+    priority: 78
+    api_type: tavily
+    authentication: api_key
+    base_url: https://api.tavily.com/search
+    query_template: "{query}"
+    rate_limit: 20
+    timeout: 25
+    daily_quota: 1000
+    cost_per_request: 0
+    supports_site_filter: true
+    supports_date_filter: false
+    supports_language_filter: false
+    supports_country_filter: false
+    env_keys: [TAVILY_API_KEY]
+    status: idle
+    health: unknown
+
+  - id: DISC-YANDEX
+    name: Yandex XML Search
+    enabled: true
+    priority: 60
+    api_type: yandex
+    authentication: api_key
+    base_url: https://yandex.com/search/xml
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 20
+    daily_quota: 100
+    cost_per_request: 0
+    supports_site_filter: true
+    supports_date_filter: false
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [YANDEX_API_KEY]
+    status: idle
+    health: unknown
+
+  - id: DISC-COMMONCRAWL
+    name: Common Crawl Index
+    enabled: true
+    priority: 55
+    api_type: commoncrawl
+    authentication: none
+    base_url: https://index.commoncrawl.org
+    query_template: "{query}"
+    rate_limit: 5
+    timeout: 30
+    daily_quota: 500
+    cost_per_request: 0
+    supports_site_filter: true
+    supports_date_filter: false
+    supports_language_filter: false
+    supports_country_filter: false
+    env_keys: [COMMONCRAWL_ENABLED]
+    status: idle
+    health: unknown
+    notes: "Set COMMONCRAWL_ENABLED=1 to enable free index search"
+
+  - id: DISC-RSS
+    name: RSS Discovery
+    enabled: true
+    priority: 70
+    api_type: rss
+    authentication: none
+    base_url: ""
+    query_template: "{query}"
+    rate_limit: 30
+    timeout: 15
+    daily_quota: 10000
+    cost_per_request: 0
+    supports_site_filter: false
+    supports_date_filter: false
+    supports_language_filter: false
+    supports_country_filter: false
+    env_keys: [RSS_ENABLED]
+    status: idle
+    health: unknown
+    notes: "Enabled by default; set RSS_ENABLED=0 to disable"
+
+  - id: DISC-ATOM
+    name: Atom Discovery
+    enabled: true
+    priority: 68
+    api_type: atom
+    authentication: none
+    base_url: ""
+    query_template: "{query}"
+    rate_limit: 30
+    timeout: 15
+    daily_quota: 10000
+    cost_per_request: 0
+    supports_site_filter: false
+    supports_date_filter: false
+    supports_language_filter: false
+    supports_country_filter: false
+    env_keys: [ATOM_ENABLED]
+    status: idle
+    health: unknown
+
+  - id: DISC-SITEMAP
+    name: Sitemap Discovery
+    enabled: true
+    priority: 72
+    api_type: sitemap
+    authentication: none
+    base_url: ""
+    query_template: "{query}"
+    rate_limit: 20
+    timeout: 20
+    daily_quota: 5000
+    cost_per_request: 0
+    supports_site_filter: false
+    supports_date_filter: false
+    supports_language_filter: false
+    supports_country_filter: false
+    env_keys: [SITEMAP_ENABLED]
+    status: idle
+    health: unknown
+
+  - id: DISC-OPENSEARCH
+    name: OpenSearch Description
+    enabled: true
+    priority: 50
+    api_type: opensearch
+    authentication: none
+    base_url: ""
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 15
+    daily_quota: 1000
+    cost_per_request: 0
+    supports_site_filter: false
+    supports_date_filter: false
+    supports_language_filter: false
+    supports_country_filter: false
+    env_keys: []
+    status: idle
+    health: unknown
+    notes: "Uses trusted source OpenSearch endpoints when declared"
+
+  - id: DISC-TRUSTED-SITE
+    name: Trusted Site Search (connector-backed)
+    enabled: true
+    priority: 95
+    api_type: trusted_site
+    authentication: none
+    base_url: ""
+    query_template: "site:{domain} {query}"
+    rate_limit: 60
+    timeout: 10
+    daily_quota: 100000
+    cost_per_request: 0
+    supports_site_filter: true
+    supports_date_filter: false
+    supports_language_filter: false
+    supports_country_filter: false
+    env_keys: []
+    status: idle
+    health: healthy
+    notes: "Always available — generates site: queries for verified domains; connectors fulfill fetch"

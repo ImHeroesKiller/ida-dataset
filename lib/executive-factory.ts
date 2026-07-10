@@ -209,6 +209,17 @@ export type ExecutiveFactoryView = {
     publish_balance: Record<string, unknown> | null;
     connectors: Array<Record<string, unknown>>;
   };
+  /** Discovery layer analytics (search engines = discovery only) */
+  discovery: {
+    queries_today: number;
+    urls_found: number;
+    urls_accepted: number;
+    urls_rejected: number;
+    top_provider: string;
+    top_trusted_source: string;
+    providers_ready: number;
+    providers_offline: number;
+  };
   coverage: Array<{
     key: string;
     label: string;
@@ -315,6 +326,8 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
 
   const productionTrace =
     readJson(repoPath("automation/learning/state/production_trace.json")) || {};
+  const discoveryAnalytics =
+    readJson(repoPath("automation/learning/state/discovery_analytics.json")) || {};
   const currentSource = String(
     activity.current_source ||
       productionTrace.current_connector ||
@@ -615,6 +628,60 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
         ? (productionTrace.connectors as Array<Record<string, unknown>>).slice(0, 12)
         : [],
     },
+    discovery: (() => {
+      const providers = Array.isArray(discoveryAnalytics.providers)
+        ? (discoveryAnalytics.providers as Array<Record<string, unknown>>)
+        : [];
+      const ready = providers.filter(
+        (p) =>
+          p.credentials_available === true ||
+          p.status === "ready" ||
+          ["rss", "atom", "sitemap", "trusted_site"].includes(String(p.api_type || ""))
+      ).length;
+      const offline = providers.filter(
+        (p) =>
+          p.credentials_available === false ||
+          String((p.health as { status?: string } | undefined)?.status || "") ===
+            "offline"
+      ).length;
+      // top provider by urls
+      let topProvider = "—";
+      let topUrls = -1;
+      for (const p of providers) {
+        const u = Number(p.urls || 0);
+        if (u > topUrls) {
+          topUrls = u;
+          topProvider = String(p.name || p.provider_id || "—");
+        }
+      }
+      // top trusted source by accepted url attribution
+      const usage: Record<string, number> = {};
+      for (const a of (discoveryAnalytics.accepted_urls || []) as Array<
+        Record<string, unknown>
+      >) {
+        const sid = String(a.source_id || "");
+        if (!sid) continue;
+        usage[sid] = (usage[sid] || 0) + 1;
+      }
+      let topSource = "—";
+      let topN = -1;
+      for (const [sid, n] of Object.entries(usage)) {
+        if (n > topN) {
+          topN = n;
+          topSource = sid;
+        }
+      }
+      return {
+        queries_today: Number(discoveryAnalytics.queries_executed || 0),
+        urls_found: Number(discoveryAnalytics.urls_discovered || 0),
+        urls_accepted: Number(discoveryAnalytics.urls_accepted || 0),
+        urls_rejected: Number(discoveryAnalytics.urls_rejected || 0),
+        top_provider: topProvider,
+        top_trusted_source: topSource,
+        providers_ready: ready,
+        providers_offline: offline,
+      };
+    })(),
     coverage,
     knowledge_feed: knowledge_feed.slice(0, 24),
     heartbeat: {

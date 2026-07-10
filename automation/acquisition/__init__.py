@@ -6,6 +6,7 @@ from .trace import ProductionTrace, load_latest_trace
 from .source_ranker import rank_sources, record_source_performance
 from .download_manager import DownloadManager
 from .performance import PerformanceCollector
+from .discovery_pkg import run_discovery, DiscoveryRegistry
 
 __all__ = [
     "run_acquisition",
@@ -17,4 +18,6 @@ __all__ = [
     "record_source_performance",
     "DownloadManager",
     "PerformanceCollector",
+    "run_discovery",
+    "DiscoveryRegistry",
 ]

@@ -169,11 +169,48 @@ def run_acquisition(
     if "indonesia" not in query_text.lower():
         query_text = f"{query_text} Indonesia"
 
+    # --- Discovery Layer (search engines discover URLs only) ---
+    discovery_pack: dict[str, Any] = {}
+    try:
+        from automation.acquisition.discovery_pkg.layer import run_discovery
+
+        emit("Discovery", "Running knowledge discovery layer (trusted domains only)")
+        discovery_pack = run_discovery(
+            instruction=instruction,
+            dataset=dataset,
+            mission_id=mission_id,
+            session_id=session_id,
+            repo_root=root,
+            max_queries=16,
+            max_urls=20,
+            log=emit,
+        )
+        audit["discovery"] = {
+            "knowledge_gap": discovery_pack.get("knowledge_gap"),
+            "queries_generated": len(discovery_pack.get("queries") or []),
+            "urls_discovered": (discovery_pack.get("analytics") or {}).get("urls_discovered"),
+            "urls_accepted": (discovery_pack.get("analytics") or {}).get("urls_accepted"),
+            "urls_rejected": (discovery_pack.get("analytics") or {}).get("urls_rejected"),
+            "providers": discovery_pack.get("providers"),
+        }
+        gap = discovery_pack.get("knowledge_gap") or {}
+        emit(
+            "Knowledge Gap",
+            f"{gap.get('dataset')}: coverage {gap.get('coverage_pct')}% · gap={gap.get('gap_rows')}",
+        )
+    except Exception as exc:  # noqa: BLE001
+        audit["failures"].append(f"discovery_layer:{exc}")
+        emit("Discovery", f"Discovery layer skipped: {exc}")
+        discovery_pack = {}
+
     # --- Connector search (async workers, rate-limit aware via manager) ---
     trace.start_stage("connector")
     trace.start_stage("document_discovery")
     all_results: list[Any] = []
     connector_rows: list[dict[str, Any]] = []
+    # Seed with discovery-accepted URLs (already trusted-filter verified)
+    for res in discovery_pack.get("search_results") or []:
+        all_results.append(res)
 
     def _search_one(cid: str) -> tuple[str, dict[str, Any], list[Any]]:
         cfg = enabled_cfgs.get(cid) or {}

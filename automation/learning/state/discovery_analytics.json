@@ -1,0 +1,412 @@
+{
+  "started_at": "2026-07-10T18:15:49+00:00",
+  "mission_id": "MIS-DISC-E2E",
+  "session_id": "SES-DISC-E2E",
+  "instruction": "Expand Outsourcing Indonesia",
+  "dataset": "industry_library",
+  "knowledge_gap": {
+    "dataset": "industry_library",
+    "current_rows": 52,
+    "target_rows": 250,
+    "gap_rows": 198,
+    "coverage_pct": 20.8,
+    "priority": "high"
+  },
+  "queries_generated": 15,
+  "queries_executed": 22,
+  "urls_discovered": 9,
+  "urls_accepted": 3,
+  "urls_rejected": 6,
+  "duplicate_urls": 6,
+  "elapsed_ms": 36225.8,
+  "providers": [
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "name": "Trusted Site Search (connector-backed)",
+      "api_type": "trusted_site",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "always_available"
+      },
+      "queries": 12,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "ready",
+      "credentials_available": true
+    },
+    {
+      "provider_id": "DISC-SITEMAP",
+      "name": "Sitemap Discovery",
+      "api_type": "sitemap",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "feed_discovery"
+      },
+      "queries": 1,
+      "urls": 3,
+      "cache_hits": 0,
+      "elapsed_ms": 10625.2,
+      "status": "ready",
+      "credentials_available": true
+    },
+    {
+      "provider_id": "DISC-RSS",
+      "name": "RSS Discovery",
+      "api_type": "rss",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "feed_discovery"
+      },
+      "queries": 1,
+      "urls": 3,
+      "cache_hits": 0,
+      "elapsed_ms": 12530.1,
+      "status": "ready",
+      "credentials_available": true
+    },
+    {
+      "provider_id": "DISC-ATOM",
+      "name": "Atom Discovery",
+      "api_type": "atom",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "feed_discovery"
+      },
+      "queries": 1,
+      "urls": 3,
+      "cache_hits": 0,
+      "elapsed_ms": 13054.5,
+      "status": "ready",
+      "credentials_available": true
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "name": "OpenSearch Description",
+      "api_type": "opensearch",
+      "health": {
+        "ok": true,
+        "status": "idle",
+        "message": "optional"
+      },
+      "queries": 7,
+      "urls": 0,
+      "cache_hits": 7,
+      "elapsed_ms": 0.0,
+      "status": "ready",
+      "credentials_available": true
+    }
+  ],
+  "query_stats": [
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:bps.go.id outsourcing indonesia",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:bps.go.id intitle:outsourcing outsourcing indonesia",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:kemenperin.go.id outsourcing indonesia",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:kemenperin.go.id intitle:outsourcing outsourcing indonesia",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:orldbank.org outsourcing indonesia",
+      "domain": "orldbank.org",
+      "source_id": "SRC-000004",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:orldbank.org intitle:outsourcing outsourcing indonesia",
+      "domain": "orldbank.org",
+      "source_id": "SRC-000004",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:adb.org outsourcing indonesia",
+      "domain": "adb.org",
+      "source_id": "SRC-000006",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:adb.org intitle:outsourcing outsourcing indonesia",
+      "domain": "adb.org",
+      "source_id": "SRC-000006",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:oecd.org outsourcing indonesia",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:oecd.org intitle:outsourcing outsourcing indonesia",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:crossref.org outsourcing indonesia",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:crossref.org intitle:outsourcing outsourcing indonesia",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-SITEMAP",
+      "query": "sitemap:trusted_feeds",
+      "urls": 3,
+      "elapsed_ms": 10625.2
+    },
+    {
+      "provider_id": "DISC-RSS",
+      "query": "rss:trusted_feeds",
+      "urls": 3,
+      "elapsed_ms": 12530.1
+    },
+    {
+      "provider_id": "DISC-ATOM",
+      "query": "atom:trusted_feeds",
+      "urls": 3,
+      "elapsed_ms": 13054.5
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:bps.go.id outsourcing indonesia",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": true
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:kemenperin.go.id outsourcing indonesia",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": true
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:orldbank.org outsourcing indonesia",
+      "domain": "orldbank.org",
+      "source_id": "SRC-000004",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": true
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:adb.org outsourcing indonesia",
+      "domain": "adb.org",
+      "source_id": "SRC-000006",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": true
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:oecd.org outsourcing indonesia",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": true
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:crossref.org outsourcing indonesia",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": true
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:openalex.org outsourcing indonesia",
+      "domain": "openalex.org",
+      "source_id": "SRC-OPENALEX",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": true
+    }
+  ],
+  "reputation_top": [
+    {
+      "id": "SRC-000001",
+      "name": "BPS Indonesia",
+      "reputation": 110.125,
+      "score": 106.029,
+      "authority": 1.0
+    },
+    {
+      "id": "SRC-000007",
+      "name": "Kemenperin",
+      "reputation": 104.735,
+      "score": 99.688,
+      "authority": 1.0
+    },
+    {
+      "id": "SRC-000004",
+      "name": "World Bank",
+      "reputation": 103.198,
+      "score": 99.057,
+      "authority": 0.95
+    },
+    {
+      "id": "SRC-000006",
+      "name": "Asian Development Bank",
+      "reputation": 101.291,
+      "score": 96.813,
+      "authority": 0.95
+    },
+    {
+      "id": "SRC-000005",
+      "name": "OECD",
+      "reputation": 99.293,
+      "score": 94.462,
+      "authority": 0.95
+    },
+    {
+      "id": "SRC-CROSSREF",
+      "name": "Crossref",
+      "reputation": 91.94,
+      "score": 86.988,
+      "authority": 0.9
+    },
+    {
+      "id": "SRC-OPENALEX",
+      "name": "OpenAlex",
+      "reputation": 91.26,
+      "score": 86.188,
+      "authority": 0.9
+    }
+  ],
+  "accepted_urls": [
+    {
+      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-SITEMAP",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-SITEMAP",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/members-area/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-SITEMAP",
+      "title": ""
+    }
+  ],
+  "rejected_urls": [
+    {
+      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.crossref.org/members-area/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-ATOM"
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-ATOM"
+    },
+    {
+      "url": "https://www.crossref.org/members-area/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-ATOM"
+    }
+  ],
+  "cache": {
+    "hits": 7,
+    "misses": 7,
+    "stores": 7,
+    "cached_queries": 7,
+    "cached_urls": 0
+  },
+  "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
+}

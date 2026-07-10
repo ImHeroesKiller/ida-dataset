@@ -173,13 +173,18 @@ class HumanController:
         host = url_or_domain.lower().strip()
         if "://" in host:
             host = urlparse(host).hostname or host
-        host = host.lstrip("www.")
 
-        blacklist = {d.lower().lstrip("www.") for d in self.domain_blacklist()}
+        def _norm(d: str) -> str:
+            d = (d or "").lower()
+            return d[4:] if d.startswith("www.") else d
+
+        host = _norm(host)
+
+        blacklist = {_norm(d) for d in self.domain_blacklist()}
         if host in blacklist or any(host.endswith("." + b) for b in blacklist):
             return False
 
-        whitelist = {d.lower().lstrip("www.") for d in self.domain_whitelist()}
+        whitelist = {_norm(d) for d in self.domain_whitelist()}
         if not whitelist:
             return True
         return host in whitelist or any(host.endswith("." + w) for w in whitelist)

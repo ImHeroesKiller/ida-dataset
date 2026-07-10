@@ -770,3 +770,543 @@ sources:
     publish: true
     archive_documents: true
     notes: IDX public disclosures — connector interface ready
+
+  - id: SRC-IFC
+    name: IFC
+    category: international_organization
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.ifc.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.91
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-WTO
+    name: World Trade Organization
+    category: international_organization
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.wto.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.91
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-ITU
+    name: ITU
+    category: international_organization
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.itu.int
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.9
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-SEMANTIC
+    name: Semantic Scholar
+    category: scientific_api
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.semanticscholar.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.86
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-CORE
+    name: CORE
+    category: scientific_api
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://core.ac.uk
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.85
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-DOAJ
+    name: DOAJ
+    category: scientific_api
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://doaj.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.85
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-PUBMED
+    name: PubMed
+    category: scientific_api
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://pubmed.ncbi.nlm.nih.gov
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.9
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-SSRN
+    name: SSRN
+    category: scientific_api
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.ssrn.com
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.84
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-ARXIV
+    name: arXiv
+    category: scientific_api
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://arxiv.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-BI
+    name: Bank Indonesia
+    category: government
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.bi.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.93
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-KOMINFO
+    name: Kominfo
+    category: government
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.kominfo.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-KEMENKES
+    name: Kemenkes
+    category: government
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.kemkes.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-GSMA
+    name: GSMA
+    category: industry_association
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.gsma.com
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.84
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-IEEE
+    name: IEEE
+    category: industry_association
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.ieee.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-ISO
+    name: ISO
+    category: industry_association
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.iso.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.9
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-LINUXF
+    name: Linux Foundation
+    category: industry_association
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.linuxfoundation.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.84
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-CNCF
+    name: CNCF
+    category: industry_association
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.cncf.io
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.84
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  - id: SRC-OPENSSF
+    name: OpenSSF
+    category: industry_association
+    enabled: false
+    priority: 60
+    collector: generic_website
+    connector_id: null
+    base_url: https://openssf.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.84
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"

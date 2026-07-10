@@ -190,7 +190,8 @@ def extract_industry_candidates(
                     f"source_ids={source_id}; urls={url}; "
                     f"published={published}; retrieved={retrieved}; "
                     f"confidence={conf:.2f}; version={EXTRACTION_VERSION}; "
-                    f"country={country or 'multi'}; matched_alias={alias}"
+                    f"country={country or 'multi'}; matched_alias={alias}; "
+                    f"discovery_provider={(doc.get('metadata') or {}).get('discovery_provider') or 'connector'}"
                 ),
                 "Last Updated": utc_now_iso()[:10],
                 "Notes": (
@@ -198,6 +199,7 @@ def extract_industry_candidates(
                     f"retrieved_date={retrieved}; confidence={conf:.2f}; "
                     f"version={EXTRACTION_VERSION}; mission={mission_id}; "
                     f"document={doc.get('document_id')}; entity={name}; "
+                    f"discovery_provider={(doc.get('metadata') or {}).get('discovery_provider') or 'connector'}; "
                     f"append_only=true; extraction=grounded_text; "
                     f"evidence={evidence_blob[:400]}"
                 ),
@@ -296,11 +298,14 @@ def extract_business_signal_candidates(
             "Version": EXTRACTION_VERSION,
             "Data Sources": (
                 f"source_ids={source_id}; urls={url}; published={published}; "
-                f"retrieved={retrieved}; confidence={conf:.2f}; version={EXTRACTION_VERSION}"
+                f"retrieved={retrieved}; confidence={conf:.2f}; version={EXTRACTION_VERSION}; "
+                f"discovery_provider={(doc.get('metadata') or {}).get('discovery_provider') or 'connector'}"
             ),
             "Notes": (
                 f"provenance: source={source_id}; document={doc.get('document_id')}; "
-                f"mission={mission_id}; append_only=true; extraction=grounded_text"
+                f"mission={mission_id}; "
+                f"discovery_provider={(doc.get('metadata') or {}).get('discovery_provider') or 'connector'}; "
+                f"append_only=true; extraction=grounded_text"
             ),
         }
         provenance = Provenance(
