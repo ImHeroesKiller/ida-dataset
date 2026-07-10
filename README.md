@@ -1,71 +1,89 @@
-# IDA Dataset
+# IDA Dataset Factory
 
-High-quality AI knowledge repository for the IDA Executive AI platform.
+**Automatic Knowledge Factory** — produces high-quality structured datasets for LLM fine-tuning and knowledge corpus.
 
-## Vision
+> This repository is **not** an AI assistant, decision engine, or reasoning product.  
+> It is a **Dataset Factory**.
 
-**Architecture is complete. Focus is Knowledge Growth.**
+## Purpose
 
-See [docs/vision.md](docs/vision.md).
+| | |
+|--|--|
+| **Product** | IDA Dataset Factory |
+| **Inputs** | Missions · Trusted sources · Documents · Public data |
+| **Outputs** | CSV · JSON · JSONL · Parquet · HuggingFace · OpenAI fine-tuning |
+| **Consumer** | IDA Intelligent Decision Automation (external) |
 
-## Primary goal
-
-> Increase IDA Knowledge — measurable coverage, quality, confidence.
-
-## Execution model
+## Official pipeline
 
 ```text
-GitHub Actions → Learning Session → Repository Update → Dashboard Refresh
+Mission → Source Discovery → Document Collection → Extraction →
+Normalization → Validation → Schema Mapping → Append Dataset →
+Quality Validation → Export → Dashboard Update
 ```
 
-Learning is **not** executed inside the dashboard. Continuous Learning is scheduled and run by GitHub Actions (`.github/workflows/learning.yml`). The ECC dashboard is a realtime monitor of sessions under `automation/sessions/`.
-
-Architecture is unchanged: Scheduler · Planner · Policy · Connector · Pipeline · Review · Publisher · Telemetry.
-
-## Run Learning Dashboard
+## Quick start
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000 — **IDA Learning Sessions** dashboard.
+Open http://localhost:3000 — **IDA Dataset Factory** dashboard.
 
-On Vercel, set `IDA_GITHUB_TOKEN` so **Start Learning** can dispatch `learning.yml`.
-
-## Run a learning session (same as GHA)
+### Factory learn (same as GitHub Actions)
 
 ```bash
 python automation/ci/learning_session.py \
   --environment development \
-  --dry-run \
-  --instruction "Learn Industry Library knowledge for Banking"
+  --dry-run
 ```
 
-## First knowledge cycle (Industry Library)
+### Export datasets
 
 ```bash
-python -m automation.learning.first_cycle
+python3 -m automation.export.packager
 ```
 
-## Learning control (local)
+## Factory UI
 
-```bash
-python -m automation.scheduler mission "Learn everything about SAP ERP."
-python -m automation.scheduler tick --dry-run
-python -m automation.connectors health
-python -m automation.search "Indonesian manufacturing" --limit 5
-```
+| Route | Purpose |
+|-------|---------|
+| `/` | Factory status & KPIs |
+| `/datasets` | Domain datasets |
+| `/missions` | Missions |
+| `/sources` | Trusted sources |
+| `/quality` | Quality gates |
+| `/exports` | Export artifacts |
+| `/logs` | Factory activity log |
+| `/settings` | Configuration |
 
-Continuous Learning never stops (hourly + daily GHA schedules). Directed Learning only influences allocation.
+## GitHub Actions
 
-## Docs
+| Workflow | Role |
+|----------|------|
+| `validate.yml` | Schema / repo validation |
+| `learn.yml` | Knowledge acquisition session |
+| `quality.yml` | Quality checks |
+| `publish.yml` | Publish pipeline |
+| `export.yml` | Export packages |
 
-- [docs/runtime.md](docs/runtime.md) — GHA session execution model  
-- [docs/github_actions.md](docs/github_actions.md) — workflows  
-- [docs/learning_dashboard.md](docs/learning_dashboard.md) — ECC monitor  
-- [docs/vercel.md](docs/vercel.md) — deploy  
+## Documentation
 
-## Frozen architecture (do not expand unless requested)
+- [VISION.md](./VISION.md)
+- [PROJECT_CHARTER.md](./PROJECT_CHARTER.md)
+- [ROADMAP.md](./ROADMAP.md)
+- [ARCHITECTURE.md](./ARCHITECTURE.md)
+- [DATASET_SCHEMA.md](./DATASET_SCHEMA.md)
+- [SOURCE_POLICY.md](./SOURCE_POLICY.md)
+- [QUALITY_POLICY.md](./QUALITY_POLICY.md)
+- [EXPORT_GUIDE.md](./EXPORT_GUIDE.md)
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-Repository · Scheduler · Planner · Policy · Knowledge Network · Document Queue · Pipeline · Review · Publisher · Telemetry · Learning Dashboard
+## Datasets
+
+Append-only under `domains/`. Never delete valid knowledge rows.
+
+## Version
+
+**2.0.0** — IDA Dataset Factory (Knowledge Factory reset)

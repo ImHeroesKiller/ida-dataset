@@ -1,9 +1,12 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  BookOpen,
-  ClipboardCheck,
-  FileBarChart2,
+  Database,
+  Download,
+  Factory,
   LayoutDashboard,
+  ListChecks,
+  Radio,
+  ScrollText,
   Settings,
   Target,
 } from "lucide-react";
@@ -12,27 +15,38 @@ export type NavItem = {
   href: string;
   label: string;
   icon: LucideIcon;
-  emoji?: string;
 };
 
-/** Executive navigation only — implementation modules stay internal. */
+/** IDA Dataset Factory navigation — product surfaces only. */
 export const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard, emoji: "🏠" },
-  { href: "/knowledge", label: "Knowledge", icon: BookOpen, emoji: "📚" },
-  { href: "/missions", label: "Missions", icon: Target, emoji: "🎯" },
-  { href: "/review", label: "Review", icon: ClipboardCheck, emoji: "✅" },
-  { href: "/reports", label: "Reports", icon: FileBarChart2, emoji: "📈" },
-  { href: "/settings", label: "Settings", icon: Settings, emoji: "⚙" },
+  { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/datasets", label: "Datasets", icon: Database },
+  { href: "/missions", label: "Missions", icon: Target },
+  { href: "/sources", label: "Sources", icon: Radio },
+  { href: "/quality", label: "Quality", icon: ListChecks },
+  { href: "/exports", label: "Exports", icon: Download },
+  { href: "/logs", label: "Logs", icon: ScrollText },
+  { href: "/settings", label: "Settings", icon: Settings },
 ];
 
-/** Internal architecture flow (not shown in executive nav). */
-export const FLOW_HINT = [
-  "Scheduler",
-  "Planner",
-  "Policy",
-  "Connectors",
-  "Document Queue",
-  "Pipeline",
-  "Review",
-  "Publisher",
+/** Official factory pipeline stages (documentation / status only). */
+export const FACTORY_PIPELINE = [
+  "Mission",
+  "Source Discovery",
+  "Document Collection",
+  "Extraction",
+  "Normalization",
+  "Validation",
+  "Schema Mapping",
+  "Append Dataset",
+  "Quality Validation",
+  "Export",
+  "Dashboard Update",
 ] as const;
+
+export const PRODUCT = {
+  name: "IDA Dataset Factory",
+  short: "Dataset Factory",
+  tagline: "Automatic Knowledge Factory",
+  icon: Factory,
+} as const;

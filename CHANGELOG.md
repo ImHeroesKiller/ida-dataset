@@ -1,12 +1,19 @@
 # Changelog
 
-## Unreleased
+## 2.0.0 — 2026-07-10
 
-### Changed
+### IDA Dataset Factory (Knowledge Factory reset)
 
-- **refactor(runtime):** migrate continuous learning to GitHub Actions sessions
-  - Learning executes via `.github/workflows/learning.yml` (hourly, daily, manual, mission, dry-run)
-  - Sessions stored at `automation/sessions/YYYY-MM-DD/SESSION-*.json`
-  - Dashboard is a Vercel-safe monitor; Start Learning uses workflow_dispatch
-  - Console is Learning Session Journal (real session logs + replay)
-  - No long-lived Python runtime or server-side SSE learning stream required
+- Product rebranded to **IDA Dataset Factory**
+- UI reduced to factory surfaces: Dashboard, Datasets, Missions, Sources, Quality, Exports, Logs, Settings
+- Removed ECC / brain / ontology / network / planner product surfaces
+- Official pipeline packages: collector · extractor · validator · publisher · quality · export
+- Factory KPIs on dashboard
+- Export packager: JSONL · OpenAI fine-tune · Hugging Face
+- GHA: `validate` · `learn` · `quality` · `publish` · `export`
+- Charter docs at repository root
+- Domain datasets preserved (append-only)
+
+## 0.1.x — prior
+
+Legacy ECC + continuous learning architecture (archived under `docs/archive/`).

@@ -39,7 +39,7 @@ export function runLocalLearningSession(opts: {
       ok: false,
       status_code: 422,
       message:
-        "Local learning is disabled on this host (serverless / Vercel). Configure IDA_GITHUB_TOKEN to dispatch learning.yml.",
+        "Local learning is disabled on this host (serverless / Vercel). Configure IDA_GITHUB_TOKEN to dispatch learn.yml.",
       error_code: "LOCAL_LEARNING_DISABLED",
       recovery_suggestion:
         "Set IDA_GITHUB_TOKEN (actions:write) and GITHUB_REPOSITORY on Vercel, then retry Start Learning.",

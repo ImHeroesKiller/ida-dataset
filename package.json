@@ -1,16 +1,16 @@
 {
   "name": "ida-dataset",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "IDA Knowledge Repository + Executive Control Center",
+  "description": "IDA Dataset Factory — automatic knowledge factory for LLM fine-tuning datasets",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "health": "node scripts/repo-health.mjs",
-    "test:runtime": "python3 -m automation.runtime.tests.test_runtime_stability",
-    "test:health": "node scripts/repo-health.mjs"
+    "health": "node scripts/factory-health.mjs",
+    "test:health": "node scripts/factory-health.mjs",
+    "export:industry": "python3 -m automation.export.packager"
   },
   "dependencies": {
     "clsx": "^2.1.1",

@@ -216,15 +216,15 @@ export function useLearningMonitor(pollMs = 5000) {
     async (mission?: string, dryRun = true): Promise<StartLearningResult> => {
       setError(null);
       const result = await safeFetchJson<Record<string, unknown>>(
-        "/api/live/start",
+        "/api/run",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            instruction: mission,
+            action: "learn",
             mission,
             dry_run: dryRun,
-            trigger: "manual",
+            environment: "production",
           }),
         }
       );
@@ -245,7 +245,7 @@ export function useLearningMonitor(pollMs = 5000) {
         message:
           (payload.message as string) ||
           "Learning workflow dispatched to GitHub Actions",
-        workflow: (data.workflow as string) || "learning.yml",
+        workflow: (data.workflow as string) || "learn.yml",
         repository: data.repository as string | undefined,
         inputs: data.inputs as Record<string, string> | undefined,
       };

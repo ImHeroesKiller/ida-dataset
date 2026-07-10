@@ -1,59 +1,78 @@
 import { Shell } from "@/components/layout/shell";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { listSourcesCsv } from "@/lib/network";
+import fs from "fs";
+import { repoPath } from "@/lib/paths";
+import { parseCsv } from "@/lib/csv";
 
 export const dynamic = "force-dynamic";
 
 export default function SourcesPage() {
-  const sources = listSourcesCsv();
+  let rows: Record<string, string>[] = [];
+  try {
+    const p = repoPath("metadata/source_registry.csv");
+    if (fs.existsSync(p)) {
+      rows = parseCsv(fs.readFileSync(p, "utf8")).rows;
+    }
+  } catch {
+    rows = [];
+  }
+
+  const active = rows.filter(
+    (r) =>
+      String(r.Status || "").toLowerCase() === "active" &&
+      String(r.Allowed || "").toLowerCase() === "true"
+  );
+
   return (
     <Shell title="Sources">
-      <p className="mb-3 text-sm text-zinc-300">
-        Approved knowledge sources from <code>metadata/source_registry.csv</code>.
-        Planner may only use approved sources.
-      </p>
-      <Card>
-        <CardHeader title="Source registry" description={`${sources.length} rows`} />
-        <CardBody className="overflow-x-auto p-0">
-          <table className="w-full min-w-[800px] text-left text-xs">
-            <thead className="border-b border-zinc-800 text-[10px] uppercase text-zinc-500">
-              <tr>
-                <th className="px-3 py-2">ID</th>
-                <th className="px-3 py-2">Name</th>
-                <th className="px-3 py-2">Category</th>
-                <th className="px-3 py-2">Trust</th>
-                <th className="px-3 py-2">Status</th>
-                <th className="px-3 py-2">Allowed</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sources.length === 0 ? (
+      <div className="mx-auto max-w-5xl space-y-6">
+        <header>
+          <h1 className="text-2xl font-semibold text-[var(--text)]">
+            Trusted Sources
+          </h1>
+          <p className="mt-1 text-sm text-[var(--text-muted)]">
+            Phase-1 allow list for automatic collection. {active.length} active
+            of {rows.length} registered.
+          </p>
+        </header>
+
+        <Card>
+          <CardHeader title="Source registry" description="metadata/source_registry.csv" />
+          <CardBody className="overflow-x-auto">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <thead className="text-xs uppercase text-[var(--text-faint)]">
                 <tr>
-                  <td colSpan={6} className="px-3 py-4 text-zinc-500">
-                    Waiting for first execution
-                  </td>
+                  <th className="pb-2 pr-3">ID</th>
+                  <th className="pb-2 pr-3">Name</th>
+                  <th className="pb-2 pr-3">Category</th>
+                  <th className="pb-2 pr-3">Trust</th>
+                  <th className="pb-2">Status</th>
                 </tr>
-              ) : (
-                sources.map((s) => (
-                  <tr key={s["Source ID"]} className="border-b border-zinc-900">
-                    <td className="px-3 py-2 font-mono text-[11px] text-zinc-300">
-                      {s["Source ID"]}
+              </thead>
+              <tbody>
+                {rows.map((r) => (
+                  <tr
+                    key={r["Source ID"]}
+                    className="border-t border-[var(--border)] text-[var(--text-muted)]"
+                  >
+                    <td className="py-2 pr-3 font-mono text-xs">
+                      {r["Source ID"]}
                     </td>
-                    <td className="px-3 py-2 text-zinc-100">{s["Source Name"]}</td>
-                    <td className="px-3 py-2 text-zinc-400">{s["Category"]}</td>
-                    <td className="px-3 py-2 text-zinc-300">{s["Trust Score"]}</td>
-                    <td className="px-3 py-2">
-                      <Badge>{s["Status"]}</Badge>
+                    <td className="py-2 pr-3 text-[var(--text)]">
+                      {r["Source Name"]}
                     </td>
-                    <td className="px-3 py-2 text-zinc-400">{s["Allowed"]}</td>
+                    <td className="py-2 pr-3">{r.Category}</td>
+                    <td className="py-2 pr-3">{r["Trust Score"]}</td>
+                    <td className="py-2">
+                      {r.Status}/{r.Allowed}
+                    </td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </CardBody>
-      </Card>
+                ))}
+              </tbody>
+            </table>
+          </CardBody>
+        </Card>
+      </div>
     </Shell>
   );
 }

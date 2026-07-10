@@ -1,7 +1,7 @@
 /**
  * GitHub Actions integration for continuous learning.
  *
- * Manual "Start Learning" → workflow_dispatch on learning.yml
+ * Manual "Start Learning" → workflow_dispatch on learn.yml
  * Dashboard status → list workflow runs (running / queued / completed)
  *
  * Env:
@@ -124,7 +124,7 @@ export function isGithubConfigured(): boolean {
 }
 
 /**
- * Trigger learning.yml via workflow_dispatch.
+ * Trigger learn.yml via workflow_dispatch.
  * No local Python execution.
  */
 export async function dispatchLearningWorkflow(opts: {
@@ -142,7 +142,7 @@ export async function dispatchLearningWorkflow(opts: {
       status_code: 422,
       message:
         "GitHub Actions dispatch is not configured. Set IDA_GITHUB_TOKEN (actions:write) and GITHUB_REPOSITORY (or VERCEL_GIT_REPO_*).",
-      workflow: "learning.yml",
+      workflow: "learn.yml",
       repository: repo || "unknown",
       error_code: "GITHUB_NOT_CONFIGURED",
       recovery_suggestion:
@@ -166,7 +166,7 @@ export async function dispatchLearningWorkflow(opts: {
     process.env.GITHUB_REF_NAME ||
     "main";
 
-  const res = await ghFetch(`/actions/workflows/learning.yml/dispatches`, {
+  const res = await ghFetch(`/actions/workflows/learn.yml/dispatches`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ ref, inputs }),
@@ -177,7 +177,7 @@ export async function dispatchLearningWorkflow(opts: {
       ok: true,
       status_code: res.status || 204,
       message: "Learning workflow dispatched to GitHub Actions",
-      workflow: "learning.yml",
+      workflow: "learn.yml",
       repository: repo,
       inputs,
     };
@@ -185,7 +185,7 @@ export async function dispatchLearningWorkflow(opts: {
 
   // Fallback: try workflow file name without path issues
   if (res.status === 404) {
-    const res2 = await ghFetch(`/actions/workflows/learning.yml/dispatches`, {
+    const res2 = await ghFetch(`/actions/workflows/learn.yml/dispatches`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ref, inputs }),
@@ -195,7 +195,7 @@ export async function dispatchLearningWorkflow(opts: {
         ok: true,
         status_code: 204,
         message: "Learning workflow dispatched to GitHub Actions",
-        workflow: "learning.yml",
+        workflow: "learn.yml",
         repository: repo,
         inputs,
       };
@@ -209,12 +209,12 @@ export async function dispatchLearningWorkflow(opts: {
       (res.json as { message?: string } | null)?.message ||
       res.text ||
       "Workflow dispatch failed",
-    workflow: "learning.yml",
+    workflow: "learn.yml",
     repository: repo,
     inputs,
     error_code: "WORKFLOW_DISPATCH_FAILED",
     recovery_suggestion:
-      "Verify the PAT can dispatch workflows on this repo and that .github/workflows/learning.yml exists on the target branch.",
+      "Verify the PAT can dispatch workflows on this repo and that .github/workflows/learn.yml exists on the target branch.",
   };
 }
 
@@ -227,7 +227,7 @@ export async function listLearningRuns(limit = 10): Promise<{
     return { ok: false, runs: [], error: "GitHub not configured" };
   }
   const res = await ghFetch(
-    `/actions/workflows/learning.yml/runs?per_page=${Math.min(30, limit)}`
+    `/actions/workflows/learn.yml/runs?per_page=${Math.min(30, limit)}`
   );
   if (!res.ok) {
     return {

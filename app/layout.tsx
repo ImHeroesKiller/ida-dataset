@@ -11,8 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "IDA · Learning",
-  description: "Executive learning dashboard for the IDA knowledge platform",
+  title: "IDA Dataset Factory",
+  description:
+    "Automatic Knowledge Factory — structured datasets for LLM fine-tuning",
 };
 
 export default function RootLayout({

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_ITEMS } from "@/lib/nav";
+import { NAV_ITEMS, PRODUCT } from "@/lib/nav";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/theme-provider";
 import { Moon, Sun } from "lucide-react";
@@ -19,10 +19,10 @@ export function Sidebar() {
         </div>
         <div className="min-w-0">
           <div className="truncate text-sm font-semibold tracking-tight text-[var(--text)]">
-            IDA Learning
+            {PRODUCT.short}
           </div>
           <div className="truncate text-[11px] text-[var(--text-faint)]">
-            Executive AI
+            {PRODUCT.tagline}
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ export function Sidebar() {
           {theme === "dark" ? "Light mode" : "Dark mode"}
         </button>
         <p className="text-[11px] leading-relaxed text-[var(--text-faint)]">
-          Learn · Review · Grow knowledge
+          Collect · Validate · Publish · Export
         </p>
       </div>
     </aside>
