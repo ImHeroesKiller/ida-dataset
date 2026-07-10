@@ -1,0 +1,4 @@
+Source ID,Source Name,Base URL,Category,Country,Trust Score,Update Frequency,Status,Allowed,Last Crawl,Notes
+SRC-000001,BPS Indonesia,https://www.bps.go.id,government_statistics,ID,0.95,monthly,active,true,,Official national statistics. High trust.
+SRC-000002,Company Website Registry,https://example.com,company_website,ID,0.80,weekly,inactive,false,,Placeholder for company primary websites. Enable per-domain via controller.
+SRC-000003,Industry Reports Placeholder,https://example.com/reports,industry_report,GLOBAL,0.75,quarterly,inactive,false,,Placeholder for licensed industry report feeds.

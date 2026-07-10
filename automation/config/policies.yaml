@@ -1,0 +1,121 @@
+# Knowledge Acquisition System — Policies
+# Human controller knobs. Nothing is hard-coded in pipeline code.
+
+version: "1.0"
+
+# Feature switches (human controller)
+features:
+  crawling_enabled: false
+  extraction_enabled: false
+  publishing_enabled: false
+
+# Approval modes: automatic | semi_automatic | manual
+approval_mode: manual
+
+# Whether every candidate requires human review before publish
+review_required: true
+
+# Confidence gate (0.0 – 1.0)
+confidence_threshold: 0.80
+
+# Limits (human safety rails)
+limits:
+  max_documents: 100
+  max_rows_per_day: 200
+  max_updates_per_day: 50
+  max_sources_per_run: 10
+
+# Provenance is mandatory; these columns are always attached
+provenance_fields:
+  - source_id
+  - source_url
+  - retrieved_at
+  - confidence
+  - extraction_version
+  - validation_status
+  - reviewer
+  - published_at
+
+# Validation rules
+validation:
+  require_trusted_source: true
+  reject_below_confidence: true
+  reject_duplicates: true
+  reject_schema_mismatch: true
+  reject_missing_required_fields: true
+  reject_broken_url: true
+  reject_outdated: true
+  reject_invalid_references: true
+  outdated_after_days: 365
+  required_fields:
+    - entity_type
+    - entity_id
+    - source_id
+    - source_url
+    - retrieved_at
+    - confidence
+    - extraction_version
+
+# Deduplication
+deduplication:
+  strategy: entity_key  # entity_key | fuzzy | hybrid
+  fuzzy_threshold: 0.92
+  key_fields:
+    - entity_type
+    - entity_id
+  content_fields:
+    - canonical_name
+
+# Entity linking
+entity_linking:
+  enabled: true
+  link_fields:
+    - company_id
+    - industry_id
+    - product_id
+    - opportunity_id
+    - competitor_id
+  unresolved_policy: flag  # flag | reject | leave
+
+# Publishing
+publishing:
+  # schedule: immediate | daily | weekly | manual
+  schedule: manual
+  target_root: domains
+  mode: append_only
+  preserve_ids: true
+  create_git_diff: true
+  generate_report: true
+  never_overwrite: true
+
+# Extraction
+extraction:
+  version: "0.1.0-phase1"
+  # backend placeholder: none | search_api | browser | llm
+  backend: none
+  target_datasets:
+    - company_profile
+    - industry_library
+    - product_catalog
+    - competitor_library
+    - business_signal_library
+
+# Paths (relative to repository root)
+paths:
+  automation_root: automation
+  queue_pending: automation/queue/pending
+  queue_approved: automation/queue/approved
+  queue_rejected: automation/queue/rejected
+  logs: automation/logs
+  reports: automation/reports
+  cache: automation/cache
+  raw_documents: automation/raw_documents
+  review: automation/review
+  source_registry: metadata/source_registry.csv
+  domains_root: domains
+
+# Logging
+logging:
+  level: INFO
+  format: json
+  retain_days: 90

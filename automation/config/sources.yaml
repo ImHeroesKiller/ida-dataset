@@ -1,0 +1,63 @@
+# Knowledge Acquisition System — Source Configuration
+# Human-controlled registry of trusted knowledge sources.
+# Runtime source-of-truth for allow/deny is also mirrored in metadata/source_registry.csv
+
+version: "1.0"
+
+defaults:
+  trust_score_min: 0.70
+  request_timeout_seconds: 30
+  max_documents_per_source: 50
+  user_agent: "IDA-KAS/0.1 (+human-controlled; no autonomous crawl)"
+
+# Active source list (IDs must match metadata/source_registry.csv)
+sources:
+  - source_id: SRC-000001
+    name: BPS Indonesia
+    base_url: https://www.bps.go.id
+    category: government_statistics
+    country: ID
+    trust_score: 0.95
+    update_frequency: monthly
+    status: active
+    allowed: true
+    notes: Official national statistics. High trust.
+
+  - source_id: SRC-000002
+    name: Company Website Registry
+    base_url: https://example.com
+    category: company_website
+    country: ID
+    trust_score: 0.80
+    update_frequency: weekly
+    status: inactive
+    allowed: false
+    notes: Placeholder for company primary websites. Enable per-domain via controller.
+
+  - source_id: SRC-000003
+    name: Industry Reports Placeholder
+    base_url: https://example.com/reports
+    category: industry_report
+    country: GLOBAL
+    trust_score: 0.75
+    update_frequency: quarterly
+    status: inactive
+    allowed: false
+    notes: Placeholder for licensed industry report feeds.
+
+# Domain controls (applied on top of source allow list)
+domains:
+  whitelist: []
+  blacklist:
+    - localhost
+    - 127.0.0.1
+    - example-spam.invalid
+
+# Categories eligible for acquisition in Phase 1
+categories:
+  - government_statistics
+  - company_website
+  - industry_report
+  - annual_report
+  - news
+  - regulatory

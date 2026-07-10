@@ -1,0 +1,90 @@
+# Knowledge Acquisition System — Scheduler
+# Human-controlled schedule. No autonomous execution without enablement.
+
+version: "1.0"
+
+# Master switch for scheduled runs
+enabled: false
+
+# Timezone for cron interpretation
+timezone: Asia/Jakarta
+
+# Default pipeline run profile
+default_profile: dry_run
+
+profiles:
+  dry_run:
+    description: Run all stages with no side effects beyond logs/reports dry-run artifacts
+    stages:
+      - discover
+      - collect
+      - extract
+      - normalize
+      - validate
+      - deduplicate
+      - entity_link
+      - reviewer
+      - publisher
+    dry_run: true
+    publish: false
+
+  full_pipeline:
+    description: Full acquisition pipeline ending in review queue (publish only if policies allow)
+    stages:
+      - discover
+      - collect
+      - extract
+      - normalize
+      - validate
+      - deduplicate
+      - entity_link
+      - reviewer
+      - publisher
+    dry_run: false
+    publish: false  # still gated by policies.features.publishing_enabled and schedule
+
+  review_only:
+    description: Process human review decisions without discovery/collection
+    stages:
+      - reviewer
+      - publisher
+    dry_run: false
+    publish: true
+
+  publish_only:
+    description: Publish already-approved queue items
+    stages:
+      - publisher
+    dry_run: false
+    publish: true
+
+# Cron-like schedules (not auto-executed in Phase 1; for future runners)
+schedules:
+  - name: daily_discovery
+    cron: "0 6 * * *"
+    profile: dry_run
+    enabled: false
+
+  - name: weekly_publish
+    cron: "0 9 * * 1"
+    profile: publish_only
+    enabled: false
+
+  - name: manual_trigger
+    cron: null
+    profile: full_pipeline
+    enabled: true
+    notes: Invoked explicitly via CLI only.
+
+# Publishing cadence mapping (must align with policies.publishing.schedule)
+publishing_windows:
+  immediate: null
+  daily: "0 18 * * *"
+  weekly: "0 18 * * 5"
+  manual: null
+
+# Retry / backoff (placeholder for future collectors)
+retry:
+  max_attempts: 3
+  backoff_seconds: 60
+  jitter: true
