@@ -1,7 +1,7 @@
 {
-  "status": "completed",
-  "total": 1,
-  "published": 1,
+  "status": "idle",
+  "total": 0,
+  "published": 0,
   "remaining": 0,
   "speed": 1.0,
   "unit": "rows_per_second",
@@ -10,8 +10,8 @@
   "current_knowledge": null,
   "next_knowledge": null,
   "last_published_at": null,
-  "started_at": "2026-07-10T13:07:01+00:00",
-  "updated_at": "2026-07-10T13:07:01+00:00",
+  "started_at": "2026-07-10T16:36:06+00:00",
+  "updated_at": "2026-07-10T16:36:06+00:00",
   "mode": "development",
   "auto_publish": true
 }
