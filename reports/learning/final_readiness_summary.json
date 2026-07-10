@@ -1,0 +1,108 @@
+{
+  "ok": true,
+  "generated_at": "2026-07-10T15:51:42.662478+00:00",
+  "production_readiness_score": 76.8,
+  "dimension_scores": {
+    "workflow_readiness": 82,
+    "dataset_quality": 77.0,
+    "automation": 84,
+    "recovery_capability": 68,
+    "source_readiness": 88,
+    "factory_health": 72.0,
+    "relationship_integrity": 70,
+    "export_readiness": 74,
+    "mission_reliability": 72
+  },
+  "weights": {
+    "workflow_readiness": 0.15,
+    "dataset_quality": 0.12,
+    "automation": 0.14,
+    "recovery_capability": 0.14,
+    "source_readiness": 0.1,
+    "factory_health": 0.1,
+    "relationship_integrity": 0.08,
+    "export_readiness": 0.07,
+    "mission_reliability": 0.1
+  },
+  "decision": "CONDITIONAL GO \u2014 continuous learning only",
+  "blockers": [
+    {
+      "id": "B1",
+      "title": "Git push without pull/rebase in learn.yml",
+      "impact": "high",
+      "detail": "learn.yml commits then `git push origin HEAD:ref` with no fetch/rebase. Concurrent GHA runs or human pushes \u2192 non-fast-forward failures; session knowledge may remain unpushed.",
+      "mitigation": "Add fetch + pull --rebase (or retry push loop) before push; use concurrency group cancel-in-progress:false with queue; prefer single workflow concurrency."
+    },
+    {
+      "id": "B2",
+      "title": "Policy/controller gates vs continuous publish",
+      "impact": "high",
+      "detail": "automation/config/policies.yaml: approval_mode=manual, review_required=true, publishing_enabled=false, extraction_enabled=false. production.yaml require_review=true. Overnight learn path relies on live_runtime auto_approve bridge; pipeline publisher may still be constrained. Risk of sessions completing with waiting_review / zero rows.",
+      "mitigation": "Confirm scheduled learn path actually appends rows (recent chore(learning) commits). For true autonomous production of new batches, set explicit semi_automatic policy for GHA identity only \u2014 without redesigning architecture."
+    },
+    {
+      "id": "B3",
+      "title": "export.yml is manual only",
+      "impact": "medium",
+      "detail": "No cron on export.yml. Overnight window may not refresh training packages unless publish/learn path also exports.",
+      "mitigation": "Optional: schedule export after daily publish OR invoke packager at end of learn when rows changed (config-only/workflow trigger \u2014 if approved later)."
+    },
+    {
+      "id": "B4",
+      "title": "Known integrity debt from Batch-Q1",
+      "impact": "medium",
+      "detail": "268 integrity issues, 79 orphan records (seed Industry ID mismatches, opportunity FKs, empty Solution\u2192Framework).",
+      "mitigation": "Continue production with DPS rejects; schedule append-only hygiene batches (not rewrites)."
+    },
+    {
+      "id": "B5",
+      "title": "Factory Health Score 72.0 < 80",
+      "impact": "medium",
+      "detail": "Product coverage still low vs product targets; connectivity incomplete for unproduced libraries.",
+      "mitigation": "Expected at this stage; overnight learn improves incrementally, not full targets."
+    },
+    {
+      "id": "B6",
+      "title": "Default scheduled mission remains Industry-centric",
+      "impact": "medium",
+      "detail": "learn.yml default instruction: Industry Library continuous learning \u2014 will NOT autonomously execute Batch-009 personas without mission input change.",
+      "mitigation": "For overnight Batch-009 focus, dispatch learn.yml with mission string for persona production OR accept industry continuous growth as overnight objective."
+    },
+    {
+      "id": "B7",
+      "title": "No concurrency control on learn.yml",
+      "impact": "medium",
+      "detail": "Hourly cron can overlap long sessions; concurrent writers increase conflict risk.",
+      "mitigation": "Add concurrency: group: learn; cancel-in-progress: false (queue) \u2014 workflow tweak only when approved."
+    }
+  ],
+  "factory_health_q1": 72.0,
+  "dataset_counts": {
+    "business_signal_library": 0,
+    "product_catalog": 123,
+    "opportunity_analysis": 25,
+    "pain_point_library": 58,
+    "industry_library": 50,
+    "solution_library": 58,
+    "discovery_question_library": 0,
+    "case_study_library": 40,
+    "company_profile": 86,
+    "framework_library": 40,
+    "competitor_library": 0,
+    "guidance": 249
+  },
+  "overnight_mid": {
+    "sessions": 12,
+    "rows": 12,
+    "commits": 8,
+    "gha_minutes": 58,
+    "exports": 0
+  },
+  "planner_yml": false,
+  "review_yml": false,
+  "export_scheduled": false,
+  "learn_cron": [
+    "0 * * * *",
+    "0 6 * * *"
+  ]
+}
