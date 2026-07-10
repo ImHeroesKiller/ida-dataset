@@ -13,8 +13,9 @@ export function Sidebar() {
 
   return (
     <aside className="flex h-full w-[var(--sidebar-w)] shrink-0 flex-col border-r border-[var(--border)] bg-[var(--sidebar-bg)]">
-      <div className="flex h-[var(--topbar-h)] items-center gap-3 px-5">
-        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[var(--text)] text-[11px] font-bold tracking-wide text-[var(--bg)]">
+      {/* Brand — fixed height, no empty placeholder block */}
+      <div className="flex h-[var(--topbar-h)] shrink-0 items-center gap-3 border-b border-[var(--border)] px-4">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[var(--text)] text-[11px] font-bold tracking-wide text-[var(--bg)]">
           IDA
         </div>
         <div className="min-w-0">
@@ -27,7 +28,8 @@ export function Sidebar() {
         </div>
       </div>
 
-      <nav className="flex-1 space-y-1 px-3 py-4">
+      {/* Nav — consistent spacing; Dashboard first via NAV_ITEMS */}
+      <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto px-2.5 py-3 scrollbar-thin">
         {NAV_ITEMS.map((item) => {
           const active =
             item.href === "/"
@@ -52,7 +54,8 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="space-y-3 px-4 pb-5">
+      {/* Footer — theme toggle only (no empty white block) */}
+      <div className="mt-auto shrink-0 border-t border-[var(--border)] px-3 py-3">
         <button
           type="button"
           onClick={toggle}
@@ -65,9 +68,6 @@ export function Sidebar() {
           )}
           {theme === "dark" ? "Light mode" : "Dark mode"}
         </button>
-        <p className="text-[11px] leading-relaxed text-[var(--text-faint)]">
-          Collect · Validate · Publish · Export
-        </p>
       </div>
     </aside>
   );

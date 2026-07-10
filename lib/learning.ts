@@ -152,7 +152,168 @@ export function getLearningDashboard() {
 }
 
 export function listMissions() {
-  return listJsonDir(repoPath("automation/missions/missions"));
+  return listJsonDir(repoPath("automation/missions/missions")).sort((a, b) =>
+    String(b.updated_at || b.created_at || "").localeCompare(
+      String(a.updated_at || a.created_at || "")
+    )
+  );
+}
+
+/** Infer primary dataset class from natural language mission text. */
+export function inferDatasetFromText(text: string): string {
+  const t = text.toLowerCase();
+  if (t.includes("persona") || t.includes("buyer")) return "buyer_persona_library";
+  if (t.includes("decision maker")) return "decision_maker_library";
+  if (t.includes("regulat")) return "regulation_library";
+  if (t.includes("pain")) return "pain_point_library";
+  if (t.includes("solution")) return "solution_library";
+  if (t.includes("framework")) return "framework_library";
+  if (t.includes("case stud")) return "case_study_library";
+  if (t.includes("compan")) return "company_profile";
+  if (t.includes("service")) return "service_library";
+  if (t.includes("product")) return "product_catalog";
+  if (t.includes("competitor")) return "competitor_library";
+  if (t.includes("opportunit")) return "opportunity_analysis";
+  if (t.includes("industry") || t.includes("industries")) return "industry_library";
+  return "industry_library";
+}
+
+/**
+ * Create a mission record on disk (no Python required) and return it.
+ * Used when dispatching via GitHub Actions on Vercel/production.
+ */
+export function createMissionRecord(text: string, opts?: {
+  requester?: string;
+  priority?: string;
+  status?: string;
+}): Record<string, unknown> {
+  const now = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+  const stamp = now.slice(0, 10).replace(/-/g, "");
+  const rand = Math.random().toString(16).slice(2, 8).toUpperCase();
+  const mission_id = `MIS-${stamp}-${rand}`;
+  const contract_id = `CTR-${stamp}-${rand}`;
+  const title =
+    text.length > 90 ? `${text.slice(0, 87).trim()}…` : text.trim();
+  const dataset = inferDatasetFromText(text);
+  const mission: Record<string, unknown> = {
+    mission_id,
+    title,
+    description: text.trim(),
+    priority: opts?.priority || "P1",
+    requester: opts?.requester || "factory-ui",
+    created_at: now,
+    due_date: null,
+    status: opts?.status || "Queued",
+    knowledge_targets: [dataset],
+    allowed_sources: [],
+    policies: {},
+    estimated_effort: 1.0,
+    resource_allocation: 30.0,
+    progress: 0,
+    confidence: 0,
+    result: null,
+    executive_summary: null,
+    related_datasets: [dataset],
+    updated_at: now,
+    natural_language_request: text.trim(),
+    contract_id,
+    current_stage: "queued",
+    current_dataset: dataset,
+    documents_processed: 0,
+    entities_learned: 0,
+    knowledge_added: 0,
+    eta: null,
+    dispatch_channel: "github_actions",
+  };
+
+  // Best-effort persist (may be read-only on some serverless runtimes)
+  try {
+    const dir = repoPath("automation/missions/missions");
+    fs.mkdirSync(dir, { recursive: true });
+    const file = path.join(dir, `${mission_id}.json`);
+    fs.writeFileSync(file, JSON.stringify(mission, null, 2) + "\n", "utf8");
+
+    const cdir = repoPath("automation/missions/contracts");
+    fs.mkdirSync(cdir, { recursive: true });
+    const contract = {
+      contract_id,
+      mission_id,
+      objective: title,
+      knowledge_scope: [dataset],
+      priority: mission.priority,
+      resource_allocation: 30,
+      created_at: now,
+      updated_at: now,
+      status: "active",
+    };
+    fs.writeFileSync(
+      path.join(cdir, `${contract_id}.json`),
+      JSON.stringify(contract, null, 2) + "\n",
+      "utf8"
+    );
+  } catch {
+    mission.persisted = false;
+  }
+
+  return mission;
+}
+
+/** Parse learning report metadata for human-readable cards (no raw-only filenames). */
+export function enrichLearningReports(
+  reports: { name: string; relativePath: string; mtime: string; size: number }[]
+) {
+  return reports.map((r) => {
+    const lower = r.name.toLowerCase();
+    let batch = "—";
+    let mission = r.name.replace(/\.(md|json)$/i, "");
+    let rowsAdded: number | null = null;
+    let coverage: string | null = null;
+    let confidence: number | null = null;
+
+    const batchM = r.name.match(/batch0*(\d+)/i);
+    if (batchM) batch = `Batch-${batchM[1].padStart(3, "0")}`;
+    if (lower.includes("service")) mission = "Service Dataset";
+    else if (lower.includes("product")) mission = "Product Dataset";
+    else if (lower.includes("company")) mission = "Company Dataset";
+    else if (lower.includes("pain")) mission = "Pain Point Dataset";
+    else if (lower.includes("solution")) mission = "Solution Dataset";
+    else if (lower.includes("framework")) mission = "Framework Dataset";
+    else if (lower.includes("case")) mission = "Case Study Dataset";
+    else if (lower.includes("industry") || lower.includes("epic2a"))
+      mission = "Industry Dataset";
+    else if (lower.includes("readiness")) mission = "Readiness / Quality";
+    else if (lower.includes("session")) mission = "Learning Session";
+
+    // Best-effort parse from markdown/json content
+    try {
+      const abs = path.join(getRepoRoot(), r.relativePath);
+      if (fs.existsSync(abs) && r.size < 500_000) {
+        const text = fs.readFileSync(abs, "utf8");
+        const rowsM = text.match(/Rows Added[^\d]*(\d+)/i) || text.match(/"rows_added"\s*:\s*(\d+)/);
+        if (rowsM) rowsAdded = Number(rowsM[1]);
+        const covM =
+          text.match(/Coverage After[^\n]*?(\d+(?:\.\d+)?\s*%)/i) ||
+          text.match(/"coverage_after_pct"\s*:\s*([0-9.]+)/);
+        if (covM) coverage = covM[1].includes("%") ? covM[1] : `${covM[1]}%`;
+        const confM =
+          text.match(/Average Confidence[^\d]*([0-9.]+)/i) ||
+          text.match(/"average_confidence"\s*:\s*([0-9.]+)/);
+        if (confM) confidence = Number(confM[1]);
+      }
+    } catch {
+      /* ignore */
+    }
+
+    return {
+      ...r,
+      batch,
+      mission,
+      rows_added: rowsAdded,
+      coverage_increase: coverage,
+      confidence,
+      generated: r.mtime,
+    };
+  });
 }
 
 export function listContracts() {
