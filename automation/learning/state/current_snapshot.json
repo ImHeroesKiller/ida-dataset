@@ -1,11 +1,11 @@
 {
   "date": "2026-07-10",
-  "captured_at": "2026-07-10T15:21:42+00:00",
+  "captured_at": "2026-07-10T16:08:41+00:00",
   "datasets_total": 12,
-  "datasets_populated": 5,
-  "datasets_gaps": 7,
-  "rows_total": 369,
-  "coverage_pct": 41.7,
+  "datasets_populated": 9,
+  "datasets_gaps": 3,
+  "rows_total": 729,
+  "coverage_pct": 75.0,
   "by_dataset": [
     {
       "path": "domains/business_development/business_signal_library.csv",
@@ -18,14 +18,14 @@
       "path": "domains/business_development/case_study_library.csv",
       "name": "case_study_library",
       "domain": "business_development",
-      "rows": 0,
-      "is_gap": true
+      "rows": 40,
+      "is_gap": false
     },
     {
       "path": "domains/business_development/company_profile.csv",
       "name": "company_profile",
       "domain": "business_development",
-      "rows": 25,
+      "rows": 86,
       "is_gap": false
     },
     {
@@ -46,8 +46,8 @@
       "path": "domains/business_development/framework_library.csv",
       "name": "framework_library",
       "domain": "business_development",
-      "rows": 0,
-      "is_gap": true
+      "rows": 40,
+      "is_gap": false
     },
     {
       "path": "domains/business_development/guidance.csv",
@@ -74,22 +74,22 @@
       "path": "domains/business_development/pain_point_library.csv",
       "name": "pain_point_library",
       "domain": "business_development",
-      "rows": 0,
-      "is_gap": true
+      "rows": 58,
+      "is_gap": false
     },
     {
       "path": "domains/business_development/product_catalog.csv",
       "name": "product_catalog",
       "domain": "business_development",
-      "rows": 20,
+      "rows": 123,
       "is_gap": false
     },
     {
       "path": "domains/business_development/solution_library.csv",
       "name": "solution_library",
       "domain": "business_development",
-      "rows": 0,
-      "is_gap": true
+      "rows": 58,
+      "is_gap": false
     }
   ]
 }
