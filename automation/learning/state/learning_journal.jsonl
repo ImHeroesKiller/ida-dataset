@@ -639,3 +639,5 @@
 {"ts": "2026-07-10T15:33:22.469195+00:00", "verb": "batch_publish", "detail": "Batch-004 company dataset +61 rows (25->86)", "mission_id": "MIS-PRODUCE-COMPANY-DATASET", "batch_id": "Batch-004"}
 {"ts": "2026-07-10T15:35:37.161281+00:00", "verb": "batch_publish", "detail": "Batch-005 pain points +58 (0->58)", "mission_id": "MIS-PRODUCE-PAINPOINT-DATASET", "batch_id": "Batch-005"}
 {"ts": "2026-07-10T15:36:55.301589+00:00", "verb": "batch_publish", "detail": "Batch-006 solutions +58 (0->58)", "mission_id": "MIS-PRODUCE-SOLUTION-DATASET", "batch_id": "Batch-006"}
+{"ts": "2026-07-10T15:38:24.046543+00:00", "verb": "batch_publish", "detail": "Batch-007 frameworks +40", "mission_id": "MIS-PRODUCE-FRAMEWORK-DATASET", "batch_id": "Batch-007"}
+{"ts": "2026-07-10T15:38:24.055099+00:00", "verb": "batch_publish", "detail": "Batch-008 case studies +40", "mission_id": "MIS-PRODUCE-CASESTUDY-DATASET", "batch_id": "Batch-008"}
