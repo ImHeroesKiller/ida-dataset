@@ -7,6 +7,10 @@ const configDir = path.dirname(fileURLToPath(import.meta.url));
 /**
  * ECC lives at the repository root so Vercel auto-detects Next.js.
  * Knowledge assets (domains/, metadata/, automation/, …) are siblings.
+ *
+ * distDir is `ecc/.next` to match the Vercel project Output Directory
+ * leftover from the earlier monorepo layout. Preferred long-term:
+ * clear Output Directory in Vercel project settings and set distDir to `.next`.
  */
 const knowledgeGlobs = [
   "./VERSION",
@@ -24,6 +28,8 @@ const knowledgeGlobs = [
 ];
 
 const nextConfig: NextConfig = {
+  // Keep in sync with Vercel → Project Settings → Output Directory
+  distDir: "ecc/.next",
   outputFileTracingRoot: configDir,
   outputFileTracingIncludes: {
     "/*": knowledgeGlobs,

@@ -16,8 +16,11 @@ Import GitHub repo: `ImHeroesKiller/ida-dataset`
 | **Root Directory** | **empty** (repository root) — do **not** set to `ecc` |
 | Build Command | `npm run build` (default) |
 | Install Command | `npm install` (default) |
-| Output Directory | leave default |
+| **Output Directory** | **`ecc/.next`** (matches `next.config.ts` → `distDir`) |
 | Node.js Version | 20.x or 22.x |
+
+> If build fails with `ecc/.next was not found`, either keep Output Directory = `ecc/.next`
+> (repo default) **or** clear Output Directory and change `distDir` back to `.next`.
 
 ### If you previously set Root Directory to `ecc`
 
