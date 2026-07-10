@@ -79,6 +79,10 @@ python3 -m automation.export.packager
 - [KPI.md](./KPI.md) — factory KPIs & definition of done
 - [MISSION_LIBRARY.md](./MISSION_LIBRARY.md) — production missions
 
+### Production standard (mandatory)
+
+- [docs/DATASET_PRODUCTION_STANDARD.md](./docs/DATASET_PRODUCTION_STANDARD.md) — official Dataset Production Standard (DPS) for every production mission
+
 ### Charter & engineering
 
 - [VISION.md](./VISION.md)
