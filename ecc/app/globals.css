@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #09090b;
+  --bg-elevated: #0c0c0f;
+  --panel: #111113;
+  --panel-2: #16161a;
+  --border: #27272a;
+  --border-subtle: #1f1f23;
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+  --accent: #e4e4e7;
+  --accent-2: #3b82f6;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --sidebar-w: 240px;
+  --inspector-w: 320px;
+  --console-h: 200px;
+  --topbar-h: 52px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.35);
+}
+
+/* Console ANSI-ish helpers */
+.ansi-info {
+  color: #a1a1aa;
+}
+.ansi-success {
+  color: #34d399;
+}
+.ansi-warn {
+  color: #fbbf24;
+}
+.ansi-error {
+  color: #f87171;
+}
+.ansi-system {
+  color: #93c5fd;
+}
+.ansi-planner {
+  color: #c4b5fd;
+}
+.ansi-pipeline {
+  color: #67e8f9;
+}
+.ansi-validator {
+  color: #fcd34d;
+}
+.ansi-publisher {
+  color: #86efac;
+}
+.ansi-git {
+  color: #fdba74;
+}
+.ansi-policy {
+  color: #f9a8d4;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 999px;
+}

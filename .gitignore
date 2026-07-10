@@ -10,3 +10,9 @@ reports/**
 
 # Local runtime
 *.log
+
+# ECC (Next.js)
+ecc/node_modules/
+ecc/.next/
+ecc/out/
+ecc/.env*.local
