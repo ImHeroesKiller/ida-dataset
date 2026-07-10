@@ -46,7 +46,8 @@ The old route returned a generic 503 whenever `VERCEL` or `ECC_DISABLE_PYTHON=1`
 
 | `failure.component` | HTTP | Cause | Recovery |
 |---------------------|------|-------|----------|
-| `host.vercel` | 503 | Vercel serverless — no long-lived Python subprocess | Run live learning on local/VM host |
+| `host.vercel` | 503 | Vercel/serverless read-only root (`/var/task`) — cannot `mkdir automation/runtime/state` or spawn Python | Run live learning on local/VM host; dashboard-only on Vercel |
+| `host.filesystem` | 503 | Writable runtime state dir unavailable (permissions/disk) | Fix permissions / set `IDA_REPO_ROOT` to a writable checkout |
 | `host.ecc_disable_python` | 503 | `ECC_DISABLE_PYTHON=1` | Unset env or run CLI directly |
 | `host.python_missing` | 503 | No `python3` / `IDA_PYTHON` on PATH | Install Python 3 or set `IDA_PYTHON` |
 | `host.python_import` | 503 | `import automation.learning.live_runtime` fails | Fix PYTHONPATH/cwd/dependencies |

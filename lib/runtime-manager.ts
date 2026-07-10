@@ -102,9 +102,56 @@ function newCorrelationId(): string {
   return `CORR-${randomBytes(6).toString("hex").toUpperCase()}`;
 }
 
-function ensureDirs(root: string): void {
-  fs.mkdirSync(path.join(root, STATE_REL), { recursive: true });
-  fs.mkdirSync(path.join(root, LOGS_REL), { recursive: true });
+/**
+ * Detect serverless / read-only hosts (Vercel, Lambda, /var/task).
+ * These cannot mkdir under the deployment root or run detached Python.
+ */
+export function isServerlessHost(root?: string): boolean {
+  const r = root || getRepoRoot();
+  return Boolean(
+    process.env.VERCEL ||
+      process.env.VERCEL_ENV ||
+      process.env.AWS_LAMBDA_FUNCTION_NAME ||
+      process.env.LAMBDA_TASK_ROOT ||
+      process.env.ECS_AGENT_URI ||
+      r === "/var/task" ||
+      r.startsWith("/var/task/") ||
+      process.cwd() === "/var/task"
+  );
+}
+
+export type DirEnsureResult =
+  | { ok: true; stateDir: string; logsDir: string }
+  | { ok: false; error: string; code?: string; path?: string };
+
+/**
+ * Create runtime state/log dirs. Never throws — returns structured result.
+ * On Vercel/read-only FS this fails with a clear path error instead of crashing start.
+ */
+export function ensureDirs(root: string): DirEnsureResult {
+  const stateDir = path.join(root, STATE_REL);
+  const logsDir = path.join(root, LOGS_REL);
+  try {
+    fs.mkdirSync(stateDir, { recursive: true });
+    fs.mkdirSync(logsDir, { recursive: true });
+    // Prove write works (mkdir alone can succeed on some FUSE mounts that still fail writes)
+    const probe = path.join(stateDir, `.write_probe_${process.pid}`);
+    fs.writeFileSync(probe, "ok", "utf8");
+    try {
+      fs.unlinkSync(probe);
+    } catch {
+      /* ignore */
+    }
+    return { ok: true, stateDir, logsDir };
+  } catch (e) {
+    const err = e as NodeJS.ErrnoException;
+    return {
+      ok: false,
+      error: err.message || String(e),
+      code: err.code,
+      path: stateDir,
+    };
+  }
 }
 
 function lockPath(root: string): string {
@@ -124,12 +171,62 @@ function readJsonFile(file: string): Record<string, unknown> | null {
   }
 }
 
-function writeJsonFile(file: string, data: unknown): void {
-  const dir = path.dirname(file);
-  fs.mkdirSync(dir, { recursive: true });
-  const tmp = `${file}.tmp.${process.pid}`;
-  fs.writeFileSync(tmp, JSON.stringify(data, null, 2) + "\n", "utf8");
-  fs.renameSync(tmp, file);
+function writeJsonFile(file: string, data: unknown): boolean {
+  try {
+    const dir = path.dirname(file);
+    fs.mkdirSync(dir, { recursive: true });
+    const tmp = `${file}.tmp.${process.pid}`;
+    fs.writeFileSync(tmp, JSON.stringify(data, null, 2) + "\n", "utf8");
+    fs.renameSync(tmp, file);
+    return true;
+  } catch (e) {
+    console.error("[runtime-manager] writeJsonFile failed", file, e);
+    return false;
+  }
+}
+
+/** Classify filesystem / serverless failures into a precise component. */
+export function classifyFilesystemFailure(
+  errMessage: string,
+  root: string
+): {
+  component: string;
+  error_code: string;
+  recovery_suggestion: string;
+} {
+  const serverless = isServerlessHost(root);
+  const msg = errMessage || "";
+  const isFs =
+    /ENOENT|EACCES|EPERM|EROFS|read-only|mkdir|open '/i.test(msg) ||
+    msg.includes("/var/task");
+
+  if (serverless || msg.includes("/var/task")) {
+    return {
+      component: "host.vercel",
+      error_code: "SERVERLESS_READ_ONLY",
+      recovery_suggestion:
+        "This deployment is on Vercel/serverless (/var/task is read-only). " +
+        "Live learning cannot create automation/runtime/state or spawn Python there. " +
+        "Run locally: python3 -m automation.learning.live_runtime " +
+        "— or host ECC on a long-running machine with a writable repo checkout.",
+    };
+  }
+  if (isFs) {
+    return {
+      component: "host.filesystem",
+      error_code: "RUNTIME_STATE_NOT_WRITABLE",
+      recovery_suggestion:
+        "Cannot create automation/runtime/state under the repo root. " +
+        "Check disk space, permissions, and that the process cwd is the ida-dataset repo. " +
+        "Set IDA_REPO_ROOT to a writable checkout if needed.",
+    };
+  }
+  return {
+    component: "runtime.manager",
+    error_code: "START_EXCEPTION",
+    recovery_suggestion:
+      "Unexpected exception in startLiveRuntime. Check /api/runtime/debug and server logs.",
+  };
 }
 
 export function isPidAlive(pid: number | null | undefined): boolean {
@@ -227,14 +324,18 @@ export function probeHostCapabilities(
       return _capsCache.value;
     }
 
-    const vercel = Boolean(process.env.VERCEL);
+    const vercel =
+      Boolean(process.env.VERCEL) ||
+      Boolean(process.env.VERCEL_ENV) ||
+      isServerlessHost(root);
     const eccDisable = process.env.ECC_DISABLE_PYTHON === "1";
     const py = resolvePython(root);
     let block: string | null = null;
     if (vercel) {
       block =
-        "Host is Vercel serverless — detached Python subprocesses are not supported. " +
-        "Run live learning on a local or long-running host.";
+        "Host is Vercel/serverless (deployment root is read-only, e.g. /var/task). " +
+        "Detached Python live runtime is not supported. " +
+        "Run live learning on a local or long-running host with a writable checkout.";
     } else if (eccDisable) {
       block =
         "ECC_DISABLE_PYTHON=1 is set — Python live runtime intentionally disabled on this host.";
@@ -242,7 +343,18 @@ export function probeHostCapabilities(
       block = py.error;
     }
 
-    // Preflight import only when not blocked by env
+    // Writable state dir required for lock + status + spawn logs
+    if (!block) {
+      const dirs = ensureDirs(root);
+      if (!dirs.ok) {
+        const classified = classifyFilesystemFailure(dirs.error, root);
+        block =
+          `Cannot write runtime state under ${dirs.path || root}: ${dirs.error} ` +
+          `(${classified.error_code})`;
+      }
+    }
+
+    // Preflight import only when not blocked by env/fs
     if (!block && py.path) {
       const pre = spawnSyncCapture(
         py.path,
@@ -275,7 +387,7 @@ export function probeHostCapabilities(
       python_available: false,
       python_path: null,
       python_version: null,
-      vercel: Boolean(process.env.VERCEL),
+      vercel: isServerlessHost(root),
       ecc_disable_python: process.env.ECC_DISABLE_PYTHON === "1",
       repo_root: root,
       can_spawn_runtime: false,
@@ -324,8 +436,13 @@ export function reclaimStaleLock(root = getRepoRoot()): boolean {
 }
 
 export function readRuntimeStatus(root = getRepoRoot()): RuntimeStatus {
+  // Soft ensure — never throw from status reads on read-only hosts
   ensureDirs(root);
-  reclaimStaleLock(root);
+  try {
+    reclaimStaleLock(root);
+  } catch {
+    /* ignore on read-only */
+  }
   const raw = readJsonFile(statusPath(root)) || {};
   const startedAt = (raw.started_at as string) || null;
   let uptime = Number(raw.uptime_seconds || 0);
@@ -420,7 +537,25 @@ export function writeFailureLog(
   failure: RuntimeFailure,
   root = getRepoRoot()
 ): string {
-  ensureDirs(root);
+  const dirs = ensureDirs(root);
+  // Always log to console so Vercel log drain captures the exact exception
+  console.error(
+    "[runtime.failure]",
+    JSON.stringify({
+      timestamp: failure.timestamp,
+      component: failure.component,
+      exception: failure.exception,
+      message: failure.message,
+      correlation_id: failure.correlation_id,
+      session_id: failure.session_id,
+      recovery_action: failure.recovery_action,
+      recovery_suggestion: failure.recovery_suggestion,
+      stack_trace: failure.stack_trace,
+    })
+  );
+  if (!dirs.ok) {
+    return "";
+  }
   const stamp = new Date().toISOString().replace(/[:.]/g, "").slice(0, 15);
   const file = path.join(
     root,
@@ -428,8 +563,12 @@ export function writeFailureLog(
     `error_${stamp}_${failure.correlation_id}.json`
   );
   writeJsonFile(file, failure);
-  const channel = path.join(root, LOGS_REL, "errors.jsonl");
-  fs.appendFileSync(channel, JSON.stringify(failure) + "\n", "utf8");
+  try {
+    const channel = path.join(root, LOGS_REL, "errors.jsonl");
+    fs.appendFileSync(channel, JSON.stringify(failure) + "\n", "utf8");
+  } catch (e) {
+    console.error("[runtime.failure] append channel failed", e);
+  }
   return file;
 }
 
@@ -568,17 +707,25 @@ export async function startLiveRuntime(opts: {
   } catch (e) {
     const err = e instanceof Error ? e : new Error(String(e));
     const root = getRepoRoot();
+    const classified = classifyFilesystemFailure(err.message, root);
     const failure: RuntimeFailure = {
       timestamp: nowIso(),
-      component: "runtime.manager",
+      component: classified.component,
       exception: err.name || "UnhandledStartError",
       message: err.message || "Unhandled exception during runtime start",
       stack_trace: err.stack,
       correlation_id,
-      recovery_action: "inspect_runtime_debug",
+      recovery_action:
+        classified.component === "host.vercel"
+          ? "run_on_capable_host"
+          : "inspect_runtime_debug",
       recoverable: false,
-      recovery_suggestion:
-        "Unexpected exception in startLiveRuntime. Check /api/runtime/debug and automation/runtime/logs/.",
+      recovery_suggestion: classified.recovery_suggestion,
+      meta: {
+        error_code: classified.error_code,
+        repo_root: root,
+        serverless: isServerlessHost(root),
+      },
     };
     try {
       writeFailureLog(failure, root);
@@ -588,7 +735,11 @@ export async function startLiveRuntime(opts: {
           correlation_id,
           last_error: failure,
           stopped_at: nowIso(),
-          health: { ...defaultHealth(), runtime: "failed" },
+          health: {
+            ...defaultHealth(),
+            runtime:
+              classified.component === "host.vercel" ? "disabled" : "failed",
+          },
         },
         root
       );
@@ -612,39 +763,107 @@ async function startLiveRuntimeInner(
   correlation_id: string
 ): Promise<StartResult> {
   const root = getRepoRoot();
-  ensureDirs(root);
   const instruction =
     opts.instruction?.trim() ||
     "Learn Industry Library knowledge — live session";
   const pace = opts.pace ?? 0.7;
 
-  // Force fresh host probe on start (not cache)
+  // --- Root cause path 0: serverless / /var/task (before any mkdir) ---
+  if (isServerlessHost(root)) {
+    const failure: RuntimeFailure = {
+      timestamp: nowIso(),
+      component: "host.vercel",
+      exception: "ServerlessReadOnly",
+      message:
+        `Live runtime cannot start on serverless host (repo_root=${root}). ` +
+        `Deployment filesystem is read-only — cannot mkdir automation/runtime/state ` +
+        `and cannot spawn a long-lived Python process.`,
+      correlation_id,
+      recovery_action: "run_on_capable_host",
+      recoverable: false,
+      recovery_suggestion:
+        "Run IDA live learning locally or on a VM: " +
+        "`python3 -m automation.learning.live_runtime`. " +
+        "Vercel/serverless only hosts the dashboard (read-only /var/task).",
+      meta: {
+        repo_root: root,
+        vercel: Boolean(process.env.VERCEL),
+        vercel_env: process.env.VERCEL_ENV || null,
+        cwd: process.cwd(),
+        error_code: "SERVERLESS_READ_ONLY",
+      },
+    };
+    writeFailureLog(failure, root);
+    return {
+      ok: false,
+      status_code: 503,
+      message: failure.message,
+      correlation_id,
+      failure,
+      recovery_suggestion: failure.recovery_suggestion,
+      status: {
+        status: "failed",
+        session_id: null,
+        correlation_id,
+        pid: null,
+        started_at: null,
+        stopped_at: nowIso(),
+        current_stage: null,
+        current_task: null,
+        documents_processed: 0,
+        knowledge_candidates: 0,
+        uptime_seconds: 0,
+        last_error: failure,
+        health: { ...defaultHealth(), runtime: "disabled" },
+        host_capabilities: probeHostCapabilities(root, { force: true }),
+      },
+    };
+  }
+
+  // Force fresh host probe on start (includes writable-dir check)
   const caps = probeHostCapabilities(root, { force: true });
 
   // --- Root cause path 1: host/environment gate ---
   if (!caps.can_spawn_runtime) {
+    const fsClassified = caps.block_reason
+      ? classifyFilesystemFailure(caps.block_reason, root)
+      : null;
     const component = caps.vercel
       ? "host.vercel"
       : caps.ecc_disable_python
         ? "host.ecc_disable_python"
         : !caps.python_path
           ? "host.python_missing"
-          : "host.python_import";
+          : caps.block_reason &&
+              /mkdir|ENOENT|EROFS|writable|runtime\/state/i.test(
+                caps.block_reason
+              )
+            ? fsClassified?.component || "host.filesystem"
+            : "host.python_import";
     const failure: RuntimeFailure = {
       timestamp: nowIso(),
       component,
-      exception: "RuntimeUnavailable",
+      exception:
+        component === "host.vercel"
+          ? "ServerlessReadOnly"
+          : component === "host.filesystem"
+            ? "RuntimeStateNotWritable"
+            : "RuntimeUnavailable",
       message: caps.block_reason || "Live runtime unavailable on this host",
       correlation_id,
       recovery_action: "run_on_capable_host",
       recoverable: false,
       recovery_suggestion: caps.vercel
-        ? "Deploy or run ECC on a machine with Python (local dev / VM). Vercel cannot host the live learning subprocess."
+        ? "Deploy or run ECC on a machine with Python (local dev / VM). Vercel cannot host the live learning subprocess or write /var/task/automation/runtime/state."
         : caps.ecc_disable_python
           ? "Unset ECC_DISABLE_PYTHON=1 on this host, or run: python3 -m automation.learning.live_runtime"
-          : caps.block_reason ||
+          : fsClassified?.recovery_suggestion ||
+            caps.block_reason ||
             "Install Python 3 and ensure `python3 -m automation.learning.live_runtime` works from the repo root.",
-      meta: { host_capabilities: caps },
+      meta: {
+        host_capabilities: caps,
+        error_code: fsClassified?.error_code || component,
+      },
     };
     writeFailureLog(failure, root);
     writeRuntimeStatus(
@@ -655,7 +874,8 @@ async function startLiveRuntimeInner(
         stopped_at: nowIso(),
         health: {
           ...defaultHealth(),
-          runtime: caps.vercel || caps.ecc_disable_python ? "disabled" : "failed",
+          runtime:
+            caps.vercel || caps.ecc_disable_python ? "disabled" : "failed",
         },
       },
       root
@@ -668,6 +888,32 @@ async function startLiveRuntimeInner(
       failure,
       recovery_suggestion: failure.recovery_suggestion,
       status: readRuntimeStatus(root),
+    };
+  }
+
+  // Writable dirs already verified by probe — ensure again for spawn logs
+  const dirs = ensureDirs(root);
+  if (!dirs.ok) {
+    const classified = classifyFilesystemFailure(dirs.error, root);
+    const failure: RuntimeFailure = {
+      timestamp: nowIso(),
+      component: classified.component,
+      exception: dirs.code || "DirEnsureFailed",
+      message: `Cannot create runtime directories: ${dirs.error}`,
+      correlation_id,
+      recovery_action: "run_on_capable_host",
+      recoverable: false,
+      recovery_suggestion: classified.recovery_suggestion,
+      meta: { path: dirs.path, code: dirs.code, repo_root: root },
+    };
+    writeFailureLog(failure, root);
+    return {
+      ok: false,
+      status_code: 503,
+      message: failure.message,
+      correlation_id,
+      failure,
+      recovery_suggestion: failure.recovery_suggestion,
     };
   }
 
