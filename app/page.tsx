@@ -1,13 +1,17 @@
 import { Shell } from "@/components/layout/shell";
 import { ExecutiveDashboard } from "@/components/shared/executive-dashboard";
 import { getKnowledgeKpis } from "@/lib/knowledge-kpis";
+import { getLearningMode } from "@/lib/learning-mode";
 import { getReviewQueues } from "@/lib/repo-data";
+import fs from "fs";
+import { repoPath } from "@/lib/paths";
 
 export const dynamic = "force-dynamic";
 
 export default function DashboardPage() {
   const kpis = getKnowledgeKpis();
   const review = getReviewQueues();
+  const mode = getLearningMode();
   const confidences = [
     ...review.pending,
     ...review.approved.slice(0, 20),
@@ -16,6 +20,16 @@ export default function DashboardPage() {
     confidences.length > 0
       ? confidences.reduce((a, b) => a + b, 0) / confidences.length
       : null;
+
+  let sources = 0;
+  try {
+    const p = repoPath("automation/config/sources.yaml");
+    if (fs.existsSync(p)) {
+      sources = (fs.readFileSync(p, "utf8").match(/id:\s*/g) || []).length;
+    }
+  } catch {
+    sources = 0;
+  }
 
   return (
     <Shell title="Dashboard">
@@ -32,6 +46,9 @@ export default function DashboardPage() {
           gaps_count: kpis.knowledge_gaps.length,
           coverage_message: kpis.answers.how_much_knowledge,
           growth_message: kpis.knowledge_growth_today.message,
+          sources_count: sources || undefined,
+          mode: mode.mode,
+          auto_publish: mode.auto_publish,
         }}
       />
     </Shell>

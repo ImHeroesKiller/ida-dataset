@@ -19,6 +19,7 @@ const knowledgeGlobs = [
   "./metadata/**/*",
   "./automation/config/**/*",
   "./automation/queue/**/*",
+  "./automation/queue/publish/**/*",
   "./automation/review/**/*",
   "./automation/ci/**/*",
   "./automation/sessions/**/*",

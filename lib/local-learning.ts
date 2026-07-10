@@ -125,6 +125,18 @@ export function runLocalLearningSession(opts: {
       };
     }
 
+    // Development progressive auto-publish after session (backend-paced)
+    try {
+      spawnSync("python3", ["automation/ci/progressive_publish.py"], {
+        cwd: root,
+        encoding: "utf8",
+        env: { ...process.env, PYTHONUNBUFFERED: "1" },
+        timeout: 300_000,
+      });
+    } catch {
+      /* non-fatal */
+    }
+
     return {
       ok: true,
       status_code: 200,

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Card, CardBody } from "@/components/ui/card";
+import { useCallback, useEffect, useState } from "react";
+import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useLearningSessions } from "@/lib/use-learning-sessions";
 import { cn } from "@/lib/utils";
@@ -19,14 +19,67 @@ export type ExecutiveKpis = {
   gaps_count: number;
   coverage_message: string;
   growth_message: string;
+  sources_count?: number;
+  mode?: string;
+  auto_publish?: boolean;
+};
+
+type PublishView = {
+  status?: string;
+  total?: number;
+  published?: number;
+  remaining?: number;
+  speed?: number;
+  unit?: string;
+  eta_seconds?: number | null;
+  current_dataset?: string | null;
+  current_knowledge?: string | null;
+  next_knowledge?: string | null;
+  mode?: string;
+  auto_publish?: boolean;
+  queue?: Array<{
+    candidate_id: string;
+    name: string;
+    dataset: string;
+    confidence: number;
+  }>;
+  feed?: Array<{
+    ts: string;
+    knowledge_type: string;
+    name: string;
+    dataset: string;
+    source: string;
+    confidence: number;
+    published_at: string;
+  }>;
+  journal_tail?: Array<Record<string, unknown>>;
 };
 
 export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
-  const { dashboard, activity, startLearning, loading } = useLearningSessions(6000);
+  const { dashboard, activity, startLearning, loading } = useLearningSessions(5000);
   const [kpis, setKpis] = useState(initial);
+  const [pub, setPub] = useState<PublishView>({});
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  const [publishing, setPublishing] = useState(false);
 
+  const refreshPublish = useCallback(async () => {
+    try {
+      const res = await fetch("/api/publish-queue", { cache: "no-store" });
+      const data = await res.json();
+      if (data.ok !== false) setPub(data);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  useEffect(() => {
+    void refreshPublish();
+    const id = setInterval(() => void refreshPublish(), 1500);
+    return () => clearInterval(id);
+  }, [refreshPublish]);
+
+  // Poll only — progressive rate is enforced in GET /api/publish-queue (backend)
   useEffect(() => {
     const id = setInterval(async () => {
       try {
@@ -39,42 +92,57 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
             knowledge_added_today:
               k.added_today ?? k.knowledge_added_today ?? prev.knowledge_added_today,
             pending_review: k.pending_review ?? prev.pending_review,
-            knowledge_coverage: k.coverage ?? k.knowledge_coverage ?? prev.knowledge_coverage,
+            knowledge_coverage:
+              k.coverage ?? k.knowledge_coverage ?? prev.knowledge_coverage,
           }));
         }
       } catch {
         /* ignore */
       }
-    }, 8000);
+    }, 6000);
     return () => clearInterval(id);
   }, []);
 
   const status = dashboard.github_actions?.running
     ? "running"
-    : dashboard.status || "idle";
+    : (pub.remaining || 0) > 0
+      ? "running"
+      : dashboard.status || "idle";
+
   const mission =
     dashboard.current_mission ||
     activity.current_thought ||
     "Standing by for the next learning session";
 
+  const publishedToday =
+    (pub.published || 0) > 0
+      ? pub.published
+      : kpis.knowledge_added_today;
+
   const nextAction =
-    kpis.pending_review > 0
+    !pub.auto_publish && kpis.pending_review > 0
       ? {
           label: `Review ${kpis.pending_review} waiting candidate${kpis.pending_review === 1 ? "" : "s"}`,
           href: "/review",
           tone: "amber" as const,
         }
-      : status === "running"
+      : (pub.remaining || 0) > 0
         ? {
-            label: "Learning in progress — monitor journal",
-            href: "/",
+            label: `Publishing ${pub.remaining} knowledge rows…`,
+            href: null,
             tone: "green" as const,
           }
-        : {
-            label: "Start a learning session",
-            href: null,
-            tone: "blue" as const,
-          };
+        : status === "running"
+          ? {
+              label: "Learning in progress — watch the journal",
+              href: null,
+              tone: "green" as const,
+            }
+          : {
+              label: "Start a learning session",
+              href: null,
+              tone: "blue" as const,
+            };
 
   async function onStart() {
     setBusy(true);
@@ -84,37 +152,85 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
         "Continue continuous learning — expand knowledge coverage",
         true
       );
-      setMsg(res.ok ? res.message || "Learning started" : res.reason || res.message || "Failed");
+      setMsg(
+        res.ok
+          ? res.message || "Learning started"
+          : res.reason || res.message || "Failed"
+      );
+      // Kick progressive publish for any pending
+      await fetch("/api/publish-queue", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "enqueue" }),
+      });
+      await refreshPublish();
     } finally {
       setBusy(false);
     }
   }
 
+  async function onDrain() {
+    setPublishing(true);
+    setMsg(null);
+    try {
+      const res = await fetch("/api/publish-queue", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "start" }),
+      });
+      const data = await res.json();
+      setMsg(
+        data.ok
+          ? "Publish queue drained"
+          : data.error || "Publish failed"
+      );
+      await refreshPublish();
+    } finally {
+      setPublishing(false);
+    }
+  }
+
+  const eta =
+    pub.eta_seconds != null
+      ? pub.eta_seconds < 60
+        ? `${pub.eta_seconds}s`
+        : `${Math.floor(pub.eta_seconds / 60)}m ${pub.eta_seconds % 60}s`
+      : "—";
+
+  const feed = pub.feed || [];
+  const journal = (pub.journal_tail || []).slice().reverse().slice(0, 12);
+
   return (
     <div className="mx-auto max-w-6xl space-y-8">
-      <header className="space-y-2">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
-          IDA Executive Learning
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+      <header className="space-y-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--text-faint)]">
+            IDA Executive Learning
+          </p>
+          <ModeBadge
+            mode={pub.mode || kpis.mode || "development"}
+            auto={Boolean(pub.auto_publish ?? kpis.auto_publish)}
+          />
+        </div>
+        <h1 className="text-3xl font-semibold tracking-tight text-[var(--text)] sm:text-4xl">
           What is IDA learning now?
         </h1>
-        <p className="max-w-2xl text-base leading-relaxed text-zinc-400">
+        <p className="max-w-2xl text-base leading-relaxed text-[var(--text-muted)]">
           {loading
             ? "Loading learning status…"
             : activity.current_task || mission}
         </p>
         <div className="flex flex-wrap items-center gap-2 pt-1">
           <StatusPill status={status} />
-          <span className="text-sm text-zinc-500">
-            {dashboard.session_duration != null
-              ? `Last session ${Math.round(Number(dashboard.session_duration))}s`
-              : "Continuous learning via GitHub Actions"}
+          <span className="text-sm text-[var(--text-faint)]">
+            {(pub.remaining || 0) > 0
+              ? `Publishing · ${pub.current_knowledge || "knowledge"}`
+              : "Ready to learn"}
           </span>
         </div>
       </header>
 
-      {/* Primary metrics */}
+      {/* Primary cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           label="Knowledge today"
@@ -129,70 +245,93 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
           tone="blue"
         />
         <StatCard
-          label="Waiting review"
-          value={String(kpis.pending_review)}
-          hint={
-            kpis.pending_review > 0
-              ? "Action needed"
-              : "Queue clear"
-          }
-          tone={kpis.pending_review > 0 ? "amber" : "neutral"}
-          href="/review"
+          label="Knowledge published"
+          value={String(publishedToday ?? 0)}
+          hint="Rows written to datasets"
+          tone="green"
         />
         <StatCard
-          label="Learning quality"
-          value={`${kpis.knowledge_quality_score}`}
-          hint={
-            kpis.average_confidence != null
-              ? `Avg confidence ${Math.round(kpis.average_confidence * 100)}%`
-              : "Quality score"
+          label={
+            pub.auto_publish
+              ? "Waiting review"
+              : "Waiting review"
           }
-          tone="neutral"
+          value={
+            pub.auto_publish
+              ? "Auto"
+              : String(kpis.pending_review)
+          }
+          hint={
+            pub.auto_publish
+              ? "Development · auto publish enabled"
+              : kpis.pending_review > 0
+                ? "Action needed"
+                : "Queue clear"
+          }
+          tone={
+            pub.auto_publish
+              ? "blue"
+              : kpis.pending_review > 0
+                ? "amber"
+                : "neutral"
+          }
+          href={pub.auto_publish ? undefined : "/review"}
         />
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3">
-        <Card className="border-zinc-800/50 bg-zinc-950/40 lg:col-span-2">
+        <Card className="lg:col-span-2">
           <CardBody className="space-y-4 p-6">
             <div>
-              <p className="text-xs uppercase tracking-wider text-zinc-500">
+              <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
                 Current mission
               </p>
-              <p className="mt-2 text-lg font-medium text-zinc-100">
+              <p className="mt-2 text-lg font-medium text-[var(--text)]">
                 {dashboard.current_mission || "No active mission"}
               </p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-zinc-500">
-                Current task
+              <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
+                Current learning
               </p>
-              <p className="mt-2 text-base text-zinc-300">
-                {activity.current_task || activity.current_thought || "Idle"}
+              <p className="mt-2 text-base text-[var(--text-muted)]">
+                {activity.current_task ||
+                  activity.current_thought ||
+                  pub.current_knowledge ||
+                  "Idle"}
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-3 pt-1 sm:grid-cols-4">
+              <Mini label="Knowledge growth" value={`+${kpis.knowledge_added_today}`} />
+              <Mini label="Learning quality" value={String(kpis.knowledge_quality_score)} />
               <Mini
-                label="Knowledge growth"
-                value={`+${kpis.knowledge_added_today} today`}
+                label="Avg confidence"
+                value={
+                  kpis.average_confidence != null
+                    ? `${Math.round(kpis.average_confidence * 100)}%`
+                    : "—"
+                }
               />
-              <Mini label="Growing datasets" value={String(kpis.growing_count)} />
-              <Mini label="Knowledge gaps" value={String(kpis.gaps_count)} />
+              <Mini
+                label="Knowledge sources"
+                value={String(kpis.sources_count ?? "—")}
+              />
             </div>
           </CardBody>
         </Card>
 
-        <Card className="border-zinc-800/50 bg-zinc-950/40">
+        <Card>
           <CardBody className="flex h-full flex-col justify-between gap-4 p-6">
             <div>
-              <p className="text-xs uppercase tracking-wider text-zinc-500">
+              <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
                 What should I do next?
               </p>
               <p
                 className={cn(
                   "mt-3 text-lg font-medium leading-snug",
-                  nextAction.tone === "amber" && "text-amber-200",
-                  nextAction.tone === "green" && "text-emerald-300",
-                  nextAction.tone === "blue" && "text-sky-300"
+                  nextAction.tone === "amber" && "text-amber-600 dark:text-amber-200",
+                  nextAction.tone === "green" && "text-emerald-600 dark:text-emerald-300",
+                  nextAction.tone === "blue" && "text-blue-600 dark:text-sky-300"
                 )}
               >
                 {nextAction.label}
@@ -201,57 +340,215 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
             <div className="flex flex-col gap-2">
               {nextAction.href ? (
                 <Link href={nextAction.href}>
-                  <Button className="w-full">Open Review</Button>
+                  <Button className="w-full" variant="warning">
+                    Open Review
+                  </Button>
                 </Link>
               ) : (
                 <Button className="w-full" disabled={busy} onClick={onStart}>
                   Start Learning
                 </Button>
               )}
-              <Link href="/knowledge">
-                <Button variant="secondary" className="w-full">
-                  Browse Knowledge
+              {(pub.remaining || 0) > 0 ? (
+                <Button
+                  variant="success"
+                  className="w-full"
+                  disabled={publishing}
+                  onClick={onDrain}
+                >
+                  {publishing ? "Publishing…" : "Publish queue now"}
                 </Button>
-              </Link>
+              ) : (
+                <Link href="/knowledge">
+                  <Button variant="secondary" className="w-full">
+                    Browse Knowledge
+                  </Button>
+                </Link>
+              )}
               {msg ? (
-                <p className="text-[11px] text-zinc-500">{msg}</p>
+                <p className="text-xs text-[var(--text-faint)]">{msg}</p>
               ) : null}
             </div>
           </CardBody>
         </Card>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard
-          label="Average confidence"
-          value={
-            kpis.average_confidence != null
-              ? `${Math.round(kpis.average_confidence * 100)}%`
-              : "—"
-          }
-          hint="Across recent candidates"
-          tone="blue"
-        />
-        <StatCard
-          label="Updated today"
-          value={String(kpis.knowledge_updated_today)}
-          hint="Knowledge refreshes"
-          tone="neutral"
-        />
-        <StatCard
-          label="Rejected"
-          value={String(kpis.knowledge_rejected)}
-          hint="Human quality gate"
-          tone="neutral"
-        />
-        <StatCard
-          label="Sessions"
-          value={String(dashboard.history?.today?.sessions ?? 0)}
-          hint="Learning runs today"
-          tone="green"
-        />
+      {/* Progressive publishing widget + knowledge queue */}
+      <div className="grid gap-4 lg:grid-cols-2">
+        <Card>
+          <CardHeader
+            title="Publishing progress"
+            description="Backend-paced progressive publish"
+          />
+          <CardBody className="space-y-4">
+            <div className="flex items-end justify-between gap-3">
+              <div>
+                <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
+                  Published
+                </p>
+                <p className="mt-1 text-3xl font-semibold text-[var(--text)]">
+                  {pub.published ?? 0}
+                  <span className="text-lg text-[var(--text-faint)]">
+                    {" "}
+                    / {pub.total ?? 0}
+                  </span>
+                </p>
+              </div>
+              <div className="text-right text-sm text-[var(--text-muted)]">
+                <div>Queue remaining · {pub.remaining ?? 0}</div>
+                <div>
+                  Speed · {pub.speed ?? 1} row/sec
+                </div>
+                <div>ETA · {eta}</div>
+              </div>
+            </div>
+            <div className="h-2 overflow-hidden rounded-full bg-[var(--panel-2)]">
+              <div
+                className="h-full rounded-full bg-blue-500 transition-all duration-500"
+                style={{
+                  width: `${
+                    pub.total
+                      ? Math.min(
+                          100,
+                          Math.round(
+                            ((pub.published || 0) / Math.max(pub.total, 1)) * 100
+                          )
+                        )
+                      : 0
+                  }%`,
+                }}
+              />
+            </div>
+            <p className="text-xs text-[var(--text-faint)]">
+              Current · {pub.current_knowledge || "—"} ·{" "}
+              {pub.current_dataset || "—"}
+            </p>
+          </CardBody>
+        </Card>
+
+        <Card>
+          <CardHeader
+            title="Knowledge queue"
+            description="Visibly shrinks as knowledge is published"
+          />
+          <CardBody className="max-h-56 space-y-2 overflow-y-auto scrollbar-thin">
+            {!pub.queue?.length ? (
+              <Empty hint="Publish queue is empty. Start learning to generate knowledge." />
+            ) : (
+              pub.queue.map((q, i) => (
+                <div
+                  key={q.candidate_id}
+                  className="flex items-center justify-between rounded-xl bg-[var(--panel-2)] px-3 py-2 text-sm"
+                >
+                  <div className="min-w-0">
+                    <p className="truncate font-medium text-[var(--text)]">
+                      {i === 0 ? "Next · " : ""}
+                      {q.name}
+                    </p>
+                    <p className="text-xs text-[var(--text-faint)]">
+                      {q.dataset}
+                    </p>
+                  </div>
+                  <span className="text-xs text-blue-600 dark:text-sky-300">
+                    {Math.round(q.confidence * 100)}%
+                  </span>
+                </div>
+              ))
+            )}
+          </CardBody>
+        </Card>
+      </div>
+
+      {/* Knowledge feed + journal */}
+      <div className="grid gap-4 lg:grid-cols-2">
+        <Card>
+          <CardHeader
+            title="Knowledge feed"
+            description="Newest published knowledge first"
+          />
+          <CardBody className="max-h-72 space-y-2 overflow-y-auto scrollbar-thin">
+            {!feed.length ? (
+              <Empty hint="No knowledge published yet. Start a learning mission." />
+            ) : (
+              feed.map((f, i) => (
+                <div
+                  key={`${f.published_at}-${i}`}
+                  className="border-b border-[var(--border)] py-2 last:border-0"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-medium text-blue-600 dark:text-sky-300">
+                      {f.knowledge_type}
+                    </span>
+                    <span className="text-[11px] text-[var(--text-faint)]">
+                      {String(f.published_at || "").slice(11, 19)}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-sm font-medium text-[var(--text)]">
+                    {f.name}
+                  </p>
+                  <p className="text-xs text-[var(--text-faint)]">
+                    {f.dataset} · {f.source} ·{" "}
+                    {Math.round((f.confidence || 0) * 100)}%
+                  </p>
+                </div>
+              ))
+            )}
+          </CardBody>
+        </Card>
+
+        <Card>
+          <CardHeader
+            title="Learning journal"
+            description="Human-readable learning actions"
+          />
+          <CardBody className="max-h-72 space-y-1.5 overflow-y-auto font-mono text-[11px] scrollbar-thin">
+            {!journal.length ? (
+              <Empty hint="Journal is quiet. Learning activity will appear here." />
+            ) : (
+              journal.map((ev, i) => (
+                <div key={i} className="flex gap-2 text-[var(--text-muted)]">
+                  <span className="w-14 shrink-0 text-[var(--text-faint)]">
+                    {String(ev.ts || "").slice(11, 19)}
+                  </span>
+                  <span className="w-32 shrink-0 font-medium text-emerald-600 dark:text-emerald-300">
+                    {humanVerb(String(ev.verb || ""), String(ev.stage || ""))}
+                  </span>
+                  <span className="truncate">{String(ev.detail || "")}</span>
+                </div>
+              ))
+            )}
+          </CardBody>
+        </Card>
       </div>
     </div>
+  );
+}
+
+function humanVerb(verb: string, stage: string): string {
+  const map: Record<string, string> = {
+    Publishing: "Publishing",
+    "Knowledge Added": "Knowledge Added",
+    "Learning Completed": "Learning Completed",
+    Searching: "Searching",
+    Reading: "Reading",
+    Understanding: "Understanding",
+    Extracting: "Extracting",
+    Validating: "Validating",
+    Connector: "Searching",
+    Pipeline: "Extracting",
+    Validator: "Validating",
+  };
+  if (map[verb]) return map[verb];
+  if (stage === "publish") return "Publishing";
+  return verb || "Learning";
+}
+
+function ModeBadge({ mode, auto }: { mode: string; auto: boolean }) {
+  return (
+    <span className="rounded-full bg-[var(--panel-2)] px-2.5 py-0.5 text-[11px] font-medium text-[var(--text-muted)]">
+      {mode === "production" ? "Production" : "Development"}
+      {auto ? " · Auto publish" : " · Review required"}
+    </span>
   );
 }
 
@@ -262,17 +559,17 @@ function StatusPill({ status }: { status: string }) {
     <span
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium",
-        running && "bg-emerald-500/15 text-emerald-300",
-        failed && "bg-red-500/15 text-red-300",
-        !running && !failed && "bg-sky-500/15 text-sky-300"
+        running && "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
+        failed && "bg-red-500/15 text-red-700 dark:text-red-300",
+        !running && !failed && "bg-blue-500/15 text-blue-700 dark:text-sky-300"
       )}
     >
       <span
         className={cn(
           "h-1.5 w-1.5 rounded-full",
-          running && "bg-emerald-400 animate-pulse",
-          failed && "bg-red-400",
-          !running && !failed && "bg-sky-400"
+          running && "animate-pulse bg-emerald-500",
+          failed && "bg-red-500",
+          !running && !failed && "bg-blue-500"
         )}
       />
       {running ? "Running" : failed ? "Attention" : "Ready"}
@@ -294,19 +591,23 @@ function StatCard({
   href?: string;
 }) {
   const tones = {
-    green: "text-emerald-300",
-    blue: "text-sky-300",
-    amber: "text-amber-200",
-    neutral: "text-zinc-100",
+    green: "text-emerald-600 dark:text-emerald-300",
+    blue: "text-blue-600 dark:text-sky-300",
+    amber: "text-amber-600 dark:text-amber-200",
+    neutral: "text-[var(--text)]",
   };
   const inner = (
-    <Card className="border-zinc-800/50 bg-zinc-950/40 transition-colors hover:border-zinc-700/80">
+    <Card className="transition-transform duration-150 hover:-translate-y-0.5">
       <CardBody className="p-5">
-        <p className="text-xs uppercase tracking-wider text-zinc-500">{label}</p>
+        <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
+          {label}
+        </p>
         <p className={cn("mt-2 text-3xl font-semibold tracking-tight", tones[tone])}>
           {value}
         </p>
-        {hint ? <p className="mt-2 text-xs text-zinc-500">{hint}</p> : null}
+        {hint ? (
+          <p className="mt-2 text-xs text-[var(--text-faint)]">{hint}</p>
+        ) : null}
       </CardBody>
     </Card>
   );
@@ -316,11 +617,17 @@ function StatCard({
 
 function Mini({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl bg-zinc-900/50 px-3 py-2">
-      <div className="text-[10px] uppercase tracking-wider text-zinc-600">
+    <div className="rounded-xl bg-[var(--panel-2)] px-3 py-2">
+      <div className="text-[10px] uppercase tracking-wider text-[var(--text-faint)]">
         {label}
       </div>
-      <div className="mt-0.5 text-sm font-medium text-zinc-200">{value}</div>
+      <div className="mt-0.5 text-sm font-medium text-[var(--text)]">{value}</div>
     </div>
+  );
+}
+
+function Empty({ hint }: { hint: string }) {
+  return (
+    <p className="py-6 text-center text-sm text-[var(--text-faint)]">{hint}</p>
   );
 }

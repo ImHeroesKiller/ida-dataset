@@ -57,6 +57,8 @@ automation/learning/state/**
 !automation/learning/state/daily_*.json
 !automation/learning/state/sessions/
 !automation/learning/state/sessions/**
+!automation/learning/state/knowledge_feed.jsonl
+!automation/learning/state/publish_state.json
 
 # GitHub Actions learning sessions (committed by learning.yml — keep all)
 !automation/sessions/

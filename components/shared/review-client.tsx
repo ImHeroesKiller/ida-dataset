@@ -171,10 +171,10 @@ export function ReviewClient({ initial }: { initial: Queues }) {
     <div className="relative space-y-4">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-50">
+          <h1 className="text-2xl font-semibold tracking-tight text-[var(--text)]">
             Review
           </h1>
-          <p className="mt-1 text-sm text-zinc-400">
+          <p className="mt-1 text-sm text-[var(--text-muted)]">
             Approve knowledge to publish · Reject to archive
           </p>
         </div>
@@ -219,9 +219,9 @@ export function ReviewClient({ initial }: { initial: Queues }) {
         />
         <CardBody className="p-0">
           {rows.length === 0 ? (
-            <p className="px-5 py-10 text-center text-sm text-zinc-500">
+            <p className="px-5 py-10 text-center text-sm text-[var(--text-faint)]">
               {tab === "pending"
-                ? "No candidates waiting. Learning will add them here automatically."
+                ? "No candidates waiting. Start a learning mission to generate knowledge."
                 : `No ${tab} candidates.`}
             </p>
           ) : (

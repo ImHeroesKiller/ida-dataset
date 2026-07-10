@@ -135,3 +135,36 @@ scheduler:
   max_tasks_per_tick: 5
   default_mission_allocation_pct: 30
   state_dir: automation/scheduler/state
+
+# ---------------------------------------------------------------------------
+# Learning Mode — Development vs Production (architecture unchanged)
+# Controlled here only. Default: development.
+# ---------------------------------------------------------------------------
+learning_mode:
+  # development | production
+  mode: development
+
+  # Development: review bypassed → validated candidates enter publish queue → auto publish
+  # Production: review required → manual approval → publish
+  development:
+    auto_publish: true
+    progressive_publish: true
+    review_bypassed: true
+    publish_mode: auto          # auto | manual
+    publish_rate: 1             # rows per unit
+    publish_rate_unit: rows_per_second
+    # Future: 2 | 5 | 10 | 0 (0 = unlimited)
+
+  production:
+    auto_publish: false
+    progressive_publish: false
+    review_bypassed: false
+    publish_mode: manual
+    publish_rate: 1
+    publish_rate_unit: rows_per_second
+
+paths_publish:
+  publish_queue: automation/queue/publish
+  publish_state: automation/learning/state/publish_state.json
+  knowledge_feed: automation/learning/state/knowledge_feed.jsonl
+

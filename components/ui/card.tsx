@@ -10,7 +10,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-zinc-800/60 bg-zinc-950/50 shadow-sm",
+        "rounded-2xl border border-[var(--border)] bg-[var(--panel)] shadow-[var(--shadow)]",
         className
       )}
     >
@@ -33,14 +33,14 @@ export function CardHeader({
   return (
     <div
       className={cn(
-        "flex items-start justify-between gap-3 border-b border-zinc-800/50 px-5 py-4",
+        "flex items-start justify-between gap-3 border-b border-[var(--border)] px-5 py-4",
         className
       )}
     >
       <div className="min-w-0">
-        <h3 className="text-sm font-medium text-zinc-100">{title}</h3>
+        <h3 className="text-sm font-medium text-[var(--text)]">{title}</h3>
         {description ? (
-          <p className="mt-0.5 text-xs text-zinc-500">{description}</p>
+          <p className="mt-0.5 text-xs text-[var(--text-muted)]">{description}</p>
         ) : null}
       </div>
       {action ? <div className="shrink-0">{action}</div> : null}

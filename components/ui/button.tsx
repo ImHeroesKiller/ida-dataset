@@ -1,22 +1,41 @@
 import { cn } from "@/lib/utils";
 
-type Variant = "default" | "secondary" | "ghost" | "danger" | "outline";
+type Variant =
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "danger"
+  | "ghost"
+  | "outline";
 
+/**
+ * Solid accent buttons with WCAG-safe contrast in light + dark mode.
+ * Never transparent text on transparent backgrounds.
+ */
 const variants: Record<Variant, string> = {
   default:
-    "bg-zinc-100 text-zinc-900 hover:bg-white disabled:bg-zinc-700 disabled:text-zinc-400",
+    "bg-[var(--btn-primary-bg)] text-[var(--btn-primary-fg)] hover:opacity-90",
+  primary:
+    "bg-[var(--btn-primary-bg)] text-[var(--btn-primary-fg)] hover:opacity-90",
   secondary:
-    "bg-zinc-900 text-zinc-100 border border-zinc-700 hover:bg-zinc-800",
-  ghost: "bg-transparent text-zinc-300 hover:bg-zinc-900 hover:text-zinc-100",
+    "bg-[var(--btn-secondary-bg)] text-[var(--btn-secondary-fg)] border border-[var(--border)] hover:opacity-90",
+  success:
+    "bg-[var(--btn-success-bg)] text-[var(--btn-success-fg)] hover:opacity-90",
+  warning:
+    "bg-[var(--btn-warning-bg)] text-[var(--btn-warning-fg)] hover:opacity-90",
   danger:
-    "bg-red-500/15 text-red-300 border border-red-500/30 hover:bg-red-500/25",
+    "bg-[var(--btn-danger-bg)] text-[var(--btn-danger-fg)] hover:opacity-90",
+  ghost:
+    "bg-transparent text-[var(--text)] hover:bg-[var(--panel-2)]",
   outline:
-    "bg-transparent border border-zinc-700 text-zinc-200 hover:bg-zinc-900",
+    "bg-transparent border border-[var(--border)] text-[var(--text)] hover:bg-[var(--panel-2)]",
 };
 
 export function Button({
   className,
-  variant = "default",
+  variant = "primary",
   size = "md",
   ...props
 }: React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -26,7 +45,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center gap-1.5 rounded-xl font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex items-center justify-center gap-1.5 rounded-xl font-medium transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-45",
         size === "sm" ? "h-8 px-3 text-xs" : "h-10 px-4 text-sm",
         variants[variant],
         className
