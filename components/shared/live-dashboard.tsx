@@ -1,16 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { LiveProgress } from "@/components/shared/live-progress";
-import {
-  useLiveLearning,
-  type RuntimeClientFailure,
-} from "@/lib/use-live-learning";
-import { safeFetchJson } from "@/lib/safe-fetch";
+import { useLearningSessions } from "@/lib/use-learning-sessions";
 
 type KpiSnap = {
   knowledge_coverage: number;
@@ -27,114 +23,67 @@ type KpiSnap = {
   };
 };
 
-type HealthMap = Record<string, string>;
-
-function healthClass(level: string): string {
-  switch (level) {
-    case "healthy":
+function statusClass(status: string): string {
+  switch (status) {
+    case "running":
+    case "queued":
+      return "text-sky-300";
+    case "completed":
+    case "success":
       return "text-emerald-300";
-    case "warning":
-      return "text-amber-300";
     case "failed":
+    case "error":
       return "text-red-400";
-    case "disabled":
-      return "text-zinc-500";
     default:
       return "text-zinc-400";
   }
 }
 
+function fmtDuration(sec: number | null | undefined): string {
+  if (sec == null || Number.isNaN(sec)) return "—";
+  if (sec < 60) return `${Math.round(sec)}s`;
+  const m = Math.floor(sec / 60);
+  const s = Math.round(sec % 60);
+  return `${m}m ${s}s`;
+}
+
+function fmtTime(iso?: string | null): string {
+  if (!iso) return "—";
+  try {
+    return new Date(iso).toLocaleString();
+  } catch {
+    return iso;
+  }
+}
+
 export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
   const {
+    dashboard,
     events,
     activity,
-    connected,
-    startLive,
+    startLearning,
     replay,
-    runtimeError,
-    runtimeStatus,
-    clearRuntimeError,
-    lastRawResponse,
-  } = useLiveLearning();
-  const [kpis, setKpis] = useState(initialKpis);
+    selectSession,
+    error,
+    loading,
+  } = useLearningSessions(5000);
+
+  const [kpis] = useState(initialKpis);
   const [instruction, setInstruction] = useState(
     "Learn Industry Library knowledge for Banking"
   );
+  const [dryRun, setDryRun] = useState(true);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
-  const [sessions, setSessions] = useState<
-    { session_id: string; events: number; last_verb?: string | null }[]
-  >([]);
-  const [health, setHealth] = useState<HealthMap>({});
-  const [overallHealth, setOverallHealth] = useState<string>("healthy");
-  const [statusSnap, setStatusSnap] = useState<Record<string, unknown> | null>(
-    null
-  );
-  const [showLogs, setShowLogs] = useState(false);
-  const [logEntries, setLogEntries] = useState<Record<string, unknown>[]>([]);
-  const [copyOk, setCopyOk] = useState(false);
+  const [replaying, setReplaying] = useState(false);
 
-  useEffect(() => {
-    const last = events[events.length - 1];
-    if (last?.verb === "Learning Completed" || last?.verb === "Knowledge Updated") {
-      void safeFetchJson<Record<string, unknown>>("/api/live/replay").then((r) => {
-        if (!r.parsed || !r.data) return;
-        const data = (r.data.data as Record<string, unknown>) || r.data;
-        setSessions((data.sessions as typeof sessions) || []);
-      });
-    }
-  }, [events]);
+  const status = dashboard.github_actions?.running
+    ? "running"
+    : dashboard.status || "idle";
 
-  useEffect(() => {
-    void safeFetchJson<Record<string, unknown>>("/api/live/replay").then((r) => {
-      if (!r.parsed || !r.data) return;
-      const data = (r.data.data as Record<string, unknown>) || r.data;
-      setSessions((data.sessions as typeof sessions) || []);
-    });
-  }, []);
-
-  // Runtime status + health (does not restart learning)
-  useEffect(() => {
-    let cancelled = false;
-    const load = async () => {
-      const r = await safeFetchJson<Record<string, unknown>>("/api/runtime/status");
-      if (cancelled || !r.parsed || !r.data) return;
-      const data = (r.data.data as Record<string, unknown>) || r.data;
-      setStatusSnap(data);
-      setHealth((data.health as HealthMap) || {});
-      setOverallHealth(String(data.overall_health || "healthy"));
-    };
-    void load();
-    const id = setInterval(() => void load(), 5000);
-    return () => {
-      cancelled = true;
-      clearInterval(id);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (activity.status !== "running" && activity.status !== "progress") return;
-    const id = setInterval(() => {
-      void safeFetchJson<Record<string, unknown>>("/api/journal").then((r) => {
-        if (!r.parsed || !r.data) return;
-        const d = r.data;
-        const k = (d.kpis as Record<string, unknown> | undefined) || undefined;
-        if (k) {
-          setKpis((prev) => ({
-            ...prev,
-            knowledge_added_today:
-              (k.added_today as number) ?? prev.knowledge_added_today,
-            pending_review: (k.pending_review as number) ?? prev.pending_review,
-            knowledge_coverage: (k.coverage as number) ?? prev.knowledge_coverage,
-            first_knowledge:
-              (k.first_knowledge as KpiSnap["first_knowledge"]) ??
-              prev.first_knowledge,
-          }));
-        }
-      });
-    }, 3000);
-    return () => clearInterval(id);
-  }, [activity.status]);
+  const sessions = dashboard.sessions || [];
+  const history = dashboard.history;
+  const ga = dashboard.github_actions;
 
   const feed = useMemo(() => {
     return events
@@ -149,24 +98,18 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
       .reverse();
   }, [events]);
 
-  const failed =
-    runtimeStatus === "failed" ||
-    activity.status === "error" ||
-    Boolean(runtimeError);
-
   async function onStart() {
     setBusy(true);
     setMsg(null);
-    clearRuntimeError();
-    setShowLogs(false);
     try {
-      const res = await startLive(instruction);
+      const res = await startLearning(instruction, dryRun);
       if (!res.ok) {
-        // Do NOT auto-retry — surface the real failure
-        setMsg(null);
+        setMsg(res.reason || res.message || "Dispatch failed");
       } else {
         setMsg(
-          `Live session started (pid ${res.pid ?? "—"} · ${res.correlation_id ?? ""})`
+          `GitHub Actions workflow dispatched${
+            res.repository ? ` · ${res.repository}` : ""
+          } · learning.yml`
         );
       }
     } catch (e) {
@@ -176,289 +119,205 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
     }
   }
 
-  async function onViewLogs() {
-    setShowLogs(true);
-    const cid =
-      runtimeError?.correlation_id ||
-      (statusSnap?.correlation_id as string | undefined);
-    const q = new URLSearchParams({ channel: "errors", limit: "40" });
-    if (cid) q.set("correlation_id", cid);
-    const r = await safeFetchJson<Record<string, unknown>>(
-      `/api/runtime/logs?${q.toString()}`
-    );
-    if (!r.parsed || !r.data) {
-      setLogEntries([
-        {
-          parse_error: r.reason,
-          raw: r.raw,
-        },
-      ]);
-      return;
-    }
-    const data = (r.data.data as Record<string, unknown>) || r.data;
-    setLogEntries((data.entries as Record<string, unknown>[]) || []);
-  }
-
-  async function onCopyDiagnostic() {
-    const payload = {
-      captured_at: new Date().toISOString(),
-      runtime_status: runtimeStatus,
-      activity_status: activity.status,
-      failure: runtimeError,
-      status: statusSnap,
-      health,
-      overall_health: overallHealth,
-      last_raw_response: lastRawResponse || runtimeError?.raw_response || null,
-      recent_events: events.slice(-15),
-    };
+  async function onReplay(sessionId: string) {
+    setReplaying(true);
+    setMsg(`Replaying ${sessionId}…`);
     try {
-      await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
-      setCopyOk(true);
-      setTimeout(() => setCopyOk(false), 2000);
-    } catch {
-      setMsg("Could not copy diagnostic to clipboard");
+      await replay(sessionId, 250);
+      setMsg(`Replay finished · ${sessionId}`);
+    } finally {
+      setReplaying(false);
     }
   }
 
-  const failure: RuntimeClientFailure | null =
-    runtimeError ||
-    (statusSnap?.last_error as RuntimeClientFailure | undefined) ||
-    null;
-
-  const rawDiag = lastRawResponse || failure?.raw_response || null;
-  const showStack =
-    Boolean(failure?.stack_trace) &&
-    (process.env.NODE_ENV === "development" || Boolean(failure?.stack_trace));
+  const hToday = history?.today;
+  const hWeek = history?.this_week;
+  const hMonth = history?.this_month;
+  const hTotal = history?.total;
 
   return (
     <div className="space-y-4">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
         <div>
-          <p className="text-xs text-zinc-500">LIVE AI LEARNING DASHBOARD</p>
+          <p className="text-xs text-zinc-500">LEARNING SESSIONS · GITHUB ACTIONS</p>
           <p className="mt-1 max-w-2xl text-sm text-zinc-200">
-            Watch IDA learn in realtime. Architecture is frozen — this only
-            activates the existing pipeline and makes every stage observable.
+            Learning runs entirely on GitHub Actions. This dashboard monitors
+            completed and running sessions — no local Python runtime.
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
-            <Badge className={connected ? "text-emerald-300" : ""}>
-              stream {connected ? "connected" : "offline"}
+            <Badge className={statusClass(status)}>status {status}</Badge>
+            <Badge>
+              next run {fmtTime(dashboard.next_scheduled_run)}
             </Badge>
-            <Badge
-              className={
-                runtimeStatus === "running"
-                  ? "text-sky-300"
-                  : runtimeStatus === "failed"
-                    ? "text-red-400"
-                    : ""
-              }
-            >
-              runtime {runtimeStatus || "idle"}
+            <Badge>
+              last ok{" "}
+              {fmtTime(dashboard.last_successful_run?.end_time || dashboard.last_successful_run?.start_time)}
             </Badge>
-            <Badge className={healthClass(overallHealth)}>
-              health {overallHealth}
+            <Badge className={ga?.configured ? "text-emerald-300" : "text-amber-300"}>
+              gha {ga?.configured ? "connected" : "token missing"}
             </Badge>
             <Badge>coverage {kpis.knowledge_coverage}%</Badge>
             <Badge>added today {kpis.knowledge_added_today}</Badge>
-            <Badge>review {kpis.pending_review}</Badge>
           </div>
         </div>
         <div className="flex w-full max-w-xl flex-col gap-2">
           <Input
             value={instruction}
             onChange={(e) => setInstruction(e.target.value)}
-            placeholder="Learn SAP ERP / Industry Banking / …"
+            placeholder="Mission / learning instruction"
           />
-          <div className="flex flex-wrap gap-2">
-            <Button size="sm" disabled={busy} onClick={onStart}>
-              Start live learning
+          <div className="flex flex-wrap items-center gap-2">
+            <Button size="sm" disabled={busy || status === "running"} onClick={onStart}>
+              Start Learning
             </Button>
             <Button
               size="sm"
               variant="secondary"
-              disabled={!sessions[0]}
-              onClick={() => sessions[0] && replay(sessions[0].session_id, 280)}
+              disabled={!sessions[0] || replaying}
+              onClick={() => sessions[0] && onReplay(sessions[0].session_id)}
             >
               Replay last session
             </Button>
+            <label className="flex items-center gap-1 text-[11px] text-zinc-500">
+              <input
+                type="checkbox"
+                checked={dryRun}
+                onChange={(e) => setDryRun(e.target.checked)}
+                className="accent-zinc-400"
+              />
+              Dry run
+            </label>
           </div>
           {msg ? <p className="text-[11px] text-zinc-400">{msg}</p> : null}
+          {error ? <p className="text-[11px] text-red-400">{error}</p> : null}
+          {loading ? (
+            <p className="text-[11px] text-zinc-600">Loading sessions…</p>
+          ) : null}
         </div>
       </div>
 
-      {failed && failure ? (
+      {/* Current status panel */}
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Card>
-          <CardHeader
-            title="Runtime Failed"
-            description="Exact failure — not a generic 503. No silent retry."
-          />
-          <CardBody className="space-y-3 text-sm">
-            <div className="rounded-md border border-red-900/60 bg-red-950/40 p-3">
-              <p className="text-xs uppercase tracking-wide text-red-400">
-                Exact reason
-              </p>
-              <p className="mt-1 text-red-100">
-                {failure.reason ||
-                  failure.message ||
-                  failure.exception ||
-                  "Unknown failure"}
-              </p>
-              <div className="mt-2 grid gap-1 font-mono text-[11px] text-zinc-400 sm:grid-cols-2">
-                <div>component: {failure.component || "—"}</div>
-                <div>error_code: {failure.error_code || failure.exception || "—"}</div>
-                <div>exception: {failure.exception || "—"}</div>
-                <div>correlation: {failure.correlation_id || "—"}</div>
-                <div>
-                  session: {failure.session_id || activity.session_id || "—"}
-                </div>
-                <div>action: {failure.recovery_action || "—"}</div>
-                <div>time: {failure.timestamp || "—"}</div>
-                <div>
-                  http:{" "}
-                  {rawDiag?.http_status != null ? rawDiag.http_status : "—"}
-                </div>
-              </div>
+          <CardBody>
+            <div className="text-[10px] uppercase text-zinc-500">Current status</div>
+            <div className={`text-2xl font-semibold capitalize ${statusClass(status)}`}>
+              {status}
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-wide text-amber-300">
-                Suggested recovery
-              </p>
-              <p className="mt-1 text-zinc-300">
-                {failure.recovery_suggestion ||
-                  "Inspect /api/runtime/debug and runtime logs, fix the root cause, then Retry."}
-              </p>
+            <div className="mt-1 text-[11px] text-zinc-500">
+              {ga?.current_run?.html_url ? (
+                <a
+                  href={ga.current_run.html_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sky-400 hover:underline"
+                >
+                  Open workflow run
+                </a>
+              ) : (
+                "GitHub Actions execution model"
+              )}
             </div>
-            {showStack && failure.stack_trace ? (
-              <div>
-                <p className="text-xs uppercase tracking-wide text-zinc-500">
-                  Stack trace (development)
-                </p>
-                <pre className="mt-1 max-h-40 overflow-y-auto whitespace-pre-wrap rounded border border-zinc-800 bg-black/50 p-2 font-mono text-[10px] text-zinc-400 scrollbar-thin">
-                  {failure.stack_trace}
-                </pre>
-              </div>
-            ) : null}
-            {rawDiag &&
-            (!failure.error_code ||
-              failure.error_code === "INVALID_JSON_RESPONSE" ||
-              rawDiag.parse_error) ? (
-              <div>
-                <p className="text-xs uppercase tracking-wide text-orange-300">
-                  Raw response (invalid / empty JSON)
-                </p>
-                <div className="mt-1 space-y-1 rounded border border-orange-900/50 bg-orange-950/20 p-2 font-mono text-[10px] text-zinc-300">
-                  <div>HTTP status: {rawDiag.http_status} {rawDiag.status_text}</div>
-                  <div>URL: {rawDiag.url || "—"}</div>
-                  <div>Content-Type: {rawDiag.content_type || "—"}</div>
-                  <div>Parse error: {rawDiag.parse_error || "—"}</div>
-                  <div className="text-zinc-500">Headers:</div>
-                  <pre className="max-h-24 overflow-y-auto whitespace-pre-wrap text-zinc-500 scrollbar-thin">
-                    {JSON.stringify(rawDiag.headers, null, 2)}
-                  </pre>
-                  <div className="text-zinc-500">Body:</div>
-                  <pre className="max-h-32 overflow-y-auto whitespace-pre-wrap text-zinc-400 scrollbar-thin">
-                    {rawDiag.body === ""
-                      ? "(empty body)"
-                      : rawDiag.body.slice(0, 4000)}
-                  </pre>
-                </div>
-              </div>
-            ) : null}
-            <div className="flex flex-wrap gap-2">
-              <Button size="sm" disabled={busy} onClick={onStart}>
-                Retry
-              </Button>
-              <Button size="sm" variant="secondary" onClick={onViewLogs}>
-                View Logs
-              </Button>
-              <Button size="sm" variant="outline" onClick={onCopyDiagnostic}>
-                {copyOk ? "Copied" : "Copy Diagnostic"}
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() =>
-                  void safeFetchJson("/api/runtime/debug").then((r) => {
-                    setShowLogs(true);
-                    setLogEntries([
-                      {
-                        debug: r.parsed ? r.data : null,
-                        raw: r.raw,
-                        reason: r.reason,
-                      },
-                    ]);
-                  })
-                }
-              >
-                Runtime Debug
-              </Button>
-            </div>
-            {showLogs ? (
-              <div className="max-h-48 overflow-y-auto rounded border border-zinc-800 bg-black/40 p-2 font-mono text-[10px] text-zinc-400 scrollbar-thin">
-                {logEntries.length === 0 ? (
-                  <p>No error log entries for this correlation yet.</p>
-                ) : (
-                  logEntries.map((e, i) => (
-                    <pre
-                      key={i}
-                      className="mb-2 whitespace-pre-wrap border-b border-zinc-900 pb-2"
-                    >
-                      {JSON.stringify(e, null, 2)}
-                    </pre>
-                  ))
-                )}
-              </div>
-            ) : null}
           </CardBody>
         </Card>
-      ) : null}
+        <Card>
+          <CardBody>
+            <div className="text-[10px] uppercase text-zinc-500">Current mission</div>
+            <div className="line-clamp-2 text-sm font-medium text-zinc-100">
+              {dashboard.current_mission || "—"}
+            </div>
+            <div className="mt-1 text-[11px] text-zinc-500">
+              duration {fmtDuration(dashboard.session_duration)}
+            </div>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <div className="text-[10px] uppercase text-zinc-500">Knowledge (session)</div>
+            <div className="flex gap-3 text-lg font-semibold">
+              <span className="text-emerald-400">+{dashboard.knowledge_added ?? 0}</span>
+              <span className="text-sky-400">~{dashboard.knowledge_updated ?? 0}</span>
+              <span className="text-red-400">×{dashboard.knowledge_rejected ?? 0}</span>
+            </div>
+            <div className="mt-1 text-[11px] text-zinc-500">
+              added · updated · rejected
+            </div>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <div className="text-[10px] uppercase text-zinc-500">Next scheduled run</div>
+            <div className="text-sm font-medium text-zinc-100">
+              {fmtTime(dashboard.next_scheduled_run)}
+            </div>
+            <div className="mt-1 text-[11px] text-zinc-500">
+              Hourly + daily (06:00 UTC) via learning.yml
+            </div>
+          </CardBody>
+        </Card>
+      </div>
 
       <Card>
         <CardHeader
-          title="Runtime health"
-          description="True component status — Healthy · Warning · Failed · Disabled"
+          title="Learning activity"
+          description="Real session events — no fake streaming"
         />
         <CardBody>
-          <div className="grid gap-2 sm:grid-cols-3 lg:grid-cols-6">
+          <LiveProgress activity={activity} events={events} />
+        </CardBody>
+      </Card>
+
+      {/* Learning history */}
+      <Card>
+        <CardHeader
+          title="Learning history"
+          description="Today · This week · This month · Totals"
+        />
+        <CardBody>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {(
               [
-                "runtime",
-                "scheduler",
-                "connector",
-                "queue",
-                "sse",
-                "publisher",
+                ["Today", hToday],
+                ["This week", hWeek],
+                ["This month", hMonth],
+                ["Total", hTotal],
               ] as const
-            ).map((key) => (
+            ).map(([label, bucket]) => (
               <div
-                key={key}
-                className="rounded border border-zinc-800 bg-zinc-950/50 px-2 py-2"
+                key={label}
+                className="rounded border border-zinc-800 bg-zinc-950/50 p-3"
               >
-                <div className="text-[10px] uppercase text-zinc-500">{key}</div>
-                <div className={`text-sm font-medium ${healthClass(health[key] || "healthy")}`}>
-                  {health[key] || "healthy"}
+                <div className="text-[10px] uppercase text-zinc-500">{label}</div>
+                <div className="mt-1 text-xl font-semibold text-zinc-100">
+                  {bucket?.sessions ?? 0}{" "}
+                  <span className="text-sm font-normal text-zinc-500">sessions</span>
+                </div>
+                <div className="mt-2 space-y-0.5 text-[11px] text-zinc-400">
+                  <div>
+                    success rate{" "}
+                    <span className="text-emerald-300">
+                      {bucket?.success_rate ?? 0}%
+                    </span>
+                  </div>
+                  <div>
+                    knowledge +{bucket?.knowledge_added ?? 0} / avg{" "}
+                    {bucket?.avg_knowledge_added ?? 0}
+                  </div>
+                  <div>
+                    avg duration {fmtDuration(bucket?.avg_duration_seconds)}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-          {statusSnap ? (
-            <div className="mt-3 grid gap-1 font-mono text-[11px] text-zinc-500 sm:grid-cols-2">
-              <div>session: {String(statusSnap.session_id || "—")}</div>
-              <div>stage: {String(statusSnap.current_stage || "—")}</div>
-              <div>task: {String(statusSnap.current_task || "—")}</div>
-              <div>uptime: {String(statusSnap.uptime_seconds ?? 0)}s</div>
-              <div>docs: {String(statusSnap.documents_processed ?? 0)}</div>
-              <div>
-                candidates: {String(statusSnap.knowledge_candidates ?? 0)}
-              </div>
-            </div>
+          {history?.knowledge_growth ? (
+            <p className="mt-3 text-[11px] text-zinc-500">
+              Knowledge growth (all sessions): +
+              {history.knowledge_growth.added} added · ~
+              {history.knowledge_growth.updated} updated · ×
+              {history.knowledge_growth.rejected} rejected
+            </p>
           ) : null}
-        </CardBody>
-      </Card>
-
-      <Card>
-        <CardHeader title="Learning activity" description="Live process observation" />
-        <CardBody>
-          <LiveProgress activity={activity} events={events} />
         </CardBody>
       </Card>
 
@@ -475,9 +334,7 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
         </Card>
         <Card>
           <CardBody>
-            <div className="text-[10px] uppercase text-zinc-500">
-              Updated today
-            </div>
+            <div className="text-[10px] uppercase text-zinc-500">Updated today</div>
             <div className="text-2xl font-semibold text-sky-400">
               {kpis.knowledge_updated_today}
             </div>
@@ -493,9 +350,7 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
         </Card>
         <Card>
           <CardBody>
-            <div className="text-[10px] uppercase text-zinc-500">
-              Waiting review
-            </div>
+            <div className="text-[10px] uppercase text-zinc-500">Waiting review</div>
             <div className="text-2xl font-semibold text-amber-300">
               {kpis.pending_review}
             </div>
@@ -507,12 +362,13 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
         <Card>
           <CardHeader
             title="Knowledge feed"
-            description="Newest learning signals first"
+            description="From the selected / current session"
           />
           <CardBody className="max-h-72 space-y-1 overflow-y-auto text-xs scrollbar-thin">
             {feed.length === 0 ? (
               <p className="text-zinc-500">
-                Start a live mission to see knowledge appear in realtime.
+                No knowledge events yet. Start a learning session or replay a
+                completed one.
               </p>
             ) : (
               feed.map((e, i) => (
@@ -535,16 +391,16 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
 
         <Card>
           <CardHeader
-            title="Learning timeline"
-            description="Stages animate as events arrive"
+            title="Session timeline"
+            description="Real timestamps from stored session files"
           />
           <CardBody className="max-h-72 space-y-1 overflow-y-auto font-mono text-[11px] scrollbar-thin">
             {events.length === 0 ? (
               <p className="font-sans text-xs text-zinc-500">
-                Timeline idle — waiting for live events via SSE.
+                Timeline empty — select a session or wait for the next GHA run.
               </p>
             ) : (
-              events.slice(-30).map((e, i) => (
+              events.slice(-40).map((e, i) => (
                 <div key={`${e.seq}-t-${i}`} className="text-zinc-400">
                   <span className="text-zinc-600">
                     {String(e.ts || "").slice(11, 19)}
@@ -591,23 +447,71 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
 
       <Card>
         <CardHeader
-          title="Replay sessions"
-          description="Exact event stream as it happened"
+          title="Learning sessions"
+          description="Stored under automation/sessions/ · replay preserves order & timestamps"
         />
-        <CardBody className="flex flex-wrap gap-2 text-xs">
+        <CardBody className="space-y-2">
           {sessions.length === 0 ? (
-            <p className="text-zinc-500">No recorded sessions yet</p>
+            <p className="text-xs text-zinc-500">
+              No sessions yet. Dispatch learning.yml or wait for the hourly
+              schedule.
+            </p>
           ) : (
-            sessions.slice(0, 8).map((s) => (
-              <Button
-                key={s.session_id}
-                size="sm"
-                variant="outline"
-                onClick={() => replay(s.session_id, 250)}
-              >
-                {s.session_id} ({s.events})
-              </Button>
-            ))
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs text-zinc-300">
+                <thead className="text-[10px] uppercase text-zinc-500">
+                  <tr>
+                    <th className="pb-2 pr-3">Session</th>
+                    <th className="pb-2 pr-3">Status</th>
+                    <th className="pb-2 pr-3">Mission</th>
+                    <th className="pb-2 pr-3">+ / ~ / ×</th>
+                    <th className="pb-2 pr-3">Duration</th>
+                    <th className="pb-2">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sessions.slice(0, 15).map((s) => (
+                    <tr key={s.session_id} className="border-t border-zinc-900">
+                      <td className="py-2 pr-3 font-mono text-[10px] text-zinc-400">
+                        {s.session_id}
+                      </td>
+                      <td className={`py-2 pr-3 ${statusClass(String(s.status))}`}>
+                        {s.status}
+                      </td>
+                      <td className="max-w-[14rem] truncate py-2 pr-3">
+                        {s.mission || "—"}
+                      </td>
+                      <td className="py-2 pr-3 font-mono text-[10px]">
+                        {s.knowledge_added ?? 0}/{s.knowledge_updated ?? 0}/
+                        {s.knowledge_rejected ?? 0}
+                      </td>
+                      <td className="py-2 pr-3">
+                        {fmtDuration(s.duration_seconds)}
+                      </td>
+                      <td className="py-2">
+                        <div className="flex gap-1">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => selectSession(s.session_id)}
+                          >
+                            View
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="secondary"
+                            disabled={replaying}
+                            onClick={() => onReplay(s.session_id)}
+                          >
+                            Replay
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </CardBody>
       </Card>

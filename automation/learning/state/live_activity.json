@@ -1,13 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SES-20260710-FAFA7B",
-  "mission_id": "MIS-20260710-F8AD76",
-  "correlation_id": "CORR-06929EFD33D9",
+  "session_id": "SESSION-20260710-DCB874",
+  "mission_id": "MIS-20260710-7FB903",
   "progress": 100,
-  "current_thought": "Session complete — Continuous Learning standing by",
+  "current_thought": "Session completed · added=0 updated=1 entity=— · dry_run",
   "current_task": "Idle",
-  "current_entity": "Manufacturing",
-  "current_dataset": "industry_library",
-  "last_learned": "Manufacturing",
-  "updated_at": "2026-07-10T11:59:43+00:00"
+  "last_learned": null,
+  "updated_at": "2026-07-10T12:24:40+00:00",
+  "execution_model": "github_actions",
+  "last_error": null
 }

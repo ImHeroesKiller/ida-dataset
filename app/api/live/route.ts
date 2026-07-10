@@ -1,201 +1,128 @@
 import { NextRequest } from "next/server";
-import fs from "fs";
-import path from "path";
-import { getRepoRoot } from "@/lib/paths";
+import {
+  jsonFailure,
+  jsonSuccess,
+  withApiJson,
+} from "@/lib/api-contract";
+import { getSessionsDashboard, loadSession } from "@/lib/sessions";
+import { getActionsLearningStatus } from "@/lib/github-actions";
 import { getKnowledgeKpis } from "@/lib/knowledge-kpis";
-import { sseListenerClosed, sseListenerOpened } from "@/lib/sse-registry";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 /**
- * Server-Sent Events stream for live learning journal + activity.
+ * GET /api/live
  *
- * Cleanup contract (no MaxListenersExceededWarning):
- *  - clearInterval on abort AND cancel
- *  - remove abort listener on teardown
- *  - never leave timers running after client disconnect
- *  - never call setMaxListeners — fix ownership instead
+ * Formerly server-side SSE tailing a local Python journal.
+ * Now returns a JSON snapshot of learning sessions + GitHub Actions status.
+ * Clients poll this (or /api/sessions) — no long-lived SSE runtime.
  */
 export async function GET(req: NextRequest) {
-  const root = getRepoRoot();
-  const journalFile = path.join(
-    root,
-    "automation/learning/state/learning_journal.jsonl"
-  );
-  const activityFile = path.join(
-    root,
-    "automation/learning/state/live_activity.json"
-  );
+  // Keep EventSource clients from hanging: if Accept prefers event-stream,
+  // return a short-lived SSE that pushes one snapshot then closes.
+  const accept = req.headers.get("accept") || "";
+  if (accept.includes("text/event-stream")) {
+    const dash = getSessionsDashboard();
+    const actions = await getActionsLearningStatus();
+    const status = actions.running || actions.queued ? "running" : dash.status;
+    const sessionId = dash.current_session?.session_id;
+    const session = sessionId ? loadSession(sessionId) : null;
+    const kpis = getKnowledgeKpis();
 
-  let closed = false;
-  let counted = false;
-  let offset = 0;
-  if (fs.existsSync(journalFile)) {
-    offset = fs.statSync(journalFile).size;
-  }
+    const enc = new TextEncoder();
+    const snapshot = {
+      status,
+      activity: {
+        status,
+        session_id: sessionId,
+        progress: status === "running" ? 10 : session?.status === "completed" ? 100 : 0,
+        current_thought:
+          session?.summary ||
+          (status === "running"
+            ? "GitHub Actions learning session running"
+            : "Idle — Continuous Learning via GitHub Actions"),
+        current_task: session?.mission || dash.current_mission,
+        execution_model: "github_actions",
+        updated_at: new Date().toISOString(),
+      },
+      kpis,
+      github_actions: actions,
+      sessions: dash.sessions?.slice(0, 10),
+    };
 
-  const fromStart = req.nextUrl.searchParams.get("from") === "0";
-  if (fromStart) offset = 0;
-
-  let timer: ReturnType<typeof setInterval> | null = null;
-  let beat: ReturnType<typeof setInterval> | null = null;
-  let abortHandler: (() => void) | null = null;
-
-  const stream = new ReadableStream({
-    start(controller) {
-      sseListenerOpened();
-      counted = true;
-      const enc = new TextEncoder();
-      const send = (event: string, data: unknown) => {
-        if (closed) return;
-        try {
-          controller.enqueue(
-            enc.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`)
-          );
-        } catch {
-          // controller already closed
-          teardown();
-        }
-      };
-
-      const teardown = () => {
-        if (closed) return;
-        closed = true;
-        if (counted) {
-          sseListenerClosed();
-          counted = false;
-        }
-        if (timer) {
-          clearInterval(timer);
-          timer = null;
-        }
-        if (beat) {
-          clearInterval(beat);
-          beat = null;
-        }
-        if (abortHandler) {
-          try {
-            req.signal.removeEventListener("abort", abortHandler);
-          } catch {
-            /* ignore */
-          }
-          abortHandler = null;
-        }
-        try {
-          controller.close();
-        } catch {
-          /* already closed */
-        }
-      };
-
-      send("hello", {
-        ts: new Date().toISOString(),
-        message: "Learning stream connected",
-      });
-
-      try {
-        send("kpis", getKnowledgeKpis());
-      } catch {
-        /* ignore */
-      }
-      try {
-        if (fs.existsSync(activityFile)) {
-          send(
-            "activity",
-            JSON.parse(fs.readFileSync(activityFile, "utf8"))
-          );
-        }
-      } catch {
-        /* ignore */
-      }
-
-      timer = setInterval(() => {
-        if (closed) {
-          if (timer) clearInterval(timer);
-          timer = null;
-          return;
-        }
-        try {
-          if (fs.existsSync(journalFile)) {
-            const stat = fs.statSync(journalFile);
-            if (stat.size > offset) {
-              const fd = fs.openSync(journalFile, "r");
-              const len = stat.size - offset;
-              const buf = Buffer.alloc(len);
-              fs.readSync(fd, buf, 0, len, offset);
-              fs.closeSync(fd);
-              offset = stat.size;
-              const chunk = buf.toString("utf8");
-              for (const line of chunk.split("\n")) {
-                const t = line.trim();
-                if (!t) continue;
-                try {
-                  send("journal", JSON.parse(t));
-                } catch {
-                  /* skip bad line */
-                }
-              }
-            }
-          }
-          if (fs.existsSync(activityFile)) {
-            send(
-              "activity",
-              JSON.parse(fs.readFileSync(activityFile, "utf8"))
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(
+          enc.encode(
+            `event: hello\ndata: ${JSON.stringify({
+              ts: new Date().toISOString(),
+              message: "Learning session monitor (no local runtime)",
+              execution_model: "github_actions",
+            })}\n\n`
+          )
+        );
+        controller.enqueue(
+          enc.encode(
+            `event: activity\ndata: ${JSON.stringify(snapshot.activity)}\n\n`
+          )
+        );
+        controller.enqueue(
+          enc.encode(`event: kpis\ndata: ${JSON.stringify(kpis)}\n\n`)
+        );
+        if (session?.events?.length) {
+          // Send last few real session events (not fake stream)
+          for (const ev of session.events.slice(-30)) {
+            controller.enqueue(
+              enc.encode(`event: journal\ndata: ${JSON.stringify(ev)}\n\n`)
             );
           }
-        } catch {
-          /* ignore transient read errors */
         }
-      }, 400);
+        controller.enqueue(
+          enc.encode(
+            `event: snapshot\ndata: ${JSON.stringify(snapshot)}\n\n`
+          )
+        );
+        // Close — clients should poll /api/sessions; no long-lived connection
+        controller.close();
+      },
+    });
 
-      beat = setInterval(() => {
-        if (closed) {
-          if (beat) clearInterval(beat);
-          beat = null;
-          return;
-        }
-        send("ping", { ts: new Date().toISOString() });
-      }, 15000);
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/event-stream; charset=utf-8",
+        "Cache-Control": "no-cache, no-transform",
+        Connection: "close",
+      },
+    });
+  }
 
-      abortHandler = () => teardown();
-      req.signal.addEventListener("abort", abortHandler);
-
-      // Store teardown on controller via closure for cancel()
-      (controller as unknown as { __teardown?: () => void }).__teardown =
-        teardown;
-    },
-    cancel() {
-      // Client disconnected — release all resources immediately
-      if (!closed && counted) {
-        sseListenerClosed();
-        counted = false;
-      }
-      closed = true;
-      if (timer) {
-        clearInterval(timer);
-        timer = null;
-      }
-      if (beat) {
-        clearInterval(beat);
-        beat = null;
-      }
-      if (abortHandler) {
-        try {
-          req.signal.removeEventListener("abort", abortHandler);
-        } catch {
-          /* ignore */
-        }
-        abortHandler = null;
-      }
-    },
-  });
-
-  return new Response(stream, {
-    headers: {
-      "Content-Type": "text/event-stream; charset=utf-8",
-      "Cache-Control": "no-cache, no-transform",
-      Connection: "keep-alive",
-    },
+  return withApiJson("api.live", async () => {
+    try {
+      const dash = getSessionsDashboard();
+      const actions = await getActionsLearningStatus();
+      const status = actions.running || actions.queued ? "running" : dash.status;
+      return jsonSuccess({
+        status,
+        session_id: dash.current_session?.session_id ?? null,
+        data: {
+          ...dash,
+          status,
+          github_actions: actions,
+          execution_model: "github_actions",
+          kpis: getKnowledgeKpis(),
+        },
+      });
+    } catch (e) {
+      const err = e instanceof Error ? e : new Error(String(e));
+      return jsonFailure({
+        component: "api.live",
+        reason: err.message,
+        error_code: "LIVE_SNAPSHOT_FAILED",
+        exception: err.name,
+        stack_trace: err.stack,
+        httpStatus: 500,
+      });
+    }
   });
 }

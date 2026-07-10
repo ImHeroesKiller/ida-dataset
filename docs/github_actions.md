@@ -2,43 +2,50 @@
 
 ## Purpose
 
-Document the CI/CD automation layer for the IDA Knowledge Repository.
+CI/CD and **continuous learning execution** for the IDA Knowledge Repository.
 
-## Status: Active (Sprint 1)
+Learning is no longer hosted inside the dashboard process. GitHub Actions is the runtime.
+
+## Status: Active
 
 ## Overview
 
-Sprint 1 establishes a **safe CI/CD foundation** only:
+Architecture is unchanged. Execution model:
 
-- No crawler
-- No browser automation
-- No search APIs
-- No LLM extraction
-- No unsupervised dataset generation
+```text
+GitHub Actions → Learning Session → Repository Update → Dashboard Refresh
+```
 
 Workflows live under `.github/workflows/`.
 
 | Workflow | File | Trigger | Mutates datasets? |
 | --- | --- | --- | --- |
 | Validate | `validate.yml` | `push`, `pull_request`, manual | No |
+| Learning | `learning.yml` | **Hourly**, daily 06:00 UTC, manual, mission | Yes when not dry-run |
 | Planner | `planner.yml` | Daily schedule, manual | No |
-| Review | `review.yml` | Manual only | No |
-| Publish | `publish.yml` | Manual only | Append-only when allowed |
+| Review | `review.yml` | Daily 07:00 UTC, manual | No |
+| Publish | `publish.yml` | Daily 08:00 UTC, manual | Append-only when allowed |
+
+## Continuous Learning Scheduler
+
+The Continuous Learning Scheduler still exists (`automation/scheduler/`).
+
+It is now **triggered by GitHub Actions schedule** (and manual dispatch) instead of a long-running Python process inside ECC.
+
+Each learning job:
+
+1. Creates a Session ID (`SESSION-…`)  
+2. Runs Scheduler → … → Telemetry (existing engines)  
+3. Writes `automation/sessions/YYYY-MM-DD/SESSION-….json`  
+4. Commits session (+ knowledge when allowed) back to the repo  
 
 ## Execution order (recommended)
 
 ```text
-validate  →  planner  →  review  →  publish
+validate  →  learning  →  planner  →  review  →  publish
 ```
 
-1. **validate** — gate every change; fail closed on data quality issues  
-2. **planner** — identify gaps and priorities (read-only)  
-3. **review** — summarize human review queues (read-only)  
-4. **publish** — append approved rows only under policy gates  
-
 ## Environment profiles
-
-Configuration is external (never hard-coded in workflow logic):
 
 ```text
 config/environments/
@@ -47,10 +54,7 @@ config/environments/
   production.yaml
 ```
 
-Select with:
-
-- Workflow input `environment`
-- Or env var `IDA_ENVIRONMENT`
+Select with workflow input `environment` or `IDA_ENVIRONMENT`.
 
 | Environment | Default dry-run | Publish | Commit | Push |
 | --- | --- | --- | --- | --- |
@@ -58,159 +62,84 @@ Select with:
 | staging | false | true | true | true |
 | production | false | true | true | true |
 
-All environments still honor `automation/config/policies.yaml` (e.g. `publishing_enabled`, `review_required`).
-
-## Exit codes
-
-Every workflow tool returns meaningful codes:
-
-| Code | Meaning |
-| ---: | --- |
-| 0 | Success |
-| 1 | Validation error |
-| 2 | Configuration error |
-| 3 | Policy violation |
-| 4 | Publisher blocked |
-
 ## Dry run
 
 Every workflow supports `dry_run=true`.
 
 When dry-run is enabled:
 
-- No dataset mutations
-- No git commits
-- No git pushes
-- Reports and JSON logs are still written for visibility
+- No dataset mutations  
+- Session JSON and reports are still written  
+- learning.yml can still commit session artifacts for dashboard visibility  
 
-## Manual execution
+## Manual execution / Mission trigger
 
-### Validate
+### Learning
 
-GitHub → Actions → **Validate** → Run workflow  
-Or push / open a pull request.
+GitHub → Actions → **Learning** → Run workflow  
+
+Or from the ECC dashboard **Start Learning** button (workflow_dispatch via API).
 
 Locally:
 
 ```bash
-python automation/ci/validate_repo.py --environment development --dry-run
-```
-
-### Planner
-
-GitHub → Actions → **Planner** → Run workflow  
-Also runs daily at 06:00 UTC.
-
-```bash
-python automation/ci/planner.py --environment development --dry-run
+python automation/ci/learning_session.py \
+  --environment development \
+  --dry-run \
+  --instruction "Learn everything about SAP ERP" \
+  --trigger mission
 ```
 
 Artifacts:
 
-- `reports/planner/planning_report.md`
-- `reports/planner/planning_report.json`
+- `automation/sessions/YYYY-MM-DD/SESSION-*.json`  
+- `reports/learning/learning_session_*.md`  
+- `reports/learning/learning_session_*.json`  
 
-### Review
+### Review / Publish / Planner / Validate
 
-GitHub → Actions → **Review** → Run workflow (manual only).
+Unchanged entry points — see previous sections. Review and Publish now also have daily schedules.
 
-```bash
-python automation/ci/review_summary.py --environment development --dry-run
-```
+## Dashboard integration (Vercel)
 
-Artifact:
+| Action | Mechanism |
+| --- | --- |
+| Monitor sessions | Read `automation/sessions/` + Actions runs API |
+| Start learning | `POST /repos/{repo}/actions/workflows/learning.yml/dispatches` |
+| Replay | Client paces events from session JSON |
 
-- `reports/review/review_summary.md`
-
-Shows pending / approved / rejected counts, confidence, and datasets affected.
-
-### Publish
-
-GitHub → Actions → **Publish** → Run workflow (manual only).
-
-Gates (all must pass for a real publish):
-
-1. `review_required == false` **OR** approved candidates exist  
-2. Environment `allow_publish: true` (when not dry-run)  
-3. `policies.features.publishing_enabled: true` (when not dry-run)  
-4. Publisher remains **append-only** (never overwrite)
-
-```bash
-# Safe simulation
-python automation/ci/publish_ci.py --environment development --dry-run
-
-# Real publish (requires policy + approved queue + env allow)
-python automation/ci/publish_ci.py \
-  --environment staging \
-  --no-dry-run \
-  --commit \
-  --push
-```
-
-Artifact:
-
-- `reports/publish/publish_report.md` (includes git diff stats)
-
-## Logging
-
-Each run writes:
-
-- **JSON log** — timestamp, duration, status, exit code, metrics  
-- **Markdown report** — human-readable summary  
-
-Locations:
+Env for dispatch / status:
 
 ```text
-reports/validation/
-reports/planner/
-reports/review/
-reports/publish/
+IDA_GITHUB_TOKEN=ghp_...   # actions:write, actions:read
+GITHUB_REPOSITORY=owner/ida-dataset
 ```
 
-## Failure handling
+## Exit codes
 
-| Failure | Exit | Recovery |
-| --- | ---: | --- |
-| Invalid CSV / UTF-8 / CRLF / schema / duplicate IDs / broken relationships | 1 | Fix data in a PR; re-run validate |
-| Missing environment config or bad `IDA_ENVIRONMENT` | 2 | Add/fix `config/environments/*.yaml` |
-| Publish disallowed by environment or push denied | 3 | Adjust env profile or stop the publish attempt |
-| Review required and no approved candidates / publishing feature off | 4 | Approve candidates in KAS queue; enable publishing in policies intentionally |
-
-## Recovery playbooks
-
-### Validation red on PR
-
-1. Download `validation-reports` artifact  
-2. Open `validation_report.md`  
-3. Fix listed paths only — never bulk-rewrite unrelated datasets  
-4. Push fix; validate must go green before merge  
-
-### Publish blocked (exit 4)
-
-1. Open `reports/publish/publish_report.md`  
-2. Check `review_required` and approved queue counts  
-3. Run **Review** workflow to inspect queues  
-4. Approve candidates via KAS (`python -m automation review ...`)  
-5. Ensure `policies.features.publishing_enabled` is intentionally true  
-6. Re-run **Publish** with `dry_run=true` first, then real publish  
-
-### Accidental publish attempt on development
-
-Development profile sets `allow_publish: false`. Real publishes should use staging/production with human confirmation.
+| Code | Meaning |
+| ---: | --- |
+| 0 | Success |
+| 1 | Validation / session error |
+| 2 | Configuration error |
+| 3 | Policy violation |
+| 4 | Publisher blocked |
 
 ## Tooling map
 
 | Concern | Script |
 | --- | --- |
+| Learning session | `automation/ci/learning_session.py` |
+| Session store | `automation/learning/session_store.py` |
 | Validate | `automation/ci/validate_repo.py` |
 | Planner | `automation/ci/planner.py` |
 | Review | `automation/ci/review_summary.py` |
 | Publish | `automation/ci/publish_ci.py` |
 | Shared helpers | `automation/ci/common.py` |
-| Exit codes | `automation/ci/__init__.py` |
 
 ## Related docs
 
-- `docs/kas.md` — Knowledge Acquisition System principles  
-- `automation/README.md` — KAS CLI  
-- `config/environments/*.yaml` — environment protection profiles  
+- `docs/runtime.md` — execution model  
+- `docs/learning_dashboard.md` — ECC monitor  
+- `docs/learning_scheduler.md` — scheduler architecture (unchanged)  
+- `docs/vercel.md` — deploy notes  

@@ -1,0 +1,191 @@
+{
+  "session_id": "SESSION-20260710-E92453",
+  "start_time": "2026-07-10T12:24:28+00:00",
+  "end_time": "2026-07-10T12:24:28+00:00",
+  "duration_seconds": 0.0,
+  "knowledge_added": 0,
+  "knowledge_updated": 0,
+  "knowledge_rejected": 0,
+  "mission": "Learn Industry Library knowledge for Banking",
+  "instruction": "Learn Industry Library knowledge for Banking",
+  "status": "failed",
+  "errors": [
+    {
+      "error": "ValueError",
+      "message": "Invalid lifecycle transition idle → running",
+      "failure": {
+        "timestamp": "2026-07-10T12:24:28+00:00",
+        "component": "live_runtime",
+        "exception": "ValueError",
+        "message": "Invalid lifecycle transition idle → running",
+        "stack_trace": "Traceback (most recent call last):\n  File \"/Users/arywibowo/Developer/ida-dataset/automation/learning/live_runtime.py\", line 173, in run_live_session\n    return _run_live_session_body(\n  File \"/Users/arywibowo/Developer/ida-dataset/automation/learning/live_runtime.py\", line 255, in _run_live_session_body\n    lifecycle.transition(\n  File \"/Users/arywibowo/Developer/ida-dataset/automation/runtime/lifecycle.py\", line 373, in transition\n    raise ValueError(\nValueError: Invalid lifecycle transition idle → running\n",
+        "correlation_id": "GHA-SESSION-20260710-E92453",
+        "session_id": "SES-20260710-9CB52D",
+        "recovery_action": "stop_and_notify",
+        "recoverable": false,
+        "recovery_suggestion": "Inspect /api/runtime/logs and automation/runtime/logs/, fix the root cause, then retry.",
+        "meta": {}
+      }
+    }
+  ],
+  "summary": "Invalid lifecycle transition idle → running",
+  "trigger": "manual",
+  "dry_run": true,
+  "environment": "development",
+  "planner_output": {
+    "gaps_focus": "Learn Industry Library knowledge for Banking",
+    "dataset": "industry_library",
+    "snapshot": null
+  },
+  "connector_output": {
+    "document_id": null,
+    "ok": false,
+    "error": "ValueError"
+  },
+  "knowledge_delta": {
+    "added": 0,
+    "updated": 0,
+    "rejected": 0,
+    "industry_id": null,
+    "industry_name": null,
+    "candidate_id": null,
+    "published": false,
+    "pending_review": false
+  },
+  "publish_summary": {
+    "published": false,
+    "dry_run": true,
+    "dataset": "industry_library",
+    "entity": null,
+    "blocked_reason": "Invalid lifecycle transition idle → running"
+  },
+  "telemetry": {
+    "scheduler_tick": {
+      "ok": true,
+      "allocation": {
+        "continuous": 20.0,
+        "directed": 80.0,
+        "maintenance": 0.0,
+        "ontology": 0.0,
+        "policy": 0.0,
+        "profile": "critical_mission",
+        "updated_at": "2026-07-10T12:24:28+00:00"
+      },
+      "dispatched": null
+    },
+    "live_result": {
+      "ok": false,
+      "session_id": "SES-20260710-9CB52D",
+      "mission_id": null,
+      "published": null,
+      "duration_ms": null,
+      "error": "ValueError",
+      "message": "Invalid lifecycle transition idle → running"
+    },
+    "growth": null,
+    "snapshot": null
+  },
+  "logs": [
+    "[2026-07-10T12:24:28+00:00] Session: Learning session SESSION-20260710-E92453 started via manual",
+    "[2026-07-10T12:24:28+00:00] Scheduler: Continuous Learning Scheduler tick (GHA execution)",
+    "[2026-07-10T12:24:28+00:00] Scheduler: Scheduler tick complete — continuous learning allocated"
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "ts": "2026-07-10T12:24:28+00:00",
+      "verb": "Session",
+      "detail": "Learning session SESSION-20260710-E92453 started via manual",
+      "stage": "session",
+      "status": "started",
+      "dataset": null,
+      "mission_id": null,
+      "session_id": "SESSION-20260710-E92453",
+      "progress": 1,
+      "current_task": "Session bootstrap",
+      "current_entity": null,
+      "current_document": null,
+      "current_source": null,
+      "current_relationship": null,
+      "confidence": null,
+      "duration_ms": null,
+      "meta": {}
+    },
+    {
+      "seq": 2,
+      "ts": "2026-07-10T12:24:28+00:00",
+      "verb": "Scheduler",
+      "detail": "Continuous Learning Scheduler tick (GHA execution)",
+      "stage": "scheduler",
+      "status": "started",
+      "dataset": null,
+      "mission_id": null,
+      "session_id": "SESSION-20260710-E92453",
+      "progress": 5,
+      "current_task": "Continuous Learning Scheduler tick (GHA execution)",
+      "current_entity": null,
+      "current_document": null,
+      "current_source": null,
+      "current_relationship": null,
+      "confidence": null,
+      "duration_ms": null,
+      "meta": {}
+    },
+    {
+      "seq": 3,
+      "ts": "2026-07-10T12:24:28+00:00",
+      "verb": "Scheduler",
+      "detail": "Scheduler tick complete — continuous learning allocated",
+      "stage": "scheduler",
+      "status": "completed",
+      "dataset": null,
+      "mission_id": null,
+      "session_id": "SESSION-20260710-E92453",
+      "progress": 12,
+      "current_task": "Scheduler tick complete — continuous learning allocated",
+      "current_entity": null,
+      "current_document": null,
+      "current_source": null,
+      "current_relationship": null,
+      "confidence": null,
+      "duration_ms": null,
+      "meta": {
+        "allocation": {
+          "continuous": 20.0,
+          "directed": 80.0,
+          "maintenance": 0.0,
+          "ontology": 0.0,
+          "policy": 0.0,
+          "profile": "critical_mission",
+          "updated_at": "2026-07-10T12:24:28+00:00"
+        }
+      }
+    }
+  ],
+  "github": {
+    "run_id": null,
+    "run_number": null,
+    "workflow": null,
+    "workflow_ref": null,
+    "actor": null,
+    "event_name": null,
+    "sha": null,
+    "ref": null,
+    "repository": null,
+    "server_url": "https://github.com"
+  },
+  "execution_model": "github_actions",
+  "architecture": [
+    "Scheduler",
+    "Planner",
+    "Policy",
+    "Connector Manager",
+    "Pipeline",
+    "Review",
+    "Publisher",
+    "Telemetry"
+  ],
+  "mission_id": null,
+  "legacy_session_id": "SES-20260710-9CB52D",
+  "correlation_id": "GHA-SESSION-20260710-E92453"
+}

@@ -1,94 +1,81 @@
 import { NextRequest } from "next/server";
-import fs from "fs";
-import path from "path";
-import { getRepoRoot } from "@/lib/paths";
 import {
   jsonFailure,
   jsonSuccess,
   withApiJson,
 } from "@/lib/api-contract";
+import {
+  listLegacySessions,
+  listSessions,
+  loadLegacySessionEvents,
+  loadSession,
+} from "@/lib/sessions";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
+/**
+ * GET /api/live/replay[?session_id=]
+ * Replay from stored session files (GHA sessions + legacy jsonl).
+ */
 export async function GET(req: NextRequest) {
   return withApiJson("api.live.replay", async () => {
     try {
       const sessionId = req.nextUrl.searchParams.get("session_id");
-      const root = getRepoRoot();
-      const sessionsDir = path.join(
-        root,
-        "automation/learning/state/sessions"
-      );
 
       if (!sessionId) {
-        if (!fs.existsSync(sessionsDir)) {
-          return jsonSuccess({
-            status: "ok",
-            data: { sessions: [] },
-          });
-        }
-        const sessions = fs
-          .readdirSync(sessionsDir)
-          .filter((f) => f.endsWith(".jsonl"))
-          .map((f) => {
-            const full = path.join(sessionsDir, f);
-            const lines = fs
-              .readFileSync(full, "utf8")
-              .split("\n")
-              .filter(Boolean);
-            let first: Record<string, unknown> | null = null;
-            let last: Record<string, unknown> | null = null;
-            try {
-              first = JSON.parse(lines[0] || "{}");
-              last = JSON.parse(lines[lines.length - 1] || "{}");
-            } catch {
-              /* ignore */
-            }
-            return {
-              session_id: f.replace(/\.jsonl$/, ""),
-              events: lines.length,
-              started: first?.ts ?? null,
-              ended: last?.ts ?? null,
-              last_verb: last?.verb ?? null,
-            };
-          })
-          .sort((a, b) =>
-            String(b.started).localeCompare(String(a.started))
-          );
+        const sessions = [
+          ...listSessions({ limit: 100 }),
+          ...listLegacySessions(),
+        ];
         return jsonSuccess({
           status: "ok",
-          data: { sessions },
+          data: {
+            sessions: sessions.map((s) => ({
+              session_id: s.session_id,
+              events: s.events ?? 0,
+              started: s.start_time,
+              ended: s.end_time,
+              last_verb: s.summary,
+              status: s.status,
+              mission: s.mission,
+              knowledge_added: s.knowledge_added,
+            })),
+          },
         });
       }
 
-      const file = path.join(sessionsDir, `${sessionId}.jsonl`);
-      if (!fs.existsSync(file)) {
-        return jsonFailure({
-          component: "api.live.replay",
-          reason: `session not found: ${sessionId}`,
-          error_code: "SESSION_NOT_FOUND",
+      const session = loadSession(sessionId);
+      if (session) {
+        return jsonSuccess({
+          status: "ok",
           session_id: sessionId,
-          httpStatus: 404,
+          data: {
+            session_id: sessionId,
+            events: session.events || [],
+            session,
+          },
         });
       }
-      const events = fs
-        .readFileSync(file, "utf8")
-        .split("\n")
-        .filter(Boolean)
-        .map((line) => {
-          try {
-            return JSON.parse(line);
-          } catch {
-            return null;
-          }
-        })
-        .filter(Boolean);
 
-      return jsonSuccess({
-        status: "ok",
+      const legacy = loadLegacySessionEvents(sessionId);
+      if (legacy.length) {
+        return jsonSuccess({
+          status: "ok",
+          session_id: sessionId,
+          data: {
+            session_id: sessionId,
+            events: legacy,
+          },
+        });
+      }
+
+      return jsonFailure({
+        component: "api.live.replay",
+        reason: `session not found: ${sessionId}`,
+        error_code: "SESSION_NOT_FOUND",
         session_id: sessionId,
-        data: { session_id: sessionId, events },
+        httpStatus: 404,
       });
     } catch (e) {
       const err = e instanceof Error ? e : new Error(String(e));

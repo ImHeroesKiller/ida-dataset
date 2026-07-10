@@ -150,12 +150,18 @@ def run_live_session(
             task="Runtime lock acquired",
         )
     else:
+        # GHA / CI execution: no exclusive host lock, but lifecycle still applies.
         correlation_id = correlation_id or f"CORR-{uuid4().hex[:12].upper()}"
         lifecycle = RuntimeLifecycle(
             session_id=session_id,
             correlation_id=correlation_id,
             repo_root=root,
             instruction=instruction,
+        )
+        lifecycle.transition(
+            RuntimeState.STARTING,
+            stage="startup",
+            task="Session started (github_actions / skip_lock)",
         )
 
     runtime_channels.set_context(session_id=session_id, correlation_id=correlation_id)

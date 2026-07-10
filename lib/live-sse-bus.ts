@@ -1,12 +1,10 @@
 /**
- * Shared client-side SSE subscription bus.
+ * Legacy shared SSE subscription bus.
  *
- * Problem: LiveDashboard + BottomConsole each called useLiveLearning(),
- * creating two EventSource connections (and more under React Strict Mode).
- * That accumulated server abort listeners / intervals and triggered
- * MaxListenersExceededWarning on reconnects.
- *
- * Fix: one EventSource per browser tab, ref-counted. Never raise max listeners.
+ * Continuous learning now runs on GitHub Actions. The dashboard polls
+ * /api/sessions instead of a long-lived local runtime stream.
+ * This bus remains for any residual EventSource consumers; /api/live
+ * returns a short snapshot stream and closes (no server-side tailer).
  */
 
 export type BusJournalEvent = {

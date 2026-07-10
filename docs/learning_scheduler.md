@@ -18,6 +18,14 @@ Human → Learning Mission → Scheduler → Priority Engine → Planner
 - Planner **never starts directly**
 - Everything starts from the Scheduler
 
+## Execution (GitHub Actions)
+
+The scheduler module is unchanged. It is **invoked by GitHub Actions**
+(`.github/workflows/learning.yml`) on hourly/daily schedule and manual dispatch,
+not by a long-running dashboard Python process.
+
+Each GHA run produces a durable session under `automation/sessions/`.
+
 ## Modules
 
 | File | Role |

@@ -3,35 +3,45 @@ import {
   jsonSuccess,
   withApiJson,
 } from "@/lib/api-contract";
-import { collectRuntimeDebug } from "@/lib/runtime-manager";
-import { getSseListenerStats } from "@/lib/sse-registry";
+import { getSessionsDashboard } from "@/lib/sessions";
+import {
+  getActionsLearningStatus,
+  isGithubConfigured,
+  resolveRepository,
+} from "@/lib/github-actions";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 /**
- * GET /api/runtime/debug
- *
- * Returns runtime state, scheduler state, active session, active listeners,
- * worker status, connector status, last exception.
- * Always valid JSON.
+ * GET /api/runtime/debug — GitHub Actions learning model diagnostics.
  */
 export async function GET() {
   return withApiJson("api.runtime.debug", async () => {
     try {
-      const debug = collectRuntimeDebug();
-      const listeners = getSseListenerStats();
-      const session = debug.active_session as {
-        session_id?: string | null;
-        status?: string | null;
-      };
+      const dash = getSessionsDashboard();
+      const actions = await getActionsLearningStatus();
 
       return jsonSuccess({
-        status: String(session?.status || "ok"),
-        session_id: session?.session_id ?? null,
+        status: actions.running ? "running" : dash.status,
+        session_id: dash.current_session?.session_id ?? null,
         data: {
-          ...debug,
-          active_listeners: listeners,
+          execution_model: "github_actions",
+          local_runtime: "removed",
+          python_spawn: false,
+          sse_runtime: false,
+          github_configured: isGithubConfigured(),
+          repository: resolveRepository(),
+          github_actions: actions,
+          sessions_dashboard: {
+            status: dash.status,
+            session_count: dash.sessions?.length ?? 0,
+            next_scheduled_run: dash.next_scheduled_run,
+            history: dash.history,
+          },
+          active_session: dash.current_session,
+          note:
+            "Learning executes entirely on GitHub Actions. Dashboard monitors sessions and dispatches workflows.",
         },
       });
     } catch (e) {
@@ -43,8 +53,6 @@ export async function GET() {
         exception: err.name,
         stack_trace: err.stack,
         httpStatus: 500,
-        recovery_suggestion:
-          "Debug collector failed — check disk and automation/runtime permissions.",
       });
     }
   });

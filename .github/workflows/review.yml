@@ -1,6 +1,9 @@
 name: Review
 
 on:
+  schedule:
+    # Daily review summary 07:00 UTC (after daily learning)
+    - cron: "0 7 * * *"
   workflow_dispatch:
     inputs:
       environment:
@@ -29,8 +32,8 @@ jobs:
     name: Review summary
     runs-on: ubuntu-latest
     env:
-      IDA_ENVIRONMENT: ${{ github.event.inputs.environment }}
-      DRY_RUN: ${{ github.event.inputs.dry_run }}
+      IDA_ENVIRONMENT: ${{ github.event.inputs.environment || 'production' }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'true' }}
       PYTHONUNBUFFERED: "1"
 
     steps:

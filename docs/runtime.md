@@ -1,129 +1,116 @@
-# Live Learning Runtime
+# Learning Runtime → GitHub Actions Sessions
 
-Stabilization layer for continuous learning without crashes, listener leaks, or silent failures.
+The always-on local Python runtime has been **removed** as the execution model.
 
-Architecture is **frozen**. This document describes the runtime control plane only — not new engines.
+Architecture is **unchanged**. Only the execution strategy changed.
 
 ## Architecture
 
 ```text
-Dashboard (ECC)
+GitHub Actions (schedule | manual | mission)
     │
-    ├─ POST /api/live/start  →  runtime-manager (lock + spawn + diagnostics)
-    │                                │
-    │                                ▼
-    │                     python3 -m automation.learning.live_runtime
-    │                                │
-    │         Mission → Scheduler → Planner → Policy → Connector
-    │              → Document Queue → Pipeline → Review → Publisher
-    │                                │
-    │                     journal + live_activity + runtime.status
+    ▼
+Learning Session (automation/ci/learning_session.py)
     │
-    └─ GET /api/live (SSE)  ←  tails journal / activity
-           │
-           └─ shared EventSource bus (one per browser tab)
-                ├─ LiveDashboard
-                └─ BottomConsole
+    ├─ Scheduler → Planner → Policy → Connector
+    │     → Document Queue → Pipeline → Review → Publisher → Telemetry
+    │
+    ▼
+Repository Update
+  automation/sessions/YYYY-MM-DD/SESSION-xxxxx.json
+  (+ knowledge / reports when not dry-run)
+    │
+    ▼
+Dashboard Refresh (Vercel / local ECC)
+  polls /api/sessions · dispatches learning.yml on "Start Learning"
 ```
 
-### Components
+### What was removed from the dashboard host
 
-| Layer | Path | Role |
-|-------|------|------|
-| Start API | `app/api/live/start/route.ts` | Delegates to runtime manager; structured failures |
-| Runtime manager | `lib/runtime-manager.ts` | Host probe, lock, spawn, status, logs |
-| SSE | `app/api/live/route.ts` | Journal tail; timer/listener cleanup on disconnect |
-| SSE bus | `lib/live-sse-bus.ts` | Single shared `EventSource` (ref-counted) |
-| Lifecycle | `automation/runtime/lifecycle.py` | Idle→Starting→Running→Stopping→Stopped→Failed |
-| Errors | `automation/runtime/errors.py` | JSON failures under `automation/runtime/logs/` |
-| Channels | `automation/runtime/channels.py` | system / learning / runtime / errors / publish / review / telemetry |
-| Recovery | `automation/runtime/recovery.py` | Limited retries for recoverable faults only |
-| Session body | `automation/learning/live_runtime.py` | Existing pipeline, lock-aware |
+| Former | Now |
+|--------|-----|
+| `python -m automation.learning.live_runtime` spawned by Next.js | GitHub Actions job |
+| Long-lived process + lock file | Ephemeral GHA runner |
+| Server-side SSE journal tailer | Poll session JSON + Actions status |
+| Vercel serverless limitation on spawn | Dashboard is read-only monitor |
 
-## Diagnostic APIs
+### What was kept
 
-| Endpoint | Purpose |
-|----------|---------|
-| `GET /api/runtime/status` | Lifecycle, session, stage, task, uptime, health, last_error |
-| `GET /api/runtime/logs` | Channel logs + error records |
-| `GET /api/runtime/session` | Current or named session summary |
+Scheduler · Planner · Policy · Connector Manager · Pipeline · Review · Publisher · Telemetry
 
-Example status payload:
+## Workflows
 
-```json
-{
-  "status": "running",
-  "session_id": "SES-20260710-ABC123",
-  "correlation_id": "CORR-DEADBEEF",
-  "started_at": "2026-07-10T12:00:00+00:00",
-  "current_stage": "Pipeline",
-  "current_task": "Reading Annual Report",
-  "documents_processed": 5,
-  "knowledge_candidates": 18,
-  "uptime_seconds": 184,
-  "health": {
-    "runtime": "healthy",
-    "scheduler": "healthy",
-    "connector": "healthy",
-    "queue": "healthy",
-    "sse": "healthy",
-    "publisher": "healthy"
-  }
-}
-```
+| Workflow | File | Triggers |
+|----------|------|----------|
+| Learning | `.github/workflows/learning.yml` | Hourly, daily 06:00 UTC, manual, mission |
+| Review | `.github/workflows/review.yml` | Daily 07:00 UTC, manual |
+| Publish | `.github/workflows/publish.yml` | Daily 08:00 UTC, manual |
+| Planner | `.github/workflows/planner.yml` | Daily 06:00 UTC, manual |
+| Validate | `.github/workflows/validate.yml` | push / PR / manual |
 
-## State on disk
+### learning.yml inputs
+
+- `environment` — development | staging | production  
+- `dry_run` — true | false  
+- `mission` — instruction text (mission trigger)  
+- `trigger` — manual | mission | hourly | daily | schedule  
+- `commit_session` — commit session artifacts to the repo  
+
+## Session storage
 
 ```text
-automation/runtime/
-  state/
-    runtime.lock.json
-    runtime.status.json
-  logs/
-    system.jsonl
-    learning.jsonl
-    runtime.jsonl
-    errors.jsonl
-    publish.jsonl
-    review.jsonl
-    telemetry.jsonl
-    error_<ts>_<corr>.json
-    spawn_<corr>.stdout.log
-    spawn_<corr>.stderr.log
+automation/sessions/
+  YYYY-MM-DD/
+    SESSION-YYYYMMDD-XXXXXX.json
+  index.json
 ```
 
-## Health levels
+Each session stores:
 
-`healthy` · `warning` · `failed` · `disabled`
+- Session ID, start/end, duration  
+- Knowledge added / updated / rejected  
+- Mission, status, errors, summary  
+- Planner output, connector output, knowledge delta  
+- Publish summary, telemetry, logs, ordered events (replay)  
 
-Exposed for: Runtime, Scheduler, Connector, Queue, SSE, Publisher.
+## Dashboard APIs (Vercel-safe)
 
-## Single-instance rule
+| Endpoint | Role |
+|----------|------|
+| `GET /api/sessions` | Status, history, session list + GHA run state |
+| `GET /api/sessions?session_id=` | Full session + events for journal/replay |
+| `POST /api/live/start` | `workflow_dispatch` on `learning.yml` |
+| `GET /api/live/replay` | List / load session events |
+| `GET /api/runtime/status` | Compatibility status (no local PID) |
 
-Only one live runtime may run unless the lock is free (or stale and reclaimed).
+### Manual learning from the UI
 
-- Double start → `409` with `runtime.lock` failure
-- Stale lock (dead PID) → reclaimed automatically
-- Dashboard refresh **does not** start or stop learning
+"Start Learning" → `POST /api/live/start` → GitHub workflow_dispatch.
 
-## Local CLI
+Requires env:
+
+```text
+IDA_GITHUB_TOKEN   # PAT with actions:write (+ contents if needed)
+GITHUB_REPOSITORY  # owner/repo   (or VERCEL_GIT_REPO_OWNER + VERCEL_GIT_REPO_SLUG)
+```
+
+## Local CLI (same session writer as GHA)
 
 ```bash
-python3 -m automation.learning.live_runtime \
+python automation/ci/learning_session.py \
+  --environment development \
+  --dry-run \
   --instruction "Learn Industry Library knowledge for Banking" \
-  --pace 0.7
+  --trigger manual
 ```
 
-## Tests
+## Console
 
-```bash
-python3 -m automation.runtime.tests.test_runtime_stability
-node automation/runtime/tests/test_sse_bus.mjs
-# or
-npm run test:runtime
-```
+Bottom console is the **Learning Session Journal** — real events from stored session files. Replay preserves timestamps and order. No fake live stream.
 
 ## Related docs
 
-- [runtime_lifecycle.md](./runtime_lifecycle.md)
-- [runtime_troubleshooting.md](./runtime_troubleshooting.md)
+- [github_actions.md](./github_actions.md)
+- [learning_dashboard.md](./learning_dashboard.md)
+- [learning_scheduler.md](./learning_scheduler.md)
+- [vercel.md](./vercel.md)

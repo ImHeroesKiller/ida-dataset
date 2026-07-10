@@ -3,45 +3,74 @@ import {
   jsonSuccess,
   withApiJson,
 } from "@/lib/api-contract";
-import {
-  computeHealthBundle,
-  readRuntimeStatus,
-} from "@/lib/runtime-manager";
+import { getSessionsDashboard } from "@/lib/sessions";
+import { getActionsLearningStatus } from "@/lib/github-actions";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 /**
- * GET /api/runtime/status — always valid JSON.
+ * GET /api/runtime/status
+ *
+ * Compatibility endpoint: now reports GitHub Actions learning status,
+ * not a local Python process.
  */
 export async function GET() {
   return withApiJson("api.runtime.status", async () => {
     try {
-      const status = readRuntimeStatus();
-      const health = computeHealthBundle();
+      const dash = getSessionsDashboard();
+      const actions = await getActionsLearningStatus();
+      const status = actions.running || actions.queued ? "running" : dash.status;
+      const current = dash.current_session || dash.last_successful_run;
+
       return jsonSuccess({
-        status: String(status.status || "idle"),
-        session_id: status.session_id,
-        correlation_id: status.correlation_id,
+        status,
+        session_id: current?.session_id ?? null,
         data: {
-          status: status.status,
-          session_id: status.session_id,
-          correlation_id: status.correlation_id,
-          started_at: status.started_at,
-          stopped_at: status.stopped_at,
-          current_stage: status.current_stage,
-          current_task: status.current_task,
-          documents_processed: status.documents_processed,
-          knowledge_candidates: status.knowledge_candidates,
-          uptime_seconds: status.uptime_seconds,
-          pid: status.pid,
-          instruction: status.instruction,
-          last_error: status.last_error,
-          health: health.components,
-          overall_health: health.overall,
-          health_details: health.details,
-          host_capabilities: status.host_capabilities,
-          updated_at: status.updated_at,
+          status,
+          session_id: current?.session_id ?? null,
+          correlation_id: null,
+          started_at: current?.start_time ?? null,
+          stopped_at: current?.end_time ?? null,
+          current_stage: status === "running" ? "github_actions" : "idle",
+          current_task: dash.current_mission || current?.mission || null,
+          documents_processed: 0,
+          knowledge_candidates: Number(dash.knowledge_added || 0),
+          uptime_seconds: Number(dash.session_duration || 0),
+          pid: null,
+          instruction: dash.current_mission,
+          last_error: dash.last_failed_run
+            ? {
+                message: dash.last_failed_run.summary,
+                session_id: dash.last_failed_run.session_id,
+              }
+            : null,
+          health: {
+            runtime: "disabled",
+            scheduler: "healthy",
+            connector: "healthy",
+            queue: "healthy",
+            sse: "disabled",
+            publisher: "healthy",
+            github_actions: actions.configured ? "healthy" : "warning",
+          },
+          overall_health: actions.configured ? "healthy" : "warning",
+          health_details: {
+            note: "Local runtime removed. Learning executes via GitHub Actions.",
+            github_actions: actions,
+          },
+          host_capabilities: {
+            can_spawn_runtime: false,
+            vercel: Boolean(process.env.VERCEL),
+            execution_model: "github_actions",
+            github_configured: actions.configured,
+          },
+          execution_model: "github_actions",
+          next_scheduled_run: dash.next_scheduled_run,
+          knowledge_added: dash.knowledge_added,
+          knowledge_updated: dash.knowledge_updated,
+          knowledge_rejected: dash.knowledge_rejected,
+          updated_at: new Date().toISOString(),
         },
       });
     } catch (e) {
@@ -53,7 +82,6 @@ export async function GET() {
         exception: err.name,
         stack_trace: err.stack,
         httpStatus: 500,
-        recovery_suggestion: "Check automation/runtime/state permissions.",
       });
     }
   });

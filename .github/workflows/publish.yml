@@ -1,6 +1,9 @@
 name: Publish
 
 on:
+  schedule:
+    # Daily publish attempt 08:00 UTC (after review)
+    - cron: "0 8 * * *"
   workflow_dispatch:
     inputs:
       environment:
@@ -45,8 +48,8 @@ jobs:
     name: Publish approved knowledge
     runs-on: ubuntu-latest
     env:
-      IDA_ENVIRONMENT: ${{ github.event.inputs.environment }}
-      DRY_RUN: ${{ github.event.inputs.dry_run }}
+      IDA_ENVIRONMENT: ${{ github.event.inputs.environment || 'production' }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'true' }}
       PYTHONUNBUFFERED: "1"
 
     steps:
@@ -61,13 +64,32 @@ jobs:
           python-version: "3.11"
 
       - name: Configure git identity
-        if: ${{ github.event.inputs.dry_run == 'false' && github.event.inputs.commit == 'true' }}
+        if: ${{ github.event_name == 'schedule' || (github.event.inputs.dry_run == 'false' && github.event.inputs.commit == 'true') }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+      - name: Resolve publish flags
+        id: flags
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            # Scheduled publish: real env, dry-run false, commit+push for production knowledge
+            echo "dry_run=false" >> "$GITHUB_OUTPUT"
+            echo "commit=true" >> "$GITHUB_OUTPUT"
+            echo "push=true" >> "$GITHUB_OUTPUT"
+            echo "environment=production" >> "$GITHUB_OUTPUT"
+          else
+            echo "dry_run=${{ github.event.inputs.dry_run }}" >> "$GITHUB_OUTPUT"
+            echo "commit=${{ github.event.inputs.commit }}" >> "$GITHUB_OUTPUT"
+            echo "push=${{ github.event.inputs.push }}" >> "$GITHUB_OUTPUT"
+            echo "environment=${{ github.event.inputs.environment }}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run publisher
         id: publish
+        env:
+          IDA_ENVIRONMENT: ${{ steps.flags.outputs.environment }}
+          DRY_RUN: ${{ steps.flags.outputs.dry_run }}
         run: |
           set +e
           EXTRA_ARGS=()
@@ -76,10 +98,10 @@ jobs:
           else
             EXTRA_ARGS+=(--no-dry-run)
           fi
-          if [ "${{ github.event.inputs.commit }}" = "true" ]; then
+          if [ "${{ steps.flags.outputs.commit }}" = "true" ]; then
             EXTRA_ARGS+=(--commit)
           fi
-          if [ "${{ github.event.inputs.push }}" = "true" ]; then
+          if [ "${{ steps.flags.outputs.push }}" = "true" ]; then
             EXTRA_ARGS+=(--push)
           fi
           python automation/ci/publish_ci.py \

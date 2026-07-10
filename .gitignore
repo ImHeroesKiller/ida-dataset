@@ -58,6 +58,11 @@ automation/learning/state/**
 !automation/learning/state/sessions/
 !automation/learning/state/sessions/**
 
+# GitHub Actions learning sessions (committed by learning.yml — keep all)
+!automation/sessions/
+!automation/sessions/**
+!automation/sessions/**/
+
 # Runtime stabilization state/logs (keep structure)
 automation/runtime/state/**
 !automation/runtime/state/.gitkeep

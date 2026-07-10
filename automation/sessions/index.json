@@ -1,0 +1,61 @@
+{
+  "updated_at": "2026-07-10T12:24:40+00:00",
+  "sessions": [
+    {
+      "session_id": "SESSION-20260710-DCB874",
+      "path": "automation/sessions/2026-07-10/SESSION-20260710-DCB874.json",
+      "start_time": "2026-07-10T12:24:39+00:00",
+      "end_time": "2026-07-10T12:24:40+00:00",
+      "duration_seconds": 1.0,
+      "status": "completed",
+      "mission": "Learn Industry Library knowledge for Banking",
+      "knowledge_added": 0,
+      "knowledge_updated": 1,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · added=0 updated=1 entity=— · dry_run",
+      "trigger": "manual",
+      "dry_run": true,
+      "events": 27,
+      "github": {
+        "run_id": null,
+        "run_number": null,
+        "workflow": null,
+        "workflow_ref": null,
+        "actor": null,
+        "event_name": null,
+        "sha": null,
+        "ref": null,
+        "repository": null,
+        "server_url": "https://github.com"
+      }
+    },
+    {
+      "session_id": "SESSION-20260710-E92453",
+      "path": "automation/sessions/2026-07-10/SESSION-20260710-E92453.json",
+      "start_time": "2026-07-10T12:24:28+00:00",
+      "end_time": "2026-07-10T12:24:28+00:00",
+      "duration_seconds": 0.0,
+      "status": "failed",
+      "mission": "Learn Industry Library knowledge for Banking",
+      "knowledge_added": 0,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Invalid lifecycle transition idle → running",
+      "trigger": "manual",
+      "dry_run": true,
+      "events": 3,
+      "github": {
+        "run_id": null,
+        "run_number": null,
+        "workflow": null,
+        "workflow_ref": null,
+        "actor": null,
+        "event_name": null,
+        "sha": null,
+        "ref": null,
+        "repository": null,
+        "server_url": "https://github.com"
+      }
+    }
+  ]
+}

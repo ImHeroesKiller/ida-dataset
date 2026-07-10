@@ -1,7 +1,24 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { LiveActivity } from "@/lib/use-live-learning";
+
+/** Compatible with live runtime activity and GHA session monitor activity. */
+export type LiveActivity = {
+  status?: string;
+  session_id?: string | null;
+  mission_id?: string | null;
+  progress?: number | null;
+  current_thought?: string | null;
+  current_task?: string | null;
+  current_entity?: string | null;
+  current_document?: string | null;
+  current_source?: string | null;
+  current_dataset?: string | null;
+  current_relationship?: string | null;
+  current_confidence?: number | null;
+  last_learned?: string | null;
+  updated_at?: string | null;
+};
 
 const TIMELINE = [
   "Mission",

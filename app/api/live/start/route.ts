@@ -4,8 +4,7 @@ import {
   jsonSuccess,
   withApiJson,
 } from "@/lib/api-contract";
-import { startLiveRuntime, writeFailureLog } from "@/lib/runtime-manager";
-import { getRepoRoot } from "@/lib/paths";
+import { dispatchLearningWorkflow } from "@/lib/github-actions";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -13,26 +12,23 @@ export const runtime = "nodejs";
 /**
  * POST /api/live/start
  *
- * Always returns valid JSON (never empty / HTML).
- *
- * Success envelope:
- *   { success: true, status, session_id, data: { pid, stream, ... } }
- *
- * Failure envelope (including HTTP 503 root causes):
- *   { success: false, status: "failed", component, reason, error_code,
- *     correlation_id, session_id, recovery_suggestion, failure }
- *
- * Documented 503 components:
- *   host.vercel | host.ecc_disable_python | host.python_missing
- *   | host.python_import | runtime.spawn | runtime.process | runtime.manager
+ * Triggers GitHub Actions workflow_dispatch on learning.yml.
+ * Does NOT spawn local Python. Safe on Vercel.
  */
 export async function POST(req: NextRequest) {
   return withApiJson("api.live.start", async () => {
-    let body: { instruction?: string; pace?: number } = {};
+    let body: {
+      instruction?: string;
+      mission?: string;
+      dry_run?: boolean;
+      environment?: string;
+      trigger?: string;
+      pace?: number;
+    } = {};
     try {
       const text = await req.text();
       if (text && text.trim()) {
-        body = JSON.parse(text) as { instruction?: string; pace?: number };
+        body = JSON.parse(text) as typeof body;
       }
     } catch (e) {
       const err = e instanceof Error ? e : new Error(String(e));
@@ -43,62 +39,52 @@ export async function POST(req: NextRequest) {
         exception: err.name,
         stack_trace: err.stack,
         httpStatus: 400,
-        recovery_suggestion: "Send Content-Type application/json with a valid object.",
+        recovery_suggestion:
+          "Send Content-Type application/json with a valid object.",
       });
     }
 
-    const result = await startLiveRuntime({
-      instruction: body.instruction,
-      pace: body.pace,
+    const mission =
+      body.mission?.trim() ||
+      body.instruction?.trim() ||
+      "Learn Industry Library knowledge — continuous learning session";
+
+    const result = await dispatchLearningWorkflow({
+      mission,
+      environment: body.environment || "production",
+      // Default dry_run true for safety from dashboard; caller can set false
+      dry_run: body.dry_run !== false,
+      trigger: body.trigger || "manual",
+      commit_session: true,
     });
 
     if (!result.ok) {
-      // Persist structured log for every failed start (including 503)
-      try {
-        if (result.failure) {
-          writeFailureLog(result.failure, getRepoRoot());
-        }
-      } catch {
-        /* never fail the response */
-      }
-
-      const http = result.status_code || 503;
       return jsonFailure({
-        component: result.failure?.component || "runtime.start",
-        reason: result.message || result.failure?.message || "Runtime start failed",
-        error_code:
-          result.failure?.exception ||
-          (http === 409 ? "ALREADY_RUNNING" : "RUNTIME_START_FAILED"),
-        correlation_id: result.correlation_id,
-        session_id: result.session_id ?? result.status?.session_id ?? null,
-        recovery_suggestion:
-          result.recovery_suggestion || result.failure?.recovery_suggestion,
-        stack_trace: result.failure?.stack_trace,
-        exception: result.failure?.exception,
-        recovery_action: result.failure?.recovery_action,
+        component: "github.actions",
+        reason: result.message,
+        error_code: result.error_code || "WORKFLOW_DISPATCH_FAILED",
+        recovery_suggestion: result.recovery_suggestion,
+        httpStatus: result.status_code === 404 ? 404 : 503,
         status: "failed",
-        httpStatus: http,
         data: {
-          pid: result.pid ?? null,
-          instruction: result.instruction ?? null,
-          host_capabilities: result.status?.host_capabilities ?? null,
-          runtime_status: result.status ?? null,
-          failure_meta: result.failure?.meta ?? null,
+          workflow: result.workflow,
+          repository: result.repository,
+          inputs: result.inputs ?? null,
+          execution_model: "github_actions",
         },
       });
     }
 
     return jsonSuccess({
-      status: result.status?.status || "running",
-      session_id: result.session_id ?? result.status?.session_id ?? null,
-      correlation_id: result.correlation_id,
+      status: "queued",
       message: result.message,
       data: {
-        pid: result.pid ?? null,
-        instruction: result.instruction,
-        stream: result.stream || "/api/live",
-        correlation_id: result.correlation_id,
-        runtime: result.status ?? null,
+        workflow: result.workflow,
+        repository: result.repository,
+        inputs: result.inputs,
+        execution_model: "github_actions",
+        stream: null,
+        note: "Learning runs on GitHub Actions. Dashboard polls /api/sessions for status.",
       },
     });
   });
