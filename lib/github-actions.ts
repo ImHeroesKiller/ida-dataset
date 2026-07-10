@@ -139,14 +139,14 @@ export async function dispatchLearningWorkflow(opts: {
   if (!token() || !repo) {
     return {
       ok: false,
-      status_code: 503,
+      status_code: 422,
       message:
         "GitHub Actions dispatch is not configured. Set IDA_GITHUB_TOKEN (actions:write) and GITHUB_REPOSITORY (or VERCEL_GIT_REPO_*).",
       workflow: "learning.yml",
       repository: repo || "unknown",
       error_code: "GITHUB_NOT_CONFIGURED",
       recovery_suggestion:
-        "Add repository secrets/env: IDA_GITHUB_TOKEN (PAT with actions:write), GITHUB_REPOSITORY=owner/repo. On Vercel set the same env vars.",
+        "Add repository secrets/env: IDA_GITHUB_TOKEN (PAT with actions:write), GITHUB_REPOSITORY=owner/repo. On Vercel set the same env vars. Locally, Start Learning falls back to a one-shot learning_session.py run.",
     };
   }
 

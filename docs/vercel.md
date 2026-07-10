@@ -19,14 +19,20 @@ Import GitHub repo: `ImHeroesKiller/ida-dataset`
 | **Output Directory** | **`ecc/.next`** (matches `next.config.ts` → `distDir`) |
 | Node.js Version | 20.x or 22.x |
 
-## Environment variables (recommended)
+## Environment variables (**required for Start Learning on Vercel**)
 
 | Name | Purpose |
 | --- | --- |
 | `IDA_GITHUB_TOKEN` | PAT with `actions:write` + `actions:read` — Start Learning + run status |
 | `GITHUB_REPOSITORY` | `owner/repo` (optional if `VERCEL_GIT_REPO_*` present) |
 
-Without the token, the dashboard still **reads committed sessions** from the deployment filesystem; only workflow dispatch and live Actions status are disabled.
+Without the token:
+
+- Dashboard still **reads committed sessions** from the deployment  
+- **Start Learning** returns `422 GITHUB_NOT_CONFIGURED` (not a silent 503)  
+- Local `npm run dev` falls back to one-shot `learning_session.py`  
+
+Create a fine-grained or classic PAT → Vercel → Project → Settings → Environment Variables → Production (+ Preview if needed) → Redeploy.
 
 ## What works on Vercel
 

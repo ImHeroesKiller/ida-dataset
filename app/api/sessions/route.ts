@@ -64,7 +64,24 @@ export async function GET(req: NextRequest) {
       }
 
       const dash = getSessionsDashboard();
-      const actions = await getActionsLearningStatus();
+      // Never fail the page if GitHub API is slow/unconfigured
+      let actions: Awaited<ReturnType<typeof getActionsLearningStatus>>;
+      try {
+        actions = await getActionsLearningStatus();
+      } catch (e) {
+        const err = e instanceof Error ? e : new Error(String(e));
+        actions = {
+          configured: false,
+          repository: null,
+          running: false,
+          queued: false,
+          status: "idle",
+          current_run: null,
+          recent_runs: [],
+          next_scheduled_hint: dash.next_scheduled_run || "",
+          error: err.message,
+        };
+      }
 
       // Merge Actions running state into dashboard status
       let status = dash.status;

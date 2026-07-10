@@ -196,6 +196,31 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
         </div>
       </div>
 
+      {!ga?.configured ? (
+        <Card>
+          <CardHeader
+            title="GitHub Actions not connected"
+            description="Local Start Learning uses a one-shot learning_session.py. On Vercel, set env vars."
+          />
+          <CardBody className="space-y-2 text-xs text-zinc-400">
+            <p>
+              Production requires{" "}
+              <code className="text-zinc-200">IDA_GITHUB_TOKEN</code> (PAT with{" "}
+              <code className="text-zinc-200">actions:write</code>) and{" "}
+              <code className="text-zinc-200">GITHUB_REPOSITORY=owner/repo</code>.
+            </p>
+            <p className="text-zinc-500">
+              Without the token, workflow_dispatch cannot run (this used to
+              surface as a 503). Local dev falls back to a single CLI session —
+              not a long-lived runtime.
+            </p>
+            {ga?.error ? (
+              <p className="text-amber-300/90">{ga.error}</p>
+            ) : null}
+          </CardBody>
+        </Card>
+      ) : null}
+
       {/* Current status panel */}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Card>
