@@ -90,3 +90,6 @@ automation/queue/candidates/**
 !reports/discovery/
 !reports/discovery/**
 !automation/learning/state/discovery_analytics.json
+!reports/manufacturing/
+!reports/manufacturing/**
+!automation/learning/state/manufacturing_state.json

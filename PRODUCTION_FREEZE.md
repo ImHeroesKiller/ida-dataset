@@ -265,8 +265,27 @@ Future releases focus **ONLY** on:
 3. Coverage expansion  
 4. Quality improvement  
 5. Production bug fixes  
+6. Continuous knowledge manufacturing intelligence (targets, gaps, capacity)  
 
 **No architectural evolution is planned.**
+
+---
+
+# Continuous Knowledge Manufacturing
+
+**There is no predefined finish line.**
+
+- `minimum_target` — bootstrap floor (mode signal), not a stop  
+- `stretch_target` — progress reference for coverage %, not a stop  
+- `estimated_universe` — dynamic estimate of remaining knowledge  
+- `hard_limit: null` — never stop for an arbitrary numeric ceiling  
+
+The factory continues while trusted, validated knowledge still exists.  
+It may only slow for: no source updates, API quota, rate limits, backoff, or maintenance.
+
+Success is measured by **knowledge growth, coverage, freshness, confidence, quality** — not feature count.
+
+See `automation/manufacturing/` and `reports/manufacturing/`.
 
 ---
 

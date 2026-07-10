@@ -1,24 +1,23 @@
-# Product KPI targets — long-term factory goals (NOT sprint targets).
-# Coverage = current_rows / product_target.
-# Edit this file to recalibrate product ambition without code changes.
+# Dynamic Production Targets — Continuous Knowledge Manufacturing
+# Coverage uses stretch_target as progress reference only.
+# hard_limit: null means the factory never stops for an arbitrary numeric ceiling.
+# minimum_target = bootstrap floor (mode signal), NOT a finish line.
 
-version: "1.0"
-
-# Days for freshness window in readiness calculation
+version: "2.0"
+continuous_manufacturing: true
+never_stop_at_numeric_target: true
 freshness_window_days: 90
 
-# Product row targets by logical dataset class (keys match dataset name stems)
+# Legacy flat targets (= minimum_target) for backward-compatible readers
 targets:
   industry_library: 250
   company_profile: 10000
   product_catalog: 5000
-  # Service may map to product_catalog subtype; keep separate target for future
   service_library: 2000
   pain_point_library: 3000
   solution_library: 3000
   framework_library: 500
   case_study_library: 1000
-  # Buyer persona / decision maker may live in discovery or dedicated libraries
   discovery_question_library: 500
   buyer_persona_library: 500
   decision_maker_library: 500
@@ -26,15 +25,95 @@ targets:
   competitor_library: 1000
   opportunity_analysis: 2000
   business_signal_library: 1000
-  # Default for unlisted datasets
   _default: 100
 
-# Sprint milestones (informational only — never used as product coverage denominator)
+# Dynamic profiles per dataset
+datasets:
+  industry_library:
+    minimum_target: 250
+    stretch_target: 5000
+    estimated_universe: dynamic
+    hard_limit: null
+  company_profile:
+    minimum_target: 10000
+    stretch_target: 100000
+    estimated_universe: dynamic
+    hard_limit: null
+  product_catalog:
+    minimum_target: 5000
+    stretch_target: 50000
+    estimated_universe: dynamic
+    hard_limit: null
+  service_library:
+    minimum_target: 2000
+    stretch_target: 50000
+    estimated_universe: dynamic
+    hard_limit: null
+  pain_point_library:
+    minimum_target: 3000
+    stretch_target: 30000
+    estimated_universe: dynamic
+    hard_limit: null
+  solution_library:
+    minimum_target: 3000
+    stretch_target: 30000
+    estimated_universe: dynamic
+    hard_limit: null
+  framework_library:
+    minimum_target: 500
+    stretch_target: 5000
+    estimated_universe: dynamic
+    hard_limit: null
+  case_study_library:
+    minimum_target: 1000
+    stretch_target: 10000
+    estimated_universe: dynamic
+    hard_limit: null
+  discovery_question_library:
+    minimum_target: 500
+    stretch_target: 5000
+    estimated_universe: dynamic
+    hard_limit: null
+  buyer_persona_library:
+    minimum_target: 500
+    stretch_target: 5000
+    estimated_universe: dynamic
+    hard_limit: null
+  decision_maker_library:
+    minimum_target: 500
+    stretch_target: 5000
+    estimated_universe: dynamic
+    hard_limit: null
+  regulation_library:
+    minimum_target: 1000
+    stretch_target: 10000
+    estimated_universe: dynamic
+    hard_limit: null
+  competitor_library:
+    minimum_target: 1000
+    stretch_target: 20000
+    estimated_universe: dynamic
+    hard_limit: null
+  opportunity_analysis:
+    minimum_target: 2000
+    stretch_target: 20000
+    estimated_universe: dynamic
+    hard_limit: null
+  business_signal_library:
+    minimum_target: 1000
+    stretch_target: 50000
+    estimated_universe: dynamic
+    hard_limit: null
+  _default:
+    minimum_target: 100
+    stretch_target: 1000
+    estimated_universe: dynamic
+    hard_limit: null
+
 sprint_milestones:
   industry_phase1: 50
   industry_stretch: 100
 
-# Capacity assumptions for ETA estimates (informational)
 capacity:
   lookback_days: 30
   sessions_lookback: 30

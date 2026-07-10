@@ -256,6 +256,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
   };
   const production = exec?.production;
   const discovery = exec?.discovery;
+  const manufacturing = exec?.manufacturing;
 
   const coverage = exec?.coverage || [];
   const feed = exec?.knowledge_feed || [];
@@ -513,6 +514,41 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
             {String(production.publish_balance.duplicate ?? "—")}
           </div>
         ) : null}
+      </Card>
+
+      {/* Continuous manufacturing — real indicators only; no finish line */}
+      <Card>
+        <CardHeader
+          title="Continuous manufacturing"
+          description="No predefined finish line · knowledge growth is the objective"
+        />
+        <CardBody className="grid gap-3 p-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Stat label="Manufacturing mode" value={String(manufacturing?.mode || "CONTINUOUS")} />
+          <Stat
+            label="Knowledge gap"
+            value={`${String(manufacturing?.knowledge_gap_dataset || "—")} · ${Number(manufacturing?.knowledge_gap_score || 0).toFixed(1)}`}
+          />
+          <Stat
+            label="Estimated universe"
+            value={String(manufacturing?.estimated_universe ?? "—")}
+          />
+          <Stat
+            label="Growth velocity"
+            value={`${Number(manufacturing?.growth_velocity || 0)} rows/day`}
+          />
+          <CounterCard label="Rows today" value={manufacturing?.rows_today || counters.rows_today || 0} prefix="+" tone="green" />
+          <CounterCard label="Rows this week" value={manufacturing?.rows_week || counters.rows_week || 0} prefix="+" tone="green" />
+          <CounterCard label="Rows this month" value={manufacturing?.rows_month || counters.rows_month || 0} prefix="+" tone="green" />
+          <CounterCard label="Knowledge produced" value={manufacturing?.knowledge_produced || 0} tone="blue" />
+          <Stat label="Coverage velocity" value={`${Number(manufacturing?.coverage_velocity || 0)} r/d`} />
+          <Stat label="Factory capacity" value={`${Number(manufacturing?.factory_capacity_rph || 0)} rows/h`} />
+          <Stat label="Production cost" value={`$${Number(manufacturing?.production_cost || 0)}`} />
+          <Stat label="Knowledge ROI" value={String(manufacturing?.knowledge_roi ?? "—")} />
+          <Stat label="Top dataset" value={String(manufacturing?.top_dataset || "—")} />
+          <Stat label="Top source" value={String(manufacturing?.top_source || "—")} />
+          <Stat label="Top connector" value={String(manufacturing?.top_connector || production?.last_connector || "—")} />
+          <Stat label="Top mission" value={String(manufacturing?.top_mission || "—").slice(0, 48)} />
+        </CardBody>
       </Card>
 
       {/* Discovery metrics — real analytics only; search engines are not knowledge sources */}

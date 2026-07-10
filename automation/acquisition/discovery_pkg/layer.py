@@ -26,22 +26,27 @@ from automation.lib.paths import find_repo_root
 
 
 def _knowledge_gap(repo_root: Path, dataset: str) -> dict[str, Any]:
-    """Lightweight gap signal from product targets + row counts (no architecture change)."""
+    """Knowledge gap for discovery — uses manufacturing engine when available."""
     try:
-        from automation.lib.config import load_yaml_file  # type: ignore
-    except Exception:  # noqa: BLE001
-        load_yaml_file = None
-    targets = {}
-    try:
-        from automation.lib.simple_yaml import load_simple_yaml
+        from automation.manufacturing.knowledge_gap import evaluate_dataset
 
-        p = repo_root / "automation" / "config" / "product_targets.yaml"
-        if p.exists():
-            data = load_simple_yaml(p.read_text(encoding="utf-8")) or {}
-            targets = data.get("targets") or {}
+        e = evaluate_dataset(dataset, repo_root=repo_root)
+        return {
+            "dataset": dataset,
+            "current_rows": e.get("current_rows"),
+            "target_rows": (e.get("profile") or {}).get("stretch_target"),
+            "minimum_target": (e.get("profile") or {}).get("minimum_target"),
+            "gap_rows": e.get("universe_gap"),
+            "coverage_pct": e.get("coverage_stretch_pct"),
+            "knowledge_gap_score": e.get("knowledge_gap_score"),
+            "estimated_universe": (e.get("universe") or {}).get("estimated_universe"),
+            "priority": "high"
+            if float(e.get("knowledge_gap_score") or 0) > 40
+            else "medium",
+            "continuous": True,
+        }
     except Exception:  # noqa: BLE001
-        targets = {}
-    target = int(targets.get(dataset) or targets.get("_default") or 100)
+        pass
     current = 0
     csv_path = repo_root / "domains" / "business_development" / f"{dataset}.csv"
     if csv_path.exists():
@@ -49,15 +54,14 @@ def _knowledge_gap(repo_root: Path, dataset: str) -> dict[str, Any]:
             current = max(0, sum(1 for _ in csv_path.open(encoding="utf-8-sig")) - 1)
         except Exception:  # noqa: BLE001
             current = 0
-    gap = max(0, target - current)
-    coverage = round(100.0 * current / target, 2) if target else 0.0
     return {
         "dataset": dataset,
         "current_rows": current,
-        "target_rows": target,
-        "gap_rows": gap,
-        "coverage_pct": coverage,
-        "priority": "high" if coverage < 40 else ("medium" if coverage < 80 else "low"),
+        "target_rows": None,
+        "gap_rows": None,
+        "coverage_pct": None,
+        "priority": "high",
+        "continuous": True,
     }
 
 

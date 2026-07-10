@@ -159,7 +159,27 @@ CATALOG: list[dict[str, Any]] = [
 
 
 def _load_targets(repo: Path) -> dict[str, int]:
-    targets: dict[str, int] = {"_default": 100}
+    """Load progress-reference targets (stretch preferred; never a hard stop)."""
+    targets: dict[str, int] = {"_default": 1000}
+    try:
+        from automation.manufacturing.targets import dataset_profile, load_dynamic_targets
+
+        cfg = load_dynamic_targets(repo)
+        flat = cfg.get("targets") or {}
+        for k, v in flat.items():
+            try:
+                targets[str(k)] = int(v)
+            except (TypeError, ValueError):
+                continue
+        # Prefer stretch_target as coverage denominator so minimum is not a finish line
+        for key in list(targets.keys()):
+            if key.startswith("_"):
+                continue
+            prof = dataset_profile(key, repo)
+            targets[key] = int(prof.get("stretch_target") or targets[key])
+        return targets
+    except Exception:  # noqa: BLE001
+        pass
     p = repo / "automation/config/product_targets.yaml"
     if not p.exists():
         return targets
@@ -279,39 +299,56 @@ class SelectedMission:
 
 
 def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
-    """Select highest-value next mission. Pure function of repo state + targets."""
+    """Select highest-value next mission. Continuous manufacturing — no numeric finish line."""
     repo = Path(repo_root) if repo_root else find_repo_root()
     targets = _load_targets(repo)
     counts = _counts(repo)
     sources = _active_sources(repo)
     source_factor = 1.0 if sources >= 6 else 0.7 if sources >= 3 else 0.4
 
-    # capacity: prefer lower coverage; if all high, still pick lowest
+    # Manufacturing controller: multi-dimensional gap + dynamic mission text
+    mfg: dict[str, Any] = {}
+    try:
+        from automation.manufacturing.controller import ManufacturingController
+
+        mfg = ManufacturingController(repo_root=repo).next_mission()
+    except Exception:  # noqa: BLE001
+        mfg = {}
+
+    mfg_by_ds = {
+        str(m.get("dataset")): m
+        for m in (mfg.get("proposed") or [])
+        if isinstance(m, dict)
+    }
+    mode_name = str((mfg.get("mode") or {}).get("mode") or "CONTINUOUS")
+
+    # capacity: knowledge-gap score dominates; never skip solely for stretch coverage
     ranked: list[dict[str, Any]] = []
     for item in CATALOG:
         key = item["target_key"]
         cur = counts.get(key, 0)
         if item.get("service_type"):
             cur = counts.get("service_library", 0)
-        tgt = int(targets.get(key, targets.get("_default", 100)))
+        tgt = int(targets.get(key, targets.get("_default", 1000)))
         cov = min(100.0, (cur / tgt) * 100.0) if tgt else 0.0
         deps_ok = _deps_met(item, counts)
         if not deps_ok:
             continue
-        # skip fully covered
-        if cov >= 100.0:
-            continue
-        # score: lower coverage dominates, then product priority
-        # Industry only wins if its score is best — not forced continuous
-        gap_weight = (100.0 - cov) / 100.0
+        # Continuous manufacturing: do NOT skip when cov >= 100 (stretch only)
+        gap_weight = (100.0 - min(cov, 99.0)) / 100.0
+        mfg_item = mfg_by_ds.get(key) or {}
+        gap_score = float(mfg_item.get("knowledge_gap_score") or 0)
         score = (
-            gap_weight * 1000.0
+            gap_score * 10.0
+            + gap_weight * 500.0
             + float(item["product_priority"]) * 2.0
-            + (50.0 if cov == 0 else 0.0)  # empty official classes
+            + (50.0 if cur == 0 else 0.0)
         ) * source_factor
-        # slight boost for official next empty Batch-009 when deps met
         if item["batch_id"] == "Batch-009" and cur == 0:
             score += 200.0
+        # Dynamic instruction from manufacturing controller when available
+        instruction = str(mfg_item.get("instruction") or item["instruction"])
+        title = str(mfg_item.get("title") or item["title"])
         ranked.append(
             {
                 "item": item,
@@ -319,25 +356,33 @@ def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
                 "tgt": tgt,
                 "cov": round(cov, 1),
                 "score": round(score, 2),
+                "instruction": instruction,
+                "title": title,
+                "mode": mode_name,
+                "knowledge_gap_score": gap_score,
             }
         )
 
     ranked.sort(key=lambda x: (-x["score"], x["cov"], -x["item"]["product_priority"]))
 
     if not ranked:
-        # fallback industry maintenance
+        # Continuous fallback — still manufacture knowledge (never artificial stop)
         item = CATALOG[0]
+        mfg_sel = mfg.get("selected") or {}
         sel = SelectedMission(
             batch_id=item["batch_id"],
             dataset=item["dataset"],
-            title=item["title"],
-            instruction=item["instruction"],
+            title=str(mfg_sel.get("title") or item["title"]),
+            instruction=str(
+                mfg_sel.get("instruction")
+                or "Collect New publications for Industry Indonesia — continuous manufacturing"
+            ),
             coverage_pct=100.0,
             current_rows=counts.get("industry_library", 0),
-            product_target=int(targets.get("industry_library", 250)),
+            product_target=int(targets.get("industry_library", 5000)),
             product_priority=item["product_priority"],
             score=0.0,
-            reason="all_targets_met_or_blocked_fallback_industry",
+            reason="continuous_fallback_no_ranked_catalog_items",
         )
         return {
             "ok": True,
@@ -345,6 +390,8 @@ def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
             "ranking": [],
             "counts": counts,
             "active_sources": sources,
+            "manufacturing_mode": mode_name,
+            "continuous": True,
         }
 
     top = ranked[0]
@@ -352,16 +399,17 @@ def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
     sel = SelectedMission(
         batch_id=item["batch_id"],
         dataset=item["dataset"],
-        title=item["title"],
-        instruction=item["instruction"],
+        title=str(top.get("title") or item["title"]),
+        instruction=str(top.get("instruction") or item["instruction"]),
         coverage_pct=top["cov"],
         current_rows=top["cur"],
         product_target=top["tgt"],
         product_priority=item["product_priority"],
         score=top["score"],
         reason=(
-            f"lowest_coverage={top['cov']}% · priority={item['product_priority']} · "
-            f"deps_met · sources={sources}"
+            f"mode={top.get('mode')} · gap_score={top.get('knowledge_gap_score')} · "
+            f"stretch_cov={top['cov']}% · priority={item['product_priority']} · "
+            f"deps_met · sources={sources} · continuous=true"
         ),
     )
     return {
@@ -373,11 +421,20 @@ def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
                 "dataset": r["item"]["dataset"],
                 "coverage_pct": r["cov"],
                 "score": r["score"],
+                "knowledge_gap_score": r.get("knowledge_gap_score"),
+                "mode": r.get("mode"),
             }
             for r in ranked[:8]
         ],
         "counts": counts,
         "active_sources": sources,
+        "manufacturing_mode": mode_name,
+        "continuous": True,
+        "manufacturing": {
+            "mode": mfg.get("mode"),
+            "knowledge_gap_summary": mfg.get("knowledge_gap_summary"),
+            "pause": mfg.get("pause"),
+        },
     }
 
 

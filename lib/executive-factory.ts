@@ -220,6 +220,26 @@ export type ExecutiveFactoryView = {
     providers_ready: number;
     providers_offline: number;
   };
+  /** Continuous manufacturing intelligence (real state only) */
+  manufacturing: {
+    mode: string;
+    knowledge_gap_dataset: string;
+    knowledge_gap_score: number;
+    estimated_universe: number;
+    growth_velocity: number;
+    coverage_velocity: number;
+    rows_today: number;
+    rows_week: number;
+    rows_month: number;
+    knowledge_produced: number;
+    top_dataset: string;
+    top_source: string;
+    top_connector: string;
+    top_mission: string;
+    factory_capacity_rph: number;
+    production_cost: number;
+    knowledge_roi: number;
+  };
   coverage: Array<{
     key: string;
     label: string;
@@ -328,6 +348,8 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
     readJson(repoPath("automation/learning/state/production_trace.json")) || {};
   const discoveryAnalytics =
     readJson(repoPath("automation/learning/state/discovery_analytics.json")) || {};
+  const manufacturingState =
+    readJson(repoPath("automation/learning/state/manufacturing_state.json")) || {};
   const currentSource = String(
     activity.current_source ||
       productionTrace.current_connector ||
@@ -680,6 +702,65 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
         top_trusted_source: topSource,
         providers_ready: ready,
         providers_offline: offline,
+      };
+    })(),
+    manufacturing: (() => {
+      const modeObj = (manufacturingState.mode || {}) as Record<string, unknown>;
+      const gap = (manufacturingState.knowledge_gap_summary ||
+        {}) as Record<string, unknown>;
+      const cap = (manufacturingState.capacity || {}) as Record<string, unknown>;
+      const eco = (manufacturingState.economics || {}) as Record<string, unknown>;
+      const growth = (manufacturingState.growth || {}) as Record<string, unknown>;
+      const sel = (manufacturingState.selected_mission ||
+        {}) as Record<string, unknown>;
+      const evals = Array.isArray(manufacturingState.evaluations)
+        ? (manufacturingState.evaluations as Array<Record<string, unknown>>)
+        : [];
+      const topEval = evals[0] || {};
+      const univ = (topEval.universe || {}) as Record<string, unknown>;
+      const topSrc =
+        Array.isArray(eco.rows_per_source) && eco.rows_per_source[0]
+          ? String(
+              (eco.rows_per_source[0] as Record<string, unknown>).source_id || "—"
+            )
+          : "—";
+      const topConn =
+        Array.isArray(eco.rows_per_connector) && eco.rows_per_connector[0]
+          ? String(
+              (eco.rows_per_connector[0] as Record<string, unknown>).name ||
+                (eco.rows_per_connector[0] as Record<string, unknown>)
+                  .connector_id ||
+                "—"
+            )
+          : String(productionTrace.last_connector || "—");
+      return {
+        mode: String(modeObj.mode || "CONTINUOUS"),
+        knowledge_gap_dataset: String(
+          gap.highest_gap_dataset || topEval.dataset || "—"
+        ),
+        knowledge_gap_score: Number(
+          gap.highest_gap_score || topEval.knowledge_gap_score || 0
+        ),
+        estimated_universe: Number(univ.estimated_universe || 0),
+        growth_velocity: Number(
+          growth.growth_velocity || cap.growth_velocity_rows_per_day || 0
+        ),
+        coverage_velocity: Number(
+          growth.coverage_velocity || cap.rows_per_day || 0
+        ),
+        rows_today: Number(cap.rows_today_approx || kpis.rows_added_today || 0),
+        rows_week: Number(cap.rows_this_week || kpis.rows_added_week || 0),
+        rows_month: Number(cap.rows_this_month || kpis.rows_added_month || 0),
+        knowledge_produced: Number(growth.knowledge_produced_total || 0),
+        top_dataset: String(
+          manufacturingState.top_dataset || topEval.dataset || "—"
+        ),
+        top_source: topSrc,
+        top_connector: topConn,
+        top_mission: String(sel.title || sel.instruction || "—").slice(0, 80),
+        factory_capacity_rph: Number(cap.rows_per_hour || 0),
+        production_cost: Number(eco.estimated_production_cost_usd || 0),
+        knowledge_roi: Number(eco.knowledge_roi || 0),
       };
     })(),
     coverage,
