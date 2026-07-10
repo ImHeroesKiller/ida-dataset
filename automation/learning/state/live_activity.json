@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": null,
+  "session_id": "SESSION-20260710-3069DF",
+  "mission_id": "MIS-20260710-4EA08F",
   "progress": 100,
-  "current_thought": "Industry Library expanded to 50 verified industries",
-  "current_task": "Produce Industry Dataset complete · 50 industries",
-  "current_source": "SRC-000001 BPS / multi-source",
-  "current_document": "EPIC-2A industry expansion batch",
-  "updated_at": "2026-07-10T14:59:52Z",
-  "execution_model": "industry_expansion",
-  "mission_id": "MIS-PRODUCE-INDUSTRY-DATASET"
+  "current_thought": "Session completed · added=0 updated=1 entity=— · dry_run",
+  "current_task": "Idle",
+  "last_learned": null,
+  "updated_at": "2026-07-10T15:09:04+00:00",
+  "execution_model": "github_actions",
+  "last_error": null
 }

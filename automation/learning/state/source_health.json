@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T14:59:52Z",
+  "updated_at": "2026-07-10T15:09:04Z",
   "sources": {
     "SRC-000001": {
       "source_id": "SRC-000001",
@@ -24,8 +24,8 @@
       "base_url": "https://www.bps.go.id",
       "notes": "Official national statistics. High trust.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ]
     },
     "SRC-000002": {
@@ -99,8 +99,8 @@
       "base_url": "https://www.worldbank.org",
       "notes": "Indonesia overview, IEP, open knowledge reports.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ]
     },
     "SRC-000005": {
@@ -126,8 +126,8 @@
       "base_url": "https://www.oecd.org",
       "notes": "OECD Economic Surveys Indonesia (digital transformation).",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ]
     },
     "SRC-000006": {
@@ -153,8 +153,8 @@
       "base_url": "https://www.adb.org",
       "notes": "ADB country and sector knowledge products.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ]
     },
     "SRC-000007": {
@@ -180,8 +180,8 @@
       "base_url": "https://kemenperin.go.id",
       "notes": "Ministry of Industry public industrial data and policies.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ]
     },
     "SRC-000008": {
@@ -257,8 +257,8 @@
       "base_url": "https://ojk.go.id",
       "notes": "Financial services regulator — banking and digital finance rules.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ]
     },
     "SRC-000011": {
@@ -450,6 +450,30 @@
       "last_attempt": null,
       "rows_produced": 0,
       "documents_processed": 2,
+      "attempts": 0,
+      "successes": 0,
+      "failure_count": 0,
+      "success_rate": 0.0,
+      "total_processing_ms": 0.0,
+      "average_processing_time_ms": 0.0,
+      "mission_usage": 0,
+      "base_url": "",
+      "notes": "",
+      "missions_seen": []
+    },
+    "SRC-CONN-LOCAL": {
+      "source_id": "SRC-CONN-LOCAL",
+      "name": "",
+      "category": "",
+      "trust_score": 0.0,
+      "status": "unknown",
+      "allowed": false,
+      "health_status": "inactive",
+      "coverage": 0.0,
+      "last_successful_sync": null,
+      "last_attempt": null,
+      "rows_produced": 0,
+      "documents_processed": 1,
       "attempts": 0,
       "successes": 0,
       "failure_count": 0,
