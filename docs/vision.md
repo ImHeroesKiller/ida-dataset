@@ -77,6 +77,16 @@ First successful cycle: **Industry Library** (`IND-000001` Manufacturing).
 python -m automation.learning.first_cycle
 ```
 
+## Live learning runtime
+
+Activate the frozen pipeline with realtime journal events:
+
+```bash
+python -m automation.learning.live_runtime --instruction "Learn Banking industry"
+```
+
+Or from the Learning Dashboard: **Start live learning** (SSE stream at `/api/live`).
+
 Path executed:
 
 Mission → Scheduler → Planner intent → Connector → Document Queue → Review → Publish → CSV updated → Dashboard + Journal + Telemetry

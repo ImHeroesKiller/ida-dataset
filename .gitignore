@@ -52,5 +52,8 @@ automation/learning/state/**
 !automation/learning/state/.gitkeep
 !automation/learning/state/learning_journal.jsonl
 !automation/learning/state/current_snapshot.json
+!automation/learning/state/live_activity.json
 !automation/learning/state/snapshot_*.json
 !automation/learning/state/daily_*.json
+!automation/learning/state/sessions/
+!automation/learning/state/sessions/**
