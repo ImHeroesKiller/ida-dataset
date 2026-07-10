@@ -71,7 +71,7 @@ function idleProgress(): ProgressState {
         ts: new Date().toISOString(),
         stream: "system",
         level: "info",
-        text: "ECC console ready. Human-controlled mode. Planner → Policy → Pipeline → Review → Publisher.",
+        text: "ECC console ready. Human-controlled mode. Scheduler → Planner → Policy → Pipeline → Review → Publisher. Continuous learning never stops.",
       },
     ],
     startedAt: null,

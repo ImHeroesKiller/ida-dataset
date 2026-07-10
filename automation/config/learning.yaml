@@ -1,0 +1,137 @@
+# Continuous Learning Scheduler — configuration
+# Never hardcode allocation ratios in code; always load from here.
+
+version: "1.0"
+enabled: true
+
+# Continuous Learning never stops; Directed Learning never disables it.
+streams:
+  continuous:
+    enabled: true
+    never_stop: true
+    description: Close knowledge gaps automatically
+  directed:
+    enabled: true
+    never_disable_continuous: true
+    description: Execute explicit human learning missions
+
+# Default resource allocation (percent; must sum to 100)
+allocation:
+  default:
+    continuous: 70
+    directed: 30
+    maintenance: 0
+    ontology: 0
+    policy: 0
+  # When any P0 (Critical) directed mission is active
+  critical_mission:
+    continuous: 20
+    directed: 80
+    maintenance: 0
+    ontology: 0
+    policy: 0
+  # When only P1 high missions are active (no P0)
+  high_mission:
+    continuous: 40
+    directed: 55
+    maintenance: 5
+    ontology: 0
+    policy: 0
+  # Idle (no directed missions)
+  idle:
+    continuous: 85
+    directed: 0
+    maintenance: 5
+    ontology: 5
+    policy: 5
+
+# Priority → weight for queue scoring
+priorities:
+  P0:
+    label: Critical
+    weight: 1000
+  P1:
+    label: High
+    weight: 500
+  P2:
+    label: Medium
+    weight: 200
+  P3:
+    label: Low
+    weight: 50
+  P4:
+    label: Background
+    weight: 10
+
+# Continuous learning backlog seeds (gap-driven; not extraction)
+continuous_catalog:
+  - task_id: CL-IND-001
+    title: Improve Industry Library
+    target_dataset: industry_library
+    domain: business_development
+    priority: P3
+    kind: continuous
+  - task_id: CL-PAIN-001
+    title: Expand Pain Point Library
+    target_dataset: pain_point_library
+    domain: business_development
+    priority: P3
+    kind: continuous
+  - task_id: CL-CASE-001
+    title: Collect new Case Studies
+    target_dataset: case_study_library
+    domain: business_development
+    priority: P3
+    kind: continuous
+  - task_id: CL-COMP-001
+    title: Update Competitor Library
+    target_dataset: competitor_library
+    domain: business_development
+    priority: P2
+    kind: continuous
+  - task_id: CL-REG-001
+    title: Refresh Regulations knowledge
+    target_dataset: framework_library
+    domain: legal
+    priority: P3
+    kind: continuous
+  - task_id: CL-FW-001
+    title: Refresh Frameworks
+    target_dataset: framework_library
+    domain: business_development
+    priority: P4
+    kind: continuous
+  - task_id: CL-SIG-001
+    title: Expand Business Signal Library
+    target_dataset: business_signal_library
+    domain: business_development
+    priority: P3
+    kind: continuous
+
+# Architecture enforcement
+rules:
+  continuous_never_stops: true
+  directed_never_bypasses_policies: true
+  planner_never_bypasses_scheduler: true
+  publisher_never_bypasses_review: true
+  telemetry_logs_everything: true
+  everything_starts_from_scheduler: true
+
+# Paths (relative to repo root)
+paths:
+  missions_root: automation/missions
+  missions_active: automation/missions/missions
+  missions_templates: automation/missions/templates
+  missions_history: automation/missions/history
+  missions_attachments: automation/missions/attachments
+  missions_contracts: automation/missions/contracts
+  learning_queue: automation/scheduler/state/learning_queue.json
+  scheduler_state: automation/scheduler/state/scheduler_state.json
+  metrics: automation/scheduler/state/metrics.json
+  learning_reports: reports/learning
+
+# Tick / cycle
+scheduler:
+  max_tasks_per_tick: 5
+  default_mission_allocation_pct: 30
+  state_dir: automation/scheduler/state

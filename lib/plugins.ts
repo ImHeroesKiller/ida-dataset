@@ -28,9 +28,27 @@ export type EccPlugin = {
 
 export const CORE_PLUGINS: EccPlugin[] = [
   {
+    id: "scheduler",
+    name: "Continuous Learning Scheduler",
+    description: "Single orchestration entry for continuous + directed learning",
+    status: "available",
+    slots: ["sidebar", "dashboard-card"],
+    href: "/learning",
+    respectsControlFlow: true,
+  },
+  {
+    id: "missions",
+    name: "Learning Missions",
+    description: "Directed learning missions and contracts",
+    status: "available",
+    slots: ["sidebar", "dashboard-card"],
+    href: "/missions",
+    respectsControlFlow: true,
+  },
+  {
     id: "planner",
     name: "Knowledge Planner",
-    description: "Proposes acquisition plans and gap priorities",
+    description: "Proposes acquisition plans and gap priorities (via Scheduler only)",
     status: "available",
     slots: ["sidebar", "dashboard-card"],
     href: "/planner",

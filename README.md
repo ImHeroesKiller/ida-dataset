@@ -34,7 +34,14 @@ See [docs/vercel.md](docs/vercel.md).
 ## Knowledge control flow
 
 ```text
-Planner → Policy → Pipeline → Review → Publisher
+Scheduler → Planner → Policy → Pipeline → Review → Publisher
+```
+
+Continuous Learning never stops. Directed Learning missions coexist.
+
+```bash
+python -m automation.scheduler mission "Learn everything about SAP ERP."
+python -m automation.scheduler tick --dry-run
 ```
 
 Human-controlled. Not autonomous.

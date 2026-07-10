@@ -18,3 +18,17 @@ ecc/.next/
 out/
 .env*.local
 *.tsbuildinfo
+
+# Learning scheduler runtime state
+automation/scheduler/state/**
+!automation/scheduler/state/.gitkeep
+automation/missions/missions/**
+!automation/missions/missions/.gitkeep
+automation/missions/contracts/**
+!automation/missions/contracts/.gitkeep
+automation/missions/history/**
+!automation/missions/history/.gitkeep
+automation/missions/attachments/**
+!automation/missions/attachments/.gitkeep
+reports/learning/**
+!reports/learning/.gitkeep

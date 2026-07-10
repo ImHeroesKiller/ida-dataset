@@ -1,0 +1,11 @@
+{
+  "title": "Untitled learning mission",
+  "description": "Directed learning mission template",
+  "priority": "P2",
+  "requester": "human",
+  "knowledge_targets": [],
+  "allowed_sources": [],
+  "related_datasets": [],
+  "estimated_effort": 1.0,
+  "status": "Draft"
+}

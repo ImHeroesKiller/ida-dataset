@@ -3,6 +3,7 @@ import {
   Activity,
   BookOpen,
   Boxes,
+  Brain,
   ClipboardCheck,
   FileBarChart2,
   GitBranch,
@@ -11,6 +12,7 @@ import {
   Network,
   Settings,
   Shield,
+  Target,
   UploadCloud,
 } from "lucide-react";
 
@@ -23,6 +25,8 @@ export type NavItem = {
 
 export const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/learning", label: "Learning Brain", icon: Brain },
+  { href: "/missions", label: "Missions", icon: Target },
   { href: "/planner", label: "Knowledge Planner", icon: ListChecks },
   { href: "/policies", label: "Knowledge Policies", icon: Shield },
   { href: "/ontology", label: "Ontology", icon: Network },
@@ -35,6 +39,7 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const FLOW_HINT = [
+  "Scheduler",
   "Planner",
   "Policy",
   "Pipeline",
