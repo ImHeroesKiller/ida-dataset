@@ -208,47 +208,82 @@ function spawnSyncCapture(
   };
 }
 
-export function probeHostCapabilities(root = getRepoRoot()): HostCapabilities {
-  const vercel = Boolean(process.env.VERCEL);
-  const eccDisable = process.env.ECC_DISABLE_PYTHON === "1";
-  const py = resolvePython(root);
-  let block: string | null = null;
-  if (vercel) {
-    block =
-      "Host is Vercel serverless — detached Python subprocesses are not supported. " +
-      "Run live learning on a local or long-running host.";
-  } else if (eccDisable) {
-    block =
-      "ECC_DISABLE_PYTHON=1 is set — Python live runtime intentionally disabled on this host.";
-  } else if (!py.path) {
-    block = py.error;
-  }
+/** Cache host probe briefly — status polling must not re-spawn python every few seconds. */
+let _capsCache: { at: number; root: string; value: HostCapabilities } | null =
+  null;
+const CAPS_TTL_MS = 10_000;
 
-  // Preflight import only when not blocked by env
-  if (!block && py.path) {
-    const pre = spawnSyncCapture(
-      py.path,
-      ["-c", "import automation.learning.live_runtime"],
-      root,
-      8000
-    );
-    if (pre.exitCode !== 0) {
-      block =
-        `Python cannot import automation.learning.live_runtime: ` +
-        `${(pre.stderr || pre.stdout || "unknown import error").slice(0, 500)}`;
+export function probeHostCapabilities(
+  root = getRepoRoot(),
+  opts: { force?: boolean } = {}
+): HostCapabilities {
+  try {
+    if (
+      !opts.force &&
+      _capsCache &&
+      _capsCache.root === root &&
+      Date.now() - _capsCache.at < CAPS_TTL_MS
+    ) {
+      return _capsCache.value;
     }
-  }
 
-  return {
-    python_available: Boolean(py.path) && !block?.includes("cannot import"),
-    python_path: py.path,
-    python_version: py.version,
-    vercel,
-    ecc_disable_python: eccDisable,
-    repo_root: root,
-    can_spawn_runtime: !block,
-    block_reason: block,
-  };
+    const vercel = Boolean(process.env.VERCEL);
+    const eccDisable = process.env.ECC_DISABLE_PYTHON === "1";
+    const py = resolvePython(root);
+    let block: string | null = null;
+    if (vercel) {
+      block =
+        "Host is Vercel serverless — detached Python subprocesses are not supported. " +
+        "Run live learning on a local or long-running host.";
+    } else if (eccDisable) {
+      block =
+        "ECC_DISABLE_PYTHON=1 is set — Python live runtime intentionally disabled on this host.";
+    } else if (!py.path) {
+      block = py.error;
+    }
+
+    // Preflight import only when not blocked by env
+    if (!block && py.path) {
+      const pre = spawnSyncCapture(
+        py.path,
+        ["-c", "import automation.learning.live_runtime"],
+        root,
+        8000
+      );
+      if (pre.exitCode !== 0) {
+        block =
+          `Python cannot import automation.learning.live_runtime: ` +
+          `${(pre.stderr || pre.stdout || "unknown import error").slice(0, 500)}`;
+      }
+    }
+
+    const value: HostCapabilities = {
+      python_available: Boolean(py.path) && !block?.includes("cannot import"),
+      python_path: py.path,
+      python_version: py.version,
+      vercel,
+      ecc_disable_python: eccDisable,
+      repo_root: root,
+      can_spawn_runtime: !block,
+      block_reason: block,
+    };
+    _capsCache = { at: Date.now(), root, value };
+    return value;
+  } catch (e) {
+    const err = e instanceof Error ? e : new Error(String(e));
+    const value: HostCapabilities = {
+      python_available: false,
+      python_path: null,
+      python_version: null,
+      vercel: Boolean(process.env.VERCEL),
+      ecc_disable_python: process.env.ECC_DISABLE_PYTHON === "1",
+      repo_root: root,
+      can_spawn_runtime: false,
+      block_reason: `Host capability probe crashed: ${err.message}`,
+    };
+    _capsCache = { at: Date.now(), root, value };
+    return value;
+  }
 }
 
 export function reclaimStaleLock(root = getRepoRoot()): boolean {
@@ -521,20 +556,70 @@ export function readSessionInfo(
 /**
  * Start live runtime with exclusive lock + real diagnostics.
  * Root cause paths for 503 are explicit per component.
+ * Never throws — always returns StartResult with structured failure.
  */
 export async function startLiveRuntime(opts: {
   instruction?: string;
   pace?: number;
 }): Promise<StartResult> {
+  let correlation_id = newCorrelationId();
+  try {
+    return await startLiveRuntimeInner(opts, correlation_id);
+  } catch (e) {
+    const err = e instanceof Error ? e : new Error(String(e));
+    const root = getRepoRoot();
+    const failure: RuntimeFailure = {
+      timestamp: nowIso(),
+      component: "runtime.manager",
+      exception: err.name || "UnhandledStartError",
+      message: err.message || "Unhandled exception during runtime start",
+      stack_trace: err.stack,
+      correlation_id,
+      recovery_action: "inspect_runtime_debug",
+      recoverable: false,
+      recovery_suggestion:
+        "Unexpected exception in startLiveRuntime. Check /api/runtime/debug and automation/runtime/logs/.",
+    };
+    try {
+      writeFailureLog(failure, root);
+      writeRuntimeStatus(
+        {
+          status: "failed",
+          correlation_id,
+          last_error: failure,
+          stopped_at: nowIso(),
+          health: { ...defaultHealth(), runtime: "failed" },
+        },
+        root
+      );
+    } catch {
+      /* never throw from failure path */
+    }
+    console.error("[runtime.manager] start failed", err);
+    return {
+      ok: false,
+      status_code: 503,
+      message: failure.message,
+      correlation_id,
+      failure,
+      recovery_suggestion: failure.recovery_suggestion,
+    };
+  }
+}
+
+async function startLiveRuntimeInner(
+  opts: { instruction?: string; pace?: number },
+  correlation_id: string
+): Promise<StartResult> {
   const root = getRepoRoot();
   ensureDirs(root);
-  const correlation_id = newCorrelationId();
   const instruction =
     opts.instruction?.trim() ||
     "Learn Industry Library knowledge — live session";
   const pace = opts.pace ?? 0.7;
 
-  const caps = probeHostCapabilities(root);
+  // Force fresh host probe on start (not cache)
+  const caps = probeHostCapabilities(root, { force: true });
 
   // --- Root cause path 1: host/environment gate ---
   if (!caps.can_spawn_runtime) {
@@ -939,4 +1024,145 @@ export function computeHealthBundle(root = getRepoRoot()): {
   else if (levels.every((l) => l === "disabled")) overall = "disabled";
 
   return { overall, components, details };
+}
+
+/**
+ * Full diagnostic snapshot for GET /api/runtime/debug
+ */
+export function collectRuntimeDebug(root = getRepoRoot()): Record<string, unknown> {
+  let runtimeState: RuntimeStatus | Record<string, unknown> = {};
+  let health: ReturnType<typeof computeHealthBundle> | null = null;
+  let lastException: RuntimeFailure | null = null;
+  let schedulerState: Record<string, unknown> | null = null;
+  let connectorStatus: Record<string, unknown> = {};
+  let lock: Record<string, unknown> | null = null;
+  let activity: Record<string, unknown> | null = null;
+  let recentErrors: Record<string, unknown>[] = [];
+
+  try {
+    runtimeState = readRuntimeStatus(root);
+    lastException = (runtimeState as RuntimeStatus).last_error;
+  } catch (e) {
+    runtimeState = {
+      status: "failed",
+      error: e instanceof Error ? e.message : String(e),
+    };
+  }
+  try {
+    health = computeHealthBundle(root);
+  } catch (e) {
+    health = null;
+  }
+  try {
+    lock = readJsonFile(lockPath(root));
+  } catch {
+    lock = null;
+  }
+  try {
+    activity = readJsonFile(
+      path.join(root, "automation/learning/state/live_activity.json")
+    );
+  } catch {
+    activity = null;
+  }
+  try {
+    const schedPath = path.join(
+      root,
+      "automation/scheduler/state/scheduler_state.json"
+    );
+    const alt = path.join(root, "automation/scheduler/state/state.json");
+    schedulerState =
+      readJsonFile(schedPath) ||
+      readJsonFile(alt) ||
+      { note: "No scheduler state file present" };
+  } catch (e) {
+    schedulerState = {
+      error: e instanceof Error ? e.message : String(e),
+    };
+  }
+  try {
+    const healthCsv = path.join(
+      root,
+      "automation/connectors/cache/connector_health.csv"
+    );
+    connectorStatus = {
+      health_csv_exists: fs.existsSync(healthCsv),
+      cache_dir: path.join(root, "automation/connectors/cache"),
+    };
+    // list recent connector events if present
+    const eventsPath = path.join(
+      root,
+      "automation/connectors/cache/connector_events.jsonl"
+    );
+    if (fs.existsSync(eventsPath)) {
+      const lines = fs
+        .readFileSync(eventsPath, "utf8")
+        .split("\n")
+        .filter(Boolean)
+        .slice(-5);
+      connectorStatus.recent_events = lines.map((l) => {
+        try {
+          return JSON.parse(l);
+        } catch {
+          return l;
+        }
+      });
+    }
+  } catch (e) {
+    connectorStatus = {
+      error: e instanceof Error ? e.message : String(e),
+    };
+  }
+  try {
+    recentErrors = readRuntimeLogs({
+      channel: "errors",
+      limit: 5,
+      root,
+    }).entries;
+  } catch {
+    recentErrors = [];
+  }
+
+  const status = runtimeState as RuntimeStatus;
+  const workerPid = status.pid ?? null;
+  const workerAlive = isPidAlive(workerPid);
+
+  return {
+    timestamp: nowIso(),
+    runtime_state: runtimeState,
+    scheduler_state: schedulerState,
+    active_session: {
+      session_id: status.session_id ?? null,
+      correlation_id: status.correlation_id ?? null,
+      status: status.status ?? null,
+      stage: status.current_stage ?? null,
+      task: status.current_task ?? null,
+      started_at: status.started_at ?? null,
+      instruction: status.instruction ?? null,
+    },
+    worker_status: {
+      pid: workerPid,
+      alive: workerAlive,
+      status: workerAlive
+        ? "running"
+        : workerPid
+          ? "dead"
+          : "none",
+    },
+    lock,
+    activity,
+    connector_status: connectorStatus,
+    health,
+    last_exception: lastException,
+    recent_errors: recentErrors,
+    host_capabilities: probeHostCapabilities(root),
+    repo_root: root,
+    node: {
+      pid: process.pid,
+      node_env: process.env.NODE_ENV ?? null,
+      vercel: Boolean(process.env.VERCEL),
+      ecc_disable_python: process.env.ECC_DISABLE_PYTHON === "1",
+      platform: process.platform,
+    },
+  };
 }

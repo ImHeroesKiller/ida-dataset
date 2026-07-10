@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { getRepoRoot } from "@/lib/paths";
 import { getKnowledgeKpis } from "@/lib/knowledge-kpis";
+import { sseListenerClosed, sseListenerOpened } from "@/lib/sse-registry";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -28,6 +29,7 @@ export async function GET(req: NextRequest) {
   );
 
   let closed = false;
+  let counted = false;
   let offset = 0;
   if (fs.existsSync(journalFile)) {
     offset = fs.statSync(journalFile).size;
@@ -42,6 +44,8 @@ export async function GET(req: NextRequest) {
 
   const stream = new ReadableStream({
     start(controller) {
+      sseListenerOpened();
+      counted = true;
       const enc = new TextEncoder();
       const send = (event: string, data: unknown) => {
         if (closed) return;
@@ -58,6 +62,10 @@ export async function GET(req: NextRequest) {
       const teardown = () => {
         if (closed) return;
         closed = true;
+        if (counted) {
+          sseListenerClosed();
+          counted = false;
+        }
         if (timer) {
           clearInterval(timer);
           timer = null;
@@ -159,6 +167,10 @@ export async function GET(req: NextRequest) {
     },
     cancel() {
       // Client disconnected — release all resources immediately
+      if (!closed && counted) {
+        sseListenerClosed();
+        counted = false;
+      }
       closed = true;
       if (timer) {
         clearInterval(timer);

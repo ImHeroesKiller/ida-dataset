@@ -2,6 +2,11 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { subscribeLiveLearning } from "@/lib/live-sse-bus";
+import {
+  safeFetchJson,
+  type RawHttpDiagnostic,
+  type SafeJsonResult,
+} from "@/lib/safe-fetch";
 
 export type LiveJournalEvent = {
   seq?: number;
@@ -47,29 +52,105 @@ export type RuntimeClientFailure = {
   component?: string;
   exception?: string;
   message?: string;
+  reason?: string;
+  error_code?: string;
   stack_trace?: string;
   correlation_id?: string;
   session_id?: string | null;
   recovery_action?: string;
   recovery_suggestion?: string;
   recoverable?: boolean;
+  /** When JSON parse failed — raw transport diagnostics */
+  raw_response?: RawHttpDiagnostic | null;
 };
 
 export type StartLiveResult = {
   ok: boolean;
+  success?: boolean;
   message?: string;
+  reason?: string;
   pid?: number;
   correlation_id?: string;
   session_id?: string | null;
   error?: string;
+  error_code?: string;
+  component?: string;
   failure?: RuntimeClientFailure;
   recovery_suggestion?: string;
-  status?: Record<string, unknown>;
+  status?: string | Record<string, unknown>;
+  data?: Record<string, unknown>;
+  stack_trace?: string | null;
+  raw_response?: RawHttpDiagnostic | null;
 };
+
+function failureFromEnvelope(
+  result: SafeJsonResult<Record<string, unknown>>,
+  fallbackComponent: string
+): RuntimeClientFailure {
+  const d = result.data || {};
+  const nested = (d.failure as RuntimeClientFailure | undefined) || null;
+  const reason =
+    (typeof d.reason === "string" && d.reason) ||
+    (typeof d.message === "string" && d.message) ||
+    (typeof d.error === "string" && d.error) ||
+    result.reason ||
+    `HTTP ${result.http_status}`;
+
+  if (!result.parsed) {
+    return {
+      timestamp: new Date().toISOString(),
+      component: fallbackComponent,
+      exception: "InvalidJsonResponse",
+      message: reason,
+      reason,
+      error_code: "INVALID_JSON_RESPONSE",
+      recovery_suggestion:
+        "The server returned a non-JSON or empty body. Inspect Raw response below and /api/runtime/debug.",
+      raw_response: result.raw,
+    };
+  }
+
+  return {
+    timestamp: nested?.timestamp || new Date().toISOString(),
+    component:
+      (d.component as string) ||
+      nested?.component ||
+      fallbackComponent,
+    exception:
+      nested?.exception ||
+      (d.error_code as string) ||
+      "StartFailed",
+    message: reason,
+    reason,
+    error_code:
+      (d.error_code as string) ||
+      nested?.error_code ||
+      nested?.exception ||
+      "FAILED",
+    stack_trace:
+      (d.stack_trace as string) ||
+      nested?.stack_trace ||
+      undefined,
+    correlation_id:
+      (d.correlation_id as string) ||
+      nested?.correlation_id,
+    session_id:
+      (d.session_id as string | null) ??
+      nested?.session_id ??
+      null,
+    recovery_action: nested?.recovery_action,
+    recovery_suggestion:
+      (d.recovery_suggestion as string) ||
+      nested?.recovery_suggestion ||
+      "Inspect /api/runtime/status and /api/runtime/debug.",
+    raw_response: null,
+  };
+}
 
 /**
  * Subscribe to live learning via the shared SSE bus (single EventSource).
  * Start failures are returned with structured failure + recovery — never silent retry.
+ * Never assumes JSON — uses defensive parsing.
  */
 export function useLiveLearning() {
   const [events, setEvents] = useState<LiveJournalEvent[]>([]);
@@ -83,6 +164,8 @@ export function useLiveLearning() {
     null
   );
   const [runtimeStatus, setRuntimeStatus] = useState<string>("idle");
+  const [lastRawResponse, setLastRawResponse] =
+    useState<RawHttpDiagnostic | null>(null);
 
   useEffect(() => {
     const unsub = subscribeLiveLearning({
@@ -91,6 +174,7 @@ export function useLiveLearning() {
         if (data.status === "error") {
           setRuntimeError({
             message: data.detail,
+            reason: data.detail,
             component: data.stage || "learning",
             exception: data.verb || "LearningError",
             session_id: data.session_id,
@@ -125,6 +209,7 @@ export function useLiveLearning() {
           setRuntimeError(
             (data.last_error as RuntimeClientFailure) || {
               message: data.current_thought || "Runtime error",
+              reason: data.current_thought || "Runtime error",
               session_id: data.session_id,
               correlation_id: data.correlation_id,
             }
@@ -141,27 +226,32 @@ export function useLiveLearning() {
     return unsub;
   }, []);
 
-  // Poll runtime status lightly so dashboard shows true lifecycle / failures
-  // even if SSE activity snapshot lags. Does not restart learning.
+  // Poll runtime status lightly — defensive JSON
   useEffect(() => {
     let cancelled = false;
-    const tick = () => {
-      fetch("/api/runtime/status")
-        .then((r) => r.json())
-        .then((d) => {
-          if (cancelled) return;
-          if (d?.status) setRuntimeStatus(String(d.status));
-          if (d?.last_error) {
-            setRuntimeError(d.last_error as RuntimeClientFailure);
-          } else if (d?.status === "running" || d?.status === "idle") {
-            // clear sticky error only when healthy again
-            if (d.status === "running") setRuntimeError(null);
-          }
-        })
-        .catch(() => null);
+    const tick = async () => {
+      const result = await safeFetchJson<Record<string, unknown>>(
+        "/api/runtime/status"
+      );
+      if (cancelled) return;
+      if (!result.parsed) {
+        // Do not crash UI — surface only if we have no better error
+        setLastRawResponse(result.raw);
+        return;
+      }
+      const payload = result.data || {};
+      const data =
+        (payload.data as Record<string, unknown> | undefined) || payload;
+      const st = String(data.status || payload.status || "idle");
+      setRuntimeStatus(st);
+      if (data.last_error) {
+        setRuntimeError(data.last_error as RuntimeClientFailure);
+      } else if (st === "running") {
+        setRuntimeError(null);
+      }
     };
-    tick();
-    const id = setInterval(tick, 4000);
+    void tick();
+    const id = setInterval(() => void tick(), 4000);
     return () => {
       cancelled = true;
       clearInterval(id);
@@ -171,8 +261,10 @@ export function useLiveLearning() {
   const startLive = useCallback(
     async (instruction?: string): Promise<StartLiveResult> => {
       setRuntimeError(null);
-      try {
-        const res = await fetch("/api/live/start", {
+      setLastRawResponse(null);
+      const result = await safeFetchJson<Record<string, unknown>>(
+        "/api/live/start",
+        {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -181,66 +273,78 @@ export function useLiveLearning() {
               "Learn Industry Library knowledge — live observable session",
             pace: 0.65,
           }),
-        });
-        const data = (await res.json()) as StartLiveResult & {
-          error?: string;
-        };
-        if (!res.ok || !data.ok) {
-          const failure =
-            data.failure ||
-            ({
-              timestamp: new Date().toISOString(),
-              component: "api.live.start",
-              exception: "StartFailed",
-              message:
-                data.message ||
-                data.error ||
-                `HTTP ${res.status} from /api/live/start`,
-              correlation_id: data.correlation_id,
-              recovery_action: "inspect_and_retry",
-              recovery_suggestion:
-                data.recovery_suggestion ||
-                "Inspect /api/runtime/status and /api/runtime/logs.",
-            } as RuntimeClientFailure);
-          setRuntimeError(failure);
-          setRuntimeStatus("failed");
-          return {
-            ok: false,
-            message: failure.message,
-            correlation_id: data.correlation_id || failure.correlation_id,
-            failure,
-            recovery_suggestion:
-              data.recovery_suggestion || failure.recovery_suggestion,
-            status: data.status,
-          };
         }
-        setRuntimeStatus("starting");
-        return data;
-      } catch (e) {
-        const failure: RuntimeClientFailure = {
-          timestamp: new Date().toISOString(),
-          component: "api.live.start",
-          exception: e instanceof Error ? e.name : "NetworkError",
-          message: e instanceof Error ? e.message : String(e),
-          recovery_action: "check_network",
-          recovery_suggestion:
-            "Could not reach /api/live/start. Confirm the Next.js server is running.",
-        };
+      );
+
+      setLastRawResponse(result.raw);
+
+      if (!result.parsed || result.success === false || !result.http_ok) {
+        const failure = failureFromEnvelope(result, "api.live.start");
         setRuntimeError(failure);
         setRuntimeStatus("failed");
-        return { ok: false, failure, message: failure.message };
+        return {
+          ok: false,
+          success: false,
+          message: failure.message,
+          reason: failure.reason,
+          correlation_id: failure.correlation_id,
+          session_id: failure.session_id,
+          error: failure.message,
+          error_code: failure.error_code,
+          component: failure.component,
+          failure,
+          recovery_suggestion: failure.recovery_suggestion,
+          stack_trace: failure.stack_trace,
+          raw_response: result.raw,
+        };
       }
+
+      const payload = result.data || {};
+      const data =
+        (payload.data as Record<string, unknown> | undefined) || {};
+      const pid = (data.pid as number | undefined) ?? undefined;
+      const correlation_id =
+        (payload.correlation_id as string) ||
+        (data.correlation_id as string) ||
+        undefined;
+      const session_id =
+        (payload.session_id as string | null) ??
+        (data.session_id as string | null) ??
+        null;
+
+      setRuntimeStatus(String(payload.status || "starting"));
+      return {
+        ok: true,
+        success: true,
+        message:
+          (payload.message as string) || "Live learning session started",
+        pid,
+        correlation_id,
+        session_id,
+        status: String(payload.status || "running"),
+        data,
+      };
     },
     []
   );
 
-  const clearRuntimeError = useCallback(() => setRuntimeError(null), []);
+  const clearRuntimeError = useCallback(() => {
+    setRuntimeError(null);
+    setLastRawResponse(null);
+  }, []);
 
   const replay = useCallback(async (sessionId: string, paceMs = 350) => {
-    const res = await fetch(
+    const result = await safeFetchJson<Record<string, unknown>>(
       `/api/live/replay?session_id=${encodeURIComponent(sessionId)}`
     );
-    const data = await res.json();
+    if (!result.parsed || !result.data) {
+      setLastRawResponse(result.raw);
+      setRuntimeError(failureFromEnvelope(result, "api.live.replay"));
+      return result;
+    }
+    const payload = result.data;
+    const data =
+      (payload.data as Record<string, unknown> | undefined) || payload;
     const list = (data.events || []) as LiveJournalEvent[];
     setEvents([]);
     for (const ev of list) {
@@ -280,5 +384,6 @@ export function useLiveLearning() {
     runtimeError,
     runtimeStatus,
     clearRuntimeError,
+    lastRawResponse,
   };
 }

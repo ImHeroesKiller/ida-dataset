@@ -1,5 +1,43 @@
 # Runtime Troubleshooting
 
+## API contract (always JSON)
+
+Every runtime endpoint returns a non-empty JSON body.
+
+**Success**
+
+```json
+{
+  "success": true,
+  "status": "running",
+  "session_id": "SES-…",
+  "correlation_id": "CORR-…",
+  "data": {}
+}
+```
+
+**Failure**
+
+```json
+{
+  "success": false,
+  "status": "failed",
+  "component": "host.vercel",
+  "reason": "…",
+  "error_code": "RuntimeUnavailable",
+  "correlation_id": "CORR-…",
+  "session_id": null,
+  "recovery_suggestion": "…",
+  "failure": { "timestamp": "…", "stack_trace": "…", "…" : "…" }
+}
+```
+
+Clients must use defensive parsing (`lib/safe-fetch.ts`). Empty/HTML bodies surface as **Raw response** diagnostics — never `Unexpected end of JSON input`.
+
+Debug snapshot: `GET /api/runtime/debug`
+
+---
+
 ## Root cause: HTTP 503 on `/api/live/start`
 
 The old route returned a generic 503 whenever `VERCEL` or `ECC_DISABLE_PYTHON=1` was set, and returned `ok: true` even when the Python process died immediately (`stdio: ignore`).

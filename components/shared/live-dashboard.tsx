@@ -10,6 +10,7 @@ import {
   useLiveLearning,
   type RuntimeClientFailure,
 } from "@/lib/use-live-learning";
+import { safeFetchJson } from "@/lib/safe-fetch";
 
 type KpiSnap = {
   knowledge_coverage: number;
@@ -53,6 +54,7 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
     runtimeError,
     runtimeStatus,
     clearRuntimeError,
+    lastRawResponse,
   } = useLiveLearning();
   const [kpis, setKpis] = useState(initialKpis);
   const [instruction, setInstruction] = useState(
@@ -75,36 +77,35 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
   useEffect(() => {
     const last = events[events.length - 1];
     if (last?.verb === "Learning Completed" || last?.verb === "Knowledge Updated") {
-      fetch("/api/live/replay")
-        .then((r) => r.json())
-        .then((d) => setSessions(d.sessions || []))
-        .catch(() => null);
+      void safeFetchJson<Record<string, unknown>>("/api/live/replay").then((r) => {
+        if (!r.parsed || !r.data) return;
+        const data = (r.data.data as Record<string, unknown>) || r.data;
+        setSessions((data.sessions as typeof sessions) || []);
+      });
     }
   }, [events]);
 
   useEffect(() => {
-    fetch("/api/live/replay")
-      .then((r) => r.json())
-      .then((d) => setSessions(d.sessions || []))
-      .catch(() => null);
+    void safeFetchJson<Record<string, unknown>>("/api/live/replay").then((r) => {
+      if (!r.parsed || !r.data) return;
+      const data = (r.data.data as Record<string, unknown>) || r.data;
+      setSessions((data.sessions as typeof sessions) || []);
+    });
   }, []);
 
   // Runtime status + health (does not restart learning)
   useEffect(() => {
     let cancelled = false;
-    const load = () => {
-      fetch("/api/runtime/status")
-        .then((r) => r.json())
-        .then((d) => {
-          if (cancelled) return;
-          setStatusSnap(d);
-          setHealth(d.health || {});
-          setOverallHealth(d.overall_health || "healthy");
-        })
-        .catch(() => null);
+    const load = async () => {
+      const r = await safeFetchJson<Record<string, unknown>>("/api/runtime/status");
+      if (cancelled || !r.parsed || !r.data) return;
+      const data = (r.data.data as Record<string, unknown>) || r.data;
+      setStatusSnap(data);
+      setHealth((data.health as HealthMap) || {});
+      setOverallHealth(String(data.overall_health || "healthy"));
     };
-    load();
-    const id = setInterval(load, 5000);
+    void load();
+    const id = setInterval(() => void load(), 5000);
     return () => {
       cancelled = true;
       clearInterval(id);
@@ -114,21 +115,23 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
   useEffect(() => {
     if (activity.status !== "running" && activity.status !== "progress") return;
     const id = setInterval(() => {
-      fetch("/api/journal")
-        .then((r) => r.json())
-        .then((d) => {
-          if (d.kpis) {
-            setKpis((prev) => ({
-              ...prev,
-              knowledge_added_today:
-                d.kpis.added_today ?? prev.knowledge_added_today,
-              pending_review: d.kpis.pending_review ?? prev.pending_review,
-              knowledge_coverage: d.kpis.coverage ?? prev.knowledge_coverage,
-              first_knowledge: d.kpis.first_knowledge ?? prev.first_knowledge,
-            }));
-          }
-        })
-        .catch(() => null);
+      void safeFetchJson<Record<string, unknown>>("/api/journal").then((r) => {
+        if (!r.parsed || !r.data) return;
+        const d = r.data;
+        const k = (d.kpis as Record<string, unknown> | undefined) || undefined;
+        if (k) {
+          setKpis((prev) => ({
+            ...prev,
+            knowledge_added_today:
+              (k.added_today as number) ?? prev.knowledge_added_today,
+            pending_review: (k.pending_review as number) ?? prev.pending_review,
+            knowledge_coverage: (k.coverage as number) ?? prev.knowledge_coverage,
+            first_knowledge:
+              (k.first_knowledge as KpiSnap["first_knowledge"]) ??
+              prev.first_knowledge,
+          }));
+        }
+      });
     }, 3000);
     return () => clearInterval(id);
   }, [activity.status]);
@@ -180,13 +183,20 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
       (statusSnap?.correlation_id as string | undefined);
     const q = new URLSearchParams({ channel: "errors", limit: "40" });
     if (cid) q.set("correlation_id", cid);
-    try {
-      const res = await fetch(`/api/runtime/logs?${q.toString()}`);
-      const data = await res.json();
-      setLogEntries(data.entries || []);
-    } catch {
-      setLogEntries([]);
+    const r = await safeFetchJson<Record<string, unknown>>(
+      `/api/runtime/logs?${q.toString()}`
+    );
+    if (!r.parsed || !r.data) {
+      setLogEntries([
+        {
+          parse_error: r.reason,
+          raw: r.raw,
+        },
+      ]);
+      return;
     }
+    const data = (r.data.data as Record<string, unknown>) || r.data;
+    setLogEntries((data.entries as Record<string, unknown>[]) || []);
   }
 
   async function onCopyDiagnostic() {
@@ -198,6 +208,7 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
       status: statusSnap,
       health,
       overall_health: overallHealth,
+      last_raw_response: lastRawResponse || runtimeError?.raw_response || null,
       recent_events: events.slice(-15),
     };
     try {
@@ -213,6 +224,11 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
     runtimeError ||
     (statusSnap?.last_error as RuntimeClientFailure | undefined) ||
     null;
+
+  const rawDiag = lastRawResponse || failure?.raw_response || null;
+  const showStack =
+    Boolean(failure?.stack_trace) &&
+    (process.env.NODE_ENV === "development" || Boolean(failure?.stack_trace));
 
   return (
     <div className="space-y-4">
@@ -273,34 +289,80 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
         <Card>
           <CardHeader
             title="Runtime Failed"
-            description="Learning stopped — failure is visible, not hidden"
+            description="Exact failure — not a generic 503. No silent retry."
           />
           <CardBody className="space-y-3 text-sm">
             <div className="rounded-md border border-red-900/60 bg-red-950/40 p-3">
               <p className="text-xs uppercase tracking-wide text-red-400">
-                Reason
+                Exact reason
               </p>
               <p className="mt-1 text-red-100">
-                {failure.message || failure.exception || "Unknown failure"}
+                {failure.reason ||
+                  failure.message ||
+                  failure.exception ||
+                  "Unknown failure"}
               </p>
               <div className="mt-2 grid gap-1 font-mono text-[11px] text-zinc-400 sm:grid-cols-2">
                 <div>component: {failure.component || "—"}</div>
+                <div>error_code: {failure.error_code || failure.exception || "—"}</div>
                 <div>exception: {failure.exception || "—"}</div>
                 <div>correlation: {failure.correlation_id || "—"}</div>
-                <div>session: {failure.session_id || activity.session_id || "—"}</div>
+                <div>
+                  session: {failure.session_id || activity.session_id || "—"}
+                </div>
                 <div>action: {failure.recovery_action || "—"}</div>
                 <div>time: {failure.timestamp || "—"}</div>
+                <div>
+                  http:{" "}
+                  {rawDiag?.http_status != null ? rawDiag.http_status : "—"}
+                </div>
               </div>
             </div>
             <div>
               <p className="text-xs uppercase tracking-wide text-amber-300">
-                Recovery suggestion
+                Suggested recovery
               </p>
               <p className="mt-1 text-zinc-300">
                 {failure.recovery_suggestion ||
-                  "Inspect runtime logs, fix the root cause, then use Retry."}
+                  "Inspect /api/runtime/debug and runtime logs, fix the root cause, then Retry."}
               </p>
             </div>
+            {showStack && failure.stack_trace ? (
+              <div>
+                <p className="text-xs uppercase tracking-wide text-zinc-500">
+                  Stack trace (development)
+                </p>
+                <pre className="mt-1 max-h-40 overflow-y-auto whitespace-pre-wrap rounded border border-zinc-800 bg-black/50 p-2 font-mono text-[10px] text-zinc-400 scrollbar-thin">
+                  {failure.stack_trace}
+                </pre>
+              </div>
+            ) : null}
+            {rawDiag &&
+            (!failure.error_code ||
+              failure.error_code === "INVALID_JSON_RESPONSE" ||
+              rawDiag.parse_error) ? (
+              <div>
+                <p className="text-xs uppercase tracking-wide text-orange-300">
+                  Raw response (invalid / empty JSON)
+                </p>
+                <div className="mt-1 space-y-1 rounded border border-orange-900/50 bg-orange-950/20 p-2 font-mono text-[10px] text-zinc-300">
+                  <div>HTTP status: {rawDiag.http_status} {rawDiag.status_text}</div>
+                  <div>URL: {rawDiag.url || "—"}</div>
+                  <div>Content-Type: {rawDiag.content_type || "—"}</div>
+                  <div>Parse error: {rawDiag.parse_error || "—"}</div>
+                  <div className="text-zinc-500">Headers:</div>
+                  <pre className="max-h-24 overflow-y-auto whitespace-pre-wrap text-zinc-500 scrollbar-thin">
+                    {JSON.stringify(rawDiag.headers, null, 2)}
+                  </pre>
+                  <div className="text-zinc-500">Body:</div>
+                  <pre className="max-h-32 overflow-y-auto whitespace-pre-wrap text-zinc-400 scrollbar-thin">
+                    {rawDiag.body === ""
+                      ? "(empty body)"
+                      : rawDiag.body.slice(0, 4000)}
+                  </pre>
+                </div>
+              </div>
+            ) : null}
             <div className="flex flex-wrap gap-2">
               <Button size="sm" disabled={busy} onClick={onStart}>
                 Retry
@@ -311,6 +373,24 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
               <Button size="sm" variant="outline" onClick={onCopyDiagnostic}>
                 {copyOk ? "Copied" : "Copy Diagnostic"}
               </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() =>
+                  void safeFetchJson("/api/runtime/debug").then((r) => {
+                    setShowLogs(true);
+                    setLogEntries([
+                      {
+                        debug: r.parsed ? r.data : null,
+                        raw: r.raw,
+                        reason: r.reason,
+                      },
+                    ]);
+                  })
+                }
+              >
+                Runtime Debug
+              </Button>
             </div>
             {showLogs ? (
               <div className="max-h-48 overflow-y-auto rounded border border-zinc-800 bg-black/40 p-2 font-mono text-[10px] text-zinc-400 scrollbar-thin">
@@ -318,7 +398,10 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
                   <p>No error log entries for this correlation yet.</p>
                 ) : (
                   logEntries.map((e, i) => (
-                    <pre key={i} className="mb-2 whitespace-pre-wrap border-b border-zinc-900 pb-2">
+                    <pre
+                      key={i}
+                      className="mb-2 whitespace-pre-wrap border-b border-zinc-900 pb-2"
+                    >
                       {JSON.stringify(e, null, 2)}
                     </pre>
                   ))
