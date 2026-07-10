@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:runtime": "python3 -m automation.runtime.tests.test_runtime_stability && node automation/runtime/tests/test_sse_bus.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

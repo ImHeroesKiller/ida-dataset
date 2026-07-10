@@ -35,6 +35,14 @@ from automation.lib.models import (  # noqa: E402
     utc_now_iso,
 )
 from automation.lib.paths import find_repo_root  # noqa: E402
+from automation.runtime import channels as runtime_channels  # noqa: E402
+from automation.runtime.errors import record_failure  # noqa: E402
+from automation.runtime.lifecycle import (  # noqa: E402
+    RuntimeLifecycle,
+    RuntimeState,
+    acquire_lock,
+)
+from automation.runtime.recovery import run_with_recovery  # noqa: E402
 from automation.scheduler.scheduler import ContinuousLearningScheduler  # noqa: E402
 from automation.search.orchestrator import SearchOrchestrator  # noqa: E402
 
@@ -80,15 +88,175 @@ def run_live_session(
     publish: bool = True,
     pace: float = 1.0,
     repo_root: Path | None = None,
+    correlation_id: str | None = None,
+    skip_lock: bool = False,
 ) -> dict[str, Any]:
     """Execute one live learning session with streaming journal events."""
     root = repo_root or find_repo_root()
     session_id = f"SES-{utc_now_iso()[:10].replace('-', '')}-{uuid4().hex[:6].upper()}"
     t0 = time.time()
     industry_csv = root / "domains" / "business_development" / "industry_library.csv"
+    lifecycle: RuntimeLifecycle | None = None
 
     def elapsed() -> float:
         return round((time.time() - t0) * 1000, 1)
+
+    # --- Exclusive runtime lock (prevent double start / zombie sessions) ---
+    if not skip_lock:
+        lock = acquire_lock(
+            session_id=session_id,
+            correlation_id=correlation_id,
+            instruction=instruction,
+            repo_root=root,
+        )
+        if not lock.ok:
+            err = record_failure(
+                component="runtime.lock",
+                exception=lock.reason or "Lock acquisition failed",
+                session_id=session_id,
+                correlation_id=lock.correlation_id,
+                recovery_action=lock.recovery_action or "wait_or_stop_existing_runtime",
+                meta={"existing": lock.existing},
+                repo_root=root,
+            )
+            journal.write_activity(
+                {
+                    "status": "error",
+                    "session_id": session_id,
+                    "correlation_id": lock.correlation_id,
+                    "current_thought": f"Runtime failed: {lock.reason}",
+                    "progress": 0,
+                },
+                repo_root=root,
+            )
+            return {
+                "ok": False,
+                "session_id": session_id,
+                "correlation_id": lock.correlation_id,
+                "error": "runtime_locked",
+                "message": lock.reason,
+                "failure": err,
+            }
+        correlation_id = lock.correlation_id
+        lifecycle = RuntimeLifecycle(
+            session_id=session_id,
+            correlation_id=correlation_id,
+            repo_root=root,
+            instruction=instruction,
+        )
+        lifecycle.transition(
+            RuntimeState.STARTING,
+            stage="startup",
+            task="Runtime lock acquired",
+        )
+    else:
+        correlation_id = correlation_id or f"CORR-{uuid4().hex[:12].upper()}"
+        lifecycle = RuntimeLifecycle(
+            session_id=session_id,
+            correlation_id=correlation_id,
+            repo_root=root,
+            instruction=instruction,
+        )
+
+    runtime_channels.set_context(session_id=session_id, correlation_id=correlation_id)
+    runtime_channels.log(
+        "runtime",
+        f"Session {session_id} starting",
+        module="live_runtime",
+        session_id=session_id,
+        correlation_id=correlation_id,
+        meta={"instruction": instruction},
+        repo_root=root,
+    )
+
+    try:
+        return _run_live_session_body(
+            root=root,
+            session_id=session_id,
+            correlation_id=correlation_id or "",
+            instruction=instruction,
+            dataset=dataset,
+            auto_approve=auto_approve,
+            publish=publish,
+            pace=pace,
+            industry_csv=industry_csv,
+            lifecycle=lifecycle,
+            t0=t0,
+            elapsed=elapsed,
+        )
+    except Exception as exc:  # noqa: BLE001
+        failure = record_failure(
+            component="live_runtime",
+            exception=exc,
+            session_id=session_id,
+            correlation_id=correlation_id,
+            recovery_action="stop_and_notify",
+            repo_root=root,
+        )
+        if lifecycle:
+            lifecycle.transition(
+                RuntimeState.FAILED,
+                stage="failed",
+                task="Runtime failed",
+                error=failure,
+                health={"runtime": "failed"},
+            )
+            lifecycle.release(force=True)
+        journal.write_activity(
+            {
+                "status": "error",
+                "session_id": session_id,
+                "correlation_id": correlation_id,
+                "current_thought": f"Runtime failed: {exc}",
+                "progress": 0,
+                "last_error": failure,
+            },
+            repo_root=root,
+        )
+        runtime_channels.log(
+            "errors",
+            f"Session {session_id} failed: {exc}",
+            module="live_runtime",
+            level="ERROR",
+            session_id=session_id,
+            correlation_id=correlation_id,
+            duration_ms=elapsed(),
+            repo_root=root,
+        )
+        return {
+            "ok": False,
+            "session_id": session_id,
+            "correlation_id": correlation_id,
+            "error": type(exc).__name__,
+            "message": str(exc),
+            "failure": failure,
+        }
+    finally:
+        runtime_channels.clear_context()
+
+
+def _run_live_session_body(
+    *,
+    root: Path,
+    session_id: str,
+    correlation_id: str,
+    instruction: str,
+    dataset: str,
+    auto_approve: bool,
+    publish: bool,
+    pace: float,
+    industry_csv: Path,
+    lifecycle: RuntimeLifecycle | None,
+    t0: float,
+    elapsed: Any,
+) -> dict[str, Any]:
+    """Inner session body after lock is held."""
+    if lifecycle:
+        lifecycle.transition(
+            RuntimeState.RUNNING,
+            stage="mission",
+            task="Accepting human learning mission",
+        )
 
     # --- Mission ---
     _emit(
@@ -103,7 +271,16 @@ def run_live_session(
     )
     _sleep(0.4, pace=pace)
 
-    sched = ContinuousLearningScheduler(repo_root=root)
+    def _make_scheduler() -> ContinuousLearningScheduler:
+        return ContinuousLearningScheduler(repo_root=root)
+
+    sched = run_with_recovery(
+        _make_scheduler,
+        component="scheduler",
+        session_id=session_id,
+        correlation_id=correlation_id,
+        repo_root=root,
+    )
     mission_out = sched.submit_mission_text(
         instruction,
         requester="live-runtime",
@@ -231,14 +408,23 @@ def run_live_session(
         current_task="Multi-connector search",
         current_source="approved_sources",
     )
-    orch = SearchOrchestrator(repo_root=root)
-    search = orch.execute(
-        instruction if len(instruction) < 120 else f"{dataset} knowledge expansion",
-        limit=5,
-        mission_id=mission_id,
-        preferred_types=["government", "research", "internal"],
-        acquire=True,
-        dry_run=True,
+    def _search() -> dict[str, Any]:
+        orch = SearchOrchestrator(repo_root=root)
+        return orch.execute(
+            instruction if len(instruction) < 120 else f"{dataset} knowledge expansion",
+            limit=5,
+            mission_id=mission_id,
+            preferred_types=["government", "research", "internal"],
+            acquire=True,
+            dry_run=True,
+        )
+
+    search = run_with_recovery(
+        _search,
+        component="connector.search",
+        session_id=session_id,
+        correlation_id=correlation_id,
+        repo_root=root,
     )
     results = search.get("results") or []
     docs = [d for d in (search.get("documents") or []) if d.get("document_id")]
@@ -265,16 +451,42 @@ def run_live_session(
             status="error",
             mission_id=mission_id,
         )
+        failure = record_failure(
+            component="connector.search",
+            exception="NoDocument",
+            session_id=session_id,
+            correlation_id=correlation_id,
+            recovery_action="check_connectors_and_sources",
+            meta={"message": "No documents acquired — session cannot publish"},
+            repo_root=root,
+        )
         journal.write_activity(
             {
                 "status": "error",
                 "session_id": session_id,
+                "correlation_id": correlation_id,
                 "current_thought": "Learning session failed: no documents",
                 "progress": 55,
+                "last_error": failure,
             },
             repo_root=root,
         )
-        return {"ok": False, "session_id": session_id, "error": "no_document"}
+        if lifecycle:
+            lifecycle.transition(
+                RuntimeState.FAILED,
+                stage="connector",
+                task="No documents acquired",
+                error=failure,
+                health={"runtime": "failed", "connector": "failed"},
+            )
+            lifecycle.release(force=True)
+        return {
+            "ok": False,
+            "session_id": session_id,
+            "correlation_id": correlation_id,
+            "error": "no_document",
+            "failure": failure,
+        }
 
     # download progress per doc (live feel)
     for i, doc in enumerate(docs[:3], start=1):
@@ -294,6 +506,13 @@ def run_live_session(
         _sleep(0.35, pace=pace)
 
     doc = docs[0]
+    if lifecycle:
+        lifecycle.mark_progress(
+            stage="document_queue",
+            task=f"Queued {doc.get('document_id')}",
+            documents_processed=min(3, len(docs)),
+            health={"connector": "healthy", "queue": "healthy"},
+        )
     _emit(
         session_id,
         "Document Queue",
@@ -429,6 +648,12 @@ def run_live_session(
             "live_runtime": True,
         },
     )
+    if lifecycle:
+        lifecycle.mark_progress(
+            stage="pipeline",
+            task=f"Candidate {candidate.candidate_id}",
+            knowledge_candidates=1,
+        )
     _emit(
         session_id,
         "Pipeline",
@@ -489,11 +714,21 @@ def run_live_session(
             current_entity=seed["Industry Name"],
         )
         growth.snapshot_today(root)
+        runtime_channels.log(
+            "review",
+            f"Candidate {candidate.candidate_id} waiting human approval",
+            module="live_runtime",
+            session_id=session_id,
+            correlation_id=correlation_id,
+            duration_ms=elapsed(),
+            repo_root=root,
+        )
         journal.write_activity(
             {
                 "status": "waiting_review",
                 "session_id": session_id,
                 "mission_id": mission_id,
+                "correlation_id": correlation_id,
                 "progress": 92,
                 "current_thought": "Waiting human approval",
                 "current_entity": seed["Industry Name"],
@@ -501,10 +736,19 @@ def run_live_session(
             },
             repo_root=root,
         )
+        if lifecycle:
+            lifecycle.transition(
+                RuntimeState.STOPPED,
+                stage="review",
+                task="Waiting human approval",
+                health={"publisher": "disabled", "runtime": "healthy"},
+            )
+            lifecycle.release()
         return {
             "ok": True,
             "session_id": session_id,
             "mission_id": mission_id,
+            "correlation_id": correlation_id,
             "pending_review": True,
             "candidate_id": candidate.candidate_id,
         }
@@ -539,12 +783,30 @@ def run_live_session(
                 current_entity=seed["Industry Name"],
             )
         else:
-            with industry_csv.open("r", encoding="utf-8-sig", newline="") as handle:
-                headers = [(h or "").lstrip("\ufeff") for h in next(csv.reader(handle))]
-            row = {h: seed.get(h, "") for h in headers}
-            append_csv_rows(industry_csv, [row], fieldnames=headers)
-            growth.record_daily_counters(added=1, root=root)
+            def _publish() -> None:
+                with industry_csv.open("r", encoding="utf-8-sig", newline="") as handle:
+                    headers = [(h or "").lstrip("\ufeff") for h in next(csv.reader(handle))]
+                row = {h: seed.get(h, "") for h in headers}
+                append_csv_rows(industry_csv, [row], fieldnames=headers)
+                growth.record_daily_counters(added=1, root=root)
+
+            run_with_recovery(
+                _publish,
+                component="publisher.csv",
+                session_id=session_id,
+                correlation_id=correlation_id,
+                repo_root=root,
+            )
             published = True
+            runtime_channels.log(
+                "publish",
+                f"Published {seed['Industry Name']} → industry_library.csv",
+                module="live_runtime",
+                session_id=session_id,
+                correlation_id=correlation_id,
+                duration_ms=elapsed(),
+                repo_root=root,
+            )
             _emit(
                 session_id,
                 "Publishing",
@@ -616,6 +878,7 @@ def run_live_session(
             "status": "idle",
             "session_id": session_id,
             "mission_id": mission_id,
+            "correlation_id": correlation_id,
             "progress": 100,
             "current_thought": "Session complete — Continuous Learning standing by",
             "current_task": "Idle",
@@ -627,10 +890,63 @@ def run_live_session(
         repo_root=root,
     )
 
+    if lifecycle:
+        lifecycle.transition(
+            RuntimeState.STOPPING,
+            stage="complete",
+            task="Releasing runtime",
+        )
+        lifecycle.transition(
+            RuntimeState.STOPPED,
+            stage="complete",
+            task="Session complete",
+            health={
+                "runtime": "healthy",
+                "scheduler": "healthy",
+                "connector": "healthy",
+                "queue": "healthy",
+                "sse": "healthy",
+                "publisher": "healthy",
+            },
+        )
+        lifecycle.release()
+        # return status board to idle for next start
+        lifecycle.transition(RuntimeState.IDLE, stage="idle", task="Standing by")
+
+    runtime_channels.log(
+        "runtime",
+        f"Session {session_id} completed",
+        module="live_runtime",
+        session_id=session_id,
+        correlation_id=correlation_id,
+        duration_ms=elapsed(),
+        repo_root=root,
+    )
+    runtime_channels.log(
+        "learning",
+        f"Learned {seed['Industry Name']} published={published}",
+        module="live_runtime",
+        session_id=session_id,
+        correlation_id=correlation_id,
+        duration_ms=elapsed(),
+        repo_root=root,
+    )
+    runtime_channels.log(
+        "telemetry",
+        "Session metrics snapshot",
+        module="live_runtime",
+        session_id=session_id,
+        correlation_id=correlation_id,
+        duration_ms=elapsed(),
+        meta={"snapshot": snap, "growth": vs},
+        repo_root=root,
+    )
+
     result = {
         "ok": True,
         "session_id": session_id,
         "mission_id": mission_id,
+        "correlation_id": correlation_id,
         "published": published,
         "industry_id": seed["Industry ID"],
         "industry_name": seed["Industry Name"],
@@ -658,12 +974,20 @@ def main(argv: Optional[list[str]] = None) -> int:
     p.add_argument("--pace", type=float, default=1.0, help="Event pacing multiplier")
     p.add_argument("--pending-review", action="store_true")
     p.add_argument("--no-publish", action="store_true")
+    p.add_argument("--correlation-id", default=None, help="Correlation id from API start")
+    p.add_argument(
+        "--skip-lock",
+        action="store_true",
+        help="Skip exclusive lock (tests only)",
+    )
     args = p.parse_args(argv)
     result = run_live_session(
         instruction=args.instruction,
         auto_approve=not args.pending_review,
         publish=not args.no_publish,
         pace=args.pace,
+        correlation_id=args.correlation_id,
+        skip_lock=args.skip_lock,
     )
     print(json.dumps(result, indent=2, ensure_ascii=False))
     return 0 if result.get("ok") else 1

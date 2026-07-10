@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import fs from "fs";
 import path from "path";
-import { getRepoRoot, repoPath } from "@/lib/paths";
+import { getRepoRoot } from "@/lib/paths";
 import { getKnowledgeKpis } from "@/lib/knowledge-kpis";
 
 export const dynamic = "force-dynamic";
@@ -9,7 +9,12 @@ export const runtime = "nodejs";
 
 /**
  * Server-Sent Events stream for live learning journal + activity.
- * Clients subscribe (EventSource) — no completed-result polling.
+ *
+ * Cleanup contract (no MaxListenersExceededWarning):
+ *  - clearInterval on abort AND cancel
+ *  - remove abort listener on teardown
+ *  - never leave timers running after client disconnect
+ *  - never call setMaxListeners — fix ownership instead
  */
 export async function GET(req: NextRequest) {
   const root = getRepoRoot();
@@ -28,18 +33,52 @@ export async function GET(req: NextRequest) {
     offset = fs.statSync(journalFile).size;
   }
 
-  // optional: replay from beginning if ?from=0
   const fromStart = req.nextUrl.searchParams.get("from") === "0";
   if (fromStart) offset = 0;
+
+  let timer: ReturnType<typeof setInterval> | null = null;
+  let beat: ReturnType<typeof setInterval> | null = null;
+  let abortHandler: (() => void) | null = null;
 
   const stream = new ReadableStream({
     start(controller) {
       const enc = new TextEncoder();
       const send = (event: string, data: unknown) => {
         if (closed) return;
-        controller.enqueue(
-          enc.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`)
-        );
+        try {
+          controller.enqueue(
+            enc.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`)
+          );
+        } catch {
+          // controller already closed
+          teardown();
+        }
+      };
+
+      const teardown = () => {
+        if (closed) return;
+        closed = true;
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+        if (beat) {
+          clearInterval(beat);
+          beat = null;
+        }
+        if (abortHandler) {
+          try {
+            req.signal.removeEventListener("abort", abortHandler);
+          } catch {
+            /* ignore */
+          }
+          abortHandler = null;
+        }
+        try {
+          controller.close();
+        } catch {
+          /* already closed */
+        }
       };
 
       send("hello", {
@@ -47,7 +86,6 @@ export async function GET(req: NextRequest) {
         message: "Learning stream connected",
       });
 
-      // initial snapshot
       try {
         send("kpis", getKnowledgeKpis());
       } catch {
@@ -64,9 +102,10 @@ export async function GET(req: NextRequest) {
         /* ignore */
       }
 
-      const timer = setInterval(() => {
+      timer = setInterval(() => {
         if (closed) {
-          clearInterval(timer);
+          if (timer) clearInterval(timer);
+          timer = null;
           return;
         }
         try {
@@ -102,29 +141,41 @@ export async function GET(req: NextRequest) {
         }
       }, 400);
 
-      // heartbeat
-      const beat = setInterval(() => {
+      beat = setInterval(() => {
         if (closed) {
-          clearInterval(beat);
+          if (beat) clearInterval(beat);
+          beat = null;
           return;
         }
         send("ping", { ts: new Date().toISOString() });
       }, 15000);
 
-      const abort = () => {
-        closed = true;
+      abortHandler = () => teardown();
+      req.signal.addEventListener("abort", abortHandler);
+
+      // Store teardown on controller via closure for cancel()
+      (controller as unknown as { __teardown?: () => void }).__teardown =
+        teardown;
+    },
+    cancel() {
+      // Client disconnected — release all resources immediately
+      closed = true;
+      if (timer) {
         clearInterval(timer);
+        timer = null;
+      }
+      if (beat) {
         clearInterval(beat);
+        beat = null;
+      }
+      if (abortHandler) {
         try {
-          controller.close();
+          req.signal.removeEventListener("abort", abortHandler);
         } catch {
           /* ignore */
         }
-      };
-      req.signal.addEventListener("abort", abort);
-    },
-    cancel() {
-      closed = true;
+        abortHandler = null;
+      }
     },
   });
 

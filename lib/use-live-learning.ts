@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { subscribeLiveLearning } from "@/lib/live-sse-bus";
 
 export type LiveJournalEvent = {
   seq?: number;
@@ -26,6 +27,7 @@ export type LiveActivity = {
   status?: string;
   session_id?: string;
   mission_id?: string;
+  correlation_id?: string;
   progress?: number;
   current_thought?: string;
   current_task?: string;
@@ -37,10 +39,37 @@ export type LiveActivity = {
   current_confidence?: number | null;
   last_learned?: string;
   updated_at?: string;
+  last_error?: RuntimeClientFailure | null;
+};
+
+export type RuntimeClientFailure = {
+  timestamp?: string;
+  component?: string;
+  exception?: string;
+  message?: string;
+  stack_trace?: string;
+  correlation_id?: string;
+  session_id?: string | null;
+  recovery_action?: string;
+  recovery_suggestion?: string;
+  recoverable?: boolean;
+};
+
+export type StartLiveResult = {
+  ok: boolean;
+  message?: string;
+  pid?: number;
+  correlation_id?: string;
+  session_id?: string | null;
+  error?: string;
+  failure?: RuntimeClientFailure;
+  recovery_suggestion?: string;
+  status?: Record<string, unknown>;
 };
 
 /**
- * Subscribe to live learning SSE stream (no completed-result polling).
+ * Subscribe to live learning via the shared SSE bus (single EventSource).
+ * Start failures are returned with structured failure + recovery — never silent retry.
  */
 export function useLiveLearning() {
   const [events, setEvents] = useState<LiveJournalEvent[]>([]);
@@ -50,57 +79,162 @@ export function useLiveLearning() {
   });
   const [connected, setConnected] = useState(false);
   const [kpis, setKpis] = useState<Record<string, unknown> | null>(null);
-  const esRef = useRef<EventSource | null>(null);
+  const [runtimeError, setRuntimeError] = useState<RuntimeClientFailure | null>(
+    null
+  );
+  const [runtimeStatus, setRuntimeStatus] = useState<string>("idle");
 
   useEffect(() => {
-    const es = new EventSource("/api/live");
-    esRef.current = es;
-
-    es.addEventListener("hello", () => setConnected(true));
-    es.addEventListener("ping", () => setConnected(true));
-    es.addEventListener("journal", (ev) => {
-      try {
-        const data = JSON.parse((ev as MessageEvent).data) as LiveJournalEvent;
+    const unsub = subscribeLiveLearning({
+      onJournal: (data) => {
         setEvents((prev) => [...prev.slice(-300), data]);
-      } catch {
-        /* ignore */
-      }
+        if (data.status === "error") {
+          setRuntimeError({
+            message: data.detail,
+            component: data.stage || "learning",
+            exception: data.verb || "LearningError",
+            session_id: data.session_id,
+            timestamp: data.ts,
+            recovery_suggestion:
+              "Open View Logs /api/runtime/logs for the full failure record.",
+          });
+          setRuntimeStatus("failed");
+        }
+      },
+      onActivity: (data) => {
+        const activityData: LiveActivity = {
+          status: data.status,
+          session_id: data.session_id,
+          mission_id: data.mission_id,
+          correlation_id: data.correlation_id,
+          progress: data.progress,
+          current_thought: data.current_thought,
+          current_task: data.current_task,
+          current_entity: data.current_entity,
+          current_document: data.current_document,
+          current_source: data.current_source,
+          current_dataset: data.current_dataset,
+          current_relationship: data.current_relationship,
+          current_confidence: data.current_confidence,
+          last_learned: data.last_learned,
+          updated_at: data.updated_at,
+          last_error: (data.last_error as RuntimeClientFailure | null) ?? null,
+        };
+        setActivity(activityData);
+        if (data.status === "error" || data.last_error) {
+          setRuntimeError(
+            (data.last_error as RuntimeClientFailure) || {
+              message: data.current_thought || "Runtime error",
+              session_id: data.session_id,
+              correlation_id: data.correlation_id,
+            }
+          );
+          setRuntimeStatus("failed");
+        } else if (data.status === "idle" || data.status === "running") {
+          setRuntimeStatus(data.status);
+          if (data.status === "running") setRuntimeError(null);
+        }
+      },
+      onKpis: (data) => setKpis(data),
+      onConnection: (c) => setConnected(c),
     });
-    es.addEventListener("activity", (ev) => {
-      try {
-        setActivity(JSON.parse((ev as MessageEvent).data) as LiveActivity);
-      } catch {
-        /* ignore */
-      }
-    });
-    es.addEventListener("kpis", (ev) => {
-      try {
-        setKpis(JSON.parse((ev as MessageEvent).data));
-      } catch {
-        /* ignore */
-      }
-    });
-    es.onerror = () => setConnected(false);
+    return unsub;
+  }, []);
 
+  // Poll runtime status lightly so dashboard shows true lifecycle / failures
+  // even if SSE activity snapshot lags. Does not restart learning.
+  useEffect(() => {
+    let cancelled = false;
+    const tick = () => {
+      fetch("/api/runtime/status")
+        .then((r) => r.json())
+        .then((d) => {
+          if (cancelled) return;
+          if (d?.status) setRuntimeStatus(String(d.status));
+          if (d?.last_error) {
+            setRuntimeError(d.last_error as RuntimeClientFailure);
+          } else if (d?.status === "running" || d?.status === "idle") {
+            // clear sticky error only when healthy again
+            if (d.status === "running") setRuntimeError(null);
+          }
+        })
+        .catch(() => null);
+    };
+    tick();
+    const id = setInterval(tick, 4000);
     return () => {
-      es.close();
-      esRef.current = null;
+      cancelled = true;
+      clearInterval(id);
     };
   }, []);
 
-  const startLive = useCallback(async (instruction?: string) => {
-    const res = await fetch("/api/live/start", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        instruction:
-          instruction ||
-          "Learn Industry Library knowledge — live observable session",
-        pace: 0.65,
-      }),
-    });
-    return res.json();
-  }, []);
+  const startLive = useCallback(
+    async (instruction?: string): Promise<StartLiveResult> => {
+      setRuntimeError(null);
+      try {
+        const res = await fetch("/api/live/start", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            instruction:
+              instruction ||
+              "Learn Industry Library knowledge — live observable session",
+            pace: 0.65,
+          }),
+        });
+        const data = (await res.json()) as StartLiveResult & {
+          error?: string;
+        };
+        if (!res.ok || !data.ok) {
+          const failure =
+            data.failure ||
+            ({
+              timestamp: new Date().toISOString(),
+              component: "api.live.start",
+              exception: "StartFailed",
+              message:
+                data.message ||
+                data.error ||
+                `HTTP ${res.status} from /api/live/start`,
+              correlation_id: data.correlation_id,
+              recovery_action: "inspect_and_retry",
+              recovery_suggestion:
+                data.recovery_suggestion ||
+                "Inspect /api/runtime/status and /api/runtime/logs.",
+            } as RuntimeClientFailure);
+          setRuntimeError(failure);
+          setRuntimeStatus("failed");
+          return {
+            ok: false,
+            message: failure.message,
+            correlation_id: data.correlation_id || failure.correlation_id,
+            failure,
+            recovery_suggestion:
+              data.recovery_suggestion || failure.recovery_suggestion,
+            status: data.status,
+          };
+        }
+        setRuntimeStatus("starting");
+        return data;
+      } catch (e) {
+        const failure: RuntimeClientFailure = {
+          timestamp: new Date().toISOString(),
+          component: "api.live.start",
+          exception: e instanceof Error ? e.name : "NetworkError",
+          message: e instanceof Error ? e.message : String(e),
+          recovery_action: "check_network",
+          recovery_suggestion:
+            "Could not reach /api/live/start. Confirm the Next.js server is running.",
+        };
+        setRuntimeError(failure);
+        setRuntimeStatus("failed");
+        return { ok: false, failure, message: failure.message };
+      }
+    },
+    []
+  );
+
+  const clearRuntimeError = useCallback(() => setRuntimeError(null), []);
 
   const replay = useCallback(async (sessionId: string, paceMs = 350) => {
     const res = await fetch(
@@ -135,5 +269,16 @@ export function useLiveLearning() {
     return data;
   }, []);
 
-  return { events, activity, connected, kpis, startLive, replay, setEvents };
+  return {
+    events,
+    activity,
+    connected,
+    kpis,
+    startLive,
+    replay,
+    setEvents,
+    runtimeError,
+    runtimeStatus,
+    clearRuntimeError,
+  };
 }

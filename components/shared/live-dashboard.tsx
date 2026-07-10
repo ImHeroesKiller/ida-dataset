@@ -6,7 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { LiveProgress } from "@/components/shared/live-progress";
-import { useLiveLearning } from "@/lib/use-live-learning";
+import {
+  useLiveLearning,
+  type RuntimeClientFailure,
+} from "@/lib/use-live-learning";
 
 type KpiSnap = {
   knowledge_coverage: number;
@@ -23,8 +26,34 @@ type KpiSnap = {
   };
 };
 
+type HealthMap = Record<string, string>;
+
+function healthClass(level: string): string {
+  switch (level) {
+    case "healthy":
+      return "text-emerald-300";
+    case "warning":
+      return "text-amber-300";
+    case "failed":
+      return "text-red-400";
+    case "disabled":
+      return "text-zinc-500";
+    default:
+      return "text-zinc-400";
+  }
+}
+
 export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
-  const { events, activity, connected, startLive, replay } = useLiveLearning();
+  const {
+    events,
+    activity,
+    connected,
+    startLive,
+    replay,
+    runtimeError,
+    runtimeStatus,
+    clearRuntimeError,
+  } = useLiveLearning();
   const [kpis, setKpis] = useState(initialKpis);
   const [instruction, setInstruction] = useState(
     "Learn Industry Library knowledge for Banking"
@@ -34,22 +63,18 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
   const [sessions, setSessions] = useState<
     { session_id: string; events: number; last_verb?: string | null }[]
   >([]);
+  const [health, setHealth] = useState<HealthMap>({});
+  const [overallHealth, setOverallHealth] = useState<string>("healthy");
+  const [statusSnap, setStatusSnap] = useState<Record<string, unknown> | null>(
+    null
+  );
+  const [showLogs, setShowLogs] = useState(false);
+  const [logEntries, setLogEntries] = useState<Record<string, unknown>[]>([]);
+  const [copyOk, setCopyOk] = useState(false);
 
-  // Refresh KPIs when session completes (subscribe-driven, not result-polling loops)
   useEffect(() => {
     const last = events[events.length - 1];
     if (last?.verb === "Learning Completed" || last?.verb === "Knowledge Updated") {
-      fetch("/api/journal")
-        .then((r) => r.json())
-        .then(() =>
-          fetch("/api/status")
-            .then(() => {
-              // soft refresh KPI fields from journal endpoint's sibling
-            })
-            .catch(() => null)
-        )
-        .catch(() => null);
-      // re-read KPIs via dedicated lightweight endpoint pattern
       fetch("/api/live/replay")
         .then((r) => r.json())
         .then((d) => setSessions(d.sessions || []))
@@ -64,18 +89,39 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
       .catch(() => null);
   }, []);
 
-  // Periodically refresh KPI snapshot only when live (low frequency)
+  // Runtime status + health (does not restart learning)
+  useEffect(() => {
+    let cancelled = false;
+    const load = () => {
+      fetch("/api/runtime/status")
+        .then((r) => r.json())
+        .then((d) => {
+          if (cancelled) return;
+          setStatusSnap(d);
+          setHealth(d.health || {});
+          setOverallHealth(d.overall_health || "healthy");
+        })
+        .catch(() => null);
+    };
+    load();
+    const id = setInterval(load, 5000);
+    return () => {
+      cancelled = true;
+      clearInterval(id);
+    };
+  }, []);
+
   useEffect(() => {
     if (activity.status !== "running" && activity.status !== "progress") return;
     const id = setInterval(() => {
-      // knowledge KPIs from server render path via journal kpis
       fetch("/api/journal")
         .then((r) => r.json())
         .then((d) => {
           if (d.kpis) {
             setKpis((prev) => ({
               ...prev,
-              knowledge_added_today: d.kpis.added_today ?? prev.knowledge_added_today,
+              knowledge_added_today:
+                d.kpis.added_today ?? prev.knowledge_added_today,
               pending_review: d.kpis.pending_review ?? prev.pending_review,
               knowledge_coverage: d.kpis.coverage ?? prev.knowledge_coverage,
               first_knowledge: d.kpis.first_knowledge ?? prev.first_knowledge,
@@ -100,19 +146,73 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
       .reverse();
   }, [events]);
 
+  const failed =
+    runtimeStatus === "failed" ||
+    activity.status === "error" ||
+    Boolean(runtimeError);
+
   async function onStart() {
     setBusy(true);
     setMsg(null);
+    clearRuntimeError();
+    setShowLogs(false);
     try {
       const res = await startLive(instruction);
-      if (!res.ok) setMsg(res.error || "Failed to start");
-      else setMsg(`Live session started (pid ${res.pid ?? "—"})`);
+      if (!res.ok) {
+        // Do NOT auto-retry — surface the real failure
+        setMsg(null);
+      } else {
+        setMsg(
+          `Live session started (pid ${res.pid ?? "—"} · ${res.correlation_id ?? ""})`
+        );
+      }
     } catch (e) {
       setMsg(e instanceof Error ? e.message : "Failed");
     } finally {
       setBusy(false);
     }
   }
+
+  async function onViewLogs() {
+    setShowLogs(true);
+    const cid =
+      runtimeError?.correlation_id ||
+      (statusSnap?.correlation_id as string | undefined);
+    const q = new URLSearchParams({ channel: "errors", limit: "40" });
+    if (cid) q.set("correlation_id", cid);
+    try {
+      const res = await fetch(`/api/runtime/logs?${q.toString()}`);
+      const data = await res.json();
+      setLogEntries(data.entries || []);
+    } catch {
+      setLogEntries([]);
+    }
+  }
+
+  async function onCopyDiagnostic() {
+    const payload = {
+      captured_at: new Date().toISOString(),
+      runtime_status: runtimeStatus,
+      activity_status: activity.status,
+      failure: runtimeError,
+      status: statusSnap,
+      health,
+      overall_health: overallHealth,
+      recent_events: events.slice(-15),
+    };
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
+      setCopyOk(true);
+      setTimeout(() => setCopyOk(false), 2000);
+    } catch {
+      setMsg("Could not copy diagnostic to clipboard");
+    }
+  }
+
+  const failure: RuntimeClientFailure | null =
+    runtimeError ||
+    (statusSnap?.last_error as RuntimeClientFailure | undefined) ||
+    null;
 
   return (
     <div className="space-y-4">
@@ -126,6 +226,20 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
           <div className="mt-2 flex flex-wrap gap-1.5">
             <Badge className={connected ? "text-emerald-300" : ""}>
               stream {connected ? "connected" : "offline"}
+            </Badge>
+            <Badge
+              className={
+                runtimeStatus === "running"
+                  ? "text-sky-300"
+                  : runtimeStatus === "failed"
+                    ? "text-red-400"
+                    : ""
+              }
+            >
+              runtime {runtimeStatus || "idle"}
+            </Badge>
+            <Badge className={healthClass(overallHealth)}>
+              health {overallHealth}
             </Badge>
             <Badge>coverage {kpis.knowledge_coverage}%</Badge>
             <Badge>added today {kpis.knowledge_added_today}</Badge>
@@ -154,6 +268,109 @@ export function LiveDashboard({ initialKpis }: { initialKpis: KpiSnap }) {
           {msg ? <p className="text-[11px] text-zinc-400">{msg}</p> : null}
         </div>
       </div>
+
+      {failed && failure ? (
+        <Card>
+          <CardHeader
+            title="Runtime Failed"
+            description="Learning stopped — failure is visible, not hidden"
+          />
+          <CardBody className="space-y-3 text-sm">
+            <div className="rounded-md border border-red-900/60 bg-red-950/40 p-3">
+              <p className="text-xs uppercase tracking-wide text-red-400">
+                Reason
+              </p>
+              <p className="mt-1 text-red-100">
+                {failure.message || failure.exception || "Unknown failure"}
+              </p>
+              <div className="mt-2 grid gap-1 font-mono text-[11px] text-zinc-400 sm:grid-cols-2">
+                <div>component: {failure.component || "—"}</div>
+                <div>exception: {failure.exception || "—"}</div>
+                <div>correlation: {failure.correlation_id || "—"}</div>
+                <div>session: {failure.session_id || activity.session_id || "—"}</div>
+                <div>action: {failure.recovery_action || "—"}</div>
+                <div>time: {failure.timestamp || "—"}</div>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wide text-amber-300">
+                Recovery suggestion
+              </p>
+              <p className="mt-1 text-zinc-300">
+                {failure.recovery_suggestion ||
+                  "Inspect runtime logs, fix the root cause, then use Retry."}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button size="sm" disabled={busy} onClick={onStart}>
+                Retry
+              </Button>
+              <Button size="sm" variant="secondary" onClick={onViewLogs}>
+                View Logs
+              </Button>
+              <Button size="sm" variant="outline" onClick={onCopyDiagnostic}>
+                {copyOk ? "Copied" : "Copy Diagnostic"}
+              </Button>
+            </div>
+            {showLogs ? (
+              <div className="max-h-48 overflow-y-auto rounded border border-zinc-800 bg-black/40 p-2 font-mono text-[10px] text-zinc-400 scrollbar-thin">
+                {logEntries.length === 0 ? (
+                  <p>No error log entries for this correlation yet.</p>
+                ) : (
+                  logEntries.map((e, i) => (
+                    <pre key={i} className="mb-2 whitespace-pre-wrap border-b border-zinc-900 pb-2">
+                      {JSON.stringify(e, null, 2)}
+                    </pre>
+                  ))
+                )}
+              </div>
+            ) : null}
+          </CardBody>
+        </Card>
+      ) : null}
+
+      <Card>
+        <CardHeader
+          title="Runtime health"
+          description="True component status — Healthy · Warning · Failed · Disabled"
+        />
+        <CardBody>
+          <div className="grid gap-2 sm:grid-cols-3 lg:grid-cols-6">
+            {(
+              [
+                "runtime",
+                "scheduler",
+                "connector",
+                "queue",
+                "sse",
+                "publisher",
+              ] as const
+            ).map((key) => (
+              <div
+                key={key}
+                className="rounded border border-zinc-800 bg-zinc-950/50 px-2 py-2"
+              >
+                <div className="text-[10px] uppercase text-zinc-500">{key}</div>
+                <div className={`text-sm font-medium ${healthClass(health[key] || "healthy")}`}>
+                  {health[key] || "healthy"}
+                </div>
+              </div>
+            ))}
+          </div>
+          {statusSnap ? (
+            <div className="mt-3 grid gap-1 font-mono text-[11px] text-zinc-500 sm:grid-cols-2">
+              <div>session: {String(statusSnap.session_id || "—")}</div>
+              <div>stage: {String(statusSnap.current_stage || "—")}</div>
+              <div>task: {String(statusSnap.current_task || "—")}</div>
+              <div>uptime: {String(statusSnap.uptime_seconds ?? 0)}s</div>
+              <div>docs: {String(statusSnap.documents_processed ?? 0)}</div>
+              <div>
+                candidates: {String(statusSnap.knowledge_candidates ?? 0)}
+              </div>
+            </div>
+          ) : null}
+        </CardBody>
+      </Card>
 
       <Card>
         <CardHeader title="Learning activity" description="Live process observation" />
