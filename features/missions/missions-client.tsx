@@ -29,16 +29,20 @@ export function MissionsClient({
     setBusy(true);
     setMsg(null);
     try {
-      const res = await fetch("/api/learning", {
+      const res = await fetch("/api/missions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "mission", text }),
       });
       const data = await res.json();
       if (!res.ok) {
-        setMsg(data.stderr || data.error || "Failed");
+        setMsg(data.stderr || data.error || data.hint || "Failed");
       } else {
-        setMsg(`Created ${data.result?.mission?.mission_id || "mission"}`);
+        const mid =
+          data.result?.mission?.mission_id ||
+          data.result?.mission_id ||
+          "mission";
+        setMsg(`Created ${mid}`);
         setText("");
         const list = await fetch("/api/missions").then((r) => r.json());
         setMissions(list.missions || []);

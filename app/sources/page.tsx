@@ -1,13 +1,13 @@
 import { Shell } from "@/components/layout/shell";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { getSourceHealthDashboard } from "@/lib/source-health";
+import { formatWib } from "@/lib/time-wib";
 import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
 function fmtTs(v: string | null): string {
-  if (!v) return "—";
-  return v.replace("T", " ").replace("Z", " UTC").slice(0, 19);
+  return formatWib(v);
 }
 
 function pct(n: number): string {

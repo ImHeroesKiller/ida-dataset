@@ -1,6 +1,7 @@
 import { Shell } from "@/components/layout/shell";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { getFactoryKpis } from "@/lib/factory-kpis";
+import { formatWib } from "@/lib/time-wib";
 
 export const dynamic = "force-dynamic";
 
@@ -34,8 +35,8 @@ export default function LogsPage() {
                   key={i}
                   className="flex gap-2 border-b border-[var(--border)] py-1.5 text-[var(--text-muted)] last:border-0"
                 >
-                  <span className="w-36 shrink-0 text-[var(--text-faint)]">
-                    {ev.ts}
+                  <span className="w-44 shrink-0 text-[var(--text-faint)]">
+                    {formatWib(ev.ts)}
                   </span>
                   <span className="w-32 shrink-0 font-medium text-emerald-600 dark:text-emerald-300">
                     {ev.verb}

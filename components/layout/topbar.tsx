@@ -75,21 +75,8 @@ export function Topbar({ title }: { title?: string }) {
                   onClick={() => {
                     setOpen(false);
                     setQ("");
-                    let href = hit.href;
-                    if (
-                      href.startsWith("/datasets") ||
-                      href.startsWith("/ontology") ||
-                      href.startsWith("/sources")
-                    ) {
-                      href = "/knowledge";
-                    }
-                    if (href.startsWith("/planner") || href.startsWith("/queue")) {
-                      href = "/missions";
-                    }
-                    if (href.startsWith("/publisher")) {
-                      href = "/review";
-                    }
-                    router.push(href);
+                    // Factory routes only (no legacy /knowledge /review rewrites)
+                    router.push(hit.href);
                   }}
                 >
                   <span className="mt-0.5 rounded-md bg-[var(--panel-2)] px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-[var(--text-faint)]">

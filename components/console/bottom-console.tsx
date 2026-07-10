@@ -7,6 +7,7 @@ import {
   useLearning,
   type SessionEvent,
 } from "@/hooks/learning-provider";
+import { formatWibTime } from "@/lib/time-wib";
 
 type Filter = "all" | "search" | "extraction" | "validation" | "publishing" | "errors" | "warnings";
 
@@ -196,7 +197,7 @@ export function BottomConsole() {
               <span>{latest.detail || "—"}</span>
               <span className="text-[var(--text-faint)]">
                 {" "}
-                · {String(latest.ts || "").slice(11, 19)}
+                · {formatWibTime(latest.ts)}
               </span>
             </>
           ) : (
@@ -272,8 +273,8 @@ export function BottomConsole() {
                       key={`${g.key}-${i}`}
                       className="flex gap-2 border-b border-[var(--border)]/40 py-1 text-[var(--text-muted)]"
                     >
-                      <span className="w-16 shrink-0 text-[var(--text-faint)]">
-                        {String(ev.ts || "").slice(11, 19)}
+                      <span className="w-24 shrink-0 text-[var(--text-faint)]">
+                        {formatWibTime(ev.ts)}
                       </span>
                       <span
                         className={cn(

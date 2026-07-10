@@ -38,8 +38,16 @@ export const DEPRECATED_ENDPOINTS: Record<
     reason: "Unused; git metadata available via Vercel env if needed",
   },
   "/api/connectors": {
-    successor: "/api/network",
-    reason: "Unused endpoint; network page uses lib directly",
+    successor: "/api/sources",
+    reason: "Unused endpoint; use sources health API",
+  },
+  "/api/learning": {
+    successor: "/api/missions",
+    reason: "Mission dispatch moved to POST /api/missions; learn via /api/run",
+  },
+  "/api/network": {
+    successor: "/api/sources",
+    reason: "Network API removed; use sources",
   },
   "/api/documents": {
     successor: "none",

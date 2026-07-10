@@ -9,6 +9,7 @@ import { useLearning } from "@/hooks/learning-provider";
 import { cn } from "@/lib/utils";
 import type { FactoryKpis } from "@/lib/factory-kpis";
 import type { ExecutiveFactoryView, PipelineStageId } from "@/lib/executive-factory";
+import { formatWib, formatWibTime } from "@/lib/time-wib";
 
 type Toast = { id: string; text: string; tone: "ok" | "warn" | "err" };
 
@@ -379,13 +380,9 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
           />
           <Stat
             label="Next scheduled"
-            value={
-              exec?.next_scheduled_run
-                ? String(exec.next_scheduled_run).slice(0, 19).replace("T", " ")
-                : dashboard.next_scheduled_run
-                  ? String(dashboard.next_scheduled_run).slice(0, 19).replace("T", " ")
-                  : "—"
-            }
+            value={formatWib(
+              exec?.next_scheduled_run || dashboard.next_scheduled_run || null
+            )}
           />
           <div className="sm:col-span-2">
             <Stat
@@ -522,7 +519,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
                     {f.label}
                   </span>
                   <span className="truncate font-mono text-[10px] text-[var(--text-faint)]">
-                    {String(f.ts).slice(0, 19).replace("T", " ")}
+                    {formatWib(f.ts)}
                   </span>
                 </Link>
               ))
@@ -536,7 +533,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
         <CardHeader title="Factory heartbeat" description="Pulses only on real production events" />
         <CardBody className="grid gap-3 p-6 sm:grid-cols-2 lg:grid-cols-4">
           <Mini label="Last event" value={hb?.last_event || "—"} />
-          <Mini label="Last event time" value={String(hb?.last_event_ts || "—").slice(0, 19)} />
+          <Mini label="Last event time" value={formatWib(hb?.last_event_ts)} />
           <Mini label="Last session" value={hb?.last_session || "—"} />
           <Mini label="Last workflow" value={hb?.last_workflow || "—"} />
           <Mini label="Last commit hint" value={hb?.last_commit || "—"} />
@@ -632,8 +629,8 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
                   replayPlaying && i > replayIdx && "opacity-30"
                 )}
               >
-                <span className="w-16 shrink-0 text-[var(--text-faint)]">
-                  {String(ev.ts || "").slice(11, 19)}
+                <span className="w-24 shrink-0 text-[var(--text-faint)]">
+                  {formatWibTime(ev.ts)}
                 </span>
                 <span className="w-28 shrink-0 font-medium text-emerald-600 dark:text-emerald-300">
                   {ev.verb}

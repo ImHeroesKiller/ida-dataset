@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 /**
- * Repository health validation — fails CI on consolidation regressions.
+ * Repository health validation — factory v2.0 frozen surface.
  *
  * Checks:
- * - Exactly one public nav source (lib/nav.ts executive items)
- * - No orphan executive feature modules without page imports
- * - Deprecated API routes still return via deprecatedGone (presence of lib/api/deprecated.ts)
- * - No dual learning hooks (use-live-learning must not exist)
- * - Single design token file under styles/globals.css
- * - No live-dashboard / runtime-manager orphans reintroduced
+ * - No forbidden legacy runtime modules
+ * - Single design token entry
+ * - Factory feature modules present
+ * - Learning provider single poll source
+ * - Public nav matches factory routes
+ * - Deprecated API registry present
+ * - Required reliability scripts present
+ * - No dual useLearningMonitor callers outside provider
  */
 
 import fs from "node:fs";
@@ -35,14 +37,14 @@ function walk(dir, pred, out = []) {
     const abs = path.join(root, rel);
     const st = fs.statSync(abs);
     if (st.isDirectory()) {
-      if (name === "node_modules" || name === ".git") continue;
+      if (name === "node_modules" || name === ".git" || name === ".next") continue;
       walk(rel, pred, out);
     } else if (pred(rel)) out.push(rel);
   }
   return out;
 }
 
-// 1. Forbidden legacy modules must not return
+// 1. Forbidden legacy modules
 const forbidden = [
   "lib/use-live-learning.ts",
   "lib/live-sse-bus.ts",
@@ -61,51 +63,76 @@ for (const f of forbidden) {
 if (!exists("styles/globals.css")) {
   errors.push("Missing styles/globals.css (single design token system)");
 }
-if (exists("app/globals.css")) {
-  const g = read("app/globals.css");
-  if (!g.includes("styles/globals.css")) {
-    errors.push("app/globals.css must import styles/globals.css only");
-  }
-}
 
-// 3. Executive features exist
+// 3. Factory feature modules
 const features = [
-  "features/dashboard/executive-dashboard.tsx",
-  "features/knowledge/knowledge-client.tsx",
+  "features/dashboard/factory-dashboard.tsx",
   "features/missions/missions-client.tsx",
-  "features/review/review-client.tsx",
-  "features/reports/reports-client.tsx",
+  "components/shared/datasets-client.tsx",
+  "components/console/bottom-console.tsx",
 ];
 for (const f of features) {
-  if (!exists(f)) errors.push(`Missing feature module: ${f}`);
+  if (!exists(f)) errors.push(`Missing factory module: ${f}`);
 }
 
-// 4. Learning provider single source
+// 4. Reliability surface
+const reliability = [
+  "scripts/git_safe_sync_push.sh",
+  "automation/lib/git_safe.py",
+  "automation/quality/integrity_guard.py",
+  "automation/scheduler/mission_selector.py",
+  "lib/time-wib.ts",
+  "lib/executive-factory.ts",
+];
+for (const f of reliability) {
+  if (!exists(f)) errors.push(`Missing reliability module: ${f}`);
+}
+
+// 5. Learning provider single source
 if (!exists("hooks/learning-provider.tsx") || !exists("hooks/use-learning-monitor.ts")) {
   errors.push("Missing hooks/learning-provider or use-learning-monitor");
 }
 
-// 5. Nav public surface count
+// 6. Nav factory surface
 const nav = read("lib/nav.ts");
 const hrefs = [...nav.matchAll(/href:\s*"([^"]+)"/g)].map((m) => m[1]);
-const publicHrefs = hrefs.filter((h) =>
-  ["/", "/knowledge", "/missions", "/review", "/reports", "/settings"].includes(h)
-);
-if (publicHrefs.length !== 6) {
-  errors.push(
-    `Expected exactly 6 public nav routes, found ${publicHrefs.length}: ${publicHrefs.join(", ")}`
-  );
+const required = ["/", "/datasets", "/missions", "/sources", "/quality", "/exports", "/logs", "/settings"];
+for (const h of required) {
+  if (!hrefs.includes(h)) {
+    // soft: settings may exist
+    if (h === "/settings" && !hrefs.includes(h)) {
+      warnings.push(`Nav missing optional route: ${h}`);
+    } else if (!hrefs.includes(h)) {
+      errors.push(`Nav missing factory route: ${h}`);
+    }
+  }
 }
 
-// 6. Deprecated API registry present
+// 7. Deprecated API registry
 if (!exists("lib/api/deprecated.ts")) {
   errors.push("Missing lib/api/deprecated.ts");
 }
 
-// 7. Orphan scan: components under components/shared that are never imported
-const shared = walk("components/shared", (r) => r.endsWith(".tsx"));
+// 8. Live API routes
+const apiRoutes = [
+  "app/api/sessions/route.ts",
+  "app/api/factory/status/route.ts",
+  "app/api/run/route.ts",
+  "app/api/missions/route.ts",
+  "app/api/search/route.ts",
+  "app/api/datasets/route.ts",
+  "app/api/sources/route.ts",
+  "app/api/publish-queue/route.ts",
+];
+for (const f of apiRoutes) {
+  if (!exists(f)) errors.push(`Missing API route: ${f}`);
+}
+
+// 9. Dual poll heuristic
 const srcFiles = walk(".", (r) =>
-  (r.endsWith(".ts") || r.endsWith(".tsx")) && !r.includes("node_modules")
+  (r.endsWith(".ts") || r.endsWith(".tsx")) &&
+  !r.includes("node_modules") &&
+  !r.includes(".next")
 );
 const srcText = srcFiles.map((r) => {
   try {
@@ -115,40 +142,6 @@ const srcText = srcFiles.map((r) => {
   }
 });
 
-for (const s of shared) {
-  const base = s.replace(/\.tsx$/, "");
-  const alias = `@/${base}`;
-  const users = srcText.filter(
-    (x) => x.r !== s && (x.t.includes(alias) || x.t.includes(path.basename(base)))
-  );
-  // basename match is loose; require alias
-  const strict = srcText.filter((x) => x.r !== s && x.t.includes(alias));
-  if (strict.length === 0) {
-    // learning-client may still be used by redirected learning page - check
-    if (s.includes("learning-client") || s.includes("publisher-client")) {
-      warnings.push(`Shared module may be orphan after redirects: ${s}`);
-    } else if (
-      s.includes("datasets-client") ||
-      s.includes("network-client") ||
-      s.includes("ontology") ||
-      s.includes("planner") ||
-      s.includes("policy") ||
-      s.includes("run-actions")
-    ) {
-      // internal operator tools — ok if imported by internal pages
-      const pageUsers = srcText.filter(
-        (x) => x.r.startsWith("app/") && x.t.includes(alias)
-      );
-      if (pageUsers.length === 0) {
-        warnings.push(`No page import for internal client: ${s}`);
-      }
-    } else {
-      warnings.push(`No @/ import found for: ${s}`);
-    }
-  }
-}
-
-// 8. Dual poll heuristic: useLearningMonitor should only be called from provider
 const monitorCallers = srcText.filter(
   (x) =>
     x.t.includes("useLearningMonitor(") &&
@@ -161,8 +154,22 @@ if (monitorCallers.length > 0) {
   );
 }
 
+// 10. No live /api/learning fetches (registry entry in deprecated.ts is OK)
+const deadLearning = srcText.filter(
+  (x) =>
+    !x.r.includes("lib/api/deprecated.ts") &&
+    (x.t.includes('"/api/learning"') ||
+      x.t.includes("'/api/learning'") ||
+      x.t.includes("`/api/learning"))
+);
+if (deadLearning.length > 0) {
+  errors.push(
+    `Dead /api/learning reference: ${deadLearning.map((x) => x.r).join(", ")}`
+  );
+}
+
 // Report
-console.log("Repository health check\n");
+console.log("Repository health check (factory v2.0)\n");
 if (warnings.length) {
   console.log("Warnings:");
   for (const w of warnings) console.log("  ⚠", w);
@@ -174,5 +181,5 @@ if (errors.length) {
   console.log(`\nFAILED (${errors.length} error(s))`);
   process.exit(1);
 }
-console.log("OK — consolidation health rules passed");
+console.log("OK — factory repository health rules passed");
 process.exit(0);

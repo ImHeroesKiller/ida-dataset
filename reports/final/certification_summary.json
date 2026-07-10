@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "generated_at": "2026-07-10T16:19:42.965420+00:00",
+  "certification": "CERTIFIED FOR AUTONOMOUS PRODUCTION",
+  "production_readiness": 91.0,
+  "next_mission": {
+    "batch_id": "Batch-009",
+    "dataset": "buyer_persona_library",
+    "title": "Produce Buyer Persona Dataset",
+    "instruction": "Produce Buyer Persona Dataset \u2014 structured buyer personas (Batch-009)",
+    "coverage_pct": 0.0,
+    "current_rows": 0,
+    "product_target": 500,
+    "product_priority": 96,
+    "score": 1442.0,
+    "reason": "lowest_coverage=0.0% \u00b7 priority=96 \u00b7 deps_met \u00b7 sources=13"
+  },
+  "api_fixes": [
+    "POST /api/missions replaces /api/learning",
+    "GET /api/search restored",
+    "WIB timezone UI helper"
+  ],
+  "remaining_blockers": [],
+  "freeze": true
+}
