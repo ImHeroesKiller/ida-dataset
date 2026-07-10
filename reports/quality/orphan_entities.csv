@@ -1,0 +1,80 @@
+dataset,entity_id,entity_name,orphan_reason,expected_link
+company_profile,COMP-001,PT Jalur Nugraha Ekakurir,broken_industry_fk,Industry ID IND-004
+company_profile,COMP-002,PT Chandra Asri Pacific Tbk,broken_industry_fk,Industry ID IND-001
+company_profile,COMP-003,PT Kredit Utama Fintech Indonesia,broken_industry_fk,Industry ID IND-002
+company_profile,COMP-004,PT Bayan Resources Tbk,broken_industry_fk,Industry ID IND-003
+company_profile,COMP-005,PT Mitra Adiperkasa Tbk,broken_industry_fk,Industry ID IND-005
+company_profile,COMP-006,PT Bank Raya Indonesia Tbk,broken_industry_fk,Industry ID IND-006
+company_profile,COMP-007,PT Indofood CBP Sukses Makmur Tbk,broken_industry_fk,Industry ID IND-001
+company_profile,COMP-008,PT Citra Van Titipan Kilat,broken_industry_fk,Industry ID IND-004
+company_profile,COMP-009,PT Adaro Energy Indonesia Tbk,broken_industry_fk,Industry ID IND-003
+company_profile,COMP-010,PT GoTo Gojek Tokopedia Tbk,broken_industry_fk,Industry ID IND-002
+company_profile,COMP-011,PT Bank Digital Nusantara,broken_industry_fk,Industry ID IND-006
+company_profile,COMP-012,PT Sawit Makmur Sejahtera,broken_industry_fk,Industry ID IND-007
+company_profile,COMP-013,PT Marketplace Nusantara,broken_industry_fk,Industry ID IND-002
+company_profile,COMP-014,PT Medika Sejahtera Group,broken_industry_fk,Industry ID IND-008
+company_profile,COMP-015,PT Logistik Nusantara Prima,broken_industry_fk,Industry ID IND-004
+company_profile,COMP-016,PT Asuransi Jiwa Nusantara,broken_industry_fk,Industry ID IND-009
+company_profile,COMP-017,PT Surya Makmur Group,broken_industry_fk,Industry ID IND-010
+company_profile,COMP-018,PT Express Logistik Indonesia,broken_industry_fk,Industry ID IND-004
+company_profile,COMP-019,PT BUMN Mandiri Persada,broken_industry_fk,Industry ID IND-011
+company_profile,COMP-020,PT Bank Retail Nusantara,broken_industry_fk,Industry ID IND-006
+company_profile,COMP-021,PT Kawasan Industri Nusantara,broken_industry_fk,Industry ID IND-012
+company_profile,COMP-022,PT Pharma Distribusi Indonesia,broken_industry_fk,Industry ID IND-013
+company_profile,COMP-023,PT Nickel Resources Indonesia,broken_industry_fk,Industry ID IND-003
+company_profile,COMP-024,PT Finance Nusantara Mandiri,broken_industry_fk,Industry ID IND-014
+company_profile,COMP-025,PT Office Tower Indonesia,broken_industry_fk,Industry ID IND-012
+industry_library,IND-000008,Renewable Energy,no_downstream_entities,company or pain_point
+industry_library,IND-000011,Warehousing & Distribution,no_downstream_entities,company or pain_point
+industry_library,IND-000013,Wholesale Trade,no_downstream_entities,company or pain_point
+industry_library,IND-000016,Tourism & Travel Services,no_downstream_entities,company or pain_point
+industry_library,IND-000020,Textiles & Apparel,no_downstream_entities,company or pain_point
+industry_library,IND-000022,Electronics Manufacturing,no_downstream_entities,company or pain_point
+industry_library,IND-000023,Chemicals,no_downstream_entities,company or pain_point
+industry_library,IND-000025,Steel & Metals,no_downstream_entities,company or pain_point
+industry_library,IND-000029,Capital Markets & Securities,no_downstream_entities,company or pain_point
+industry_library,IND-000031,Microfinance,no_downstream_entities,company or pain_point
+industry_library,IND-000032,Multifinance & Leasing,no_downstream_entities,company or pain_point
+industry_library,IND-000037,Education Services,no_downstream_entities,company or pain_point
+industry_library,IND-000048,Public Procurement Ecosystem,no_downstream_entities,company or pain_point
+industry_library,IND-000050,Agriculture Input & Agri-Services,no_downstream_entities,company or pain_point
+framework_library,FW-001,PDCA (Plan-Do-Check-Act),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-002,DMAIC,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-003,ITIL Service Value System (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-004,COBIT (governance objectives overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-005,NIST Cybersecurity Framework (core),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-006,Zero Trust Architecture principles,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-007,ISO 9001 quality management principles (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-008,ISO 27001 ISMS cycle (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-009,TOGAF ADM (high-level),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-010,Business Model Canvas,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-011,Jobs-to-be-Done (JTBD),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-012,OKR,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-013,Balanced Scorecard (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-014,RACI,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-015,SIPOC,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-016,Value Stream Mapping (VSM),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-017,5S,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-018,FMEA,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-019,Incident Response lifecycle,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-020,BC/DR lifecycle,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-021,CRISP-DM,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-022,MLOps lifecycle (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-023,DevOps CALMS (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-024,SRE error budgets (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-025,Design Thinking (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-026,Porter Five Forces (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-027,PESTLE,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-028,SWOT,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-029,Risk management process (ISO 31000 overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-030,Procurement source-to-contract (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-031,Public procurement principles (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-032,ESG disclosure process (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-033,GHG Protocol scopes (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-034,HSE hierarchy of controls,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-035,Incident investigation 5-Why,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-036,SCOR model (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-037,DDMRP principles (overview),no_solution_link,solution_library.Supporting Framework
+framework_library,FW-038,RevPAR / hospitality commercial framework,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-039,Contact center quality framework,no_solution_link,solution_library.Supporting Framework
+framework_library,FW-040,FinOps lifecycle (overview),no_solution_link,solution_library.Supporting Framework

@@ -1,0 +1,13 @@
+dataset,rows,product_target,coverage_pct,readiness,average_confidence,duplicate_rate,freshness_pct,orphan_pct,orphan_count,connectivity_pct,schema_completeness_pct,validation_score,export_readiness
+industry_library,50,250,20.0,77.2,0.859,0.0,100.0,28.0,14,89.0,100.0,100.0,100.0
+company_profile,86,10000,0.9,69.4,0.895,0.0,100.0,29.1,25,53.0,85.0,70.9,90.8
+product_catalog,123,5000,2.5,71.1,0.891,0.0,100.0,0.0,0,90.6,90.7,83.7,100.0
+service_library(logical),65,2000,3.2,71.6,0.89,0.0,100.0,0.0,0,50.0,92.1,70.8,100.0
+pain_point_library,58,3000,1.9,70.8,0.888,0.0,100.0,0.0,0,92.6,90.3,100.0,100.0
+solution_library,58,3000,1.9,69.2,0.879,0.0,100.0,0.0,0,50.0,84.4,100.0,90.1
+framework_library,40,500,8.0,74.9,0.894,0.0,100.0,100.0,40,0.0,100.0,100.0,100.0
+case_study_library,40,1000,4.0,71.1,0.86,0.0,100.0,0.0,0,100.0,91.7,100.0,100.0
+opportunity_analysis,25,2000,1.2,65.3,,0.0,100.0,0.0,0,100.0,100.0,0.0,85.0
+competitor_library,0,1000,0.0,0.0,,0.0,0.0,0.0,0,0.0,0.0,0.0,0.0
+business_signal_library,0,1000,0.0,0.0,,0.0,0.0,0.0,0,0.0,0.0,0.0,0.0
+discovery_question_library,0,500,0.0,0.0,,0.0,0.0,0.0,0,0.0,0.0,0.0,0.0

@@ -1,0 +1,93 @@
+relationship,missing_entity_id,coverage_pct,current_links,possible_links,notes
+Industry → Company,COMP-001,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-002,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-003,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-004,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-005,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-006,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-007,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-008,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-009,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-010,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-011,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-012,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-014,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-015,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Company,COMP-016,73.3,63,86,Company rows with resolvable Industry ID/name
+Industry → Service,PROD-002,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-003,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-005,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-006,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-007,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-010,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-013,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-015,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-016,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Service,PROD-017,84.6,55,65,Service rows with Target Industry matching industry names
+Industry → Product,PROD-009,98.3,57,58,Non-service product rows with Target Industry match
+Company → Product,COMP-001,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-002,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-003,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-004,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-005,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-006,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-007,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-008,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-009,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-010,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-011,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-012,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-014,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-015,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Product,COMP-016,90.5,57,63,Soft link via shared industry (no Company ID on product schema)
+Company → Service,COMP-001,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-002,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-003,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-004,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-005,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-006,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-007,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-008,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-009,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-010,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-011,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-012,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-014,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-015,88.9,56,63,Soft link via shared industry
+Company → Service,COMP-016,88.9,56,63,Soft link via shared industry
+Company → Pain Point,COMP-001,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-002,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-003,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-004,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-005,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-006,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-007,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-008,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-009,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-010,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-011,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-012,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-014,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-015,77.8,49,63,Soft link via Industry ID
+Company → Pain Point,COMP-016,77.8,49,63,Soft link via Industry ID
+Solution → Framework,SOL-001,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-002,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-003,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-004,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-005,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-006,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-007,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-008,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-009,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-010,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-011,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-012,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-013,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-014,0.0,0,58,Supporting Framework populated and resolvable
+Solution → Framework,SOL-015,0.0,0,58,Supporting Framework populated and resolvable
+Company → Case Study,COMP-041,100.0,40,40,case.Company ID ∈ company_profile; many companies still without cases
+Company → Case Study,COMP-042,100.0,40,40,case.Company ID ∈ company_profile; many companies still without cases
+Company → Case Study,COMP-043,100.0,40,40,case.Company ID ∈ company_profile; many companies still without cases
+Company → Case Study,COMP-044,100.0,40,40,case.Company ID ∈ company_profile; many companies still without cases
+Company → Case Study,COMP-045,100.0,40,40,case.Company ID ∈ company_profile; many companies still without cases
+Competitor → Company,(86 missing — see coverage),0.0,0,86,competitor_library empty (Batch-015)
