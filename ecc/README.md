@@ -38,10 +38,15 @@ export IDA_REPO_ROOT=/absolute/path/to/ida-dataset
 
 ## Deploy (Vercel)
 
+**Required:** Project Settings → General → **Root Directory = `ecc`**
+
+Without that, Vercel looks for `next` at the repo root and fails with
+`No Next.js version detected`.
+
 1. Import `ida-dataset` on Vercel  
-2. Set **Root Directory** to `ecc`  
+2. Set Root Directory to **`ecc`** (save)  
 3. Framework: Next.js · Node 20+  
-4. Deploy  
+4. Deploy / Redeploy  
 
 Details: [`docs/vercel.md`](../docs/vercel.md)
 

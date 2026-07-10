@@ -2,32 +2,40 @@
 
 ## Purpose
 
-Ship the Executive Control Center as a Vercel web app while keeping the monorepo knowledge assets readable.
+Ship the Executive Control Center as a Vercel web app while keeping monorepo knowledge assets readable.
 
 ## Status: Active
 
-## Recommended project settings
+## Critical setting (this fixes the build error)
 
-Import the GitHub repo: `ImHeroesKiller/ida-dataset`
+In the Vercel project:
+
+**Settings → General → Root Directory → `ecc` → Save**
+
+Then **Redeploy**.
 
 | Setting | Value |
 | --- | --- |
 | Framework Preset | Next.js |
-| **Root Directory** | `ecc` |
+| **Root Directory** | **`ecc`** |
 | Build Command | `npm run build` (default) |
 | Install Command | `npm install` (default) |
-| Output Directory | default (`.next`) |
+| Output Directory | *leave default* (do not set `ecc/.next` manually) |
 | Node.js Version | 20.x or 22.x |
 
-> Prefer **Root Directory = `ecc`**. The Next.js config includes monorepo knowledge files via `outputFileTracingRoot` + `outputFileTracingIncludes`.
+### Why this matters
 
-### Alternative (repo root)
+`package.json` with the `next` dependency lives in `ecc/`, not the repo root.
 
-If Root Directory is left empty (repo root), root `vercel.json` provides:
+If Root Directory is empty (repo root), Vercel looks for `next` in the root `package.json`, fails with:
 
-- `installCommand`: `cd ecc && npm install`
-- `buildCommand`: `cd ecc && npm run build`
-- `outputDirectory`: `ecc/.next`
+```text
+Error: No Next.js version detected
+```
+
+Do **not** use a root `installCommand` like `cd ecc && npm install` without Root Directory `ecc` — Vercel will still not detect Next.js correctly.
+
+There is intentionally **no** root `vercel.json` build override for this reason. Config lives in `ecc/vercel.json`.
 
 ## Environment variables (optional)
 
@@ -37,23 +45,21 @@ If Root Directory is left empty (repo root), root `vercel.json` provides:
 | `ECC_DISABLE_PYTHON` | Force-skip Python orchestration (`1`) |
 | `ECC_ENABLE_GIT` | Attempt local git exec (not recommended on Vercel) |
 
-Vercel automatically provides:
+Vercel provides automatically:
 
 - `VERCEL=1`
 - `VERCEL_GIT_COMMIT_SHA`
 - `VERCEL_GIT_COMMIT_REF`
 - `VERCEL_GIT_COMMIT_MESSAGE`
 
-ECC uses these for Git status cards when `.git` is unavailable.
-
 ## What works on Vercel
 
-- Dashboard status cards from live CSV/YAML inventory
+- Dashboard status from live CSV/YAML inventory
 - Ontology browser
 - Dataset read-only browser
 - Policy viewer
 - Review queue viewer
-- Report browser (if report files exist in the deploy)
+- Report browser
 - Global search
 - Console / progress UI
 
@@ -61,33 +67,29 @@ ECC uses these for Git status cards when `.git` is unavailable.
 
 | Feature | Behavior |
 | --- | --- |
-| Python CI orchestration | Skipped; run via GitHub Actions |
-| Live publish | Still blocked in UI; use `publish.yml` |
+| Python CI orchestration | Skipped; use GitHub Actions |
+| Live publish | Blocked in UI; use `publish.yml` |
 | Local git porcelain | Replaced by Vercel commit metadata |
 
-Control flow remains:
-
-```text
-Planner → Policy → Pipeline → Review → Publisher
-```
-
-## CLI deploy (optional)
+## CLI deploy
 
 ```bash
-# from repo root, with Vercel CLI logged in
-npx vercel link
-# set Root Directory to ecc in the dashboard, or:
-cd ecc && npx vercel --prod
+# from repo, after: npm i -g vercel && vercel login
+cd ecc
+npx vercel        # preview
+npx vercel --prod # production
 ```
+
+When linking, set the project Root Directory to `ecc` if prompted.
 
 ## Production checklist
 
 1. Push `main` to GitHub  
-2. Import project in Vercel → Root Directory `ecc`  
-3. Deploy production  
+2. Vercel → Project → Settings → Root Directory = **`ecc`**  
+3. Deploy / Redeploy  
 4. Open `/` and confirm ontology + datasets load  
-5. Keep acquisition jobs on GitHub Actions (validate/planner/review/publish)  
+5. Keep acquisition jobs on GitHub Actions  
 
 ## Regions
 
-Default sample region in config: `sin1` (Singapore). Change in the Vercel project settings if needed.
+Sample region in `ecc/vercel.json`: `sin1` (Singapore). Change in the Vercel project settings if needed.
