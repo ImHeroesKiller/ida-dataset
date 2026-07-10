@@ -246,6 +246,22 @@ export function readReport(relativePath: string): {
 
 export function getGitStatus() {
   const root = getRepoRoot();
+  // On Vercel, .git is typically not available in the runtime bundle.
+  if (process.env.VERCEL && !process.env.ECC_ENABLE_GIT) {
+    return {
+      available: true,
+      branch: process.env.VERCEL_GIT_COMMIT_REF ?? null,
+      commit: (process.env.VERCEL_GIT_COMMIT_SHA ?? "").slice(0, 7) || null,
+      dirty: false,
+      statusLines: [] as string[],
+      recentCommits: process.env.VERCEL_GIT_COMMIT_MESSAGE
+        ? [
+            `${(process.env.VERCEL_GIT_COMMIT_SHA ?? "").slice(0, 7)} ${process.env.VERCEL_GIT_COMMIT_MESSAGE}`,
+          ]
+        : ([] as string[]),
+      message: "Git metadata from Vercel deployment environment",
+    };
+  }
   try {
     const branch = execSync("git rev-parse --abbrev-ref HEAD", {
       cwd: root,

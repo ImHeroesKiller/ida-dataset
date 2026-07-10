@@ -18,7 +18,7 @@ IDA is **not autonomous**. ECC never bypasses Planner, Policy, Review, or Publis
 - Lightweight UI primitives (shadcn-style)
 - Lucide icons
 
-## Run
+## Run (local)
 
 From repository root:
 
@@ -35,6 +35,17 @@ Optional:
 ```bash
 export IDA_REPO_ROOT=/absolute/path/to/ida-dataset
 ```
+
+## Deploy (Vercel)
+
+1. Import `ida-dataset` on Vercel  
+2. Set **Root Directory** to `ecc`  
+3. Framework: Next.js · Node 20+  
+4. Deploy  
+
+Details: [`docs/vercel.md`](../docs/vercel.md)
+
+On Vercel, Python orchestration is skipped (use GitHub Actions). Read-only knowledge browsing stays fully available.
 
 ## Architecture
 

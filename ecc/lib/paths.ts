@@ -3,32 +3,42 @@ import path from "path";
 
 /**
  * Resolve the IDA dataset repository root.
- * ECC lives in <repo>/ecc, so parent is the knowledge repository.
+ *
+ * Local:  <repo>/ecc  → parent is repo root
+ * Vercel: process.cwd() is usually the ecc project dir (Root Directory = ecc)
+ *         and the monorepo checkout still contains sibling folders.
  */
 export function getRepoRoot(): string {
   const fromEnv = process.env.IDA_REPO_ROOT;
-  if (fromEnv && fs.existsSync(fromEnv)) {
+  if (fromEnv && fs.existsSync(path.join(fromEnv, "VERSION"))) {
     return path.resolve(fromEnv);
   }
 
-  // Prefer parent of ecc/ when VERSION + domains exist
   const candidates = [
+    process.env.VERCEL ? path.resolve(process.cwd(), "..") : null,
     path.resolve(process.cwd(), ".."),
     path.resolve(process.cwd()),
     path.resolve(__dirname, "../.."),
     path.resolve(__dirname, "../../.."),
-  ];
+    // Vercel serverless bundle layouts
+    path.resolve("/var/task", ".."),
+    path.resolve("/var/task"),
+  ].filter(Boolean) as string[];
 
   for (const candidate of candidates) {
-    if (
-      fs.existsSync(path.join(candidate, "VERSION")) &&
-      fs.existsSync(path.join(candidate, "domains"))
-    ) {
-      return candidate;
+    try {
+      if (
+        fs.existsSync(path.join(candidate, "VERSION")) &&
+        fs.existsSync(path.join(candidate, "domains"))
+      ) {
+        return candidate;
+      }
+    } catch {
+      // ignore unreadable paths
     }
   }
 
-  // Fallback: parent of cwd (dev from ecc/)
+  // Last resort: parent of cwd (local `npm run dev` from ecc/)
   return path.resolve(process.cwd(), "..");
 }
 

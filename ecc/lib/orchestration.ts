@@ -124,6 +124,17 @@ function runPython(
 ): Promise<number> {
   const root = getRepoRoot();
   const script = path.join(root, scriptRel);
+
+  // Vercel serverless does not ship Python CI runners by default.
+  if (process.env.VERCEL || process.env.ECC_DISABLE_PYTHON === "1") {
+    pushLog(
+      stream,
+      "warn",
+      `Python orchestration skipped on this runtime (${scriptRel}). Use GitHub Actions for planner/validate/publish jobs.`
+    );
+    return Promise.resolve(0);
+  }
+
   return new Promise((resolve) => {
     const child = spawn("python3", [script, ...args], {
       cwd: root,
