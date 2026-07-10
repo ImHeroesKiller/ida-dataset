@@ -35,7 +35,7 @@ function walk(dir, pred, out = []) {
     const abs = path.join(root, rel);
     const st = fs.statSync(abs);
     if (st.isDirectory()) {
-      if (name === "node_modules" || name === ".git" || name === "ecc") continue;
+      if (name === "node_modules" || name === ".git") continue;
       walk(rel, pred, out);
     } else if (pred(rel)) out.push(rel);
   }
@@ -105,9 +105,7 @@ if (!exists("lib/api/deprecated.ts")) {
 // 7. Orphan scan: components under components/shared that are never imported
 const shared = walk("components/shared", (r) => r.endsWith(".tsx"));
 const srcFiles = walk(".", (r) =>
-  (r.endsWith(".ts") || r.endsWith(".tsx")) &&
-  !r.includes("node_modules") &&
-  !r.startsWith("ecc/")
+  (r.endsWith(".ts") || r.endsWith(".tsx")) && !r.includes("node_modules")
 );
 const srcText = srcFiles.map((r) => {
   try {

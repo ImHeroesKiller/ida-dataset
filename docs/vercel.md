@@ -17,31 +17,19 @@ Import GitHub repo: `ImHeroesKiller/ida-dataset`
 | --- | --- |
 | Framework Preset | **Next.js** |
 | **Root Directory** | **empty** (repository root) |
-| Build Command | `npm run build` (default) |
-| Install Command | `npm install` (default) |
-| **Output Directory** | **leave empty / auto** (do **not** set `ecc/.next`) |
+| Build Command | `npm run build` |
+| Install Command | `npm install` |
+| **Output Directory** | **`.next`** (default Next.js output; must match `distDir`) |
 | Node.js Version | 20.x or 22.x |
 | Region | `sin1` (see `vercel.json`) |
 
-### Why Output Directory must be empty
+Single-package layout: Next.js app at the **repository root**. There is no monorepo workspace, no Turbo, and no nested app package.
 
-Next.js on Vercel uses the framework builder, which publishes `.next/static/chunks`
-and serverless functions automatically. A custom Output Directory
-(`ecc/.next` leftover from the monorepo layout) can mis-align HTML build IDs
-with uploaded chunks and surface as intermittent `ChunkLoadError` / 404.
-
-`next.config.ts` uses the default `distDir` (`.next`).
-
-### Ignored Build Step (critical)
+### Ignored Build Step
 
 `vercel.json` → `ignoreCommand`: `bash scripts/vercel-ignore-build.sh`
 
-Learning sessions commit under `automation/sessions/**` frequently. Without
-skipping those deploys, every session push redeploys production, rotates
-chunk hashes, and breaks open browser tabs.
-
-The ignore script **skips** deploys when only knowledge/session artifacts change
-and **builds** when app/config/source files change.
+Skips deploys when only knowledge/session artifacts change (avoids chunk rotation for open tabs).
 
 ## Environment variables (**required for Start Learning on Vercel**)
 
@@ -57,20 +45,18 @@ Without the token:
 - **Start Learning** returns `422 GITHUB_NOT_CONFIGURED` (not a silent 503)  
 - Local `npm run dev` falls back to one-shot `learning_session.py`  
 
-Create a fine-grained or classic PAT → Vercel → Project → Settings → Environment Variables → Production (+ Preview if needed) → Redeploy.
-
 ## Deployment integrity controls
 
 | Control | Implementation |
 | --- | --- |
+| Build output | Default `.next` |
 | Build ID | `generateBuildId` → `VERCEL_GIT_COMMIT_SHA` (12 chars) |
 | Document cache | `Cache-Control: private, no-cache, no-store` via `next.config.ts` headers |
-| Static chunks | `public, max-age=31536000, immutable` (Vercel + config) |
+| Static chunks | `public, max-age=31536000, immutable` |
 | basePath / assetPrefix | empty / unset |
 | trailingSlash | `false` |
-| ChunkLoadError recovery | `components/chunk-error-recovery.tsx` — one automatic reload |
+| ChunkLoadError recovery | `components/chunk-error-recovery.tsx` |
 | File tracing | `outputFileTracingIncludes` for knowledge assets |
-| Publish queue GET | read-only safe on Vercel (no `publish_state.json` writes) |
 
 See [audit/deployment_integrity_report.md](./audit/deployment_integrity_report.md).
 
@@ -99,8 +85,6 @@ npm run dev
 ```
 
 Open http://localhost:3000
-
-Simulate a session without GHA:
 
 ```bash
 python automation/ci/learning_session.py --environment development --dry-run

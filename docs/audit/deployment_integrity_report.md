@@ -145,25 +145,26 @@ Handlers present for all deprecated paths via `lib/api/deprecated.ts` → `depre
 
 | Severity | Finding | Resolution |
 |----------|---------|------------|
-| High | `outputDirectory: "ecc/.next"` + custom `distDir` | **Removed**; default `.next` |
+| High | `outputDirectory: "ecc/.next"` + custom `distDir` | **Fixed** — default `.next` + vercel override |
 | High | No ignore step for GHA learning commits | **`ignoreCommand`** added |
 | Medium | Project framework was `null` in API snapshot (name `ida-brain-monitor`) | `vercel.json` sets `"framework": "nextjs"` |
-| Low | `ecc/` folder residual README | Informative only; not used as Root Directory |
+| High | Dashboard still resolved `ecc/.next/routes-manifest.json` after repo cleanup | **`vercel.json` forces `outputDirectory: ".next"`** to override stale project setting; removed residual `ecc/` |
 
 ---
 
 ## Fixes implemented
 
 1. **`next.config.ts`**
-   - Default `distDir` (`.next`)
+   - Default `distDir` (`.next`) — no custom distDir
    - `generateBuildId` from `VERCEL_GIT_COMMIT_SHA` / git
    - Explicit `basePath`, `trailingSlash`, no `assetPrefix`
    - Document `no-store` + static immutable headers
    - Retain `outputFileTracingIncludes` for knowledge assets
 
 2. **`vercel.json`**
-   - Remove `outputDirectory`
+   - `outputDirectory: ".next"` (overrides stale dashboard `ecc/.next`)
    - Add `ignoreCommand: bash scripts/vercel-ignore-build.sh`
+   - No monorepo / Turbo / workspace keys
 
 3. **`scripts/vercel-ignore-build.sh`**
    - Skip deploy when only sessions/knowledge/reports/docs change

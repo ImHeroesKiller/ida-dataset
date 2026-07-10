@@ -11,10 +11,9 @@ reports/**
 # Local runtime
 *.log
 
-# Next.js / ECC
+# Next.js
 node_modules/
 .next/
-ecc/.next/
 out/
 .env*.local
 *.tsbuildinfo

@@ -6,13 +6,9 @@ import { execSync } from "child_process";
 const configDir = path.dirname(fileURLToPath(import.meta.url));
 
 /**
- * ECC lives at the repository root so Vercel auto-detects Next.js.
- * Knowledge assets (domains/, metadata/, automation/, …) are siblings.
- *
- * distDir is the default `.next` so the Vercel Next.js builder can
- * collect and upload static chunks without a custom Output Directory.
- * (Previous monorepo leftover `ecc/.next` + vercel outputDirectory caused
- * intermittent ChunkLoadError / asset 404 after rolling deploys.)
+ * Single-package Next.js app at the repository root.
+ * Uses the default distDir (`.next`). Do not set a custom distDir.
+ * Knowledge assets (domains/, metadata/, automation/, …) are siblings of app/.
  */
 const knowledgeGlobs = [
   "./VERSION",
@@ -35,7 +31,6 @@ const knowledgeGlobs = [
 ];
 
 function resolveBuildId(): string {
-  // Prefer Vercel git SHA so each deploy has a stable, unique asset namespace.
   const vercelSha = process.env.VERCEL_GIT_COMMIT_SHA;
   if (vercelSha && vercelSha.length >= 7) return vercelSha.slice(0, 12);
 
@@ -55,8 +50,7 @@ function resolveBuildId(): string {
 }
 
 const nextConfig: NextConfig = {
-  // Default distDir (`.next`) — do not set Output Directory on Vercel.
-  // outputFileTracingRoot keeps knowledge assets next to the app on serverless.
+  // Default distDir is `.next` — leave unset. Vercel Output Directory must match.
   outputFileTracingRoot: configDir,
   outputFileTracingIncludes: {
     "/*": knowledgeGlobs,
@@ -64,18 +58,11 @@ const nextConfig: NextConfig = {
     "/api/*": knowledgeGlobs,
     "/api/**/*": knowledgeGlobs,
   },
-  // Unique build id → unique hashed chunk URLs per deploy (cache bust).
   generateBuildId: async () => resolveBuildId(),
-  // Explicit defaults — no basePath / assetPrefix / trailingSlash surprises.
   basePath: "",
   assetPrefix: undefined,
   trailingSlash: false,
   serverExternalPackages: [],
-  /**
-   * HTML / document routes must never be served stale after a new deploy.
-   * Hashed `/_next/static/*` assets already get immutable long-cache from
-   * the Vercel Next.js builder; this only hardens document + API surfaces.
-   */
   async headers() {
     return [
       {
@@ -88,7 +75,6 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Never cache App Router HTML / RSC payloads across deploys.
         source: "/((?!_next/static|_next/image|favicon.ico).*)",
         headers: [
           {
@@ -98,7 +84,6 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Belt-and-suspenders for static chunks (Vercel already immutable).
         source: "/_next/static/:path*",
         headers: [
           {
