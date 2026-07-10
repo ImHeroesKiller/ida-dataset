@@ -1,16 +1,20 @@
 {
-  "started_at": "2026-07-10T18:15:49+00:00",
-  "mission_id": "MIS-DISC-E2E",
-  "session_id": "SES-DISC-E2E",
-  "instruction": "Expand Outsourcing Indonesia",
+  "started_at": "2026-07-10T19:26:59+00:00",
+  "mission_id": "MIS-20260710-8E1602",
+  "session_id": "SES-20260710-88FC2E",
+  "instruction": "Expand Industry Library — factory learn cycle",
   "dataset": "industry_library",
   "knowledge_gap": {
     "dataset": "industry_library",
     "current_rows": 52,
-    "target_rows": 250,
-    "gap_rows": 198,
-    "coverage_pct": 20.8,
-    "priority": "high"
+    "target_rows": 5000,
+    "minimum_target": 250,
+    "gap_rows": 4948,
+    "coverage_pct": 1.04,
+    "knowledge_gap_score": 79.488,
+    "estimated_universe": 5000,
+    "priority": "high",
+    "continuous": true
   },
   "queries_generated": 15,
   "queries_executed": 22,
@@ -18,7 +22,7 @@
   "urls_accepted": 3,
   "urls_rejected": 6,
   "duplicate_urls": 6,
-  "elapsed_ms": 36225.8,
+  "elapsed_ms": 545581.0,
   "providers": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -48,7 +52,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 10625.2,
+      "elapsed_ms": 209837.8,
       "status": "ready",
       "credentials_available": true
     },
@@ -64,7 +68,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 12530.1,
+      "elapsed_ms": 167571.6,
       "status": "ready",
       "credentials_available": true
     },
@@ -80,7 +84,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 13054.5,
+      "elapsed_ms": 168137.3,
       "status": "ready",
       "credentials_available": true
     },
@@ -95,7 +99,7 @@
       },
       "queries": 7,
       "urls": 0,
-      "cache_hits": 7,
+      "cache_hits": 0,
       "elapsed_ms": 0.0,
       "status": "ready",
       "credentials_available": true
@@ -104,7 +108,7 @@
   "query_stats": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id outsourcing indonesia",
+      "query": "site:bps.go.id industry factory cycle",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "site",
@@ -113,7 +117,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id intitle:outsourcing outsourcing indonesia",
+      "query": "site:bps.go.id intitle:industry industry factory cycle",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "intitle",
@@ -122,7 +126,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id outsourcing indonesia",
+      "query": "site:kemenperin.go.id industry factory cycle",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "site",
@@ -131,7 +135,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id intitle:outsourcing outsourcing indonesia",
+      "query": "site:kemenperin.go.id intitle:industry industry factory cycle",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "intitle",
@@ -140,8 +144,8 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:orldbank.org outsourcing indonesia",
-      "domain": "orldbank.org",
+      "query": "site:worldbank.org industry factory cycle",
+      "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "site",
       "urls": 0,
@@ -149,8 +153,8 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:orldbank.org intitle:outsourcing outsourcing indonesia",
-      "domain": "orldbank.org",
+      "query": "site:worldbank.org intitle:industry industry factory cycle",
+      "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "intitle",
       "urls": 0,
@@ -158,7 +162,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org outsourcing indonesia",
+      "query": "site:adb.org industry factory cycle",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "site",
@@ -167,7 +171,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org intitle:outsourcing outsourcing indonesia",
+      "query": "site:adb.org intitle:industry industry factory cycle",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "intitle",
@@ -176,7 +180,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org outsourcing indonesia",
+      "query": "site:oecd.org industry factory cycle",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "site",
@@ -185,7 +189,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org intitle:outsourcing outsourcing indonesia",
+      "query": "site:oecd.org intitle:industry industry factory cycle",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "intitle",
@@ -194,7 +198,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org outsourcing indonesia",
+      "query": "site:crossref.org industry factory cycle",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "kind": "site",
@@ -203,7 +207,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org intitle:outsourcing outsourcing indonesia",
+      "query": "site:crossref.org intitle:industry industry factory cycle",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "kind": "intitle",
@@ -214,82 +218,82 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 10625.2
+      "elapsed_ms": 209837.8
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 12530.1
+      "elapsed_ms": 167571.6
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 13054.5
+      "elapsed_ms": 168137.3
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id outsourcing indonesia",
+      "query": "site:bps.go.id industry factory cycle",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
       "elapsed_ms": 0.0,
-      "cached": true
+      "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:kemenperin.go.id outsourcing indonesia",
+      "query": "site:kemenperin.go.id industry factory cycle",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
       "elapsed_ms": 0.0,
-      "cached": true
+      "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:orldbank.org outsourcing indonesia",
-      "domain": "orldbank.org",
+      "query": "site:worldbank.org industry factory cycle",
+      "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
       "elapsed_ms": 0.0,
-      "cached": true
+      "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:adb.org outsourcing indonesia",
+      "query": "site:adb.org industry factory cycle",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "urls": 0,
       "elapsed_ms": 0.0,
-      "cached": true
+      "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:oecd.org outsourcing indonesia",
+      "query": "site:oecd.org industry factory cycle",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "urls": 0,
       "elapsed_ms": 0.0,
-      "cached": true
+      "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:crossref.org outsourcing indonesia",
+      "query": "site:crossref.org industry factory cycle",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "urls": 0,
       "elapsed_ms": 0.0,
-      "cached": true
+      "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:openalex.org outsourcing indonesia",
+      "query": "site:openalex.org industry factory cycle",
       "domain": "openalex.org",
       "source_id": "SRC-OPENALEX",
       "urls": 0,
       "elapsed_ms": 0.0,
-      "cached": true
+      "cached": false
     }
   ],
   "reputation_top": [
@@ -402,7 +406,7 @@
     }
   ],
   "cache": {
-    "hits": 7,
+    "hits": 0,
     "misses": 7,
     "stores": 7,
     "cached_queries": 7,

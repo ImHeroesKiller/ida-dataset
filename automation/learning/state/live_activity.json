@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260710-1426E6",
-  "mission_id": "MIS-20260710-BB3B28",
+  "session_id": "SESSION-20260710-005543",
+  "mission_id": "MIS-20260710-8E1602",
   "progress": 100,
-  "current_thought": "Session completed · published=3 extracted=3 validated=3 rejected=0 docs=5 entity=Indonesia - Information Infrastructure and Applications Development Project (IIADP)",
+  "current_thought": "Session completed · published=0 extracted=3 validated=3 rejected=3 docs=5 entity=— · dry_run",
   "current_task": "Idle",
-  "last_learned": "Indonesia - Information Infrastructure and Applications Development Project (IIADP)",
-  "updated_at": "2026-07-10T17:47:53+00:00",
+  "last_learned": null,
+  "updated_at": "2026-07-10T19:27:55+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }

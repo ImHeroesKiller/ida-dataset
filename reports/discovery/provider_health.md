@@ -1,6 +1,6 @@
 # Provider Health
 
-**Session:** `SES-DISC-E2E`
+**Session:** `SES-20260710-88FC2E`
 
 | Provider | Health | Credentials | Message |
 |----------|--------|-------------|---------|

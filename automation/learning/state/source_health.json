@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T17:47:53Z",
+  "updated_at": "2026-07-10T19:27:55Z",
   "sources": {
     "SRC-000004": {
       "source_id": "SRC-000004",
@@ -9,7 +9,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.2625,
+      "coverage": 0.2574,
       "last_successful_sync": "2026-07-10T17:47:53Z",
       "last_attempt": "2026-07-10T17:47:53Z",
       "rows_produced": 14,
@@ -24,8 +24,8 @@
       "base_url": "https://www.worldbank.org",
       "notes": "Indonesia overview, IEP, open knowledge reports.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -87,7 +87,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.259,
+      "coverage": 0.254,
       "last_successful_sync": "2026-07-10T16:51:48Z",
       "last_attempt": "2026-07-10T16:51:48Z",
       "rows_produced": 14,
@@ -102,8 +102,8 @@
       "base_url": "https://www.bps.go.id",
       "notes": "Official national statistics. High trust.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -140,7 +140,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.1778,
+      "coverage": 0.1744,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 10,
@@ -155,8 +155,8 @@
       "base_url": "https://kemenperin.go.id",
       "notes": "Ministry of Industry public industrial data and policies.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -168,7 +168,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0136,
+      "coverage": 0.0134,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 1,
@@ -220,7 +220,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.1669,
+      "coverage": 0.1637,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 9,
@@ -235,8 +235,8 @@
       "base_url": "https://ojk.go.id",
       "notes": "Financial services regulator — banking and digital finance rules.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -273,7 +273,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0114,
+      "coverage": 0.0112,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 1,
@@ -288,8 +288,8 @@
       "base_url": "https://www.adb.org",
       "notes": "ADB country and sector knowledge products.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -301,7 +301,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0093,
+      "coverage": 0.0091,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 1,
@@ -328,7 +328,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0326,
+      "coverage": 0.032,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 2,
@@ -343,8 +343,8 @@
       "base_url": "https://www.oecd.org",
       "notes": "OECD Economic Surveys Indonesia (digital transformation).",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -356,7 +356,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0128,
+      "coverage": 0.0125,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": null,
       "rows_produced": 1,
@@ -381,7 +381,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0049,
+      "coverage": 0.0048,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 1,
@@ -483,7 +483,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0049,
+      "coverage": 0.0048,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 1,
@@ -510,7 +510,7 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0247,
+      "coverage": 0.0242,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
       "rows_produced": 2,
