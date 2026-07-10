@@ -1,0 +1,98 @@
+name: Validate
+
+on:
+  push:
+    branches: [main, staging, develop]
+  pull_request:
+    branches: [main, staging, develop]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        required: true
+        default: development
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+      dry_run:
+        description: Dry run (no dataset mutations; reports still written)
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Repository validation
+    runs-on: ubuntu-latest
+    env:
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve environment
+        id: env
+        run: |
+          if [ -n "${{ github.event.inputs.environment }}" ]; then
+            ENV="${{ github.event.inputs.environment }}"
+          elif [ "${GITHUB_REF}" = "refs/heads/main" ]; then
+            ENV="production"
+          elif [ "${GITHUB_REF}" = "refs/heads/staging" ]; then
+            ENV="staging"
+          else
+            ENV="development"
+          fi
+          if [ -n "${{ github.event.inputs.dry_run }}" ]; then
+            DRY="${{ github.event.inputs.dry_run }}"
+          else
+            DRY="true"
+          fi
+          echo "environment=${ENV}" >> "$GITHUB_OUTPUT"
+          echo "dry_run=${DRY}" >> "$GITHUB_OUTPUT"
+          echo "Resolved environment=${ENV} dry_run=${DRY}"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run validator
+        id: validate
+        env:
+          IDA_ENVIRONMENT: ${{ steps.env.outputs.environment }}
+          DRY_RUN: ${{ steps.env.outputs.dry_run }}
+        run: |
+          set +e
+          if [ "${DRY_RUN}" = "true" ]; then
+            python automation/ci/validate_repo.py --environment "${IDA_ENVIRONMENT}" --dry-run
+          else
+            python automation/ci/validate_repo.py --environment "${IDA_ENVIRONMENT}" --no-dry-run
+          fi
+          code=$?
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit ${code}
+
+      - name: Upload validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-reports
+          path: |
+            reports/validation/
+          if-no-files-found: warn
+
+      - name: Fail on validation / config / policy errors
+        if: always() && steps.validate.outputs.exit_code != '0'
+        run: |
+          echo "Validation workflow failed with exit code ${{ steps.validate.outputs.exit_code }}"
+          echo "0=success 1=validation 2=config 3=policy 4=publisher_blocked"
+          exit ${{ steps.validate.outputs.exit_code }}

@@ -1,0 +1,74 @@
+name: Planner
+
+on:
+  schedule:
+    # Daily 06:00 UTC
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        required: true
+        default: development
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+      dry_run:
+        description: Dry run
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+
+jobs:
+  planner:
+    name: Knowledge Planner
+    runs-on: ubuntu-latest
+    env:
+      IDA_ENVIRONMENT: ${{ github.event.inputs.environment || 'development' }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'true' }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Knowledge Planner / Gap Analyzer / Priority Engine
+        id: planner
+        run: |
+          set +e
+          if [ "${DRY_RUN}" = "true" ]; then
+            python automation/ci/planner.py --environment "${IDA_ENVIRONMENT}" --dry-run
+          else
+            python automation/ci/planner.py --environment "${IDA_ENVIRONMENT}" --no-dry-run
+          fi
+          code=$?
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit ${code}
+
+      - name: Upload planner reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: planner-reports
+          path: |
+            reports/planner/planning_report.md
+            reports/planner/planning_report.json
+            reports/planner/
+          if-no-files-found: warn
+
+      - name: Enforce exit code
+        if: always() && steps.planner.outputs.exit_code != '0'
+        run: exit ${{ steps.planner.outputs.exit_code }}

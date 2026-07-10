@@ -1,0 +1,107 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        required: true
+        default: development
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+      dry_run:
+        description: Dry run (no writes, no commits, no pushes)
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      commit:
+        description: Commit after successful publish
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      push:
+        description: Push after commit
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Publish approved knowledge
+    runs-on: ubuntu-latest
+    env:
+      IDA_ENVIRONMENT: ${{ github.event.inputs.environment }}
+      DRY_RUN: ${{ github.event.inputs.dry_run }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure git identity
+        if: ${{ github.event.inputs.dry_run == 'false' && github.event.inputs.commit == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Run publisher
+        id: publish
+        run: |
+          set +e
+          EXTRA_ARGS=()
+          if [ "${DRY_RUN}" = "true" ]; then
+            EXTRA_ARGS+=(--dry-run)
+          else
+            EXTRA_ARGS+=(--no-dry-run)
+          fi
+          if [ "${{ github.event.inputs.commit }}" = "true" ]; then
+            EXTRA_ARGS+=(--commit)
+          fi
+          if [ "${{ github.event.inputs.push }}" = "true" ]; then
+            EXTRA_ARGS+=(--push)
+          fi
+          python automation/ci/publish_ci.py \
+            --environment "${IDA_ENVIRONMENT}" \
+            "${EXTRA_ARGS[@]}"
+          code=$?
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit ${code}
+
+      - name: Upload publish reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-reports
+          path: |
+            reports/publish/publish_report.md
+            reports/publish/
+          if-no-files-found: warn
+
+      - name: Enforce exit code
+        if: always() && steps.publish.outputs.exit_code != '0'
+        run: |
+          echo "Publish blocked or failed (exit ${{ steps.publish.outputs.exit_code }})"
+          echo "0=success 1=validation 2=config 3=policy 4=publisher_blocked"
+          exit ${{ steps.publish.outputs.exit_code }}

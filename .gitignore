@@ -2,3 +2,11 @@ __pycache__/
 *.py[cod]
 .Python
 .DS_Store
+
+# Generated CI reports (keep directory structure only)
+reports/**
+!reports/**/
+!reports/**/.gitkeep
+
+# Local runtime
+*.log

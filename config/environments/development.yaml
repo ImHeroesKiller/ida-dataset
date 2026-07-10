@@ -1,0 +1,60 @@
+# IDA Dataset — Development environment profile
+# External configuration. Never hardcode environment rules in workflows.
+
+name: development
+description: Local and CI development. Safe defaults; dry-run preferred.
+
+dry_run: true
+allow_publish: false
+allow_commit: false
+allow_push: false
+require_review: true
+
+protection:
+  branch: main
+  require_validation: true
+  require_pull_request: false
+  prevent_force_push: true
+
+limits:
+  max_publish_rows: 50
+  max_report_age_hours: 168
+
+paths:
+  reports_root: reports
+  validation_reports: reports/validation
+  planner_reports: reports/planner
+  review_reports: reports/review
+  publish_reports: reports/publish
+  automation_review: automation/review
+  queue_pending: automation/queue/pending
+  queue_approved: automation/queue/approved
+  queue_rejected: automation/queue/rejected
+  domains_root: domains
+  relationships_root: relationships
+  metadata_root: metadata
+  policies: automation/config/policies.yaml
+  sources: automation/config/sources.yaml
+
+validation:
+  strict_filenames: true
+  require_utf8: true
+  require_lf: true
+  check_duplicate_ids: true
+  check_relationships: true
+  check_enums: true
+  check_folder_structure: true
+  fail_on_warning: false
+
+planner:
+  gap_threshold_rows: 5
+  priority_weights:
+    emptiness: 0.5
+    relationships: 0.3
+    strategic: 0.2
+
+publisher:
+  append_only: true
+  never_overwrite: true
+  create_git_diff: true
+  commit_message_prefix: "chore(data): publish approved knowledge rows"

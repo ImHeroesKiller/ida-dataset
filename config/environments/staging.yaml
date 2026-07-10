@@ -1,0 +1,59 @@
+# IDA Dataset — Staging environment profile
+
+name: staging
+description: Pre-production verification. Publish allowed with review; no push to main protection relaxed for staging branch.
+
+dry_run: false
+allow_publish: true
+allow_commit: true
+allow_push: true
+require_review: true
+
+protection:
+  branch: staging
+  require_validation: true
+  require_pull_request: true
+  prevent_force_push: true
+
+limits:
+  max_publish_rows: 100
+  max_report_age_hours: 72
+
+paths:
+  reports_root: reports
+  validation_reports: reports/validation
+  planner_reports: reports/planner
+  review_reports: reports/review
+  publish_reports: reports/publish
+  automation_review: automation/review
+  queue_pending: automation/queue/pending
+  queue_approved: automation/queue/approved
+  queue_rejected: automation/queue/rejected
+  domains_root: domains
+  relationships_root: relationships
+  metadata_root: metadata
+  policies: automation/config/policies.yaml
+  sources: automation/config/sources.yaml
+
+validation:
+  strict_filenames: true
+  require_utf8: true
+  require_lf: true
+  check_duplicate_ids: true
+  check_relationships: true
+  check_enums: true
+  check_folder_structure: true
+  fail_on_warning: true
+
+planner:
+  gap_threshold_rows: 10
+  priority_weights:
+    emptiness: 0.4
+    relationships: 0.35
+    strategic: 0.25
+
+publisher:
+  append_only: true
+  never_overwrite: true
+  create_git_diff: true
+  commit_message_prefix: "chore(data): publish approved knowledge rows [staging]"
