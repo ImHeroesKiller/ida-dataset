@@ -15,7 +15,7 @@
     "skipped_duplicate": 0,
     "failed": 1,
     "bytes": 123247,
-    "elapsed_ms": 3469.8999999999996,
+    "elapsed_ms": 3601.7,
     "retries": 2,
     "http_cache": {
       "hits": 0,

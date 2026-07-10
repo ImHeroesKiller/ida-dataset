@@ -9,7 +9,7 @@ Manufacturing controller proposals (highest-value knowledge demand).
 | 3 | BOOTSTRAP | competitor_library | Bootstrap Competitor Library | 129.75 | 20000 |
 | 4 | BOOTSTRAP | discovery_question_library | Bootstrap Discovery Question Library | 125.25 | 5000 |
 | 5 | BOOTSTRAP | service_library | Bootstrap BPO Services Indonesia | 112.922 | 49935 |
-| 6 | BOOTSTRAP | business_signal_library | Bootstrap New OECD Labor Publications | 94.236 | 49988 |
+| 6 | BOOTSTRAP | business_signal_library | Bootstrap New OECD Labor Publications | 94.232 | 49985 |
 | 7 | BOOTSTRAP | product_catalog | Bootstrap Digital Products Indonesia | 88.606 | 49942 |
 | 8 | BOOTSTRAP | industry_library | Bootstrap Healthcare Services Indonesia | 79.467 | 4947 |
 
