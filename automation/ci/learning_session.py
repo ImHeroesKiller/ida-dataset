@@ -207,15 +207,25 @@ def run_session(
             "ok": bool(live.get("ok")),
             "error": live.get("error"),
         }
+        acq = live.get("acquisition") or {}
         knowledge_delta = {
-            "added": 1 if live.get("published") else 0,
-            "updated": 0 if live.get("published") else (1 if live.get("ok") else 0),
-            "rejected": 1 if live.get("error") == "no_document" else 0,
+            "added": int(
+                live.get("knowledge_added")
+                if live.get("knowledge_added") is not None
+                else (1 if live.get("published") else 0)
+            ),
+            "updated": 0,
+            "rejected": int(acq.get("candidates_rejected") or 0)
+            + (1 if live.get("error") in {"no_document", "no_documents_discovered", "no_documents_downloaded", "no_candidates_extracted"} else 0),
             "industry_id": live.get("industry_id"),
             "industry_name": live.get("industry_name"),
             "candidate_id": live.get("candidate_id"),
             "published": bool(live.get("published")),
             "pending_review": bool(live.get("pending_review")),
+            "documents_discovered": acq.get("documents_discovered"),
+            "documents_downloaded": acq.get("documents_downloaded"),
+            "candidates_extracted": acq.get("candidates_extracted"),
+            "candidates_validated": acq.get("candidates_validated"),
         }
         publish_summary = {
             "published": bool(live.get("published")),

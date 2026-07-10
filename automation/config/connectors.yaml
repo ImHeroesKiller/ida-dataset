@@ -62,7 +62,7 @@ connectors:
     class: world_bank
     enabled: true
     priority: 80
-    allowed_domains: [worldbank.org, data.worldbank.org]
+    allowed_domains: [worldbank.org, data.worldbank.org, search.worldbank.org, documents.worldbank.org, documents1.worldbank.org]
     blocked_domains: []
     authentication: none
     rate_limit_per_minute: 20
@@ -71,8 +71,8 @@ connectors:
     trust_score: 0.92
     caching: true
     review_requirement: true
-    dry_run: true
-    source_id: SRC-CONN-WB
+    dry_run: false
+    source_id: SRC-000004
 
   - connector_id: CONN-BPS-001
     name: BPS Indonesia
@@ -89,7 +89,7 @@ connectors:
     trust_score: 0.95
     caching: true
     review_requirement: true
-    dry_run: true
+    dry_run: false
     source_id: SRC-000001
 
   - connector_id: CONN-OECD-001
@@ -98,7 +98,7 @@ connectors:
     class: oecd
     enabled: true
     priority: 75
-    allowed_domains: [oecd.org, data.oecd.org]
+    allowed_domains: [oecd.org, data.oecd.org, www.oecd.org]
     blocked_domains: []
     authentication: none
     rate_limit_per_minute: 20
@@ -107,8 +107,8 @@ connectors:
     trust_score: 0.90
     caching: true
     review_requirement: true
-    dry_run: true
-    source_id: SRC-CONN-OECD
+    dry_run: false
+    source_id: SRC-000005
 
   - connector_id: CONN-SEC-001
     name: SEC / Annual Reports
@@ -271,3 +271,76 @@ connectors:
     review_requirement: false
     dry_run: true
     source_id: SRC-CONN-INT
+
+  - connector_id: CONN-OPENALEX-001
+    name: OpenAlex
+    type: research
+    class: openalex
+    enabled: true
+    priority: 85
+    allowed_domains: [openalex.org, api.openalex.org]
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 30
+    retries: 3
+    timeout_seconds: 30
+    trust_score: 0.88
+    caching: true
+    review_requirement: true
+    dry_run: false
+    source_id: SRC-OPENALEX
+    mailto: ida-dataset@users.noreply.github.com
+
+  - connector_id: CONN-CROSSREF-001
+    name: Crossref
+    type: research
+    class: crossref
+    enabled: true
+    priority: 82
+    allowed_domains: [crossref.org, api.crossref.org, doi.org]
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 30
+    retries: 3
+    timeout_seconds: 30
+    trust_score: 0.90
+    caching: true
+    review_requirement: true
+    dry_run: false
+    source_id: SRC-CROSSREF
+
+  - connector_id: CONN-ADB-001
+    name: Asian Development Bank
+    type: research
+    class: adb
+    enabled: true
+    priority: 78
+    allowed_domains: [adb.org, www.adb.org]
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 15
+    retries: 3
+    timeout_seconds: 30
+    trust_score: 0.92
+    caching: true
+    review_requirement: true
+    dry_run: false
+    source_id: SRC-000006
+
+  - connector_id: CONN-KEMENPERIN-001
+    name: Kemenperin
+    type: government
+    class: kemenperin
+    enabled: true
+    priority: 70
+    allowed_domains: [kemenperin.go.id, www.kemenperin.go.id]
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 10
+    retries: 2
+    timeout_seconds: 30
+    trust_score: 0.90
+    caching: true
+    review_requirement: true
+    dry_run: false
+    source_id: SRC-000007

@@ -183,6 +183,13 @@ export type ExecutiveFactoryView = {
     average_confidence: number | null;
     freshness: number;
     duplicate_rate: number;
+    /** Real acquisition pipeline counters (from sessions + queues) */
+    documents_discovered: number;
+    documents_downloaded: number;
+    candidates_extracted: number;
+    candidates_validated: number;
+    publish_queue_size: number;
+    rows_appended: number;
   };
   coverage: Array<{
     key: string;
@@ -404,8 +411,45 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
   const rejectedToday = Number(daily?.knowledge_rejected || 0);
   const hist = dash.history;
   const sessionsToday = hist?.today?.sessions ?? 0;
-  // documents: approximate from events count on today's sessions when available
-  const docsToday = sessions.filter((s) =>
+
+  // Real acquisition counters from session knowledge_delta + document queues
+  let documentsDiscovered = 0;
+  let documentsDownloaded = 0;
+  let candidatesExtracted = 0;
+  let candidatesValidated = 0;
+  let rowsAppended = 0;
+  for (const s of sessions) {
+    if (!String(s.start_time || "").startsWith(day)) continue;
+    const delta = (s as { knowledge_delta?: Record<string, unknown> }).knowledge_delta || {};
+    documentsDiscovered += Number(delta.documents_discovered || 0);
+    documentsDownloaded += Number(delta.documents_downloaded || 0);
+    candidatesExtracted += Number(delta.candidates_extracted || 0);
+    candidatesValidated += Number(delta.candidates_validated || 0);
+    rowsAppended += Number(s.knowledge_added || 0);
+  }
+  // Fallback: count document queue files when sessions lack acquisition fields
+  const countJson = (rel: string) => {
+    try {
+      const dir = repoPath(rel);
+      if (!fs.existsSync(dir)) return 0;
+      return fs.readdirSync(dir).filter((f) => f.endsWith(".json")).length;
+    } catch {
+      return 0;
+    }
+  };
+  const docsIncoming = countJson("automation/queue/documents/incoming");
+  const docsProcessed = countJson("automation/queue/documents/processed");
+  const docsProcessing = countJson("automation/queue/documents/processing");
+  if (documentsDownloaded === 0) {
+    documentsDownloaded = docsIncoming + docsProcessed + docsProcessing;
+  }
+  if (documentsDiscovered === 0) {
+    documentsDiscovered = documentsDownloaded;
+  }
+  const publishQueueSize =
+    countJson("automation/queue/publish") +
+    countJson("automation/queue/candidates/pending");
+  const docsToday = documentsDownloaded || sessions.filter((s) =>
     String(s.start_time || "").startsWith(day)
   ).length;
 
@@ -460,6 +504,12 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
       average_confidence: kpis.average_confidence,
       freshness: kpis.freshness,
       duplicate_rate: kpis.duplicate_rate,
+      documents_discovered: documentsDiscovered,
+      documents_downloaded: documentsDownloaded,
+      candidates_extracted: candidatesExtracted,
+      candidates_validated: candidatesValidated,
+      publish_queue_size: publishQueueSize,
+      rows_appended: rowsAppended || kpis.rows_added_today,
     },
     coverage,
     knowledge_feed: knowledge_feed.slice(0, 24),

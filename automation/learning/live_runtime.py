@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Live Learning Runtime — activate the frozen pipeline with realtime journal events.
+"""Live Learning Runtime — real acquisition + streaming journal events.
 
-Does NOT create new engines. Reuses:
-  Scheduler, Search Orchestrator (connectors), Document Queue,
-  Candidate + Review queue, CSV append publish, growth metrics.
+Reuses frozen architecture:
+  Scheduler → Source Registry → Connectors → Document Queue
+  → Grounded Extraction → Candidate Queue → DPS Validation
+  → Append-only Publish → Growth metrics
 
-Emits progressive learning-journal events so ECC can stream live.
+Never fabricates knowledge. Empty acquisition fails with an explicit reason.
 """
 
 from __future__ import annotations
 
-import csv
 import json
 import sys
 import time
@@ -23,17 +23,7 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 from automation.learning import growth, journal  # noqa: E402
-from automation.learning.first_cycle import (  # noqa: E402
-    INDUSTRY_SEED,
-    _industry_already_present,
-)
-from automation.lib.io_utils import append_csv_rows, save_candidate  # noqa: E402
-from automation.lib.models import (  # noqa: E402
-    CandidateRecord,
-    Provenance,
-    ValidationStatus,
-    utc_now_iso,
-)
+from automation.lib.models import utc_now_iso  # noqa: E402
 from automation.lib.paths import find_repo_root  # noqa: E402
 from automation.runtime import channels as runtime_channels  # noqa: E402
 from automation.runtime.errors import record_failure  # noqa: E402
@@ -44,32 +34,6 @@ from automation.runtime.lifecycle import (  # noqa: E402
 )
 from automation.runtime.recovery import run_with_recovery  # noqa: E402
 from automation.scheduler.scheduler import ContinuousLearningScheduler  # noqa: E402
-from automation.search.orchestrator import SearchOrchestrator  # noqa: E402
-
-
-# Additional live-cycle knowledge seeds (only used if not already present)
-EXTRA_SEEDS: list[dict[str, str]] = [
-    {
-        **{k: "" for k in INDUSTRY_SEED.keys()},
-        "Industry ID": "IND-000002",
-        "Industry Name": "Banking",
-        "Industry Category": "Financial Services",
-        "Industry Description": (
-            "Layanan perbankan dan keuangan dengan regulasi ketat, fokus risiko, "
-            "dan transformasi digital."
-        ),
-        "Business Characteristics": "Regulated, multi-channel, high security, 24/7 services",
-        "Typical Company Size": "Large, Enterprise",
-        "Digital Maturity Level": "High",
-        "Common Technologies": "Core Banking, SIEM, Cloud, API Gateway",
-        "Common Business Challenges": "Compliance, fraud, legacy modernization",
-        "Common Pain Points": "Silo data, SLA core system, cyber risk",
-        "Business Goals": "Digital banking, efisiensi operasional, kepercayaan nasabah",
-        "Last Updated": "",
-        "Notes": "Live learning runtime knowledge candidate",
-        "Data Sources": "OJK, Annual Report, Gartner",
-    },
-]
 
 
 def _sleep(seconds: float, *, pace: float) -> None:
@@ -95,7 +59,6 @@ def run_live_session(
     root = repo_root or find_repo_root()
     session_id = f"SES-{utc_now_iso()[:10].replace('-', '')}-{uuid4().hex[:6].upper()}"
     t0 = time.time()
-    industry_csv = root / "domains" / "business_development" / "industry_library.csv"
     lifecycle: RuntimeLifecycle | None = None
 
     def elapsed() -> float:
@@ -185,7 +148,6 @@ def run_live_session(
             auto_approve=auto_approve,
             publish=publish,
             pace=pace,
-            industry_csv=industry_csv,
             lifecycle=lifecycle,
             t0=t0,
             elapsed=elapsed,
@@ -251,7 +213,6 @@ def _run_live_session_body(
     auto_approve: bool,
     publish: bool,
     pace: float,
-    industry_csv: Path,
     lifecycle: RuntimeLifecycle | None,
     t0: float,
     elapsed: Any,
@@ -402,68 +363,132 @@ def _run_live_session_body(
     )
     _sleep(0.25, pace=pace)
 
-    # --- Connector / Search ---
+    # --- Real acquisition engine (collect → extract → validate → publish) ---
     _emit(
         session_id,
         "Connector",
-        "Searching approved sources",
+        "Searching trusted sources via acquisition engine",
         stage="connector",
         progress=44,
         status="started",
         mission_id=mission_id,
-        current_task="Multi-connector search",
-        current_source="approved_sources",
+        current_task="Real multi-connector acquisition",
+        current_source="source_registry",
     )
-    def _search() -> dict[str, Any]:
-        orch = SearchOrchestrator(repo_root=root)
-        return orch.execute(
-            instruction if len(instruction) < 120 else f"{dataset} knowledge expansion",
-            limit=5,
+    _sleep(0.2, pace=pace)
+
+    acquisition_logs: list[dict[str, str]] = []
+
+    def _acq_log(verb: str, detail: str) -> None:
+        acquisition_logs.append({"verb": verb, "detail": detail})
+        stage_map = {
+            "Searching": "connector",
+            "Downloading": "document_queue",
+            "Document Queue": "document_queue",
+            "Parsing document": "pipeline",
+            "Extracting": "pipeline",
+            "Candidate Queue": "pipeline",
+            "Validation": "validate",
+            "Publishing": "publish",
+            "Knowledge Updated": "knowledge",
+            "Connector": "connector",
+            "Pipeline": "pipeline",
+        }
+        st = stage_map.get(verb, "pipeline")
+        progress_hint = {
+            "connector": 50,
+            "document_queue": 60,
+            "pipeline": 78,
+            "validate": 90,
+            "publish": 96,
+            "knowledge": 99,
+        }.get(st, 70)
+        _emit(
+            session_id,
+            verb,
+            detail,
+            stage=st,
+            progress=progress_hint,
+            status="progress",
             mission_id=mission_id,
-            preferred_types=["government", "research", "internal"],
-            acquire=True,
-            dry_run=True,
+            dataset=dataset,
+            current_task=detail[:120],
         )
 
-    search = run_with_recovery(
-        _search,
-        component="connector.search",
+    def _acquire() -> dict[str, Any]:
+        from automation.acquisition.pipeline import run_acquisition
+
+        return run_acquisition(
+            instruction=instruction,
+            mission_id=mission_id,
+            session_id=session_id,
+            dataset=dataset,
+            limit=5,
+            dry_run=not publish,
+            publish=publish and auto_approve,
+            auto_approve=auto_approve,
+            repo_root=root,
+            log=_acq_log,
+        )
+
+    acq = run_with_recovery(
+        _acquire,
+        component="acquisition.pipeline",
         session_id=session_id,
         correlation_id=correlation_id,
         repo_root=root,
     )
-    results = search.get("results") or []
-    docs = [d for d in (search.get("documents") or []) if d.get("document_id")]
-    _emit(
-        session_id,
-        "Connector",
-        f"Found {len(results)} candidate documents",
-        stage="connector",
-        progress=52,
-        status="progress",
-        mission_id=mission_id,
-        current_task="Search complete",
-        current_source=",".join(search.get("connectors_selected") or [])[:80],
-    )
-    _sleep(0.3, pace=pace)
 
-    if not docs:
+    docs = acq.get("documents") or []
+    doc = docs[0] if docs else {}
+    published_n = int(acq.get("rows_published") or 0)
+    published = published_n > 0
+    entities = acq.get("published_entities") or []
+    entity_name = entities[0] if entities else (
+        (acq.get("candidates") or [{}])[0].get("name") if acq.get("candidates") else None
+    )
+    cand_meta = (acq.get("candidates") or [{}])[0]
+    industry_id = cand_meta.get("entity_id") or ""
+    industry_name = entity_name or cand_meta.get("name") or ""
+
+    if lifecycle:
+        lifecycle.mark_progress(
+            stage="pipeline",
+            task=f"Acquisition docs={acq.get('documents_downloaded')} cands={acq.get('candidates_extracted')}",
+            documents_processed=int(acq.get("documents_downloaded") or 0),
+            knowledge_candidates=int(acq.get("candidates_extracted") or 0),
+            health={
+                "connector": "healthy" if docs else "degraded",
+                "queue": "healthy",
+            },
+        )
+
+    if not acq.get("ok") and published_n == 0:
+        err_code = str(acq.get("error") or "acquisition_failed")
+        reason = "; ".join(acq.get("reasons") or acq.get("failures") or [err_code])
         _emit(
             session_id,
             "Connector",
-            "No documents acquired — session cannot publish",
+            f"Acquisition failed: {reason}",
             stage="connector",
             progress=55,
             status="error",
             mission_id=mission_id,
         )
         failure = record_failure(
-            component="connector.search",
-            exception="NoDocument",
+            component="acquisition.pipeline",
+            exception=err_code,
             session_id=session_id,
             correlation_id=correlation_id,
             recovery_action="check_connectors_and_sources",
-            meta={"message": "No documents acquired — session cannot publish"},
+            meta={
+                "message": reason,
+                "sources_contacted": acq.get("sources_contacted"),
+                "documents_discovered": acq.get("documents_discovered"),
+                "documents_downloaded": acq.get("documents_downloaded"),
+                "candidates_extracted": acq.get("candidates_extracted"),
+                "failures": (acq.get("failures") or [])[:10],
+            },
             repo_root=root,
         )
         journal.write_activity(
@@ -471,7 +496,7 @@ def _run_live_session_body(
                 "status": "error",
                 "session_id": session_id,
                 "correlation_id": correlation_id,
-                "current_thought": "Learning session failed: no documents",
+                "current_thought": f"Learning session failed: {reason}",
                 "progress": 55,
                 "last_error": failure,
             },
@@ -480,8 +505,8 @@ def _run_live_session_body(
         if lifecycle:
             lifecycle.transition(
                 RuntimeState.FAILED,
-                stage="connector",
-                task="No documents acquired",
+                stage="acquisition",
+                task=reason[:120],
                 error=failure,
                 health={"runtime": "failed", "connector": "failed"},
             )
@@ -489,11 +514,10 @@ def _run_live_session_body(
         try:
             from automation.lib.source_health import record_session_sources
 
-            # Attribute failure to default high-trust production sources used by planner
             record_session_sources(
-                ["SRC-000001", "SRC-000004"],
+                ["SRC-000004", "SRC-OPENALEX", "SRC-CROSSREF"],
                 success=False,
-                documents=0,
+                documents=int(acq.get("documents_downloaded") or 0),
                 rows=0,
                 duration_ms=float(elapsed()),
                 mission_id=mission_id,
@@ -505,258 +529,27 @@ def _run_live_session_body(
             "ok": False,
             "session_id": session_id,
             "correlation_id": correlation_id,
-            "error": "no_document",
+            "mission_id": mission_id,
+            "error": err_code,
+            "message": reason,
             "failure": failure,
+            "acquisition": acq,
+            "published": False,
+            "knowledge_added": 0,
         }
 
-    # download progress per doc (live feel)
-    for i, doc in enumerate(docs[:3], start=1):
-        _emit(
-            session_id,
-            "Document Queue",
-            f"Downloading document {i} of {min(3, len(docs))}",
-            stage="document_queue",
-            progress=52 + i * 3,
-            status="progress",
-            mission_id=mission_id,
-            current_document=str(doc.get("document_id")),
-            current_source=str(doc.get("connector_id")),
-            current_task=f"Queue document {i}",
-            dataset=dataset,
-        )
-        _sleep(0.35, pace=pace)
-
-    doc = docs[0]
-    if lifecycle:
-        lifecycle.mark_progress(
-            stage="document_queue",
-            task=f"Queued {doc.get('document_id')}",
-            documents_processed=min(3, len(docs)),
-            health={"connector": "healthy", "queue": "healthy"},
-        )
-    _emit(
-        session_id,
-        "Document Queue",
-        f"Queued {doc.get('document_id')} · trust {doc.get('trust_score')}",
-        stage="document_queue",
-        progress=62,
-        status="completed",
-        mission_id=mission_id,
-        current_document=str(doc.get("document_id")),
-        duration_ms=elapsed(),
-    )
-    _sleep(0.3, pace=pace)
-
-    # --- Pipeline stages (observable) ---
-    _emit(
-        session_id,
-        "Pipeline",
-        "Reading document",
-        stage="pipeline",
-        progress=66,
-        status="started",
-        mission_id=mission_id,
-        current_document=str(doc.get("document_id")),
-        current_task="Reading",
-        dataset=dataset,
-    )
-    _sleep(0.4, pace=pace)
-    _emit(
-        session_id,
-        "Pipeline",
-        "Understanding document structure",
-        stage="pipeline",
-        progress=70,
-        status="progress",
-        mission_id=mission_id,
-        current_task="Understanding",
-        current_document=str(doc.get("document_id")),
-    )
-    _sleep(0.4, pace=pace)
-
-    # Choose seed: Manufacturing if missing else Banking if missing else still Manufacturing update skip
-    seed = dict(INDUSTRY_SEED)
-    if _industry_already_present(industry_csv, "IND-000001"):
-        if not _industry_already_present(industry_csv, "IND-000002"):
-            seed = dict(EXTRA_SEEDS[0])
-        # else re-use manufacturing as demo validation path without duplicate publish
-
-    seed["Last Updated"] = utc_now_iso()[:10]
-    seed["Data Sources"] = (
-        f"{seed.get('Data Sources', '')}; connector={doc.get('connector_id')}; "
-        f"url={doc.get('original_url')}"
-    ).strip("; ")
-    seed["Notes"] = (
-        f"Live learning session {session_id}. mission={mission_id} "
-        f"document={doc.get('document_id')}"
-    )
-
-    _emit(
-        session_id,
-        "Pipeline",
-        f"Industry entity detected: {seed['Industry Name']}",
-        stage="pipeline",
-        progress=76,
-        status="progress",
-        mission_id=mission_id,
-        dataset=dataset,
-        current_entity=seed["Industry Name"],
-        current_task="Entity detection",
-        current_document=str(doc.get("document_id")),
-    )
-    _sleep(0.35, pace=pace)
-
-    # simulated related candidates from existing knowledge narrative
-    _emit(
-        session_id,
-        "Pipeline",
-        "Pain Point detected: High Equipment Downtime",
-        stage="pipeline",
-        progress=80,
-        status="progress",
-        mission_id=mission_id,
-        current_entity="High Equipment Downtime",
-        current_task="Pain point candidate",
-        dataset="pain_point_library",
-    )
-    _sleep(0.3, pace=pace)
-    _emit(
-        session_id,
-        "Pipeline",
-        "Solution candidate: Predictive Maintenance",
-        stage="pipeline",
-        progress=83,
-        status="progress",
-        mission_id=mission_id,
-        current_entity="Predictive Maintenance",
-        current_task="Solution candidate",
-        dataset="solution_library",
-    )
-    _sleep(0.3, pace=pace)
-    _emit(
-        session_id,
-        "Pipeline",
-        "Relationship candidate created: Company → Industry",
-        stage="pipeline",
-        progress=86,
-        status="progress",
-        mission_id=mission_id,
-        current_relationship="Company → Industry",
-        current_task="Relationship linking",
-    )
-    _sleep(0.3, pace=pace)
-
-    provenance = Provenance(
-        source_id=str(doc.get("source_id") or "SRC-CONN-INT"),
-        source_url=str(doc.get("original_url") or "https://example.invalid"),
-        retrieved_at=str(doc.get("retrieved_at") or utc_now_iso()),
-        confidence=0.97,
-        extraction_version="live-runtime-0.1.0",
-        validation_status=ValidationStatus.PENDING.value,
-    )
-    candidate = CandidateRecord.create(
-        entity_type="industry_library",
-        entity_id=seed["Industry ID"],
-        target_dataset="industry_library",
-        payload=seed,
-        provenance=provenance,
-        canonical_name=seed["Industry Name"],
-        metadata={
-            "mission_id": mission_id,
-            "session_id": session_id,
-            "document_id": doc.get("document_id"),
-            "connector_id": doc.get("connector_id"),
-            "live_runtime": True,
-        },
-    )
-    if lifecycle:
-        lifecycle.mark_progress(
-            stage="pipeline",
-            task=f"Candidate {candidate.candidate_id}",
-            knowledge_candidates=1,
-        )
-    _emit(
-        session_id,
-        "Pipeline",
-        f"Knowledge candidate {candidate.candidate_id} ready",
-        stage="pipeline",
-        progress=88,
-        status="completed",
-        mission_id=mission_id,
-        dataset=dataset,
-        current_entity=seed["Industry Name"],
-        confidence=0.97,
-        duration_ms=elapsed(),
-    )
-    _sleep(0.25, pace=pace)
-
-    # --- Validator ---
-    _emit(
-        session_id,
-        "Validator",
-        "Confidence 97%",
-        stage="validate",
-        progress=90,
-        status="progress",
-        mission_id=mission_id,
-        confidence=0.97,
-        current_entity=seed["Industry Name"],
-        current_task="Validation",
-    )
-    _sleep(0.35, pace=pace)
-
-    approved_dir = root / "automation" / "queue" / "approved"
-    pending_dir = root / "automation" / "queue" / "pending"
-    if auto_approve:
-        candidate.provenance.validation_status = ValidationStatus.APPROVED.value
-        candidate.provenance.reviewer = "live-human-controller"
-        save_candidate(approved_dir, candidate)
+    if not auto_approve:
         _emit(
             session_id,
             "Review",
-            f"Approved by {candidate.provenance.reviewer}",
-            stage="review",
-            progress=93,
-            status="completed",
-            mission_id=mission_id,
-            current_entity=seed["Industry Name"],
-            confidence=0.97,
-        )
-    else:
-        save_candidate(pending_dir, candidate)
-        _emit(
-            session_id,
-            "Review",
-            "Waiting human approval",
+            f"Queued {acq.get('candidates_extracted')} candidates for human approval",
             stage="review",
             progress=92,
             status="progress",
             mission_id=mission_id,
-            current_entity=seed["Industry Name"],
+            current_entity=industry_name,
         )
         growth.snapshot_today(root)
-        runtime_channels.log(
-            "review",
-            f"Candidate {candidate.candidate_id} waiting human approval",
-            module="live_runtime",
-            session_id=session_id,
-            correlation_id=correlation_id,
-            duration_ms=elapsed(),
-            repo_root=root,
-        )
-        journal.write_activity(
-            {
-                "status": "waiting_review",
-                "session_id": session_id,
-                "mission_id": mission_id,
-                "correlation_id": correlation_id,
-                "progress": 92,
-                "current_thought": "Waiting human approval",
-                "current_entity": seed["Industry Name"],
-                "current_dataset": dataset,
-            },
-            repo_root=root,
-        )
         if lifecycle:
             lifecycle.transition(
                 RuntimeState.STOPPED,
@@ -771,137 +564,60 @@ def _run_live_session_body(
             "mission_id": mission_id,
             "correlation_id": correlation_id,
             "pending_review": True,
-            "candidate_id": candidate.candidate_id,
+            "candidate_id": cand_meta.get("candidate_id"),
+            "acquisition": acq,
+            "published": False,
+            "knowledge_added": 0,
         }
 
-    _sleep(0.3, pace=pace)
-
-    # --- Publish ---
-    published = False
-    if publish:
+    if published_n:
+        growth.record_daily_counters(added=published_n, root=root)
         _emit(
             session_id,
             "Publishing",
-            f"Appending {seed['Industry ID']} {seed['Industry Name']} to Industry Library",
+            f"Published {published_n} row(s) · Knowledge Added {published_n}",
             stage="publish",
-            progress=96,
-            status="started",
+            progress=98,
+            status="completed",
             mission_id=mission_id,
             dataset=dataset,
-            current_entity=seed["Industry Name"],
-            current_task="Publishing knowledge",
+            current_entity=industry_name,
+            duration_ms=elapsed(),
         )
-        if _industry_already_present(industry_csv, seed["Industry ID"]):
-            _emit(
-                session_id,
-                "Publishing",
-                f"{seed['Industry ID']} already present — knowledge confirmed",
-                stage="publish",
-                progress=98,
-                status="completed",
-                mission_id=mission_id,
-                dataset=dataset,
-                current_entity=seed["Industry Name"],
-            )
-        else:
-            def _publish() -> None:
-                from automation.quality.integrity_guard import filter_append_rows
-
-                with industry_csv.open("r", encoding="utf-8-sig", newline="") as handle:
-                    headers = [(h or "").lstrip("\ufeff") for h in next(csv.reader(handle))]
-                row = {h: seed.get(h, "") for h in headers}
-                filtered = filter_append_rows(industry_csv, [row], repo_root=root)
-                if filtered["rejected_count"]:
-                    reason = filtered["rejected"][0]["reason"]
-                    raise RuntimeError(f"integrity_reject:{reason}")
-                append_csv_rows(
-                    industry_csv, filtered["accepted"], fieldnames=headers
-                )
-                growth.record_daily_counters(added=1, root=root)
-
-            try:
-                run_with_recovery(
-                    _publish,
-                    component="publisher.csv",
-                    session_id=session_id,
-                    correlation_id=correlation_id,
-                    repo_root=root,
-                )
-                published = True
-            except Exception as exc:  # noqa: BLE001
-                if "integrity_reject" in str(exc):
-                    _emit(
-                        session_id,
-                        "Publishing",
-                        f"Integrity guard rejected row: {exc}",
-                        stage="publish",
-                        progress=98,
-                        status="completed",
-                        mission_id=mission_id,
-                        dataset=dataset,
-                        current_entity=seed["Industry Name"],
-                    )
-                    published = False
-                    growth.record_daily_counters(rejected=1, root=root)
-                else:
-                    raise
-            runtime_channels.log(
-                "publish",
-                f"Published {seed['Industry Name']} → industry_library.csv",
-                module="live_runtime",
-                session_id=session_id,
-                correlation_id=correlation_id,
-                duration_ms=elapsed(),
-                repo_root=root,
-            )
-            _emit(
-                session_id,
-                "Publishing",
-                f"Published {seed['Industry Name']} → industry_library.csv",
-                stage="publish",
-                progress=98,
-                status="completed",
-                mission_id=mission_id,
-                dataset=dataset,
-                current_entity=seed["Industry Name"],
-                duration_ms=elapsed(),
-            )
-            _emit(
-                session_id,
-                "Knowledge Updated",
-                f"Knowledge feed: Industry · {seed['Industry Name']}",
-                stage="knowledge",
-                progress=99,
-                status="progress",
-                mission_id=mission_id,
-                dataset=dataset,
-                current_entity=seed["Industry Name"],
-            )
-
-    try:
-        from automation.connectors.manager import ConnectorManager
-
-        ConnectorManager(repo_root=root).queue.move(str(doc.get("document_id")), "processed")
-    except Exception:  # noqa: BLE001
-        pass
+        _emit(
+            session_id,
+            "Knowledge Updated",
+            f"Knowledge feed: {industry_name or 'entities'} (+{published_n})",
+            stage="knowledge",
+            progress=99,
+            status="progress",
+            mission_id=mission_id,
+            dataset=dataset,
+            current_entity=industry_name,
+        )
 
     sched.complete_mission(
         mission_id,
-        result=f"Live session {session_id} learned {seed['Industry Name']}",
-        executive_summary="Live learning runtime completed an observable end-to-end cycle.",
+        result=(
+            f"Live session {session_id} acquired "
+            f"docs={acq.get('documents_downloaded')} "
+            f"published={published_n} entity={industry_name}"
+        ),
+        executive_summary=(
+            "Real acquisition engine completed discover→download→extract→validate→publish."
+        ),
     )
 
     _emit(
         session_id,
         "Mission Completed",
-        f"Mission {mission_id} finished",
+        f"Mission {mission_id} finished · published={published_n}",
         stage="mission",
         progress=100,
         status="completed",
         mission_id=mission_id,
         dataset=dataset,
-        current_entity=seed["Industry Name"],
-        confidence=0.97,
+        current_entity=industry_name,
         duration_ms=elapsed(),
     )
     _emit(
@@ -919,7 +635,6 @@ def _run_live_session_body(
     snap = growth.snapshot_today(root)
     vs = growth.growth_vs_yesterday(root)
 
-    # final activity idle-ready
     journal.write_activity(
         {
             "status": "idle",
@@ -929,9 +644,12 @@ def _run_live_session_body(
             "progress": 100,
             "current_thought": "Session complete — Continuous Learning standing by",
             "current_task": "Idle",
-            "current_entity": seed["Industry Name"],
+            "current_entity": industry_name,
             "current_dataset": dataset,
-            "last_learned": seed["Industry Name"],
+            "last_learned": industry_name,
+            "documents_downloaded": acq.get("documents_downloaded"),
+            "candidates_extracted": acq.get("candidates_extracted"),
+            "rows_appended": published_n,
             "updated_at": utc_now_iso(),
         },
         repo_root=root,
@@ -957,7 +675,6 @@ def _run_live_session_body(
             },
         )
         lifecycle.release()
-        # return status board to idle for next start
         lifecycle.transition(RuntimeState.IDLE, stage="idle", task="Standing by")
 
     runtime_channels.log(
@@ -971,21 +688,11 @@ def _run_live_session_body(
     )
     runtime_channels.log(
         "learning",
-        f"Learned {seed['Industry Name']} published={published}",
+        f"Learned {industry_name} published={published_n}",
         module="live_runtime",
         session_id=session_id,
         correlation_id=correlation_id,
         duration_ms=elapsed(),
-        repo_root=root,
-    )
-    runtime_channels.log(
-        "telemetry",
-        "Session metrics snapshot",
-        module="live_runtime",
-        session_id=session_id,
-        correlation_id=correlation_id,
-        duration_ms=elapsed(),
-        meta={"snapshot": snap, "growth": vs},
         repo_root=root,
     )
 
@@ -995,36 +702,40 @@ def _run_live_session_body(
         "mission_id": mission_id,
         "correlation_id": correlation_id,
         "published": published,
-        "industry_id": seed["Industry ID"],
-        "industry_name": seed["Industry Name"],
-        "candidate_id": candidate.candidate_id,
+        "knowledge_added": published_n,
+        "industry_id": industry_id,
+        "industry_name": industry_name,
+        "candidate_id": cand_meta.get("candidate_id"),
         "document_id": doc.get("document_id"),
         "source_id": str(doc.get("source_id") or ""),
         "connector_id": str(doc.get("connector_id") or ""),
         "duration_ms": elapsed(),
         "snapshot": snap,
         "growth": vs,
+        "acquisition": {
+            "sources_contacted": acq.get("sources_contacted"),
+            "documents_discovered": acq.get("documents_discovered"),
+            "documents_downloaded": acq.get("documents_downloaded"),
+            "candidates_extracted": acq.get("candidates_extracted"),
+            "candidates_validated": acq.get("candidates_validated"),
+            "rows_published": published_n,
+            "queue_stats": acq.get("queue_stats"),
+            "failures": acq.get("failures"),
+        },
         "replay": f"automation/learning/state/sessions/{session_id}.jsonl",
     }
 
-    # EPIC-1: auto-update trusted source production metrics
     try:
-        from automation.lib.source_health import (
-            extract_source_ids_from_text,
-            record_session_sources,
-            recompute_from_datasets,
-        )
+        from automation.lib.source_health import record_session_sources, recompute_from_datasets
 
         sids = []
-        sid = str(doc.get("source_id") or "")
-        if sid.startswith("SRC-"):
-            sids.append(sid)
-        sids.extend(
-            extract_source_ids_from_text(
-                f"{seed.get('Data Sources', '')} {seed.get('Notes', '')}"
-            )
-        )
-        # unique preserve order
+        for d in docs:
+            sid = str(d.get("source_id") or "")
+            if sid.startswith("SRC-"):
+                sids.append(sid)
+        if not sids:
+            sids = ["SRC-000004"]
+        # unique
         seen: set[str] = set()
         uniq = []
         for s in sids:
@@ -1034,8 +745,8 @@ def _run_live_session_body(
         record_session_sources(
             uniq,
             success=True,
-            documents=1,
-            rows=1 if published else 0,
+            documents=int(acq.get("documents_downloaded") or 0),
+            rows=published_n,
             duration_ms=float(elapsed()),
             mission_id=mission_id,
             root=root,

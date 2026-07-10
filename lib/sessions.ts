@@ -76,6 +76,7 @@ export type SessionSummary = {
   dry_run?: boolean;
   events?: number;
   github?: Record<string, unknown>;
+  knowledge_delta?: Record<string, unknown> | null;
 };
 
 export type HistoryStats = {
@@ -214,6 +215,7 @@ export function listSessions(opts: {
       dry_run: Boolean(data.dry_run),
       events: Array.isArray(data.events) ? data.events.length : 0,
       github: (data.github as Record<string, unknown>) || {},
+      knowledge_delta: (data.knowledge_delta as Record<string, unknown>) || null,
     });
   }
 

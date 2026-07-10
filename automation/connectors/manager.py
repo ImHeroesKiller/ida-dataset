@@ -240,7 +240,25 @@ class ConnectorManager:
             return doc
 
         try:
-            doc = self.retry.run(cid, _download, dry_run=True)
+            cfg = self.registry.get(cid) or {}
+            # Respect connector dry_run config (false for production collectors)
+            dry = bool(cfg.get("dry_run", False))
+            doc = self.retry.run(cid, _download, dry_run=dry)
+            # Persist text payload into document metadata for extractors
+            if doc.local_path:
+                try:
+                    from pathlib import Path
+
+                    p = Path(doc.local_path)
+                    if p.exists() and p.stat().st_size < 2_000_000:
+                        text = p.read_text(encoding="utf-8", errors="replace")
+                        doc.metadata = {
+                            **(doc.metadata or {}),
+                            "text_excerpt": text[:8000],
+                            "text_length": len(text),
+                        }
+                except Exception:  # noqa: BLE001
+                    pass
             path = self.queue.enqueue(doc)
             doc.local_path = str(path)
             self.metrics.bump(cid, downloads=1, documents_retrieved=1, queue_added=1)

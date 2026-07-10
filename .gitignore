@@ -69,3 +69,11 @@ automation/runtime/state/**
 !automation/runtime/state/.gitkeep
 automation/runtime/logs/**
 !automation/runtime/logs/.gitkeep
+
+# Acquisition engine runtime queues / raw downloads
+automation/raw_documents/**
+!automation/raw_documents/.gitkeep
+automation/queue/documents/**
+!automation/queue/documents/**/.gitkeep
+automation/queue/candidates/**
+!automation/queue/candidates/**/.gitkeep

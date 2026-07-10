@@ -1,0 +1,382 @@
+# Extensible Trusted Source Registry — data-driven only.
+# Add a new source by appending one entry here (or a YAML file under sources/).
+# No code changes required in learning_session / scheduler / dashboard / publisher.
+
+version: "2.0"
+description: "Trusted knowledge sources for IDA Dataset Factory acquisition engine"
+
+defaults:
+  enabled: false
+  priority: 50
+  trust_score: 0.80
+  minimum_confidence: 0.80
+  rate_limit: 20
+  timeout: 30
+  retry: 3
+  language: en
+  country: multi
+  archive_documents: true
+  publish: true
+  update_frequency: weekly
+  authentication: none
+
+sources:
+  - id: SRC-000001
+    name: BPS Indonesia
+    category: government
+    enabled: true
+    priority: 90
+    collector: bps_indonesia
+    connector_id: CONN-BPS-001
+    base_url: https://www.bps.go.id
+    api_endpoint: https://www.bps.go.id/id/search
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 15
+    timeout: 30
+    retry: 3
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.95
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, company_profile, business_signal_library]
+    update_frequency: daily
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Official Statistics Indonesia (BPS)
+
+  - id: SRC-000004
+    name: World Bank
+    category: international_organization
+    enabled: true
+    priority: 88
+    collector: world_bank
+    connector_id: CONN-WB-001
+    base_url: https://www.worldbank.org
+    api_endpoint: https://search.worldbank.org/api/v2/wds
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 20
+    timeout: 30
+    retry: 3
+    supported_document_types: [json, html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.92
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, company_profile, business_signal_library, framework_library]
+    update_frequency: daily
+    parser: json
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: World Bank Documents & Reports WDS API
+
+  - id: SRC-000005
+    name: OECD
+    category: international_organization
+    enabled: true
+    priority: 75
+    collector: oecd
+    connector_id: CONN-OECD-001
+    base_url: https://www.oecd.org
+    api_endpoint: https://www.oecd.org/search/
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 20
+    timeout: 30
+    retry: 3
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, framework_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: OECD public library / search
+
+  - id: SRC-000006
+    name: Asian Development Bank
+    category: international_organization
+    enabled: true
+    priority: 78
+    collector: adb
+    connector_id: CONN-ADB-001
+    base_url: https://www.adb.org
+    api_endpoint: https://www.adb.org/search
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 15
+    timeout: 30
+    retry: 3
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.92
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: ADB publications and projects
+
+  - id: SRC-OPENALEX
+    name: OpenAlex
+    category: scientific_api
+    enabled: true
+    priority: 85
+    collector: openalex
+    connector_id: CONN-OPENALEX-001
+    base_url: https://openalex.org
+    api_endpoint: https://api.openalex.org/works
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 30
+    timeout: 30
+    retry: 3
+    supported_document_types: [json]
+    language: multi
+    country: multi
+    trust_score: 0.88
+    minimum_confidence: 0.82
+    allowed_datasets: [industry_library, business_signal_library, framework_library]
+    update_frequency: daily
+    parser: json
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Open scholarly works metadata API
+
+  - id: SRC-CROSSREF
+    name: Crossref
+    category: scientific_api
+    enabled: true
+    priority: 82
+    collector: crossref
+    connector_id: CONN-CROSSREF-001
+    base_url: https://www.crossref.org
+    api_endpoint: https://api.crossref.org/works
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 30
+    timeout: 30
+    retry: 3
+    supported_document_types: [json]
+    language: multi
+    country: multi
+    trust_score: 0.90
+    minimum_confidence: 0.82
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: daily
+    parser: json
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Crossref bibliographic metadata API
+
+  - id: SRC-000007
+    name: Kemenperin
+    category: government
+    enabled: true
+    priority: 70
+    collector: kemenperin
+    connector_id: CONN-KEMENPERIN-001
+    base_url: https://www.kemenperin.go.id
+    api_endpoint: https://www.kemenperin.go.id
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, company_profile]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Ministry of Industry Republic of Indonesia
+
+  - id: SRC-KEMNAKER
+    name: Kemnaker
+    category: government
+    enabled: false
+    priority: 68
+    collector: kemnaker
+    connector_id: null
+    base_url: https://kemnaker.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, pain_point_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Ministry of Manpower — connector interface ready; enable when site stable
+
+  - id: SRC-LKPP
+    name: LKPP
+    category: government
+    enabled: false
+    priority: 65
+    collector: lkpp
+    connector_id: null
+    base_url: https://www.lkpp.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [product_catalog, public_procurement]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: National Public Procurement Agency — connector interface ready
+
+  - id: SRC-OSS
+    name: OSS Indonesia
+    category: government
+    enabled: false
+    priority: 64
+    collector: oss_indonesia
+    connector_id: null
+    base_url: https://oss.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html]
+    language: id
+    country: ID
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [company_profile, industry_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Online Single Submission — connector interface ready
+
+  - id: SRC-APINDO
+    name: APINDO
+    category: industry_association
+    enabled: false
+    priority: 55
+    collector: apindo
+    connector_id: null
+    base_url: https://apindo.or.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.82
+    minimum_confidence: 0.82
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Employers Association of Indonesia — connector interface ready
+
+  - id: SRC-KADIN
+    name: KADIN
+    category: industry_association
+    enabled: false
+    priority: 55
+    collector: kadin
+    connector_id: null
+    base_url: https://kadin.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.82
+    minimum_confidence: 0.82
+    allowed_datasets: [industry_library, company_profile]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Indonesian Chamber of Commerce — connector interface ready

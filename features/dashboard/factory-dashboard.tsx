@@ -245,6 +245,12 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
     average_confidence: kpis.average_confidence,
     freshness: kpis.freshness,
     duplicate_rate: kpis.duplicate_rate,
+    documents_discovered: 0,
+    documents_downloaded: 0,
+    candidates_extracted: 0,
+    candidates_validated: 0,
+    publish_queue_size: 0,
+    rows_appended: 0,
   };
 
   const coverage = exec?.coverage || [];
@@ -401,7 +407,12 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
         <CounterCard label="Rows today" value={counters.rows_today} prefix="+" tone="green" />
         <CounterCard label="Rows rejected today" value={counters.rows_rejected_today} tone="neutral" />
         <CounterCard label="Sessions today" value={counters.sessions_today} tone="blue" />
-        <CounterCard label="Docs/sessions today" value={counters.documents_processed_today} tone="blue" />
+        <CounterCard label="Docs downloaded" value={counters.documents_downloaded || counters.documents_processed_today} tone="blue" />
+        <CounterCard label="Docs discovered" value={counters.documents_discovered || 0} tone="blue" />
+        <CounterCard label="Candidates extracted" value={counters.candidates_extracted || 0} tone="blue" />
+        <CounterCard label="Candidates validated" value={counters.candidates_validated || 0} tone="green" />
+        <CounterCard label="Publish queue" value={counters.publish_queue_size || 0} tone="neutral" />
+        <CounterCard label="Rows appended" value={counters.rows_appended || counters.rows_today} prefix="+" tone="green" />
         <CounterCard label="Rows this week" value={counters.rows_week} prefix="+" tone="green" />
         <CounterCard label="Rows this month" value={counters.rows_month} prefix="+" tone="green" />
         <MetricSimple
@@ -411,10 +422,6 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
               ? `${Math.round(counters.average_confidence * 100)}%`
               : "—"
           }
-        />
-        <MetricSimple
-          label="Freshness / Dup"
-          value={`${counters.freshness}% · ${Math.round((counters.duplicate_rate || 0) * 1000) / 10}%`}
         />
       </div>
 
