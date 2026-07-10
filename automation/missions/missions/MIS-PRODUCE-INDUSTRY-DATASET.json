@@ -1,0 +1,46 @@
+{
+  "mission_id": "MIS-PRODUCE-INDUSTRY-DATASET",
+  "title": "Produce Industry Dataset",
+  "description": "Production mission: expand Industry Library with verified industries from trusted sources (BPS, Kemenperin, BKPM, OJK, World Bank, OECD, ADB, APINDO, KADIN, OSS). Append-only. No schema change.",
+  "priority": "P0",
+  "kind": "production",
+  "requester": "epic-2a",
+  "created_at": "2026-07-10T14:59:52Z",
+  "status": "Completed",
+  "knowledge_targets": [
+    "industry_library",
+    "Industry"
+  ],
+  "allowed_sources": [
+    "SRC-000001",
+    "SRC-000004",
+    "SRC-000005",
+    "SRC-000006",
+    "SRC-000007",
+    "SRC-000008",
+    "SRC-000010",
+    "SRC-000012",
+    "SRC-000013",
+    "SRC-000014",
+    "SRC-000015"
+  ],
+  "related_datasets": [
+    "domains/business_development/industry_library.csv"
+  ],
+  "estimated_effort": 8.0,
+  "resource_allocation": 40.0,
+  "progress": 100.0,
+  "confidence": 0.86,
+  "result": "Appended 46 industries; library size 4→50",
+  "executive_summary": "EPIC-2A Industry Dataset Expansion: 50 verified industries (target 50). Existing rows preserved. Schema unchanged.",
+  "natural_language_request": "Produce Industry Dataset",
+  "current_stage": "completed",
+  "current_dataset": "industry_library",
+  "documents_processed": 46,
+  "entities_learned": 50,
+  "knowledge_added": 46,
+  "priority_rule": "lowest_industry_field_coverage_first",
+  "target_industries": 50,
+  "stretch_target": 100,
+  "updated_at": "2026-07-10T14:59:52Z"
+}

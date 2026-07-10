@@ -7,7 +7,7 @@
   "requester": "knowledge-sprint-v1",
   "created_at": "2026-07-10T13:54:37Z",
   "due_date": null,
-  "status": "Active",
+  "status": "Superseded",
   "knowledge_targets": [
     "industry_library",
     "Industry"
@@ -27,8 +27,8 @@
   "resource_allocation": 30.0,
   "progress": 40.0,
   "confidence": 0.885,
-  "result": "Published/updated 4 industries; library size 4; field coverage 100.0%",
-  "executive_summary": "Default continuous mission for Sprint Knowledge v1.0 — grow Industry Library with provenance-backed rows only.",
+  "result": "Superseded by MIS-PRODUCE-INDUSTRY-DATASET (EPIC-2A)",
+  "executive_summary": "Default continuous mission for Sprint Knowledge v1.0 \u2014 grow Industry Library with provenance-backed rows only.",
   "natural_language_request": "Expand Industry Library",
   "current_stage": "learning",
   "current_dataset": "industry_library",
@@ -36,5 +36,5 @@
   "entities_learned": 4,
   "knowledge_added": 4,
   "priority_rule": "lowest_industry_field_coverage_first",
-  "updated_at": "2026-07-10T13:54:37Z"
+  "updated_at": "2026-07-10T15:00:26Z"
 }

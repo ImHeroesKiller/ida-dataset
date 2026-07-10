@@ -105,8 +105,8 @@ export function getIndustryLibraryMetrics() {
         ) / 1000
       : null;
 
-  // Target catalog size for coverage progress (expandable)
-  const targetIndustries = 25;
+  // Phase-1 catalog target (EPIC-2A); stretch 100 tracked in reports
+  const targetIndustries = 50;
   const coverageProgress = Math.min(
     100,
     Math.round((n / targetIndustries) * 1000) / 10
