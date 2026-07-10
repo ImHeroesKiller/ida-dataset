@@ -3,8 +3,6 @@ import { ExecutiveDashboard } from "@/features/dashboard/executive-dashboard";
 import { getKnowledgeKpis } from "@/lib/knowledge-kpis";
 import { getLearningMode } from "@/lib/learning-mode";
 import { getReviewQueues } from "@/lib/repo-data";
-import fs from "fs";
-import { repoPath } from "@/lib/paths";
 
 export const dynamic = "force-dynamic";
 
@@ -12,24 +10,13 @@ export default function DashboardPage() {
   const kpis = getKnowledgeKpis();
   const review = getReviewQueues();
   const mode = getLearningMode();
-  const confidences = [
-    ...review.pending,
-    ...review.approved.slice(0, 20),
-  ].map((c) => Number(c.confidence || 0));
+  const industry = kpis.industry_library;
   const avgConf =
-    confidences.length > 0
-      ? confidences.reduce((a, b) => a + b, 0) / confidences.length
-      : null;
-
-  let sources = 0;
-  try {
-    const p = repoPath("automation/config/sources.yaml");
-    if (fs.existsSync(p)) {
-      sources = (fs.readFileSync(p, "utf8").match(/id:\s*/g) || []).length;
-    }
-  } catch {
-    sources = 0;
-  }
+    kpis.average_confidence ??
+    (review.pending.length
+      ? review.pending.reduce((a, c) => a + Number(c.confidence || 0), 0) /
+        review.pending.length
+      : null);
 
   return (
     <Shell title="Dashboard">
@@ -42,13 +29,29 @@ export default function DashboardPage() {
           pending_review: kpis.pending_review,
           knowledge_quality_score: kpis.knowledge_quality_score,
           average_confidence: avgConf,
-          growing_count: kpis.growing_datasets.length,
+          growing_count: industry.total_industries,
           gaps_count: kpis.knowledge_gaps.length,
           coverage_message: kpis.answers.how_much_knowledge,
           growth_message: kpis.knowledge_growth_today.message,
-          sources_count: sources || undefined,
+          sources_count: kpis.sources_count,
           mode: mode.mode,
           auto_publish: mode.auto_publish,
+          total_industries: industry.total_industries,
+          industries_learned: industry.total_industries,
+          field_coverage_pct: industry.field_coverage_pct,
+          coverage_progress_pct: industry.coverage_progress_pct,
+          verified_sources: industry.verified_sources,
+          knowledge_freshness_pct: industry.knowledge_freshness_pct,
+          duplicate_rate: industry.duplicate_rate,
+          dataset_version: kpis.dataset_version,
+          last_successful_session: kpis.last_successful_session,
+          current_source: kpis.current_source,
+          current_document: kpis.current_document,
+          current_mission: kpis.current_mission,
+          latest_industry: industry.latest
+            ? `${industry.latest.id} ${industry.latest.name}`
+            : null,
+          industry_names: industry.industries.map((i) => i.name),
         }}
       />
     </Shell>

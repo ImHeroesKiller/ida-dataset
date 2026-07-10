@@ -25,6 +25,21 @@ export type ExecutiveKpis = {
   sources_count?: number;
   mode?: string;
   auto_publish?: boolean;
+  /** Industry Library growth metrics (Sprint Knowledge v1.0) */
+  total_industries?: number;
+  industries_learned?: number;
+  field_coverage_pct?: number;
+  coverage_progress_pct?: number;
+  verified_sources?: number;
+  knowledge_freshness_pct?: number;
+  duplicate_rate?: number;
+  dataset_version?: string;
+  last_successful_session?: string | null;
+  current_source?: string | null;
+  current_document?: string | null;
+  current_mission?: string | null;
+  latest_industry?: string | null;
+  industry_names?: string[];
 };
 
 type PublishView = {
@@ -152,7 +167,7 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
     setMsg(null);
     try {
       const res = await startLearning(
-        "Continue continuous learning — expand knowledge coverage",
+        "Expand Industry Library — acquire verified industry knowledge from trusted sources",
         true
       );
       setMsg(
@@ -233,44 +248,39 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
         </div>
       </header>
 
-      {/* Primary cards */}
+      {/* Primary cards — real knowledge growth */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <MetricCard
-          label="Knowledge today"
+          label="Knowledge growth today"
           value={`+${kpis.knowledge_added_today}`}
           hint={kpis.growth_message}
           tone="green"
         />
         <MetricCard
-          label="Knowledge coverage"
-          value={`${kpis.knowledge_coverage}%`}
-          hint={kpis.coverage_message}
+          label="Industries learned"
+          value={String(kpis.industries_learned ?? kpis.total_industries ?? 0)}
+          hint={
+            kpis.industry_names?.length
+              ? kpis.industry_names.join(" · ")
+              : "Industry Library"
+          }
           tone="blue"
         />
         <MetricCard
-          label="Knowledge published"
-          value={String(publishedToday ?? 0)}
-          hint="Rows written to datasets"
+          label="Coverage progress"
+          value={`${kpis.coverage_progress_pct ?? kpis.knowledge_coverage}%`}
+          hint={kpis.coverage_message}
           tone="green"
         />
         <MetricCard
-          label="Waiting review"
-          value={pub.auto_publish ? "Auto" : String(kpis.pending_review)}
+          label="Learning quality"
+          value={String(kpis.knowledge_quality_score)}
           hint={
-            pub.auto_publish
-              ? "Development · auto publish enabled"
-              : kpis.pending_review > 0
-                ? "Action needed"
-                : "Queue clear"
+            kpis.average_confidence != null
+              ? `Avg confidence ${Math.round(kpis.average_confidence * 100)}%`
+              : "Quality score from coverage + confidence"
           }
-          tone={
-            pub.auto_publish
-              ? "blue"
-              : kpis.pending_review > 0
-                ? "amber"
-                : "neutral"
-          }
-          href={pub.auto_publish ? undefined : "/review"}
+          tone="blue"
         />
       </div>
 
@@ -282,36 +292,86 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
                 Current mission
               </p>
               <p className="mt-2 text-lg font-medium text-[var(--text)]">
-                {dashboard.current_mission || "No active mission"}
+                {kpis.current_mission ||
+                  dashboard.current_mission ||
+                  "Expand Industry Library"}
               </p>
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
-                Current learning
-              </p>
-              <p className="mt-2 text-base text-[var(--text-muted)]">
-                {activity.current_task ||
-                  activity.current_thought ||
-                  pub.current_knowledge ||
-                  "Idle"}
-              </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div>
+                <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
+                  Latest knowledge
+                </p>
+                <p className="mt-2 text-base text-[var(--text-muted)]">
+                  {kpis.latest_industry ||
+                    pub.current_knowledge ||
+                    activity.current_task ||
+                    "—"}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
+                  Current source / document
+                </p>
+                <p className="mt-2 text-sm text-[var(--text-muted)]">
+                  {kpis.current_source || activity.current_source || "—"}
+                </p>
+                <p className="text-xs text-[var(--text-faint)]">
+                  {kpis.current_document || activity.current_document || "—"}
+                </p>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-3 pt-1 sm:grid-cols-4">
-              <Mini label="Knowledge growth" value={`+${kpis.knowledge_added_today}`} />
-              <Mini label="Learning quality" value={String(kpis.knowledge_quality_score)} />
               <Mini
-                label="Avg confidence"
+                label="Field coverage"
+                value={`${kpis.field_coverage_pct ?? "—"}%`}
+              />
+              <Mini
+                label="Verified sources"
+                value={String(kpis.verified_sources ?? kpis.sources_count ?? "—")}
+              />
+              <Mini
+                label="Freshness"
+                value={`${kpis.knowledge_freshness_pct ?? "—"}%`}
+              />
+              <Mini
+                label="Dataset version"
+                value={kpis.dataset_version || "—"}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <Mini
+                label="Duplicate rate"
+                value={`${Math.round((kpis.duplicate_rate ?? 0) * 100)}%`}
+              />
+              <Mini
+                label="Rows updated"
+                value={String(kpis.knowledge_updated_today)}
+              />
+              <Mini
+                label="Last session"
                 value={
-                  kpis.average_confidence != null
-                    ? `${Math.round(kpis.average_confidence * 100)}%`
+                  kpis.last_successful_session
+                    ? String(kpis.last_successful_session).slice(0, 18)
                     : "—"
                 }
               />
-              <Mini
-                label="Knowledge sources"
-                value={String(kpis.sources_count ?? "—")}
-              />
             </div>
+            {(kpis.coverage_progress_pct != null || kpis.knowledge_coverage) && (
+              <div className="space-y-2 pt-1">
+                <div className="flex justify-between text-xs text-[var(--text-faint)]">
+                  <span>Industry catalog progress</span>
+                  <span>
+                    {kpis.coverage_progress_pct ?? kpis.knowledge_coverage}%
+                  </span>
+                </div>
+                <Progress
+                  value={Number(
+                    kpis.coverage_progress_pct ?? kpis.knowledge_coverage ?? 0
+                  )}
+                />
+              </div>
+            )}
           </CardBody>
         </Card>
 

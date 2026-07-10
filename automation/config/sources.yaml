@@ -1,6 +1,5 @@
 # Knowledge Acquisition System — Source Configuration
-# Human-controlled registry of trusted knowledge sources.
-# Runtime source-of-truth for allow/deny is also mirrored in metadata/source_registry.csv
+# Phase 1 trusted sources for Industry Library growth.
 
 version: "1.0"
 
@@ -8,9 +7,8 @@ defaults:
   trust_score_min: 0.70
   request_timeout_seconds: 30
   max_documents_per_source: 50
-  user_agent: "IDA-KAS/0.1 (+human-controlled; no autonomous crawl)"
+  user_agent: "IDA-KAS/1.0 (+human-controlled; respects robots.txt)"
 
-# Active source list (IDs must match metadata/source_registry.csv)
 sources:
   - source_id: SRC-000001
     name: BPS Indonesia
@@ -23,41 +21,129 @@ sources:
     allowed: true
     notes: Official national statistics. High trust.
 
-  - source_id: SRC-000002
-    name: Company Website Registry
-    base_url: https://example.com
-    category: company_website
+  - source_id: SRC-000004
+    name: World Bank Group
+    base_url: https://www.worldbank.org
+    category: international_organization
+    country: GLOBAL
+    trust_score: 0.94
+    update_frequency: monthly
+    status: active
+    allowed: true
+    notes: Indonesia overview, IEP, open knowledge reports.
+
+  - source_id: SRC-000005
+    name: OECD
+    base_url: https://www.oecd.org
+    category: international_organization
+    country: GLOBAL
+    trust_score: 0.93
+    update_frequency: quarterly
+    status: active
+    allowed: true
+    notes: OECD Economic Surveys Indonesia (digital transformation).
+
+  - source_id: SRC-000006
+    name: Asian Development Bank
+    base_url: https://www.adb.org
+    category: international_organization
+    country: GLOBAL
+    trust_score: 0.92
+    update_frequency: quarterly
+    status: active
+    allowed: true
+    notes: ADB country and sector knowledge products.
+
+  - source_id: SRC-000007
+    name: Kementerian Perindustrian
+    base_url: https://kemenperin.go.id
+    category: government
+    country: ID
+    trust_score: 0.90
+    update_frequency: monthly
+    status: active
+    allowed: true
+    notes: Ministry of Industry public industrial data and policies.
+
+  - source_id: SRC-000008
+    name: BKPM / Ministry of Investment
+    base_url: https://www.bkpm.go.id
+    category: government
+    country: ID
+    trust_score: 0.90
+    update_frequency: monthly
+    status: active
+    allowed: true
+    notes: Investment statistics and sector guidance.
+
+  - source_id: SRC-000009
+    name: IFC
+    base_url: https://www.ifc.org
+    category: international_organization
+    country: GLOBAL
+    trust_score: 0.92
+    update_frequency: quarterly
+    status: active
+    allowed: true
+    notes: Private sector development and TMT sector knowledge.
+
+  - source_id: SRC-000010
+    name: OJK
+    base_url: https://ojk.go.id
+    category: regulatory
+    country: ID
+    trust_score: 0.95
+    update_frequency: monthly
+    status: active
+    allowed: true
+    notes: Financial services regulator — banking and digital finance rules.
+
+  - source_id: SRC-000011
+    name: Kemnaker
+    base_url: https://kemnaker.go.id
+    category: government
+    country: ID
+    trust_score: 0.88
+    update_frequency: monthly
+    status: active
+    allowed: true
+    notes: Ministry of Manpower — employment and industrial relations.
+
+  - source_id: SRC-000012
+    name: KADIN Indonesia
+    base_url: https://kadin.id
+    category: association
     country: ID
     trust_score: 0.80
-    update_frequency: weekly
-    status: inactive
-    allowed: false
-    notes: Placeholder for company primary websites. Enable per-domain via controller.
-
-  - source_id: SRC-000003
-    name: Industry Reports Placeholder
-    base_url: https://example.com/reports
-    category: industry_report
-    country: GLOBAL
-    trust_score: 0.75
     update_frequency: quarterly
-    status: inactive
-    allowed: false
-    notes: Placeholder for licensed industry report feeds.
+    status: active
+    allowed: true
+    notes: Chamber of Commerce industry perspectives.
 
-# Domain controls (applied on top of source allow list)
+  - source_id: SRC-000013
+    name: APINDO
+    base_url: https://apindo.or.id
+    category: association
+    country: ID
+    trust_score: 0.80
+    update_frequency: quarterly
+    status: active
+    allowed: true
+    notes: Employers association industry and labor policy views.
+
 domains:
   whitelist: []
   blacklist:
     - localhost
     - 127.0.0.1
-    - example-spam.invalid
+    - example.invalid
+    - example.com
 
-# Categories eligible for acquisition in Phase 1
 categories:
   - government_statistics
-  - company_website
-  - industry_report
-  - annual_report
-  - news
+  - government
+  - international_organization
   - regulatory
+  - association
+  - company_website
+  - annual_report

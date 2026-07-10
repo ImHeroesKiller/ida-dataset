@@ -65,12 +65,16 @@ priorities:
 
 # Continuous learning backlog seeds (gap-driven; not extraction)
 continuous_catalog:
+  # Default continuous mission — Expand Industry Library (lowest coverage first)
   - task_id: CL-IND-001
-    title: Improve Industry Library
+    title: Expand Industry Library
     target_dataset: industry_library
     domain: business_development
-    priority: P3
+    priority: P1
     kind: continuous
+    mission_id: MIS-20260710-EXPAND-IND
+    priority_rule: lowest_industry_field_coverage_first
+
   - task_id: CL-PAIN-001
     title: Expand Pain Point Library
     target_dataset: pain_point_library

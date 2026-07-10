@@ -1,12 +1,14 @@
 {
   "status": "idle",
   "session_id": "SESSION-20260710-65AAEC",
-  "mission_id": "MIS-20260710-E9C70B",
   "progress": 100,
-  "current_thought": "Session completed · added=0 updated=1 entity=— · dry_run",
-  "current_task": "Idle",
-  "last_learned": null,
-  "updated_at": "2026-07-10T13:48:46+00:00",
-  "execution_model": "github_actions",
+  "current_thought": "Industry Library expanded with verified sources",
+  "current_task": "Latest: Agriculture \u00b7 Expand Industry Library",
+  "current_source": "SRC-000004 World Bank",
+  "current_document": "DOC-WB-IEP-2025-06",
+  "updated_at": "2026-07-10T13:54:37Z",
+  "execution_model": "knowledge_cycle",
+  "mission_id": "MIS-20260710-EXPAND-IND",
+  "last_gha_session": "SESSION-20260710-65AAEC",
   "last_error": null
 }

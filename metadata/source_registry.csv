@@ -1,4 +1,14 @@
 Source ID,Source Name,Base URL,Category,Country,Trust Score,Update Frequency,Status,Allowed,Last Crawl,Notes
 SRC-000001,BPS Indonesia,https://www.bps.go.id,government_statistics,ID,0.95,monthly,active,true,,Official national statistics. High trust.
-SRC-000002,Company Website Registry,https://example.com,company_website,ID,0.80,weekly,inactive,false,,Placeholder for company primary websites. Enable per-domain via controller.
-SRC-000003,Industry Reports Placeholder,https://example.com/reports,industry_report,GLOBAL,0.75,quarterly,inactive,false,,Placeholder for licensed industry report feeds.
+SRC-000002,Company Website Registry,https://example.com,company_website,ID,0.80,weekly,inactive,false,,Retired placeholder — do not use for acquisition.
+SRC-000003,Industry Reports Placeholder,https://example.com/reports,industry_report,GLOBAL,0.75,quarterly,inactive,false,,Retired placeholder — do not use for acquisition.
+SRC-000004,World Bank Group,https://www.worldbank.org,international_organization,GLOBAL,0.94,monthly,active,true,,"Indonesia overview, IEP, open knowledge reports."
+SRC-000005,OECD,https://www.oecd.org,international_organization,GLOBAL,0.93,quarterly,active,true,,OECD Economic Surveys Indonesia (digital transformation).
+SRC-000006,Asian Development Bank,https://www.adb.org,international_organization,GLOBAL,0.92,quarterly,active,true,,ADB country and sector knowledge products.
+SRC-000007,Kementerian Perindustrian,https://kemenperin.go.id,government,ID,0.90,monthly,active,true,,Ministry of Industry public industrial data and policies.
+SRC-000008,BKPM / Ministry of Investment,https://www.bkpm.go.id,government,ID,0.90,monthly,active,true,,Investment statistics and sector guidance.
+SRC-000009,IFC,https://www.ifc.org,international_organization,GLOBAL,0.92,quarterly,active,true,,Private sector development and TMT sector knowledge.
+SRC-000010,OJK,https://ojk.go.id,regulatory,ID,0.95,monthly,active,true,,Financial services regulator — banking and digital finance rules.
+SRC-000011,Kemnaker,https://kemnaker.go.id,government,ID,0.88,monthly,active,true,,Ministry of Manpower — employment and industrial relations.
+SRC-000012,KADIN Indonesia,https://kadin.id,association,ID,0.80,quarterly,active,true,,Chamber of Commerce industry perspectives.
+SRC-000013,APINDO,https://apindo.or.id,association,ID,0.80,quarterly,active,true,,Employers association industry and labor policy views.

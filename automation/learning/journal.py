@@ -121,10 +121,10 @@ def emit(
 
 def write_activity(data: dict[str, Any], repo_root: Path | None = None) -> None:
     path = activity_path(repo_root)
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(data, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
-        newline="\n",
     )
 
 
