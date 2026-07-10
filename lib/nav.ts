@@ -26,17 +26,17 @@ export type NavItem = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/", label: "Learning Dashboard", icon: LayoutDashboard },
   { href: "/learning", label: "Learning Brain", icon: Brain },
   { href: "/missions", label: "Missions", icon: Target },
+  { href: "/datasets", label: "Datasets", icon: Boxes },
+  { href: "/documents", label: "Documents", icon: FileText },
+  { href: "/review", label: "Review Queue", icon: ClipboardCheck },
   { href: "/network", label: "Knowledge Network", icon: Globe2 },
   { href: "/sources", label: "Sources", icon: BookOpen },
-  { href: "/documents", label: "Documents", icon: FileText },
   { href: "/planner", label: "Knowledge Planner", icon: ListChecks },
   { href: "/policies", label: "Knowledge Policies", icon: Shield },
   { href: "/ontology", label: "Ontology", icon: Network },
-  { href: "/datasets", label: "Datasets", icon: Boxes },
-  { href: "/review", label: "Review Queue", icon: ClipboardCheck },
   { href: "/publisher", label: "Publisher", icon: UploadCloud },
   { href: "/reports", label: "Reports", icon: FileBarChart2 },
   { href: "/settings", label: "Settings", icon: Settings },

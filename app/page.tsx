@@ -1,156 +1,148 @@
 import { Shell } from "@/components/layout/shell";
-import { StatusCard } from "@/components/dashboard/status-card";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { buildDashboardSnapshot } from "@/lib/repo-data";
+import { getKnowledgeKpis } from "@/lib/knowledge-kpis";
 import { getLearningDashboard } from "@/lib/learning";
-import { RunActions } from "@/components/shared/run-actions";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 export default function DashboardPage() {
-  const snap = buildDashboardSnapshot();
+  const k = getKnowledgeKpis();
   const learning = getLearningDashboard() as Record<string, unknown>;
-  const growth = (learning.knowledge_growth || {}) as Record<string, number>;
-  const alloc = (learning.learning_allocation || {}) as Record<string, number | string>;
   const mission = learning.current_mission as Record<string, unknown> | null;
-  const activity = (learning.brain_activity || {}) as Record<string, number>;
-  const feed = (learning.knowledge_feed || learning.learning_timeline || []) as Record<
-    string,
-    unknown
-  >[];
+  const journal = k.learning_journal;
 
   return (
-    <Shell title="Learning Dashboard">
-      <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-        <div>
-          <p className="text-xs text-zinc-500">
-            AI Learning Dashboard — not an admin console
-          </p>
-          <p className="mt-1 max-w-2xl text-sm text-zinc-300">
-            Continuous Learning never stops. Directed Learning missions coexist
-            under the Scheduler. Planner never starts directly.
-          </p>
-          <div className="mt-2 flex flex-wrap gap-1.5">
-            <Badge>VERSION {snap.version}</Badge>
-            <Badge>brain: {String(learning.brain_health || "waiting")}</Badge>
-            <Badge>
-              growth {growth.coverage_pct ?? snap.datasetSummary.coveragePct}%
-            </Badge>
-            <Badge>
-              alloc C{String(alloc.continuous ?? "—")}/D
-              {String(alloc.directed ?? "—")}
-            </Badge>
-          </div>
-        </div>
-        <div className="space-y-2">
-          <RunActions />
-          <div className="flex gap-2">
-            <Link
-              href="/learning"
-              className="rounded-md border border-zinc-700 px-2 py-1 text-xs text-zinc-300 hover:bg-zinc-900"
-            >
-              Open Learning Brain
-            </Link>
-            <Link
-              href="/missions"
-              className="rounded-md border border-zinc-700 px-2 py-1 text-xs text-zinc-300 hover:bg-zinc-900"
-            >
-              Missions
-            </Link>
-          </div>
+    <Shell title="IDA Learning Dashboard">
+      <div className="mb-4">
+        <p className="text-xs text-zinc-500">{k.philosophy.focus}</p>
+        <p className="mt-1 max-w-3xl text-sm text-zinc-200">
+          {k.philosophy.principle} Architecture is frozen. Every change should
+          increase knowledge, coverage, quality, relationships, and confidence.
+        </p>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          <Badge>
+            first knowledge:{" "}
+            {k.first_knowledge.learned
+              ? String(k.first_knowledge.industry_name)
+              : "not yet"}
+          </Badge>
+          <Badge>quality {k.knowledge_quality_score}</Badge>
+          <Badge>continuous: always on</Badge>
         </div>
       </div>
 
+      {/* Core questions */}
       <div className="mb-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <Card>
           <CardBody className="space-y-1">
             <div className="text-[10px] uppercase tracking-wide text-zinc-500">
-              Brain Health
+              How much knowledge?
             </div>
-            <div className="text-lg font-semibold text-zinc-100">
-              {String(learning.brain_health || "waiting")}
+            <div className="text-lg font-semibold text-zinc-50">
+              {k.knowledge_coverage}%
             </div>
             <div className="text-[11px] text-zinc-500">
-              ticks {activity.ticks ?? 0} · dispatched {activity.tasks_dispatched ?? 0}
+              {k.answers.how_much_knowledge}
             </div>
           </CardBody>
         </Card>
         <Card>
           <CardBody className="space-y-1">
             <div className="text-[10px] uppercase tracking-wide text-zinc-500">
-              Knowledge Growth
+              Learning right now?
             </div>
-            <div className="text-lg font-semibold text-zinc-100">
-              {growth.coverage_pct ?? snap.datasetSummary.coveragePct}%
+            <div className="text-lg font-semibold text-zinc-50">
+              {String(mission?.title || "Continuous gaps")}
             </div>
             <div className="text-[11px] text-zinc-500">
-              {growth.datasets_populated ?? snap.datasetSummary.populated}/
-              {growth.datasets_total ?? snap.datasetSummary.total} datasets
+              {k.answers.learning_now}
             </div>
           </CardBody>
         </Card>
         <Card>
           <CardBody className="space-y-1">
             <div className="text-[10px] uppercase tracking-wide text-zinc-500">
-              Learning Allocation
+              Smarter than yesterday?
             </div>
-            <div className="text-lg font-semibold text-zinc-100">
-              C {String(alloc.continuous ?? "—")}% · D {String(alloc.directed ?? "—")}%
+            <div className="text-lg font-semibold text-zinc-50">
+              {k.knowledge_growth_today.smarter_than_yesterday ? "Yes" : "Baseline"}
             </div>
             <div className="text-[11px] text-zinc-500">
-              profile {String(alloc.profile || "—")}
+              {k.answers.smarter_than_yesterday}
             </div>
           </CardBody>
         </Card>
         <Card>
           <CardBody className="space-y-1">
             <div className="text-[10px] uppercase tracking-wide text-zinc-500">
-              Current Mission
+              Knowledge quality
             </div>
-            <div className="truncate text-lg font-semibold text-zinc-100">
-              {mission ? String(mission.title) : "Waiting for first execution"}
+            <div className="text-lg font-semibold text-zinc-50">
+              {k.knowledge_quality_score}
             </div>
             <div className="text-[11px] text-zinc-500">
-              {mission
-                ? `${mission.priority} · ${mission.status} · ${mission.progress}%`
-                : "No directed mission"}
+              confidence {k.knowledge_confidence ?? "—"}
             </div>
           </CardBody>
         </Card>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
-        {snap.modules.map((m) => (
-          <StatusCard
-            key={m.key}
-            label={m.label}
-            status={m.status}
-            detail={m.detail}
-          />
-        ))}
+      <div className="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <Card>
+          <CardBody>
+            <div className="text-[10px] uppercase text-zinc-500">Added today</div>
+            <div className="text-2xl font-semibold text-emerald-400">
+              {k.knowledge_added_today}
+            </div>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <div className="text-[10px] uppercase text-zinc-500">Updated today</div>
+            <div className="text-2xl font-semibold text-sky-400">
+              {k.knowledge_updated_today}
+            </div>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <div className="text-[10px] uppercase text-zinc-500">Rejected</div>
+            <div className="text-2xl font-semibold text-red-400">
+              {k.knowledge_rejected}
+            </div>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody>
+            <div className="text-[10px] uppercase text-zinc-500">Pending review</div>
+            <div className="text-2xl font-semibold text-amber-300">
+              {k.pending_review}
+            </div>
+          </CardBody>
+        </Card>
       </div>
 
-      <div className="mt-4 grid gap-3 lg:grid-cols-2">
+      <div className="grid gap-3 lg:grid-cols-2">
         <Card>
           <CardHeader
-            title="Knowledge Feed / Brain Activity"
-            description="Scheduler telemetry stream"
+            title="Growing datasets"
+            description="Which datasets are growing?"
           />
-          <CardBody className="max-h-56 space-y-1 overflow-y-auto font-mono text-[11px] scrollbar-thin">
-            {feed.length === 0 ? (
-              <p className="font-sans text-xs text-zinc-500">
-                {snap.waitingMessage}
-              </p>
+          <CardBody className="space-y-1 text-xs">
+            {k.growing_datasets.length === 0 ? (
+              <p className="text-zinc-500">Waiting for first execution</p>
             ) : (
-              [...feed].reverse().slice(0, 25).map((e, i) => (
-                <div key={i} className="text-zinc-400">
-                  <span className="text-zinc-600">
-                    {String(e.ts || "").slice(11, 19)}
-                  </span>{" "}
-                  <span className="text-sky-400">{String(e.stream)}</span>{" "}
-                  {String(e.event)} — {String(e.detail)}
+              k.growing_datasets.map((d) => (
+                <div
+                  key={d.path}
+                  className="flex justify-between border-b border-zinc-900 py-1.5 text-zinc-300"
+                >
+                  <span>{d.name}</span>
+                  <span className="text-zinc-500">
+                    {d.domain} · {d.rows} rows
+                  </span>
                 </div>
               ))
             )}
@@ -159,26 +151,122 @@ export default function DashboardPage() {
 
         <Card>
           <CardHeader
-            title="Latest Reports"
-            description="reports/ artifacts"
+            title="Knowledge gaps"
+            description="Still empty / header-only"
           />
-          <CardBody className="space-y-1.5">
-            {snap.latestReports.length === 0 ? (
-              <p className="text-xs text-zinc-500">{snap.waitingMessage}</p>
+          <CardBody className="max-h-64 space-y-1 overflow-y-auto text-xs scrollbar-thin">
+            {k.knowledge_gaps.length === 0 ? (
+              <p className="text-zinc-500">No gaps</p>
             ) : (
-              snap.latestReports.map((r) => (
-                <a
-                  key={r.relativePath}
-                  href={`/reports?file=${encodeURIComponent(r.relativePath)}`}
-                  className="flex items-center justify-between rounded-md border border-transparent px-2 py-1.5 text-xs hover:border-zinc-800 hover:bg-zinc-900/60"
+              k.knowledge_gaps.map((d) => (
+                <div
+                  key={d.path}
+                  className="flex justify-between border-b border-zinc-900 py-1.5 text-zinc-400"
                 >
-                  <span className="truncate text-zinc-200">{r.name}</span>
-                  <span className="ml-2 shrink-0 text-[10px] text-zinc-500">
-                    {r.kind}
-                  </span>
-                </a>
+                  <span>{d.name}</span>
+                  <span className="text-zinc-600">{d.domain}</span>
+                </div>
               ))
             )}
+          </CardBody>
+        </Card>
+      </div>
+
+      <div className="mt-3 grid gap-3 lg:grid-cols-2">
+        <Card>
+          <CardHeader
+            title="Current mission"
+            description="Directed learning (never stops continuous)"
+          />
+          <CardBody className="text-xs text-zinc-400">
+            {!mission ? (
+              <p className="text-zinc-500">No active directed mission</p>
+            ) : (
+              <div className="space-y-1">
+                <div className="text-sm text-zinc-100">{String(mission.title)}</div>
+                <div>
+                  {String(mission.priority)} · {String(mission.status)} ·{" "}
+                  {String(mission.progress)}%
+                </div>
+                <div>Stage: {String(mission.current_stage || "—")}</div>
+                <div>Dataset: {String(mission.current_dataset || "—")}</div>
+              </div>
+            )}
+            <div className="mt-3 flex gap-2">
+              <Link href="/missions" className="text-sky-400 hover:underline">
+                Missions
+              </Link>
+              <Link href="/learning" className="text-sky-400 hover:underline">
+                Learning Brain
+              </Link>
+              <Link href="/documents" className="text-sky-400 hover:underline">
+                Documents ({k.documents_processing})
+              </Link>
+              <Link href="/review" className="text-sky-400 hover:underline">
+                Review ({k.pending_review})
+              </Link>
+            </div>
+          </CardBody>
+        </Card>
+
+        <Card>
+          <CardHeader
+            title="Learning journal"
+            description="Realtime learning verbs — not system noise"
+          />
+          <CardBody className="max-h-64 space-y-1 overflow-y-auto font-mono text-[11px] scrollbar-thin">
+            {journal.length === 0 ? (
+              <p className="font-sans text-xs text-zinc-500">
+                Waiting for first execution
+              </p>
+            ) : (
+              [...journal].reverse().slice(0, 40).map((e, i) => (
+                <div key={i} className="text-zinc-400">
+                  <span className="text-zinc-600">
+                    {String(e.ts || "").slice(11, 19)}
+                  </span>{" "}
+                  <span className="text-emerald-400">{String(e.verb)}</span> —{" "}
+                  {String(e.detail)}
+                </div>
+              ))
+            )}
+          </CardBody>
+        </Card>
+      </div>
+
+      <div className="mt-3 grid gap-3 lg:grid-cols-2">
+        <Card>
+          <CardHeader title="Recently learned knowledge" />
+          <CardBody className="space-y-1 text-xs">
+            {k.recently_learned.length === 0 ? (
+              <p className="text-zinc-500">Waiting for first execution</p>
+            ) : (
+              k.recently_learned.map((r) => (
+                <div
+                  key={r.path}
+                  className="flex justify-between border-b border-zinc-900 py-1.5 text-zinc-300"
+                >
+                  <span>{r.dataset}</span>
+                  <span className="text-zinc-500">{r.rows} rows</span>
+                </div>
+              ))
+            )}
+          </CardBody>
+        </Card>
+        <Card>
+          <CardHeader title="Domain coverage" />
+          <CardBody className="space-y-1 text-xs">
+            {k.domain_coverage.map((d) => (
+              <div
+                key={d.domain}
+                className="flex justify-between border-b border-zinc-900 py-1.5 text-zinc-300"
+              >
+                <span>{d.domain}</span>
+                <span className="text-zinc-500">
+                  {d.populated}/{d.total} · {d.coverage_pct}%
+                </span>
+              </div>
+            ))}
           </CardBody>
         </Card>
       </div>

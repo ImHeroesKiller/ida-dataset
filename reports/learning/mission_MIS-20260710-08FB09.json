@@ -1,0 +1,36 @@
+{
+  "type": "mission_report",
+  "generated_at": "2026-07-10T11:27:39+00:00",
+  "mission": {
+    "mission_id": "MIS-20260710-08FB09",
+    "title": "Learn and publish first Industry Library knowledge for Manufacturing.",
+    "description": "Learn and publish first Industry Library knowledge for Manufacturing.",
+    "priority": "P1",
+    "requester": "ida-first-cycle",
+    "created_at": "2026-07-10T11:27:38+00:00",
+    "due_date": null,
+    "status": "Completed",
+    "knowledge_targets": [
+      "Knowledge"
+    ],
+    "allowed_sources": [],
+    "policies": {},
+    "estimated_effort": 1.0,
+    "resource_allocation": 30.0,
+    "progress": 100.0,
+    "confidence": 0.0,
+    "result": "Published industry IND-000001 Manufacturing",
+    "executive_summary": "IDA completed its first end-to-end learning cycle for Industry Library.",
+    "related_datasets": [],
+    "updated_at": "2026-07-10T11:27:38+00:00",
+    "natural_language_request": "Learn and publish first Industry Library knowledge for Manufacturing.",
+    "contract_id": "CTR-20260710-08FB09",
+    "current_stage": "completed",
+    "current_dataset": "",
+    "documents_processed": 0,
+    "entities_learned": 0,
+    "knowledge_added": 0,
+    "eta": null
+  },
+  "architecture": "Scheduler → Planner → Policy → Pipeline → Review → Publisher"
+}

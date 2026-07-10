@@ -15,21 +15,29 @@ class ConnectorMetrics:
         self.path.parent.mkdir(parents=True, exist_ok=True)
 
     def load(self) -> dict[str, Any]:
+        empty = {
+            "updated_at": None,
+            "connectors": {},
+            "totals": {
+                "searches": 0,
+                "fetches": 0,
+                "downloads": 0,
+                "cached_hits": 0,
+                "errors": 0,
+                "rate_limited": 0,
+                "queue_added": 0,
+            },
+        }
         if not self.path.exists():
-            return {
-                "updated_at": None,
-                "connectors": {},
-                "totals": {
-                    "searches": 0,
-                    "fetches": 0,
-                    "downloads": 0,
-                    "cached_hits": 0,
-                    "errors": 0,
-                    "rate_limited": 0,
-                    "queue_added": 0,
-                },
-            }
-        return json.loads(self.path.read_text(encoding="utf-8"))
+            return empty
+        try:
+            text = self.path.read_text(encoding="utf-8").strip()
+            if not text:
+                return empty
+            return json.loads(text)
+        except (OSError, json.JSONDecodeError):
+            return empty
+
 
     def save(self, data: dict[str, Any]) -> None:
         data["updated_at"] = utc_now_iso()

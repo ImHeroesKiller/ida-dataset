@@ -1,43 +1,40 @@
 # IDA Dataset
 
-Scalable knowledge repository for the IDA Executive AI platform, including the **Executive Control Center** web UI.
+High-quality AI knowledge repository for the IDA Executive AI platform.
 
-## Contents
+## Vision
 
-| Path | Purpose |
-| --- | --- |
-| `app/` `components/` `lib/` | Executive Control Center (Next.js) |
-| `domains/` | Domain knowledge datasets (CSV) |
-| `metadata/ontology/` | Knowledge Ontology Engine (KOE) |
-| `automation/` | Knowledge Acquisition System (KAS) + CI tools |
-| `reports/` | Validation / planner / review / publish reports |
-| `docs/` | Architecture and operations docs |
+**Architecture is complete. Focus is Knowledge Growth.**
 
-## Run the dashboard
+See [docs/vision.md](docs/vision.md).
+
+## Primary goal
+
+> Increase IDA Knowledge — measurable coverage, quality, confidence.
+
+## Run Learning Dashboard
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000
+Open http://localhost:3000 — **IDA Learning Dashboard**.
 
-### Deploy on Vercel
+## First knowledge cycle (Industry Library)
 
-1. Import this GitHub repository  
-2. **Root Directory: leave empty** (repo root)  
-3. Framework: **Next.js**  
-4. Deploy  
-
-See [docs/vercel.md](docs/vercel.md).
-
-## Knowledge control flow
-
-```text
-Scheduler → Planner → Policy → Pipeline → Review → Publisher
+```bash
+python -m automation.learning.first_cycle
 ```
 
-Continuous Learning never stops. Directed Learning missions coexist.
+This runs one end-to-end learning path using the frozen architecture:
+
+```text
+Mission → Scheduler → Planner → Connector → Document Queue
+→ Review → Publish → CSV → Dashboard / Journal / Telemetry
+```
+
+## Learning control
 
 ```bash
 python -m automation.scheduler mission "Learn everything about SAP ERP."
@@ -46,5 +43,8 @@ python -m automation.connectors health
 python -m automation.search "Indonesian manufacturing" --limit 5
 ```
 
-Human-controlled. Not autonomous. Knowledge Network acquires documents only (no direct dataset writes).
+Continuous Learning never stops. Directed Learning only influences allocation.
 
+## Frozen architecture (do not expand unless requested)
+
+Repository · Scheduler · Planner · Policy · Knowledge Network · Document Queue · Pipeline · Review · Publisher · Telemetry · Learning Dashboard

@@ -46,3 +46,11 @@ automation/documents/processed/**
 !automation/documents/processed/.gitkeep
 automation/documents/failed/**
 !automation/documents/failed/.gitkeep
+
+# Learning runtime noise (keep journal + snapshots that prove growth)
+automation/learning/state/**
+!automation/learning/state/.gitkeep
+!automation/learning/state/learning_journal.jsonl
+!automation/learning/state/current_snapshot.json
+!automation/learning/state/snapshot_*.json
+!automation/learning/state/daily_*.json
