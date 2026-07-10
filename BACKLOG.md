@@ -2,6 +2,7 @@
 
 **Status:** Official  
 **Architecture:** Frozen (v2.0)  
+**Mode:** Permanent **production batches** (not feature sprints)  
 **Horizon:** 2026–2027  
 
 ## Product goal
@@ -18,19 +19,35 @@ Every backlog item must improve at least one KPI:
 | **Automation** | Missions, scheduling, retries, CI jobs |
 | **Export** | Formats, packaging, versioning |
 
+## Production authority (mandatory)
+
+| Document | Role |
+|----------|------|
+| [docs/DATASET_PRODUCTION_STANDARD.md](./docs/DATASET_PRODUCTION_STANDARD.md) | DPS v1.0 — how to produce |
+| [docs/DATASET_DEPENDENCY_MATRIX.md](./docs/DATASET_DEPENDENCY_MATRIX.md) | What must exist before what |
+| [docs/PRODUCTION_BATCH_LIBRARY.md](./docs/PRODUCTION_BATCH_LIBRARY.md) | Batch-001… catalog |
+| [docs/PRODUCTION_ORDER.md](./docs/PRODUCTION_ORDER.md) | Manufacturing plan + targets |
+
+**Next primary batch:** Batch-002 Service Dataset (Industry Batch-001 baseline complete).
+
 ## Product rules (non-negotiable)
 
 - No architectural redesign  
 - No repository restructure  
+- No UI redesign  
 - No AI reasoning / decision engine  
 - No RAG  
 - No chatbot / agent product work  
+- Every production batch follows DPS v1.0  
 
-Those belong to **IDA Intelligent Decision Automation**.
+Those non-factory products belong to **IDA Intelligent Decision Automation**.
 
-## Definition of Done (sprint)
+## Definition of Done
 
-A sprint is **DONE** only if it improves ≥1 official KPI (see [KPI.md](./KPI.md)).
+| Layer | Done means |
+|-------|------------|
+| **Production batch** | DPS DoD: rows appended, validation pass, coverage↑, quality maintained, exports updated |
+| **Backlog item** | Improves ≥1 official KPI family (see [KPI.md](./KPI.md)) without architecture change |
 
 ---
 
@@ -143,47 +160,50 @@ E1 sources; E3 extraction; E8 QA gates
 
 **L** (ongoing)
 
-### Priority dataset order
+### Priority dataset order (production batch sequence)
 
-1. Industry  
-2. Company  
-3. Product  
-4. Service  
-5. Pain Point  
-6. Solution  
-7. Framework  
-8. Case Study  
-9. Buyer Persona  
-10. Regulation  
-11. Decision Maker  
-12. KPI  
-13. Opportunity  
-14. Risk  
-15. Trend  
-16. Competitor  
+Authoritative: [docs/DATASET_DEPENDENCY_MATRIX.md](./docs/DATASET_DEPENDENCY_MATRIX.md) · [docs/PRODUCTION_BATCH_LIBRARY.md](./docs/PRODUCTION_BATCH_LIBRARY.md)
+
+1. Industry (Batch-001 — baseline complete, continuous)  
+2. Service (Batch-002 — **next**)  
+3. Product (Batch-003)  
+4. Company (Batch-004)  
+5. Pain Point (Batch-005)  
+6. Solution (Batch-006)  
+7. Framework (Batch-007)  
+8. Case Study (Batch-008)  
+9. Buyer Persona (Batch-009)  
+10. Decision Maker (Batch-010)  
+11. Regulation (Batch-011; may interleave post-Industry)  
+12. Opportunity (Batch-012)  
+13. Risk (Batch-013)  
+14. Trend (Batch-014)  
+15. Competitor (Batch-015)  
+16. Business Signal (Batch-016)  
+17. Discovery Question (Batch-017)  
 
 ### Backlog items
 
-| ID | Item | Priority | Complexity | KPI |
-|----|------|----------|------------|-----|
-| E2-01 | Expand Industry Library (lowest field coverage first) | P0 | M | Coverage |
-| E2-02 | Company Profile growth from trusted reports | P0 | L | Coverage |
-| E2-03 | Product Catalog verified rows | P1 | M | Coverage |
-| E2-04 | Service inventory dataset (or product subtype rules) | P1 | M | Coverage |
-| E2-05 | Pain Point Library fill from industry docs | P0 | M | Coverage |
-| E2-06 | Solution Library linked to pain points | P1 | M | Coverage |
-| E2-07 | Framework Library entries with sources | P2 | S | Coverage |
-| E2-08 | Case Study Library from public annual/sustainability reports | P1 | M | Coverage |
-| E2-09 | Buyer Persona structured rows | P2 | M | Coverage |
-| E2-10 | Regulation knowledge rows (OJK / industrial / labor) | P1 | L | Coverage |
-| E2-11 | Decision Maker role patterns per industry | P2 | M | Coverage |
-| E2-12 | KPI library per industry | P2 | M | Coverage |
-| E2-13 | Opportunity patterns (not CRM pipeline) | P2 | M | Coverage |
-| E2-14 | Risk library with source citations | P2 | M | Coverage |
-| E2-15 | Trend library (dated, sourced) | P2 | M | Coverage |
-| E2-16 | Competitor Library verified rows | P1 | M | Coverage |
-| E2-17 | Domain stubs → first real rows (finance/legal/ops) | P2 | L | Coverage |
-| E2-18 | Coverage target ladder (e.g. 25 → 50 industries) | P1 | S | Coverage |
+| ID | Item | Batch | Priority | Complexity | KPI |
+|----|------|-------|----------|------------|-----|
+| E2-01 | Expand Industry Library toward product target 250 | 001 | P0 | M | Coverage |
+| E2-02 | Service inventory (service_library via product_catalog subtype until dedicated CSV) | 002 | P0 | M | Coverage |
+| E2-03 | Product Catalog verified expansion | 003 | P0 | M | Coverage |
+| E2-04 | Company Profile growth from trusted reports (after Service/Product baseline) | 004 | P0 | L | Coverage |
+| E2-05 | Pain Point Library fill from industry docs | 005 | P0 | M | Coverage |
+| E2-06 | Solution Library linked to pain points | 006 | P0 | M | Coverage |
+| E2-07 | Framework Library entries with sources | 007 | P1 | S | Coverage |
+| E2-08 | Case Study Library from public annual/sustainability reports | 008 | P1 | M | Coverage |
+| E2-09 | Buyer Persona structured rows | 009 | P1 | M | Coverage |
+| E2-10 | Decision Maker role patterns | 010 | P1 | M | Coverage |
+| E2-11 | Regulation knowledge rows (OJK / industrial / labor) | 011 | P1 | L | Coverage |
+| E2-12 | Opportunity patterns (not CRM pipeline) | 012 | P1 | M | Coverage |
+| E2-13 | Risk library / fields with source citations | 013 | P2 | M | Coverage |
+| E2-14 | Trend library / fields (dated, sourced) | 014 | P2 | M | Coverage |
+| E2-15 | Competitor Library verified rows | 015 | P1 | M | Coverage |
+| E2-16 | Business Signal Library | 016 | P2 | M | Coverage |
+| E2-17 | Discovery Question Library | 017 | P2 | M | Coverage |
+| E2-18 | Domain stubs → first real rows (finance/legal/ops) after BD targets mature | — | P2 | L | Coverage |
 
 ### Epic success
 
