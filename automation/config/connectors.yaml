@@ -1,0 +1,273 @@
+# IDA Knowledge Network — Connector configuration
+# No hardcoding of limits/domains in connector code.
+
+version: "1.0"
+enabled: true
+
+# Architecture enforcement
+rules:
+  planner_never_calls_connectors_directly: true
+  connector_never_writes_datasets: true
+  connector_never_extracts_knowledge: true
+  only_document_acquisition: true
+  policy_decides: true
+  scheduler_requests: true
+  connector_executes: true
+  domain_allowlist_only: true
+  respect_robots_txt: true  # placeholder behavior
+
+# Worker pool
+workers:
+  max_parallel_connectors: 8
+  max_parallel_fetches: 16
+  max_queue_documents: 100000
+  max_connectors: 100
+
+# Defaults applied when a connector omits a field
+defaults:
+  enabled: false
+  priority: 50
+  trust_score: 0.70
+  rate_limit_per_minute: 30
+  retries: 3
+  timeout_seconds: 30
+  backoff_base_seconds: 1.0
+  backoff_max_seconds: 60.0
+  circuit_breaker_failures: 5
+  circuit_breaker_cooldown_seconds: 300
+  cache_ttl_seconds: 86400
+  review_requirement: true
+  dry_run: true
+  scheduler_access: true
+  policy_access: true
+
+# Paths
+paths:
+  registry: metadata/connectors/registry.csv
+  document_incoming: automation/documents/incoming
+  document_processing: automation/documents/processing
+  document_processed: automation/documents/processed
+  document_failed: automation/documents/failed
+  connector_cache: automation/connectors/cache
+  search_cache: automation/search/cache
+  events: automation/connectors/cache/events.jsonl
+  metrics: automation/connectors/cache/metrics.json
+  source_registry: metadata/source_registry.csv
+
+# Connector instances (Phase 1 — architecture placeholders)
+connectors:
+  - connector_id: CONN-WB-001
+    name: World Bank
+    type: government
+    class: world_bank
+    enabled: true
+    priority: 80
+    allowed_domains: [worldbank.org, data.worldbank.org]
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 20
+    retries: 3
+    timeout_seconds: 30
+    trust_score: 0.92
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-WB
+
+  - connector_id: CONN-BPS-001
+    name: BPS Indonesia
+    type: government
+    class: bps_indonesia
+    enabled: true
+    priority: 90
+    allowed_domains: [bps.go.id, www.bps.go.id]
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 15
+    retries: 3
+    timeout_seconds: 30
+    trust_score: 0.95
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-000001
+
+  - connector_id: CONN-OECD-001
+    name: OECD
+    type: research
+    class: oecd
+    enabled: true
+    priority: 75
+    allowed_domains: [oecd.org, data.oecd.org]
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 20
+    retries: 3
+    timeout_seconds: 30
+    trust_score: 0.90
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-OECD
+
+  - connector_id: CONN-SEC-001
+    name: SEC / Annual Reports
+    type: corporate
+    class: sec_annual_reports
+    enabled: false
+    priority: 70
+    allowed_domains: [sec.gov, www.sec.gov]
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 10
+    retries: 3
+    timeout_seconds: 45
+    trust_score: 0.93
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-SEC
+
+  - connector_id: CONN-AR-001
+    name: Company Annual Reports
+    type: corporate
+    class: company_annual_reports
+    enabled: false
+    priority: 65
+    allowed_domains: []
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 10
+    retries: 3
+    timeout_seconds: 45
+    trust_score: 0.80
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-AR
+
+  - connector_id: CONN-GH-001
+    name: GitHub
+    type: repository
+    class: github
+    enabled: false
+    priority: 60
+    allowed_domains: [github.com, api.github.com, raw.githubusercontent.com]
+    blocked_domains: []
+    authentication: token
+    rate_limit_per_minute: 30
+    retries: 3
+    timeout_seconds: 30
+    trust_score: 0.75
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-GH
+
+  - connector_id: CONN-RSS-001
+    name: RSS
+    type: rss
+    class: rss
+    enabled: true
+    priority: 40
+    allowed_domains: []
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 30
+    retries: 2
+    timeout_seconds: 20
+    trust_score: 0.65
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-RSS
+
+  - connector_id: CONN-GS-001
+    name: Generic Search
+    type: search
+    class: generic_search
+    enabled: false
+    priority: 30
+    allowed_domains: []
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 10
+    retries: 2
+    timeout_seconds: 20
+    trust_score: 0.50
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-GS
+
+  - connector_id: CONN-WEB-001
+    name: Generic Website
+    type: documentation
+    class: generic_website
+    enabled: false
+    priority: 35
+    allowed_domains: []
+    blocked_domains: [localhost, 127.0.0.1]
+    authentication: none
+    rate_limit_per_minute: 15
+    retries: 2
+    timeout_seconds: 25
+    trust_score: 0.55
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-WEB
+
+  - connector_id: CONN-LOCAL-001
+    name: Local Files
+    type: internal
+    class: local_files
+    enabled: true
+    priority: 85
+    allowed_domains: []
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 120
+    retries: 1
+    timeout_seconds: 10
+    trust_score: 0.85
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-LOCAL
+
+  - connector_id: CONN-PDF-001
+    name: PDF Repository
+    type: repository
+    class: pdf_repository
+    enabled: true
+    priority: 70
+    allowed_domains: []
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 60
+    retries: 2
+    timeout_seconds: 30
+    trust_score: 0.80
+    caching: true
+    review_requirement: true
+    dry_run: true
+    source_id: SRC-CONN-PDF
+
+  - connector_id: CONN-INT-001
+    name: Internal Dataset
+    type: internal
+    class: internal_dataset
+    enabled: true
+    priority: 95
+    allowed_domains: []
+    blocked_domains: []
+    authentication: none
+    rate_limit_per_minute: 120
+    retries: 1
+    timeout_seconds: 10
+    trust_score: 0.98
+    caching: true
+    review_requirement: false
+    dry_run: true
+    source_id: SRC-CONN-INT

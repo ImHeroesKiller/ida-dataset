@@ -1,0 +1,13 @@
+Connector ID,Health,Latency Ms,Success Rate,Documents Retrieved,Errors,Last Check,Message
+CONN-WB-001,unknown,,,0,0,,Waiting for first execution
+CONN-BPS-001,unknown,,,0,0,,Waiting for first execution
+CONN-OECD-001,unknown,,,0,0,,Waiting for first execution
+CONN-SEC-001,unknown,,,0,0,,Waiting for first execution
+CONN-AR-001,unknown,,,0,0,,Waiting for first execution
+CONN-GH-001,unknown,,,0,0,,Waiting for first execution
+CONN-RSS-001,unknown,,,0,0,,Waiting for first execution
+CONN-GS-001,unknown,,,0,0,,Waiting for first execution
+CONN-WEB-001,unknown,,,0,0,,Waiting for first execution
+CONN-LOCAL-001,unknown,,,0,0,,Waiting for first execution
+CONN-PDF-001,unknown,,,0,0,,Waiting for first execution
+CONN-INT-001,unknown,,,0,0,,Waiting for first execution

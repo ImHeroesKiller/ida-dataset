@@ -1,0 +1,13 @@
+Connector ID,Name,Type,Class,Enabled,Priority,Trust Score,Status,Source ID,Primary Domain,Notes
+CONN-WB-001,World Bank,government,world_bank,true,80,0.92,active,SRC-CONN-WB,worldbank.org,Phase 1 placeholder architecture
+CONN-BPS-001,BPS Indonesia,government,bps_indonesia,true,90,0.95,active,SRC-000001,bps.go.id,Phase 1 placeholder architecture
+CONN-OECD-001,OECD,research,oecd,true,75,0.90,active,SRC-CONN-OECD,oecd.org,Phase 1 placeholder architecture
+CONN-SEC-001,SEC / Annual Reports,corporate,sec_annual_reports,false,70,0.93,disabled,SRC-CONN-SEC,sec.gov,Phase 1 placeholder architecture
+CONN-AR-001,Company Annual Reports,corporate,company_annual_reports,false,65,0.80,disabled,SRC-CONN-AR,,Phase 1 placeholder architecture
+CONN-GH-001,GitHub,repository,github,false,60,0.75,disabled,SRC-CONN-GH,github.com,Phase 1 placeholder architecture
+CONN-RSS-001,RSS,rss,rss,true,40,0.65,active,SRC-CONN-RSS,,Phase 1 placeholder architecture
+CONN-GS-001,Generic Search,search,generic_search,false,30,0.50,disabled,SRC-CONN-GS,,Phase 1 placeholder architecture
+CONN-WEB-001,Generic Website,documentation,generic_website,false,35,0.55,disabled,SRC-CONN-WEB,,Phase 1 placeholder architecture
+CONN-LOCAL-001,Local Files,internal,local_files,true,85,0.85,active,SRC-CONN-LOCAL,,Phase 1 placeholder architecture
+CONN-PDF-001,PDF Repository,repository,pdf_repository,true,70,0.80,active,SRC-CONN-PDF,,Phase 1 placeholder architecture
+CONN-INT-001,Internal Dataset,internal,internal_dataset,true,95,0.98,active,SRC-CONN-INT,,Phase 1 placeholder architecture

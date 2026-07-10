@@ -32,3 +32,17 @@ automation/missions/attachments/**
 !automation/missions/attachments/.gitkeep
 reports/learning/**
 !reports/learning/.gitkeep
+
+# Knowledge Network runtime
+automation/connectors/cache/**
+!automation/connectors/cache/.gitkeep
+automation/search/cache/**
+!automation/search/cache/.gitkeep
+automation/documents/incoming/**
+!automation/documents/incoming/.gitkeep
+automation/documents/processing/**
+!automation/documents/processing/.gitkeep
+automation/documents/processed/**
+!automation/documents/processed/.gitkeep
+automation/documents/failed/**
+!automation/documents/failed/.gitkeep

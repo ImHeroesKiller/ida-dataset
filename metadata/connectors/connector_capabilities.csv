@@ -1,0 +1,13 @@
+Capability ID,Capability,Required
+CAP-001,connect,true
+CAP-002,health,true
+CAP-003,search,true
+CAP-004,fetch,true
+CAP-005,download,true
+CAP-006,extract_metadata,true
+CAP-007,supported_formats,true
+CAP-008,rate_limit,true
+CAP-009,cache_policy,true
+CAP-010,trust_score,true
+CAP-011,shutdown,true
+CAP-012,dry_run,true

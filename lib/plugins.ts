@@ -46,6 +46,16 @@ export const CORE_PLUGINS: EccPlugin[] = [
     respectsControlFlow: true,
   },
   {
+    id: "knowledge-network",
+    name: "Knowledge Network",
+    description: "Controlled connector framework for document acquisition",
+    status: "available",
+    slots: ["sidebar", "dashboard-card"],
+    href: "/network",
+    respectsControlFlow: true,
+  },
+
+  {
     id: "planner",
     name: "Knowledge Planner",
     description: "Proposes acquisition plans and gap priorities (via Scheduler only)",
@@ -114,12 +124,13 @@ export const CORE_PLUGINS: EccPlugin[] = [
 export const FUTURE_PLUGINS: EccPlugin[] = [
   {
     id: "connectors",
-    name: "Knowledge Connectors",
-    description: "External trusted source connectors",
+    name: "Knowledge Connectors (advanced)",
+    description: "Browser/search API connectors beyond Phase 1 placeholders",
     status: "planned",
     slots: ["future", "sidebar"],
     respectsControlFlow: true,
   },
+
   {
     id: "crawler",
     name: "Crawler",

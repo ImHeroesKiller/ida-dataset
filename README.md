@@ -42,6 +42,9 @@ Continuous Learning never stops. Directed Learning missions coexist.
 ```bash
 python -m automation.scheduler mission "Learn everything about SAP ERP."
 python -m automation.scheduler tick --dry-run
+python -m automation.connectors health
+python -m automation.search "Indonesian manufacturing" --limit 5
 ```
 
-Human-controlled. Not autonomous.
+Human-controlled. Not autonomous. Knowledge Network acquires documents only (no direct dataset writes).
+

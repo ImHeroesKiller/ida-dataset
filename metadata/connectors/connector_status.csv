@@ -1,0 +1,8 @@
+Status,Description
+active,Connector is enabled and healthy
+idle,Enabled but not currently executing
+disabled,Explicitly disabled by config or circuit breaker
+degraded,Partial failures; limited throughput
+error,Hard failure requiring attention
+rate_limited,Temporarily throttled
+unknown,Health not yet measured

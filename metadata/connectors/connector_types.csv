@@ -1,0 +1,11 @@
+Type ID,Type Name,Description
+CTYPE-001,government,Government and official statistics sources
+CTYPE-002,research,Research and international organization sources
+CTYPE-003,corporate,Corporate filings and annual reports
+CTYPE-004,search,Search engines and federated search
+CTYPE-005,repository,Code and document repositories
+CTYPE-006,documentation,Documentation websites
+CTYPE-007,news,News outlets
+CTYPE-008,rss,RSS/Atom feeds
+CTYPE-009,internal,Internal datasets and local files
+CTYPE-010,future,Reserved for future connector types
