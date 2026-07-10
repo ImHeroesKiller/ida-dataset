@@ -1,5 +1,5 @@
 import { Shell } from "@/components/layout/shell";
-import { MissionsClient } from "@/components/shared/missions-client";
+import { MissionsClient } from "@/features/missions/missions-client";
 import { listContracts, listMissions, listLearningReports } from "@/lib/learning";
 
 export const dynamic = "force-dynamic";

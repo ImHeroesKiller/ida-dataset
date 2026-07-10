@@ -1,5 +1,5 @@
 import { Shell } from "@/components/layout/shell";
-import { ReportsClient } from "@/components/shared/reports-client";
+import { ReportsClient } from "@/features/reports/reports-client";
 import {
   computeHistory,
   listSessions,

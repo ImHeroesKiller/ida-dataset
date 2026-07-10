@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { getProgress } from "@/lib/orchestration";
+import { deprecatedGone } from "@/lib/api/deprecated";
 
 export const dynamic = "force-dynamic";
 
+/** @deprecated Use /api/publish-queue */
 export async function GET() {
-  return NextResponse.json({ progress: getProgress() });
+  return deprecatedGone("/api/console");
 }

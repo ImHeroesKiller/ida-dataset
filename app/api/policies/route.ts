@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { getPolicies, getSources } from "@/lib/repo-data";
+import { deprecatedGone } from "@/lib/api/deprecated";
 
 export const dynamic = "force-dynamic";
 
+/** @deprecated */
 export async function GET() {
-  return NextResponse.json({ policies: getPolicies(), sources: getSources() });
+  return deprecatedGone("/api/policies");
 }

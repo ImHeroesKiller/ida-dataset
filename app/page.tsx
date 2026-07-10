@@ -1,5 +1,5 @@
 import { Shell } from "@/components/layout/shell";
-import { ExecutiveDashboard } from "@/components/shared/executive-dashboard";
+import { ExecutiveDashboard } from "@/features/dashboard/executive-dashboard";
 import { getKnowledgeKpis } from "@/lib/knowledge-kpis";
 import { getLearningMode } from "@/lib/learning-mode";
 import { getReviewQueues } from "@/lib/repo-data";

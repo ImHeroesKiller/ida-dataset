@@ -1,16 +1,8 @@
-import { NextResponse } from "next/server";
-import { getNetworkDashboard, runNetworkCli } from "@/lib/network";
+import { deprecatedGone } from "@/lib/api/deprecated";
 
 export const dynamic = "force-dynamic";
 
+/** @deprecated */
 export async function GET() {
-  const live = runNetworkCli(["list"]);
-  if (live.ok) {
-    return NextResponse.json({ connectors: live.data });
-  }
-  const dash = getNetworkDashboard();
-  return NextResponse.json({
-    connectors: dash.connectors || [],
-    source: "fallback",
-  });
+  return deprecatedGone("/api/connectors");
 }

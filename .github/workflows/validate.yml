@@ -96,3 +96,17 @@ jobs:
           echo "Validation workflow failed with exit code ${{ steps.validate.outputs.exit_code }}"
           echo "0=success 1=validation 2=config 3=policy 4=publisher_blocked"
           exit ${{ steps.validate.outputs.exit_code }}
+
+
+  repo-health:
+    name: Repository consolidation health
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Consolidation health rules
+        run: node scripts/repo-health.mjs

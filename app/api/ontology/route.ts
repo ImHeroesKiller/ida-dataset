@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { getOntologyBundle } from "@/lib/repo-data";
+import { deprecatedGone } from "@/lib/api/deprecated";
 
 export const dynamic = "force-dynamic";
 
+/** @deprecated */
 export async function GET() {
-  return NextResponse.json(getOntologyBundle());
+  return deprecatedGone("/api/ontology");
 }

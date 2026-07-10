@@ -4,7 +4,10 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useLearningSessions } from "@/lib/use-learning-sessions";
+import { MetricCard } from "@/components/ui/metric-card";
+import { Progress } from "@/components/ui/progress";
+import { EmptyState } from "@/components/ui/empty-state";
+import { useLearning } from "@/hooks/learning-provider";
 import { cn } from "@/lib/utils";
 
 export type ExecutiveKpis = {
@@ -56,7 +59,7 @@ type PublishView = {
 };
 
 export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
-  const { dashboard, activity, startLearning, loading } = useLearningSessions(5000);
+  const { dashboard, activity, startLearning, loading } = useLearning();
   const [kpis, setKpis] = useState(initial);
   const [pub, setPub] = useState<PublishView>({});
   const [busy, setBusy] = useState(false);
@@ -232,35 +235,27 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
 
       {/* Primary cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard
+        <MetricCard
           label="Knowledge today"
           value={`+${kpis.knowledge_added_today}`}
           hint={kpis.growth_message}
           tone="green"
         />
-        <StatCard
+        <MetricCard
           label="Knowledge coverage"
           value={`${kpis.knowledge_coverage}%`}
           hint={kpis.coverage_message}
           tone="blue"
         />
-        <StatCard
+        <MetricCard
           label="Knowledge published"
           value={String(publishedToday ?? 0)}
           hint="Rows written to datasets"
           tone="green"
         />
-        <StatCard
-          label={
-            pub.auto_publish
-              ? "Waiting review"
-              : "Waiting review"
-          }
-          value={
-            pub.auto_publish
-              ? "Auto"
-              : String(kpis.pending_review)
-          }
+        <MetricCard
+          label="Waiting review"
+          value={pub.auto_publish ? "Auto" : String(kpis.pending_review)}
           hint={
             pub.auto_publish
               ? "Development · auto publish enabled"
@@ -402,23 +397,15 @@ export function ExecutiveDashboard({ kpis: initial }: { kpis: ExecutiveKpis }) {
                 <div>ETA · {eta}</div>
               </div>
             </div>
-            <div className="h-2 overflow-hidden rounded-full bg-[var(--panel-2)]">
-              <div
-                className="h-full rounded-full bg-blue-500 transition-all duration-500"
-                style={{
-                  width: `${
-                    pub.total
-                      ? Math.min(
-                          100,
-                          Math.round(
-                            ((pub.published || 0) / Math.max(pub.total, 1)) * 100
-                          )
-                        )
-                      : 0
-                  }%`,
-                }}
-              />
-            </div>
+            <Progress
+              value={
+                pub.total
+                  ? Math.round(
+                      ((pub.published || 0) / Math.max(pub.total, 1)) * 100
+                    )
+                  : 0
+              }
+            />
             <p className="text-xs text-[var(--text-faint)]">
               Current · {pub.current_knowledge || "—"} ·{" "}
               {pub.current_dataset || "—"}
@@ -577,44 +564,6 @@ function StatusPill({ status }: { status: string }) {
   );
 }
 
-function StatCard({
-  label,
-  value,
-  hint,
-  tone,
-  href,
-}: {
-  label: string;
-  value: string;
-  hint?: string;
-  tone: "green" | "blue" | "amber" | "neutral";
-  href?: string;
-}) {
-  const tones = {
-    green: "text-emerald-600 dark:text-emerald-300",
-    blue: "text-blue-600 dark:text-sky-300",
-    amber: "text-amber-600 dark:text-amber-200",
-    neutral: "text-[var(--text)]",
-  };
-  const inner = (
-    <Card className="transition-transform duration-150 hover:-translate-y-0.5">
-      <CardBody className="p-5">
-        <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
-          {label}
-        </p>
-        <p className={cn("mt-2 text-3xl font-semibold tracking-tight", tones[tone])}>
-          {value}
-        </p>
-        {hint ? (
-          <p className="mt-2 text-xs text-[var(--text-faint)]">{hint}</p>
-        ) : null}
-      </CardBody>
-    </Card>
-  );
-  if (href) return <Link href={href}>{inner}</Link>;
-  return inner;
-}
-
 function Mini({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl bg-[var(--panel-2)] px-3 py-2">
@@ -627,7 +576,5 @@ function Mini({ label, value }: { label: string; value: string }) {
 }
 
 function Empty({ hint }: { hint: string }) {
-  return (
-    <p className="py-6 text-center text-sm text-[var(--text-faint)]">{hint}</p>
-  );
+  return <EmptyState hint={hint} />;
 }

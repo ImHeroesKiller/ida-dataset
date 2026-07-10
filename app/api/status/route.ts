@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { buildDashboardSnapshot } from "@/lib/repo-data";
+import { deprecatedGone } from "@/lib/api/deprecated";
 
 export const dynamic = "force-dynamic";
 
+/** @deprecated Use /api/sessions */
 export async function GET() {
-  return NextResponse.json(buildDashboardSnapshot());
+  return deprecatedGone("/api/status");
 }

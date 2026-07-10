@@ -1,6 +1,6 @@
 import { Shell } from "@/components/layout/shell";
 import { getReviewQueues } from "@/lib/repo-data";
-import { ReviewClient } from "@/components/shared/review-client";
+import { ReviewClient } from "@/features/review/review-client";
 
 export const dynamic = "force-dynamic";
 

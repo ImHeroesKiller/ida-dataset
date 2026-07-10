@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { getGitStatus } from "@/lib/repo-data";
+import { deprecatedGone } from "@/lib/api/deprecated";
 
 export const dynamic = "force-dynamic";
 
+/** @deprecated Unused git API */
 export async function GET() {
-  return NextResponse.json(getGitStatus());
+  return deprecatedGone("/api/git");
 }

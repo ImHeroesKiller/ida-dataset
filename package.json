@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:runtime": "python3 -m automation.runtime.tests.test_runtime_stability && node automation/runtime/tests/test_sse_bus.mjs"
+    "health": "node scripts/repo-health.mjs",
+    "test:runtime": "python3 -m automation.runtime.tests.test_runtime_stability",
+    "test:health": "node scripts/repo-health.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

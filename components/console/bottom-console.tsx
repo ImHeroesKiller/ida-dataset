@@ -4,9 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
-  useLearningSessions,
+  useLearning,
   type SessionEvent,
-} from "@/lib/use-learning-sessions";
+} from "@/hooks/learning-provider";
 
 function humanVerb(ev: SessionEvent | Record<string, unknown>): string {
   const verb = String(ev.verb || "");
@@ -54,7 +54,7 @@ const verbClass: Record<string, string> = {
 };
 
 export function BottomConsole() {
-  const { events, dashboard, activity } = useLearningSessions();
+  const { events, dashboard, activity } = useLearning();
   const [extra, setExtra] = useState<SessionEvent[]>([]);
   const [local, setLocal] = useState<SessionEvent[]>([]);
   const endRef = useRef<HTMLDivElement>(null);

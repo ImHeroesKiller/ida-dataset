@@ -1,7 +1,8 @@
-# Architecture Audit Index
+# Architecture Audit & Consolidation Index
 
-**Sprint type:** Documentation only  
-**Primary document:** [architecture_audit_and_cleanup_plan.md](./architecture_audit_and_cleanup_plan.md)
+**Primary audit:** [architecture_audit_and_cleanup_plan.md](./architecture_audit_and_cleanup_plan.md)  
+**Consolidation report:** [consolidation_report.md](./consolidation_report.md)  
+**Route map:** [route_map.md](./route_map.md)
 
 ## Contents of the primary report
 
