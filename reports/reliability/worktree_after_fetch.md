@@ -1,0 +1,1 @@
+# Worktree After Fetch\n\nPopulated at runtime from TMP diagnostics when available.\n

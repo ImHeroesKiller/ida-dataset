@@ -1,0 +1,1 @@
+# Worktree Before Sync\n\nPlaceholder generated at 2026-07-10T19:14:21Z. CI overwrites with live `git status` output.\n

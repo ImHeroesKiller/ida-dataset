@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 # Safe git synchronize + push for factory production workflows.
 # Never force-push. Never overwrite remote history.
+# CRITICAL: Does NOT write into the git worktree during fetch/rebase/push
+# (diagnostics go to $TMPDIR / RUNNER_TEMP only) so the tree cannot go dirty mid-sync.
 #
-# Atomic production expects: all writers finished → single commit → clean tree → sync → push.
-#
-# Usage:
-#   scripts/git_safe_sync_push.sh [remote] [branch]
-#
-# Exit codes:
-#   0  success (pushed or nothing to push)
-#   1  conflict / push failed after retries (safe abort)
-#   2  usage / environment error
+# Usage: scripts/git_safe_sync_push.sh [remote] [branch]
+# Exit: 0 success | 1 failed | 2 env error
 
 set -euo pipefail
 
@@ -25,26 +20,16 @@ REBASE_OK="NO"
 PUSHED="NO"
 STASHED="NO"
 ATTEMPT=1
-TRACE_DIR="reports/reliability"
-mkdir -p "${TRACE_DIR}"
-TRACE_MD="${TRACE_DIR}/git_worktree_trace.md"
-PUSH_MD="${TRACE_DIR}/push_recovery_report.md"
+DIAG_DIR="${RUNNER_TEMP:-${TMPDIR:-/tmp}}/ida-git-diag-$$"
+mkdir -p "${DIAG_DIR}"
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   echo "git_safe_sync_push: not a git repository" >&2
   exit 2
 fi
 
-if [[ ! -f "${TRACE_MD}" ]]; then
-  cat > "${TRACE_MD}" <<'EOF'
-# Git Working Tree Trace
-
-Snapshots around git sync/push. Dirty trees after commit indicate post-commit writers.
-
-EOF
-fi
-
 echo "git_safe_sync_push: remote=${REMOTE} branch=${BRANCH}"
+echo "git_safe_sync_push: diagnostics_dir=${DIAG_DIR}"
 git config --local push.default simple || true
 git config --local pull.rebase true || true
 
@@ -53,30 +38,28 @@ if [[ "${FORCE_PUSH:-}" == "true" ]]; then
   exit 1
 fi
 
-log_trace() {
-  local stage="$1"
+diag_snapshot() {
+  local name="$1"
+  local f="${DIAG_DIR}/${name}.txt"
   {
-    echo ""
-    echo "## ${stage}"
-    echo ""
-    echo "- **time:** $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-    if [[ -n "$(git status --porcelain 2>/dev/null || true)" ]]; then
-      echo "- **dirty:** YES"
-      echo ""
-      echo '```'
-      git status --porcelain || true
-      echo '```'
-    else
-      echo "- **dirty:** NO (clean)"
-    fi
-    echo ""
-  } >> "${TRACE_MD}"
+    echo "=== ${name} $(date -u +%Y-%m-%dT%H:%M:%SZ) ==="
+    echo "--- status --porcelain=v1 ---"
+    git status --porcelain=v1 || true
+    echo "--- diff --name-only ---"
+    git diff --name-only || true
+    echo "--- diff --stat ---"
+    git diff --stat || true
+    echo "--- status ---"
+    git status || true
+  } >"${f}"
+  # Also print to job log (required diagnostics)
+  cat "${f}"
 }
 
 print_telemetry() {
   local clean="YES"
   local dirty
-  dirty="$(git status --porcelain 2>/dev/null || true)"
+  dirty="$(git status --porcelain=v1 --untracked-files=no 2>/dev/null || true)"
   if [[ -n "${dirty}" ]]; then
     clean="NO"
   fi
@@ -104,73 +87,113 @@ Used
 ${RECOVERY_USED}
 ======================
 EOF
-  cat > "${PUSH_MD}" <<EOF
-# Push Recovery Report
-
-- time: $(date -u +%Y-%m-%dT%H:%M:%SZ)
-- pushed: ${PUSHED}
-- rebase_ok: ${REBASE_OK}
-- recovery_used: ${RECOVERY_USED}
-- attempts: ${ATTEMPT}/${MAX_RETRIES}
-- clean: ${clean}
-
-EOF
+  # Optional: copy summary to reports only AFTER push completes (may dirty tree post-success)
+  if [[ "${PUSHED}" == "YES" || "${clean}" == "YES" ]]; then
+    mkdir -p reports/reliability
+    {
+      echo "# Push Recovery Report"
+      echo ""
+      echo "- time: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+      echo "- pushed: ${PUSHED}"
+      echo "- rebase_ok: ${REBASE_OK}"
+      echo "- recovery_used: ${RECOVERY_USED}"
+      echo "- attempts: ${ATTEMPT}/${MAX_RETRIES}"
+      echo "- clean_tracked: ${clean}"
+      echo "- diagnostics_dir: ${DIAG_DIR}"
+      echo ""
+    } > reports/reliability/push_recovery_report.md 2>/dev/null || true
+  fi
 }
 
-verify_clean() {
+verify_clean_tracked() {
   local label="$1"
-  log_trace "verify_clean:${label}"
+  diag_snapshot "verify_${label}"
   local dirty
-  dirty="$(git status --porcelain 2>/dev/null || true)"
+  dirty="$(git status --porcelain=v1 --untracked-files=no 2>/dev/null || true)"
   if [[ -n "${dirty}" ]]; then
-    echo "DIRTY working tree (${label}):"
+    echo "DIRTY tracked worktree (${label}):"
     echo "${dirty}"
     echo "Dirty files:"
     echo "${dirty}"
     return 1
   fi
   if ! git diff --exit-code >/dev/null 2>&1; then
-    echo "DIRTY: unstaged diff present (${label})"
+    echo "DIRTY: unstaged tracked diff (${label})"
+    git diff --name-only || true
     git diff --stat || true
     return 1
   fi
   if ! git diff --cached --exit-code >/dev/null 2>&1; then
-    echo "DIRTY: staged diff present (${label})"
-    git diff --cached --stat || true
+    echo "DIRTY: staged diff (${label})"
+    git diff --cached --name-only || true
     return 1
   fi
-  echo "CLEAN working tree (${label})"
+  echo "CLEAN tracked worktree (${label})"
   return 0
 }
 
-resolve_generated_conflicts() {
-  local conflicts
-  conflicts="$(git diff --name-only --diff-filter=U 2>/dev/null || true)"
-  if [[ -z "${conflicts}" ]]; then
-    return 0
+auto_finalize_once() {
+  echo "→ automatic finalize commit for dirty tree"
+  RECOVERY_USED="YES"
+  git add -A -- \
+    reports/ \
+    automation/sessions/ \
+    automation/learning/state/ \
+    automation/queue/ \
+    domains/ \
+    scripts/ \
+    automation/ci/ \
+    automation/lib/git_safe.py \
+    .github/workflows/ \
+    2>/dev/null || true
+  # stage remaining tracked dirt
+  while IFS= read -r line; do
+    [[ -z "${line}" ]] && continue
+    path="${line:3}"
+    git add -- "${path}" 2>/dev/null || true
+  done < <(git status --porcelain=v1 --untracked-files=no 2>/dev/null || true)
+
+  if git diff --cached --quiet 2>/dev/null; then
+    echo "→ nothing to finalize-commit"
+    return 1
   fi
-  echo "→ resolving generated-file conflicts (prefer ours for reports/runtime state)"
-  while IFS= read -r f; do
-    [[ -z "${f}" ]] && continue
-    case "${f}" in
-      reports/*|automation/learning/state/*|automation/sessions/*|automation/connectors/cache/*)
-        git checkout --ours -- "${f}" 2>/dev/null || true
-        git add -- "${f}" 2>/dev/null || true
-        echo "  resolved(ours): ${f}"
-        ;;
-      *)
-        echo "  unresolvable non-generated conflict: ${f}" >&2
-        return 1
-        ;;
-    esac
-  done <<< "${conflicts}"
+  git commit -m "chore(ci): finalize generated artifacts" || return 1
   return 0
 }
 
 sync_once() {
-  log_trace "before_fetch"
+  diag_snapshot "worktree_before_sync"
+
+  # Must be clean before fetch/rebase
+  if ! verify_clean_tracked "before_fetch"; then
+    echo "→ dirty before fetch — one automatic finalize commit"
+    if auto_finalize_once; then
+      if ! verify_clean_tracked "after_finalize"; then
+        echo "git_safe_sync_push: still dirty after finalize — abort" >&2
+        git status --porcelain=v1 >&2 || true
+        return 1
+      fi
+    else
+      echo "git_safe_sync_push: cannot finalize dirty tree — abort" >&2
+      git status --porcelain=v1 >&2 || true
+      return 1
+    fi
+  fi
+
   echo "→ fetch ${REMOTE}"
   git fetch "${REMOTE}" --prune
+  diag_snapshot "worktree_after_fetch"
+
+  # Fetch must not dirty the tree; if it did, surface filenames
+  if ! verify_clean_tracked "after_fetch"; then
+    echo "→ worktree became dirty during fetch — culprit files above"
+    if auto_finalize_once && verify_clean_tracked "after_fetch_finalize"; then
+      echo "→ recovered with finalize commit"
+    else
+      echo "git_safe_sync_push: dirty during fetch and cannot recover" >&2
+      return 1
+    fi
+  fi
 
   if ! git rev-parse --verify "${REMOTE}/${BRANCH}" >/dev/null 2>&1; then
     echo "→ remote branch missing; will push new branch"
@@ -178,14 +201,13 @@ sync_once() {
     return 0
   fi
 
-  log_trace "before_rebase"
+  diag_snapshot "worktree_before_rebase"
+  echo "→ status before pull --rebase"
+  git status || true
 
-  if ! verify_clean "pre_rebase"; then
-    echo "→ working tree dirty — stashing (include untracked) for safe rebase"
-    RECOVERY_USED="YES"
-    STASHED="YES"
-    git stash push --include-untracked -m "factory-safe-sync-$(date -u +%Y%m%dT%H%M%SZ)" || true
-    log_trace "after_stash"
+  if ! verify_clean_tracked "before_rebase"; then
+    echo "git_safe_sync_push: dirty before rebase after recovery attempt" >&2
+    return 1
   fi
 
   echo "→ pull --rebase ${REMOTE} ${BRANCH}"
@@ -196,57 +218,17 @@ sync_once() {
     echo "git_safe_sync_push: rebase conflict — aborting rebase safely" >&2
     git rebase --abort 2>/dev/null || true
     REBASE_OK="NO"
-    if [[ "${STASHED}" == "YES" ]]; then
-      git stash pop || true
-      STASHED="NO"
-    fi
     return 1
   fi
 
-  if [[ "${STASHED}" == "YES" ]]; then
-    echo "→ stash pop"
-    set +e
-    git stash pop
-    pop_rc=$?
-    set -e
-    if [[ "${pop_rc}" -ne 0 ]]; then
-      RECOVERY_USED="YES"
-      if resolve_generated_conflicts; then
-        git add -A reports/ automation/learning/state/ automation/sessions/ 2>/dev/null || true
-        echo "→ stash pop conflicts resolved for generated paths"
-      else
-        echo "git_safe_sync_push: stash pop left unresolvable conflicts" >&2
-        return 1
-      fi
-    fi
-    STASHED="NO"
-    log_trace "after_stash_pop"
-  fi
-
-  if ! verify_clean "post_rebase"; then
-    echo "→ auto-staging residual factory artifacts"
-    git add \
-      reports/reliability/ \
-      reports/learning/ \
-      reports/production/ \
-      reports/discovery/ \
-      reports/performance/ \
-      reports/manufacturing/ \
-      reports/quality/ \
-      automation/learning/state/ \
-      automation/sessions/ \
-      automation/queue/ \
-      domains/ \
-      2>/dev/null || true
-    if ! git diff --cached --quiet 2>/dev/null; then
-      git commit -m "chore(ci): capture residual factory artifacts after safe rebase" || true
-      RECOVERY_USED="YES"
-    fi
-    if ! verify_clean "post_auto_commit"; then
-      echo "→ residual dirt remains; stashing for push of local commits only"
-      git stash push --include-untracked -m "factory-pre-push-residual" || true
-      STASHED="YES"
-      RECOVERY_USED="YES"
+  if ! verify_clean_tracked "after_rebase"; then
+    echo "→ dirty after rebase — one finalize attempt"
+    if auto_finalize_once && verify_clean_tracked "after_rebase_finalize"; then
+      :
+    else
+      echo "git_safe_sync_push: dirty after rebase" >&2
+      git status --porcelain=v1 >&2 || true
+      return 1
     fi
   fi
 
@@ -269,24 +251,15 @@ while [[ "${ATTEMPT}" -le "${MAX_RETRIES}" ]]; do
     if [[ "${LOCAL}" == "${REMOTE_SHA}" ]]; then
       echo "git_safe_sync_push: already up-to-date with ${REMOTE}/${BRANCH}"
       PUSHED="NO"
-      if [[ "${STASHED}" == "YES" ]]; then
-        git stash pop || true
-        STASHED="NO"
-      fi
       print_telemetry
       exit 0
     fi
   fi
 
-  log_trace "before_push"
+  echo "→ push ${REMOTE} HEAD:${BRANCH}"
   if git push "${REMOTE}" "HEAD:${BRANCH}"; then
     echo "git_safe_sync_push: push ok"
     PUSHED="YES"
-    if [[ "${STASHED}" == "YES" ]]; then
-      git stash pop || true
-      STASHED="NO"
-    fi
-    log_trace "after_push"
     print_telemetry
     exit 0
   fi

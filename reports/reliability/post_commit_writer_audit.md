@@ -1,46 +1,32 @@
 # Post-Commit Writer Audit
 
-## Problem
+**Time:** 2026-07-10T19:14:21Z
 
-`git pull --rebase` failed with:
+## Confirmed root cause
 
-```text
-cannot pull with rebase: You have unstaged changes.
-```
+After `git commit`, CI steps and `git_safe_sync_push.sh` **wrote into tracked paths** under `reports/reliability/`:
 
-Root cause: **tracked files rewritten during the session were not fully staged** in the GHA commit step, leaving a dirty tree **after** `git commit` and **before** rebase/push.
+| Writer | Files | Trigger | Expected timing | Safe/Unsafe |
+|--------|-------|---------|-----------------|-------------|
+| `worktree_trace.py` | `reports/reliability/git_worktree_trace.md` | post_commit / before_safe_push | **after commit** | **UNSAFE** (fixed: `--ephemeral`) |
+| `git_safe_sync_push.sh` log_trace | same + push_recovery_report | during fetch/rebase | **after commit** | **UNSAFE** (fixed: `$TMPDIR` only mid-sync) |
+| learning_session | domains, state, reports/* | session body | before commit | SAFE |
+| progressive_publish | domains/queue | gated residual | before commit | SAFE if gated |
+| ThreadPoolExecutor (connectors/pipeline) | none after context exit | with-block | during acquire | SAFE (joins on exit) |
+| journal lock / channels lock | learning state | session end | before commit | SAFE |
+| atexit | none found | — | — | N/A |
+| asyncio background | none found | — | — | N/A |
+| daemon threads | none found in production path | — | — | N/A |
 
-## Writers during a learning session (before commit — allowed)
+## Fix
 
-| Area | Modules | Paths |
-|------|---------|-------|
-| Acquisition | `pipeline.py`, `document_store.py` | `automation/queue/`, `domains/`, raw docs |
-| Trace/reports | `trace.py`, `reports.py`, `performance.py`, discovery, manufacturing | `reports/*`, `automation/learning/state/*` |
-| Session | `session_store.py`, `journal.py`, `growth.py` | `automation/sessions/`, `learning/state/` |
-| Progressive publish | `progressive_publish.py` | domains + queue (now gated) |
-
-## Writers after commit (forbidden)
-
-GHA previously:
-
-1. Committed only `sessions/`, `reports/learning/`, `state/`, optionally `domains/` + `queue/`
-2. Left dirty tracked files under e.g. `reports/production/`, `reports/discovery/`, `reports/performance/`, `reports/manufacturing/`, reliability traces, manufacturing state
-
-Those residual **tracked** modifications blocked rebase.
-
-## Remediation
-
-1. **Atomic commit** in `learn.yml` stages the full production footprint + any remaining tracked dirt
-2. **Post-commit verify** fails the job if tracked tree still dirty
-3. **`git_safe_sync_push.sh`** stashes include-untracked if dirt appears, rebases, pops, auto-resolves generated conflicts
-4. **No intentional writers after commit** in the workflow order
-
-## Scan notes (patterns)
-
-Looked for post-commit hooks in workflows — none invoke Python after the commit step except `git_safe_sync_push.sh` residual auto-stage (recovery only).
+1. All post-commit diagnostics use **ephemeral** temp storage until after push.
+2. `finalize_writers.py` runs **before** git add.
+3. `certify_worktree.py` loops stage→commit until tracked porcelain empty.
+4. `git_safe_sync_push.sh` refuses to rebase unless tracked tree is clean (or one finalize commit).
 
 ## Certification
 
-- [x] Commit step stages all factory report/state/session/domain paths
-- [x] Tracked clean verification after commit
-- [x] Safe push recovers residual dirt without force-push
+- [x] No intentional background writers after commit
+- [x] Tracer cannot dirty worktree post-commit (`--ephemeral`)
+- [x] Sync script does not write reports during fetch/rebase
