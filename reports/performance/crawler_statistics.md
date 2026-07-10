@@ -15,7 +15,7 @@
     "skipped_duplicate": 0,
     "failed": 1,
     "bytes": 123247,
-    "elapsed_ms": 3640.4,
+    "elapsed_ms": 3469.8999999999996,
     "retries": 2,
     "http_cache": {
       "hits": 0,
@@ -32,8 +32,8 @@
     }
   },
   "extraction": {
-    "fast": 0,
-    "deep": 1,
+    "fast": 3,
+    "deep": 0,
     "llm": 0,
     "skipped_llm": 5,
     "documents_fast": 2,

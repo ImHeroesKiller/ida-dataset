@@ -1,17 +1,17 @@
 {
-  "started_at": "2026-07-10T20:28:00+00:00",
-  "mission_id": "MIS-20260710-318717",
-  "session_id": "SES-20260710-D190E7",
+  "started_at": "2026-07-10T22:06:08+00:00",
+  "mission_id": "MIS-20260710-E42FCB",
+  "session_id": "SES-20260710-31EBC7",
   "instruction": "Bootstrap Buyer Persona Library — continuous knowledge manufacturing for buyer_persona_library (gap_score=142.5, universe_remaining=5000, mode=BOOTSTRAP)",
   "dataset": "industry_library",
   "knowledge_gap": {
     "dataset": "industry_library",
-    "current_rows": 52,
+    "current_rows": 53,
     "target_rows": 5000,
     "minimum_target": 250,
-    "gap_rows": 4948,
-    "coverage_pct": 1.04,
-    "knowledge_gap_score": 79.488,
+    "gap_rows": 4947,
+    "coverage_pct": 1.06,
+    "knowledge_gap_score": 79.467,
     "estimated_universe": 5000,
     "priority": "high",
     "continuous": true
@@ -22,7 +22,7 @@
   "urls_accepted": 3,
   "urls_rejected": 6,
   "duplicate_urls": 6,
-  "elapsed_ms": 549328.2,
+  "elapsed_ms": 546717.6,
   "providers": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -52,7 +52,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 211341.9,
+      "elapsed_ms": 210099.4,
       "status": "ready",
       "credentials_available": true
     },
@@ -68,7 +68,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 168431.8,
+      "elapsed_ms": 168180.2,
       "status": "ready",
       "credentials_available": true
     },
@@ -84,7 +84,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 169529.3,
+      "elapsed_ms": 168412.2,
       "status": "ready",
       "credentials_available": true
     },
@@ -144,24 +144,6 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org bootstrap buyer persona continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "kind": "site",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org intitle:bootstrap bootstrap buyer persona continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "kind": "intitle",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
       "query": "site:adb.org bootstrap buyer persona continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
@@ -198,18 +180,36 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org bootstrap buyer persona continuous",
-      "domain": "crossref.org",
-      "source_id": "SRC-CROSSREF",
+      "query": "site:worldbank.org bootstrap buyer persona continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
       "kind": "site",
       "urls": 0,
       "cached": false
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org intitle:bootstrap bootstrap buyer persona continuous",
-      "domain": "crossref.org",
-      "source_id": "SRC-CROSSREF",
+      "query": "site:worldbank.org intitle:bootstrap bootstrap buyer persona continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:openalex.org bootstrap buyer persona continuous",
+      "domain": "openalex.org",
+      "source_id": "SRC-OPENALEX",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:openalex.org intitle:bootstrap bootstrap buyer persona continuous",
+      "domain": "openalex.org",
+      "source_id": "SRC-OPENALEX",
       "kind": "intitle",
       "urls": 0,
       "cached": false
@@ -218,19 +218,19 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 211341.9
+      "elapsed_ms": 210099.4
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 168431.8
+      "elapsed_ms": 168180.2
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 169529.3
+      "elapsed_ms": 168412.2
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -246,15 +246,6 @@
       "query": "site:kemenperin.go.id bootstrap buyer persona continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org bootstrap buyer persona continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
       "urls": 0,
       "elapsed_ms": 0.0,
       "cached": false
@@ -279,9 +270,9 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:crossref.org bootstrap buyer persona continuous",
-      "domain": "crossref.org",
-      "source_id": "SRC-CROSSREF",
+      "query": "site:worldbank.org bootstrap buyer persona continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
       "urls": 0,
       "elapsed_ms": 0.0,
       "cached": false
@@ -294,56 +285,65 @@
       "urls": 0,
       "elapsed_ms": 0.0,
       "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:crossref.org bootstrap buyer persona continuous",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
     }
   ],
   "reputation_top": [
     {
       "id": "SRC-000001",
       "name": "BPS Indonesia",
-      "reputation": 110.099,
-      "score": 105.999,
+      "reputation": 110.075,
+      "score": 105.97,
       "authority": 1.0
     },
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 104.576,
-      "score": 99.501,
+      "reputation": 104.484,
+      "score": 99.393,
       "authority": 1.0
-    },
-    {
-      "id": "SRC-000004",
-      "name": "World Bank",
-      "reputation": 103.427,
-      "score": 99.326,
-      "authority": 0.95
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 100.999,
-      "score": 96.47,
+      "reputation": 100.859,
+      "score": 96.305,
       "authority": 0.95
     },
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "reputation": 99.29,
-      "score": 94.459,
+      "reputation": 99.287,
+      "score": 94.455,
       "authority": 0.95
     },
     {
-      "id": "SRC-CROSSREF",
-      "name": "Crossref",
-      "reputation": 92.577,
-      "score": 87.738,
-      "authority": 0.9
+      "id": "SRC-000004",
+      "name": "World Bank",
+      "reputation": 95.662,
+      "score": 90.191,
+      "authority": 0.95
     },
     {
       "id": "SRC-OPENALEX",
       "name": "OpenAlex",
       "reputation": 91.897,
       "score": 86.938,
+      "authority": 0.9
+    },
+    {
+      "id": "SRC-CROSSREF",
+      "name": "Crossref",
+      "reputation": 86.0,
+      "score": 80.0,
       "authority": 0.9
     }
   ],

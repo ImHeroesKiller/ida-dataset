@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-07-10T20:18:50+00:00",
+  "started_at": "2026-07-10T21:57:01+00:00",
   "connectors": [
     {
       "connector_id": "CONN-BPS-001",
@@ -8,7 +8,7 @@
       "source_name": "BPS Indonesia",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 6176.9,
+      "elapsed_ms": 6203.0,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -17,7 +17,7 @@
       "last_successful_sync": "",
       "urls": [],
       "error": null,
-      "rank_score": 105.999
+      "rank_score": 105.97
     },
     {
       "connector_id": "CONN-KEMENPERIN-001",
@@ -26,7 +26,7 @@
       "source_name": "Kemenperin",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3135.4,
+      "elapsed_ms": 3169.7,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -35,27 +35,7 @@
       "last_successful_sync": "",
       "urls": [],
       "error": null,
-      "rank_score": 99.501
-    },
-    {
-      "connector_id": "CONN-WB-001",
-      "name": "World Bank",
-      "source_id": "SRC-000004",
-      "source_name": "World Bank",
-      "status": "ok",
-      "http_status": 200,
-      "elapsed_ms": 952.3,
-      "documents_discovered": 1,
-      "documents_downloaded": 1,
-      "skipped": 0,
-      "rejected": 0,
-      "retry_count": 0,
-      "last_successful_sync": "2026-07-10T20:28:01+00:00",
-      "urls": [
-        "https://documents.worldbank.org/search?q=Bootstrap+Buyer+Persona+Library+—+continuous+knowledge+manufacturing+for+buyer_persona_library+(gap_score=142.5,+universe_remaining=5000,+mode=BOOTSTRAP)+Indonesia"
-      ],
-      "error": null,
-      "rank_score": 99.326
+      "rank_score": 99.393
     },
     {
       "connector_id": "CONN-ADB-001",
@@ -64,7 +44,7 @@
       "source_name": "Asian Development Bank",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3088.7,
+      "elapsed_ms": 3115.3,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -73,7 +53,7 @@
       "last_successful_sync": "",
       "urls": [],
       "error": null,
-      "rank_score": 96.47
+      "rank_score": 96.305
     },
     {
       "connector_id": "CONN-OECD-001",
@@ -82,7 +62,7 @@
       "source_name": "OECD",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3144.4,
+      "elapsed_ms": 3168.6,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -91,31 +71,27 @@
       "last_successful_sync": "",
       "urls": [],
       "error": null,
-      "rank_score": 94.459
+      "rank_score": 94.455
     },
     {
-      "connector_id": "CONN-CROSSREF-001",
-      "name": "Crossref",
-      "source_id": "SRC-CROSSREF",
-      "source_name": "Crossref",
+      "connector_id": "CONN-WB-001",
+      "name": "World Bank",
+      "source_id": "SRC-000004",
+      "source_name": "World Bank",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 483.3,
-      "documents_discovered": 5,
+      "elapsed_ms": 1539.8,
+      "documents_discovered": 1,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-07-10T20:28:00+00:00",
+      "last_successful_sync": "2026-07-10T22:06:10+00:00",
       "urls": [
-        "https://api.crossref.org/works/10.32614/cran.package.bs4cards",
-        "https://api.crossref.org/works/10.1016/j.array.2026.100744",
-        "https://api.crossref.org/works/10.1007/978-3-319-04450-7_3",
-        "https://api.crossref.org/works/10.1007/978-3-7908-2084-3_11",
-        "https://api.crossref.org/works/10.36227/techrxiv.16608487.v1"
+        "https://documents.worldbank.org/search?q=Bootstrap+Buyer+Persona+Library+—+continuous+knowledge+manufacturing+for+buyer_persona_library+(gap_score=142.5,+universe_remaining=5000,+mode=BOOTSTRAP)+Indonesia"
       ],
       "error": null,
-      "rank_score": 87.738
+      "rank_score": 90.191
     },
     {
       "connector_id": "CONN-OPENALEX-001",
@@ -124,7 +100,7 @@
       "source_name": "OpenAlex",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 404.0,
+      "elapsed_ms": 386.7,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -134,6 +110,30 @@
       "urls": [],
       "error": null,
       "rank_score": 86.938
+    },
+    {
+      "connector_id": "CONN-CROSSREF-001",
+      "name": "Crossref",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "status": "ok",
+      "http_status": 200,
+      "elapsed_ms": 338.2,
+      "documents_discovered": 5,
+      "documents_downloaded": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "2026-07-10T22:06:08+00:00",
+      "urls": [
+        "https://api.crossref.org/works/10.32614/cran.package.bs4cards",
+        "https://api.crossref.org/works/10.1016/j.array.2026.100744",
+        "https://api.crossref.org/works/10.1007/978-3-319-04450-7_3",
+        "https://api.crossref.org/works/10.1007/978-3-7908-2084-3_11",
+        "https://api.crossref.org/works/10.36227/techrxiv.16608487.v1"
+      ],
+      "error": null,
+      "rank_score": 80.0
     }
   ],
   "downloads": {
@@ -143,7 +143,7 @@
     "skipped_duplicate": 0,
     "failed": 1,
     "bytes": 123247,
-    "elapsed_ms": 3640.4,
+    "elapsed_ms": 3469.8999999999996,
     "retries": 2,
     "http_cache": {
       "hits": 0,
@@ -173,30 +173,30 @@
     "unique_urls": 8
   },
   "extraction": {
-    "fast": 0,
-    "deep": 1,
+    "fast": 3,
+    "deep": 0,
     "llm": 0,
     "skipped_llm": 5,
     "documents_fast": 2,
     "documents_deep": 3
   },
   "publish": {
-    "extracted": 1,
-    "validated": 1,
+    "extracted": 3,
+    "validated": 3,
     "rejected": 0,
-    "queued": 1,
-    "published": 1,
+    "queued": 3,
+    "published": 3,
     "skipped": 0,
     "duplicate": 0,
     "by_dataset": {
-      "industry_library": 1
+      "business_signal_library": 3
     }
   },
   "ranking": [
     {
       "id": "SRC-000001",
       "name": "BPS Indonesia",
-      "score": 105.999,
+      "score": 105.97,
       "breakdown": {
         "health": 1.0,
         "success_rate": 1.0,
@@ -205,7 +205,7 @@
         "confidence": 0.85,
         "duplicate_score": 1.0,
         "freshness": 0.7,
-        "coverage": 0.254,
+        "coverage": 0.249,
         "priority": 0.9,
         "mission_compat": 1.0,
         "trust": 0.95
@@ -214,47 +214,29 @@
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "score": 99.501,
+      "score": 99.393,
       "breakdown": {
         "health": 1.0,
         "success_rate": 1.0,
-        "latency_score": 0.93,
+        "latency_score": 0.922,
         "yield_score": 0.27,
         "confidence": 0.85,
         "duplicate_score": 1.0,
         "freshness": 0.7,
-        "coverage": 0.174,
+        "coverage": 0.171,
         "priority": 0.7,
         "mission_compat": 1.0,
         "trust": 0.9
       }
     },
     {
-      "id": "SRC-000004",
-      "name": "World Bank",
-      "score": 99.326,
-      "breakdown": {
-        "health": 1.0,
-        "success_rate": 1.0,
-        "latency_score": 0.941,
-        "yield_score": 0.085,
-        "confidence": 0.85,
-        "duplicate_score": 1.0,
-        "freshness": 0.7,
-        "coverage": 0.257,
-        "priority": 0.88,
-        "mission_compat": 1.0,
-        "trust": 0.92
-      }
-    },
-    {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "score": 96.47,
+      "score": 96.305,
       "breakdown": {
         "health": 1.0,
         "success_rate": 1.0,
-        "latency_score": 0.963,
+        "latency_score": 0.946,
         "yield_score": 0.045,
         "confidence": 0.85,
         "duplicate_score": 1.0,
@@ -268,7 +250,7 @@
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "score": 94.459,
+      "score": 94.455,
       "breakdown": {
         "health": 1.0,
         "success_rate": 1.0,
@@ -277,28 +259,28 @@
         "confidence": 0.85,
         "duplicate_score": 0.667,
         "freshness": 0.7,
-        "coverage": 0.032,
+        "coverage": 0.031,
         "priority": 0.75,
         "mission_compat": 1.0,
         "trust": 0.9
       }
     },
     {
-      "id": "SRC-CROSSREF",
-      "name": "Crossref",
-      "score": 87.738,
+      "id": "SRC-000004",
+      "name": "World Bank",
+      "score": 90.191,
       "breakdown": {
-        "health": 0.4,
+        "health": 1.0,
         "success_rate": 1.0,
-        "latency_score": 0.886,
-        "yield_score": 0.225,
+        "latency_score": 0.0,
+        "yield_score": 0.105,
         "confidence": 0.85,
         "duplicate_score": 1.0,
         "freshness": 0.7,
-        "coverage": 0.0,
-        "priority": 0.82,
+        "coverage": 0.253,
+        "priority": 0.88,
         "mission_compat": 1.0,
-        "trust": 0.9
+        "trust": 0.92
       }
     },
     {
@@ -318,18 +300,36 @@
         "mission_compat": 1.0,
         "trust": 0.88
       }
+    },
+    {
+      "id": "SRC-CROSSREF",
+      "name": "Crossref",
+      "score": 80.0,
+      "breakdown": {
+        "health": 0.4,
+        "success_rate": 1.0,
+        "latency_score": 0.0,
+        "yield_score": 0.3,
+        "confidence": 0.85,
+        "duplicate_score": 1.0,
+        "freshness": 0.7,
+        "coverage": 0.0,
+        "priority": 0.82,
+        "mission_compat": 1.0,
+        "trust": 0.9
+      }
     }
   ],
   "throughput": {
     "documents": 5,
-    "rows": 1,
-    "documents_per_hour": 30.44,
-    "rows_per_hour": 6.09,
+    "rows": 3,
+    "documents_per_hour": 30.6,
+    "rows_per_hour": 18.36,
     "documents_per_second": 0.008,
-    "rows_per_second": 0.002
+    "rows_per_second": 0.005
   },
-  "finished_at": "2026-07-10T20:28:42+00:00",
-  "mission_id": "MIS-20260710-318717",
-  "session_id": "SES-20260710-D190E7",
-  "elapsed_seconds": 591.351
+  "finished_at": "2026-07-10T22:06:50+00:00",
+  "mission_id": "MIS-20260710-E42FCB",
+  "session_id": "SES-20260710-31EBC7",
+  "elapsed_seconds": 588.319
 }

@@ -11,7 +11,7 @@ Manufacturing controller proposals (highest-value knowledge demand).
 | 5 | BOOTSTRAP | service_library | Bootstrap BPO Services Indonesia | 112.922 | 49935 |
 | 6 | BOOTSTRAP | business_signal_library | Bootstrap New OECD Labor Publications | 94.236 | 49988 |
 | 7 | BOOTSTRAP | product_catalog | Bootstrap Digital Products Indonesia | 88.606 | 49942 |
-| 8 | BOOTSTRAP | industry_library | Bootstrap Digital Economy Indonesia | 79.488 | 4948 |
+| 8 | BOOTSTRAP | industry_library | Bootstrap Healthcare Services Indonesia | 79.467 | 4947 |
 
 ## Decision chain
 
