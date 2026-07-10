@@ -70,6 +70,17 @@ python3 -m automation.export.packager
 
 ## Documentation
 
+### Product (2026–2027)
+
+- [BACKLOG.md](./BACKLOG.md) — official product backlog (epics)
+- [ROADMAP_2026_2027.md](./ROADMAP_2026_2027.md) — 30d / 90d / 6m / 12m roadmap
+- [RELEASE_PLAN.md](./RELEASE_PLAN.md) — release trains
+- [MILESTONES.md](./MILESTONES.md) — product milestones
+- [KPI.md](./KPI.md) — factory KPIs & definition of done
+- [MISSION_LIBRARY.md](./MISSION_LIBRARY.md) — production missions
+
+### Charter & engineering
+
 - [VISION.md](./VISION.md)
 - [PROJECT_CHARTER.md](./PROJECT_CHARTER.md)
 - [ROADMAP.md](./ROADMAP.md)

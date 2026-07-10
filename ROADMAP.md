@@ -1,29 +1,24 @@
 # Roadmap — IDA Dataset Factory
 
-## v2.0 (now)
+**Canonical product roadmap:** [ROADMAP_2026_2027.md](./ROADMAP_2026_2027.md)
 
-- Repository reset to factory-only product  
-- Factory dashboard + 8 surfaces  
-- Official pipeline packages (collector → export)  
-- Factory KPIs  
-- Export packager (JSONL / OpenAI / HF)  
-- GHA: validate · learn · quality · publish · export  
+Also see:
 
-## v2.1
+- [BACKLOG.md](./BACKLOG.md) — epics and backlog items  
+- [RELEASE_PLAN.md](./RELEASE_PLAN.md) — release trains  
+- [MILESTONES.md](./MILESTONES.md) — outcomes  
+- [KPI.md](./KPI.md) — official KPIs  
+- [MISSION_LIBRARY.md](./MISSION_LIBRARY.md) — production missions  
 
-- Broader industry coverage (lowest coverage first)  
-- Parquet export with typed schemas  
-- Automated quality gates in CI (fail on low confidence / placeholders)  
-- Source health freshness jobs  
+## Architecture
 
-## v2.2
+Frozen at **v2.0**. Product sprints improve KPIs only—not structure.
 
-- Multi-domain expansion (finance, legal, operations)  
-- Hugging Face Hub publish (optional)  
-- Dataset versioning tags  
+## Version intent (product)
 
-## Non-roadmap (other repos)
-
-- Decision automation  
-- Chat / agents  
-- Graph reasoning  
+| Version | Intent |
+|---------|--------|
+| v2.0 | Factory baseline (shipped) |
+| v2.1 | Trusted growth + QA + export harden (~30 days) |
+| v2.2 | Multi-library scale + mission automation (~90 days) |
+| v2.3+ | Training packages + multi-domain depth (6–12 months) |
