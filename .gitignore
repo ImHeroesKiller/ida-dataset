@@ -82,3 +82,8 @@ automation/queue/candidates/**
 # Production observability reports (committed for audit)
 !reports/production/
 !reports/production/**
+
+!reports/performance/
+!reports/performance/**
+!automation/learning/state/source_performance.json
+!automation/learning/state/acquisition_performance.json

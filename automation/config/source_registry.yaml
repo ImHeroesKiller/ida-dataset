@@ -380,3 +380,393 @@ sources:
     publish: true
     archive_documents: true
     notes: Indonesian Chamber of Commerce — connector interface ready
+
+  - id: SRC-ILO
+    name: International Labour Organization
+    category: international_organization
+    enabled: false
+    priority: 72
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.ilo.org
+    api_endpoint: null
+    rss_feed: https://www.ilo.org/global/about-the-ilo/newsroom/lang--en/index.htm
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.92
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library, pain_point_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: "ILO — enable when connector registered; discovery via RSS/sitemap preferred"
+
+  - id: SRC-UNDP
+    name: UNDP
+    category: international_organization
+    enabled: false
+    priority: 70
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.undp.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, framework_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: UNDP public knowledge — connector interface ready
+
+  - id: SRC-IMF
+    name: International Monetary Fund
+    category: international_organization
+    enabled: false
+    priority: 74
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.imf.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.93
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: IMF publications — connector interface ready
+
+  - id: SRC-FAO
+    name: Food and Agriculture Organization
+    category: international_organization
+    enabled: false
+    priority: 68
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.fao.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.91
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: FAO open knowledge — connector interface ready
+
+  - id: SRC-UNESCO
+    name: UNESCO
+    category: international_organization
+    enabled: false
+    priority: 66
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.unesco.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: multi
+    country: multi
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, framework_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: UNESCO — connector interface ready
+
+  - id: SRC-WHO
+    name: World Health Organization
+    category: international_organization
+    enabled: false
+    priority: 71
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.who.int
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.93
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, healthcare]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: WHO — connector interface ready
+
+  - id: SRC-UNIDO
+    name: UNIDO
+    category: international_organization
+    enabled: false
+    priority: 67
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.unido.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, product_catalog]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: UNIDO industrial development — connector interface ready
+
+  - id: SRC-UNCTAD
+    name: UNCTAD
+    category: international_organization
+    enabled: false
+    priority: 67
+    collector: generic_website
+    connector_id: null
+    base_url: https://unctad.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, business_signal_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: UNCTAD trade & development — connector interface ready
+
+  - id: SRC-DATAGOID
+    name: Data.go.id
+    category: government_open_data
+    enabled: false
+    priority: 76
+    collector: generic_website
+    connector_id: null
+    base_url: https://data.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 15
+    timeout: 30
+    retry: 2
+    supported_document_types: [json, csv, html]
+    language: id
+    country: ID
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, company_profile, business_signal_library]
+    update_frequency: weekly
+    parser: json
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Indonesia national open data portal — connector interface ready
+
+  - id: SRC-KEMENDAG
+    name: Kemendag
+    category: government
+    enabled: false
+    priority: 69
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.kemendag.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, company_profile]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Ministry of Trade Indonesia — connector interface ready
+
+  - id: SRC-BKPM
+    name: BKPM / Ministry of Investment
+    category: government
+    enabled: false
+    priority: 70
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.bkpm.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, company_profile, opportunity_analysis]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Investment ministry — connector interface ready
+
+  - id: SRC-OJK
+    name: OJK
+    category: government
+    enabled: false
+    priority: 80
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.ojk.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.94
+    minimum_confidence: 0.85
+    allowed_datasets: [industry_library, company_profile, framework_library]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Financial services authority — connector interface ready
+
+  - id: SRC-BEI
+    name: Indonesia Stock Exchange (BEI)
+    category: market_data
+    enabled: false
+    priority: 73
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.idx.co.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf, csv]
+    language: id
+    country: ID
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [company_profile, industry_library]
+    update_frequency: daily
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: IDX public disclosures — connector interface ready

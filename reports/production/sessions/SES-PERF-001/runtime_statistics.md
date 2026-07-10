@@ -1,22 +1,22 @@
 # Runtime Statistics
 
-**Session:** `SES-PERF-002`
+**Session:** `SES-PERF-001`
 **Mission:** Expand Outsourcing Industry Indonesia
-**Total stage time (ms):** 5198.0
+**Total stage time (ms):** 9069.2
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 0.2 | completed |
-| source_discovery | 0.9 | completed |
-| connector | 9.1 | completed |
-| document_discovery | 9.3 | completed |
-| document_download | 5151.8 | completed |
-| extraction | 17.9 | completed |
-| candidate_validation | 2.5 | completed |
-| publish_queue | 2.6 | completed |
-| append_dataset | 2.8 | completed |
+| mission | 0.4 | completed |
+| source_discovery | 1.3 | completed |
+| connector | 3172.0 | completed |
+| document_discovery | 3172.5 | completed |
+| document_download | 2690.8 | completed |
+| extraction | 19.3 | completed |
+| candidate_validation | 2.9 | completed |
+| publish_queue | 2.8 | completed |
+| append_dataset | 6.3 | completed |
 | export | 0.3 | skipped |
 | git_commit | 0.3 | skipped |
 | push | 0.3 | skipped |
@@ -29,34 +29,34 @@
     "connectors_ok": 7,
     "connectors_failed": 0,
     "documents_discovered": 10,
-    "documents_downloaded": 2,
+    "documents_downloaded": 4,
     "documents_failed": 0,
-    "documents_duplicates": 6,
-    "candidates_extracted": 2,
-    "candidates_validated": 2,
+    "documents_duplicates": 0,
+    "candidates_extracted": 3,
+    "candidates_validated": 3,
     "candidates_rejected": 0,
-    "rows_published": 2,
+    "rows_published": 3,
     "rows_duplicate": 0
   },
   "publish": {
-    "extracted": 2,
-    "validated": 2,
+    "extracted": 3,
+    "validated": 3,
     "rejected": 0,
-    "queued": 2,
-    "published": 2,
+    "queued": 3,
+    "published": 3,
     "skipped": 0,
     "duplicate": 0,
     "by_dataset": {
-      "business_signal_library": 2
+      "business_signal_library": 3
     },
     "balance_ok": true
   },
   "document_queue": {
     "queued": 0,
     "processing": 0,
-    "completed": 2,
+    "completed": 4,
     "failed": 0,
-    "duplicates": 6
+    "duplicates": 0
   },
   "exports": {
     "jsonl": false,

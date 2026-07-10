@@ -9,16 +9,17 @@ from __future__ import annotations
 import csv
 import json
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Callable, Optional
 
 from automation.acquisition.document_store import DocumentStore
-from automation.acquisition.extractor import (
-    extract_business_signal_candidates,
-    extract_industry_candidates,
-    save_candidate_queue,
-)
+from automation.acquisition.download_manager import DownloadManager
+from automation.acquisition.extractor import save_candidate_queue
+from automation.acquisition.multi_stage_extract import extract_staged
+from automation.acquisition.performance import PerformanceCollector
 from automation.acquisition.reports import write_production_reports
+from automation.acquisition.source_ranker import record_source_performance
 from automation.acquisition.source_registry import SourceRegistry
 from automation.acquisition.trace import ProductionTrace
 from automation.connectors.manager import ConnectorManager
@@ -131,6 +132,14 @@ def run_acquisition(
     if not selected:
         selected = list(enabled_cfgs.keys())[:4]
 
+    # Adaptive order: rank sources already ordered; align selected connectors
+    rank_by_conn: dict[str, float] = {}
+    for s in sources:
+        cid = str(s.get("connector_id") or "")
+        if cid:
+            rank_by_conn[cid] = float(s.get("_rank_score") or 0)
+    selected.sort(key=lambda c: rank_by_conn.get(c, 0), reverse=True)
+
     audit["sources_contacted"] = selected
     source_name_by_id = {str(s.get("id")): str(s.get("name") or s.get("id")) for s in sources}
     for cfg in enabled_cfgs.values():
@@ -138,28 +147,38 @@ def run_acquisition(
         if sid and sid not in source_name_by_id:
             source_name_by_id[sid] = str(cfg.get("name") or sid)
 
-    emit("Source Discovery", f"Selected {len(selected)} connectors")
+    emit("Source Discovery", f"Selected {len(selected)} connectors (adaptive rank)")
     trace.finish_stage(
         "source_discovery",
         status="completed",
-        meta={"connectors": selected, "sources": [s.get("id") for s in sources]},
+        meta={
+            "connectors": selected,
+            "sources": [s.get("id") for s in sources],
+            "ranking": [
+                {"id": s.get("id"), "score": s.get("_rank_score")} for s in sources[:12]
+            ],
+        },
     )
+
+    # Performance collector (throughput / cache / ranking reports)
+    perf = PerformanceCollector(repo_root=root)
+    perf.set_ranking(sources)
+    downloader = DownloadManager(repo_root=root, max_workers=6, timeout=30.0, retries=2)
 
     query_text = instruction if len(instruction) < 160 else f"{dataset} Indonesia"
     if "indonesia" not in query_text.lower():
         query_text = f"{query_text} Indonesia"
 
-    # --- Connector search (per-connector for visibility) ---
+    # --- Connector search (async workers, rate-limit aware via manager) ---
     trace.start_stage("connector")
     trace.start_stage("document_discovery")
     all_results: list[Any] = []
     connector_rows: list[dict[str, Any]] = []
 
-    for cid in selected:
+    def _search_one(cid: str) -> tuple[str, dict[str, Any], list[Any]]:
         cfg = enabled_cfgs.get(cid) or {}
         name = str(cfg.get("name") or cid)
         source_id = str(cfg.get("source_id") or "")
-        emit("Searching", f"Searching {name}")
         t0 = time.perf_counter()
         row: dict[str, Any] = {
             "connector_id": cid,
@@ -177,7 +196,9 @@ def run_acquisition(
             "last_successful_sync": "",
             "urls": [],
             "error": None,
+            "rank_score": rank_by_conn.get(cid, 0),
         }
+        found: list[Any] = []
         try:
             q = SearchQuery(
                 query=query_text,
@@ -191,33 +212,81 @@ def run_acquisition(
             row["elapsed_ms"] = elapsed
             row["documents_discovered"] = len(found)
             row["urls"] = [r.url for r in found[:5]]
-            # Infer HTTP from first success (connectors don't always expose status)
-            row["http_status"] = 200 if found or not dry_run else None
             if not found:
                 row["status"] = "no_updates"
-                row["http_status"] = row["http_status"] or 200
-                emit("Searching", f"{name}: No updates")
+                row["http_status"] = 200
             else:
                 row["status"] = "ok"
                 row["http_status"] = 200
                 row["last_successful_sync"] = utc_now_iso()
-                emit(
-                    "Searching",
-                    f"{name}: HTTP 200 · {len(found)} documents",
-                )
-            all_results.extend(found)
-            audit["http_requests"] += 1
         except Exception as exc:  # noqa: BLE001
             elapsed = round((time.perf_counter() - t0) * 1000, 1)
             row["elapsed_ms"] = elapsed
             row["status"] = "error"
             row["error"] = str(exc)
             row["http_status"] = 0
-            audit["failures"].append(f"connector_error:{cid}:{exc}")
-            emit("Searching", f"{name}: error {exc}")
-        connector_rows.append(row)
-        trace.add_connector(row)
-        audit["connectors"].append(row)
+            found = []
+        return cid, row, found
+
+    # Concurrent connector discovery (does not block factory on slow sources)
+    max_workers = min(8, max(1, len(selected)))
+    emit("Searching", f"Async connector search · workers={max_workers}")
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        futures = [pool.submit(_search_one, cid) for cid in selected]
+        for fut in as_completed(futures):
+            cid, row, found = fut.result()
+            name = row.get("name") or cid
+            if row.get("status") == "error":
+                audit["failures"].append(f"connector_error:{cid}:{row.get('error')}")
+                emit("Searching", f"{name}: error {row.get('error')}")
+                try:
+                    record_source_performance(
+                        str(row.get("source_id") or cid),
+                        success=False,
+                        latency_ms=float(row.get("elapsed_ms") or 0),
+                        repo_root=root,
+                    )
+                except Exception:  # noqa: BLE001
+                    pass
+            elif row.get("status") == "no_updates":
+                emit("Searching", f"{name}: No updates")
+                try:
+                    record_source_performance(
+                        str(row.get("source_id") or cid),
+                        success=True,
+                        documents=0,
+                        latency_ms=float(row.get("elapsed_ms") or 0),
+                        repo_root=root,
+                    )
+                except Exception:  # noqa: BLE001
+                    pass
+            else:
+                emit(
+                    "Searching",
+                    f"{name}: HTTP 200 · {row.get('documents_discovered')} documents",
+                )
+                try:
+                    record_source_performance(
+                        str(row.get("source_id") or cid),
+                        success=True,
+                        documents=int(row.get("documents_discovered") or 0),
+                        latency_ms=float(row.get("elapsed_ms") or 0),
+                        repo_root=root,
+                    )
+                except Exception:  # noqa: BLE001
+                    pass
+            all_results.extend(found)
+            audit["http_requests"] += 1
+            connector_rows.append(row)
+            trace.add_connector(row)
+            audit["connectors"].append(row)
+
+    # Preserve adaptive connector order in audit
+    connector_rows.sort(
+        key=lambda r: float(r.get("rank_score") or 0), reverse=True
+    )
+    audit["connectors"] = connector_rows
+    perf.set_connectors(connector_rows)
 
     # de-dupe results by URL
     seen_urls: set[str] = set()
@@ -276,29 +345,75 @@ def run_acquisition(
                 break
     results = diversified or unique_results
 
-    # --- Download ---
+    # --- Download (incremental fingerprints + cache-aware acquire) ---
     trace.start_stage("document_download")
     documents: list[dict[str, Any]] = []
     seen_checksums: set[str] = set()
     duplicates = 0
+    not_modified = 0
     conn_download_counts: dict[str, int] = {c["connector_id"]: 0 for c in connector_rows}
 
     for res in results:
         if len(documents) >= limit:
             break
         try:
+            skip, skip_reason = downloader.fingerprints.should_skip(url=res.url)
+            if skip and skip_reason in {
+                "duplicate_content_hash",
+                "duplicate_content_fingerprint",
+                "unchanged_url_content",
+            }:
+                duplicates += 1
+                not_modified += 1
+                trace.document_queue["duplicates"] = duplicates
+                emit("Downloading", f"Skip unchanged ({skip_reason})")
+                for crow in connector_rows:
+                    if crow["connector_id"] == res.connector_id:
+                        crow["skipped"] = int(crow.get("skipped") or 0) + 1
+                continue
+        except Exception:  # noqa: BLE001
+            pass
+
+        try:
             emit("Downloading", f"Downloading report {res.title[:80]}")
             doc = manager.acquire(res, mission_id=mission_id)
             d = doc.to_dict()
             fetch_mode = "download"
         except Exception as exc:  # noqa: BLE001
-            emit(
-                "Downloading",
-                f"Full fetch failed ({exc}); storing search metadata document",
-            )
-            d = _document_from_search_result(res, mission_id=mission_id)
-            audit["failures"].append(f"download_fallback:{res.url}:{exc}")
-            fetch_mode = "metadata_fallback"
+            emit("Downloading", f"Connector fetch failed ({exc}); manager fallback")
+            try:
+                dm = downloader.download_one(
+                    res.url,
+                    connector_id=str(res.connector_id or ""),
+                    dest_dir=root
+                    / "automation"
+                    / "raw_documents"
+                    / str(res.connector_id or "misc"),
+                )
+                if dm.get("not_modified") or dm.get("skipped"):
+                    not_modified += 1
+                    duplicates += 1
+                    for crow in connector_rows:
+                        if crow["connector_id"] == res.connector_id:
+                            crow["skipped"] = int(crow.get("skipped") or 0) + 1
+                    continue
+                d = _document_from_search_result(res, mission_id=mission_id)
+                if dm.get("ok") and dm.get("text"):
+                    d.setdefault("metadata", {})["text_excerpt"] = str(dm["text"])[:8000]
+                    if dm.get("content_hash"):
+                        d["checksum"] = dm["content_hash"]
+                        d["hash"] = dm["content_hash"]
+                    if dm.get("local_path"):
+                        d["local_path"] = dm["local_path"]
+                    d["bytes"] = int(dm.get("bytes") or 0)
+                    fetch_mode = "download_manager"
+                else:
+                    audit["failures"].append(f"download_fallback:{res.url}:{exc}")
+                    fetch_mode = "metadata_fallback"
+            except Exception as exc2:  # noqa: BLE001
+                d = _document_from_search_result(res, mission_id=mission_id)
+                audit["failures"].append(f"download_fallback:{res.url}:{exc}/{exc2}")
+                fetch_mode = "metadata_fallback"
 
         meta = d.get("metadata") or {}
         if not meta.get("text_excerpt") and res.snippet:
@@ -322,6 +437,24 @@ def run_acquisition(
         d["mission_id"] = mission_id
 
         checksum = str(d.get("checksum") or d.get("hash") or "")
+        text_fp = str(meta.get("text_excerpt") or "")
+        try:
+            skip, reason = downloader.fingerprints.should_skip(
+                url=str(d.get("original_url") or res.url or ""),
+                content_hash=checksum,
+                text=text_fp[:5000],
+            )
+            if skip and reason not in {"", "known_url_need_validate"}:
+                duplicates += 1
+                trace.document_queue["duplicates"] = duplicates
+                emit("Document Queue", f"Duplicate fingerprint skipped ({reason})")
+                for crow in connector_rows:
+                    if crow["connector_id"] == res.connector_id:
+                        crow["skipped"] = int(crow.get("skipped") or 0) + 1
+                continue
+        except Exception:  # noqa: BLE001
+            pass
+
         if checksum and checksum in seen_checksums:
             duplicates += 1
             trace.document_queue["duplicates"] = duplicates
@@ -332,6 +465,19 @@ def run_acquisition(
             continue
         if checksum:
             seen_checksums.add(checksum)
+
+        try:
+            from automation.acquisition.fingerprint import content_fingerprint
+
+            downloader.fingerprints.remember(
+                url=str(d.get("original_url") or res.url or ""),
+                content_hash=checksum or content_fingerprint(text_fp),
+                document_id=str(d.get("document_id") or ""),
+                connector_id=str(d.get("connector_id") or ""),
+                bytes_len=int(d.get("bytes") or 0),
+            )
+        except Exception:  # noqa: BLE001
+            pass
 
         doc_store.enqueue(d)
         doc_rec = {
@@ -380,8 +526,13 @@ def run_acquisition(
             crow["skipped"] = connector_rows[i].get("skipped", 0)
 
     audit["queue_stats"]["documents"] = doc_store.counts()
+    audit["queue_stats"]["not_modified"] = not_modified
+    audit["queue_stats"]["duplicates"] = duplicates
     trace.document_queue["queued"] = len(documents)
     trace.document_queue["duplicates"] = duplicates
+    perf.set_downloads(downloader.snapshot())
+    perf.set_cache(downloader.cache.stats())
+    perf.set_fingerprints(downloader.fingerprints.stats())
 
     if not documents:
         reason = (
@@ -418,25 +569,26 @@ def run_acquisition(
             emit("Parsing document", f"Parsing document {did}")
     trace.document_queue["processing"] = len(documents)
 
-    # --- Extraction ---
+    # --- Multi-stage extraction (fast → deep → skip expensive LLM for simple docs) ---
     trace.start_stage("extraction")
-    emit("Extracting", f"Extracting knowledge candidates for {dataset}")
-    candidates = extract_industry_candidates(
+    emit("Extracting", f"Multi-stage extraction for {dataset}")
+    staged = extract_staged(
         documents,
         mission_id=mission_id,
         session_id=session_id,
+        dataset=dataset,
         repo_root=root,
         max_candidates=5,
     )
-    if not candidates:
-        emit("Extracting", "No new industry entities — extracting business signals")
-        candidates = extract_business_signal_candidates(
-            documents,
-            mission_id=mission_id,
-            session_id=session_id,
-            repo_root=root,
-            max_candidates=3,
-        )
+    candidates = staged.get("candidates") or []
+    audit["extraction_stages"] = staged.get("stats") or {}
+    perf.set_extraction(staged.get("stats") or {})
+    emit(
+        "Extracting",
+        f"Stages fast={audit['extraction_stages'].get('fast', 0)} "
+        f"deep={audit['extraction_stages'].get('deep', 0)} "
+        f"llm_skipped={audit['extraction_stages'].get('skipped_llm', 0)}",
+    )
 
     audit["candidates_extracted"] = len(candidates)
     cand_records: list[dict[str, Any]] = []
@@ -867,6 +1019,49 @@ def run_acquisition(
         "Knowledge Updated",
         f"Published {published_n} rows · Knowledge Added {published_n}",
     )
+    # Per-source yield for adaptive ranking
+    try:
+        for crow in connector_rows:
+            sid = str(crow.get("source_id") or "")
+            if not sid:
+                continue
+            rows_for = sum(
+                1
+                for ch in (audit.get("evidence_chains") or [])
+                if ch.get("source_id") == sid
+            )
+            record_source_performance(
+                sid,
+                success=crow.get("status") in {"ok", "success", "no_updates"},
+                documents=int(crow.get("documents_downloaded") or 0),
+                rows=rows_for,
+                latency_ms=float(crow.get("elapsed_ms") or 0),
+                duplicates=int(crow.get("skipped") or 0),
+                repo_root=root,
+            )
+    except Exception:  # noqa: BLE001
+        pass
+
+    perf.set_publish(audit.get("publish") or {})
+    try:
+        perf_snap = perf.finalize(
+            documents=int(audit.get("documents_downloaded") or 0),
+            rows=int(published_n),
+            mission_id=mission_id,
+            session_id=session_id,
+        )
+        audit["performance"] = perf_snap
+        audit["performance_reports"] = {
+            "throughput": (perf_snap.get("throughput") or {}),
+        }
+        emit(
+            "Performance",
+            f"docs/hour={perf_snap.get('throughput', {}).get('documents_per_hour')} "
+            f"rows/hour={perf_snap.get('throughput', {}).get('rows_per_hour')}",
+        )
+    except Exception as exc:  # noqa: BLE001
+        audit["failures"].append(f"performance_report_failed:{exc}")
+
     return _finalize_audit(audit, trace, ok=bool(audit["ok"]), emit=emit)
 
 

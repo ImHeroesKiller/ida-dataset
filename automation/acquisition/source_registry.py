@@ -57,24 +57,45 @@ class SourceRegistry:
         limit: int = 8,
         min_trust: float = 0.80,
     ) -> list[dict[str, Any]]:
-        """Mission selector helper — priority, dataset compatibility, trust."""
+        """Mission selector helper — adaptive ranking (health, yield, latency, freshness)."""
         candidates = self.list_sources(enabled_only=True)
-        scored: list[tuple[float, dict[str, Any]]] = []
-        for s in candidates:
-            trust = float(s.get("trust_score") or 0)
-            if trust < min_trust:
-                continue
-            allowed = s.get("allowed_datasets") or []
-            if allowed and dataset not in allowed and "*" not in allowed:
-                # still allow high-trust general sources
-                if trust < 0.90:
+        try:
+            from automation.acquisition.source_ranker import rank_sources
+            from automation.acquisition.webhook import drain_pending_sources
+
+            # Webhook / feed update events boost preferred sources
+            webhook_pref = drain_pending_sources(repo_root=self.repo_root)
+            pref = list(preferred_source_ids or [])
+            for sid in webhook_pref:
+                if sid not in pref:
+                    pref.append(sid)
+            ranked = rank_sources(
+                candidates,
+                dataset=dataset,
+                preferred_source_ids=pref or None,
+                repo_root=self.repo_root,
+                min_trust=min_trust,
+            )
+            # skip exhausted / temporarily disabled (near-zero score after backoff)
+            filtered = [s for s in ranked if float(s.get("_rank_score") or 0) >= 5.0]
+            return (filtered or ranked)[:limit]
+        except Exception:  # noqa: BLE001
+            # Fallback: static priority + trust
+            scored: list[tuple[float, dict[str, Any]]] = []
+            for s in candidates:
+                trust = float(s.get("trust_score") or 0)
+                if trust < min_trust:
                     continue
-            score = float(s.get("priority") or 0) + trust * 10
-            if preferred_source_ids and s.get("id") in preferred_source_ids:
-                score += 50
-            scored.append((score, s))
-        scored.sort(key=lambda x: x[0], reverse=True)
-        return [s for _, s in scored[:limit]]
+                allowed = s.get("allowed_datasets") or []
+                if allowed and dataset not in allowed and "*" not in allowed:
+                    if trust < 0.90:
+                        continue
+                score = float(s.get("priority") or 0) + trust * 10
+                if preferred_source_ids and s.get("id") in preferred_source_ids:
+                    score += 50
+                scored.append((score, s))
+            scored.sort(key=lambda x: x[0], reverse=True)
+            return [s for _, s in scored[:limit]]
 
     def connector_ids_for(self, sources: list[dict[str, Any]]) -> list[str]:
         ids: list[str] = []
