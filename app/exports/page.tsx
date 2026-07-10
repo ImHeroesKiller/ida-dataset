@@ -56,8 +56,8 @@ export default function ExportsPage() {
         <header>
           <h1 className="text-2xl font-semibold text-[var(--text)]">Exports</h1>
           <p className="mt-1 text-sm text-[var(--text-muted)]">
-            Factory outputs for LLM fine-tuning and corpus packaging. Status:{" "}
-            {kpis.export_status}
+            Factory outputs for LLM fine-tuning and corpus packaging. Exports
+            generated: {kpis.exports_generated}
           </p>
         </header>
 

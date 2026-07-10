@@ -22,7 +22,10 @@ export default function QualityPage() {
         </header>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <Stat label="Quality score" value={String(kpis.dataset_quality)} />
+          <Stat
+            label="Dataset readiness"
+            value={String(kpis.dataset_readiness)}
+          />
           <Stat
             label="Average confidence"
             value={
@@ -33,15 +36,15 @@ export default function QualityPage() {
           />
           <Stat
             label="Schema completeness"
-            value={`${kpis.schema_completeness}%`}
+            value={`${
+              kpis.datasets?.find((d) => d.name === "industry_library")
+                ?.schema_completeness ?? 0
+            }%`}
           />
-          <Stat
-            label="Source freshness"
-            value={`${kpis.source_freshness}%`}
-          />
+          <Stat label="Freshness" value={`${kpis.freshness}%`} />
           <Stat
             label="Duplicate rate"
-            value={`${Math.round(kpis.duplicate_rate * 100)}%`}
+            value={`${Math.round((kpis.duplicate_rate || 0) * 1000) / 10}%`}
           />
           <Stat label="Pending review" value={String(review.counts.pending)} />
         </div>

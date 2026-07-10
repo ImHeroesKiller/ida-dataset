@@ -16,6 +16,10 @@ type DatasetInfo = {
   columnCount: number;
   isPlaceholder: boolean;
   headers: string[];
+  readiness?: number;
+  product_target?: number;
+  coverage_pct?: number;
+  coverage_label?: string;
 };
 
 export function DatasetsClient({ datasets }: { datasets: DatasetInfo[] }) {
@@ -96,10 +100,22 @@ export function DatasetsClient({ datasets }: { datasets: DatasetInfo[] }) {
                   inspect({
                     kind: "dataset",
                     title: d.name,
-                    subtitle: d.relativePath,
+                    subtitle: d.coverage_label
+                      ? `${d.relativePath} · ${d.coverage_label} · readiness ${d.readiness ?? "—"}`
+                      : d.relativePath,
                     meta: {
                       Domain: d.domain,
                       Rows: String(d.rowCount),
+                      "Product target":
+                        d.product_target != null
+                          ? String(d.product_target)
+                          : "—",
+                      Coverage:
+                        d.coverage_label != null
+                          ? `${d.coverage_label} (${d.coverage_pct ?? 0}%)`
+                          : "—",
+                      Readiness:
+                        d.readiness != null ? String(d.readiness) : "—",
                       Columns: String(d.columnCount),
                       Placeholder: String(d.isPlaceholder),
                     },
@@ -107,11 +123,25 @@ export function DatasetsClient({ datasets }: { datasets: DatasetInfo[] }) {
                   });
                 }}
               >
-                <span className="text-xs text-zinc-100">{d.name}</span>
-                <span className="text-[10px] text-zinc-500">
-                  {d.domain} · {d.rowCount} rows
-                  {d.isPlaceholder ? " · placeholder" : ""}
-                </span>
+                <div className="flex w-full items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <span className="text-xs text-zinc-100">{d.name}</span>
+                    <span className="mt-0.5 block text-[10px] text-zinc-500">
+                      {d.domain}
+                      {d.coverage_label
+                        ? ` · ${d.coverage_label}`
+                        : ` · ${d.rowCount} rows`}
+                      {d.coverage_pct != null ? ` · ${d.coverage_pct}%` : ""}
+                      {d.isPlaceholder ? " · placeholder" : ""}
+                    </span>
+                  </div>
+                  <span
+                    className="shrink-0 text-[10px] font-semibold text-emerald-400"
+                    title="Dataset readiness (0–100)"
+                  >
+                    {d.readiness != null ? d.readiness : "—"}
+                  </span>
+                </div>
               </button>
             ))}
           </div>

@@ -40,10 +40,12 @@ export function FactoryDashboard({ kpis: initial }: { kpis: FactoryKpis }) {
     setMsg(null);
     try {
       const res = await startLearning(
-        "Expand Industry Library — factory learn cycle",
+        "Produce Industry Dataset — factory learn cycle",
         true
       );
-      setMsg(res.ok ? res.message || "Mission dispatched" : res.reason || "Failed");
+      setMsg(
+        res.ok ? res.message || "Mission dispatched" : res.reason || "Failed"
+      );
       await refresh();
     } finally {
       setBusy(false);
@@ -51,6 +53,7 @@ export function FactoryDashboard({ kpis: initial }: { kpis: FactoryKpis }) {
   }
 
   const journal = (kpis.recent_activity || []).slice(0, 14);
+  const industry = kpis.datasets?.find((d) => d.name === "industry_library");
 
   return (
     <div className="mx-auto max-w-6xl space-y-8">
@@ -74,7 +77,14 @@ export function FactoryDashboard({ kpis: initial }: { kpis: FactoryKpis }) {
         </div>
       </header>
 
+      {/* Official Factory KPIs only */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <MetricCard
+          label="Factory status"
+          value={running ? "Running" : kpis.factory_status === "error" ? "Error" : "Idle"}
+          hint={kpis.current_activity}
+          tone={running ? "green" : "neutral"}
+        />
         <MetricCard
           label="Rows added today"
           value={`+${kpis.rows_added_today}`}
@@ -84,78 +94,124 @@ export function FactoryDashboard({ kpis: initial }: { kpis: FactoryKpis }) {
         <MetricCard
           label="Dataset coverage"
           value={`${kpis.dataset_coverage}%`}
-          hint={`${kpis.populated_datasets}/${kpis.total_datasets} datasets · ${kpis.total_rows} rows`}
+          hint={kpis.coverage_label}
           tone="blue"
         />
         <MetricCard
-          label="Dataset quality"
-          value={String(kpis.dataset_quality)}
-          hint={
-            kpis.average_confidence != null
-              ? `Avg confidence ${Math.round(kpis.average_confidence * 100)}%`
-              : "Quality score"
-          }
+          label="Dataset readiness"
+          value={String(kpis.dataset_readiness)}
+          hint="0–100 composite readiness score"
           tone="green"
         />
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <MetricCard
-          label="Export status"
+          label="Average confidence"
+          value={
+            kpis.average_confidence != null
+              ? `${Math.round(kpis.average_confidence * 100)}%`
+              : "—"
+          }
+          hint="Product knowledge confidence"
+          tone="blue"
+        />
+        <MetricCard
+          label="Duplicate rate"
+          value={`${Math.round((kpis.duplicate_rate || 0) * 1000) / 10}%`}
+          hint="Lower is better"
+          tone="neutral"
+        />
+        <MetricCard
+          label="Freshness"
+          value={`${kpis.freshness}%`}
+          hint="Rows within product freshness window"
+          tone="blue"
+        />
+        <MetricCard
+          label="Mission success rate"
+          value={`${kpis.mission_success_rate}%`}
+          hint="Completed / active missions"
+          tone="green"
+        />
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <MetricCard
+          label="Exports generated"
           value={String(kpis.exports_generated)}
-          hint={kpis.export_status}
+          hint="Training package artifacts"
           tone="blue"
           href="/exports"
+        />
+        <MetricCard
+          label="Current mission"
+          value={String(kpis.current_mission).slice(0, 28)}
+          hint={kpis.current_activity}
+          tone="neutral"
+        />
+        <MetricCard
+          label="Rows this period"
+          value={`W+${kpis.rows_added_week} · M+${kpis.rows_added_month}`}
+          hint="Week / month production"
+          tone="green"
         />
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <CardBody className="space-y-4 p-6">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
-                  Current mission
-                </p>
-                <p className="mt-2 text-lg font-medium text-[var(--text)]">
-                  {kpis.current_mission}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
-                  Current activity
-                </p>
-                <p className="mt-2 text-base text-[var(--text-muted)]">
-                  {kpis.current_activity}
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <Mini label="Schema completeness" value={`${kpis.schema_completeness}%`} />
-              <Mini label="Source freshness" value={`${kpis.source_freshness}%`} />
-              <Mini
-                label="Duplicate rate"
-                value={`${Math.round(kpis.duplicate_rate * 100)}%`}
-              />
-              <Mini
-                label="Mission success"
-                value={`${kpis.mission_success_rate}%`}
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <Mini label="Verified sources" value={String(kpis.verified_sources)} />
-              <Mini label="Active sources" value={String(kpis.active_sources)} />
-              <Mini label="Industries" value={String(kpis.total_industries)} />
-              <Mini label="Dataset version" value={kpis.dataset_version} />
+            <div>
+              <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
+                Product coverage (not sprint target)
+              </p>
+              <p className="mt-2 text-lg font-medium text-[var(--text)]">
+                {kpis.coverage_label}
+              </p>
+              <p className="mt-1 text-xs text-[var(--text-faint)]">
+                Sprint milestones are informational only (e.g. phase1=
+                {kpis.sprint_milestones?.industry_phase1 ?? 50}). Product target
+                for industry = {kpis.industry_product_target}.
+              </p>
             </div>
             <div>
               <div className="mb-2 flex justify-between text-xs text-[var(--text-faint)]">
-                <span>Coverage progress</span>
+                <span>Industry product coverage</span>
                 <span>{kpis.dataset_coverage}%</span>
               </div>
               <Progress value={kpis.dataset_coverage} />
             </div>
-            <p className="text-xs text-[var(--text-faint)]">
-              Source · {kpis.current_source} · Document · {kpis.current_document}
-              {kpis.latest_industry ? ` · Latest · ${kpis.latest_industry}` : ""}
-            </p>
+            {industry ? (
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <Mini label="Industry rows" value={String(industry.current_rows)} />
+                <Mini label="Product target" value={String(industry.product_target)} />
+                <Mini label="Readiness" value={String(industry.readiness)} />
+                <Mini
+                  label="Completeness"
+                  value={`${industry.schema_completeness}%`}
+                />
+              </div>
+            ) : null}
+            <div className="space-y-2">
+              <p className="text-xs uppercase tracking-wider text-[var(--text-faint)]">
+                Coverage by dataset
+              </p>
+              <div className="max-h-40 space-y-1.5 overflow-y-auto text-sm scrollbar-thin">
+                {(kpis.coverage_breakdown || []).map((d) => (
+                  <div
+                    key={d.name}
+                    className="flex items-center justify-between gap-2 text-[var(--text-muted)]"
+                  >
+                    <span className="truncate font-medium text-[var(--text)]">
+                      {d.name}
+                    </span>
+                    <span className="shrink-0 font-mono text-xs">
+                      {d.current} / {d.target} · {d.pct}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </CardBody>
         </Card>
 
@@ -168,9 +224,6 @@ export function FactoryDashboard({ kpis: initial }: { kpis: FactoryKpis }) {
               <p className="mt-3 text-lg font-medium text-[var(--text)]">
                 {running ? "Learn job running" : "Dispatch a learn mission"}
               </p>
-              <p className="mt-1 text-sm text-[var(--text-muted)]">
-                Pipeline: Mission → Collect → Extract → Validate → Publish → Export
-              </p>
             </div>
             <div className="flex flex-col gap-2">
               <Button className="w-full" disabled={busy || running} onClick={onStart}>
@@ -181,11 +234,6 @@ export function FactoryDashboard({ kpis: initial }: { kpis: FactoryKpis }) {
                   Browse datasets
                 </Button>
               </Link>
-              <Link href="/exports">
-                <Button variant="secondary" className="w-full">
-                  View exports
-                </Button>
-              </Link>
               {msg ? (
                 <p className="text-xs text-[var(--text-faint)]">{msg}</p>
               ) : null}
@@ -194,12 +242,35 @@ export function FactoryDashboard({ kpis: initial }: { kpis: FactoryKpis }) {
         </Card>
       </div>
 
+      {/* Capacity — informational only */}
+      <Card>
+        <CardHeader
+          title="Factory capacity"
+          description="Informational throughput estimates — not product targets"
+        />
+        <CardBody className="grid grid-cols-2 gap-3 p-6 sm:grid-cols-4">
+          <Mini
+            label="Avg rows / day"
+            value={String(kpis.capacity?.average_rows_per_day ?? 0)}
+          />
+          <Mini
+            label="Avg rows / session"
+            value={String(kpis.capacity?.average_rows_per_session ?? 0)}
+          />
+          <Mini
+            label="Mission throughput"
+            value={String(kpis.capacity?.mission_throughput ?? 0)}
+          />
+          <Mini
+            label="Estimated completion"
+            value={kpis.capacity?.estimated_completion || "—"}
+          />
+        </CardBody>
+      </Card>
+
       <div className="grid gap-4 lg:grid-cols-2">
         <Card>
-          <CardHeader
-            title="Latest activity"
-            description="Factory pipeline events"
-          />
+          <CardHeader title="Latest activity" description="Factory pipeline events" />
           <CardBody className="max-h-72 space-y-1.5 overflow-y-auto font-mono text-[11px] scrollbar-thin">
             {!journal.length ? (
               <p className="text-sm text-[var(--text-faint)]">No activity yet.</p>
@@ -220,17 +291,31 @@ export function FactoryDashboard({ kpis: initial }: { kpis: FactoryKpis }) {
         </Card>
 
         <Card>
-          <CardHeader title="Factory KPIs" description="Official production metrics" />
-          <CardBody className="grid grid-cols-2 gap-3 p-6">
-            <Mini label="Rows this week" value={`+${kpis.rows_added_week}`} />
-            <Mini label="Rows this month" value={`+${kpis.rows_added_month}`} />
-            <Mini label="Datasets updated" value={String(kpis.datasets_updated)} />
-            <Mini label="Pending quality" value={String(kpis.pending_quality)} />
-            <Mini label="Exports generated" value={String(kpis.exports_generated)} />
-            <Mini
-              label="Last session"
-              value={kpis.last_session ? kpis.last_session.slice(0, 16) : "—"}
-            />
+          <CardHeader
+            title="Dataset readiness"
+            description="Per-dataset score beside product coverage"
+          />
+          <CardBody className="max-h-72 space-y-2 overflow-y-auto scrollbar-thin">
+            {(kpis.datasets || [])
+              .filter((d) => d.current_rows > 0 || d.name === "industry_library")
+              .map((d) => (
+                <div
+                  key={d.relativePath}
+                  className="flex items-center justify-between gap-2 rounded-xl bg-[var(--panel-2)] px-3 py-2 text-sm"
+                >
+                  <div className="min-w-0">
+                    <p className="truncate font-medium text-[var(--text)]">
+                      {d.name}
+                    </p>
+                    <p className="text-xs text-[var(--text-faint)]">
+                      {d.coverage_label} · {d.coverage_pct}%
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-sm font-semibold text-emerald-600 dark:text-emerald-300">
+                    {d.readiness}
+                  </span>
+                </div>
+              ))}
           </CardBody>
         </Card>
       </div>

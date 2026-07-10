@@ -1,0 +1,40 @@
+# Product KPI targets — long-term factory goals (NOT sprint targets).
+# Coverage = current_rows / product_target.
+# Edit this file to recalibrate product ambition without code changes.
+
+version: "1.0"
+
+# Days for freshness window in readiness calculation
+freshness_window_days: 90
+
+# Product row targets by logical dataset class (keys match dataset name stems)
+targets:
+  industry_library: 250
+  company_profile: 10000
+  product_catalog: 5000
+  # Service may map to product_catalog subtype; keep separate target for future
+  service_library: 2000
+  pain_point_library: 3000
+  solution_library: 3000
+  framework_library: 500
+  case_study_library: 1000
+  # Buyer persona / decision maker may live in discovery or dedicated libraries
+  discovery_question_library: 500
+  buyer_persona_library: 500
+  decision_maker_library: 500
+  regulation_library: 1000
+  competitor_library: 1000
+  opportunity_analysis: 2000
+  business_signal_library: 1000
+  # Default for unlisted datasets
+  _default: 100
+
+# Sprint milestones (informational only — never used as product coverage denominator)
+sprint_milestones:
+  industry_phase1: 50
+  industry_stretch: 100
+
+# Capacity assumptions for ETA estimates (informational)
+capacity:
+  lookback_days: 30
+  sessions_lookback: 30

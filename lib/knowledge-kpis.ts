@@ -8,6 +8,7 @@ import path from "path";
 import { getRepoRoot, repoPath } from "./paths";
 import { listDatasets, getReviewQueues } from "./repo-data";
 import { parseCsv } from "./csv";
+import { productCoveragePct, productTargetFor } from "./product-targets";
 
 function readJson(p: string): Record<string, unknown> | null {
   try {
@@ -105,12 +106,9 @@ export function getIndustryLibraryMetrics() {
         ) / 1000
       : null;
 
-  // Phase-1 catalog target (EPIC-2A); stretch 100 tracked in reports
-  const targetIndustries = 50;
-  const coverageProgress = Math.min(
-    100,
-    Math.round((n / targetIndustries) * 1000) / 10
-  );
+  // Product target from configurable registry (NOT sprint milestones)
+  const targetIndustries = productTargetFor("industry_library");
+  const coverageProgress = productCoveragePct(n, targetIndustries);
 
   return {
     total_industries: n,
