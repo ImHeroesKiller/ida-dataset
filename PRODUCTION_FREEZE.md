@@ -118,13 +118,14 @@ No engine modification required.
 
 ---
 
-## Dashboard
+## Dashboard / Operator UI
 
-**Status: FROZEN**
+**Status: FROZEN (Operator UI v1.0)**
 
-Dashboard evolves only through **additional metrics**.
+Nav surfaces: Dashboard · Mission · Sources · Export · Settings.
 
-No redesign.
+No redesign. No new pages. No typography expansion.  
+Future work is **Dataset Engine only**.
 
 ---
 

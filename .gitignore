@@ -97,3 +97,5 @@ automation/queue/candidates/**
 !reports/reliability/**
 !reports/refactor/
 !reports/refactor/**
+!reports/ui/
+!reports/ui/**

@@ -2,6 +2,15 @@
 
 ## 2.0 — Production Freeze — 2026-07-11
 
+### Operator UI v1.0 freeze (final UI refinement)
+
+- Compact global typography (console density)
+- Export · Mission · Settings simplified to operator wireframes
+- Settings is central read-only operator configuration
+- Consistent cards, badges, buttons, status language
+- **UI FREEZE** — future work is Dataset Engine only
+- Reports: `reports/ui/*`
+
 ### Simplification sprint (no architecture redesign)
 
 - **Tavily-first discovery**: max 10 live searches/session; secondary paid APIs disabled by default; `include_raw_content` for richer queue input

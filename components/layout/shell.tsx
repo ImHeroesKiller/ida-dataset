@@ -7,9 +7,7 @@ import { InspectorProvider } from "@/components/layout/inspector-context";
 
 /**
  * Application shell — chrome only (sidebar, topbar, main, console).
- * LearningProvider lives in RootLayout so page components and shell
- * children share one context during SSR/prerender and client navigation.
- * InspectorProvider: restores inspect() for internal operator pages.
+ * Operator UI v1.0 frozen density.
  */
 export function Shell({
   title,
@@ -24,7 +22,7 @@ export function Shell({
         <Sidebar />
         <div className="flex min-w-0 flex-1 flex-col">
           <Topbar title={title} />
-          <main className="min-h-0 flex-1 overflow-y-auto px-6 py-8 scrollbar-thin sm:px-8">
+          <main className="min-h-0 flex-1 overflow-y-auto px-4 py-4 scrollbar-thin sm:px-5">
             {children}
           </main>
           <BottomConsole />

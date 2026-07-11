@@ -12,7 +12,7 @@ export function Progress({
   return (
     <div
       className={cn(
-        "h-2 overflow-hidden rounded-full bg-[var(--panel-2)]",
+        "h-1.5 overflow-hidden rounded-full bg-[var(--panel-2)]",
         className
       )}
       role="progressbar"

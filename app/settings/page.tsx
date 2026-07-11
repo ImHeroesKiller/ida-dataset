@@ -3,170 +3,146 @@ import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getVersion } from "@/lib/repo-data";
 import { getLearningMode } from "@/lib/learning-mode";
-import { FACTORY_PIPELINE, PRODUCT } from "@/lib/nav";
+import { PRODUCT } from "@/lib/nav";
+import fs from "fs";
+import { repoPath } from "@/lib/paths";
+import { loadSimpleYaml } from "@/lib/simple-yaml";
 
 export const dynamic = "force-dynamic";
 
 function Row({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-1 border-b border-[var(--border)] py-3 last:border-0 sm:flex-row sm:items-center sm:justify-between">
-      <dt className="text-small font-medium text-[var(--text-muted)]">{label}</dt>
-      <dd className="text-small font-semibold text-[var(--text)]">{value}</dd>
+    <div className="flex flex-col gap-0.5 border-b border-[var(--border)] py-2 last:border-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+      <dt className="text-[11px] font-medium text-[var(--text-muted)]">{label}</dt>
+      <dd className="text-xs font-semibold text-[var(--text)] sm:text-right">
+        {value}
+      </dd>
     </div>
   );
+}
+
+function Section({
+  title,
+  description,
+  children,
+}: {
+  title: string;
+  description?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Card>
+      <CardHeader title={title} description={description} />
+      <CardBody>
+        <dl>{children}</dl>
+      </CardBody>
+    </Card>
+  );
+}
+
+function readPolicies(): Record<string, unknown> {
+  try {
+    const p = repoPath("automation/config/policies.yaml");
+    if (!fs.existsSync(p)) return {};
+    return (loadSimpleYaml(fs.readFileSync(p, "utf8")) || {}) as Record<
+      string,
+      unknown
+    >;
+  } catch {
+    return {};
+  }
 }
 
 export default function SettingsPage() {
   const version = getVersion();
   const mode = getLearningMode();
+  const policies = readPolicies();
+  const discovery = (policies.discovery || {}) as Record<string, unknown>;
+  const validation = (policies.validation || {}) as Record<string, unknown>;
+  const confidence = policies.confidence_threshold ?? 0.8;
 
   return (
     <Shell title="Settings">
-      <div className="mx-auto max-w-4xl space-y-8">
-        <header>
-          <h1 className="text-page-title">Settings</h1>
-          <p className="mt-2 text-body text-[var(--text-secondary)]">
-            Factory configuration (read-only where enforced by production freeze).
-          </p>
+      <div className="op-page max-w-3xl">
+        <header className="op-page-header">
+          <div>
+            <h1 className="text-page-title">Settings</h1>
+            <p>
+              Operator configuration (read-only where production freeze applies).
+            </p>
+          </div>
         </header>
 
-        <section className="space-y-6">
-          <h2 className="text-section-title">Factory</h2>
-          <Card>
-            <CardHeader title="Product identity" />
-            <CardBody>
-              <dl>
-                <Row label="Name" value={PRODUCT.name} />
-                <Row label="Version" value={version || "2.0.0"} />
-                <Row
-                  label="Purpose"
-                  value="Automatic dataset generation for LLM fine-tuning"
-                />
-              </dl>
-            </CardBody>
-          </Card>
-        </section>
+        <Section title="Dashboard" description="Operator display">
+          <Row label="Refresh interval" value="30 seconds" />
+          <Row label="Console rows" value="200" />
+          <Row label="Graph duration" value="14 sessions" />
+          <Row label="Default page" value="Dashboard" />
+          <Row label="Compact mode" value="On (UI v1.0)" />
+          <Row label="Dark mode" value="System / toggle in sidebar" />
+        </Section>
 
-        <section className="space-y-6">
-          <h2 className="text-section-title">Production</h2>
-          <Card>
-            <CardHeader title="Factory mode" />
-            <CardBody>
-              <dl>
-                <Row label="Mode" value={<Badge>{mode.label}</Badge>} />
-                <Row
-                  label="Auto publish"
-                  value={mode.auto_publish ? "Enabled" : "Disabled"}
-                />
-                <Row
-                  label="Publish rate"
-                  value={`${mode.publish_rate ?? "—"} ${mode.publish_rate_unit ?? ""}`}
-                />
-              </dl>
-            </CardBody>
-          </Card>
-        </section>
+        <Section title="Scheduler" description="Learning cadence">
+          <Row label="Learning interval" value="1 hour" />
+          <Row label="Hourly schedule" value="UTC :00" />
+          <Row label="Daily deep learning" value="06:00 UTC" />
+          <Row label="Concurrent sessions" value="1 (no overlap)" />
+          <Row label="Retry count" value="3" />
+          <Row label="Timeout" value="Session concurrency queue" />
+        </Section>
 
-        <section className="space-y-6">
-          <h2 className="text-section-title">Scheduler</h2>
-          <Card>
-            <CardHeader
-              title="Continuous production"
-              description="GitHub Actions learn.yml · concurrency factory-production"
-            />
-            <CardBody>
-              <dl>
-                <Row label="Cadence" value="Every 1 hour (UTC :00)" />
-                <Row label="Overlap prevention" value="factory-production group" />
-                <Row label="Daily deep pass" value="06:00 UTC" />
-                <Row label="Discovery engine" value="Tavily primary · max 10 searches/session" />
-              </dl>
-            </CardBody>
-          </Card>
-        </section>
+        <Section title="Discovery" description="Source finding">
+          <Row
+            label="Preferred source"
+            value={
+              Array.isArray(discovery.source_strategy)
+                ? String((discovery.source_strategy as string[])[0] || "operator")
+                : "operator_selected"
+            }
+          />
+          <Row label="Random discovery" value="Enabled (trusted pool)" />
+          <Row
+            label="Maximum Tavily searches"
+            value={String(discovery.max_tavily_searches_per_session ?? 10)}
+          />
+          <Row label="Discovery timeout" value="Runtime budget per session" />
+          <Row label="Crawler workers" value="Adaptive download pool" />
+        </Section>
 
-        <section className="space-y-6">
-          <h2 className="text-section-title">Discovery · Sources · Validation</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <Card>
-              <CardHeader title="Discovery" description="Trusted domains only" />
-              <CardBody className="text-small text-[var(--text-secondary)]">
-                Search engines discover URLs. Knowledge is acquired only from
-                registered trusted sources (Source Policy).
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader title="Sources" description="Registry + health" />
-              <CardBody className="text-small text-[var(--text-secondary)]">
-                Runtime list in metadata/source_registry.csv. Trust score and
-                allowlist enforced by SOURCE_POLICY.
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader title="Validation" description="DPS + integrity guard" />
-              <CardBody className="text-small text-[var(--text-secondary)]">
-                Confidence floor, provenance, schema, and duplicate checks before
-                append. Thresholds are frozen for production quality.
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader title="Publishing" description="Append-only" />
-              <CardBody className="text-small text-[var(--text-secondary)]">
-                Domain CSVs are append-only. Corrections produce new versioned
-                rows — never silent overwrite.
-              </CardBody>
-            </Card>
-          </div>
-        </section>
+        <Section title="Export" description="Publish channels">
+          <Row label="GitHub" value="Enabled · append-only main" />
+          <Row label="Hugging Face" value="Enabled · continuous sync" />
+          <Row
+            label="Auto export"
+            value={mode.auto_publish ? "Enabled" : "Manual / gated"}
+          />
+          <Row label="Retry" value="Workflow retries" />
+          <Row label="Versioning" value={`Factory ${version || "2.0"}`} />
+        </Section>
 
-        <section className="space-y-6">
-          <h2 className="text-section-title">LLM · Export · Diagnostics</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <Card>
-              <CardHeader title="LLM extraction" />
-              <CardBody className="text-small text-[var(--text-secondary)]">
-                Factory core uses deterministic extraction first. LLM path is
-                skipped when grounded text is sufficient (cost/latency).
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader title="Export" />
-              <CardBody className="text-small text-[var(--text-secondary)]">
-                Formats: JSONL, OpenAI fine-tune, Hugging Face. Generated via
-                export CI job after publish.
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader title="Diagnostics" />
-              <CardBody className="text-small text-[var(--text-secondary)]">
-                reports/diagnostics — mission, candidate lifecycle, integrity
-                traces. CLI: python -m automation.diagnostics
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader title="Observability" />
-              <CardBody className="text-small text-[var(--text-secondary)]">
-                Scheduler heartbeat, production traces, source health, 30s
-                dashboard auto-refresh (no WebSocket).
-              </CardBody>
-            </Card>
-          </div>
-        </section>
+        <Section title="Knowledge" description="Quality gates">
+          <Row label="Minimum confidence" value={String(confidence)} />
+          <Row
+            label="Duplicate threshold"
+            value={
+              validation.reject_duplicates === false ? "Off" : "Reject duplicates"
+            }
+          />
+          <Row
+            label="Auto publish"
+            value={mode.auto_publish ? "Enabled" : "Disabled"}
+          />
+          <Row label="Quality threshold" value="DPS + integrity guard" />
+        </Section>
 
-        <section className="space-y-6">
-          <h2 className="text-section-title">Official pipeline</h2>
-          <Card>
-            <CardBody>
-              <ol className="list-decimal space-y-2 pl-5 text-small text-[var(--text-secondary)]">
-                {FACTORY_PIPELINE.map((s) => (
-                  <li key={s} className="font-medium text-[var(--text)]">
-                    {s}
-                  </li>
-                ))}
-              </ol>
-            </CardBody>
-          </Card>
-        </section>
+        <Section title="Advanced" description="Environment">
+          <Row label="Product" value={PRODUCT.name} />
+          <Row label="Factory version" value={version || "2.0.0"} />
+          <Row label="Mode" value={<Badge>{mode.label}</Badge>} />
+          <Row label="Environment diagnostics" value="reports/ · bottom console" />
+          <Row label="Build info" value="Next.js App Router · Operator UI v1.0" />
+          <Row label="UI freeze" value="Active — Dataset Engine only after this" />
+        </Section>
       </div>
     </Shell>
   );

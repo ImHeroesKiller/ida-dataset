@@ -31,7 +31,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-md border border-[var(--border)] bg-[var(--panel-2)] px-2 py-0.5 text-caption font-medium text-[var(--text-secondary)]",
+        "inline-flex items-center rounded-[var(--radius-md)] border border-[var(--border)] bg-[var(--panel-2)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--text-secondary)]",
         role && ROLE_STYLES[role],
         className
       )}
@@ -41,7 +41,7 @@ export function Badge({
   );
 }
 
-/** Semantic status badge (Healthy / Warning / Error / …) */
+/** Semantic status badge — operator language */
 export function RoleBadge({
   role,
   children,
@@ -63,14 +63,14 @@ export function RoleBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-caption font-semibold",
+        "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold",
         ROLE_STYLES[role],
         className
       )}
     >
       <span
         className={cn(
-          "h-1.5 w-1.5 rounded-full",
+          "h-1 w-1 rounded-full",
           role === "running" && "animate-pulse bg-[var(--blue)]",
           role === "healthy" || role === "completed"
             ? "bg-[var(--green)]"
@@ -93,7 +93,7 @@ export function StatusBadge({ status }: { status: ModuleStatus }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-caption font-semibold ring-1 ring-inset",
+        "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold ring-1 ring-inset",
         meta.bg,
         meta.color,
         meta.ring
@@ -101,7 +101,7 @@ export function StatusBadge({ status }: { status: ModuleStatus }) {
     >
       <span
         className={cn(
-          "h-1.5 w-1.5 rounded-full",
+          "h-1 w-1 rounded-full",
           status === "healthy" && "bg-[var(--green)]",
           status === "waiting" && "bg-[var(--orange)]",
           status === "running" && "animate-pulse bg-[var(--blue)]",

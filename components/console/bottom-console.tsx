@@ -224,7 +224,7 @@ export function BottomConsole() {
             </>
           ) : (
             <span className="text-[var(--text-faint)]">
-              Journal idle · waiting for production events
+              Console idle · waiting for learning events
             </span>
           )}
         </p>
@@ -250,30 +250,30 @@ export function BottomConsole() {
           <div className="flex flex-wrap items-center gap-1.5 px-4 py-2">
             {(
               [
-                "all",
-                "search",
-                "extraction",
-                "validation",
-                "publishing",
-                "github",
-                "huggingface",
-                "export",
-                "errors",
-                "warnings",
-              ] as Filter[]
-            ).map((f) => (
+                ["all", "All"],
+                ["search", "Discovery"],
+                ["extraction", "Extraction"],
+                ["validation", "Validation"],
+                ["publishing", "Publishing"],
+                ["github", "GitHub"],
+                ["huggingface", "Hugging Face"],
+                ["export", "Export"],
+                ["errors", "Error"],
+                ["warnings", "Warning"],
+              ] as Array<[Filter, string]>
+            ).map(([f, label]) => (
               <button
                 key={f}
                 type="button"
                 onClick={() => setFilter(f)}
                 className={cn(
-                  "rounded-full px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide",
+                  "rounded-full px-2 py-0.5 text-[10px] font-medium",
                   filter === f
                     ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
                     : "bg-[var(--panel-2)] text-[var(--text-faint)] hover:text-[var(--text-muted)]"
                 )}
               >
-                {f}
+                {label}
               </button>
             ))}
             <span className="ml-auto text-[10px] text-[var(--text-faint)]">

@@ -25,11 +25,12 @@ Quality Validation → Export → Dashboard Update
 
 ## UI
 
-Next.js App Router operator dashboard only:
+Next.js App Router **Operator UI v1.0 (FROZEN)**:
 
 Dashboard · Mission · Sources · Export · Settings  
 
-(Datasets/Quality/Logs surfaces merged into Export + bottom console.)  
+Compact console typography · operator status language · no further UI expansion.  
+(Datasets/Quality/Logs merged into Export + bottom console.)
 
 ## Deploy
 

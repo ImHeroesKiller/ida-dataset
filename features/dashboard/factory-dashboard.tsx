@@ -172,13 +172,13 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
   const gaQueued = Boolean(dashboard.github_actions?.queued);
   const gaFailed = dashboard.github_actions?.status === "failed";
 
-  const learningStatus: "RUNNING" | "QUEUED" | "ERROR" | "IDLE" = useMemo(() => {
+  const learningStatus: "Running" | "Waiting" | "Error" | "Idle" = useMemo(() => {
     if (exec?.status === "ERROR" || kpis.factory_status === "error" || gaFailed)
-      return "ERROR";
+      return "Error";
     if (gaRunning || kpis.factory_status === "running" || exec?.status === "RUNNING")
-      return "RUNNING";
-    if (gaQueued) return "QUEUED";
-    return "IDLE";
+      return "Running";
+    if (gaQueued) return "Waiting";
+    return "Idle";
   }, [exec?.status, kpis.factory_status, gaRunning, gaQueued, gaFailed]);
 
   const liveStage: PipelineStageId = useMemo(() => {
@@ -229,13 +229,13 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
       setPulse(true);
       setTimeout(() => setPulse(false), 900);
     }
-    if (mission !== prev.mission && learningStatus === "RUNNING") {
+    if (mission !== prev.mission && learningStatus === "Running") {
       pushToast(`Mission · ${mission}`, "ok");
     }
-    if (prev.status === "RUNNING" && learningStatus === "IDLE") {
+    if (prev.status === "Running" && learningStatus === "Idle") {
       pushToast("Learning completed", "ok");
     }
-    if (learningStatus === "ERROR" && prev.status !== "ERROR") {
+    if (learningStatus === "Error" && prev.status !== "Error") {
       pushToast("Learning failed", "err");
     }
     prevSnap.current = { rows: rowsToday, mission, status: learningStatus };
@@ -246,9 +246,9 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
     setMsg(null);
     try {
       const res = await startLearning(undefined, true);
-      setMsg(res.ok ? res.message || "Mission dispatched" : res.reason || "Failed");
+      setMsg(res.ok ? res.message || "Learning started" : res.reason || "Failed");
       if (res.ok) pushToast("Learning started", "ok");
-      else pushToast(res.reason || "Dispatch failed", "err");
+      else pushToast(res.reason || "Unable to start", "err");
       await refresh();
     } finally {
       setBusy(false);
@@ -296,43 +296,29 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
   const githubLabel = gaRunning
     ? "Running"
     : gaQueued
-      ? "Queued"
+      ? "Waiting"
       : gaFailed
-        ? "Failed"
-        : dashboard.github_actions?.configured
-          ? "Synced"
-          : dashboard.github_actions?.error
-            ? "Offline"
-            : "Synced";
+        ? "Error"
+        : "Synced";
 
-  const exportLabel =
-    liveStage === "export" || learningStatus === "RUNNING"
-      ? learningStatus === "RUNNING" && /export|publish|packag/i.test(currentStageLabel)
-        ? "Running"
-        : learningStatus === "RUNNING"
-          ? "Standby"
-          : "Idle"
-      : kpis.exports_generated > 0
-        ? "Synced"
-        : "Idle";
-
-  // When learning is running but stage is export-related show Running; otherwise if exports exist Synced
   const exportStatus =
     liveStage === "export" || /export/i.test(currentStageLabel)
-      ? "Running"
-      : exportLabel === "Standby"
-        ? "Idle"
-        : exportLabel;
+      ? "Exporting"
+      : learningStatus === "Running" && /publish/i.test(currentStageLabel)
+        ? "Publishing"
+        : kpis.exports_generated > 0
+          ? "Synced"
+          : "Idle";
 
   return (
-    <div className="relative mx-auto max-w-6xl space-y-8 pb-6">
+    <div className="op-page relative pb-4">
       {/* Toasts */}
-      <div className="pointer-events-none fixed right-4 top-16 z-50 flex w-80 flex-col gap-2">
+      <div className="pointer-events-none fixed right-3 top-12 z-50 flex w-72 flex-col gap-1.5">
         {toasts.map((t) => (
           <div
             key={t.id}
             className={cn(
-              "pointer-events-auto rounded-xl border px-3 py-2 text-sm shadow-lg backdrop-blur",
+              "pointer-events-auto rounded-[var(--radius-md)] border px-2.5 py-1.5 text-xs shadow-md backdrop-blur",
               t.tone === "ok" &&
                 "border-emerald-500/30 bg-emerald-500/10 text-emerald-800 dark:text-emerald-200",
               t.tone === "warn" &&
@@ -347,15 +333,15 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
       </div>
 
       {/* Title */}
-      <header className="flex flex-wrap items-end justify-between gap-4">
+      <header className="op-page-header">
         <div>
-          <p className="text-caption font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
             IDA Dataset Factory
           </p>
-          <h1 className="mt-1 text-page-title">Operator Dashboard</h1>
-          <p className="mt-1 text-small text-[var(--text-secondary)]">
+          <h1 className="text-page-title">Dashboard</h1>
+          <p>
             {loading
-              ? "Loading factory status…"
+              ? "Loading…"
               : exec?.heartbeat?.last_event ||
                 kpis.current_activity ||
                 activity.current_task ||
@@ -364,7 +350,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
         </div>
         <Button
           size="sm"
-          disabled={busy || learningStatus === "RUNNING"}
+          disabled={busy || learningStatus === "Running"}
           onClick={() => void onStart()}
         >
           {busy ? "Starting…" : "Start Learning"}
@@ -372,41 +358,44 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
       </header>
 
       {/* Top status strip — wireframe metrics only */}
-      <Card className={cn(pulse && "ring-2 ring-[var(--green)]/40")}>
-        <CardBody className="grid gap-4 p-5 sm:grid-cols-2 lg:grid-cols-4">
+      <Card className={cn(pulse && "ring-1 ring-[var(--green)]/40")}>
+        <CardBody className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Metric
             label="Learning"
             value={learningStatus}
             leading={
               <span
                 className={cn(
-                  "inline-block h-2.5 w-2.5 rounded-full",
-                  learningStatus === "RUNNING" && "animate-pulse bg-[var(--green)]",
-                  learningStatus === "QUEUED" && "animate-pulse bg-amber-500",
-                  learningStatus === "ERROR" && "bg-[var(--red)]",
-                  learningStatus === "IDLE" && "bg-[var(--text-muted)]"
+                  "inline-block h-2 w-2 rounded-full",
+                  learningStatus === "Running" && "animate-pulse bg-[var(--green)]",
+                  learningStatus === "Waiting" && "animate-pulse bg-amber-500",
+                  learningStatus === "Error" && "bg-[var(--red)]",
+                  learningStatus === "Idle" && "bg-[var(--text-muted)]"
                 )}
               />
             }
             tone={
-              learningStatus === "RUNNING"
+              learningStatus === "Running"
                 ? "run"
-                : learningStatus === "ERROR"
+                : learningStatus === "Error"
                   ? "err"
-                  : learningStatus === "QUEUED"
+                  : learningStatus === "Waiting"
                     ? "warn"
                     : "idle"
             }
+            kpi
           />
           <Metric label="Mission" value={mission} />
           <Metric label="Current Stage" value={currentStageLabel} />
           <Metric
             label="Rows Today"
             valueNode={<LiveNumber value={rowsToday} className="tabular-nums" />}
+            kpi
           />
           <Metric
             label="Datasets"
             valueNode={<LiveNumber value={datasetCount} className="tabular-nums" />}
+            kpi
           />
           <Metric
             label="Knowledge Added"
@@ -417,10 +406,12 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
                 className="tabular-nums text-emerald-600 dark:text-emerald-300"
               />
             }
+            kpi
           />
           <Metric
             label="Queue"
             valueNode={<LiveNumber value={queueDepth} className="tabular-nums" />}
+            kpi
           />
           <Metric
             label="Next Run"
@@ -429,23 +420,23 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
           />
         </CardBody>
         {msg ? (
-          <p className="border-t border-[var(--border)] px-5 py-2 text-caption text-[var(--text-muted)]">
+          <p className="border-t border-[var(--border)] px-3 py-1.5 text-[11px] text-[var(--text-muted)]">
             {msg}
           </p>
         ) : null}
       </Card>
 
       {/* Graphs */}
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-3 lg:grid-cols-2">
         <Card>
           <CardHeader
             title="Knowledge Growth"
-            description="Knowledge added per recent learning session"
+            description="Per recent learning session"
           />
-          <CardBody className="p-5">
+          <CardBody>
             <BarChart
               series={growthSeries}
-              empty="No session growth yet — start learning to populate."
+              empty="No session growth yet."
               color="emerald"
             />
           </CardBody>
@@ -454,9 +445,9 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
         <Card>
           <CardHeader
             title="Dataset Distribution"
-            description="Rows across product datasets"
+            description="Rows across datasets"
           />
-          <CardBody className="p-5">
+          <CardBody>
             <HBarChart
               series={distribution}
               empty="No dataset rows yet."
@@ -466,7 +457,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
       </div>
 
       {/* Sync strip */}
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-2 sm:grid-cols-3">
         <SyncCard
           title="GitHub"
           status={githubLabel}
@@ -518,6 +509,7 @@ function Metric({
   leading,
   tone,
   hint,
+  kpi,
 }: {
   label: string;
   value?: string;
@@ -525,15 +517,17 @@ function Metric({
   leading?: ReactNode;
   tone?: "run" | "err" | "warn" | "idle";
   hint?: string;
+  kpi?: boolean;
 }) {
   return (
     <div className="min-w-0">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
+      <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
         {label}
       </p>
       <div
         className={cn(
-          "mt-1 flex items-center gap-2 text-lg font-semibold tracking-tight text-[var(--text)]",
+          "mt-0.5 flex items-center gap-1.5 font-semibold tracking-tight text-[var(--text)]",
+          kpi ? "text-kpi" : "text-sm",
           tone === "run" && "text-emerald-600 dark:text-emerald-300",
           tone === "err" && "text-red-600 dark:text-red-300",
           tone === "warn" && "text-amber-700 dark:text-amber-300"
@@ -558,16 +552,16 @@ function SyncCard({
   detail: string;
   href?: string | null;
 }) {
-  const ok = /sync|ok|pass|idle/i.test(status) && !/fail|error|offline/i.test(status);
-  const run = /run|queue/i.test(status);
+  const ok = /sync|ok|pass|idle|healthy/i.test(status) && !/fail|error|offline/i.test(status);
+  const run = /run|wait|export|publish/i.test(status);
   const bad = /fail|error|offline/i.test(status);
   const body = (
-    <div className="rounded-[var(--radius-xl)] border border-[var(--border)] bg-[var(--panel)] px-5 py-4 shadow-[var(--shadow)] transition hover:border-[var(--border-strong)]">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--panel)] px-3 py-2.5 shadow-[var(--shadow)] transition hover:border-[var(--border-strong)]">
       <div className="flex items-center justify-between gap-2">
-        <p className="text-small font-semibold text-[var(--text)]">{title}</p>
+        <p className="text-xs font-semibold text-[var(--text)]">{title}</p>
         <span
           className={cn(
-            "inline-flex items-center gap-1.5 text-small font-semibold",
+            "inline-flex items-center gap-1 text-xs font-semibold",
             ok && "text-emerald-600 dark:text-emerald-300",
             run && "text-sky-600 dark:text-sky-300",
             bad && "text-red-600 dark:text-red-300",
@@ -577,7 +571,7 @@ function SyncCard({
           {ok ? "✔" : run ? "●" : bad ? "✕" : "·"} {status}
         </span>
       </div>
-      <p className="mt-1 truncate text-caption text-[var(--text-muted)]">{detail}</p>
+      <p className="mt-0.5 truncate text-[10px] text-[var(--text-muted)]">{detail}</p>
     </div>
   );
   if (href) {
@@ -600,21 +594,21 @@ function BarChart({
   color?: "emerald" | "sky";
 }) {
   if (!series.length) {
-    return <p className="py-10 text-center text-small text-[var(--text-muted)]">{empty}</p>;
+    return <p className="py-8 text-center text-xs text-[var(--text-muted)]">{empty}</p>;
   }
   const max = Math.max(1, ...series.map((s) => s.value));
   return (
-    <div className="flex h-48 items-end gap-1.5 sm:gap-2">
+    <div className="flex h-36 items-end gap-1 sm:gap-1.5">
       {series.map((s, i) => {
         const h = Math.max(4, Math.round((s.value / max) * 100));
         return (
-          <div key={`${s.label}-${i}`} className="flex min-w-0 flex-1 flex-col items-center gap-1">
-            <span className="text-[10px] tabular-nums text-[var(--text-muted)]">
+          <div key={`${s.label}-${i}`} className="flex min-w-0 flex-1 flex-col items-center gap-0.5">
+            <span className="text-[9px] tabular-nums text-[var(--text-muted)]">
               {s.value > 0 ? s.value : ""}
             </span>
             <div
               className={cn(
-                "w-full max-w-[28px] rounded-t-md transition-all",
+                "w-full max-w-[24px] rounded-t transition-all",
                 color === "emerald" && "bg-emerald-500/80 dark:bg-emerald-400/70",
                 color === "sky" && "bg-sky-500/80 dark:bg-sky-400/70",
                 s.value === 0 && "bg-[var(--panel-2)]"
@@ -622,7 +616,7 @@ function BarChart({
               style={{ height: `${h}%` }}
               title={`${s.label}: ${s.value}`}
             />
-            <span className="w-full truncate text-center text-[9px] text-[var(--text-faint)]">
+            <span className="w-full truncate text-center text-[8px] text-[var(--text-faint)]">
               {s.label.slice(-4)}
             </span>
           </div>
@@ -640,20 +634,20 @@ function HBarChart({
   empty: string;
 }) {
   if (!series.length) {
-    return <p className="py-10 text-center text-small text-[var(--text-muted)]">{empty}</p>;
+    return <p className="py-8 text-center text-xs text-[var(--text-muted)]">{empty}</p>;
   }
   const max = Math.max(1, ...series.map((s) => s.value));
   const top = series.slice(0, 12);
   return (
-    <div className="max-h-56 space-y-2 overflow-y-auto scrollbar-thin">
+    <div className="max-h-44 space-y-1.5 overflow-y-auto scrollbar-thin">
       {top.map((s) => {
         const pct = Math.round((s.value / max) * 100);
         const row = (
-          <div className="grid grid-cols-[7rem_1fr_3rem] items-center gap-2 text-small">
+          <div className="grid grid-cols-[6.5rem_1fr_2.75rem] items-center gap-1.5 text-xs">
             <span className="truncate text-[var(--text-secondary)]" title={s.label}>
               {s.label}
             </span>
-            <div className="h-2 overflow-hidden rounded-full bg-[var(--panel-2)]">
+            <div className="h-1.5 overflow-hidden rounded-full bg-[var(--panel-2)]">
               <div
                 className="h-full rounded-full bg-sky-500/80 dark:bg-sky-400/70"
                 style={{ width: `${pct}%` }}

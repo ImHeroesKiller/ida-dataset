@@ -7,9 +7,9 @@ export function Input({
   return (
     <input
       className={cn(
-        "h-11 w-full rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--panel)] px-4 text-small text-[var(--text)] outline-none transition-colors",
+        "h-8 w-full rounded-[var(--radius-md)] border border-[var(--border)] bg-[var(--panel)] px-2.5 text-xs text-[var(--text)] outline-none transition-colors",
         "placeholder:text-[var(--text-muted)]",
-        "focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/20",
+        "focus:border-[var(--blue)] focus:ring-1 focus:ring-[var(--blue)]/25",
         "disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}

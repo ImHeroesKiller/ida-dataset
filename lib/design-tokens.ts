@@ -1,6 +1,6 @@
 /**
- * IDA Dataset Factory — centralized design tokens.
- * Single source of truth for colors, type, spacing, radii.
+ * IDA Dataset Factory — Operator UI v1.0 (FROZEN)
+ * Compact console typography. Single source of truth.
  * CSS variables in styles/globals.css mirror these values.
  */
 
@@ -37,31 +37,49 @@ export const colors = {
   },
 } as const;
 
+/** Operator console scale — compact by default; KPIs may use medium. */
 export const typography = {
-  pageTitle: { size: "36px", weight: 700, lineHeight: 1.2 },
-  sectionTitle: { size: "24px", weight: 700, lineHeight: 1.25 },
-  cardTitle: { size: "18px", weight: 600, lineHeight: 1.35 },
-  body: { size: "16px", weight: 400, lineHeight: 1.5 },
-  small: { size: "14px", weight: 400, lineHeight: 1.5 },
-  caption: { size: "12px", weight: 500, lineHeight: 1.4 },
+  pageTitle: { size: "18px", weight: 600, lineHeight: 1.3 },
+  sectionTitle: { size: "13px", weight: 600, lineHeight: 1.35 },
+  cardTitle: { size: "12px", weight: 600, lineHeight: 1.35 },
+  body: { size: "13px", weight: 400, lineHeight: 1.45 },
+  small: { size: "12px", weight: 400, lineHeight: 1.4 },
+  caption: { size: "11px", weight: 500, lineHeight: 1.35 },
+  kpi: { size: "18px", weight: 600, lineHeight: 1.2 },
 } as const;
 
-/** 8px grid */
+/** 4px denser grid for operator console */
 export const spacing = {
-  1: 8,
-  2: 16,
-  3: 24,
-  4: 32,
-  5: 40,
-  6: 48,
+  1: 4,
+  2: 8,
+  3: 12,
+  4: 16,
+  5: 20,
+  6: 24,
 } as const;
 
 export const radii = {
-  md: "8px",
-  lg: "12px",
-  xl: "16px",
+  md: "6px",
+  lg: "8px",
+  xl: "10px",
   full: "9999px",
 } as const;
+
+/** Operator status language (never expose internal engine terms). */
+export const operatorStatus = [
+  "Learning",
+  "Running",
+  "Paused",
+  "Waiting",
+  "Exporting",
+  "Publishing",
+  "Healthy",
+  "Warning",
+  "Error",
+  "Completed",
+  "Idle",
+  "Synced",
+] as const;
 
 /** Badge semantic roles for production UI */
 export const badgeRoles = [

@@ -11,10 +11,6 @@ function fmtTs(v: string | null): string {
   return formatWib(v);
 }
 
-function pct(n: number): string {
-  return `${Math.round(n * 1000) / 10}%`;
-}
-
 function healthRole(status: string): BadgeRole {
   if (status === "healthy") return "healthy";
   if (status === "degraded") return "warning";
@@ -31,27 +27,22 @@ function SourceTable({
 }) {
   if (!sources.length) {
     return (
-      <p className="rounded-[var(--radius-lg)] bg-[var(--panel-2)] px-4 py-3 text-small text-[var(--text-secondary)]">
+      <p className="rounded-[var(--radius-md)] bg-[var(--panel-2)] px-3 py-2 text-xs text-[var(--text-secondary)]">
         {empty}
       </p>
     );
   }
   return (
     <div className="overflow-x-auto">
-      <table className="ds-table min-w-[1100px]">
+      <table className="ds-table min-w-[720px]">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Category</th>
-            <th>Trust</th>
-            <th>Coverage</th>
             <th>Health</th>
-            <th>Last sync</th>
+            <th>Trust</th>
             <th>Rows</th>
-            <th>Docs</th>
-            <th>Success</th>
+            <th>Last sync</th>
             <th>Status</th>
-            <th>Priority</th>
           </tr>
         </thead>
         <tbody>
@@ -59,32 +50,31 @@ function SourceTable({
             <tr key={s.source_id}>
               <td>
                 <div className="font-semibold text-[var(--text)]">{s.name}</div>
-                <div className="font-mono text-caption text-[var(--text-muted)]">
+                <div className="font-mono text-[10px] text-[var(--text-muted)]">
                   {s.source_id}
                 </div>
               </td>
-              <td className="text-small">{s.category}</td>
-              <td className="tabular-nums">{s.trust_score.toFixed(2)}</td>
-              <td className="tabular-nums">{pct(s.coverage)}</td>
               <td>
                 <RoleBadge role={healthRole(s.health_status)}>
-                  {s.health_status || "unknown"}
+                  {s.health_status === "healthy"
+                    ? "Healthy"
+                    : s.health_status === "degraded"
+                      ? "Warning"
+                      : s.health_status === "down"
+                        ? "Error"
+                        : "Idle"}
                 </RoleBadge>
               </td>
-              <td className="whitespace-nowrap text-small">
-                {fmtTs(s.last_successful_sync)}
-              </td>
+              <td className="tabular-nums">{s.trust_score.toFixed(2)}</td>
               <td className="font-semibold tabular-nums text-[var(--text)]">
                 {s.rows_produced}
               </td>
-              <td className="tabular-nums">{s.documents_processed}</td>
-              <td className="tabular-nums">{pct(s.success_rate)}</td>
-              <td className="text-small capitalize">
+              <td className="whitespace-nowrap text-[var(--text-muted)]">
+                {fmtTs(s.last_successful_sync)}
+              </td>
+              <td className="capitalize text-[var(--text-muted)]">
                 {s.status}
                 {!s.allowed ? " / blocked" : ""}
-              </td>
-              <td className="tabular-nums text-small">
-                {s.mission_usage > 0 ? "preferred" : s.allowed ? "trusted" : "—"}
               </td>
             </tr>
           ))}
@@ -99,7 +89,6 @@ export default function SourcesPage() {
   const all = dash.sources.filter(
     (s) => s.allowed || s.status === "active" || s.rows_produced > 0
   );
-  // Preferred: high mission usage or high yield
   const preferred = all
     .filter((s) => s.allowed && (s.mission_usage > 0 || s.rows_produced > 0))
     .sort(
@@ -108,11 +97,9 @@ export default function SourcesPage() {
         b.rows_produced - a.rows_produced ||
         b.trust_score - a.trust_score
     );
-  // Trusted: registered + allowed
   const trusted = all
     .filter((s) => s.allowed)
     .sort((a, b) => b.trust_score - a.trust_score || a.name.localeCompare(b.name));
-  // Random discovery pool: healthy trusted sources eligible for random selection
   const randomPool = trusted
     .filter((s) => s.health_status === "healthy" || s.health_status === "unknown")
     .slice()
@@ -120,88 +107,73 @@ export default function SourcesPage() {
 
   return (
     <Shell title="Sources">
-      <div className="mx-auto max-w-7xl space-y-8">
-        <header>
-          <h1 className="text-page-title">Sources</h1>
-          <p className="mt-2 max-w-3xl text-body text-[var(--text-secondary)]">
-            Preferred · Trusted · Random discovery.{" "}
-            <span className="font-semibold text-[var(--text)]">
-              {dash.totals.active}
-            </span>{" "}
-            active ·{" "}
-            <span className="font-semibold text-[var(--text)]">
-              {dash.totals.healthy}
-            </span>{" "}
-            healthy ·{" "}
-            <span className="font-semibold text-[var(--text)]">
-              {dash.totals.rows_produced}
-            </span>{" "}
-            rows attributed
-            {dash.updated_at ? ` · metrics ${fmtTs(dash.updated_at)}` : ""}
-          </p>
-          <p className="mt-1 text-small text-[var(--text-muted)]">
-            Selection prefers mission relevance · coverage · freshness · confidence.
-            Discovery uses Tavily-first (max 10 searches/session); knowledge only from
-            trusted registry domains.
-          </p>
+      <div className="op-page max-w-6xl">
+        <header className="op-page-header">
+          <div>
+            <h1 className="text-page-title">Sources</h1>
+            <p>
+              Preferred · Trusted · Random discovery · {dash.totals.active} active ·{" "}
+              {dash.totals.healthy} healthy
+            </p>
+          </div>
         </header>
 
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-2 sm:grid-cols-3">
           <Card>
-            <CardHeader title="Preferred Sources" description="High mission / yield" />
-            <CardBody className="text-page-title tabular-nums text-[var(--text)]">
-              {preferred.length}
+            <CardBody className="text-center">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                Preferred
+              </p>
+              <p className="text-kpi tabular-nums">{preferred.length}</p>
             </CardBody>
           </Card>
           <Card>
-            <CardHeader title="Trusted Sources" description="Registry allowlist" />
-            <CardBody className="text-page-title tabular-nums text-[var(--text)]">
-              {trusted.length}
+            <CardBody className="text-center">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                Trusted
+              </p>
+              <p className="text-kpi tabular-nums">{trusted.length}</p>
             </CardBody>
           </Card>
           <Card>
-            <CardHeader title="Random Discovery" description="Healthy pool" />
-            <CardBody className="text-page-title tabular-nums text-[var(--text)]">
-              {randomPool.length}
+            <CardBody className="text-center">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                Random pool
+              </p>
+              <p className="text-kpi tabular-nums">{randomPool.length}</p>
             </CardBody>
           </Card>
         </div>
 
         <Card>
-          <CardHeader
-            title="Preferred Sources"
-            description="Operator / mission-weighted sources with production yield"
-          />
+          <CardHeader title="Preferred Sources" description="Mission / yield weighted" />
           <CardBody>
             <SourceTable
               sources={preferred.slice(0, 40)}
-              empty="No preferred sources yet — mission usage and row yield will populate this list."
+              empty="No preferred sources yet."
             />
           </CardBody>
         </Card>
 
         <Card>
-          <CardHeader
-            title="Trusted Sources"
-            description="Full allowlisted registry — enable/disable via source registry config"
-          />
+          <CardHeader title="Trusted Sources" description="Registry allowlist" />
           <CardBody>
             <SourceTable
               sources={trusted.slice(0, 80)}
-              empty="No trusted sources in registry."
+              empty="No trusted sources."
             />
           </CardBody>
         </Card>
 
         <Card>
           <CardHeader
-            title="Random Discovery pool"
-            description="Healthy trusted sources eligible for random / gap-driven discovery"
+            title="Random Discovery"
+            description="Healthy pool for gap-driven selection"
           />
           <CardBody>
             <SourceTable
               sources={randomPool.slice(0, 40)}
-              empty="No healthy sources available for random discovery."
+              empty="No healthy sources for random discovery."
             />
           </CardBody>
         </Card>
