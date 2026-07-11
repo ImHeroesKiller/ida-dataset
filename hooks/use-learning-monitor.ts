@@ -138,7 +138,7 @@ function failureFrom(
 
 /**
  * Poll learning sessions from disk + GitHub Actions status.
- * Prefer useLearning() from LearningProvider (single shared poll).
+ * Prefer useLearning() from RootLayout LearningProvider (single shared poll).
  * No SSE, no local Python runtime.
  */
 export function useLearningMonitor(pollMs = 5000) {

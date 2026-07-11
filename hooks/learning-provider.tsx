@@ -2,7 +2,7 @@
 
 /**
  * Single source of truth for learning session monitoring.
- * Shell mounts one provider; Dashboard + Journal share the same poll.
+ * RootLayout mounts one provider; Shell chrome + all pages share the same poll.
  */
 
 import { createContext, useContext, type ReactNode } from "react";
@@ -34,11 +34,13 @@ export function LearningProvider({
   );
 }
 
-/** Shared instance from Shell LearningProvider. */
+/** Shared instance from RootLayout LearningProvider. */
 export function useLearning(): UseLearningMonitorResult {
   const ctx = useContext(LearningCtx);
   if (!ctx) {
-    throw new Error("useLearning must be used within LearningProvider (Shell)");
+    throw new Error(
+      "useLearning must be used within LearningProvider (RootLayout)"
+    );
   }
   return ctx;
 }
