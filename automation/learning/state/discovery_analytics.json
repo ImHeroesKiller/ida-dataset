@@ -1,64 +1,64 @@
 {
-  "started_at": "2026-07-11T12:20:29+00:00",
-  "mission_id": "MIS-20260711-AE8D9F",
-  "session_id": "SES-20260711-D7A3F9",
-  "instruction": "Expand Industry Library — factory learn cycle",
-  "dataset": "industry_library",
+  "started_at": "2026-07-11T12:46:45+00:00",
+  "mission_id": "MIS-20260711-A36688",
+  "session_id": "SES-20260711-607B7A",
+  "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+  "dataset": "service_library",
   "knowledge_gap": {
-    "dataset": "industry_library",
-    "current_rows": 53,
-    "target_rows": 5000,
-    "minimum_target": 250,
-    "gap_rows": 5117,
-    "coverage_pct": 1.06,
-    "knowledge_gap_score": 79.481,
-    "estimated_universe": 5170,
+    "dataset": "service_library",
+    "current_rows": 0,
+    "target_rows": 50000,
+    "minimum_target": 2000,
+    "gap_rows": 50000,
+    "coverage_pct": 0.0,
+    "knowledge_gap_score": 138.0,
+    "estimated_universe": 50000,
     "priority": "high",
     "continuous": true
   },
   "budgets": {
-    "query_budget": 42,
-    "url_budget": 468,
-    "per_provider_results": 15,
-    "feed_source_budget": 18,
-    "domain_budget": 18,
+    "query_budget": 46,
+    "url_budget": 1506,
+    "per_provider_results": 20,
+    "feed_source_budget": 17,
+    "domain_budget": 17,
     "max_provider_rounds": 3,
-    "runtime_budget_s": 461.481,
-    "download_budget": 117,
-    "extraction_budget": 117,
-    "publish_budget": 117,
-    "source_select_budget": 18,
+    "runtime_budget_s": 538.0,
+    "download_budget": 500,
+    "extraction_budget": 500,
+    "publish_budget": 500,
+    "source_select_budget": 17,
     "worker_capacity": 4,
-    "gap_score": 79.481,
-    "gap_rows": 5117.0,
-    "coverage_pct": 1.06,
+    "gap_score": 138.0,
+    "gap_rows": 50000.0,
+    "coverage_pct": 0.0,
     "mission_priority": "high",
     "queue_pressure": 0.03,
     "providers_active": 7,
     "providers_misconfigured": 5,
     "stop_policy": "provider_exhausted | knowledge_gap_satisfied | runtime_budget_reached | provider_quota_reached"
   },
-  "queries_generated": 37,
-  "queries_executed": 93,
-  "urls_discovered": 313,
-  "urls_accepted": 273,
-  "urls_rejected": 40,
+  "queries_generated": 35,
+  "queries_executed": 115,
+  "urls_discovered": 1042,
+  "urls_accepted": 596,
+  "urls_rejected": 446,
   "urls_remaining": 0,
-  "duplicate_urls": 26,
-  "elapsed_ms": 513140.2,
+  "duplicate_urls": 428,
+  "elapsed_ms": 803686.6,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 5,
   "providers_disabled": 0,
-  "providers_exhausted": 2,
+  "providers_exhausted": 1,
   "provider_utilization": {
-    "DISC-ATOM": 0.0108,
-    "DISC-SITEMAP": 0.0,
+    "DISC-TAVILY": 0.3043,
+    "DISC-COMMONCRAWL": 0.3043,
+    "DISC-ATOM": 0.0087,
+    "DISC-SITEMAP": 0.0087,
     "DISC-RSS": 0.0,
-    "DISC-COMMONCRAWL": 0.1075,
-    "DISC-TAVILY": 0.3978,
-    "DISC-TRUSTED-SITE": 0.3978,
-    "DISC-OPENSEARCH": 0.086,
+    "DISC-TRUSTED-SITE": 0.3043,
+    "DISC-OPENSEARCH": 0.0696,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
     "DISC-BRAVE": 0.0,
@@ -66,11 +66,11 @@
     "DISC-YANDEX": 0.0
   },
   "rows_per_provider": {
+    "DISC-TAVILY": 338,
+    "DISC-COMMONCRAWL": 680,
     "DISC-ATOM": 12,
-    "DISC-SITEMAP": 0,
+    "DISC-SITEMAP": 12,
     "DISC-RSS": 0,
-    "DISC-COMMONCRAWL": 30,
-    "DISC-TAVILY": 271,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
     "DISC-GOOGLE-CSE": 0,
@@ -79,9 +79,53 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 2195.89,
-  "accepted_per_hour": 1915.27,
+  "urls_per_hour": 4667.49,
+  "accepted_per_hour": 2669.7,
   "providers": [
+    {
+      "provider_id": "DISC-TAVILY",
+      "name": "Tavily",
+      "api_type": "tavily",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "credentials"
+      },
+      "queries": 35,
+      "urls": 338,
+      "cache_hits": 0,
+      "elapsed_ms": 43394.100000000006,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 62.413,
+      "utilization": 0.3043
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "api_type": "commoncrawl",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "toggle"
+      },
+      "queries": 35,
+      "urls": 680,
+      "cache_hits": 0,
+      "elapsed_ms": 26697.8,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 57.1,
+      "utilization": 0.3043
+    },
     {
       "provider_id": "DISC-ATOM",
       "name": "Atom Discovery",
@@ -94,15 +138,15 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 282836.2,
+      "elapsed_ms": 283716.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 65.273,
-      "utilization": 0.0108
+      "rank_score": 51.44,
+      "utilization": 0.0087
     },
     {
       "provider_id": "DISC-SITEMAP",
@@ -113,18 +157,18 @@
         "status": "healthy",
         "message": "feed_discovery"
       },
-      "queries": 0,
-      "urls": 0,
+      "queries": 1,
+      "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 0.0,
+      "elapsed_ms": 449169.9,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 64.798,
-      "utilization": 0.0
+      "rank_score": 44.08,
+      "utilization": 0.0087
     },
     {
       "provider_id": "DISC-RSS",
@@ -145,52 +189,8 @@
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 63.907,
+      "rank_score": 44.0,
       "utilization": 0.0
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "api_type": "commoncrawl",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "toggle"
-      },
-      "queries": 10,
-      "urls": 30,
-      "cache_hits": 0,
-      "elapsed_ms": 190014.09999999998,
-      "status": "ready",
-      "operational_status": "ACTIVE",
-      "credentials_available": true,
-      "disable_reason": "ready",
-      "exhausted": true,
-      "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 61.666,
-      "utilization": 0.1075
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "name": "Tavily",
-      "api_type": "tavily",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "credentials"
-      },
-      "queries": 37,
-      "urls": 271,
-      "cache_hits": 0,
-      "elapsed_ms": 40035.799999999996,
-      "status": "ready",
-      "operational_status": "ACTIVE",
-      "credentials_available": true,
-      "disable_reason": "ready",
-      "exhausted": false,
-      "exhaustion_reason": "",
-      "rank_score": 44.92,
-      "utilization": 0.3978
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -201,7 +201,7 @@
         "status": "healthy",
         "message": "always_available"
       },
-      "queries": 37,
+      "queries": 35,
       "urls": 0,
       "cache_hits": 0,
       "elapsed_ms": 0.0,
@@ -212,7 +212,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 41.1,
-      "utilization": 0.3978
+      "utilization": 0.3043
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -234,7 +234,7 @@
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
       "rank_score": 32.0,
-      "utilization": 0.086
+      "utilization": 0.0696
     },
     {
       "provider_id": "DISC-GOOGLE-CSE",
@@ -350,7 +350,7 @@
   "query_stats": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id industry factory cycle",
+      "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "site",
@@ -359,7 +359,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id intitle:industry industry factory cycle",
+      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "intitle",
@@ -368,7 +368,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org industry factory cycle",
+      "query": "site:worldbank.org corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "site",
@@ -377,7 +377,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org intitle:industry industry factory cycle",
+      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "intitle",
@@ -386,7 +386,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org industry factory cycle",
+      "query": "site:adb.org corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "site",
@@ -395,7 +395,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org intitle:industry industry factory cycle",
+      "query": "site:adb.org intitle:corporate corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "intitle",
@@ -404,25 +404,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org industry factory cycle",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "kind": "site",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org intitle:industry industry factory cycle",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "kind": "intitle",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id industry factory cycle",
+      "query": "site:kemenperin.go.id corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "site",
@@ -431,7 +413,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id intitle:industry industry factory cycle",
+      "query": "site:kemenperin.go.id intitle:corporate corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "intitle",
@@ -440,7 +422,25 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org industry factory cycle",
+      "query": "site:oecd.org corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:oecd.org intitle:corporate corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:crossref.org corporate governance service continuous",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "kind": "site",
@@ -449,7 +449,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org intitle:industry industry factory cycle",
+      "query": "site:crossref.org intitle:corporate corporate governance service continuous",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "kind": "intitle",
@@ -458,25 +458,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:openalex.org industry factory cycle",
-      "domain": "openalex.org",
-      "source_id": "SRC-OPENALEX",
-      "kind": "site",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:openalex.org intitle:industry industry factory cycle",
-      "domain": "openalex.org",
-      "source_id": "SRC-OPENALEX",
-      "kind": "intitle",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:pajak.go.id industry factory cycle",
+      "query": "site:pajak.go.id corporate governance service continuous",
       "domain": "pajak.go.id",
       "source_id": "SRC-DJP",
       "kind": "site",
@@ -485,7 +467,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:pajak.go.id intitle:industry industry factory cycle",
+      "query": "site:pajak.go.id intitle:corporate corporate governance service continuous",
       "domain": "pajak.go.id",
       "source_id": "SRC-DJP",
       "kind": "intitle",
@@ -494,7 +476,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:nist.gov industry factory cycle",
+      "query": "site:nist.gov corporate governance service continuous",
       "domain": "nist.gov",
       "source_id": "SRC-NIST",
       "kind": "site",
@@ -503,7 +485,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:nist.gov intitle:industry industry factory cycle",
+      "query": "site:nist.gov intitle:corporate corporate governance service continuous",
       "domain": "nist.gov",
       "source_id": "SRC-NIST",
       "kind": "intitle",
@@ -512,7 +494,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:peraturan.go.id industry factory cycle",
+      "query": "site:peraturan.go.id corporate governance service continuous",
       "domain": "peraturan.go.id",
       "source_id": "SRC-JDIH",
       "kind": "site",
@@ -521,7 +503,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:peraturan.go.id intitle:industry industry factory cycle",
+      "query": "site:peraturan.go.id intitle:corporate corporate governance service continuous",
       "domain": "peraturan.go.id",
       "source_id": "SRC-JDIH",
       "kind": "intitle",
@@ -530,7 +512,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:cisa.gov industry factory cycle",
+      "query": "site:cisa.gov corporate governance service continuous",
       "domain": "cisa.gov",
       "source_id": "SRC-CISA",
       "kind": "site",
@@ -539,7 +521,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:cisa.gov intitle:industry industry factory cycle",
+      "query": "site:cisa.gov intitle:corporate corporate governance service continuous",
       "domain": "cisa.gov",
       "source_id": "SRC-CISA",
       "kind": "intitle",
@@ -548,7 +530,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bpk.go.id industry factory cycle",
+      "query": "site:bpk.go.id corporate governance service continuous",
       "domain": "bpk.go.id",
       "source_id": "SRC-BPK",
       "kind": "site",
@@ -557,7 +539,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bpk.go.id intitle:industry industry factory cycle",
+      "query": "site:bpk.go.id intitle:corporate corporate governance service continuous",
       "domain": "bpk.go.id",
       "source_id": "SRC-BPK",
       "kind": "intitle",
@@ -566,7 +548,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:menlhk.go.id industry factory cycle",
+      "query": "site:menlhk.go.id corporate governance service continuous",
       "domain": "menlhk.go.id",
       "source_id": "SRC-KLHK",
       "kind": "site",
@@ -575,7 +557,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:menlhk.go.id intitle:industry industry factory cycle",
+      "query": "site:menlhk.go.id intitle:corporate corporate governance service continuous",
       "domain": "menlhk.go.id",
       "source_id": "SRC-KLHK",
       "kind": "intitle",
@@ -584,7 +566,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:unep.org industry factory cycle",
+      "query": "site:unep.org corporate governance service continuous",
       "domain": "unep.org",
       "source_id": "SRC-UNEP",
       "kind": "site",
@@ -593,7 +575,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:unep.org intitle:industry industry factory cycle",
+      "query": "site:unep.org intitle:corporate corporate governance service continuous",
       "domain": "unep.org",
       "source_id": "SRC-UNEP",
       "kind": "intitle",
@@ -602,7 +584,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:ifrs.org industry factory cycle",
+      "query": "site:ifrs.org corporate governance service continuous",
       "domain": "ifrs.org",
       "source_id": "SRC-ISSB",
       "kind": "site",
@@ -611,7 +593,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:ifrs.org intitle:industry industry factory cycle",
+      "query": "site:ifrs.org intitle:corporate corporate governance service continuous",
       "domain": "ifrs.org",
       "source_id": "SRC-ISSB",
       "kind": "intitle",
@@ -620,7 +602,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:globalreporting.org industry factory cycle",
+      "query": "site:globalreporting.org corporate governance service continuous",
       "domain": "globalreporting.org",
       "source_id": "SRC-GRI",
       "kind": "site",
@@ -629,7 +611,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:globalreporting.org intitle:industry industry factory cycle",
+      "query": "site:globalreporting.org intitle:corporate corporate governance service continuous",
       "domain": "globalreporting.org",
       "source_id": "SRC-GRI",
       "kind": "intitle",
@@ -638,7 +620,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:sasb.org industry factory cycle",
+      "query": "site:sasb.org corporate governance service continuous",
       "domain": "sasb.org",
       "source_id": "SRC-SASB",
       "kind": "site",
@@ -647,7 +629,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:sasb.org intitle:industry industry factory cycle",
+      "query": "site:sasb.org intitle:corporate corporate governance service continuous",
       "domain": "sasb.org",
       "source_id": "SRC-SASB",
       "kind": "intitle",
@@ -656,7 +638,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:owasp.org industry factory cycle",
+      "query": "site:owasp.org corporate governance service continuous",
       "domain": "owasp.org",
       "source_id": "SRC-OWASP",
       "kind": "site",
@@ -665,7 +647,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:owasp.org intitle:industry industry factory cycle",
+      "query": "site:owasp.org intitle:corporate corporate governance service continuous",
       "domain": "owasp.org",
       "source_id": "SRC-OWASP",
       "kind": "intitle",
@@ -674,7 +656,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "industry factory cycle",
+      "query": "corporate governance service continuous",
       "domain": "",
       "source_id": "",
       "kind": "open",
@@ -682,53 +664,26 @@
       "cached": false
     },
     {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:bps.go.id industry factory cycle",
-      "domain": "bps.go.id",
-      "source_id": "SRC-000001",
-      "urls": 15,
-      "elapsed_ms": 345.1,
-      "cached": false
-    },
-    {
       "provider_id": "DISC-TAVILY",
-      "query": "site:bps.go.id industry factory cycle",
+      "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 15,
-      "elapsed_ms": 994.9,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id industry factory cycle",
-      "domain": "bps.go.id",
-      "source_id": "SRC-000001",
-      "urls": 0,
-      "elapsed_ms": 0.0,
+      "urls": 20,
+      "elapsed_ms": 1258.5,
       "cached": false
     },
     {
       "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:bps.go.id intitle:industry industry factory cycle",
+      "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 15,
-      "elapsed_ms": 162.9,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:bps.go.id intitle:industry industry factory cycle",
-      "domain": "bps.go.id",
-      "source_id": "SRC-000001",
-      "urls": 10,
-      "elapsed_ms": 1057.2,
+      "urls": 20,
+      "elapsed_ms": 384.6,
       "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id intitle:industry industry factory cycle",
+      "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
@@ -736,26 +691,53 @@
       "cached": false
     },
     {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:worldbank.org industry factory cycle",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "urls": 0,
-      "elapsed_ms": 1259.7,
+      "provider_id": "DISC-TAVILY",
+      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "urls": 19,
+      "elapsed_ms": 1125.9,
       "cached": false
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:worldbank.org industry factory cycle",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "urls": 15,
-      "elapsed_ms": 887.1,
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "urls": 20,
+      "elapsed_ms": 561.5,
       "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org industry factory cycle",
+      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:worldbank.org corporate governance service continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "urls": 20,
+      "elapsed_ms": 2049.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:worldbank.org corporate governance service continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "urls": 20,
+      "elapsed_ms": 399.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:worldbank.org corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
@@ -763,53 +745,53 @@
       "cached": false
     },
     {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "urls": 20,
+      "elapsed_ms": 1107.4,
+      "cached": false
+    },
+    {
       "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:worldbank.org intitle:industry industry factory cycle",
+      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "urls": 20,
+      "elapsed_ms": 386.6,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1179.8,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:worldbank.org intitle:industry industry factory cycle",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "urls": 15,
-      "elapsed_ms": 1816.1,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org intitle:industry industry factory cycle",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "urls": 0,
       "elapsed_ms": 0.0,
       "cached": false
     },
     {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:adb.org industry factory cycle",
+      "provider_id": "DISC-TAVILY",
+      "query": "site:adb.org corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
-      "urls": 0,
-      "elapsed_ms": 1198.3,
+      "urls": 19,
+      "elapsed_ms": 1896.6,
       "cached": false
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:adb.org industry factory cycle",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:adb.org corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
-      "urls": 15,
-      "elapsed_ms": 1441.7,
+      "urls": 20,
+      "elapsed_ms": 497.4,
       "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:adb.org industry factory cycle",
+      "query": "site:adb.org corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "urls": 0,
@@ -817,26 +799,26 @@
       "cached": false
     },
     {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:adb.org intitle:industry industry factory cycle",
+      "provider_id": "DISC-TAVILY",
+      "query": "site:adb.org intitle:corporate corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
-      "urls": 0,
-      "elapsed_ms": 1114.4,
+      "urls": 20,
+      "elapsed_ms": 1119.3,
       "cached": false
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:adb.org intitle:industry industry factory cycle",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:adb.org intitle:corporate corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
-      "urls": 7,
-      "elapsed_ms": 1056.5,
+      "urls": 20,
+      "elapsed_ms": 558.2,
       "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:adb.org intitle:industry industry factory cycle",
+      "query": "site:adb.org intitle:corporate corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "urls": 0,
@@ -844,463 +826,669 @@
       "cached": false
     },
     {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:oecd.org industry factory cycle",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "urls": 0,
-      "elapsed_ms": 1265.2,
+      "provider_id": "DISC-TAVILY",
+      "query": "site:kemenperin.go.id corporate governance service continuous",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "urls": 4,
+      "elapsed_ms": 1157.7,
       "cached": false
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:oecd.org industry factory cycle",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "urls": 14,
-      "elapsed_ms": 1036.0,
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:kemenperin.go.id corporate governance service continuous",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "urls": 20,
+      "elapsed_ms": 449.3,
       "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:oecd.org industry factory cycle",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:oecd.org intitle:industry industry factory cycle",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "urls": 0,
-      "elapsed_ms": 61161.8,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:oecd.org intitle:industry industry factory cycle",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "urls": 15,
-      "elapsed_ms": 1144.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:oecd.org intitle:industry industry factory cycle",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:kemenperin.go.id industry factory cycle",
+      "query": "site:kemenperin.go.id corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 61195.2,
+      "elapsed_ms": 0.0,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:kemenperin.go.id industry factory cycle",
+      "query": "site:kemenperin.go.id intitle:corporate corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
-      "urls": 14,
-      "elapsed_ms": 1016.9,
+      "urls": 0,
+      "elapsed_ms": 933.2,
       "cached": false
     },
     {
       "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:kemenperin.go.id intitle:industry industry factory cycle",
+      "query": "site:kemenperin.go.id intitle:corporate corporate governance service continuous",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "urls": 20,
+      "elapsed_ms": 394.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:kemenperin.go.id intitle:corporate corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 61131.7,
+      "elapsed_ms": 0.0,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:kemenperin.go.id intitle:industry industry factory cycle",
-      "domain": "kemenperin.go.id",
-      "source_id": "SRC-000007",
-      "urls": 0,
-      "elapsed_ms": 709.1,
+      "query": "site:oecd.org corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 20,
+      "elapsed_ms": 1278.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:oecd.org corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 20,
+      "elapsed_ms": 683.0,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:crossref.org industry factory cycle",
+      "query": "site:oecd.org intitle:corporate corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 0,
+      "elapsed_ms": 2235.4,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:oecd.org intitle:corporate corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 20,
+      "elapsed_ms": 11687.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:crossref.org corporate governance service continuous",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
-      "urls": 15,
-      "elapsed_ms": 1044.1,
+      "urls": 20,
+      "elapsed_ms": 1229.6,
       "cached": false
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:crossref.org intitle:industry industry factory cycle",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:crossref.org corporate governance service continuous",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
-      "urls": 0,
-      "elapsed_ms": 722.6,
+      "urls": 20,
+      "elapsed_ms": 554.1,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:openalex.org industry factory cycle",
-      "domain": "openalex.org",
-      "source_id": "SRC-OPENALEX",
-      "urls": 3,
-      "elapsed_ms": 1577.4,
+      "query": "site:crossref.org intitle:corporate corporate governance service continuous",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
+      "urls": 1,
+      "elapsed_ms": 1154.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:crossref.org intitle:corporate corporate governance service continuous",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
+      "urls": 20,
+      "elapsed_ms": 486.3,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:openalex.org intitle:industry industry factory cycle",
-      "domain": "openalex.org",
-      "source_id": "SRC-OPENALEX",
-      "urls": 0,
-      "elapsed_ms": 910.5,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:pajak.go.id industry factory cycle",
+      "query": "site:pajak.go.id corporate governance service continuous",
       "domain": "pajak.go.id",
       "source_id": "SRC-DJP",
-      "urls": 3,
-      "elapsed_ms": 1025.8,
+      "urls": 20,
+      "elapsed_ms": 1298.2,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:pajak.go.id corporate governance service continuous",
+      "domain": "pajak.go.id",
+      "source_id": "SRC-DJP",
+      "urls": 20,
+      "elapsed_ms": 435.5,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:pajak.go.id intitle:industry industry factory cycle",
+      "query": "site:pajak.go.id intitle:corporate corporate governance service continuous",
       "domain": "pajak.go.id",
       "source_id": "SRC-DJP",
       "urls": 0,
-      "elapsed_ms": 627.3,
+      "elapsed_ms": 892.6,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:pajak.go.id intitle:corporate corporate governance service continuous",
+      "domain": "pajak.go.id",
+      "source_id": "SRC-DJP",
+      "urls": 20,
+      "elapsed_ms": 517.9,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:nist.gov industry factory cycle",
+      "query": "site:nist.gov corporate governance service continuous",
       "domain": "nist.gov",
       "source_id": "SRC-NIST",
-      "urls": 14,
-      "elapsed_ms": 1944.2,
+      "urls": 20,
+      "elapsed_ms": 1249.2,
       "cached": false
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:nist.gov intitle:industry industry factory cycle",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:nist.gov corporate governance service continuous",
       "domain": "nist.gov",
       "source_id": "SRC-NIST",
-      "urls": 15,
-      "elapsed_ms": 2333.9,
+      "urls": 20,
+      "elapsed_ms": 407.0,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:peraturan.go.id industry factory cycle",
-      "domain": "peraturan.go.id",
-      "source_id": "SRC-JDIH",
-      "urls": 0,
-      "elapsed_ms": 795.3,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:peraturan.go.id intitle:industry industry factory cycle",
-      "domain": "peraturan.go.id",
-      "source_id": "SRC-JDIH",
-      "urls": 0,
-      "elapsed_ms": 791.5,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:cisa.gov industry factory cycle",
-      "domain": "cisa.gov",
-      "source_id": "SRC-CISA",
-      "urls": 14,
-      "elapsed_ms": 954.6,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:cisa.gov intitle:industry industry factory cycle",
-      "domain": "cisa.gov",
-      "source_id": "SRC-CISA",
-      "urls": 0,
-      "elapsed_ms": 777.3,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:bpk.go.id industry factory cycle",
-      "domain": "bpk.go.id",
-      "source_id": "SRC-BPK",
-      "urls": 12,
-      "elapsed_ms": 1581.3,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:bpk.go.id intitle:industry industry factory cycle",
-      "domain": "bpk.go.id",
-      "source_id": "SRC-BPK",
-      "urls": 0,
-      "elapsed_ms": 799.6,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:menlhk.go.id industry factory cycle",
-      "domain": "menlhk.go.id",
-      "source_id": "SRC-KLHK",
-      "urls": 0,
-      "elapsed_ms": 895.1,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:menlhk.go.id intitle:industry industry factory cycle",
-      "domain": "menlhk.go.id",
-      "source_id": "SRC-KLHK",
-      "urls": 0,
-      "elapsed_ms": 744.7,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:unep.org industry factory cycle",
-      "domain": "unep.org",
-      "source_id": "SRC-UNEP",
-      "urls": 15,
-      "elapsed_ms": 1249.9,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:unep.org intitle:industry industry factory cycle",
-      "domain": "unep.org",
-      "source_id": "SRC-UNEP",
+      "query": "site:nist.gov intitle:corporate corporate governance service continuous",
+      "domain": "nist.gov",
+      "source_id": "SRC-NIST",
       "urls": 2,
-      "elapsed_ms": 1388.2,
+      "elapsed_ms": 2197.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:nist.gov intitle:corporate corporate governance service continuous",
+      "domain": "nist.gov",
+      "source_id": "SRC-NIST",
+      "urls": 20,
+      "elapsed_ms": 333.6,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:ifrs.org industry factory cycle",
+      "query": "site:peraturan.go.id corporate governance service continuous",
+      "domain": "peraturan.go.id",
+      "source_id": "SRC-JDIH",
+      "urls": 0,
+      "elapsed_ms": 1135.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:peraturan.go.id corporate governance service continuous",
+      "domain": "peraturan.go.id",
+      "source_id": "SRC-JDIH",
+      "urls": 20,
+      "elapsed_ms": 873.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:peraturan.go.id intitle:corporate corporate governance service continuous",
+      "domain": "peraturan.go.id",
+      "source_id": "SRC-JDIH",
+      "urls": 0,
+      "elapsed_ms": 886.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:peraturan.go.id intitle:corporate corporate governance service continuous",
+      "domain": "peraturan.go.id",
+      "source_id": "SRC-JDIH",
+      "urls": 20,
+      "elapsed_ms": 326.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:cisa.gov corporate governance service continuous",
+      "domain": "cisa.gov",
+      "source_id": "SRC-CISA",
+      "urls": 17,
+      "elapsed_ms": 1386.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:cisa.gov corporate governance service continuous",
+      "domain": "cisa.gov",
+      "source_id": "SRC-CISA",
+      "urls": 20,
+      "elapsed_ms": 419.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:cisa.gov intitle:corporate corporate governance service continuous",
+      "domain": "cisa.gov",
+      "source_id": "SRC-CISA",
+      "urls": 0,
+      "elapsed_ms": 1147.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:cisa.gov intitle:corporate corporate governance service continuous",
+      "domain": "cisa.gov",
+      "source_id": "SRC-CISA",
+      "urls": 20,
+      "elapsed_ms": 338.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:bpk.go.id corporate governance service continuous",
+      "domain": "bpk.go.id",
+      "source_id": "SRC-BPK",
+      "urls": 20,
+      "elapsed_ms": 1210.4,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bpk.go.id corporate governance service continuous",
+      "domain": "bpk.go.id",
+      "source_id": "SRC-BPK",
+      "urls": 20,
+      "elapsed_ms": 499.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:bpk.go.id intitle:corporate corporate governance service continuous",
+      "domain": "bpk.go.id",
+      "source_id": "SRC-BPK",
+      "urls": 0,
+      "elapsed_ms": 922.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bpk.go.id intitle:corporate corporate governance service continuous",
+      "domain": "bpk.go.id",
+      "source_id": "SRC-BPK",
+      "urls": 20,
+      "elapsed_ms": 346.4,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:menlhk.go.id corporate governance service continuous",
+      "domain": "menlhk.go.id",
+      "source_id": "SRC-KLHK",
+      "urls": 0,
+      "elapsed_ms": 792.8,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:menlhk.go.id corporate governance service continuous",
+      "domain": "menlhk.go.id",
+      "source_id": "SRC-KLHK",
+      "urls": 20,
+      "elapsed_ms": 584.2,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:menlhk.go.id intitle:corporate corporate governance service continuous",
+      "domain": "menlhk.go.id",
+      "source_id": "SRC-KLHK",
+      "urls": 0,
+      "elapsed_ms": 1449.2,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:menlhk.go.id intitle:corporate corporate governance service continuous",
+      "domain": "menlhk.go.id",
+      "source_id": "SRC-KLHK",
+      "urls": 20,
+      "elapsed_ms": 419.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:unep.org corporate governance service continuous",
+      "domain": "unep.org",
+      "source_id": "SRC-UNEP",
+      "urls": 18,
+      "elapsed_ms": 1245.1,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:unep.org corporate governance service continuous",
+      "domain": "unep.org",
+      "source_id": "SRC-UNEP",
+      "urls": 20,
+      "elapsed_ms": 436.2,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:unep.org intitle:corporate corporate governance service continuous",
+      "domain": "unep.org",
+      "source_id": "SRC-UNEP",
+      "urls": 0,
+      "elapsed_ms": 1042.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:unep.org intitle:corporate corporate governance service continuous",
+      "domain": "unep.org",
+      "source_id": "SRC-UNEP",
+      "urls": 20,
+      "elapsed_ms": 353.1,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:ifrs.org corporate governance service continuous",
       "domain": "ifrs.org",
       "source_id": "SRC-ISSB",
-      "urls": 15,
-      "elapsed_ms": 1045.2,
+      "urls": 20,
+      "elapsed_ms": 1302.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:ifrs.org corporate governance service continuous",
+      "domain": "ifrs.org",
+      "source_id": "SRC-ISSB",
+      "urls": 20,
+      "elapsed_ms": 632.4,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:ifrs.org intitle:industry industry factory cycle",
+      "query": "site:ifrs.org intitle:corporate corporate governance service continuous",
       "domain": "ifrs.org",
       "source_id": "SRC-ISSB",
       "urls": 1,
-      "elapsed_ms": 844.1,
+      "elapsed_ms": 853.8,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:ifrs.org intitle:corporate corporate governance service continuous",
+      "domain": "ifrs.org",
+      "source_id": "SRC-ISSB",
+      "urls": 20,
+      "elapsed_ms": 336.6,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:globalreporting.org industry factory cycle",
+      "query": "site:globalreporting.org corporate governance service continuous",
       "domain": "globalreporting.org",
       "source_id": "SRC-GRI",
-      "urls": 13,
-      "elapsed_ms": 1051.8,
+      "urls": 18,
+      "elapsed_ms": 1290.6,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:globalreporting.org corporate governance service continuous",
+      "domain": "globalreporting.org",
+      "source_id": "SRC-GRI",
+      "urls": 20,
+      "elapsed_ms": 511.1,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:globalreporting.org intitle:industry industry factory cycle",
+      "query": "site:globalreporting.org intitle:corporate corporate governance service continuous",
       "domain": "globalreporting.org",
       "source_id": "SRC-GRI",
       "urls": 0,
-      "elapsed_ms": 759.6,
+      "elapsed_ms": 900.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:globalreporting.org intitle:corporate corporate governance service continuous",
+      "domain": "globalreporting.org",
+      "source_id": "SRC-GRI",
+      "urls": 20,
+      "elapsed_ms": 383.7,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:sasb.org industry factory cycle",
+      "query": "site:sasb.org corporate governance service continuous",
       "domain": "sasb.org",
       "source_id": "SRC-SASB",
+      "urls": 0,
+      "elapsed_ms": 1210.2,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:sasb.org corporate governance service continuous",
+      "domain": "sasb.org",
+      "source_id": "SRC-SASB",
+      "urls": 20,
+      "elapsed_ms": 391.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:sasb.org intitle:corporate corporate governance service continuous",
+      "domain": "sasb.org",
+      "source_id": "SRC-SASB",
+      "urls": 0,
+      "elapsed_ms": 811.2,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:sasb.org intitle:corporate corporate governance service continuous",
+      "domain": "sasb.org",
+      "source_id": "SRC-SASB",
+      "urls": 20,
+      "elapsed_ms": 286.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:owasp.org corporate governance service continuous",
+      "domain": "owasp.org",
+      "source_id": "SRC-OWASP",
+      "urls": 20,
+      "elapsed_ms": 1004.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:owasp.org corporate governance service continuous",
+      "domain": "owasp.org",
+      "source_id": "SRC-OWASP",
+      "urls": 20,
+      "elapsed_ms": 438.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "query": "site:owasp.org intitle:corporate corporate governance service continuous",
+      "domain": "owasp.org",
+      "source_id": "SRC-OWASP",
       "urls": 1,
-      "elapsed_ms": 960.0,
+      "elapsed_ms": 1009.8,
       "cached": false
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:sasb.org intitle:industry industry factory cycle",
-      "domain": "sasb.org",
-      "source_id": "SRC-SASB",
-      "urls": 0,
-      "elapsed_ms": 700.4,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:owasp.org industry factory cycle",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:owasp.org intitle:corporate corporate governance service continuous",
       "domain": "owasp.org",
       "source_id": "SRC-OWASP",
-      "urls": 15,
-      "elapsed_ms": 1538.0,
+      "urls": 20,
+      "elapsed_ms": 385.8,
       "cached": false
     },
     {
       "provider_id": "DISC-TAVILY",
-      "query": "site:owasp.org intitle:industry industry factory cycle",
-      "domain": "owasp.org",
-      "source_id": "SRC-OWASP",
-      "urls": 0,
-      "elapsed_ms": 709.2,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "industry factory cycle",
+      "query": "corporate governance service continuous",
       "domain": "",
       "source_id": "",
-      "urls": 13,
-      "elapsed_ms": 1104.7,
+      "urls": 18,
+      "elapsed_ms": 1608.8,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "corporate governance service continuous",
+      "domain": "",
+      "source_id": "",
+      "urls": 0,
+      "elapsed_ms": 0.0,
       "cached": false
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 282836.2
+      "elapsed_ms": 283716.0
+    },
+    {
+      "provider_id": "DISC-SITEMAP",
+      "query": "sitemap:trusted_feeds",
+      "urls": 12,
+      "elapsed_ms": 449169.9
     }
   ],
   "reputation_top": [
     {
       "id": "SRC-000001",
       "name": "BPS Indonesia",
-      "reputation": 110.075,
-      "score": 105.97,
+      "reputation": 104.974,
+      "score": 99.97,
       "authority": 1.0
     },
     {
       "id": "SRC-000004",
       "name": "World Bank",
-      "reputation": 102.547,
-      "score": 98.291,
+      "reputation": 97.702,
+      "score": 92.591,
       "authority": 0.95
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 100.692,
-      "score": 96.108,
-      "authority": 0.95
-    },
-    {
-      "id": "SRC-000005",
-      "name": "OECD",
-      "reputation": 99.287,
-      "score": 94.455,
+      "reputation": 95.573,
+      "score": 90.086,
       "authority": 0.95
     },
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 99.155,
-      "score": 93.123,
+      "reputation": 94.332,
+      "score": 87.449,
       "authority": 1.0
+    },
+    {
+      "id": "SRC-000005",
+      "name": "OECD",
+      "reputation": 94.187,
+      "score": 88.455,
+      "authority": 0.95
     },
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 94.674,
-      "score": 90.205,
-      "authority": 0.9
-    },
-    {
-      "id": "SRC-OPENALEX",
-      "name": "OpenAlex",
-      "reputation": 88.468,
-      "score": 82.904,
+      "reputation": 89.598,
+      "score": 84.233,
       "authority": 0.9
     },
     {
       "id": "SRC-DJP",
       "name": "DJP Pajak",
-      "reputation": 82.588,
-      "score": 73.633,
+      "reputation": 77.488,
+      "score": 67.633,
       "authority": 1.0
     },
     {
       "id": "SRC-NIST",
       "name": "NIST",
-      "reputation": 82.418,
-      "score": 73.433,
+      "reputation": 77.318,
+      "score": 67.433,
       "authority": 1.0
     },
     {
       "id": "SRC-JDIH",
       "name": "JDIH / Peraturan.go.id",
-      "reputation": 82.418,
-      "score": 73.433,
+      "reputation": 77.318,
+      "score": 67.433,
       "authority": 1.0
     },
     {
       "id": "SRC-CISA",
       "name": "CISA",
-      "reputation": 82.163,
-      "score": 73.133,
+      "reputation": 77.063,
+      "score": 67.133,
       "authority": 1.0
     },
     {
       "id": "SRC-BPK",
       "name": "BPK",
-      "reputation": 81.908,
-      "score": 72.833,
+      "reputation": 76.808,
+      "score": 66.833,
       "authority": 1.0
     },
     {
       "id": "SRC-KLHK",
       "name": "KLHK",
-      "reputation": 81.653,
-      "score": 72.533,
+      "reputation": 76.553,
+      "score": 66.533,
       "authority": 1.0
     },
     {
       "id": "SRC-UNEP",
       "name": "UNEP",
-      "reputation": 80.823,
-      "score": 72.733,
+      "reputation": 75.723,
+      "score": 66.733,
       "authority": 0.95
     },
     {
       "id": "SRC-ISSB",
       "name": "ISSB / IFRS Sustainability",
-      "reputation": 77.248,
-      "score": 73.233,
+      "reputation": 72.148,
+      "score": 67.233,
       "authority": 0.75
     },
     {
       "id": "SRC-GRI",
       "name": "GRI",
-      "reputation": 76.908,
-      "score": 72.833,
+      "reputation": 71.808,
+      "score": 66.833,
       "authority": 0.75
     },
     {
       "id": "SRC-SASB",
       "name": "SASB",
-      "reputation": 76.653,
-      "score": 72.533,
+      "reputation": 71.553,
+      "score": 66.533,
       "authority": 0.75
     },
     {
@@ -1313,14 +1501,46 @@
   ],
   "provider_ranking": [
     {
-      "id": "DISC-ATOM",
-      "name": "Atom Discovery",
-      "score": 65.273,
+      "id": "DISC-TAVILY",
+      "name": "Tavily",
+      "score": 62.413,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.2,
+        "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.979,
+        "latency": 0.333,
+        "freshness": 0.7,
+        "trust": 0.75,
+        "coverage": 0.9,
+        "relevance": 0.4,
+        "config_priority": 0.78
+      }
+    },
+    {
+      "id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "score": 57.1,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.3,
+        "success_rate": 1.0,
+        "latency": 0.0,
+        "freshness": 0.7,
+        "trust": 0.95,
+        "coverage": 0.75,
+        "relevance": 0.4,
+        "config_priority": 0.55
+      }
+    },
+    {
+      "id": "DISC-ATOM",
+      "name": "Atom Discovery",
+      "score": 51.44,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.12,
+        "success_rate": 1.0,
+        "latency": 0.0,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.6,
@@ -1331,13 +1551,13 @@
     {
       "id": "DISC-SITEMAP",
       "name": "Sitemap Discovery",
-      "score": 64.798,
+      "score": 44.08,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.2,
-        "success_rate": 1.0,
-        "latency": 0.926,
-        "freshness": 0.7,
+        "yield": 0.0,
+        "success_rate": 0.5,
+        "latency": 0.55,
+        "freshness": 0.5,
         "trust": 0.95,
         "coverage": 0.6,
         "relevance": 0.4,
@@ -1347,49 +1567,17 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 63.907,
-      "status": "ACTIVE",
-      "components": {
-        "yield": 0.15,
-        "success_rate": 1.0,
-        "latency": 0.967,
-        "freshness": 0.7,
-        "trust": 0.95,
-        "coverage": 0.6,
-        "relevance": 0.4,
-        "config_priority": 0.7
-      }
-    },
-    {
-      "id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "score": 61.666,
-      "status": "ACTIVE",
-      "components": {
-        "yield": 0.35,
-        "success_rate": 1.0,
-        "latency": 0.272,
-        "freshness": 0.7,
-        "trust": 0.95,
-        "coverage": 0.75,
-        "relevance": 0.4,
-        "config_priority": 0.55
-      }
-    },
-    {
-      "id": "DISC-TAVILY",
-      "name": "Tavily",
-      "score": 44.92,
+      "score": 44.0,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.5,
         "latency": 0.55,
         "freshness": 0.5,
-        "trust": 0.75,
-        "coverage": 0.9,
+        "trust": 0.95,
+        "coverage": 0.6,
         "relevance": 0.4,
-        "config_priority": 0.78
+        "config_priority": 0.7
       }
     },
     {
@@ -1507,6 +1695,126 @@
   ],
   "accepted_urls": [
     {
+      "url": "https://autodiscover.bps.go.id/book/data/po/3896O6P/course-outline_code_mgt712_title_corporate_governance.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Course Outline Code Mgt712 Title Corporate Governance"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/EBOOK/pdf/175745/8H10P89490/api__driven_devops__strategies-for-continuous_deployment.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Api Driven Devops Strategies For Continuous Deployment"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/CHAPTER/play/nc052607/5876N28C37091129/retailing__in__emerging_markets_a_policy_and__strategy_perspective__routledge_studies-in__international__business__and__the__world-economy.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Retailing In Emerging Markets A Policy And Strategy Perspective ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/EPDF/pub/1K7065K/5K8519681K/organization__contemporary_principles__and_practice.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Organization Contemporary Principles And Practice"
+    },
+    {
+      "url": "https://autodiscover.bps.go.id/pdf/url/dp/231P17D/the__national-health-service_service__committees-and-tribunal__amendment-regulations-1995_national__health__service.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] The National Health Service Service Committees And Tribunal ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TXT/lib/080726/7E28047A10/going__public-successful__securities-underwriting.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Going Public Successful Securities Underwriting"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/EPUB/pub/163521/5081I3L/lean__sigma-methods_and-tools_for_service-organizations-the__story-of-a__cruise__line_transformation.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Lean Sigma Methods And Tools For Service Organizations The ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/MD/doc/jj072607/72JJ480940065151/templates-for_policy_and_procedure-manuals.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Templates For Policy And Procedure Manuals - BPS"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/MD/slide/36X036C/64X494416C/business-law_principles_and_cases_in_the__legal-environment.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Business Law Principles And Cases In The Legal Environment"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/PPT/science/35689NO/15124N02O7/unilever_code-of__business-principles_and_code__policies.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Unilever Code Of Business Principles And Code Policies"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/BOOK/doc/72135KQ/16671040KQ/a_complete__course__in_risk-management_imperial-college-london.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] A Complete Course In Risk Management Imperial College London"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TEXT/doc/70539WT/050726/good_practice-guidance__on-internal__controls__ethics_and.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Good Practice Guidance On Internal Controls Ethics And"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/EBOOK/course/215220/97008TY/company_law-in__a-nutshell__nutshells.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Company Law In A Nutshell Nutshells"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/ITUNE/book/103425/19E169C/strategic__management_formulation_implementation__and__control-11th_edition.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Strategic Management Formulation Implementation And Control ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TEXT/chap/Q246V39791/Q479V87/accounts-payable_process_mapping__document__flowchart.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Accounts Payable Process Mapping Document Flowchart"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/PDF/ppt/892E92V/090726/internal__audit_summary-report-2014__2015.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Internal Audit Summary Report 2014 2015"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/DOC/science/bn/B90167N/socially__responsible-investment-law-regulating__the_unseen_polluters.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Socially Responsible Investment Law Regulating The Unseen ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/BOOK/doc/9455P4L570/5311P2L/corporate-finance-by__hillier_european-edition.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Corporate Finance By Hillier European Edition"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TXT/chap/wy/322W8176Y2260705/the__porter-s__theory__of_competitive-advantage.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] The Porter S Theory Of Competitive Advantage"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122008/property__in_securities__a__comparative__study_cambridge_studies-in_corporate_law.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Property In Securities A Comparative Study Cambridge Studies In ..."
+    },
+    {
       "url": "https://www.bps.go.id/",
       "source_id": "SRC-000001",
       "provider_id": "DISC-COMMONCRAWL",
@@ -1597,616 +1905,718 @@
       "title": ""
     },
     {
-      "url": "https://autoconfig.bps.go.id/EBOOK/course/151210/S6061L4/factory-physics.pdf",
+      "url": "https://www.bps.go.id/dynamictable/2020/02/18/1773/rata-rata-lama-sekolah-menurut-provinsi-metode-baru-2010-2019.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2020/02/19/1775/penduduk-berumur-15-tahun-ke-atas-menurut-jenis-kegiatan-tahun-1986---2019.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us-22-00-billion---imports-in-november-2023-reached-us-19-59-billion.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-media-location-of-access.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-age-group.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/ITUNE/slide/4B4G141/191430090726/corporate_finance-middle__east_edition.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Factory Physics"
+      "title": "[PDF] Corporate Finance Middle East Edition"
     },
     {
-      "url": "https://autoconfig.bps.go.id/MD/pdf/kq052607/2815K9659Q170849/industrial_engineering__banga-sharma.pdf",
+      "url": "https://autoconfig.bps.go.id/EBOOK/ref/dd/897D3D5084260709/corporate-governance_and__financial__reform__in-chinas-transition__economy__hong-kong-university_press_law_series.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Industrial Engineering Banga Sharma - BPS"
+      "title": "[PDF] Corporate Governance And Financial Reform In Chinas Transition ..."
     },
     {
-      "url": "https://autoconfig.bps.go.id/RTF/doc/qm042607/586771Q91M093848/industrial__engineering__banga__sharma.pdf",
+      "url": "https://autoconfig.bps.go.id/PLAY/science/58Z38S9612/30Z23S0/corporate_governance.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Industrial Engineering Banga Sharma"
+      "title": "[PDF] Corporate Governance"
     },
     {
-      "url": "https://autoconfig.bps.go.id/MD/chap/yh042607/H6922Y7883075559/computer-integrated__manufacturing-for_diploma.pdf",
+      "url": "https://autoconfig.bps.go.id/EPDF/pdf/050726/5U416N5998/a_handbook-of-corporate__governance__and__social-responsibility_corporate__social_responsibility.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Computer Integrated Manufacturing For Diploma"
+      "title": "[PDF] A Handbook Of Corporate Governance And Social Responsibility ..."
     },
     {
-      "url": "https://autoconfig.bps.go.id/TXT/pub/fa052607/5273AF5875170908/understanding__industrial-and_corporate_change.pdf",
+      "url": "https://autoconfig.bps.go.id/TXT/ppt/103405/566Y13K075/a_handbook__of__corporate-governance__and__social__responsibility__corporate-social__responsibility.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Understanding Industrial And Corporate Change"
+      "title": "[PDF] A Handbook Of Corporate Governance And Social Responsibility ..."
     },
     {
-      "url": "https://autoconfig.bps.go.id/KINDLE/book/xo/6X3O453/kaizen__the-key_to-japan-s_competitive-success.pdf",
+      "url": "https://autoconfig.bps.go.id/RTF/doc/ap/8A9012P934260704/corporate-communication.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Kaizen The Key To Japan S Competitive Success"
+      "title": "[PDF] Corporate Communication"
     },
     {
-      "url": "https://autoconfig.bps.go.id/EPDF/pdf/53V061J/46V7349J78/industrial-revolution_industry_4-are-german.pdf",
+      "url": "https://autoconfig.bps.go.id/CHAPTER/doc/B6613H1902/B9911H3/financial__theory__and_corporate_policy__solution_manual.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Industrial Revolution Industry 4 Are German"
+      "title": "[PDF] Financial Theory And Corporate Policy Solution Manual - BPS"
     },
     {
-      "url": "https://autoconfig.bps.go.id/ITUNE/text/vk052607/65K23399V4170857/factory_physics.pdf",
+      "url": "https://autodiscover.bps.go.id/journal/dl/ir/27114IR/ensuring-corporate_misconduct-how_liability_insurance__undermines__shareholder_litigation.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Factory Physics"
+      "title": "[PDF] Ensuring Corporate Misconduct How Liability Insurance ..."
     },
     {
-      "url": "https://autoconfig.bps.go.id/PLAY/slide/rb/R361B61438260705/strategic_supply_chain_framework__for_the-automotive__industry.pdf",
+      "url": "https://autoconfig.bps.go.id/PPT/doc/050726/76026HX421/corporate__finance_european_of__2nd-second__r__edition__by-hillier-david__ross_stephen-a__published_by-mcgraw__hill-higher__education_2013.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Strategic Supply Chain Framework For The Automotive Industry - BPS"
+      "title": "[PDF] Corporate Finance European Of 2nd Second R Edition By Hillier ..."
     },
     {
-      "url": "https://autodiscover.bps.go.id/play/key/140626/8X83S62207/systems-analysis__for-sustainable__engineering_theory_and__applications_green-manufacturing_systems__engineering.pdf",
+      "url": "https://autoconfig.bps.go.id/EPDF/book/120031/47058ZI/ross__corporate_finance-european_edition-solutions-manual.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Systems Analysis For Sustainable Engineering Theory And ..."
+      "title": "[PDF] Ross Corporate Finance European Edition Solutions Manual"
     },
     {
-      "url": "https://autoconfig.bps.go.id/TEXT/ppt/050726/5V0021274M/factory__physics__for-managers-how-leaders_improve-performance_in_a_post__lean_six-sigma__world.pdf",
+      "url": "https://autoconfig.bps.go.id/PLAY/pdf/060726/8L135744X5/corporate-entrepreneurship-tilburg-university.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Factory Physics For Managers How Leaders Improve Performance ..."
+      "title": "[PDF] Corporate Entrepreneurship Tilburg University - BPS"
     },
     {
-      "url": "https://autoconfig.bps.go.id/PAGE/short/193515/3L1837R/kaizen-assembly_designing_constructing-and__managing-a_lean__assembly_line.pdf",
+      "url": "https://autoconfig.bps.go.id/TXT/pdf/C45I457/060726/the__economist__organisation__culture__how-corporate__habits-can-make__or__break-a-company.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Kaizen Assembly Designing Constructing And Managing A Lean ..."
+      "title": "[PDF] The Economist Organisation Culture How Corporate Habits Can ..."
     },
     {
-      "url": "https://autoconfig.bps.go.id/EPUB/course/3846R0X548/9523R7X/cirp__encyclopedia__of__production-engineering.pdf",
+      "url": "https://autoconfig.bps.go.id/PDF/chap/6O0037Z/080726/corporate_finance__by_ross_westerfield_jaffe.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Cirp Encyclopedia Of Production Engineering"
+      "title": "[PDF] Corporate Finance By Ross Westerfield Jaffe"
     },
     {
-      "url": "https://autoconfig.bps.go.id/MD/pub/yx052607/Y70968X811170904/cellular__manufacturing__one_piece__flow__for__workteams_the_shopfloor-series.pdf",
+      "url": "https://autoconfig.bps.go.id/EPDF/book/050726/3K739B7700/fundamental_corporate__finance_7th-edition_brealey__myers.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Cellular Manufacturing One Piece Flow For Workteams The ..."
+      "title": "[PDF] Fundamental Corporate Finance 7th Edition Brealey Myers"
     },
     {
-      "url": "https://autoconfig.bps.go.id/EPDF/doc/vw/35V36W2710260704/variety_reduction-program_a_production-strategy__for__product-diversification.pdf",
+      "url": "https://autoconfig.bps.go.id/EBOOK/chap/st072607/637S95T234085821/fundamentals__of_corporate-finance_plus-new__myfinancelab-with__pearson__etext-access_card-package-2nd__edition__prentice-hall_series__in_finance__2nd_second_edition_by__berk-jonathan_demarzo__peter-harford-jarrad_2011.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Variety Reduction Program A Production Strategy For Product ..."
+      "title": "[PDF] Fundamentals Of Corporate Finance Plus New Myfinancelab"
     },
     {
-      "url": "https://autoconfig.bps.go.id/EPDF/chap/pd/765P9723D5260708/industry__4_the-industrial-internet_of-things.pdf",
+      "url": "https://autodiscover.bps.go.id/pdf/dl/wj/312W57J/corporate_finance__european-edition_david__hillier.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Industry 4 The Industrial Internet Of Things"
+      "title": "[PDF] Corporate Finance European Edition David Hillier"
     },
     {
-      "url": "https://autoconfig.bps.go.id/PDF/book/217M0W2647/672M6W5/industry_and__environmental-analysis-capsim.pdf",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Industry And Environmental Analysis Capsim"
-    },
-    {
-      "url": "https://autodiscover.bps.go.id/book/exe/bt/763B6T0491260615/strategic__supply__chain-framework_for__the_automotive-industry.pdf",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Strategic Supply Chain Framework For The Automotive Industry"
-    },
-    {
-      "url": "https://autodiscover.bps.go.id/doc/upload/ld152606/L282020D93112247/industry-and_empire__the-birth__of_the__industrial__revolution.pdf",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Industry And Empire The Birth Of The Industrial Revolution"
-    },
-    {
-      "url": "https://autoconfig.bps.go.id/DOC/edu/42533RZ/030726/quality-concepts__for__the_process_industry.pdf",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Quality Concepts For The Process Industry"
-    },
-    {
-      "url": "https://autoconfig.bps.go.id/EBOOK/course/2737CI5858/5687CI8/handbook__of__hygiene-control_in__the_food_industry_woodhead-publishing-series__in-food_science_technology__and_nutrition.pdf",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Handbook Of Hygiene Control In The Food Industry Woodhead ..."
-    },
-    {
-      "url": "https://autoconfig.bps.go.id/KINDLE/text/99H72V1650/20H40V1/big_data-and_analytics__in-the-automotive__industry.pdf",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Big Data And Analytics In The Automotive Industry"
-    },
-    {
-      "url": "https://autoconfig.bps.go.id/BOOK/slide/O81204K/170931050726/sun__above_the-horizon__meteoric-rise-of-the__solar-industry-pan_stanford_series__on-renewable__energy.pdf",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Sun Above The Horizon Meteoric Rise Of The Solar Industry Pan ..."
-    },
-    {
-      "url": "https://documents1.worldbank.org/curated/en/229781468766508862/pdf/multi0page.pdf",
+      "url": "https://openknowledge.worldbank.org/entities/publication/a2fba7da-213d-5e62-a90f-317c0cee4d13",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "World Bank Document"
+      "title": "Publication: Corporate Governance Success Stories"
     },
     {
-      "url": "https://openknowledge.worldbank.org/bitstream/handle/10986/16934/WPS6718.pdf",
+      "url": "https://openknowledge.worldbank.org/bitstreams/d68e9e7b-fea5-5ec9-97a8-46783f795190/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] WPS6718 - World Bank Document"
+      "title": "English Text (45.52 KB) - Open Knowledge Repository"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/443411399493347916-0560011970/original/WorldBankGroupArchivesFolder1651615.pdf",
+      "url": "https://openknowledge.worldbank.org/bitstreams/2c1bd51c-2290-53ad-bdab-27265845953a/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] World Bank Document"
+      "title": "[PDF] Corporate Governance - World Bank Open Knowledge Repository"
     },
     {
-      "url": "https://openknowledge.worldbank.org/entities/publication/62c1d622-0f38-407a-9ac2-69cb42caf5df",
+      "url": "https://openknowledge.worldbank.org/bitstreams/ecfd269c-cc5b-5ee6-acd8-8e0e3ff92dc5/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "Publication: Steel Sector: Energy Efficiency and Decarbonization ..."
+      "title": "[PDF] A CorporAte GovernAnCe Model - Open Knowledge Repository"
     },
     {
-      "url": "https://openknowledge.worldbank.org/bitstreams/c9d1176c-a28e-5ef4-b5d1-1898193cf974/download",
+      "url": "https://openknowledge.worldbank.org/bitstreams/040d4ae9-bee9-533a-a9d4-ffab9fdf4c16/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "English Text (58.19 KB) - Open Knowledge Repository"
+      "title": "[PDF] Corporate Governance - Open Knowledge Repository"
     },
     {
-      "url": "https://openknowledge.worldbank.org/bitstreams/423a524c-4257-593b-a935-700bb7410e7d/download",
+      "url": "https://openknowledge.worldbank.org/bitstreams/06b17118-d64c-5e30-9a27-50eb3e8eb242/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The Global Apparel Value Chain, Trade and the Crisis"
+      "title": "[PDF] Promoting Networks for Institutes of Directors - World Bank Document"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/b4ff84b2d5dc4d0963a5074102460cc1-0350012022/related/Commodity-Markets-Chapter-3.pdf",
+      "url": "https://documents1.worldbank.org/curated/en/228331468169750340/pdf/Corporate-governance-of-state-owned-enterprises-a-toolkit.pdf",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] CHAPTER 3 - The Nature and Drivers of Commodity Price Cycles"
+      "title": "[PDF] Corporate Governance of State-Owned Enterprises: A Toolkit"
     },
     {
-      "url": "https://openknowledge.worldbank.org/bitstreams/55098f50-4486-512f-a210-5681ed06e2ac/download",
+      "url": "https://documents.worldbank.org/curated/en/831651468781818619/pdf/30446.pdf",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The kingdom of the bicycle: what Wuhan can learn from Amsterdam"
+      "title": "Corporate Governance: A Framework for Implementation"
     },
     {
-      "url": "https://openknowledge.worldbank.org/bitstreams/0e65cf4f-fcc5-5f08-b50b-482213df6b3a/download",
+      "url": "https://openknowledge.worldbank.org/entities/publication/83b1c40d-20f9-597e-8f67-74ee8ee97aae",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Productivity Growth and Job Creation in the Development Process of ..."
+      "title": "Publication: A Corporate Governance Model : Building Responsible ..."
     },
     {
-      "url": "https://documents.worldbank.org/curated/en/915181468222889947/pdf/912410WP0P12570ilitation0Assessment.pdf",
+      "url": "https://accountability.worldbank.org/en/iamnet",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] 91241 - World Bank Documents & Reports"
+      "title": "Independent Accountability Mechanisms Network (IAMNet)"
     },
     {
-      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/384161555079173489",
+      "url": "https://documents1.worldbank.org/curated/en/641091468014937333/703380ESW0P0990n0SOE0CG0Study0Final.doc",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "Technological Innovation, Supply Chain Trade, and Workers in a ..."
+      "title": "[DOC] Macedonia Corporate Governance ROSC 2005"
     },
     {
-      "url": "https://documents1.worldbank.org/curated/en/767521582524715602/pdf/A-Global-Engine-for-Growth-An-IFC-Manufacturing-Case-Study.pdf",
+      "url": "https://ppp.worldbank.org/sites/default/files/2024-09/ADR_Toolkit_UserGuide_2011_EN.pdf",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] A Global Engine for Growth - World Bank Document"
+      "title": "[PDF] toolkit 4 - World Bank PPP"
     },
     {
-      "url": "https://documents1.worldbank.org/curated/en/280321468744004724/txt/multi0page.txt",
+      "url": "https://documents1.worldbank.org/curated/en/237841600428799984/txt/A-Review-of-Thirty-Nine-Government-Selected-SEPs.txt",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "multi0page.txt - Documents & Reports - World Bank"
+      "title": "A-Review-of-Thirty-Nine-Government-Selected-SEPs.txt"
     },
     {
-      "url": "https://www.worldbank.org/en/news/opinion/2015/04/21/wake-up-sleeping-beauties-poland",
+      "url": "https://openknowledge.worldbank.org/entities/publication/d0edd0e7-1553-57d2-a5d1-96548242dc31",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "Wake Up, Sleeping Beauties - World Bank"
+      "title": "Publication: “The Crab Model” : Tips for Project Implementation at ..."
     },
     {
-      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/715381468110965618/turkey-state-industrial-enterprise-finance-project",
+      "url": "https://documents1.worldbank.org/curated/en/315641621247180072/pdf/Guidelines-on-Corporate-Governance-for-Listed-Companies.pdf",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "Turkey - State Industrial Enterprise Finance Project"
+      "title": "[PDF] Guidelines on Corporate Governance for Listed Companies"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/364871557216247036-0240021960/render/WorldBankGroupArchivesFolder1582000.pdf",
+      "url": "https://documents1.worldbank.org/curated/en/301311468332448328/pdf/346690v10Corporate0governance0User0guide.pdf",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Pulp and Paper Project - Fifth Industry (05) - Finland - The World Bank"
+      "title": "[PDF] TOOLKIT - Developing Corporate Governance Codes of Best Practice"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/130901533654445373-0240021956/render/WorldBankGroupArchivesFolder1854139.pdf",
+      "url": "https://openknowledge.worldbank.org/entities/publication/88bdb9d7-6ed8-5ced-90f6-fb39a9cd96d4",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Folder Title: Power Agriculture and Industry Project - The World Bank"
+      "title": "Ghana : Report on the Observance of Standards and Codes (ROSC ..."
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/771071533654456255-0240021957/render/WorldBankGroupArchivesFolder1854142.pdf",
+      "url": "https://openknowledge.worldbank.org/bitstreams/a359a672-b3bf-5b1d-976b-f23d0e6cce63/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Folder Title: Power Agriculture and Industry Project - The World Bank"
+      "title": "English Text (482.52 KB) - Open Knowledge Repository - World Bank"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/907191556691120605-0240021952/render/WorldBankGroupArchivesFolder1581855.pdf",
+      "url": "https://documents1.worldbank.org/curated/en/627671627388782992/pdf/Indonesia-Corporate-Governance-Case-Studies.pdf",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Third Industry Project (03) - Finland - Loan 0070 - P037368 - Volume 1"
+      "title": "[PDF] indonesia - World Bank Document"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/377411591809369937-0240021987/render/WorldBankGroupArchivesFolderD23631.pdf",
+      "url": "https://thedocs.worldbank.org/en/doc/cd079f730c0f82f6b9c6763a606d7b4d-0570062025/original/250417-Korea-iSOEF-Report.pdf",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Background to the Livestock Industry - Ministry of Agriculture - Malawi"
+      "title": "[PDF] Corporate Governance and Fiscal Risk Assessment of State"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/728151533654462742-0240021961/render/WorldBankGroupArchivesFolder1854144.pdf",
+      "url": "http://www5.worldbank.org/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org:443/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://worldbank.org",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.worldbank.org",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.worldbank.org:80/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%E3%80%80",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/en/topic/financialsector/brief/corporate-governance",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "Folder Title: Power Agriculture and Industry Project - ..."
+      "title": "Corporate Governance"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/640291561126072835-0240021979/render/WorldBankGroupArchivesFolder30360674.pdf",
+      "url": "https://www.worldbank.org/en/topic/governance/brief/corporate-governance-and-financial-reporting-global-solutions-groups",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Fertilizer Industry Project - India - The World Bank"
+      "title": "Corporate Governance and Financial Reporting"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/352331616150214373-0240021949/original/WorldBankGroupArchivesFolder1618967.pdf",
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099225212022227056",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Power Mining Industry Project - The World Bank"
+      "title": "Corporate Governance and Small and Medium Enterprises (English)"
     },
     {
-      "url": "https://documents.worldbank.org/curated/en/099042326080518063/pdf/P508023-871ef1c5-b434-48ee-88b4-80c0299092ea.pdf",
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/337721468331261691",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Transforming Myanmar's Food Processing Industry: Obstacles and ..."
+      "title": "Brief glossary of corporate governance terminology (English)"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/236401561123564351-0240021979/render/WorldBankGroupArchivesFolder30360673.pdf",
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/490901468134091644",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Fertilizer Industry Project - India - The World Bank"
+      "title": "Corporate governance manual : second edition"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/546051555479579834-0240021953/render/WorldBankGroupArchivesFolder1581818.pdf",
+      "url": "https://www.worldbank.org/en/olc/course/43565",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Second Industry Project (02) - Finland - Loan 0061 - The World Bank"
+      "title": "Integrated SOE Framework (iSOEF): Corporate Governance of State ..."
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/689341615454780259-0240021970/original/WorldBankGroupArchivesFolder1837044.pdf",
+      "url": "https://openknowledge.worldbank.org/bitstreams/64520fa7-e921-5556-8b1c-6d07e547b057/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Economy - India - The World Bank"
+      "title": "[PDF] Corporate Governance and Performance around the World"
     },
     {
-      "url": "https://blogs.worldbank.org/en/endpovertyinsouthasia/financing-living-wage-bangladesh-s-garment-industry",
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/641091468014937333",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "Financing Living Wage in Bangladesh’s Garment Industry"
+      "title": "Bhutan - State owned enterprises and corporate governance (SOE-CG) report"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/088041625478892222-0560011994/original/WorldBankGroupArchivesfolder183368I.pdf",
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/483401468350182244",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Industry Structure and Regulation - Martin Stewart-Smith"
+      "title": "Zambia - Report on the Observance of Standards and Codes (ROSC)"
     },
     {
-      "url": "https://thedocs.worldbank.org/en/doc/077031926392383322-0560011987/original/WorldBankGroupArchivesfolder1058433.pdf",
+      "url": "https://documents.worldbank.org/pt/publication/documents-reports/documentdetail/123271468001143919",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] China - Shanghai Machine Tool Industry Project - The World Bank"
+      "title": "a joint analysis of the static, selection, and dynamic effects of ..."
     },
     {
-      "url": "https://www.adb.org/sites/default/files/linked-documents/55148-001-ssa.pdf",
+      "url": "https://documents.worldbank.org/pt/publication/documents-reports/documentdetail/558311487154971362",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Vietnam corporate governance project (Inglês)"
+    },
+    {
+      "url": "https://blogs.worldbank.org/en/psd/islamic-finance-strong-standards-corporate-governance-are-sine-qua-non",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Islamic finance: Strong standards of corporate governance are a ..."
+    },
+    {
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/237841600428799984",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "A Review of Thirty-Nine Government-Selected SEPs"
+    },
+    {
+      "url": "https://cfrr.worldbank.org/news/roundtable-importance-good-corporate-governance-and-transparency-soes",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Roundtable on importance of good corporate governance and ..."
+    },
+    {
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/403931618461962435",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Analyzing Banking Risk : A Framework for Assessing Corporate Governance and Risk Management - Fourth Edition"
+    },
+    {
+      "url": "https://www.worldbank.org/en/news/feature/2013/07/31/ifc-championing-women-on-corporate-boards-in-indonesia",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "IFC Championing Women on Corporate Boards in Indonesia"
+    },
+    {
+      "url": "https://blogs.worldbank.org/en/governance/engaging-in-good-spirit--advancing-corporate-governance-reforms-",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Engaging in Good SPIRIT: Advancing Corporate Governance Reforms of State-Owned Enterprises in Sarawak, Malaysia"
+    },
+    {
+      "url": "https://thedocs.worldbank.org/en/doc/cd079f730c0f82f6b9c6763a606d7b4d-0570062025/corporate-governance-and-fiscal-risk-assessment-of-state-owned-enterprises-in-the-republic-of-korea",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Governance and Fiscal Risk Assessment of State-Owned Enterprises in the Republic of Korea"
+    },
+    {
+      "url": "https://www.adb.org/sites/default/files/publication/549336/corporate-governance-firm-profitabilty-philippines.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Skills for Industry Competitiveness and Innovation Program: Sector ..."
+      "title": "[PDF] Corporate Governance, Firm Profitability, and Share Valuation in the ..."
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/325011/adbi-wp752.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/42600/asean-corporate-governance-scorecard.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The Middle-Income Trap and Manufacturing Transformation of the ..."
+      "title": "[PDF] ASEAN Corporate Governance Scorecard - Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/27537/electric-bikes.pdf",
+      "url": "https://www.adb.org/sites/default/files/project-documents//36550-ino-tcr.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Electric Bikes in the People's Republic of China"
+      "title": "[PDF] State-Owned Enterprise Reform Program II - Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/671921/benefits-industry-skills-development-viet-nam.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/29027/balanced-scorecard.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Reaping the Benefits of Industry 4.0 Through Skills Development in ..."
+      "title": "[PDF] Balanced Scorecard for State-Owned Enterprises"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/159317/adbi-eco-industrial-clusters-prototype-training-manual.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/667006/corporate-governance-south-asia.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Eco-Industrial Clusters: A Prototype Training Manual"
+      "title": "[PDF] Corporate Governance in South Asia: Trends and Challenges"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/436361/ewp-549-asias-industrial-transformation-part1.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/157226/adbi-rp52.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Asia's Industrial Transformation: The Role of Manufacturing and ..."
+      "title": "[PDF] Their Potential Role in Corporate Governance"
     },
     {
-      "url": "https://aric.adb.org/pdf/workingpaper/WP139_Dai_Business_Cycle_Synchronization.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/618761/reforms-opportunities-challenges-state-owned-enterprises.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Business CyCle synChronization in asia: the role of finanCial and ..."
+      "title": "[PDF] Reforms, Opportunities, and Challenges for State-Owned Enterprises"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/350011/sdwp-48.pdf",
+      "url": "https://www.adb.org/sites/default/files/project-documents//tar-sam-37235.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The Internet of Things in the Power Sector - Asian Development Bank"
+      "title": "[PDF] TAR:SAM 37235 - Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/project-documents/53212/53212-001-tacr-en_15.pdf",
+      "url": "https://www.adb.org/sites/default/files/project-documents//32051-vie-tcr.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Competitive City Action Plan Bavet - Asian Development Bank"
+      "title": "[PDF] Strengthening Corporate Governance at Viet Nam Bank for ..."
     },
     {
-      "url": "https://www.adb.org/sites/default/files/linked-documents/56181-001-sd-03.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/375481/asean-cgscorecard-2015.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Promoting Industrial Park Green and Low-Carbon Development ..."
+      "title": "[PDF] ASEAN Corporate Governance Scorecard Country Reports and ..."
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/156175/adbi-wp320.pdf",
+      "url": "https://www.adb.org/sites/default/files/project-documents/58211/58211-001-rrp-en.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Production Networks in East Asia: What We Know So Far"
+      "title": "[PDF] Accelerating State-Owned Enterprises Transformation Program"
     },
     {
-      "url": "https://www.adb.org/projects/58021-001/main",
+      "url": "http://www.adb.org/sites/default/files/publication/156768/adbi-dp3.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "58021-001: Tripura Industrial Infrastructure Development Project"
+      "title": "[PDF] Corporate Governance in Banking and Economic Performance"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/1063031/adr-vol42no2-11-digital-services-trade-impact-prc.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/159370/adbi-corp-gov-vol-1.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The Digital Services Trade's Impact on the Green Development of ..."
+      "title": "[PDF] Corporate Governance of Banks in Asia"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/158170/development-modern-industrial-policy-practice.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/610771/adbi-environmental-social-governance-investment-opportunities-risks-asia.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Development and Modern Industrial Policy in Practice"
+      "title": "[PDF] Environmental, Social, and Governance Investment: Opportunities ..."
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/671711/industry-skills-development-southeast-asia.pdf",
+      "url": "https://www.adb.org/sites/default/files/project-documents//r141-00.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Reaping the Benefits of Industry 4.0 through Skills ..."
+      "title": "[PDF] %2$5' 2 ) ',5(&7256 - Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/linked-documents/55148-001-earfab.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/159371/adbi-corp-gov-vol-2.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Skills for Industry Competitiveness and Innovation Program"
+      "title": "Corporate Governance of Banks in Asia"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/176593/ino-strategies-uig-partnership.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/156756/adbi-dp10.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Developing Strategies for University, Industry, and Government ..."
+      "title": "[PDF] Corporate Governance in the Republic of Korea and Its Implications ..."
     },
     {
-      "url": "https://www.adb.org/sites/default/files/linked-documents/43207-013-phi-oth-13.pdf",
+      "url": "https://www.adb.org/news/features/improving-water-governance-asia-pacific-region-why-it-matters",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] E-trike Consultation and Communications as of August 2012"
+      "title": "Improving Water Governance in the Asia-Pacific Region: Why It ..."
     },
     {
-      "url": "https://www.adb.org/sites/default/files/project-documents//25129-01-prc-tacr.pdf",
+      "url": "https://www.adb.org/node/1136021",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] SUPPORTING THE DEVELOPMENT OF THE VENTURE CAPITAL ..."
+      "title": "How Pakistan's Public Service Obligations Framework Improves ..."
     },
     {
-      "url": "https://one.oecd.org/document/DSTI/IND(2015)2/en/pdf",
-      "source_id": "SRC-000005",
+      "url": "http://www.adb.org/",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org//",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/?gclid=CjwKCAjwqJSaBhBUEiwAg5W9pz0FxvfsG7XzIr24fYv06Hu3SxyQuMVPyiq4m0oWPyP5XqGtTP8Y2BoCjikQAvD_BwE",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/annual-meetings/event-sustainability",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/board-calendar",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/board-directors",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/management/haruhiko-kuroda",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://adb.org/about/members",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org//about/members",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/members",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/partners",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/social-development",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/acliff",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/adb-president-expanded-agenda-carec-18th-ministerial-conference",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/adbi",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/adbi/about/deputy-dean",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/adbi/about/opportunities",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/adbi/about/opportunities/call-for-expressions-of-interest-asia-focused-online-risk-platform",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/sites/default/files/publication/159384/adbi-corp-gov-asia.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] ENABLING THE NEXT PRODUCTION REVOLUTION: ISSUES PAPER"
+      "title": "[PDF] CORPORATE GOVERNANCE IN ASIA - Asian Development Bank"
     },
     {
-      "url": "https://www.oecd.org/en/data/indicators/industrial-production.html",
-      "source_id": "SRC-000005",
+      "url": "https://www.adb.org/sites/default/files/project-documents/39538/39538-013-39538-035-pcr-en.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Industrial production"
+      "title": "[PDF] MFF- SOE Reform and Corporate Governance Facilitation Program"
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2016/06/oecd-journal-journal-of-business-cycle-measurement-and-analysis-volume-2015-issue-2_g1g548a4/jbcma-v2015-2-en.pdf",
-      "source_id": "SRC-000005",
+      "url": "https://www.adb.org/sites/default/files/project-documents/39538/39538-023-pcr-en.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Journal of Business Cycle Measurement and Analysis | OECD"
+      "title": "[PDF] SOE Reform and Corporate Governance Facilitation Program"
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2010/01/eco-innovation-in-industry_g1ghbd93/9789264077225-en.pdf",
-      "source_id": "SRC-000005",
+      "url": "https://www.adb.org/publications/asean-corporate-governance-scorecard-country-reports-and-assessments-2012-2013",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Eco-Innovation in Industry | OECD"
+      "title": "ASEAN Corporate Governance Scorecard: Country Reports and ..."
     },
     {
-      "url": "https://www.oecd.org/en/publications/housing-markets-wealth-and-the-business-cycle_534328100627.html",
-      "source_id": "SRC-000005",
+      "url": "https://lpr.adb.org/sites/default/files/resource/258/201711-gatekeeper-or-concierge-regulation-corporate-governance-and-auditing.pdf.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Housing Markets, Wealth and the Business Cycle - OECD"
+      "title": "[PDF] Gatekeeper or Concierge? The Regulation of Corporate ..."
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/06/industrial-policy-handbook_a5b12f68/ff099713-en.pdf",
-      "source_id": "SRC-000005",
+      "url": "https://www.adb.org/sites/default/files/publication/157231/adbi-rp56.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Industrial Policy Handbook: From Strategy Design to Implementation"
+      "title": "[PDF] Relationship Banking and Its Role in Corporate Governance"
     },
     {
-      "url": "https://www.oecd.org/en/events/2026/01/from-production-to-end-of-life-understanding-fluoropolymers-across-the-life-cycle.html",
-      "source_id": "SRC-000005",
+      "url": "https://www.adb.org/sites/default/files/publication/157194/adbi-rp19.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "From production to end-of-life: understanding fluoropolymers across ..."
+      "title": "[PDF] Family Business Gone Wrong? Ownership Patterns and Corporate ..."
     },
     {
-      "url": "https://www.oecd.org/en/blogs/2025/06/making-industrial-policies-work-12-steps-for-smarter-governance.html",
-      "source_id": "SRC-000005",
+      "url": "https://www.adb.org/sites/default/files/project-documents//32132-prc-tacr.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Making industrial policies work: 12 steps for smarter governance"
+      "title": "[PDF] Technical Assistance Consultant's Report People's Republic of ..."
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/10/the-future-of-rural-manufacturing_d84215cf/e065530c-en.pdf",
-      "source_id": "SRC-000005",
+      "url": "https://www.adb.org/publications/corporate-planning-public-sector-guide-pacific-policy-makers",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The Future of Rural Manufacturing - OECD"
+      "title": "Corporate Planning in the Public Sector: A Guide for Pacific Policy ..."
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/12/the-return-of-industrial-policies_1bb0c82b/051ce36d-en.pdf",
-      "source_id": "SRC-000005",
+      "url": "https://asianbondsonline.adb.org/events/2019/workshop-bond-market-development-emerging-east-asia/measures-develop-corporate-bond-market-akamatsu.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The return of industrial policies (EN) - OECD"
+      "title": "[PDF] Measures to develop corporate bond market - AsianBondsOnline"
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/1999/08/indicators-of-industrial-activity-1998-supplement_g1gh11dc/9789264174467-en.pdf",
-      "source_id": "SRC-000005",
+      "url": "https://www.adb.org/sites/default/files/project-documents/57076/57076-001-escar-en_2.pdf",
+      "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Indicators of Industrial Activity: 1998 Supplement (EN)"
+      "title": "[PDF] Tata Group Energy Access Project: Corporate Environmental and ..."
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2010/01/the-automobile-industry-in-and-beyond-the-crisis_g17a1d86/5kmmp8wg6cmq-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The Automobile Industry in and Beyond the Crisis - OECD"
-    },
-    {
-      "url": "https://www.oecd.org/en/publications/regional-industrial-transitions-to-climate-neutrality_35247cc7-en/full-report/component-5.html",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "Regional industrial transitions to climate neutrality: Identifying key sectors: Regional Industrial Transitions to Climate Neutrality | OECD"
-    },
-    {
-      "url": "https://www.oecd.org/en/publications/implementing-the-oecd-framework-for-industry-s-net-zero-transition-in-thailand_b9978679-en/full-report/country-context-thailand-s-manufacturing-sector-and-climate-ambitions_f81c5f3b.html",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "Country context: Thailand’s manufacturing sector and climate ambitions: Implementing the OECD Framework for Industry’s Net-zero Transition in Thailand"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/events/2023/10/framework-for-industry%E2%80%99s-net-zero-transition-in-indonesia%27s-iron-and-steel-sector/IISIA_Condition%20Towards%20a%20National%20Steel%20Industry%20Decarbonization.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Condition Towards a National Steel Industry Decarbonization | OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2009/10/assessing-measures-of-energy-efficiency-performance-and-their-application-in-industry_g1ghbd8a/9789264039544-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] assessing measures of energy efficiency performance and ... - OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2019/11/global-value-chains-and-the-shipbuilding-industry_0f7acf43/7e94709a-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Global value chains and the shipbuilding industry (EN) - OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2009/09/energy-technology-transitions-for-industry_g1ghb3a0/9789264068612-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] EnErgy tEchnology transitions for industry | OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/10/oecd-science-technology-and-industry-scoreboard-2013_g1g311d1/sti_scoreboard-2013-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] OECD Science, Technology and Industry Scoreboard 2013 (EN)"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2014/09/chemicals-used-in-the-electronics-industry_g1g48552/9789264221062-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Chemicals Used in the Electronics Industry (EN) - OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/12/support-for-decarbonising-heavy-industry-in-emerging-markets-and-developing-economies_abae7f1a/7787cde0-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Support for decarbonising heavy industry in emerging markets and ..."
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2018/04/low-carbon-transition-in-the-cement-industry_g1g8d7e7/9789264300248-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Low-Carbon Transition in the Cement Industry | OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/05/mapping-financial-and-technical-assistance-for-industry-decarbonisation-in-emerging-markets-and-developing-economies-in-2000-2023_aad5b093/2344cee3-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Mapping financial and technical assistance for industry ... - OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2000/10/promoting-competition-in-the-natural-gas-industry_c921647e/92b23a5b-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Promoting Competition in the Natural Gas Industry | OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/02/low-carbon-technology-for-the-indian-cement-industry_g1g2ddfd/9789264197008-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Low-Carbon Technology for the Indian Cement Industry | OECD"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2014/11/oecd-science-technology-and-industry-outlook-2014_g1g356f4/sti_outlook-2014-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] OECD Science, Technology and Industry Outlook 2014 (EN)"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2020/07/promoting-exports-and-supply-chain-linkages-in-the-food-industry-in-the-republic-of-moldova_c58c3ff9/72bf4a9f-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Promoting Exports and Supply-Chain Linkages in the Food Industry ..."
-    },
-    {
-      "url": "https://ilmate.kemenperin.go.id/files/document/1679994275-7.4%20PP%2039%20TW%204%20IET%20-%202021.pdf",
+      "url": "https://itjen.kemenperin.go.id/assets/publikasi_doc/2023_menghitung-kerugian-keuangan-negara.pdf",
       "source_id": "SRC-000007",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] LAPORAN PP 39 TRIWULAN IV TAHUN ANGGARAN 2021"
-    },
-    {
-      "url": "https://sippa.kemenperin.go.id/filebox/micro_learning_materi/a901660403125c48bebd393f1b530cb2.pdf",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] dasar industri 4.0 - Kementerian Perindustrian"
-    },
-    {
-      "url": "https://sidia.kemenperin.go.id/competency/skkni/download/3bc6c8d9-c5b5-4a68-b185-a0251252373e/skkni-industri-peralatan-elektronika",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Download Dokumen - Kementerian Perindustrian"
+      "title": "[PDF] 2023_menghitung-kerugian-keuangan-negara.pdf"
     },
     {
       "url": "https://bspjipekanbaru.kemenperin.go.id/wp-content/uploads/2022/07/Prosiding-ISCSTSI-2020.pdf",
@@ -2215,499 +2625,295 @@
       "title": "[PDF] proceeding - BSPJI Pekanbaru - Kementerian Perindustrian"
     },
     {
-      "url": "https://ikm.kemenperin.go.id/storage/publication/gm-57.pdf",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Untitled - Kementerian Perindustrian"
-    },
-    {
-      "url": "https://sidia.kemenperin.go.id/competency/skkni/download/498a1edc-f5f3-49f5-b25b-bf1d8f24ec03/skkni-garmen",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] 2020SKKNI177.pdf.pdf - JDIH Kemnaker"
-    },
-    {
       "url": "https://bspjibanjarbaru.kemenperin.go.id/wp-content/uploads/2022/01/BUKU-PROSIDING-fix-SEMINAR-INDUSTRI-HIJAU-2021-REV-5-DES.pdf",
       "source_id": "SRC-000007",
       "provider_id": "DISC-TAVILY",
       "title": "[PDF] Prosiding Seminar Industri Hijau - bspji banjarbaru"
     },
     {
-      "url": "https://ikm.kemenperin.go.id/storage/publication/gm-70.pdf",
+      "url": "https://ikm.kemenperin.go.id/storage/publication/gm-67.pdf",
       "source_id": "SRC-000007",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Bangga Buatan Indonesia - Ditjen IKMA - Kementerian Perindustrian"
+      "title": "[PDF] IKM KUAT dengan PENERAPAN STANDARDISASI - Ditjen IKMA"
     },
     {
-      "url": "https://bbihpmm.kemenperin.go.id/layanan/tkdn",
+      "url": "https://ammdes.kemenperin.go.id/",
       "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "Verifikasi TKDN - bbihpmm"
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://bbihpmm.kemenperin.go.id/profil/tugas-fungsi",
+      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
       "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "Tugas Pokok dan Fungsi BBSPJIHPMM"
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://bbihpmm.kemenperin.go.id/profil/sejarah",
+      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
       "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "Sejarah BBSPJIHPMM"
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://bbihpmm.kemenperin.go.id/layanan/lssm",
+      "url": "https://ammdes.kemenperin.go.id/robots.txt",
       "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "Lembaga Sertifikasi Sistem Manajemen - WEB | BBSPJIHPMM"
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://bbihpmm.kemenperin.go.id/layanan/lsp",
+      "url": "http://ammdes.kemenperin.go.id/robots.txt",
       "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "Lembaga Sertifikasi Profesi - bbihpmm - Kementerian Perindustrian"
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://bbt.kemenperin.go.id/layanan/lembaga-sertifikasi-sistem-manajemen-lingkungan-%28lssml%29-bbspji-tekstil",
+      "url": "https://bbkb.kemenperin.go.id/",
       "source_id": "SRC-000007",
-      "provider_id": "DISC-TAVILY",
-      "title": "Sertifikasi Sistem Manajemen Lingkungan - Layanan - BBSPJI Tekstil"
-    },
-    {
-      "url": "https://www.crossref.org/06members/51depositorCP.html",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "crossref.org : : depositor"
-    },
-    {
-      "url": "https://dx.crossref.org/10.1002/pip.2363",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "The energy payback time of advanced crystalline silicon PV ..."
-    },
-    {
-      "url": "http://dx.crossref.org/10.1016/j.jtrangeo.2024.103817",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "A global review of automobility's harm to people and the environment"
-    },
-    {
-      "url": "https://dx.crossref.org/10.1186%2F1475-2859-9-79",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Genome-wide identification of Saccharomyces cerevisiae genes ..."
-    },
-    {
-      "url": "https://www.crossref.org/iPage?doi=10.1049%2Fel.2014.2959",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Real‐time synchronisation method in multi‐robot system - IET Journals"
-    },
-    {
-      "url": "http://dx.crossref.org/10.1016/0165-7992(93)90104-4",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Sister-chromatid exchanges and cell-cycle kinetics in the ..."
-    },
-    {
-      "url": "http://dx.crossref.org/10.1016/j.cesys.2023.100154",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "A two-step approach to create and evaluate an optimization method ..."
-    },
-    {
-      "url": "https://dx.crossref.org/10.4271/2007-01-0647",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "SAE Publications"
-    },
-    {
-      "url": "https://www.crossref.org/iPage?doi=10.3138%2Fcpp.33.4.419",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Global Warming Damages and Canada's Oil Sands | Canadian ..."
-    },
-    {
-      "url": "http://dx.crossref.org/10.1007/978-981-13-0381-4_1",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Introduction to Precision Machines | Springer Nature Link"
-    },
-    {
-      "url": "https://dx.crossref.org/10.1029/2009JD011848",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "NO2 column amounts from ground‐based Pandora and MFDOAS ..."
-    },
-    {
-      "url": "http://dx.crossref.org/10.1016/j.scitotenv.2021.151003",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Per- and polyfluoroalkyl substances in water and wastewater"
-    },
-    {
-      "url": "http://dx.crossref.org/10.2486/indhealth.35.367",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Genotoxic Effects in Workers Exposed to Benzene - J-Stage"
-    },
-    {
-      "url": "http://dx.crossref.org/10.1179/026708303225009760",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Laser polishing of silica slotted rods - Taylor & Francis"
-    },
-    {
-      "url": "https://dx.crossref.org/10.1155/2012/932305",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-TAVILY",
-      "title": "Survey of Mechatronic Techniques in Modern Machine Design - Shetty"
-    },
-    {
-      "url": "https://explore.openalex.org/funders/f4320334945",
-      "source_id": "SRC-OPENALEX",
-      "provider_id": "DISC-TAVILY",
-      "title": "Fok Ying Tong Education Foundation | OpenAlex"
-    },
-    {
-      "url": "https://explore.openalex.org/authors/a5100379917",
-      "source_id": "SRC-OPENALEX",
-      "provider_id": "DISC-TAVILY",
-      "title": "Kevin Lee | OpenAlex"
-    },
-    {
-      "url": "https://openalex.org/A5112122632",
-      "source_id": "SRC-OPENALEX",
-      "provider_id": "DISC-TAVILY",
-      "title": "Qingxin Fan | OpenAlex"
-    },
-    {
-      "url": "https://www.pajak.go.id/sites/default/files/2025-04/Buku%20Manual%20SPT%20Masa%20PPN.pdf",
-      "source_id": "SRC-DJP",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Pelaporan SPT Masa PPN - Direktorat Jenderal Pajak"
-    },
-    {
-      "url": "https://pajak.go.id/sites/default/files/2020-03/Annual%20Report%202018-ENG.pdf",
-      "source_id": "SRC-DJP",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] SYNERGY TOWARD NATIONAL ECONOMIC SELF-RELIANCE"
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://pajak.go.id/sites/default/files/2023-12/Laporan%20Tahunan%20DJP%202022%20-%20English_0.pdf",
-      "source_id": "SRC-DJP",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Laporan Tahunan DJP 2022 - English_0.pdf"
-    },
-    {
-      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=907627",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Chapter 31 Toward Energy Efficient Manufacturing Enterprises"
-    },
-    {
-      "url": "https://www.nist.gov/mep/advanced-manufacturing-technology-and-industry-40-services",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Advanced Manufacturing Technology and Industry 4.0 Services | NIST"
-    },
-    {
-      "url": "https://www.nist.gov/mep/successstories/2023/building-better-bikes-america",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Building Better Bikes in America | NIST"
-    },
-    {
-      "url": "https://www.nist.gov/document/sanderspdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] systems engineering producibility modeling & simulation needs"
-    },
-    {
-      "url": "https://www.nist.gov/programs-projects/digital-thread-manufacturing",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Digital Thread for Manufacturing | NIST"
-    },
-    {
-      "url": "https://www.nist.gov/congressional-and-legislative-affairs/fy-2007-budget-request-details/manufacturing-innovation",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Manufacturing Innovation Through Supply Chain Integration | NIST"
-    },
-    {
-      "url": "https://www.nist.gov/blogs/manufacturing-innovation-blog/export-your-us-manufactured-goods-and-services",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Export Your U.S. Manufactured Goods and Services | NIST"
-    },
-    {
-      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=921140",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Framework for Standardization of Simulation Integrated Production ..."
-    },
-    {
-      "url": "https://nvlpubs.nist.gov/nistpubs/ir/2016/nist.ir.8107.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Current Standards Landscape for Smart Manufacturing Systems"
-    },
-    {
-      "url": "https://www.nist.gov/blogs/manufacturing-innovation-blog/simulation-window-future-your-manufacturing-operation",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Simulation is a Window Into the Future of Your Manufacturing ..."
+      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir4986.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Information technology vision for the U.S. fiber/textile/apparel industry"
-    },
-    {
-      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=904931",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Development Overview of Sustainable Manufacturing Metrics"
-    },
-    {
-      "url": "https://nvlpubs.nist.gov/nistpubs/ams/NIST.AMS.100-18.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] The Costs and Benefits of Advanced Maintenance in Manufacturing"
-    },
-    {
-      "url": "https://www.nist.gov/publications/industrial-wireless-systems-guidelines-practical-considerations-and-deployment-life",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Industrial Wireless Systems Guidelines: Practical Considerations ..."
-    },
-    {
-      "url": "https://www.nist.gov/speech-testimony/remarks-industry-things-world-usa",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Remarks at Industry of Things World USA | NIST"
-    },
-    {
-      "url": "https://www.nist.gov/system/files/documents/director/planning/report07-2.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Economic Impact of Measurement in the Semiconductor Industry"
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.nist.gov/news-events/news/2022/07/nist-and-industry-researchers-make-advances-wireless-time-sensitive",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "NIST and Industry Researchers Make Advances in Wireless Time ..."
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1601.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Tracking Industry Operations Activity"
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://nvlpubs.nist.gov/nistpubs/ams/NIST.AMS.100-23.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Summary Report on the Industry Forum for Monitoring ..."
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir4653.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Semiconductor Industry - NIST Technical Series Publications"
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.nist.gov/system/files/documents/el/whitepapers.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Challenges to Innovation in Advanced Manufacturing"
+      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.nist.gov/oam/facilitating-industry-engineering-roadmapping-and-science-fibers-advance-us",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Facilitating Industry By Engineering, Roadmapping and Science ..."
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.nist.gov/speech-testimony/new-new-paradigm-government-industry-cooperation",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "A New, \"New Paradigm\" for Government-Industry Cooperation? | NIST"
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.nist.gov/system/files/documents/2022/09/14/MEPNN%20Manufacturers%20Guide%20to%20Industry%204.0%20Technologies-508.pdf",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Manufacturers' Guide to Industry 4.0 Technologies"
+      "url": "https://bbkb.kemenperin.go.id/post/read/dukung_industri_halal_bbspjikb__kemenperin_kolaborasi_dengan_dinas_koperasi__usaha_kecil_dan_menengah_kabupaten_sleman_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.nist.gov/mep/successstories/2024/innovation-hawaiis-aquaculture-industry",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "Innovation in Hawaii's Aquaculture Industry | NIST"
+      "url": "https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_teknis_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=822104",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "COLLABORATATIVE SOFTWARE AGENTS IN STEEL INDUSTRY"
+      "url": "https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pln_nusantara_power_up_tanjung_awar_awar_menandatangani_nota_kesepahaman_dengan_bbspjikb_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.nist.gov/press-coverage/100m-quantum-industry-growth-driven-new-nist-sri-center",
-      "source_id": "SRC-NIST",
-      "provider_id": "DISC-TAVILY",
-      "title": "$100M+ Quantum Industry Growth Driven By New NIST-SRI Center"
+      "url": "https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/2024-05/Critical_Manufacturing_Sector_Landscape_updated_CP_5_2024_.pdf",
-      "source_id": "SRC-CISA",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Critical Manufacturing Sector Landscape - CISA"
+      "url": "https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/publications/defending_against_software_supply_chain_attacks_508.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://legalinstruments.oecd.org/public/doc/151/body-text.en.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Defending Against Software Supply Chain Attacks - CISA"
+      "title": "Increasingly, the OECD and its Member governments have ..."
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/2024-06/Taxonomy_V4_Final_22Jun2011.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f43735-en/full-report/the-corporate-governance-and-institutional-framework_88c5af18.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Taxonomy_V4_Final_22Jun2011.pdf - CISA"
+      "title": "The corporate governance and institutional framework - OECD"
     },
     {
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "source_id": "SRC-CISA",
+      "url": "https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0413",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "Known Exploited Vulnerabilities Catalog"
+      "title": "Principles of Corporate Governance - OECD Legal Instruments"
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/c3vp/framework_guidance/critical-manufacturing-framework-implementation-guide-2015-508.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/1998/03/corporate-governance-improving-competitiveness-and-access-to-capital-in-global-markets_g1gh2432/9789264162709-en.pdf",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Critical Manufacturing Cybersecurity Framework Implementation ..."
+      "title": "[PDF] corporate governance: improving competitiveness and access to ..."
     },
     {
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-12-095-01a",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f43735-en/full-report/the-rights-of-shareholders-and-key-ownership-functions_b8fa461b.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "ABB Multiple Components Buffer Overflow (UPDATE) | CISA"
+      "title": "The rights of shareholders and key ownership functions - OECD"
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/publications/Critical_Manufacturing_Sector_Cybersecurity_Framework_Implementation_Guidance_FINAL_508.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2004/04/corporate-governance_g1gh3ddd/9789264106079-en.pdf",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "Cybersecurity Framework Implementation Guidance"
+      "title": "[PDF] Corporate Governance | OECD"
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/recommended_practices/DHS_Common_Cybersecurity_Vulnerabilities_ICS_2010.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/03/the-role-of-capital-market-service-providers-in-corporate-governance_16653b3e/d8681693-en.pdf",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Common Cybersecurity Vulnerabilities in Industrial Control Systems"
+      "title": "[PDF] The Role of Capital Market Service Providers in Corporate ... - OECD"
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/documents/CatalogofRecommendationsVer7.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2005/12/corporate-governance-of-state-owned-enterprises_g1gh57f4/9789264009431-en.pdf",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] CISA recommends"
+      "title": "[PDF] Corporate Governance of State-Owned Enterprises | OECD"
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/2024-02/NIAC_Managing_the_Infrastructure_Challenges_of_Increasing_Electrification_Report_508c.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2018/11/flexibility-and-proportionality-in-corporate-governance_g1g98d91/9789264307490-en.pdf",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Managing the Infrastructure Challenges of Increasing Electrification"
+      "title": "[PDF] Flexibility and Proportionality in Corporate Governance | OECD"
     },
     {
-      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-103a",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2021/06/the-future-of-corporate-governance-in-capital-markets-following-the-covid-19-crisis_7b66933f/efb2013c-en.pdf",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "APT Cyber Tools Targeting ICS/SCADA Devices | CISA"
+      "title": "[PDF] The Future of Corporate Governance in Capital Markets Following ..."
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/2025-08/joint-guide-foundations-for-OT-cybersecurity-asset-inventory-guidance_508c.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://legalinstruments.oecd.org/public/doc/322/body-text.en.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "Foundations for OT Cybersecurity: Asset Inventory Guidance for …"
+      "title": "Appendix - OECD Legal Instruments"
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/publications/lessons-learned-during-covid-19-pandemic_508_0.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/04/who-cares-corporate-governance-in-today-s-equity-markets_g17a22ae/5k47zw5kdnmp-en.pdf",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] LESSONS LEARNED DURING THE COVID-19 PANDEMIC - CISA"
+      "title": "[PDF] Who Cares? Corporate Governance in Today's Equity Markets - OECD"
     },
     {
-      "url": "https://www.cisa.gov/sites/default/files/2023-01/CISA%20Resilient%20Power%20Best%20Practices%20for%20Critical%20Facilities%20and%20Sites.pdf",
-      "source_id": "SRC-CISA",
+      "url": "https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f43735-en/full-report/corporate-sustainability_5382e187.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] CISA Resilient Power Best Practices for Critical Facilities and Sites"
+      "title": "Corporate sustainability: OECD Corporate Governance Factbook 2025"
     },
     {
-      "url": "https://peraturan.bpk.go.id/Download/112796/lampiran%20IIb%20%20perbup%20nomor%204%20tahun%202019%20tentang%20kebijakan%20Akuntansi%20Pemerintah%20Kabupaten%20Banjar%20(1).pdf",
-      "source_id": "SRC-BPK",
+      "url": "https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f43735-en/full-report/the-board-of-directors_56efe758.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Uraian Masa Manfaat (Tahun) 1 3 2 PERALATAN DAN MESIN 1 3 2 ..."
+      "title": "The board of directors: OECD Corporate Governance Factbook 2025"
     },
     {
-      "url": "https://peraturan.bpk.go.id/Download/325332/Permen%20ESDM%20Nomor%209%20Tahun%202023.pdf",
-      "source_id": "SRC-BPK",
+      "url": "https://www.oecd.org/en/publications/the-role-of-capital-market-service-providers-in-corporate-governance_d8681693-en/full-report/case-study-india_a22d04ae.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Permen ESDM Nomor 9 Tahun 2023.pdf - Peraturan BPK"
+      "title": "Case study: India: The Role of Capital Market Service Providers in ..."
     },
     {
-      "url": "https://peraturan.bpk.go.id/Download/299834/4.%20Lampiran%20Salinan%20Perpres%20Nomor%2015%20Tahun%202023%20(hlmn%201173-1772).pdf",
-      "source_id": "SRC-BPK",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/11/supervision-and-enforcement-in-corporate-governance_g1g31c56/9789264203334-en.pdf",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] SK No l73l84[ - Peraturan BPK"
+      "title": "[PDF] Supervision and Enforcement in Corporate Governance | OECD"
     },
     {
-      "url": "https://peraturan.bpk.go.id/Home/Download/114497/Perpres%20Nomor%2061%20Tahun%202019.pdf",
-      "source_id": "SRC-BPK",
+      "url": "https://www.oecd.org/en/publications/oecd-review-of-the-corporate-governance-of-state-owned-enterprises-in-thailand_345f9e00-en/full-report/assessment-of-thailand-against-the-oecd-guidelines-on-corporate-governance-of-soes_b33f1654.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] bahrva berdasarkan pertimbangan sebagaimana - Peraturan BPK"
+      "title": "Assessment of Thailand against the OECD Guidelines on Corporate Governance of SOEs: OECD Review of the Corporate Governance of State-Owned Enterprises in Thailand | OECD"
     },
     {
-      "url": "https://peraturan.bpk.go.id/Download/384056/Perbup_No_16_Tahun_2025.pdf",
-      "source_id": "SRC-BPK",
+      "url": "https://www.oecd.org/en/publications/flexibility-and-proportionality-in-corporate-governance_9789264307490-en/full-report/component-7.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] jdih.pemalangkab.go.id/ - Peraturan BPK"
+      "title": "Board composition, board committees and board member qualifications: Flexibility and Proportionality in Corporate Governance | OECD"
     },
     {
-      "url": "https://peraturan.bpk.go.id/Download/287935/13%20SHS.pdf",
-      "source_id": "SRC-BPK",
+      "url": "https://www.oecd.org/en/publications/the-role-of-capital-market-service-providers-in-corporate-governance_d8681693-en/full-report/overview-of-regulatory-frameworks-for-capital-market-service-providers_498cea06.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] bupati malang - Peraturan BPK"
+      "title": "Overview of regulatory frameworks for capital market service providers"
     },
     {
-      "url": "https://peraturan.bpk.go.id/Download/149823/PMK%20Nomor%20213%20Tahun%202011_Lampiran_2.pdf",
-      "source_id": "SRC-BPK",
+      "url": "https://www.oecd.org/en/publications/shareholder-meetings-and-corporate-governance_2d36fa5c-en/full-report/global-overview-policies-and-practices-for-general-shareholder-meetings_34c9ee45.html",
+      "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] 2011, No.827 106 - Peraturan BPK"
+      "title": "Global overview: Policies and practices for general shareholder meetings: Shareholder Meetings and Corporate Governance"
     },
     {
-      "url": "https://peraturan.bpk.go.id/Download/311571/2023pmppn004_compressed.pdf",
-      "source_id": "SRC-BPK",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Menteri Perencanaan Pembangunan asionaU Kepala Badan ..."
+      "url": "https://www.oecd.org/",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://peraturan.bpk.go.id/Download/381882/PERWAL%20NO%2066%20TAHUN%202024.pdf",
-      "source_id": "SRC-BPK",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] PERWAL NO 66 TAHUN 2024.pdf - Peraturan BPK"
+      "url": "https://www.oecd.org",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     },
     {
-      "url": "https://peraturan.bpk.go.id/Home/Download/162121/Salinan_Lampiran_Perka_1_Tahun_2017_Renstra.pdf",
-      "source_id": "SRC-BPK",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] 1"
+      "url": "http://www.oecd.org",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
     }
   ],
   "rejected_urls": [
+    {
+      "url": "https://autodiscover.bps.go.id/book/data/po/3896O6P/course-outline_code_mgt712_title_corporate_governance.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-TAVILY"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/BOOK/doc/9455P4L570/5311P2L/corporate-finance-by__hillier_european-edition.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-TAVILY"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122008/property__in_securities__a__comparative__study_cambridge_studies-in_corporate_law.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-TAVILY"
+    },
     {
       "url": "https://www.bps.go.id/",
       "reason": "duplicate_url",
@@ -2799,162 +3005,504 @@
       "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://autoconfig.bps.go.id/PLAY/slide/rb/R361B61438260705/strategic_supply_chain_framework__for_the-automotive__industry.pdf",
+      "url": "https://www.bps.go.id/dynamictable/2020/02/18/1773/rata-rata-lama-sekolah-menurut-provinsi-metode-baru-2010-2019.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2020/02/19/1775/penduduk-berumur-15-tahun-ke-atas-menurut-jenis-kegiatan-tahun-1986---2019.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us-22-00-billion---imports-in-november-2023-reached-us-19-59-billion.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-media-location-of-access.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-age-group.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://documents1.worldbank.org/curated/en/641091468014937333/703380ESW0P0990n0SOE0CG0Study0Final.doc",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://autoconfig.bps.go.id/EPDF/pdf/53V061J/46V7349J78/industrial-revolution_industry_4-are-german.pdf",
+      "url": "https://thedocs.worldbank.org/en/doc/cd079f730c0f82f6b9c6763a606d7b4d-0570062025/original/250417-Korea-iSOEF-Report.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://asiacleanenergyforum.adb.org/wp-content/uploads/2018/06/Nicolas-Berneir-Waste-Heat-Recovery-Using-ORC-Turbines.pdf",
-      "reason": "rejected_forum",
-      "host": "asiacleanenergyforum.adb.org",
-      "provider_id": "DISC-TAVILY"
+      "url": "http://www5.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/linked-documents/55148-001-ssa.pdf",
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org:443/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://worldbank.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.worldbank.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.worldbank.org:80/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%E3%80%80",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/sites/default/files/publication/549336/corporate-governance-firm-profitabilty-philippines.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/671921/benefits-industry-skills-development-viet-nam.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/42600/asean-corporate-governance-scorecard.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2010/01/eco-innovation-in-industry_g1ghbd93/9789264077225-en.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/667006/corporate-governance-south-asia.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2010/01/the-automobile-industry-in-and-beyond-the-crisis_g17a1d86/5kmmp8wg6cmq-en.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/159370/adbi-corp-gov-vol-1.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.nist.gov/mep/advanced-manufacturing-technology-and-industry-40-services",
+      "url": "http://www.adb.org/sites/default/files/publication/156768/adbi-dp3.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir4986.pdf",
+      "url": "https://www.adb.org/sites/default/files/project-documents//32051-vie-tcr.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.unep.org/resources/report/industry-partner-sustainable-development-fertilizer",
+      "url": "https://www.adb.org/sites/default/files/publication/159371/adbi-corp-gov-vol-2.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.unep.org/news-and-stories/story/five-ways-reduce-waste-fashion-industry",
+      "url": "https://www.adb.org/sites/default/files/publication/375481/asean-cgscorecard-2015.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.ifrs.org/content/dam/ifrs/project/enhancing-sasb-standards-cont/sasb-ifrs-s2-ibg-ed-2026-1-proposed-amends.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/156756/adbi-dp10.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.investopedia.com/terms/i/industrylifecycle.asp",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "investopedia.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "http://www.adb.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.reddit.com/r/blender/comments/12jq602/rusty_industrial_factory_cycles",
-      "reason": "rejected_class:reddit.com",
-      "host": "reddit.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.worksmancycles.com/industrial.html",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "worksmancycles.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.youtube.com/watch?v=sIrnB-XuUBU",
-      "reason": "rejected_class:youtube.com",
-      "host": "youtube.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org//",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.jodoo.com/blog/cycle-time-manufacturing",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "jodoo.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/?gclid=CjwKCAjwqJSaBhBUEiwAg5W9pz0FxvfsG7XzIr24fYv06Hu3SxyQuMVPyiq4m0oWPyP5XqGtTP8Y2BoCjikQAvD_BwE",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.ntaskmanager.com/blog/manufacturing-cycle",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "ntaskmanager.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/about/annual-meetings/event-sustainability",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.projectmanager.com/blog/manufacturing-cycle",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "projectmanager.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/about/board-calendar",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.advancedtech.com/blog/cycle-time",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "advancedtech.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/about/board-directors",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://oden.io/glossary/manufacturing-cycle-time",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "oden.io",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/about/management/haruhiko-kuroda",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://kimwarren.com/what-drives-industry-cycles-and-how-to-exploit-them",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "kimwarren.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://adb.org/about/members",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.symestic.com/en-us/what-is/production-cycle",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "symestic.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org//about/members",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.deskera.com/blog/manufacturing-cycle-time",
-      "reason": "domain_not_in_trusted_registry",
-      "host": "deskera.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/about/members",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.getmaintainx.com/learning-center/what-is-cycle-time-in-manufacturing",
-      "reason": "rejected_class:x.com",
-      "host": "getmaintainx.com",
-      "provider_id": "DISC-TAVILY"
+      "url": "https://www.adb.org/about/partners",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/about/social-development",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/acliff",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/adb-president-expanded-agenda-carec-18th-ministerial-conference",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/adbi",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/adbi/about/deputy-dean",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/adbi/about/opportunities",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/adbi/about/opportunities/call-for-expressions-of-interest-asia-focused-online-risk-platform",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/robots.txt",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/robots.txt",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     }
   ],
   "cache": {
     "hits": 0,
-    "misses": 55,
-    "stores": 55,
-    "cached_queries": 55,
-    "cached_urls": 275
+    "misses": 78,
+    "stores": 78,
+    "cached_queries": 78,
+    "cached_urls": 600
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }

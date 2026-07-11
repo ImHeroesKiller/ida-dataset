@@ -1,13 +1,13 @@
 # Integrity Guard Trace
 
-**Generated:** 2026-07-11T12:22:38+00:00
+**Generated:** 2026-07-11T13:10:45+00:00
 
 Per-candidate decision chain (evidence only).
 
-## Candidate `CAND-AB39F9418E9D`
+## Candidate `CAND-A2586EE1B9E4`
 
 ```text
-Candidate CAND-AB39F9418E9D
+Candidate CAND-A2586EE1B9E4
   ↓
 dataset_csv_exists
   PASS
@@ -39,29 +39,29 @@ duplicate_id_in_batch
   evidence=batch_ids_contains=False
   ↓
 duplicate_id_existing_dataset
-  PASS
-  actual=new_id
-  evidence=existing_csv_contains=False; dataset_path=industry_library.csv
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=industry_library.csv
   ↓
 confidence_threshold
   PASS
-  actual=0.92 threshold=0.8
-  evidence=threshold=0.8; conf=0.92
+  actual=0.84 threshold=0.8
+  evidence=threshold=0.8; conf=0.84
   ↓
 confidence_present
   PASS
-  actual=0.92
+  actual=0.84
   evidence=integrity only fails when conf is present and < 0.80
   ↓
 provenance_required
   PASS
   actual=ok
-  evidence=provenance: source=SRC-CROSSREF; published_date=1998; retrieved_date=2026-07-11T12:20:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-AE8D9F; document=DOC-895A2B279
+  evidence=provenance: source=SRC-CROSSREF; published_date=; retrieved_date=2026-07-11T12:49:26+00:00; confidence=0.84; version=acquisition-grounded-2.0.0; mission=MIS-20260711-A36688; document=DOC-C325082A3272;
   ↓
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-CROSSREF; published_date=1998; retrieved_date=2026-07-11T12:20:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-AE8D9F; document=DOC-895A2B279
+  evidence=provenance: source=SRC-CROSSREF; published_date=; retrieved_date=2026-07-11T12:49:26+00:00; confidence=0.84; version=acquisition-grounded-2.0.0; mission=MIS-20260711-A36688; document=DOC-C325082A3272;
   ↓
 completeness_primary
   PASS
@@ -69,18 +69,18 @@ completeness_primary
   evidence=primary id completeness
   ↓
 integrity_final_validate_row
-  PASS
-  actual=ok
-  evidence=automation.quality.integrity_guard.validate_row → ok
+  FAIL
+  actual=duplicate_id:IND-000054
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:IND-000054
   ↓
-Publisher decision: Skipped
-  reason=session_dry_run_true — publisher did not append
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:IND-000054
 ```
 
-## Candidate `CAND-113BEDD08F27`
+## Candidate `CAND-18CCB68EA40E`
 
 ```text
-Candidate CAND-113BEDD08F27
+Candidate CAND-18CCB68EA40E
   ↓
 dataset_csv_exists
   PASS
@@ -98,13 +98,13 @@ schema_indexed_dataset
   ↓
 primary_id_present
   PASS
-  actual=IND-000054
-  evidence=Industry ID='IND-000054'
+  actual=IND-000055
+  evidence=Industry ID='IND-000055'
   ↓
 primary_id_pattern
   PASS
-  actual=IND-000054
-  evidence=pattern ^IND- vs 'IND-000054'
+  actual=IND-000055
+  evidence=pattern ^IND- vs 'IND-000055'
   ↓
 duplicate_id_in_batch
   PASS
@@ -112,40 +112,40 @@ duplicate_id_in_batch
   evidence=batch_ids_contains=False
   ↓
 duplicate_id_existing_dataset
-  PASS
-  actual=new_id
-  evidence=existing_csv_contains=False; dataset_path=industry_library.csv
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=industry_library.csv
   ↓
 confidence_threshold
   PASS
-  actual=0.92 threshold=0.8
-  evidence=threshold=0.8; conf=0.92
+  actual=0.84 threshold=0.8
+  evidence=threshold=0.8; conf=0.84
   ↓
 confidence_present
   PASS
-  actual=0.92
+  actual=0.84
   evidence=integrity only fails when conf is present and < 0.80
   ↓
 provenance_required
   PASS
   actual=ok
-  evidence=provenance: source=SRC-OPENALEX; published_date=2023-07-29; retrieved_date=2026-07-11T12:20:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-AE8D9F; document=DOC-66C
+  evidence=provenance: source=SRC-CISA; published_date=; retrieved_date=2026-07-11T13:07:20+00:00; confidence=0.84; version=acquisition-grounded-2.0.0; mission=MIS-20260711-A36688; document=DOC-DED8E51BC76A; ent
   ↓
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-OPENALEX; published_date=2023-07-29; retrieved_date=2026-07-11T12:20:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-AE8D9F; document=DOC-66C
+  evidence=provenance: source=SRC-CISA; published_date=; retrieved_date=2026-07-11T13:07:20+00:00; confidence=0.84; version=acquisition-grounded-2.0.0; mission=MIS-20260711-A36688; document=DOC-DED8E51BC76A; ent
   ↓
 completeness_primary
   PASS
-  actual=IND-000054
+  actual=IND-000055
   evidence=primary id completeness
   ↓
 integrity_final_validate_row
-  PASS
-  actual=ok
-  evidence=automation.quality.integrity_guard.validate_row → ok
+  FAIL
+  actual=duplicate_id:IND-000055
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:IND-000055
   ↓
-Publisher decision: Skipped
-  reason=session_dry_run_true — publisher did not append
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:IND-000055
 ```

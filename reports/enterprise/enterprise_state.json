@@ -109,7 +109,7 @@
     {
       "id": "cyber_security",
       "name": "Cyber Security",
-      "rows": 25,
+      "rows": 26,
       "priority": 94
     },
     {
@@ -409,7 +409,7 @@
       "id": "cyber_security",
       "name": "Cyber Security",
       "priority": 94,
-      "rows": 25,
+      "rows": 26,
       "datasets_at_floor": 6,
       "datasets_total": 15,
       "coverage_pct": 40.0
@@ -573,7 +573,7 @@
       "id": "operations",
       "name": "Operations",
       "rows": 233,
-      "share_pct": 13.79,
+      "share_pct": 13.78,
       "priority": 88
     },
     {
@@ -594,14 +594,14 @@
       "id": "finance",
       "name": "Finance",
       "rows": 112,
-      "share_pct": 6.63,
+      "share_pct": 6.62,
       "priority": 95
     },
     {
       "id": "manufacturing",
       "name": "Manufacturing",
       "rows": 99,
-      "share_pct": 5.86,
+      "share_pct": 5.85,
       "priority": 90
     },
     {
@@ -629,7 +629,7 @@
       "id": "cloud",
       "name": "Cloud",
       "rows": 77,
-      "share_pct": 4.56,
+      "share_pct": 4.55,
       "priority": 80
     },
     {
@@ -685,14 +685,14 @@
       "id": "infrastructure",
       "name": "Infrastructure",
       "rows": 30,
-      "share_pct": 1.78,
+      "share_pct": 1.77,
       "priority": 78
     },
     {
       "id": "cyber_security",
       "name": "Cyber Security",
-      "rows": 25,
-      "share_pct": 1.48,
+      "rows": 26,
+      "share_pct": 1.54,
       "priority": 94
     },
     {
@@ -727,7 +727,7 @@
       "id": "legal",
       "name": "Legal",
       "rows": 18,
-      "share_pct": 1.07,
+      "share_pct": 1.06,
       "priority": 88
     },
     {
@@ -832,7 +832,7 @@
       "id": "quality_control",
       "name": "Quality Control",
       "rows": 6,
-      "share_pct": 0.36,
+      "share_pct": 0.35,
       "priority": 74
     },
     {
@@ -1311,6 +1311,6 @@
     "business_priority": 95,
     "gap_score": 59.5
   },
-  "unclassified_rows": 39,
-  "labeled_assignments": 1690
+  "unclassified_rows": 40,
+  "labeled_assignments": 1691
 }

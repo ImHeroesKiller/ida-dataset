@@ -1,15 +1,15 @@
 # Candidate Lifecycle
 
-**Generated:** 2026-07-11T12:22:38+00:00
-**Session:** `SESSION-20260711-B8F6DE`
-**Mission:** `MIS-20260711-AE8D9F`
-**dry_run:** `True`
+**Generated:** 2026-07-11T13:10:45+00:00
+**Session:** `SESSION-20260711-CF5FA7`
+**Mission:** `MIS-20260711-A36688`
+**dry_run:** `False`
 
 Lifecycle: Document → Extraction → Candidate → Validation → Integrity Guard → Publisher → Dataset
 
 | candidate_id | document_id | mission_id | session_id | dataset | entity | confidence | integrity_ok | block_reason | publish |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-AB39F9418E9D | DOC-895A2B2798DA | MIS-20260711-AE8D9F | SES-20260711-D7A3F9 | industry_library | Nickel Downstream Industry | 0.92 | True | ok | Skipped |
-| CAND-113BEDD08F27 | DOC-66CDFCAF91C7 | MIS-20260711-AE8D9F | SES-20260711-D7A3F9 | industry_library | MSMEs / UMKM | 0.92 | True | ok | Skipped |
+| CAND-A2586EE1B9E4 | DOC-C325082A3272 | MIS-20260711-A36688 | SES-20260711-607B7A | industry_library | Startup Ecosystem | 0.8375 | False | duplicate_id:IND-000054 | Rejected |
+| CAND-18CCB68EA40E | DOC-DED8E51BC76A | MIS-20260711-A36688 | SES-20260711-607B7A | industry_library | Cybersecurity Industry | 0.8375 | False | duplicate_id:IND-000055 | Rejected |
 
 Total candidates: **2**

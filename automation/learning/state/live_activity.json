@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260711-B8F6DE",
-  "mission_id": "MIS-20260711-AE8D9F",
+  "session_id": "SESSION-20260711-CF5FA7",
+  "mission_id": "MIS-20260711-A36688",
   "progress": 100,
-  "current_thought": "Session completed · published=0 extracted=2 validated=2 rejected=2 docs=61 entity=— · dry_run",
+  "current_thought": "Session completed · published=2 extracted=2 validated=2 rejected=0 docs=277 entity=Startup Ecosystem",
   "current_task": "Idle",
-  "last_learned": null,
-  "updated_at": "2026-07-11T12:21:16+00:00",
+  "last_learned": "Startup Ecosystem",
+  "updated_at": "2026-07-11T13:09:24+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }

@@ -33,7 +33,7 @@
 | Business Development | 22 | 5/15 | 33.33% | 88 |
 | Production | 34 | 5/15 | 33.33% | 82 |
 | Administration | 20 | 6/15 | 40.0% | 60 |
-| Cyber Security | 25 | 6/15 | 40.0% | 94 |
+| Cyber Security | 26 | 6/15 | 40.0% | 94 |
 | Learning & Development | 37 | 6/15 | 40.0% | 74 |
 | Customer Success | 45 | 6/15 | 40.0% | 80 |
 | Warehouse | 19 | 7/15 | 46.67% | 70 |
