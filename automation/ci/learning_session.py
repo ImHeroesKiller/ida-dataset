@@ -480,6 +480,14 @@ def run_session(
     except Exception:  # noqa: BLE001
         pass
 
+    # End-to-end production diagnostics (observe-only; no production mutations)
+    try:
+        from automation.diagnostics.reports import write_diagnostics_bundle
+
+        write_diagnostics_bundle(repo_root=repo_root, session=session)
+    except Exception:  # noqa: BLE001
+        pass
+
     final_path = session_path(session_id, repo_root)
     return {
         "ok": session.get("status") == "completed",
