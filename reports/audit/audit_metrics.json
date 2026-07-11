@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-07-11T13:39:39+00:00",
+  "funnel_traces": {
+    "discovered": 346,
+    "downloaded": 206,
+    "failed": 0,
+    "dup_docs": 156,
+    "extracted": 130,
+    "validated": 116,
+    "rejected": 20,
+    "published": 110,
+    "row_dup": 0
+  },
+  "docs": 105,
+  "cands": 106,
+  "zero_ds": 57,
+  "single_ds": 45,
+  "multi_ds": 3,
+  "docs_no_cand": 57,
+  "pdf_n": 0,
+  "json_pct": 76.19,
+  "impact_sorted": [
+    [
+      156,
+      "Pre-download duplicate document skips",
+      "156"
+    ],
+    [
+      140,
+      "Discovery\u2192Download drop (trace aggregate)",
+      "346\u2192206"
+    ],
+    [
+      135,
+      "Single-dataset mapping (missed multi-library rows)",
+      "45 single-ds docs \u00d73"
+    ],
+    [
+      105,
+      "Thin content (chars<500)",
+      "105/105"
+    ],
+    [
+      57,
+      "Documents with zero candidates extracted",
+      "57/105"
+    ]
+  ],
+  "losses_sorted": [
+    [
+      68.21,
+      "Discovery \u2192 Publish (E2E)",
+      346,
+      110,
+      236
+    ],
+    [
+      40.46,
+      "Discovery \u2192 Download",
+      346,
+      206,
+      140
+    ],
+    [
+      36.89,
+      "Download \u2192 Extraction (candidates)",
+      206,
+      130,
+      76
+    ],
+    [
+      10.77,
+      "Extraction \u2192 Validation",
+      130,
+      116,
+      14
+    ],
+    [
+      5.17,
+      "Validation \u2192 Publish",
+      116,
+      110,
+      6
+    ],
+    [
+      0.0,
+      "Download \u2192 Parsed (proxy=downloaded)",
+      206,
+      206,
+      0
+    ]
+  ],
+  "sess_added": 40,
+  "discovery": {
+    "urls": 595,
+    "accepted": 248
+  }
+}
