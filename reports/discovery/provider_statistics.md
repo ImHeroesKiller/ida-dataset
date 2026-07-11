@@ -1,7 +1,7 @@
 # Provider Statistics
 
-**Generated:** 2026-07-11T00:13:39+00:00
-**Session:** `SES-20260711-D98C8B` · **Mission:** `MIS-20260711-AD9C80`
+**Generated:** 2026-07-11T04:18:30+00:00
+**Session:** `SES-20260711-D71612` · **Mission:** `MIS-20260711-326007`
 
 Queries executed: **22**
 URLs discovered: **9**
@@ -11,7 +11,7 @@ URLs rejected: **6**
 | Provider | Type | Queries | URLs | Cache hits | ms | Status |
 |----------|------|--------:|-----:|-----------:|---:|--------|
 | Trusted Site Search (connector-backed) | trusted_site | 12 | 0 | 0 | 0.0 | ready |
-| Sitemap Discovery | sitemap | 1 | 3 | 0 | 210602.7 | ready |
-| RSS Discovery | rss | 1 | 3 | 0 | 168231.8 | ready |
-| Atom Discovery | atom | 1 | 3 | 0 | 168425.2 | ready |
+| Sitemap Discovery | sitemap | 1 | 3 | 0 | 210581.6 | ready |
+| RSS Discovery | rss | 1 | 3 | 0 | 168300.5 | ready |
+| Atom Discovery | atom | 1 | 3 | 0 | 168635.6 | ready |
 | OpenSearch Description | opensearch | 7 | 0 | 0 | 0.0 | ready |

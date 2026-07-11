@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-07-11T00:13:39+00:00",
-  "mission_id": "MIS-20260711-AD9C80",
-  "session_id": "SES-20260711-D98C8B",
+  "started_at": "2026-07-11T04:18:30+00:00",
+  "mission_id": "MIS-20260711-326007",
+  "session_id": "SES-20260711-D71612",
   "instruction": "Bootstrap Buyer Persona Library — continuous knowledge manufacturing for buyer_persona_library (gap_score=142.5, universe_remaining=5000, mode=BOOTSTRAP)",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -22,7 +22,7 @@
   "urls_accepted": 3,
   "urls_rejected": 6,
   "duplicate_urls": 6,
-  "elapsed_ms": 547284.4,
+  "elapsed_ms": 547546.3,
   "providers": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -52,7 +52,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 210602.7,
+      "elapsed_ms": 210581.6,
       "status": "ready",
       "credentials_available": true
     },
@@ -68,7 +68,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 168231.8,
+      "elapsed_ms": 168300.5,
       "status": "ready",
       "credentials_available": true
     },
@@ -84,7 +84,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 168425.2,
+      "elapsed_ms": 168635.6,
       "status": "ready",
       "credentials_available": true
     },
@@ -218,19 +218,19 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 210602.7
+      "elapsed_ms": 210581.6
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 168231.8
+      "elapsed_ms": 168300.5
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 168425.2
+      "elapsed_ms": 168635.6
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -307,15 +307,15 @@
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 104.412,
-      "score": 99.308,
+      "reputation": 104.392,
+      "score": 99.285,
       "authority": 1.0
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 100.716,
-      "score": 96.137,
+      "reputation": 100.674,
+      "score": 96.087,
       "authority": 0.95
     },
     {
@@ -328,8 +328,8 @@
     {
       "id": "SRC-000004",
       "name": "World Bank",
-      "reputation": 96.555,
-      "score": 91.241,
+      "reputation": 97.001,
+      "score": 91.766,
       "authority": 0.95
     },
     {
@@ -342,8 +342,8 @@
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 88.55,
-      "score": 83.0,
+      "reputation": 89.825,
+      "score": 84.5,
       "authority": 0.9
     }
   ],
