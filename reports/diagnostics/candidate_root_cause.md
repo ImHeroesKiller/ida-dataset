@@ -1,7 +1,7 @@
 # Candidate Root Cause
 
-**Generated:** 2026-07-11T14:18:19+00:00
-**Session:** `SESSION-20260711-610B3E`
+**Generated:** 2026-07-11T14:49:15+00:00
+**Session:** `SESSION-20260711-CA5D36`
 
 > Diagnostics only. No recommendations. Evidence only.
 
@@ -19,7 +19,7 @@
 
 ## What evidence proves it?
 
-- `session_id=SESSION-20260711-610B3E`
+- `session_id=SESSION-20260711-CA5D36`
 - `dry_run=True`
 - `candidates_analyzed=3`
 - `integrity_blocked=0`
@@ -31,9 +31,9 @@
 
 | candidate_id | dataset | confidence | integrity_ok | reason | publish |
 | --- | --- | --- | --- | --- | --- |
-| CAND-1CAE1B4D1FB3 | industry_library | 0.92 | True | ok | Skipped |
-| CAND-68DBCF40956E | industry_library | 0.92 | True | ok | Skipped |
-| CAND-B707E7081EA3 | industry_library | 0.92 | True | ok | Skipped |
+| CAND-537F78C15FDC | industry_library | 0.92 | True | ok | Skipped |
+| CAND-48F43210E20B | industry_library | 0.92 | True | ok | Skipped |
+| CAND-CA3D627066DA | industry_library | 0.92 | True | ok | Skipped |
 
 ## Could production continue if that rule were satisfied?
 

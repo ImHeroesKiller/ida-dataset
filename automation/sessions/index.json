@@ -1,6 +1,62 @@
 {
-  "updated_at": "2026-07-11T14:16:57+00:00",
+  "updated_at": "2026-07-11T14:47:54+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260711-CA5D36",
+      "path": "automation/sessions/2026-07-11/SESSION-20260711-CA5D36.json",
+      "start_time": "2026-07-11T14:37:31+00:00",
+      "end_time": "2026-07-11T14:47:54+00:00",
+      "duration_seconds": 623.0,
+      "status": "completed",
+      "mission": "Expand Industry Library — factory learn cycle",
+      "knowledge_added": 0,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 3,
+      "summary": "Session completed · published=0 extracted=3 validated=3 rejected=3 docs=82 entity=— · dry_run",
+      "trigger": "manual",
+      "dry_run": true,
+      "events": 436,
+      "github": {
+        "run_id": "29156446436",
+        "run_number": "30",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "workflow_dispatch",
+        "sha": "281b865ccd1a34048a343cac846590c3ab5bda5b",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
+    {
+      "session_id": "SESSION-20260711-F6132B",
+      "path": "automation/sessions/2026-07-11/SESSION-20260711-F6132B.json",
+      "start_time": "2026-07-11T14:34:40+00:00",
+      "end_time": null,
+      "duration_seconds": null,
+      "status": "running",
+      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+      "knowledge_added": 0,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Learning session starting",
+      "trigger": "manual",
+      "dry_run": true,
+      "events": 3,
+      "github": {
+        "run_id": "29156342559",
+        "run_number": "29",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "workflow_dispatch",
+        "sha": "4bca13972cb3753a091eb68db28e20776e8b6e01",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260711-610B3E",
       "path": "automation/sessions/2026-07-11/SESSION-20260711-610B3E.json",

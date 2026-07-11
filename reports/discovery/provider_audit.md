@@ -1,6 +1,6 @@
 # Provider Audit
 
-**Generated:** 2026-07-11T14:15:02+00:00
+**Generated:** 2026-07-11T14:45:55+00:00
 
 Search engines are **discovery tools only**. Knowledge is extracted solely from trusted sources.
 
@@ -14,13 +14,13 @@ Search engines are **discovery tools only**. Knowledge is extracted solely from 
 | Google Programmable Search | **MISCONFIGURED** | True | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_ENGINE_ID |
 | Bing Web Search API | **MISCONFIGURED** | True | False | 30 | 1000 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: BING_SEARCH_API_KEY |
 | Brave Search API | **MISCONFIGURED** | True | False | 20 | 2000 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: BRAVE_SEARCH_API_KEY |
-| Tavily | **ACTIVE** | True | True | 20 | 1000 | ACTIVE | 1169.8 | 276.0 | 248.0 | 1.0 | ready |
+| Tavily | **ACTIVE** | True | True | 20 | 1000 | ACTIVE | 1174.6 | 276.0 | 250.0 | 1.0 | ready |
 | SerpAPI | **MISCONFIGURED** | True | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: SERPAPI_API_KEY |
-| Sitemap Discovery | **ACTIVE** | True | True | 20 | 5000 | healthy | 0.0 | 12.0 | 10.0 | 1.0 | ready |
+| Sitemap Discovery | **ACTIVE** | True | True | 20 | 5000 | healthy | 0.02 | 12.0 | 12.0 | 1.0 | ready |
 | RSS Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 0.0 | 0.0 | 1.0 | ready |
 | Atom Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 0.0 | 0.0 | 1.0 | ready |
 | Yandex XML Search | **MISCONFIGURED** | True | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: YANDEX_API_KEY, YANDEX_USER |
-| Common Crawl Index | **ACTIVE** | True | True | 5 | 500 | healthy | 0.0 | 540.0 | 218.0 | 1.0 | ready |
+| Common Crawl Index | **ACTIVE** | True | True | 5 | 500 | healthy | 0.0 | 0.0 | 0.0 | 0.0 | ready |
 | OpenSearch Description | **ACTIVE** | True | True | 10 | 1000 | idle | 0.0 | 0.0 | 0.0 | 0.0 | ready |
 
 ## Named provider checklist
@@ -58,6 +58,6 @@ These acquire documents via the connector framework after discovery.
 
 - Operational status: **ACTIVE**
 - Credential loaded: `True`
-- Probe: `{"probed": true, "ok": true, "status": "ACTIVE", "message": "http_200_results_1", "latency_ms": 1169.8, "http_status": 200, "result_count": 1}`
+- Probe: `{"probed": true, "ok": true, "status": "ACTIVE", "message": "http_200_results_1", "latency_ms": 1174.6, "http_status": 200, "result_count": 1}`
 
 > Providers are never silently disabled. MISCONFIGURED means enabled but credentials missing.

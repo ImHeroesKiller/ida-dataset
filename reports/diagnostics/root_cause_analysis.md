@@ -1,8 +1,8 @@
 # Root Cause Analysis
 
-**Generated:** 2026-07-11T14:18:19+00:00
-**Session:** `SESSION-20260711-610B3E`
-**Mission:** `MIS-20260711-E0F5D5`
+**Generated:** 2026-07-11T14:49:15+00:00
+**Session:** `SESSION-20260711-CA5D36`
+**Mission:** `MIS-20260711-5DA03F`
 
 > Diagnostics only. No fixes. Evidence only.
 
@@ -27,20 +27,20 @@ Production stopped or yielded zero published rows at stage `publish` due to cond
 - session.dry_run=True
 - knowledge_added=0
 - extracted=3 rejected=3
-- summary=Session completed · published=0 extracted=3 validated=3 rejected=3 docs=86 entity=— · dry_run
+- summary=Session completed · published=0 extracted=3 validated=3 rejected=3 docs=82 entity=— · dry_run
 
 ## Metrics snapshot
 
 ```json
 {
   "documents_discovered": 21,
-  "documents_downloaded": 86,
-  "documents_duplicates": 64,
+  "documents_downloaded": 82,
+  "documents_duplicates": 68,
   "candidates_extracted": 3,
   "candidates_rejected": 3,
   "rows_published": 0,
   "dry_run": true,
-  "fingerprint_urls_known": 146,
+  "fingerprint_urls_known": 148,
   "selected_dataset": "service_library"
 }
 ```
@@ -53,7 +53,7 @@ No rows published because session ran with dry_run.
 - `session.dry_run=True`
 - `knowledge_added=0`
 - `extracted=3 rejected=3`
-- `summary=Session completed · published=0 extracted=3 validated=3 rejected=3 docs=86 entity=— · dry_run`
+- `summary=Session completed · published=0 extracted=3 validated=3 rejected=3 docs=82 entity=— · dry_run`
 
 ### Finding 2
 

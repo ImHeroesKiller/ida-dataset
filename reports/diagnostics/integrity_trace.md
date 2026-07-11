@@ -1,13 +1,13 @@
 # Integrity Guard Trace
 
-**Generated:** 2026-07-11T14:18:19+00:00
+**Generated:** 2026-07-11T14:49:15+00:00
 
 Per-candidate decision chain (evidence only).
 
-## Candidate `CAND-1CAE1B4D1FB3`
+## Candidate `CAND-537F78C15FDC`
 
 ```text
-Candidate CAND-1CAE1B4D1FB3
+Candidate CAND-537F78C15FDC
   ↓
 dataset_csv_exists
   PASS
@@ -56,12 +56,12 @@ confidence_present
 provenance_required
   PASS
   actual=ok
-  evidence=provenance: source=SRC-CROSSREF; published_date=1998; retrieved_date=2026-07-11T14:15:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-E0F5D5; document=DOC-895A2B279
+  evidence=provenance: source=SRC-CROSSREF; published_date=1998; retrieved_date=2026-07-11T14:46:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-895A2B279
   ↓
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-CROSSREF; published_date=1998; retrieved_date=2026-07-11T14:15:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-E0F5D5; document=DOC-895A2B279
+  evidence=provenance: source=SRC-CROSSREF; published_date=1998; retrieved_date=2026-07-11T14:46:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-895A2B279
   ↓
 completeness_primary
   PASS
@@ -77,10 +77,10 @@ Publisher decision: Skipped
   reason=session_dry_run_true — publisher did not append
 ```
 
-## Candidate `CAND-68DBCF40956E`
+## Candidate `CAND-48F43210E20B`
 
 ```text
-Candidate CAND-68DBCF40956E
+Candidate CAND-48F43210E20B
   ↓
 dataset_csv_exists
   PASS
@@ -129,12 +129,12 @@ confidence_present
 provenance_required
   PASS
   actual=ok
-  evidence=provenance: source=SRC-CROSSREF; published_date=2013; retrieved_date=2026-07-11T14:15:42+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-E0F5D5; document=DOC-9C403F1BA
+  evidence=provenance: source=SRC-OPENALEX; published_date=2023-07-29; retrieved_date=2026-07-11T14:46:32+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-66C
   ↓
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-CROSSREF; published_date=2013; retrieved_date=2026-07-11T14:15:42+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-E0F5D5; document=DOC-9C403F1BA
+  evidence=provenance: source=SRC-OPENALEX; published_date=2023-07-29; retrieved_date=2026-07-11T14:46:32+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-66C
   ↓
 completeness_primary
   PASS
@@ -150,10 +150,10 @@ Publisher decision: Skipped
   reason=session_dry_run_true — publisher did not append
 ```
 
-## Candidate `CAND-B707E7081EA3`
+## Candidate `CAND-CA3D627066DA`
 
 ```text
-Candidate CAND-B707E7081EA3
+Candidate CAND-CA3D627066DA
   ↓
 dataset_csv_exists
   PASS
@@ -202,12 +202,12 @@ confidence_present
 provenance_required
   PASS
   actual=ok
-  evidence=provenance: source=SRC-OPENALEX; published_date=2023-07-29; retrieved_date=2026-07-11T14:15:38+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-E0F5D5; document=DOC-66C
+  evidence=provenance: source=SRC-CROSSREF; published_date=2013; retrieved_date=2026-07-11T14:46:38+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-9C403F1BA
   ↓
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-OPENALEX; published_date=2023-07-29; retrieved_date=2026-07-11T14:15:38+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-E0F5D5; document=DOC-66C
+  evidence=provenance: source=SRC-CROSSREF; published_date=2013; retrieved_date=2026-07-11T14:46:38+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-9C403F1BA
   ↓
 completeness_primary
   PASS

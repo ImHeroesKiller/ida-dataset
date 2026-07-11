@@ -1,6 +1,6 @@
 # Hard Limit Audit
 
-**Generated:** 2026-07-11T14:15:02+00:00
+**Generated:** 2026-07-11T14:45:55+00:00
 **Occurrences found:** 303
 
 Search covers acquisition, config, learning, search, and CI paths.
@@ -231,7 +231,7 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/learning/live_runtime.py` | 549 | `task=reason[:120],` |
 | `automation/learning/heartbeat.py` | 136 | `data["last_error"] = (error or "production_failed")[:500]` |
 | `automation/learning/heartbeat.py` | 139 | `data["last_error"] = str(error)[:500]` |
-| `automation/learning/state/acquisition_performance.json` | 634 | `"process_budget": 500,` |
+| `automation/learning/state/acquisition_performance.json` | 651 | `"process_budget": 150,` |
 | `automation/learning/state/manufacturing_state.json` | 64 | `"hard_limit": null,` |
 | `automation/learning/state/manufacturing_state.json` | 83 | `"hard_limit": null` |
 | `automation/learning/state/manufacturing_state.json` | 101 | `"hard_limit": null,` |
