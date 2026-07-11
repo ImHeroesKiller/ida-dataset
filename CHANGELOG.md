@@ -2,6 +2,14 @@
 
 ## 2.0 — Production Freeze — 2026-07-11
 
+### Simplification sprint (no architecture redesign)
+
+- **Tavily-first discovery**: max 10 live searches/session; secondary paid APIs disabled by default; `include_raw_content` for richer queue input
+- **Operator UI**: nav = Dashboard · Mission · Sources · Export · Settings; Datasets/Quality/Logs redirected
+- **Scheduler**: continuous learn cadence 15 min → **1 hour** (`0 * * * *`); concurrency group unchanged
+- **Cleanup**: removed unused `lib/use-learning-sessions.ts`; secondary discovery adapters retained for opt-in
+- Reports: `reports/refactor/*`
+
 ### Governance
 
 - **Production Freeze Declaration** active ([PRODUCTION_FREEZE.md](./PRODUCTION_FREEZE.md))

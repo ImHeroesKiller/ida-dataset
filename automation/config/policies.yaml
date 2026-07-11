@@ -30,6 +30,24 @@ limits:
   max_sources_per_run: 48
   max_documents_per_session: 200
 
+# Discovery strategy (simplification sprint — Tavily-first, lower API cost)
+# Search engines never become knowledge sources; trusted registry still gates domains.
+discovery:
+  primary_api: tavily
+  max_tavily_searches_per_session: 10
+  # When true, paid secondary APIs (Google/Bing/Brave/SerpAPI/Yandex) may run if enabled
+  # in discovery_registry.yaml AND Tavily is MISCONFIGURED or exhausted with zero URLs.
+  secondary_paid_api_fallback: false
+  # Free feeds + trusted_site always allowed after primary search budget is spent
+  free_feeds_enabled: true
+  # One discovery batch → route into multiple datasets via existing routing
+  one_discovery_multi_dataset: true
+  # Source selection preference order
+  source_strategy:
+    - operator_selected
+    - knowledge_gap
+    - random_trusted
+
 # Provenance is mandatory; these columns are always attached
 provenance_fields:
   - source_id

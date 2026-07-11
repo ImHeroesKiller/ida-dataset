@@ -7,7 +7,12 @@
 # Network calls skip MISCONFIGURED providers; status is always visible.
 
 version: "1.0"
-description: "Discovery tools for finding candidate documents on trusted domains"
+description: >
+  Discovery tools for finding candidate documents on trusted domains.
+  Policy (simplification sprint): Tavily is PRIMARY paid discovery.
+  Max 10 Tavily search requests per learning session.
+  Other paid search APIs stay available but disabled by default (operator opt-in fallback).
+  Free feeds (RSS/Atom/Sitemap) + trusted_site remain always-on and free.
 
 defaults:
   enabled: true
@@ -24,91 +29,19 @@ defaults:
   status: idle
   health: unknown
 
+# Primary discovery engine (paid API) — Search → rich content → document queue
+policy:
+  primary_api: tavily
+  max_tavily_searches_per_session: 10
+  secondary_paid_api_fallback: false
+  prefer_feeds_after_primary: true
+  one_discovery_multi_dataset: true
+
 providers:
-  - id: DISC-GOOGLE-CSE
-    name: Google Programmable Search
-    enabled: true
-    priority: 90
-    api_type: google_cse
-    authentication: api_key
-    base_url: https://www.googleapis.com/customsearch/v1
-    query_template: "{query}"
-    rate_limit: 10
-    timeout: 20
-    daily_quota: 100
-    cost_per_request: 0.005
-    supports_site_filter: true
-    supports_date_filter: true
-    supports_language_filter: true
-    supports_country_filter: true
-    env_keys: [GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_ENGINE_ID]
-    status: idle
-    health: unknown
-
-  - id: DISC-BING
-    name: Bing Web Search API
-    enabled: true
-    priority: 85
-    api_type: bing
-    authentication: api_key
-    base_url: https://api.bing.microsoft.com/v7.0/search
-    query_template: "{query}"
-    rate_limit: 30
-    timeout: 20
-    daily_quota: 1000
-    cost_per_request: 0
-    supports_site_filter: true
-    supports_date_filter: true
-    supports_language_filter: true
-    supports_country_filter: true
-    env_keys: [BING_SEARCH_API_KEY]
-    status: idle
-    health: unknown
-
-  - id: DISC-BRAVE
-    name: Brave Search API
-    enabled: true
-    priority: 80
-    api_type: brave
-    authentication: api_key
-    base_url: https://api.search.brave.com/res/v1/web/search
-    query_template: "{query}"
-    rate_limit: 20
-    timeout: 20
-    daily_quota: 2000
-    cost_per_request: 0
-    supports_site_filter: true
-    supports_date_filter: false
-    supports_language_filter: true
-    supports_country_filter: true
-    env_keys: [BRAVE_SEARCH_API_KEY]
-    status: idle
-    health: unknown
-
-  - id: DISC-SERPAPI
-    name: SerpAPI
-    enabled: true
-    priority: 75
-    api_type: serpapi
-    authentication: api_key
-    base_url: https://serpapi.com/search.json
-    query_template: "{query}"
-    rate_limit: 10
-    timeout: 25
-    daily_quota: 100
-    cost_per_request: 0.01
-    supports_site_filter: true
-    supports_date_filter: true
-    supports_language_filter: true
-    supports_country_filter: true
-    env_keys: [SERPAPI_API_KEY]
-    status: idle
-    health: unknown
-
   - id: DISC-TAVILY
-    name: Tavily
+    name: Tavily (primary)
     enabled: true
-    priority: 78
+    priority: 100
     api_type: tavily
     authentication: api_key
     base_url: https://api.tavily.com/search
@@ -124,11 +57,97 @@ providers:
     env_keys: [TAVILY_API_KEY]
     status: idle
     health: unknown
+    notes: "PRIMARY discovery. Cap 10 search requests/session. include_raw_content for richer queue input."
+
+  # --- Secondary paid APIs: disabled by default (cost control). Operator may re-enable. ---
+  - id: DISC-GOOGLE-CSE
+    name: Google Programmable Search
+    enabled: false
+    priority: 40
+    api_type: google_cse
+    authentication: api_key
+    base_url: https://www.googleapis.com/customsearch/v1
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 20
+    daily_quota: 100
+    cost_per_request: 0.005
+    supports_site_filter: true
+    supports_date_filter: true
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_ENGINE_ID]
+    status: idle
+    health: unknown
+    notes: "Fallback only — disabled under Tavily-first policy"
+
+  - id: DISC-BING
+    name: Bing Web Search API
+    enabled: false
+    priority: 35
+    api_type: bing
+    authentication: api_key
+    base_url: https://api.bing.microsoft.com/v7.0/search
+    query_template: "{query}"
+    rate_limit: 30
+    timeout: 20
+    daily_quota: 1000
+    cost_per_request: 0
+    supports_site_filter: true
+    supports_date_filter: true
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [BING_SEARCH_API_KEY]
+    status: idle
+    health: unknown
+    notes: "Fallback only — disabled under Tavily-first policy"
+
+  - id: DISC-BRAVE
+    name: Brave Search API
+    enabled: false
+    priority: 30
+    api_type: brave
+    authentication: api_key
+    base_url: https://api.search.brave.com/res/v1/web/search
+    query_template: "{query}"
+    rate_limit: 20
+    timeout: 20
+    daily_quota: 2000
+    cost_per_request: 0
+    supports_site_filter: true
+    supports_date_filter: false
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [BRAVE_SEARCH_API_KEY]
+    status: idle
+    health: unknown
+    notes: "Fallback only — disabled under Tavily-first policy"
+
+  - id: DISC-SERPAPI
+    name: SerpAPI
+    enabled: false
+    priority: 25
+    api_type: serpapi
+    authentication: api_key
+    base_url: https://serpapi.com/search.json
+    query_template: "{query}"
+    rate_limit: 10
+    timeout: 25
+    daily_quota: 100
+    cost_per_request: 0.01
+    supports_site_filter: true
+    supports_date_filter: true
+    supports_language_filter: true
+    supports_country_filter: true
+    env_keys: [SERPAPI_API_KEY]
+    status: idle
+    health: unknown
+    notes: "Fallback only — disabled under Tavily-first policy"
 
   - id: DISC-YANDEX
     name: Yandex XML Search
-    enabled: true
-    priority: 60
+    enabled: false
+    priority: 20
     api_type: yandex
     authentication: api_key
     base_url: https://yandex.com/search/xml
@@ -144,6 +163,7 @@ providers:
     env_keys: [YANDEX_API_KEY]
     status: idle
     health: unknown
+    notes: "Fallback only — disabled under Tavily-first policy"
 
   - id: DISC-COMMONCRAWL
     name: Common Crawl Index

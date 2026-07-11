@@ -13,9 +13,10 @@ name: Learn
 
 on:
   schedule:
-    # Continuous learning every 15 minutes (non-overlapping via concurrency group)
-    - cron: "*/15 * * * *"
-    # Daily deep learning pass 06:00 UTC (still covered by */15; tag as daily)
+    # Continuous learning every 1 hour (non-overlapping via concurrency group).
+    # Deeper sessions: lower API cost, higher per-session knowledge yield.
+    - cron: "0 * * * *"
+    # Daily deep learning pass 06:00 UTC (still covered by hourly; tag as daily)
     - cron: "0 6 * * *"
   workflow_dispatch:
     inputs:
@@ -109,7 +110,7 @@ jobs:
           if [ "$EVENT" = "schedule" ]; then
             HOUR=$(date -u +%H)
             MIN=$(date -u +%M)
-            # Daily deep pass at 06:00 UTC; otherwise continuous 15-minute cadence
+            # Daily deep pass at 06:00 UTC; otherwise continuous hourly cadence
             if [ "$HOUR" = "06" ] && [ "$MIN" = "00" ]; then
               echo "trigger=daily" >> "$GITHUB_OUTPUT"
             else

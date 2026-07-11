@@ -1,12 +1,9 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Database,
   Download,
   Factory,
   LayoutDashboard,
-  ListChecks,
   Radio,
-  ScrollText,
   Settings,
   Target,
 } from "lucide-react";
@@ -17,15 +14,16 @@ export type NavItem = {
   icon: LucideIcon;
 };
 
-/** IDA Dataset Factory navigation — product surfaces only. */
+/**
+ * Operator dashboard navigation (simplification sprint).
+ * Only surfaces that directly support production operations.
+ * Datasets → Export; Quality/Logs → Dashboard console.
+ */
 export const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/datasets", label: "Datasets", icon: Database },
-  { href: "/missions", label: "Missions", icon: Target },
+  { href: "/missions", label: "Mission", icon: Target },
   { href: "/sources", label: "Sources", icon: Radio },
-  { href: "/quality", label: "Quality", icon: ListChecks },
-  { href: "/exports", label: "Exports", icon: Download },
-  { href: "/logs", label: "Logs", icon: ScrollText },
+  { href: "/exports", label: "Export", icon: Download },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 

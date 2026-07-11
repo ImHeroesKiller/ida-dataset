@@ -262,6 +262,12 @@ class SerpApiProvider(BaseDiscoveryProvider):
 
 
 class TavilyProvider(BaseDiscoveryProvider):
+    """PRIMARY discovery engine — Search (+ raw content) → internal document queue.
+
+    Session policy caps live search requests at 10 (enforced by discovery layer).
+    Uses include_raw_content so one search yields richer snippets for multi-dataset routing.
+    """
+
     def discover(self, query: str, *, limit: int = 10, **kwargs: Any) -> list[dict[str, Any]]:
         key = os.environ.get("TAVILY_API_KEY", "").strip()
         if not key:
@@ -269,12 +275,15 @@ class TavilyProvider(BaseDiscoveryProvider):
         import urllib.request
 
         max_results = _provider_page_cap("tavily", limit)
+        # Richer content per search request (Search → content → queue) without extra extract calls
         payload = json.dumps(
             {
                 "api_key": key,
                 "query": query,
                 "max_results": max_results,
                 "include_answer": False,
+                "include_raw_content": True,
+                "search_depth": kwargs.get("search_depth") or "basic",
             }
         ).encode("utf-8")
         req = urllib.request.Request(
@@ -295,14 +304,30 @@ class TavilyProvider(BaseDiscoveryProvider):
             return []
         out = []
         for item in (data.get("results") or [])[:limit]:
-            out.append(
-                _item(
-                    str(item.get("url") or ""),
-                    str(item.get("title") or ""),
-                    str(item.get("content") or "")[:400],
-                    self.provider_id,
-                )
+            # Prefer raw content snippet when present (richer for extract/routing)
+            raw = str(item.get("raw_content") or "").strip()
+            content = str(item.get("content") or "").strip()
+            snippet = (raw[:400] if raw else content[:400])
+            row = _item(
+                str(item.get("url") or ""),
+                str(item.get("title") or ""),
+                snippet,
+                self.provider_id,
             )
+            if raw:
+                row["raw_content_preview"] = raw[:2000]
+                row["content_richness"] = "raw"
+            elif content:
+                row["content_richness"] = "snippet"
+            else:
+                row["content_richness"] = "url_only"
+            score = item.get("score")
+            if score is not None:
+                try:
+                    row["provider_score"] = float(score)
+                except (TypeError, ValueError):
+                    pass
+            out.append(row)
         return [x for x in out if x["url"]]
 
     def health(self) -> dict[str, Any]:

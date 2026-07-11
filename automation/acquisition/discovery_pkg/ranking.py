@@ -132,6 +132,9 @@ def rank_providers(
             + relevance * 8
             + config_priority * 4
         )
+        # Tavily-first policy: primary paid engine always ranks above other paid APIs
+        if api == "tavily" and p.get("credentials_available"):
+            score += 40.0
         # Runnable providers always outrank misconfigured
         if not p.get("credentials_available") and api not in free_types:
             score *= 0.05

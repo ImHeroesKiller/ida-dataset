@@ -96,6 +96,52 @@ def _policy_limits(repo_root: Path) -> dict[str, Optional[int]]:
         return {}
 
 
+def _discovery_policy(repo_root: Path) -> dict[str, Any]:
+    """Tavily-first discovery policy (simplification sprint). Safe defaults if missing."""
+    defaults: dict[str, Any] = {
+        "primary_api": "tavily",
+        "max_tavily_searches_per_session": 10,
+        "secondary_paid_api_fallback": False,
+        "free_feeds_enabled": True,
+        "one_discovery_multi_dataset": True,
+    }
+    try:
+        from automation.lib.simple_yaml import load_simple_yaml
+
+        path = repo_root / "automation" / "config" / "policies.yaml"
+        if not path.exists():
+            return defaults
+        data = load_simple_yaml(path.read_text(encoding="utf-8")) or {}
+        disc = data.get("discovery") or {}
+        if not isinstance(disc, dict):
+            return defaults
+        out = dict(defaults)
+        if disc.get("primary_api"):
+            out["primary_api"] = str(disc["primary_api"]).strip().lower()
+        if disc.get("max_tavily_searches_per_session") is not None:
+            out["max_tavily_searches_per_session"] = max(
+                1, int(disc["max_tavily_searches_per_session"])
+            )
+        if "secondary_paid_api_fallback" in disc:
+            out["secondary_paid_api_fallback"] = bool(disc["secondary_paid_api_fallback"])
+        if "free_feeds_enabled" in disc:
+            out["free_feeds_enabled"] = bool(disc["free_feeds_enabled"])
+        if "one_discovery_multi_dataset" in disc:
+            out["one_discovery_multi_dataset"] = bool(disc["one_discovery_multi_dataset"])
+        # Registry policy block can override max searches
+        reg_path = repo_root / "automation" / "config" / "discovery_registry.yaml"
+        if reg_path.exists():
+            reg = load_simple_yaml(reg_path.read_text(encoding="utf-8")) or {}
+            reg_pol = reg.get("policy") or {}
+            if isinstance(reg_pol, dict) and reg_pol.get("max_tavily_searches_per_session") is not None:
+                out["max_tavily_searches_per_session"] = max(
+                    1, int(reg_pol["max_tavily_searches_per_session"])
+                )
+        return out
+    except Exception:  # noqa: BLE001
+        return defaults
+
+
 def _empty_provider_stat(prov: dict[str, Any], *, h: dict[str, Any] | None = None) -> dict[str, Any]:
     return {
         "provider_id": str(prov.get("id")),
@@ -266,25 +312,58 @@ def run_discovery(
         }
         provider_stats_map[pid] = _empty_provider_stat(prov, h=h)
 
-    api_types = {
+    paid_api_types = {
         "google_cse",
         "bing",
         "brave",
         "serpapi",
         "tavily",
         "yandex",
-        "commoncrawl",
-        "opensearch",
     }
+    free_index_types = {"commoncrawl", "opensearch"}
     feed_types = {"rss", "atom", "sitemap"}
 
-    api_providers = [p for p in ranked_active if str(p.get("api_type")) in api_types]
-    feed_providers = [p for p in ranked_active if str(p.get("api_type")) in feed_types]
+    disc_policy = _discovery_policy(root)
+    primary_api = str(disc_policy.get("primary_api") or "tavily")
+    max_primary_searches = int(disc_policy.get("max_tavily_searches_per_session") or 10)
+    secondary_fallback = bool(disc_policy.get("secondary_paid_api_fallback"))
+
+    all_paid_api = [p for p in ranked_active if str(p.get("api_type")) in paid_api_types]
+    primary_providers = [
+        p for p in all_paid_api if str(p.get("api_type")) == primary_api
+    ]
+    secondary_paid = [
+        p for p in all_paid_api if str(p.get("api_type")) != primary_api
+    ]
+    free_index_providers = [
+        p for p in ranked_active if str(p.get("api_type")) in free_index_types
+    ]
+    # Tavily-first: only primary paid API by default (secondary only if policy + needed)
+    api_providers = list(primary_providers)
+    feed_providers = (
+        [p for p in ranked_active if str(p.get("api_type")) in feed_types]
+        if disc_policy.get("free_feeds_enabled", True)
+        else []
+    )
     trusted_site = [p for p in ranked_active if str(p.get("api_type")) == "trusted_site"]
+
+    emit(
+        "Discovery Policy",
+        f"primary={primary_api} max_searches={max_primary_searches} "
+        f"secondary_fallback={secondary_fallback} "
+        f"primary_active={len(primary_providers)} secondary_enabled_in_registry={len(secondary_paid)}",
+    )
 
     stop_reason = "completed"
     runtime_limit = float(budget.runtime_budget_s)
     per_results = int(budget.per_provider_results)
+    # Cap query fan-out to primary search budget (one search = one live request when uncached)
+    if max_primary_searches > 0 and len(queries) > max_primary_searches:
+        queries = queries[:max_primary_searches]
+        emit(
+            "Discovery",
+            f"Query list capped to {max_primary_searches} (Tavily-first session budget)",
+        )
 
     def runtime_exceeded() -> bool:
         return (time.perf_counter() - t0) >= runtime_limit
@@ -316,10 +395,90 @@ def run_discovery(
             row_stat["queries"] += 1
         emit("Discovery Provider", f"{prov.get('name')}: planned {row_stat['queries']} site queries")
 
-    # --- Multi-provider API discovery FIRST (every query × all active API providers) ---
-    # Feeds are slower sequential I/O — run after so APIs get runtime share.
+    # --- PRIMARY paid API only (default: Tavily), max N live searches/session ---
+    # Avoids queries × multi-provider fan-out that burned API budget.
     empty_streak_by_provider: dict[str, int] = {str(p.get("id")): 0 for p in api_providers}
     providers_exhausted: set[str] = set()
+    live_primary_searches = 0
+    primary_urls = 0
+
+    def _run_api_provider(
+        prov: dict[str, Any],
+        q: dict[str, Any],
+        *,
+        count_live: bool,
+    ) -> int:
+        """Execute one provider×query. Returns live request count (0 if cache/skip)."""
+        nonlocal live_primary_searches
+        pid = str(prov.get("id"))
+        if pid in providers_exhausted:
+            return 0
+        row_stat = provider_stats_map[pid]
+        inst = build_provider(prov)
+        if not inst:
+            providers_exhausted.add(pid)
+            row_stat["exhausted"] = True
+            row_stat["exhaustion_reason"] = "adapter_missing"
+            return 0
+
+        cached = cache.get_query(pid, q["query"])
+        t1 = time.perf_counter()
+        live = 0
+        if cached is not None:
+            found = cached
+            row_stat["cache_hits"] += 1
+            elapsed = round((time.perf_counter() - t1) * 1000, 1)
+        else:
+            if count_live and live_primary_searches >= max_primary_searches:
+                return 0
+            try:
+                found = inst.discover(q["query"], limit=per_results)
+            except Exception as exc:  # noqa: BLE001
+                found = []
+                row_stat["error"] = str(exc)
+                if "429" in str(exc) or "quota" in str(exc).lower():
+                    providers_exhausted.add(pid)
+                    row_stat["exhausted"] = True
+                    row_stat["exhaustion_reason"] = "provider_quota_reached"
+            elapsed = round((time.perf_counter() - t1) * 1000, 1)
+            cache.set_query(pid, q["query"], found)
+            live = 1
+            if count_live:
+                live_primary_searches += 1
+
+        row_stat["queries"] += 1
+        row_stat["urls"] += len(found)
+        row_stat["elapsed_ms"] += elapsed
+
+        if not found:
+            empty_streak_by_provider[pid] = empty_streak_by_provider.get(pid, 0) + 1
+            if empty_streak_by_provider[pid] >= max(3, min(8, len(queries) // 2 or 3)):
+                providers_exhausted.add(pid)
+                row_stat["exhausted"] = True
+                row_stat["exhaustion_reason"] = "provider_exhausted_empty_results"
+        else:
+            empty_streak_by_provider[pid] = 0
+
+        for f in found:
+            f["provider_id"] = pid
+            f["provider_name"] = prov.get("name")
+            f["discovery_provider"] = pid
+            f["discovery_query"] = q["query"]
+            f["target_source_id"] = q.get("source_id")
+        raw_candidates.extend(found)
+        query_stats.append(
+            {
+                "provider_id": pid,
+                "query": q["query"],
+                "domain": q.get("domain"),
+                "source_id": q.get("source_id"),
+                "urls": len(found),
+                "elapsed_ms": elapsed,
+                "cached": cached is not None,
+                "live_search": live == 1,
+            }
+        )
+        return live
 
     for q in queries:
         if runtime_exceeded():
@@ -327,6 +486,9 @@ def run_discovery(
             break
         if knowledge_gap_satisfied(gap, unique_url_count()):
             stop_reason = "knowledge_gap_satisfied"
+            break
+        if live_primary_searches >= max_primary_searches:
+            stop_reason = "primary_search_budget_reached"
             break
         # Reserve a slice of runtime for feeds when feeds are active
         if feed_providers and remaining_s() < max(12.0, runtime_limit * 0.25):
@@ -336,73 +498,46 @@ def run_discovery(
             if runtime_exceeded():
                 stop_reason = "runtime_budget_reached"
                 break
-            pid = str(prov.get("id"))
-            if pid in providers_exhausted:
-                continue
-            row_stat = provider_stats_map[pid]
-            inst = build_provider(prov)
-            if not inst:
-                providers_exhausted.add(pid)
-                row_stat["exhausted"] = True
-                row_stat["exhaustion_reason"] = "adapter_missing"
-                continue
-
-            cached = cache.get_query(pid, q["query"])
-            t1 = time.perf_counter()
-            if cached is not None:
-                found = cached
-                row_stat["cache_hits"] += 1
-                elapsed = round((time.perf_counter() - t1) * 1000, 1)
-            else:
-                try:
-                    found = inst.discover(q["query"], limit=per_results)
-                except Exception as exc:  # noqa: BLE001
-                    found = []
-                    row_stat["error"] = str(exc)
-                    if "429" in str(exc) or "quota" in str(exc).lower():
-                        providers_exhausted.add(pid)
-                        row_stat["exhausted"] = True
-                        row_stat["exhaustion_reason"] = "provider_quota_reached"
-                elapsed = round((time.perf_counter() - t1) * 1000, 1)
-                cache.set_query(pid, q["query"], found)
-
-            row_stat["queries"] += 1
-            row_stat["urls"] += len(found)
-            row_stat["elapsed_ms"] += elapsed
-
-            if not found:
-                empty_streak_by_provider[pid] = empty_streak_by_provider.get(pid, 0) + 1
-                if empty_streak_by_provider[pid] >= max(3, min(8, len(queries) // 2 or 3)):
-                    providers_exhausted.add(pid)
-                    row_stat["exhausted"] = True
-                    row_stat["exhaustion_reason"] = "provider_exhausted_empty_results"
-            else:
-                empty_streak_by_provider[pid] = 0
-
-            for f in found:
-                f["provider_id"] = pid
-                f["provider_name"] = prov.get("name")
-                f["discovery_provider"] = pid
-                f["discovery_query"] = q["query"]
-                f["target_source_id"] = q.get("source_id")
-            raw_candidates.extend(found)
-            query_stats.append(
-                {
-                    "provider_id": pid,
-                    "query": q["query"],
-                    "domain": q.get("domain"),
-                    "source_id": q.get("source_id"),
-                    "urls": len(found),
-                    "elapsed_ms": elapsed,
-                    "cached": cached is not None,
-                }
-            )
+            if live_primary_searches >= max_primary_searches:
+                break
+            _run_api_provider(prov, q, count_live=True)
 
         if api_providers and len(providers_exhausted) >= len(api_providers):
-            # Continue to feeds even if APIs exhausted
             break
 
-    for prov in api_providers:
+    primary_urls = unique_url_count()
+
+    # Optional secondary paid APIs — only if policy allows AND primary yielded nothing
+    if (
+        secondary_fallback
+        and secondary_paid
+        and primary_urls == 0
+        and not runtime_exceeded()
+    ):
+        emit(
+            "Discovery",
+            f"Primary {primary_api} yielded 0 URLs — secondary paid fallback "
+            f"({len(secondary_paid)} providers, remaining budget "
+            f"{max(0, max_primary_searches - live_primary_searches)})",
+        )
+        for q in queries:
+            if runtime_exceeded() or live_primary_searches >= max_primary_searches:
+                break
+            for prov in secondary_paid:
+                if live_primary_searches >= max_primary_searches:
+                    break
+                _run_api_provider(prov, q, count_live=True)
+
+    # Free index providers (Common Crawl etc.) — no paid budget
+    for prov in free_index_providers:
+        if runtime_exceeded():
+            break
+        for q in queries[: min(5, len(queries))]:
+            if runtime_exceeded():
+                break
+            _run_api_provider(prov, q, count_live=False)
+
+    for prov in api_providers + secondary_paid + free_index_providers:
         pid = str(prov.get("id"))
         row_stat = provider_stats_map.get(pid) or {}
         if row_stat.get("queries") or row_stat.get("urls"):
@@ -411,6 +546,11 @@ def run_discovery(
                 f"{prov.get('name')}: queries={row_stat.get('queries')} "
                 f"urls={row_stat.get('urls')} exhausted={row_stat.get('exhausted')}",
             )
+    emit(
+        "Discovery Budget",
+        f"live_{primary_api}_searches={live_primary_searches}/{max_primary_searches} "
+        f"unique_urls={unique_url_count()}",
+    )
 
     # --- Feed providers: harvest trusted sources (remaining-runtime adaptive) ---
     for prov in feed_providers:
@@ -549,6 +689,15 @@ def run_discovery(
         "dataset": dataset,
         "knowledge_gap": gap,
         "budgets": budget.to_dict(),
+        "discovery_policy": {
+            "primary_api": primary_api,
+            "max_primary_searches": max_primary_searches,
+            "live_primary_searches": live_primary_searches,
+            "secondary_paid_api_fallback": secondary_fallback,
+            "one_discovery_multi_dataset": bool(
+                disc_policy.get("one_discovery_multi_dataset", True)
+            ),
+        },
         "queries_generated": len(queries),
         "queries_executed": sum(int(p.get("queries") or 0) for p in provider_stats),
         "urls_discovered": len(raw_candidates),

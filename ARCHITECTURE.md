@@ -25,9 +25,11 @@ Quality Validation → Export → Dashboard Update
 
 ## UI
 
-Next.js App Router factory monitor only:
+Next.js App Router operator dashboard only:
 
-Dashboard · Datasets · Missions · Sources · Quality · Exports · Logs · Settings  
+Dashboard · Mission · Sources · Export · Settings  
+
+(Datasets/Quality/Logs surfaces merged into Export + bottom console.)  
 
 ## Deploy
 

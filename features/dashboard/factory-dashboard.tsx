@@ -493,7 +493,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
       <Card>
         <CardHeader
           title="Production status"
-          description="Continuous production monitor · 15-minute schedule · 30s auto-refresh"
+          description="Continuous production monitor · 1-hour schedule · 30s auto-refresh"
         />
         <CardBody className="grid gap-3 p-6 sm:grid-cols-2 lg:grid-cols-4">
           <Stat

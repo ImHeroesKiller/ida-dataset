@@ -9,12 +9,22 @@ import {
 } from "@/hooks/learning-provider";
 import { formatWibTime } from "@/lib/time-wib";
 
-type Filter = "all" | "search" | "extraction" | "validation" | "publishing" | "errors" | "warnings";
+type Filter =
+  | "all"
+  | "search"
+  | "extraction"
+  | "validation"
+  | "publishing"
+  | "github"
+  | "huggingface"
+  | "export"
+  | "errors"
+  | "warnings";
 
 const FILTER_MATCH: Record<Filter, (ev: SessionEvent) => boolean> = {
   all: () => true,
   search: (e) =>
-    /search|connector|planner|scheduler|mission|session|gap/i.test(
+    /search|connector|planner|scheduler|mission|session|gap|discovery|tavily|acquisition/i.test(
       `${e.verb} ${e.stage} ${e.detail}`
     ),
   extraction: (e) =>
@@ -25,6 +35,18 @@ const FILTER_MATCH: Record<Filter, (ev: SessionEvent) => boolean> = {
     /validat|review|policy|confidence/i.test(`${e.verb} ${e.stage} ${e.detail}`),
   publishing: (e) =>
     /publish|append|knowledge/i.test(`${e.verb} ${e.stage} ${e.detail}`),
+  github: (e) =>
+    /github|actions|gha|commit|push|worktree|certif/i.test(
+      `${e.verb} ${e.stage} ${e.detail}`
+    ),
+  huggingface: (e) =>
+    /hugging|hf_|hf |dataset card|hub/i.test(
+      `${e.verb} ${e.stage} ${e.detail}`
+    ),
+  export: (e) =>
+    /export|packag|jsonl|parquet|openai|csv/i.test(
+      `${e.verb} ${e.stage} ${e.detail}`
+    ),
   errors: (e) =>
     /error|fail|reject/i.test(`${e.verb} ${e.stage} ${e.detail} ${e.status}`),
   warnings: (e) =>
@@ -233,6 +255,9 @@ export function BottomConsole() {
                 "extraction",
                 "validation",
                 "publishing",
+                "github",
+                "huggingface",
+                "export",
                 "errors",
                 "warnings",
               ] as Filter[]

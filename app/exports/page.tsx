@@ -56,6 +56,62 @@ function fmtBytes(n: number): string {
   return `${(n / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+function readTextIfExists(rel: string): string | null {
+  const p = repoPath(rel);
+  try {
+    if (!fs.existsSync(p)) return null;
+    return fs.readFileSync(p, "utf8");
+  } catch {
+    return null;
+  }
+}
+
+function hfPublishStatus(): {
+  status: string;
+  version: string;
+  rows: string;
+  repo: string;
+} {
+  const statePath = repoPath(
+    "automation/learning/state/huggingface_publish_state.json"
+  );
+  try {
+    if (fs.existsSync(statePath)) {
+      const j = JSON.parse(fs.readFileSync(statePath, "utf8")) as Record<
+        string,
+        unknown
+      >;
+      return {
+        status: String(j.ok === true ? "OK" : j.skipped ? "SKIP" : "FAIL"),
+        version: String(j.version || "—"),
+        rows: String(
+          (j.stats as { total_rows?: number } | undefined)?.total_rows ??
+            j.rows ??
+            "—"
+        ),
+        repo: String(j.repo_id || "ariew/ida-dataset"),
+      };
+    }
+  } catch {
+    /* ignore */
+  }
+  const ver = readTextIfExists("reports/huggingface/verification.md") || "";
+  const status = /PASS/i.test(ver)
+    ? "PASS"
+    : /FAIL/i.test(ver)
+      ? "FAIL"
+      : "unknown";
+  const kpis = getFactoryKpis();
+  const totalRows =
+    kpis.datasets?.reduce((s, d) => s + (d.current_rows || 0), 0) || 0;
+  return {
+    status,
+    version: "—",
+    rows: String(totalRows || "—"),
+    repo: "ariew/ida-dataset",
+  };
+}
+
 export default function ExportsPage() {
   const kpis = getFactoryKpis();
   for (const d of [
@@ -76,19 +132,93 @@ export default function ExportsPage() {
     }
   }
 
+  const hf = hfPublishStatus();
+  const totalRows =
+    kpis.datasets?.reduce((s, d) => s + (d.current_rows || 0), 0) || 0;
+  const version = (() => {
+    try {
+      return fs.readFileSync(repoPath("VERSION"), "utf8").trim();
+    } catch {
+      return "—";
+    }
+  })();
+
   return (
-    <Shell title="Exports">
+    <Shell title="Export">
       <div className="mx-auto max-w-6xl space-y-8">
         <header>
-          <h1 className="text-page-title">Exports</h1>
+          <h1 className="text-page-title">Export</h1>
           <p className="mt-2 max-w-2xl text-body text-[var(--text-secondary)]">
-            Factory packaging for LLM fine-tuning and corpus delivery.{" "}
+            Real export monitor — GitHub · Hugging Face · JSONL · Parquet · CSV ·
+            OpenAI.{" "}
             <span className="font-semibold text-[var(--text)]">
               {kpis.exports_generated}
             </span>{" "}
-            export artifacts tracked.
+            artifacts · factory v{version} ·{" "}
+            <span className="font-semibold text-[var(--text)]">
+              {totalRows}
+            </span>{" "}
+            rows.
           </p>
         </header>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Card>
+            <CardHeader title="GitHub" description="Dataset commit + push" />
+            <CardBody className="space-y-1 text-small">
+              <div className="font-semibold text-[var(--text)]">
+                main · append-only
+              </div>
+              <div className="text-[var(--text-secondary)]">
+                Publish via learn.yml certify + safe push
+              </div>
+            </CardBody>
+          </Card>
+          <Card>
+            <CardHeader
+              title="Hugging Face"
+              description={hf.repo}
+              action={
+                <RoleBadge
+                  role={
+                    hf.status === "OK" || hf.status === "PASS"
+                      ? "completed"
+                      : hf.status === "FAIL"
+                        ? "error"
+                        : "idle"
+                  }
+                >
+                  {hf.status}
+                </RoleBadge>
+              }
+            />
+            <CardBody className="space-y-1 text-small">
+              <div className="text-[var(--text-secondary)]">
+                Version {hf.version} · rows {hf.rows}
+              </div>
+              <a
+                className="text-[var(--accent)] underline-offset-2 hover:underline"
+                href={`https://huggingface.co/datasets/${hf.repo}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open dataset ↗
+              </a>
+            </CardBody>
+          </Card>
+          <Card>
+            <CardHeader title="Latest version" description="Factory VERSION" />
+            <CardBody className="text-page-title tabular-nums text-[var(--text)]">
+              {version}
+            </CardBody>
+          </Card>
+          <Card>
+            <CardHeader title="Rows exported" description="Domain corpus total" />
+            <CardBody className="text-page-title tabular-nums text-[var(--text)]">
+              {totalRows}
+            </CardBody>
+          </Card>
+        </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
           {FORMATS.map((f) => {

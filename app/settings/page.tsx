@@ -76,9 +76,10 @@ export default function SettingsPage() {
             />
             <CardBody>
               <dl>
-                <Row label="Cadence" value="Every 15 minutes (UTC)" />
+                <Row label="Cadence" value="Every 1 hour (UTC :00)" />
                 <Row label="Overlap prevention" value="factory-production group" />
                 <Row label="Daily deep pass" value="06:00 UTC" />
+                <Row label="Discovery engine" value="Tavily primary · max 10 searches/session" />
               </dl>
             </CardBody>
           </Card>
