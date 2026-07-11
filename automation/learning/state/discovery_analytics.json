@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-07-11T10:21:00+00:00",
-  "mission_id": "MIS-20260711-2A6107",
-  "session_id": "SES-20260711-5BAD14",
+  "started_at": "2026-07-11T11:46:17+00:00",
+  "mission_id": "MIS-20260711-9A55F5",
+  "session_id": "SES-20260711-DE29FE",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -22,7 +22,7 @@
   "urls_accepted": 3,
   "urls_rejected": 6,
   "duplicate_urls": 6,
-  "elapsed_ms": 1146287.2,
+  "elapsed_ms": 1143036.8,
   "providers": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -52,7 +52,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 441273.3,
+      "elapsed_ms": 439861.9,
       "status": "ready",
       "credentials_available": true
     },
@@ -68,7 +68,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 351510.9,
+      "elapsed_ms": 352193.4,
       "status": "ready",
       "credentials_available": true
     },
@@ -84,7 +84,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 353477.3,
+      "elapsed_ms": 350956.3,
       "status": "ready",
       "credentials_available": true
     },
@@ -162,24 +162,6 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org corporate governance service continuous",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "kind": "site",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org intitle:corporate corporate governance service continuous",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "kind": "intitle",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
       "query": "site:worldbank.org corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
@@ -192,6 +174,24 @@
       "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:oecd.org corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:oecd.org intitle:corporate corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
       "kind": "intitle",
       "urls": 0,
       "cached": false
@@ -218,19 +218,19 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 441273.3
+      "elapsed_ms": 439861.9
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 351510.9
+      "elapsed_ms": 352193.4
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 353477.3
+      "elapsed_ms": 350956.3
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -261,18 +261,18 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:oecd.org corporate governance service continuous",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
+      "query": "site:worldbank.org corporate governance service continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
       "urls": 0,
       "elapsed_ms": 0.0,
       "cached": false
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org corporate governance service continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
+      "query": "site:oecd.org corporate governance service continuous",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
       "urls": 0,
       "elapsed_ms": 0.0,
       "cached": false
@@ -316,15 +316,22 @@
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 99.245,
-      "score": 93.229,
+      "reputation": 97.093,
+      "score": 90.698,
       "authority": 1.0
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 95.484,
-      "score": 89.981,
+      "reputation": 95.542,
+      "score": 90.05,
+      "authority": 0.95
+    },
+    {
+      "id": "SRC-000004",
+      "name": "World Bank",
+      "reputation": 95.407,
+      "score": 89.891,
       "authority": 0.95
     },
     {
@@ -332,13 +339,6 @@
       "name": "OECD",
       "reputation": 94.187,
       "score": 88.455,
-      "authority": 0.95
-    },
-    {
-      "id": "SRC-000004",
-      "name": "World Bank",
-      "reputation": 93.367,
-      "score": 87.491,
       "authority": 0.95
     },
     {

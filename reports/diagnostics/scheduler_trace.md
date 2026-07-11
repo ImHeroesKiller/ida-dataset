@@ -1,6 +1,6 @@
 # Scheduler Trace
 
-**Generated:** 2026-07-11T10:24:16+00:00
+**Generated:** 2026-07-11T11:49:33+00:00
 
 ## Current mode
 
@@ -18,11 +18,11 @@
 | Field | Value |
 | --- | --- |
 | status | Idle |
-| last_heartbeat | 2026-07-11T10:22:55+00:00 |
-| last_success | 2026-07-11T10:22:55+00:00 |
+| last_heartbeat | 2026-07-11T11:48:13+00:00 |
+| last_success | 2026-07-11T11:48:13+00:00 |
 | last_failure | — |
 | current_job | — |
-| job_duration_seconds | 1262.0 |
+| job_duration_seconds | 1260.0 |
 | last_error | — |
 
 ## Missions not selected (eligible or not)
@@ -30,15 +30,15 @@
 | Dataset | Eligible | Score | Skip / not-selected reason |
 | --- | --- | --- | --- |
 | competitor_library | True | 1921.5 | eligible_but_not_selected; score=1921.5 < selected=service_library score=2137.87 |
-| buyer_persona_library | True | 1895.5 | eligible_but_not_selected; score=1895.5 < selected=service_library score=2137.87 |
+| buyer_persona_library | True | 1895.51 | eligible_but_not_selected; score=1895.51 < selected=service_library score=2137.87 |
 | product_catalog | True | 1890.83 | eligible_but_not_selected; score=1890.83 < selected=service_library score=2137.87 |
-| decision_maker_library | True | 1875.39 | eligible_but_not_selected; score=1875.39 < selected=service_library score=2137.87 |
-| risk_library | True | 1829.73 | eligible_but_not_selected; score=1829.73 < selected=service_library score=2137.87 |
-| trend_library | True | 1689.23 | eligible_but_not_selected; score=1689.23 < selected=service_library score=2137.87 |
+| decision_maker_library | True | 1875.4 | eligible_but_not_selected; score=1875.4 < selected=service_library score=2137.87 |
+| risk_library | True | 1829.76 | eligible_but_not_selected; score=1829.76 < selected=service_library score=2137.87 |
+| trend_library | True | 1689.26 | eligible_but_not_selected; score=1689.26 < selected=service_library score=2137.87 |
 | company_profile | True | 1660.7 | eligible_but_not_selected; score=1660.7 < selected=service_library score=2137.87 |
 | solution_library | True | 1660.21 | eligible_but_not_selected; score=1660.21 < selected=service_library score=2137.87 |
 | pain_point_library | True | 1656.34 | eligible_but_not_selected; score=1656.34 < selected=service_library score=2137.87 |
-| framework_library | True | 1627.1 | eligible_but_not_selected; score=1627.1 < selected=service_library score=2137.87 |
+| framework_library | True | 1627.21 | eligible_but_not_selected; score=1627.21 < selected=service_library score=2137.87 |
 | opportunity_analysis | True | 1625.13 | eligible_but_not_selected; score=1625.13 < selected=service_library score=2137.87 |
 | case_study_library | True | 1607.93 | eligible_but_not_selected; score=1607.93 < selected=service_library score=2137.87 |
 | regulation_library | True | 928.75 | eligible_but_not_selected; score=928.75 < selected=service_library score=2137.87 |
