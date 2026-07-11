@@ -1,45 +1,44 @@
 # Root Cause Analysis
 
-**Generated:** 2026-07-11T14:49:15+00:00
-**Session:** `SESSION-20260711-CA5D36`
-**Mission:** `MIS-20260711-5DA03F`
+**Generated:** 2026-07-11T17:10:54+00:00
+**Session:** `SESSION-20260711-29CE5A`
+**Mission:** `MIS-20260711-A8B8B6`
 
 > Diagnostics only. No fixes. Evidence only.
 
 ## Why no new rows?
 
-Production stopped or yielded zero published rows at stage `publish` due to condition `session_dry_run_true`.
+Latest evidence shows published=5; zero-row claim may refer to a later window.
 
 ## Exactly which stage stopped production?
 
-**`publish`**
+**`none (production produced rows)`**
 
 ## What condition caused it?
 
-**`session_dry_run_true`**
+**`rows_published`**
 
 ## What module decided it?
 
-**`automation/ci/learning_session.py (dry_run / publish flags)`**
+**`append path succeeded`**
 
 ## What evidence proves it?
 
-- session.dry_run=True
-- knowledge_added=0
-- extracted=3 rejected=3
-- summary=Session completed · published=0 extracted=3 validated=3 rejected=3 docs=82 entity=— · dry_run
+- published=5
+- extracted=5
+- discovered=21 downloaded=95 duplicates=56
 
 ## Metrics snapshot
 
 ```json
 {
   "documents_discovered": 21,
-  "documents_downloaded": 82,
-  "documents_duplicates": 68,
-  "candidates_extracted": 3,
-  "candidates_rejected": 3,
-  "rows_published": 0,
-  "dry_run": true,
+  "documents_downloaded": 95,
+  "documents_duplicates": 56,
+  "candidates_extracted": 5,
+  "candidates_rejected": 0,
+  "rows_published": 5,
+  "dry_run": false,
   "fingerprint_urls_known": 148,
   "selected_dataset": "service_library"
 }
@@ -48,12 +47,11 @@ Production stopped or yielded zero published rows at stage `publish` due to cond
 ## Findings
 ### Finding 1
 
-No rows published because session ran with dry_run.
+Session published rows; if overnight gap exists, examine later sessions.
 
-- `session.dry_run=True`
-- `knowledge_added=0`
-- `extracted=3 rejected=3`
-- `summary=Session completed · published=0 extracted=3 validated=3 rejected=3 docs=82 entity=— · dry_run`
+- `published=5`
+- `extracted=5`
+- `discovered=21 downloaded=95 duplicates=56`
 
 ### Finding 2
 

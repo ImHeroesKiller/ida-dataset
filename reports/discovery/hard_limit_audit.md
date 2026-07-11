@@ -1,7 +1,7 @@
 # Hard Limit Audit
 
-**Generated:** 2026-07-11T15:17:15+00:00
-**Occurrences found:** 304
+**Generated:** 2026-07-11T16:42:46+00:00
+**Occurrences found:** 305
 
 Search covers acquisition, config, learning, search, and CI paths.
 
@@ -123,28 +123,29 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/acquisition/discovery_pkg/layer.py` | 89 | `if lim.get("max_documents") is not None` |
 | `automation/acquisition/discovery_pkg/layer.py` | 91 | `"max_documents_per_session": int(lim["max_documents_per_session"])` |
 | `automation/acquisition/discovery_pkg/layer.py` | 92 | `if lim.get("max_documents_per_session") is not None` |
-| `automation/acquisition/discovery_pkg/layer.py` | 127 | `max_queries: int \| None = None,` |
-| `automation/acquisition/discovery_pkg/layer.py` | 128 | `max_urls: int \| None = None,` |
-| `automation/acquisition/discovery_pkg/layer.py` | 136 | `max_queries / max_urls are optional overrides; default is adaptive budgets.` |
-| `automation/acquisition/discovery_pkg/layer.py` | 194 | `policy_max_documents=policy.get("max_documents"),` |
-| `automation/acquisition/discovery_pkg/layer.py` | 195 | `policy_max_per_session=policy.get("max_documents_per_session"),` |
-| `automation/acquisition/discovery_pkg/layer.py` | 210 | `policy_max_documents=policy.get("max_documents"),` |
-| `automation/acquisition/discovery_pkg/layer.py` | 211 | `policy_max_per_session=policy.get("max_documents_per_session"),` |
-| `automation/acquisition/discovery_pkg/layer.py` | 215 | `q_budget = int(max_queries) if max_queries is not None else budget.query_budget` |
-| `automation/acquisition/discovery_pkg/layer.py` | 216 | `url_budget = int(max_urls) if max_urls is not None else budget.url_budget` |
-| `automation/acquisition/discovery_pkg/layer.py` | 218 | `if max_urls is not None and max_urls < budget.url_budget and float(gap.get("knowledge_gap_score") or 0) > 20:` |
-| `automation/acquisition/discovery_pkg/layer.py` | 220 | `if max_queries is not None and max_queries < budget.query_budget and float(gap.get("knowledge_gap_score") or 0) > 20:` |
-| `automation/acquisition/discovery_pkg/layer.py` | 235 | `max_queries=q_budget,` |
-| `automation/acquisition/discovery_pkg/layer.py` | 519 | `title=str(a.get("title") or a.get("url") or "Discovered document")[:200],` |
-| `automation/acquisition/discovery_pkg/layer.py` | 572 | `"query_stats": query_stats[:200],` |
-| `automation/acquisition/discovery_pkg/layer.py` | 600 | `for a in accepted[:200]` |
-| `automation/acquisition/discovery_pkg/layer.py` | 609 | `for r in rejected[:100]` |
+| `automation/acquisition/discovery_pkg/layer.py` | 173 | `max_queries: int \| None = None,` |
+| `automation/acquisition/discovery_pkg/layer.py` | 174 | `max_urls: int \| None = None,` |
+| `automation/acquisition/discovery_pkg/layer.py` | 182 | `max_queries / max_urls are optional overrides; default is adaptive budgets.` |
+| `automation/acquisition/discovery_pkg/layer.py` | 240 | `policy_max_documents=policy.get("max_documents"),` |
+| `automation/acquisition/discovery_pkg/layer.py` | 241 | `policy_max_per_session=policy.get("max_documents_per_session"),` |
+| `automation/acquisition/discovery_pkg/layer.py` | 256 | `policy_max_documents=policy.get("max_documents"),` |
+| `automation/acquisition/discovery_pkg/layer.py` | 257 | `policy_max_per_session=policy.get("max_documents_per_session"),` |
+| `automation/acquisition/discovery_pkg/layer.py` | 261 | `q_budget = int(max_queries) if max_queries is not None else budget.query_budget` |
+| `automation/acquisition/discovery_pkg/layer.py` | 262 | `url_budget = int(max_urls) if max_urls is not None else budget.url_budget` |
+| `automation/acquisition/discovery_pkg/layer.py` | 264 | `if max_urls is not None and max_urls < budget.url_budget and float(gap.get("knowledge_gap_score") or 0) > 20:` |
+| `automation/acquisition/discovery_pkg/layer.py` | 266 | `if max_queries is not None and max_queries < budget.query_budget and float(gap.get("knowledge_gap_score") or 0) > 20:` |
+| `automation/acquisition/discovery_pkg/layer.py` | 281 | `max_queries=q_budget,` |
+| `automation/acquisition/discovery_pkg/layer.py` | 659 | `title=str(a.get("title") or a.get("url") or "Discovered document")[:200],` |
+| `automation/acquisition/discovery_pkg/layer.py` | 721 | `"query_stats": query_stats[:200],` |
+| `automation/acquisition/discovery_pkg/layer.py` | 749 | `for a in accepted[:200]` |
+| `automation/acquisition/discovery_pkg/layer.py` | 758 | `for r in rejected[:100]` |
 | `automation/acquisition/discovery_pkg/providers.py` | 30 | `"title": (title or "")[:200],` |
 | `automation/acquisition/discovery_pkg/providers.py` | 31 | `"snippet": (snippet or "")[:400],` |
 | `automation/acquisition/discovery_pkg/providers.py` | 73 | `"max_results": 1,` |
-| `automation/acquisition/discovery_pkg/providers.py` | 271 | `max_results = _provider_page_cap("tavily", limit)` |
-| `automation/acquisition/discovery_pkg/providers.py` | 276 | `"max_results": max_results,` |
-| `automation/acquisition/discovery_pkg/providers.py` | 302 | `str(item.get("content") or "")[:400],` |
+| `automation/acquisition/discovery_pkg/providers.py` | 277 | `max_results = _provider_page_cap("tavily", limit)` |
+| `automation/acquisition/discovery_pkg/providers.py` | 283 | `"max_results": max_results,` |
+| `automation/acquisition/discovery_pkg/providers.py` | 310 | `snippet = (raw[:400] if raw else content[:400])` |
+| `automation/acquisition/discovery_pkg/providers.py` | 318 | `row["raw_content_preview"] = raw[:2000]` |
 | `automation/acquisition/discovery_pkg/reports.py` | 87 | `for q in (analytics.get("query_stats") or [])[:80]:` |
 | `automation/acquisition/discovery_pkg/reports.py` | 89 | `f"\| {q.get('provider_id')} \| `{(q.get('query') or '')[:80]}` \| "` |
 | `automation/acquisition/discovery_pkg/reports.py` | 121 | `f"\| {(a.get('url') or '')[:90]} \| {a.get('source_id')} \| "` |

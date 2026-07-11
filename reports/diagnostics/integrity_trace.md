@@ -1,37 +1,32 @@
 # Integrity Guard Trace
 
-**Generated:** 2026-07-11T14:49:15+00:00
+**Generated:** 2026-07-11T17:10:54+00:00
 
 Per-candidate decision chain (evidence only).
 
-## Candidate `CAND-537F78C15FDC`
+## Candidate `CAND-F217859B8182`
 
 ```text
-Candidate CAND-537F78C15FDC
+Candidate CAND-F217859B8182
   ↓
 dataset_csv_exists
   PASS
-  actual=industry_library.csv
+  actual=business_signal_library.csv
   evidence=CSV present
   ↓
 payload_present
   PASS
-  evidence=payload fields=32
+  evidence=payload fields=14
   ↓
 schema_indexed_dataset
   PASS
-  actual=Industry ID
-  evidence=ID field mapped: Industry ID
+  actual=Signal ID
+  evidence=ID field mapped: Signal ID
   ↓
 primary_id_present
   PASS
-  actual=IND-000056
-  evidence=Industry ID='IND-000056'
-  ↓
-primary_id_pattern
-  PASS
-  actual=IND-000056
-  evidence=pattern ^IND- vs 'IND-000056'
+  actual=SIG-000049
+  evidence=Signal ID='SIG-000049'
   ↓
 duplicate_id_in_batch
   PASS
@@ -39,72 +34,62 @@ duplicate_id_in_batch
   evidence=batch_ids_contains=False
   ↓
 duplicate_id_existing_dataset
-  PASS
-  actual=new_id
-  evidence=existing_csv_contains=False; dataset_path=industry_library.csv
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
   ↓
 confidence_threshold
   PASS
-  actual=0.92 threshold=0.8
-  evidence=threshold=0.8; conf=0.92
+  actual=0.88 threshold=0.8
+  evidence=threshold=0.8; conf=0.88
   ↓
 confidence_present
   PASS
-  actual=0.92
+  actual=0.88
   evidence=integrity only fails when conf is present and < 0.80
-  ↓
-provenance_required
-  PASS
-  actual=ok
-  evidence=provenance: source=SRC-CROSSREF; published_date=1998; retrieved_date=2026-07-11T14:46:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-895A2B279
   ↓
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-CROSSREF; published_date=1998; retrieved_date=2026-07-11T14:46:45+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-895A2B279
+  evidence=provenance: source=SRC-OPENALEX; document=DOC-3C3A81B007BB; mission=MIS-20260711-A8B8B6; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-OPENALEX; urls=https://
   ↓
 completeness_primary
   PASS
-  actual=IND-000056
+  actual=SIG-000049
   evidence=primary id completeness
   ↓
 integrity_final_validate_row
-  PASS
-  actual=ok
-  evidence=automation.quality.integrity_guard.validate_row → ok
+  FAIL
+  actual=duplicate_id:SIG-000049
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000049
   ↓
-Publisher decision: Skipped
-  reason=session_dry_run_true — publisher did not append
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:SIG-000049
 ```
 
-## Candidate `CAND-48F43210E20B`
+## Candidate `CAND-C781226E4FF8`
 
 ```text
-Candidate CAND-48F43210E20B
+Candidate CAND-C781226E4FF8
   ↓
 dataset_csv_exists
   PASS
-  actual=industry_library.csv
+  actual=business_signal_library.csv
   evidence=CSV present
   ↓
 payload_present
   PASS
-  evidence=payload fields=32
+  evidence=payload fields=14
   ↓
 schema_indexed_dataset
   PASS
-  actual=Industry ID
-  evidence=ID field mapped: Industry ID
+  actual=Signal ID
+  evidence=ID field mapped: Signal ID
   ↓
 primary_id_present
   PASS
-  actual=IND-000056
-  evidence=Industry ID='IND-000056'
-  ↓
-primary_id_pattern
-  PASS
-  actual=IND-000056
-  evidence=pattern ^IND- vs 'IND-000056'
+  actual=SIG-000048
+  evidence=Signal ID='SIG-000048'
   ↓
 duplicate_id_in_batch
   PASS
@@ -112,72 +97,62 @@ duplicate_id_in_batch
   evidence=batch_ids_contains=False
   ↓
 duplicate_id_existing_dataset
-  PASS
-  actual=new_id
-  evidence=existing_csv_contains=False; dataset_path=industry_library.csv
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
   ↓
 confidence_threshold
   PASS
-  actual=0.92 threshold=0.8
-  evidence=threshold=0.8; conf=0.92
+  actual=0.9 threshold=0.8
+  evidence=threshold=0.8; conf=0.9
   ↓
 confidence_present
   PASS
-  actual=0.92
+  actual=0.9
   evidence=integrity only fails when conf is present and < 0.80
-  ↓
-provenance_required
-  PASS
-  actual=ok
-  evidence=provenance: source=SRC-OPENALEX; published_date=2023-07-29; retrieved_date=2026-07-11T14:46:32+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-66C
   ↓
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-OPENALEX; published_date=2023-07-29; retrieved_date=2026-07-11T14:46:32+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-66C
+  evidence=provenance: source=SRC-CROSSREF; document=DOC-1812CCB384B2; mission=MIS-20260711-A8B8B6; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-CROSSREF; urls=https://
   ↓
 completeness_primary
   PASS
-  actual=IND-000056
+  actual=SIG-000048
   evidence=primary id completeness
   ↓
 integrity_final_validate_row
-  PASS
-  actual=ok
-  evidence=automation.quality.integrity_guard.validate_row → ok
+  FAIL
+  actual=duplicate_id:SIG-000048
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000048
   ↓
-Publisher decision: Skipped
-  reason=session_dry_run_true — publisher did not append
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:SIG-000048
 ```
 
-## Candidate `CAND-CA3D627066DA`
+## Candidate `CAND-8FC4C3383B9A`
 
 ```text
-Candidate CAND-CA3D627066DA
+Candidate CAND-8FC4C3383B9A
   ↓
 dataset_csv_exists
   PASS
-  actual=industry_library.csv
+  actual=business_signal_library.csv
   evidence=CSV present
   ↓
 payload_present
   PASS
-  evidence=payload fields=32
+  evidence=payload fields=14
   ↓
 schema_indexed_dataset
   PASS
-  actual=Industry ID
-  evidence=ID field mapped: Industry ID
+  actual=Signal ID
+  evidence=ID field mapped: Signal ID
   ↓
 primary_id_present
   PASS
-  actual=IND-000056
-  evidence=Industry ID='IND-000056'
-  ↓
-primary_id_pattern
-  PASS
-  actual=IND-000056
-  evidence=pattern ^IND- vs 'IND-000056'
+  actual=SIG-000046
+  evidence=Signal ID='SIG-000046'
   ↓
 duplicate_id_in_batch
   PASS
@@ -185,9 +160,72 @@ duplicate_id_in_batch
   evidence=batch_ids_contains=False
   ↓
 duplicate_id_existing_dataset
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
+  ↓
+confidence_threshold
   PASS
-  actual=new_id
-  evidence=existing_csv_contains=False; dataset_path=industry_library.csv
+  actual=0.9 threshold=0.8
+  evidence=threshold=0.8; conf=0.9
+  ↓
+confidence_present
+  PASS
+  actual=0.9
+  evidence=integrity only fails when conf is present and < 0.80
+  ↓
+provenance_present
+  PASS
+  actual=present
+  evidence=provenance: source=SRC-CROSSREF; document=DOC-1502C0214AB9; mission=MIS-20260711-A8B8B6; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-CROSSREF; urls=https://
+  ↓
+completeness_primary
+  PASS
+  actual=SIG-000046
+  evidence=primary id completeness
+  ↓
+integrity_final_validate_row
+  FAIL
+  actual=duplicate_id:SIG-000046
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000046
+  ↓
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:SIG-000046
+```
+
+## Candidate `CAND-9ADA504ABA88`
+
+```text
+Candidate CAND-9ADA504ABA88
+  ↓
+dataset_csv_exists
+  PASS
+  actual=business_signal_library.csv
+  evidence=CSV present
+  ↓
+payload_present
+  PASS
+  evidence=payload fields=14
+  ↓
+schema_indexed_dataset
+  PASS
+  actual=Signal ID
+  evidence=ID field mapped: Signal ID
+  ↓
+primary_id_present
+  PASS
+  actual=SIG-000045
+  evidence=Signal ID='SIG-000045'
+  ↓
+duplicate_id_in_batch
+  PASS
+  actual=unique_in_batch
+  evidence=batch_ids_contains=False
+  ↓
+duplicate_id_existing_dataset
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
   ↓
 confidence_threshold
   PASS
@@ -199,26 +237,84 @@ confidence_present
   actual=0.92
   evidence=integrity only fails when conf is present and < 0.80
   ↓
-provenance_required
+provenance_present
   PASS
-  actual=ok
-  evidence=provenance: source=SRC-CROSSREF; published_date=2013; retrieved_date=2026-07-11T14:46:38+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-9C403F1BA
+  actual=present
+  evidence=provenance: source=SRC-000004; document=DOC-A99E56C64737; mission=MIS-20260711-A8B8B6; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-000004; urls=https://docu
+  ↓
+completeness_primary
+  PASS
+  actual=SIG-000045
+  evidence=primary id completeness
+  ↓
+integrity_final_validate_row
+  FAIL
+  actual=duplicate_id:SIG-000045
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000045
+  ↓
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:SIG-000045
+```
+
+## Candidate `CAND-F02A999980DE`
+
+```text
+Candidate CAND-F02A999980DE
+  ↓
+dataset_csv_exists
+  PASS
+  actual=business_signal_library.csv
+  evidence=CSV present
+  ↓
+payload_present
+  PASS
+  evidence=payload fields=14
+  ↓
+schema_indexed_dataset
+  PASS
+  actual=Signal ID
+  evidence=ID field mapped: Signal ID
+  ↓
+primary_id_present
+  PASS
+  actual=SIG-000047
+  evidence=Signal ID='SIG-000047'
+  ↓
+duplicate_id_in_batch
+  PASS
+  actual=unique_in_batch
+  evidence=batch_ids_contains=False
+  ↓
+duplicate_id_existing_dataset
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
+  ↓
+confidence_threshold
+  PASS
+  actual=0.88 threshold=0.8
+  evidence=threshold=0.8; conf=0.88
+  ↓
+confidence_present
+  PASS
+  actual=0.88
+  evidence=integrity only fails when conf is present and < 0.80
   ↓
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-CROSSREF; published_date=2013; retrieved_date=2026-07-11T14:46:38+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; mission=MIS-20260711-5DA03F; document=DOC-9C403F1BA
+  evidence=provenance: source=SRC-OPENALEX; document=DOC-0E9CB131E8BA; mission=MIS-20260711-A8B8B6; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-OPENALEX; urls=https://
   ↓
 completeness_primary
   PASS
-  actual=IND-000056
+  actual=SIG-000047
   evidence=primary id completeness
   ↓
 integrity_final_validate_row
-  PASS
-  actual=ok
-  evidence=automation.quality.integrity_guard.validate_row → ok
+  FAIL
+  actual=duplicate_id:SIG-000047
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000047
   ↓
-Publisher decision: Skipped
-  reason=session_dry_run_true — publisher did not append
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:SIG-000047
 ```

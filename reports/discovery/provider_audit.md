@@ -1,40 +1,40 @@
 # Provider Audit
 
-**Generated:** 2026-07-11T15:17:15+00:00
+**Generated:** 2026-07-11T16:42:46+00:00
 
 Search engines are **discovery tools only**. Knowledge is extracted solely from trusted sources.
 
 | ACTIVE | DISABLED | MISCONFIGURED |
 |-------:|---------:|--------------:|
-| 7 | 0 | 5 |
+| 7 | 5 | 0 |
 
 | Provider | Status | Enabled | Credential | Rate limit | Daily quota | Health | Latency ms | Avg URLs | Avg docs | Yield | Reason |
 |----------|--------|---------|------------|----------:|------------:|--------|-----------:|---------:|---------:|------:|--------|
+| Tavily (primary) | **ACTIVE** | True | True | 20 | 1000 | ACTIVE | 1184.9 | 61.0 | 61.0 | 1.0 | ready |
 | Trusted Site Search (connector-backed) | **ACTIVE** | True | True | 60 | 100000 | healthy | 0.0 | 0.0 | 0.0 | 0.0 | ready |
-| Google Programmable Search | **MISCONFIGURED** | True | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_ENGINE_ID |
-| Bing Web Search API | **MISCONFIGURED** | True | False | 30 | 1000 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: BING_SEARCH_API_KEY |
-| Brave Search API | **MISCONFIGURED** | True | False | 20 | 2000 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: BRAVE_SEARCH_API_KEY |
-| Tavily | **ACTIVE** | True | True | 20 | 1000 | ACTIVE | 1752.7 | 362.0 | 318.0 | 1.0 | ready |
-| SerpAPI | **MISCONFIGURED** | True | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: SERPAPI_API_KEY |
-| Sitemap Discovery | **ACTIVE** | True | True | 20 | 5000 | healthy | 0.0 | 12.0 | 10.0 | 1.0 | ready |
-| RSS Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 7.0 | 3.0 | 1.0 | ready |
+| Sitemap Discovery | **ACTIVE** | True | True | 20 | 5000 | healthy | 0.0 | 12.0 | 12.0 | 1.0 | ready |
+| RSS Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 15.0 | 7.0 | 1.0 | ready |
 | Atom Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 0.0 | 0.0 | 1.0 | ready |
-| Yandex XML Search | **MISCONFIGURED** | True | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | missing credentials: YANDEX_API_KEY, YANDEX_USER |
-| Common Crawl Index | **ACTIVE** | True | True | 5 | 500 | healthy | 0.0 | 660.0 | 279.0 | 1.0 | ready |
+| Common Crawl Index | **ACTIVE** | True | True | 5 | 500 | healthy | 0.0 | 100.0 | 50.0 | 1.0 | ready |
 | OpenSearch Description | **ACTIVE** | True | True | 10 | 1000 | idle | 0.0 | 0.0 | 0.0 | 0.0 | ready |
+| Google Programmable Search | **DISABLED** | False | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | enabled=false in discovery_registry.yaml |
+| Bing Web Search API | **DISABLED** | False | False | 30 | 1000 | offline | 0.0 | 0.0 | 0.0 | 1.0 | enabled=false in discovery_registry.yaml |
+| Brave Search API | **DISABLED** | False | False | 20 | 2000 | offline | 0.0 | 0.0 | 0.0 | 1.0 | enabled=false in discovery_registry.yaml |
+| SerpAPI | **DISABLED** | False | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | enabled=false in discovery_registry.yaml |
+| Yandex XML Search | **DISABLED** | False | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | enabled=false in discovery_registry.yaml |
 
 ## Named provider checklist
 
 | Requested | Mapping | Status |
 |-----------|---------|--------|
 | Tavily | `DISC-TAVILY` | **ACTIVE** |
-| Google CSE | `DISC-GOOGLE-CSE` | **MISCONFIGURED** |
-| Google Programmable Search | `DISC-GOOGLE-CSE` | **MISCONFIGURED** |
-| Google Search API | `DISC-GOOGLE-CSE` | **MISCONFIGURED** |
-| Brave | `DISC-BRAVE` | **MISCONFIGURED** |
-| Bing | `DISC-BING` | **MISCONFIGURED** |
-| SerpAPI | `DISC-SERPAPI` | **MISCONFIGURED** |
-| Yandex | `DISC-YANDEX` | **MISCONFIGURED** |
+| Google CSE | `DISC-GOOGLE-CSE` | **DISABLED** |
+| Google Programmable Search | `DISC-GOOGLE-CSE` | **DISABLED** |
+| Google Search API | `DISC-GOOGLE-CSE` | **DISABLED** |
+| Brave | `DISC-BRAVE` | **DISABLED** |
+| Bing | `DISC-BING` | **DISABLED** |
+| SerpAPI | `DISC-SERPAPI` | **DISABLED** |
+| Yandex | `DISC-YANDEX` | **DISABLED** |
 | RSS | `DISC-RSS` | **ACTIVE** |
 | Atom | `DISC-ATOM` | **ACTIVE** |
 | Sitemap | `DISC-SITEMAP` | **ACTIVE** |
@@ -58,6 +58,6 @@ These acquire documents via the connector framework after discovery.
 
 - Operational status: **ACTIVE**
 - Credential loaded: `True`
-- Probe: `{"probed": true, "ok": true, "status": "ACTIVE", "message": "http_200_results_1", "latency_ms": 1752.7, "http_status": 200, "result_count": 1}`
+- Probe: `{"probed": true, "ok": true, "status": "ACTIVE", "message": "http_200_results_1", "latency_ms": 1184.9, "http_status": 200, "result_count": 1}`
 
 > Providers are never silently disabled. MISCONFIGURED means enabled but credentials missing.

@@ -4,26 +4,67 @@ Only domains present in Trusted Source Registry.
 
 | URL | Source | Provider | Title |
 |-----|--------|----------|-------|
-| https://openknowledge.worldbank.org/bitstreams/ecfd269c-cc5b-5ee6-acd8-8e0e3ff92dc5/downlo | SRC-000004 | DISC-TAVILY | [PDF] A CorporAte GovernAnCe Model - Open Knowledge Reposito |
-| https://openknowledge.worldbank.org/entities/publication/a2fba7da-213d-5e62-a90f-317c0cee4 | SRC-000004 | DISC-TAVILY | Publication: Corporate Governance Success Stories |
-| https://openknowledge.worldbank.org/bitstreams/d68e9e7b-fea5-5ec9-97a8-46783f795190/downlo | SRC-000004 | DISC-TAVILY | English Text (45.52 KB) - Open Knowledge Repository |
-| https://openknowledge.worldbank.org/bitstreams/2c1bd51c-2290-53ad-bdab-27265845953a/downlo | SRC-000004 | DISC-TAVILY | [PDF] Corporate Governance - World Bank Open Knowledge Repos |
-| https://openknowledge.worldbank.org/bitstreams/040d4ae9-bee9-533a-a9d4-ffab9fdf4c16/downlo | SRC-000004 | DISC-TAVILY | [PDF] Corporate Governance - Open Knowledge Repository |
-| https://documents.worldbank.org/curated/en/831651468781818619/pdf/30446.pdf | SRC-000004 | DISC-TAVILY | [PDF] Corporate Governance: A Framework for Implementation O |
-| https://documents1.worldbank.org/curated/en/228331468169750340/pdf/Corporate-governance-of | SRC-000004 | DISC-TAVILY | [PDF] Corporate Governance of State-Owned Enterprises: A Too |
-| https://openknowledge.worldbank.org/entities/publication/83b1c40d-20f9-597e-8f67-74ee8ee97 | SRC-000004 | DISC-TAVILY | Publication: A Corporate Governance Model : Building Respons |
-| https://accountability.worldbank.org/en/iamnet | SRC-000004 | DISC-TAVILY | Independent Accountability Mechanisms Network (IAMNet) |
-| https://documents1.worldbank.org/curated/en/641091468014937333/703380ESW0P0990n0SOE0CG0Stu | SRC-000004 | DISC-TAVILY | [DOC] Macedonia Corporate Governance ROSC 2005 |
-| https://ppp.worldbank.org/sites/default/files/2024-09/ADR_Toolkit_UserGuide_2011_EN.pdf | SRC-000004 | DISC-TAVILY | [PDF] toolkit 4 - World Bank PPP |
-| https://openknowledge.worldbank.org/entities/publication/d0edd0e7-1553-57d2-a5d1-96548242d | SRC-000004 | DISC-TAVILY | Publication: “The Crab Model” : Tips for Project Implementat |
-| https://documents1.worldbank.org/curated/en/315641621247180072/pdf/Guidelines-on-Corporate | SRC-000004 | DISC-TAVILY | [PDF] Guidelines on Corporate Governance for Listed Companie |
-| https://documents1.worldbank.org/curated/en/301311468332448328/pdf/346690v10Corporate0gove | SRC-000004 | DISC-TAVILY | [PDF] TOOLKIT - Developing Corporate Governance Codes of Bes |
-| https://openknowledge.worldbank.org/entities/publication/88bdb9d7-6ed8-5ced-90f6-fb39a9cd9 | SRC-000004 | DISC-TAVILY | Ghana : Report on the Observance of Standards and Codes (ROS |
-| https://openknowledge.worldbank.org/bitstreams/a359a672-b3bf-5b1d-976b-f23d0e6cce63/downlo | SRC-000004 | DISC-TAVILY | English Text (482.52 KB) - Open Knowledge Repository - World |
-| https://documents1.worldbank.org/curated/en/627671627388782992/pdf/Indonesia-Corporate-Gov | SRC-000004 | DISC-TAVILY | [PDF] indonesia - World Bank Document |
-| https://documents1.worldbank.org/curated/en/237841600428799984/txt/A-Review-of-Thirty-Nine | SRC-000004 | DISC-TAVILY | A-Review-of-Thirty-Nine-Government-Selected-SEPs.txt |
-| https://thedocs.worldbank.org/en/doc/cd079f730c0f82f6b9c6763a606d7b4d-0570062025/original/ | SRC-000004 | DISC-TAVILY | [PDF] Corporate Governance and Fiscal Risk Assessment of Sta |
-| https://documents1.worldbank.org/curated/en/992091468338944434/pdf/645920BRI0Viet00Box0361 | SRC-000004 | DISC-TAVILY | [PDF] Vietnam Corporate Governance Project - World Bank Docu |
+| https://openknowledge.worldbank.org/bitstreams/0d31f96d-f94d-5130-9a9c-a47ea462190f/downlo | SRC-000004 | DISC-TAVILY | [PDF] Where Vietnam Fits in Global Value Chains - World Bank |
+| https://openknowledge.worldbank.org/bitstreams/e3b97d15-a9f3-570c-ac18-2148afa344e7/downlo | SRC-000004 | DISC-TAVILY | English Text (176.27 KB) - Open Knowledge Repository |
+| https://documents.worldbank.org/curated/en/377351608212969114/pdf/Improving-Business-Pract | SRC-000004 | DISC-TAVILY | [PDF] Improving Business Practices and the Boundary of the E |
+| https://openknowledge.worldbank.org/bitstreams/e9929834-4831-5842-8552-f9b44d0afe17/downlo | SRC-000004 | DISC-TAVILY | [PDF] Volume II Indonesia: Telecenter Evaluation Report |
+| https://documents1.worldbank.org/curated/en/232691540822189989/pdf/Analysis.pdf | SRC-000004 | DISC-TAVILY | [PDF] The Republic of Indonesia Study on Trade in Logistics  |
+| https://openknowledge.worldbank.org/entities/publication/85401424-9c11-5fc1-be52-2dbf22887 | SRC-000004 | DISC-TAVILY | Publication: IT Skills Assessment in Armenia |
+| https://documents1.worldbank.org/curated/en/535881589465343528/pdf/EdTech-in-Indonesia-Rea | SRC-000004 | DISC-TAVILY | [PDF] EdTech in Indonesia: Ready to take-off? - World Bank D |
+| https://documents1.worldbank.org/curated/en/105651468335411232/pdf/3592610paper.pdf | SRC-000004 | DISC-TAVILY | [PDF] 35926 offshore to - Documents & Reports - World Bank |
+| https://documents1.worldbank.org/curated/en/910251601530521791/pdf/The-Power-of-Partnershi | SRC-000004 | DISC-TAVILY | [PDF] The Power of Partnership Public and Private Engagement |
+| https://documents1.worldbank.org/curated/en/099112525160536089/pdf/P505350-59c98ca8-0803-4 | SRC-000004 | DISC-TAVILY | [PDF] Digital Progress and Trends Report 2025: Strengthening |
+| https://documents1.worldbank.org/curated/en/295091636695527297/pdf/Building-Blocks-for-Adv | SRC-000004 | DISC-TAVILY | [PDF] Building Blocks for Advanced Labor Market Intelligence |
+| https://documents1.worldbank.org/curated/en/099011526034524340/pdf/P506981-dd17a3b9-e242-4 | SRC-000004 | DISC-TAVILY | [PDF] Services Competitiveness for Growth and Jobs in Indone |
+| https://thedocs.worldbank.org/en/doc/ceb5c5792ad0d874e9b1c3cc71362f46-0460012023/original/ | SRC-000004 | DISC-TAVILY | [PDF] The Use of Advanced Technology in Job Matching Platfor |
+| https://thedocs.worldbank.org/en/doc/a7e384579a8365092fcff3ced7eaab31-0350072019/original/ | SRC-000004 | DISC-TAVILY | [PDF] Value Chain Based Job Creation Study Design Report Vol |
+| https://live.worldbank.org/en/event/2025/spring-meetings-jobs-the-path-to-prosperity | SRC-000004 | DISC-TAVILY | Event | Spring Meetings 2025: Jobs – The Path to Prosperity |
+| https://documents.worldbank.org/curated/en/228381492593824450/pdf/114402-WP-SheforShield-F | SRC-000004 | DISC-TAVILY | [PDF] insurance - World Bank Documents and Reports |
+| https://documents1.worldbank.org/curated/en/310261613738371600/pdf/Technology-and-Digitiza | SRC-000004 | DISC-TAVILY | [PDF] Technology and Digitization in Supply Chain Finance Ha |
+| https://documents1.worldbank.org/curated/en/697901601913134315/txt/Analysis-of-the-Informa | SRC-000004 | DISC-TAVILY | Analysis-of-the-Information-Technology-Industry-in-Tver-Regi |
+| https://documents.worldbank.org/curated/en/654101468149684064/pdf/656000NWP00PUB07B0UDS13C | SRC-000004 | DISC-TAVILY | [PDF] Guidebook on Capital Investment Planning for Local Gov |
+| https://ppp.worldbank.org/sites/default/files/2022-06/Pnadj549.pdf | SRC-000004 | DISC-TAVILY | [PDF] Improving Power Distribution Company Operations to Acc |
+| https://icsidfiles.worldbank.org/icsid/ICSIDBLOBS/OnlineAwards/C11037/DS21215_En.pdf | SRC-000004 | DISC-TAVILY | [PDF] ST. JOHN'S BAY DEVELOPMENT COMPANY LLC PRÓSPERA ... |
+| https://ppid.bps.go.id/app/konten/0000/Profil-BPS.html | SRC-000001 | DISC-TAVILY | Profil BPS - Portal PPID Badan Pusat Statistik |
+| https://autoconfig.bps.go.id/BOOK/ebook/8U3X279/070726/business__logistics-supply__chain_m | SRC-000001 | DISC-TAVILY | [PDF] Business Logistics Supply Chain Management Gabaco |
+| https://silastik.bps.go.id/v3/index.php/data/download/RDJ6U0lxUUNzWVhtMU9tdWRueFhHUndDb1JE | SRC-000001 | DISC-TAVILY | [PDF] 2024 NATIONAL LABOUR FORCE SURVEY - Silastik BPS |
+| https://autoconfig.bps.go.id/PLAY/pdf/U59229O/090726/business-logistics-supply_chain-manag | SRC-000001 | DISC-TAVILY | [PDF] Business Logistics Supply Chain Management Gabaco |
+| https://autoconfig.bps.go.id/EPUB/edu/S9J2475316/S8J1969/the__new_feminist__agenda-definin | SRC-000001 | DISC-TAVILY | [PDF] The New Feminist Agenda Defining The Next Revolution F |
+| https://web-api.bps.go.id/download.php?f=BfUFsjlWjETiSct9SyR%2F3Epwb1U2cEVPZWwxMU51L2dJRVF | SRC-000001 | DISC-TAVILY | [PDF] https://bengkuluselatankab.bps.go.id |
+| https://autoconfig.bps.go.id/DOC/pub/5541775T2H/21809HT/enter-password-for__the__encrypted | SRC-000001 | DISC-TAVILY | [PDF] Enter Password For The Encrypted File Grand Theft Auto |
+| https://jakarta.bps.go.id/en/news/2022/10/17/811/supervision-of-regsosek-preliminary-data- | SRC-000001 | DISC-TAVILY | Supervision of Regsosek Preliminary Data Collection - jakart |
+| https://web-api.bps.go.id/download.php?f=VOEtqgwA6YjtPIgy+7E1IWVVQXptM0hvTkNmVWVJNzd0K01te | SRC-000001 | DISC-TAVILY | [PDF] STATISTIK LEMBAGA KEUANGAN 2014 |
+| https://ppid.bps.go.id/upload/doc/Klasifikasi_Baku_Komoditas_Indonesia_2013_Komoditas_Jasa | SRC-000001 | DISC-TAVILY | [PDF] Klasifikasi Baku Komoditas Indonesia 2013 Komoditas Ja |
+| https://autoconfig.bps.go.id/MD/ebook/3453E2A/062013040726/supply_chain__design-and__manag | SRC-000001 | DISC-TAVILY | [PDF] Supply Chain Design And Management For Emerging Market |
+| https://autoconfig.bps.go.id/PDF/text/094707/6S5925O/employee__coaching-plan__template.pdf | SRC-000001 | DISC-TAVILY | [PDF] Employee Coaching Plan Template - BPS |
+| https://autoconfig.bps.go.id/PUB/text/100726/537V24B643/the-22-day_revolution__cookbook_th | SRC-000001 | DISC-TAVILY | [PDF] The 22 Day Revolution Cookbook The Ultimate Resource F |
+| https://autoconfig.bps.go.id/DOC/doc/105511/94S380E177/rules-of__the_rich_28_proven-strate | SRC-000001 | DISC-TAVILY | [PDF] Rules Of The Rich 28 Proven Strategies For Creating A  |
+| https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/document/2022/Feb/stakeho | SRC-000007 | DISC-TAVILY | [PDF] PT Astra Graphia Tbk - Klinik Desain Merek Kemas - Kem |
+| https://ikm.kemenperin.go.id/storage/publication/gm-63.pdf | SRC-000007 | DISC-TAVILY | [PDF] CLOUD COMPUTING - Kementerian Perindustrian |
+| https://bspjisamarinda.kemenperin.go.id/download/Info_Publik/keuangan/Laporan_Keuangan_TA2 | SRC-000007 | DISC-TAVILY | [PDF] tahun anggaran 2024 (audited) - BSPJI Samarinda |
+| https://dx.crossref.org/10.1111/ajco.12332 | SRC-CROSSREF | DISC-TAVILY | Abstracts - 2014 - Asia-Pacific Journal of Clinical Oncology |
+| https://dx.crossref.org/10.1561/0800000014 | SRC-CROSSREF | DISC-TAVILY | The Estimation of Causal Effects by Difference-in-Difference |
+| https://dx.crossref.org/10.1088/1367-2630/aaff13 | SRC-CROSSREF | DISC-TAVILY | Fabrication limits of waveguides in nonlinear crystals and t |
+| https://www.adb.org/sites/default/files/publication/400586/indonesia-enhancing-productivit | SRC-000006 | DISC-TAVILY | [PDF] Indonesia: Enhancing Productivity through Quality Jobs |
+| https://www.adb.org | SRC-000006 | DISC-TAVILY | Asian Development Bank |
+| https://www.adb.org/sites/default/files/publication/30384/ewp-365.pdf | SRC-000006 | DISC-TAVILY | [PDF] The Information Technology and Business Process Outsou |
+| https://www.adb.org/sites/default/files/publication/28359/wp093.pdf | SRC-000006 | DISC-TAVILY | [PDF] An Analysis of the Philippine Business Process Outsour |
+| https://www.adb.org/sites/default/files/project-documents/54333/54333-001-esmr-en_2.pdf | SRC-000006 | DISC-TAVILY | [PDF] PT. Indorama Ventures Indonesia - Asian Development Ba |
+| https://www.adb.org/publications/analysis-philippine-business-process-outsourcing-industry | SRC-000006 | DISC-TAVILY | An Analysis of the Philippine Business Process Outsourcing I |
+| https://www.adb.org/sites/default/files/publication/30337/outsourcing-procurement-public-s | SRC-000006 | DISC-TAVILY | [PDF] Outsourcing Procurement in the Public Sector |
+| https://www.adb.org/sites/default/files/publication/688886/public-private-partnership-moni | SRC-000006 | DISC-TAVILY | [PDF] Public–Private Partnership Monitor: Indonesia |
+| https://www.adb.org/sites/default/files/publication/488556/adbi-wp927.pdf | SRC-000006 | DISC-TAVILY | [PDF] Services and Manufacturing in Global Value Chains |
+| https://www.adb.org/projects/56294-001/main | SRC-000006 | DISC-TAVILY | 56294-001: Cirebon Energy Transition Mechanism Pilot Project |
+| https://www.adb.org/sites/default/files/publication/791356/modernizing-local-government-ta | SRC-000006 | DISC-TAVILY | [PDF] Modernizing Local Government Taxation in Indonesia |
+| https://www.adb.org/sites/default/files/project-documents/49150/49150-001-tacr-en_1.pdf | SRC-000006 | DISC-TAVILY | 49150-001: Knowledge Development Support for Southeast Asia  |
+| https://www.adb.org/sites/default/files/publication/110982/ewp-411.pdf | SRC-000006 | DISC-TAVILY | [PDF] Industrial Policy in Indonesia: A Global Value Chain P |
+| https://www.adb.org/sites/default/files/publication/671711/industry-skills-development-sou | SRC-000006 | DISC-TAVILY | [PDF] Reaping the Benefits of Industry 4.0 through Skills De |
+| https://www.adb.org/sites/default/files/publication/185758/river-basin-mgt-ino.pdf | SRC-000006 | DISC-TAVILY | River Basin Management Planning in Indonesia |
+| https://www.adb.org/sites/default/files/publication/1119891/golden-indonesia-vision-2025.p | SRC-000006 | DISC-TAVILY | [PDF] Achieving the Golden Indonesia Vision 2045 |
+| https://aric.adb.org/pubs/digitalmarket/managing-development-digital-marketplaces-asia.pdf | SRC-000006 | DISC-TAVILY | [PDF] Managing the Development of Digital Marketplaces in As |
+| https://www.adb.org/sites/default/files/publication/714971/sdwp-079-cloud-computing-tech-s | SRC-000006 | DISC-TAVILY | Cloud Computing as a Key Enabler for Tech Start-Ups ... |
+| https://asianbondsonline.adb.org/events/2011/5th-abmf/day1-meeting-materials.pdf | SRC-000006 | DISC-TAVILY | [PDF] 5th ASEAN+3 Bond Market Forum (ABMF) Meeting |
+| https://aric.adb.org/pdf/aeir/AEIR2022_7_theme-chapter-advancing-digital-services-trade-in | SRC-000006 | DISC-TAVILY | [PDF] Advancing Digital Services Trade in Asia and the Pacif |
 | http://www5.worldbank.org/ | SRC-000004 | DISC-COMMONCRAWL |  |
 | https://www.worldbank.org/ | SRC-000004 | DISC-COMMONCRAWL |  |
 | https://www.worldbank.org:443/ | SRC-000004 | DISC-COMMONCRAWL |  |
@@ -34,44 +75,6 @@ Only domains present in Trusted Source Registry.
 | https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 | SRC-000004 | DISC-COMMONCRAWL |  |
 | https://www.worldbank.org/%E3%80%80 | SRC-000004 | DISC-COMMONCRAWL |  |
 | https://www.worldbank.org/404_response.htm | SRC-000004 | DISC-COMMONCRAWL |  |
-| https://www.worldbank.org/en/topic/financialsector/brief/corporate-governance | SRC-000004 | DISC-TAVILY | Corporate Governance - World Bank |
-| https://www.worldbank.org/en/topic/governance/brief/corporate-governance-and-financial-rep | SRC-000004 | DISC-TAVILY | Corporate Governance and Financial Reporting - World Bank |
-| https://www.worldbank.org/en/olc/course/43565 | SRC-000004 | DISC-TAVILY | Integrated SOE Framework (iSOEF): Corporate Governance of St |
-| https://documents.worldbank.org/en/publication/documents-reports/documentdetail/3377214683 | SRC-000004 | DISC-TAVILY | Brief glossary of corporate governance terminology (English) |
-| https://blogs.worldbank.org/en/psd/halting-race-bottom-corporate-conduct-governance-reform | SRC-000004 | DISC-TAVILY | Halting the 'race to the bottom' in corporate conduct: Gover |
-| https://documents.worldbank.org/en/publication/documents-reports/documentdetail/4909014681 | SRC-000004 | DISC-TAVILY | Corporate governance manual : second edition (English) |
-| https://openknowledge.worldbank.org/bitstreams/64520fa7-e921-5556-8b1c-6d07e547b057/downlo | SRC-000004 | DISC-TAVILY | [PDF] Corporate Governance and Performance around the World |
-| https://documents.worldbank.org/en/publication/documents-reports/documentdetail/0992252120 | SRC-000004 | DISC-TAVILY | Corporate Governance and Small and Medium Enterprises (Engli |
-| https://documents.worldbank.org/en/publication/documents-reports/documentdetail/6410914680 | SRC-000004 | DISC-TAVILY | Bhutan - State owned enterprises and corporate governance (S |
-| https://documents.worldbank.org/pt/publication/documents-reports/documentdetail/5583114871 | SRC-000004 | DISC-TAVILY | Vietnam corporate governance project (Inglês) |
-| https://documents.worldbank.org/pt/publication/documents-reports/documentdetail/1232714680 | SRC-000004 | DISC-TAVILY | Corporate governance and bank performance : a joint analysis |
-| https://blogs.worldbank.org/en/psd/islamic-finance-strong-standards-corporate-governance-a | SRC-000004 | DISC-TAVILY | Islamic finance: Strong standards of corporate governance ar |
-| https://documents.worldbank.org/en/publication/documents-reports/documentdetail/8702014682 | SRC-000004 | DISC-TAVILY | Malawi - Report on the Observance of Standards and Codes (RO |
-| https://blogs.worldbank.org/en/governance/engaging-in-good-spirit--advancing-corporate-gov | SRC-000004 | DISC-TAVILY | Engaging in Good SPIRIT: Advancing Corporate Governance ... |
-| https://thedocs.worldbank.org/en/doc/cd079f730c0f82f6b9c6763a606d7b4d-0570062025/corporate | SRC-000004 | DISC-TAVILY | Corporate Governance and Fiscal Risk Assessment of State-Own |
-| https://documents.worldbank.org/en/publication/documents-reports/documentdetail/4039316184 | SRC-000004 | DISC-TAVILY | Analyzing Banking Risk : A Framework for Assessing Corporate |
-| https://documents.worldbank.org/en/publication/documents-reports/documentdetail/2378416004 | SRC-000004 | DISC-TAVILY | A Review of Thirty-Nine Government-Selected SEPs |
-| https://documents.worldbank.org/en/publication/documents-reports/documentdetail/4834014683 | SRC-000004 | DISC-TAVILY | Zambia - Report on the Observance of Standards and Codes (RO |
-| https://autoconfig.bps.go.id/PAGE/pdf/001918/56M52Z1/corporate__governance-of_listed_compa | SRC-000001 | DISC-TAVILY | [PDF] Corporate Governance Of Listed Companies In Kuwait A . |
-| https://autodiscover.bps.go.id/book/data/po/3896O6P/course-outline_code_mgt712_title_corpo | SRC-000001 | DISC-TAVILY | [PDF] Course Outline Code Mgt712 Title Corporate Governance |
-| https://autoconfig.bps.go.id/TEXT/doc/70539WT/050726/good_practice-guidance__on-internal__ | SRC-000001 | DISC-TAVILY | [PDF] Good Practice Guidance On Internal Controls Ethics And |
-| https://autoconfig.bps.go.id/EBOOK/pdf/175745/8H10P89490/api__driven_devops__strategies-fo | SRC-000001 | DISC-TAVILY | [PDF] Api Driven Devops Strategies For Continuous Deployment |
-| https://autoconfig.bps.go.id/CHAPTER/play/nc052607/5876N28C37091129/retailing__in__emergin | SRC-000001 | DISC-TAVILY | [PDF] Retailing In Emerging Markets A Policy And Strategy Pe |
-| https://autoconfig.bps.go.id/EPDF/pub/1K7065K/5K8519681K/organization__contemporary_princi | SRC-000001 | DISC-TAVILY | [PDF] Organization Contemporary Principles And Practice |
-| https://autodiscover.bps.go.id/pdf/url/dp/231P17D/the__national-health-service_service__co | SRC-000001 | DISC-TAVILY | [PDF] The National Health Service Service Committees And Tri |
-| https://autoconfig.bps.go.id/TXT/lib/080726/7E28047A10/going__public-successful__securitie | SRC-000001 | DISC-TAVILY | [PDF] Going Public Successful Securities Underwriting |
-| https://autoconfig.bps.go.id/EPUB/pub/163521/5081I3L/lean__sigma-methods_and-tools_for_ser | SRC-000001 | DISC-TAVILY | [PDF] Lean Sigma Methods And Tools For Service Organizations |
-| https://autoconfig.bps.go.id/MD/doc/jj072607/72JJ480940065151/templates-for_policy_and_pro | SRC-000001 | DISC-TAVILY | [PDF] Templates For Policy And Procedure Manuals - BPS |
-| https://autoconfig.bps.go.id/PPT/science/35689NO/15124N02O7/unilever_code-of__business-pri | SRC-000001 | DISC-TAVILY | [PDF] Unilever Code Of Business Principles And Code Policies |
-| https://autoconfig.bps.go.id/BOOK/doc/72135KQ/16671040KQ/a_complete__course__in_risk-manag | SRC-000001 | DISC-TAVILY | [PDF] A Complete Course In Risk Management Imperial College  |
-| https://autoconfig.bps.go.id/PDF/ppt/892E92V/090726/internal__audit_summary-report-2014__2 | SRC-000001 | DISC-TAVILY | [PDF] Internal Audit Summary Report 2014 2015 |
-| https://autoconfig.bps.go.id/EBOOK/course/215220/97008TY/company_law-in__a-nutshell__nutsh | SRC-000001 | DISC-TAVILY | [PDF] Company Law In A Nutshell Nutshells |
-| https://autoconfig.bps.go.id/ITUNE/book/103425/19E169C/strategic__management_formulation_i | SRC-000001 | DISC-TAVILY | [PDF] Strategic Management Formulation Implementation And Co |
-| https://autoconfig.bps.go.id/TEXT/chap/Q246V39791/Q479V87/accounts-payable_process_mapping | SRC-000001 | DISC-TAVILY | [PDF] Accounts Payable Process Mapping Document Flowchart |
-| https://autoconfig.bps.go.id/DOC/science/bn/B90167N/socially__responsible-investment-law-r | SRC-000001 | DISC-TAVILY | [PDF] Socially Responsible Investment Law Regulating The Uns |
-| https://autoconfig.bps.go.id/BOOK/doc/9455P4L570/5311P2L/corporate-finance-by__hillier_eur | SRC-000001 | DISC-TAVILY | [PDF] Corporate Finance By Hillier European Edition |
-| https://autoconfig.bps.go.id/TXT/chap/wy/322W8176Y2260705/the__porter-s__theory__of_compet | SRC-000001 | DISC-TAVILY | [PDF] The Porter S Theory Of Competitive Advantage |
-| https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122008/property__in_securities__a | SRC-000001 | DISC-TAVILY | [PDF] Property In Securities A Comparative Study Cambridge S |
 | https://www.bps.go.id/ | SRC-000001 | DISC-COMMONCRAWL |  |
 | https://www.bps.go.id/248-268 | SRC-000001 | DISC-COMMONCRAWL |  |
 | https://www.bps.go.id/brs/view/id/1267 | SRC-000001 | DISC-COMMONCRAWL |  |
@@ -92,26 +95,6 @@ Only domains present in Trusted Source Registry.
 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us- | SRC-000001 | DISC-COMMONCRAWL |  |
 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years | SRC-000001 | DISC-COMMONCRAWL |  |
 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years | SRC-000001 | DISC-COMMONCRAWL |  |
-| https://autoconfig.bps.go.id/ITUNE/slide/4B4G141/191430090726/corporate_finance-middle__ea | SRC-000001 | DISC-TAVILY | [PDF] Corporate Finance Middle East Edition |
-| https://autoconfig.bps.go.id/EBOOK/ref/dd/897D3D5084260709/corporate-governance_and__finan | SRC-000001 | DISC-TAVILY | [PDF] Corporate Governance And Financial Reform In Chinas Tr |
-| https://autoconfig.bps.go.id/PLAY/science/58Z38S9612/30Z23S0/corporate_governance.pdf | SRC-000001 | DISC-TAVILY | [PDF] Corporate Governance |
-| https://autoconfig.bps.go.id/EPDF/pdf/050726/5U416N5998/a_handbook-of-corporate__governanc | SRC-000001 | DISC-TAVILY | [PDF] A Handbook Of Corporate Governance And Social Responsi |
-| https://autoconfig.bps.go.id/TEXT/slide/110726/40SJ201144/fundamentals__corporate__finance | SRC-000001 | DISC-TAVILY | [PDF] Fundamentals Corporate Finance 5th Edition |
-| https://autoconfig.bps.go.id/TXT/ppt/103405/566Y13K075/a_handbook__of__corporate-governanc | SRC-000001 | DISC-TAVILY | [PDF] A Handbook Of Corporate Governance And Social Responsi |
-| https://autoconfig.bps.go.id/CHAPTER/doc/B6613H1902/B9911H3/financial__theory__and_corpora | SRC-000001 | DISC-TAVILY | [PDF] Financial Theory And Corporate Policy Solution Manual  |
-| https://autoconfig.bps.go.id/PPT/doc/050726/76026HX421/corporate__finance_european_of__2nd | SRC-000001 | DISC-TAVILY | [PDF] Corporate Finance European Of 2nd Second R Edition By  |
-| https://autoconfig.bps.go.id/RTF/doc/ap/8A9012P934260704/corporate-communication.pdf | SRC-000001 | DISC-TAVILY | [PDF] Corporate Communication |
-| https://autoconfig.bps.go.id/PLAY/pdf/060726/8L135744X5/corporate-entrepreneurship-tilburg | SRC-000001 | DISC-TAVILY | [PDF] Corporate Entrepreneurship Tilburg University - BPS |
-| https://autoconfig.bps.go.id/TXT/science/xe/2E7330X/ross_corporate__finance_european-editi | SRC-000001 | DISC-TAVILY | [PDF] Ross Corporate Finance European Edition Solutions Manu |
-| https://autoconfig.bps.go.id/TXT/pdf/C45I457/060726/the__economist__organisation__culture_ | SRC-000001 | DISC-TAVILY | [PDF] The Economist Organisation Culture How Corporate Habit |
-| https://autoconfig.bps.go.id/PDF/chap/6O0037Z/080726/corporate_finance__by_ross_westerfiel | SRC-000001 | DISC-TAVILY | [PDF] Corporate Finance By Ross Westerfield Jaffe |
-| https://autoconfig.bps.go.id/EBOOK/chap/st072607/637S95T234085821/fundamentals__of_corpora | SRC-000001 | DISC-TAVILY | [PDF] Fundamentals Of Corporate Finance Plus New Myfinancela |
-| https://autodiscover.bps.go.id/pdf/dl/wj/312W57J/corporate_finance__european-edition_david | SRC-000001 | DISC-TAVILY | [PDF] Corporate Finance European Edition David Hillier |
-| https://autoconfig.bps.go.id/CHAPTER/pub/545H25O/191411060726/damodaran-on-valuation_2e__s | SRC-000001 | DISC-TAVILY | [PDF] Damodaran On Valuation 2e Security Analysis For Invest |
-| https://itjen.kemenperin.go.id/assets/publikasi_doc/2023_menghitung-kerugian-keuangan-nega | SRC-000007 | DISC-TAVILY | [PDF] 2023_menghitung-kerugian-keuangan-negara.pdf |
-| https://bspjipekanbaru.kemenperin.go.id/wp-content/uploads/2022/07/Prosiding-ISCSTSI-2020. | SRC-000007 | DISC-TAVILY | [PDF] proceeding - BSPJI Pekanbaru - Kementerian Perindustri |
-| https://bspjibanjarbaru.kemenperin.go.id/wp-content/uploads/2022/01/BUKU-PROSIDING-fix-SEM | SRC-000007 | DISC-TAVILY | [PDF] Prosiding Seminar Industri Hijau - bspji banjarbaru |
-| https://ikm.kemenperin.go.id/storage/publication/gm-67.pdf | SRC-000007 | DISC-TAVILY | [PDF] IKM KUAT dengan PENERAPAN STANDARDISASI - Ditjen IKMA |
 | https://ammdes.kemenperin.go.id/ | SRC-000007 | DISC-COMMONCRAWL |  |
 | http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project | SRC-000007 | DISC-COMMONCRAWL |  |
 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project | SRC-000007 | DISC-COMMONCRAWL |  |
@@ -132,75 +115,22 @@ Only domains present in Trusted Source Registry.
 | https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pln_nusantar | SRC-000007 | DISC-COMMONCRAWL |  |
 | https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0 | SRC-000007 | DISC-COMMONCRAWL |  |
 | https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahk | SRC-000007 | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/board-and-governance/bylaws | SRC-CROSSREF | DISC-TAVILY | Bylaws - Crossref |
-| https://www.crossref.org/pdfs/LIVE20-annual-meeting-election.pdf | SRC-CROSSREF | DISC-TAVILY | [PDF] #CRLIVE20 @CrossrefOrg |
-| https://www.crossref.org | SRC-CROSSREF | DISC-TAVILY | You are Crossref - Crossref |
-| https://www.crossref.org/operations-and-sustainability | SRC-CROSSREF | DISC-TAVILY | Operations & sustainability - Crossref |
-| https://dx.crossref.org/10.1111/j.1467-8683.2009.00742.x | SRC-CROSSREF | DISC-TAVILY | Women Directors on Corporate Boards: A Review and Research . |
-| https://dx.crossref.org/10.2307/255842 | SRC-CROSSREF | DISC-TAVILY | Boundary Spanning Individuals: Their Role in Information Tra |
-| https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/contr | SRC-CROSSREF | DISC-TAVILY | Contributors - Crossref |
-| https://www.crossref.org/documentation/funder-registry/accessing-the-funder-registry | SRC-CROSSREF | DISC-TAVILY | Accessing the Open Funder Registry - Crossref |
-| http://dx.crossref.org/10.1177/1355819613500664 | SRC-CROSSREF | DISC-TAVILY | a case study of a new type of primary care provider - Sage J |
-| https://dx.crossref.org/10.1080/26395916.2020.1808705 | SRC-CROSSREF | DISC-TAVILY | The 10 Elements of Agroecology: enabling transitions towards |
-| https://dx.crossref.org/10.1108/jhom-09-2023-0280 | SRC-CROSSREF | DISC-TAVILY | Putting the pieces together: towards an integrative framewor |
-| https://dx.crossref.org/10.1177/0018726707075288 | SRC-CROSSREF | DISC-TAVILY | Strategizing in pluralistic contexts: Rethinking theoretical |
-| https://dx.crossref.org/10.1287/orsc.9.1.1 | SRC-CROSSREF | DISC-TAVILY | A Reflective Dialogue in Defense of Case Studies - PubsOnLin |
-| https://dx.crossref.org/10.1287/mnsc.46.12.1554.12072 | SRC-CROSSREF | DISC-TAVILY | Coordinating Expertise in Software Development Teams |
-| https://dx.crossref.org/10.1002/aepp.13145 | SRC-CROSSREF | DISC-TAVILY | Who drives the digital revolution in agriculture? A review o |
-| https://dx.crossref.org/10.1186/s12913-017-2439-1 | SRC-CROSSREF | DISC-TAVILY | Advancing team-based primary health care: a comparative anal |
-| https://dx.crossref.org/10.1021/acs.est.7b00401 | SRC-CROSSREF | DISC-TAVILY | Missing Food, Missing Data? A Critical Review of Global Food |
-| https://dx.crossref.org/10.3768/rtipress.2021.mr.0046.2109 | SRC-CROSSREF | DISC-TAVILY | Modeling the Probability of Fraud in Social Media in Nationa |
-| https://dx.crossref.org/10.1007/s13280-021-01544-8 | SRC-CROSSREF | DISC-TAVILY | Our future in the Anthropocene biosphere | Ambio - Springer  |
-| https://dx.crossref.org/10.17226/26391 | SRC-CROSSREF | DISC-TAVILY | Educational Pathways for Black Students in Science, Engineer |
-| http://www.crossref.org | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/ | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| http://www.crossref.org/ | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/01company/16fastfacts.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/01company/pr/news071813.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| http://crossref.org/01company/pr/news080408.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://crossref.org/01company/pr/news080408.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/01company/pr/news080408.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/02publishers/20pub_fees.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/02publishers/doi-guidelines.pdf | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/02publishers/TitleandDOIownership.pdf | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/06members/50go-live.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/06members/51depositor.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/06members/53status.html | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/%3E | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org?ao=1 | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/?from_ui=yes&q=jurnal%20kepastian%20hukum%20dan%20keadilan | SRC-CROSSREF | DISC-COMMONCRAWL |  |
-| https://www.adb.org/sites/default/files/publication/667006/corporate-governance-south-asia | SRC-000006 | DISC-TAVILY | [PDF] Corporate Governance in South Asia: Trends and Challen |
-| https://www.adb.org/sites/default/files/publication/549336/corporate-governance-firm-profi | SRC-000006 | DISC-TAVILY | [PDF] Corporate Governance, Firm Profitability, and Share Va |
-| https://www.adb.org/sites/default/files/publication/42600/asean-corporate-governance-score | SRC-000006 | DISC-TAVILY | [PDF] ASEAN Corporate Governance Scorecard - Asian Developme |
-| https://www.adb.org/sites/default/files/project-documents//32051-vie-tcr.pdf | SRC-000006 | DISC-TAVILY | [PDF] Strengthening Corporate Governance at Viet Nam Bank fo |
-| https://www.adb.org/sites/default/files/project-documents//36550-ino-tcr.pdf | SRC-000006 | DISC-TAVILY | [PDF] State-Owned Enterprise Reform Program II - Asian Devel |
-| https://www.adb.org/sites/default/files/publication/29027/balanced-scorecard.pdf | SRC-000006 | DISC-TAVILY | [PDF] Balanced Scorecard for State-Owned Enterprises |
-| https://www.adb.org/sites/default/files/institutional-document/32845/promoting-good-govern | SRC-000006 | DISC-TAVILY | [PDF] promoting good governance: adb's medium-term agenda an |
-| https://www.adb.org/sites/default/files/publication/157226/adbi-rp52.pdf | SRC-000006 | DISC-TAVILY | [PDF] Their Potential Role in Corporate Governance |
-| https://www.adb.org/sites/default/files/publication/618761/reforms-opportunities-challenge | SRC-000006 | DISC-TAVILY | [PDF] Reforms, Opportunities, and Challenges for State-Owned |
-| https://www.adb.org/sites/default/files/project-documents//tar-sam-37235.pdf | SRC-000006 | DISC-TAVILY | [PDF] TAR:SAM 37235 - Asian Development Bank |
-| https://www.adb.org/sites/default/files/publication/375481/asean-cgscorecard-2015.pdf | SRC-000006 | DISC-TAVILY | [PDF] ASEAN Corporate Governance Scorecard Country Reports a |
-| https://www.adb.org/sites/default/files/project-documents/58211/58211-001-rrp-en.pdf | SRC-000006 | DISC-TAVILY | [PDF] Accelerating State-Owned Enterprises Transformation Pr |
-| https://www.adb.org/sites/default/files/publication/159370/adbi-corp-gov-vol-1.pdf | SRC-000006 | DISC-TAVILY | [PDF] Corporate Governance of Banks in Asia |
-| http://www.adb.org/sites/default/files/publication/156768/adbi-dp3.pdf | SRC-000006 | DISC-TAVILY | [PDF] Corporate Governance in Banking and Economic Performan |
-| https://www.adb.org/sites/default/files/publication/610771/adbi-environmental-social-gover | SRC-000006 | DISC-TAVILY | [PDF] Environmental, Social, and Governance Investment: Oppo |
-| https://www.adb.org/sites/default/files/publication/159371/adbi-corp-gov-vol-2.pdf | SRC-000006 | DISC-TAVILY | [PDF] Corporate Governance of Banks in Asia |
-| https://www.adb.org/sites/default/files/project-documents//r141-00.pdf | SRC-000006 | DISC-TAVILY | [PDF] %2$5' 2 ) ',5(&7256 - Asian Development Bank |
-| https://www.adb.org/sites/default/files/publication/156756/adbi-dp10.pdf | SRC-000006 | DISC-TAVILY | [PDF] Corporate Governance in the Republic of Korea and Its  |
-| https://www.adb.org/news/features/improving-water-governance-asia-pacific-region-why-it-ma | SRC-000006 | DISC-TAVILY | Improving Water Governance in the Asia-Pacific Region: Why I |
-| https://www.adb.org/node/1136021 | SRC-000006 | DISC-TAVILY | How Pakistan's Public Service Obligations Framework Improves |
-| http://www.adb.org/ | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/ | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org// | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/?gclid=CjwKCAjwqJSaBhBUEiwAg5W9pz0FxvfsG7XzIr24fYv06Hu3SxyQuMVPyiq4m0o | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/about/annual-meetings/event-sustainability | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/about/board-calendar | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/about/board-directors | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/about/management/haruhiko-kuroda | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://adb.org/about/members | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org//about/members | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/about/members | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/about/partners | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/about/social-development | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/acliff | SRC-000006 | DISC-COMMONCRAWL |  |
-| https://www.adb.org/adb-president-expanded-agenda-carec-18th-ministerial-conference | SRC-000006 | DISC-COMMONCRAWL |  |
+| https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/ | SRC-CROSSREF | DISC-SITEMAP |  |
+| https://www.crossref.org/jobs/2025-11-13-communications-manager/ | SRC-CROSSREF | DISC-SITEMAP |  |
+| https://www.crossref.org/members-area/ | SRC-CROSSREF | DISC-SITEMAP |  |
+| https://www.crossref.org/jobs/2023-04-24-contract-member-support/ | SRC-CROSSREF | DISC-SITEMAP |  |
+| https://owasp.org/ | SRC-OWASP | DISC-SITEMAP |  |
+| https://owasp.org/blog/2025/03/06/owasp-education-and-training-committee-update.html | SRC-OWASP | DISC-SITEMAP |  |
+| https://owasp.org/projects/ | SRC-OWASP | DISC-SITEMAP |  |
+| https://owasp.org/www-project-top-ten/ | SRC-OWASP | DISC-SITEMAP |  |
+| https://www.ifrs.org/ | SRC-ISSB | DISC-SITEMAP |  |
+| https://www.ifrs.org/groups/managing-director/michel-madelain/ | SRC-ISSB | DISC-SITEMAP |  |
+| https://www.ifrs.org/groups/monitoring-board/ | SRC-ISSB | DISC-SITEMAP |  |
+| https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitorin | SRC-ISSB | DISC-SITEMAP |  |
+| https://www.crossref.org/jobs/2023-02-08-contract-software-development/ | SRC-CROSSREF | DISC-RSS |  |
+| http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html | SRC-OWASP | DISC-RSS | Aikido and OWASP bring agentic Code Audit to the global AppS |
+| http://owasp.org/blog/2026/06/09/dependency-track-v5.html | SRC-OWASP | DISC-RSS | OWASP Dependency-Track 5.0 Is Now Generally Available |
+| http://owasp.org/blog/2026/05/13/juice-shop-v20.html | SRC-OWASP | DISC-RSS | Juice Shop v20.0.0 — a fresh squeeze of features, now with A |
+| http://owasp.org/blog/2026/05/11/gsoc-2026.html | SRC-OWASP | DISC-RSS | Welcome to the Google Summer of Code 2026! |
+| http://owasp.org/blog/2026/05/05/owasp-unveils-strategic-plan-world-without-insecure-softw | SRC-OWASP | DISC-RSS | OWASP Foundation Unveils Its Strategic Plan for a World With |
+| https://www.ifrs.org/groups/trustees-of-the-ifrs-foundation/ | SRC-ISSB | DISC-RSS |  |
