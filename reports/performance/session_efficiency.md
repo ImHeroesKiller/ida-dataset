@@ -1,16 +1,16 @@
 # Session Efficiency
 
-**Generated:** 2026-07-11T19:26:52+00:00
+**Generated:** 2026-07-11T21:09:09+00:00
 
 | Metric | Value |
 |--------|------:|
-| Sessions | 49 |
-| Sessions with rows | 15 |
-| Total rows | 49 |
-| Avg duration (s) | 331.0 |
+| Sessions | 50 |
+| Sessions with rows | 16 |
+| Total rows | 54 |
+| Avg duration (s) | 346.78 |
 | Max duration (s) | 2353.0 |
-| Rows/session | 3.267 |
-| Top mission | Bootstrap Buyer Persona Library — continuous knowledge manufacturing for buyer_p |
+| Rows/session | 3.375 |
+| Top mission | corporate governance — service knowledge for Corporate Governance — continuous k |
 
 Mission density: hourly `learn.yml` + non-overlapping concurrency.
 Throughput gains use idle window capacity by processing more docs per session.
