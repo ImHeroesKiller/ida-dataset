@@ -1,7 +1,7 @@
 # Hard Limit Audit
 
-**Generated:** 2026-07-11T14:45:55+00:00
-**Occurrences found:** 303
+**Generated:** 2026-07-11T15:17:15+00:00
+**Occurrences found:** 304
 
 Search covers acquisition, config, learning, search, and CI paths.
 
@@ -295,6 +295,7 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/search/query_planner.py` | 54 | `limit=5,` |
 | `automation/search/query_planner.py` | 63 | `limit=max(1, min(limit, 50)),` |
 | `automation/search/orchestrator.py` | 52 | `connectors, preferred_types=preferred_types, limit=8` |
+| `automation/ci/huggingface_publish.py` | 43 | `print(f"GITHUB_SHA: {(os.environ.get('GITHUB_SHA') or 'n/a')[:12]}", flush=True)` |
 | `automation/ci/industry_knowledge_cycle.py` | 211 | `"Last Updated": retrieved[:10],` |
 | `automation/ci/industry_knowledge_cycle.py` | 319 | `"Last Updated": retrieved[:10],` |
 | `automation/ci/industry_knowledge_cycle.py` | 421 | `"Last Updated": retrieved[:10],` |

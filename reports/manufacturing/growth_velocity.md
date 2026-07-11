@@ -11,7 +11,7 @@
   "rows_this_week": 42,
   "rows_this_month": 42,
   "sessions_last_hour": 3,
-  "sessions_24h": 26,
+  "sessions_24h": 25,
   "sessions_7d": 44,
   "sessions_30d": 44,
   "rows_per_hour": 1.75,
@@ -30,7 +30,7 @@
     "documents_per_second": 0.132,
     "rows_per_second": 0.0
   },
-  "mission_throughput_sessions_24h": 26,
+  "mission_throughput_sessions_24h": 25,
   "growth_velocity_rows_per_day": 6.0
 }
 ```
