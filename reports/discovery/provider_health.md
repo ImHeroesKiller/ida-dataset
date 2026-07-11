@@ -1,11 +1,18 @@
 # Provider Health
 
-**Session:** `SES-20260711-DE29FE`
+**Generated:** 2026-07-11T11:54:23+00:00
 
-| Provider | Health | Credentials | Message |
-|----------|--------|-------------|---------|
-| Trusted Site Search (connector-backed) | healthy | True | always_available |
-| Sitemap Discovery | healthy | True | feed_discovery |
-| RSS Discovery | healthy | True | feed_discovery |
-| Atom Discovery | healthy | True | feed_discovery |
-| OpenSearch Description | idle | True | optional |
+| Provider | Operational | Health | Credentials | Latency ms | Message |
+|----------|-------------|--------|-------------|-----------:|---------|
+| Trusted Site Search (connector-backed) | ACTIVE | healthy | True | 0.0 | always_available |
+| Google Programmable Search | MISCONFIGURED | offline | False | 0.0 | missing_credentials |
+| Bing Web Search API | MISCONFIGURED | offline | False | 0.0 | missing_credentials |
+| Brave Search API | MISCONFIGURED | offline | False | 0.0 | missing_credentials |
+| Tavily | MISCONFIGURED | offline | False | 0.0 | missing_credentials |
+| SerpAPI | MISCONFIGURED | offline | False | 0.0 | missing_credentials |
+| Sitemap Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
+| RSS Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
+| Atom Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
+| Yandex XML Search | MISCONFIGURED | offline | False | 0.0 | missing_credentials |
+| Common Crawl Index | ACTIVE | healthy | True | 0.0 | toggle |
+| OpenSearch Description | ACTIVE | idle | True | 0.0 | optional |

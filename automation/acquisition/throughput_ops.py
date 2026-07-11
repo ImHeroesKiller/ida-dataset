@@ -51,21 +51,36 @@ def adaptive_workers(avg_latency_ms: float, *, max_workers: int = 16) -> int:
 def process_budget(
     discovered: int,
     *,
-    soft_limit: int = 32,
-    hard_limit: int = 100,
+    soft_limit: int | None = None,
+    hard_limit: int | None = None,
     target_ratio: float = TARGET_PROCESS_RATIO,
+    gap_score: float = 0.0,
+    worker_capacity: int = 4,
+    download_budget: int | None = None,
 ) -> int:
     """How many unique discovered docs to process this session.
 
-    Raises process ratio toward ≥90% while respecting policy hard caps.
-    soft_limit is the per-session ceiling; hard_limit is policy max_documents.
+    Targets ≥90% process ratio. Soft/hard limits are optional policy rails only —
+    never arbitrary 5/10/20/50 document caps. When download_budget is provided
+    (adaptive discovery budget), it is preferred as the session ceiling.
     """
     if discovered <= 0:
         return 0
     target = int(math.ceil(discovered * target_ratio))
-    # Always try at least soft_limit when inventory is large enough
-    budget = max(target, min(discovered, soft_limit))
-    budget = min(budget, discovered, soft_limit, hard_limit)
+    # Adaptive floor: workers × gap-scaled batch — not a fixed 32
+    workers = max(1, int(worker_capacity or 1))
+    gap_boost = 1.0 + min(1.5, max(0.0, float(gap_score or 0)) / 80.0)
+    adaptive_floor = int(math.ceil(workers * 8 * gap_boost))
+    if download_budget is not None and download_budget > 0:
+        ceiling = int(download_budget)
+    elif soft_limit is not None and soft_limit > 0:
+        ceiling = max(int(soft_limit), adaptive_floor)
+    else:
+        ceiling = max(target, adaptive_floor, discovered)
+    if hard_limit is not None and hard_limit > 0:
+        ceiling = min(ceiling, int(hard_limit))
+    budget = max(target, min(discovered, ceiling))
+    budget = min(budget, discovered, ceiling)
     return max(1, budget) if discovered else 0
 
 

@@ -26,7 +26,7 @@ Core factory, mission engine, validation, and exports operate without paid disco
 | `TAVILY_API_KEY` | Tavily | Research search API |
 | `YANDEX_API_KEY` | Yandex XML | Also set `YANDEX_USER` when required |
 | `YANDEX_USER` | Yandex XML user | Optional companion |
-| `COMMONCRAWL_ENABLED` | Common Crawl Index | Set `1` / `true` to enable free index |
+| `COMMONCRAWL_ENABLED` | Common Crawl Index | Default ON; set `0` to opt out |
 | `RSS_ENABLED` | RSS discovery | Default on; set `0` to disable |
 | `ATOM_ENABLED` | Atom discovery | Default on; set `0` to disable |
 | `SITEMAP_ENABLED` | Sitemap discovery | Default on; set `0` to disable |
@@ -48,9 +48,9 @@ Core factory, mission engine, validation, and exports operate without paid disco
 | Site-targeted queries | Built-in `DISC-TRUSTED-SITE` (no network) + connectors |
 | Scholarly metadata | OpenAlex (mailto recommended), Crossref |
 | International docs | World Bank WDS API, OECD/ADB HTML (rate-limited) |
-| Common Crawl | `COMMONCRAWL_ENABLED=1` (public index; variable availability) |
+| Common Crawl | Default ON (public index; set `COMMONCRAWL_ENABLED=0` to opt out) |
 
-Paid search APIs **auto-disable** when keys are missing. The factory continues with remaining providers.
+Paid search APIs are marked **MISCONFIGURED** when keys are missing (never silently disabled). Network calls skip them; status is always reported. The factory continues with remaining ACTIVE providers.
 
 ---
 

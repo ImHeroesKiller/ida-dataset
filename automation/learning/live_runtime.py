@@ -427,14 +427,14 @@ def _run_live_session_body(
     def _acquire() -> dict[str, Any]:
         from automation.acquisition.pipeline import run_acquisition
 
-        # Throughput: raise per-session document budget (policy hard cap still applies).
-        # process_budget inside pipeline targets ≥90% of discovered docs.
+        # Throughput: adaptive discovery budgets inside pipeline; limit is a floor hint only.
+        # process_budget targets ≥90% of discovered docs within adaptive download budget.
         return run_acquisition(
             instruction=instruction,
             mission_id=mission_id,
             session_id=session_id,
             dataset=dataset,
-            limit=32,
+            limit=64,
             dry_run=not publish,
             publish=publish and auto_approve,
             auto_approve=auto_approve,

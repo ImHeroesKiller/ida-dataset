@@ -2,7 +2,9 @@
 # Search engines only discover URLs. Knowledge is extracted only from
 # domains verified against source_registry.yaml (Trusted Source Registry).
 #
-# Credentials: environment variables only. Providers auto-disable without keys.
+# Credentials: environment variables only.
+# Missing keys → MISCONFIGURED (reported, never silently disabled).
+# Network calls skip MISCONFIGURED providers; status is always visible.
 
 version: "1.0"
 description: "Discovery tools for finding candidate documents on trusted domains"
@@ -162,7 +164,7 @@ providers:
     env_keys: [COMMONCRAWL_ENABLED]
     status: idle
     health: unknown
-    notes: "Set COMMONCRAWL_ENABLED=1 to enable free index search"
+    notes: "Free index — default ON; set COMMONCRAWL_ENABLED=0 to opt out"
 
   - id: DISC-RSS
     name: RSS Discovery

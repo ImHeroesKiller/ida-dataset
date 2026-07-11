@@ -20,13 +20,15 @@ review_required: true
 # Auto-publish preference is 0.92 (see acquisition/throughput_ops.AUTO_PUBLISH_CONFIDENCE).
 confidence_threshold: 0.80
 
-# Limits (human safety rails) — session throughput raised within daily hard caps
+# Limits (human safety rails) — adaptive discovery may scale session work up to these ceilings.
+# These are optional safety rails, not discovery stop conditions. Discovery stops only on
+# provider exhaustion, knowledge-gap satisfied, runtime budget, or provider quota.
 limits:
-  max_documents: 100
-  max_rows_per_day: 200
-  max_updates_per_day: 50
-  max_sources_per_run: 12
-  max_documents_per_session: 32
+  max_documents: 500
+  max_rows_per_day: 500
+  max_updates_per_day: 200
+  max_sources_per_run: 48
+  max_documents_per_session: 200
 
 # Provenance is mandatory; these columns are always attached
 provenance_fields:

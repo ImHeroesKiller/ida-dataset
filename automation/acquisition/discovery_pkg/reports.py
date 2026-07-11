@@ -39,33 +39,39 @@ def write_discovery_reports(
         f"URLs discovered: **{analytics.get('urls_discovered', 0)}**",
         f"URLs accepted: **{analytics.get('urls_accepted', 0)}**",
         f"URLs rejected: **{analytics.get('urls_rejected', 0)}**",
+        f"URLs remaining: **{analytics.get('urls_remaining', 0)}**",
+        f"Stop reason: **{analytics.get('stop_reason', '—')}**",
+        f"URLs/hour: **{analytics.get('urls_per_hour', 0)}** · Accepted/hour: **{analytics.get('accepted_per_hour', 0)}**",
         "",
-        "| Provider | Type | Queries | URLs | Cache hits | ms | Status |",
-        "|----------|------|--------:|-----:|-----------:|---:|--------|",
+        "| Provider | Type | Op status | Queries | URLs | Util | Exhausted | Cache | ms | Status |",
+        "|----------|------|-----------|--------:|-----:|-----:|-----------|------:|---:|--------|",
     ]
     for p in analytics.get("providers") or []:
         lines.append(
-            f"| {p.get('name')} | {p.get('api_type')} | {p.get('queries', 0)} | "
-            f"{p.get('urls', 0)} | {p.get('cache_hits', 0)} | {p.get('elapsed_ms', 0)} | "
+            f"| {p.get('name')} | {p.get('api_type')} | {p.get('operational_status')} | "
+            f"{p.get('queries', 0)} | {p.get('urls', 0)} | {p.get('utilization', 0)} | "
+            f"{p.get('exhausted', False)} | {p.get('cache_hits', 0)} | {p.get('elapsed_ms', 0)} | "
             f"{p.get('status')} |"
         )
     w("provider_statistics.md", "\n".join(lines))
 
-    # provider_health
+    # provider_health (session snapshot — full audit also rewrites this file)
     hl = [
         "# Provider Health",
         "",
         f"**Session:** `{sid}`",
+        f"**Generated:** {utc_now_iso()}",
         "",
-        "| Provider | Health | Credentials | Message |",
-        "|----------|--------|-------------|---------|",
+        "| Provider | Operational | Health | Credentials | Exhausted | Message |",
+        "|----------|-------------|--------|-------------|-----------|---------|",
     ]
     for p in analytics.get("providers") or []:
         h = p.get("health") or {}
         hl.append(
-            f"| {p.get('name')} | {h.get('status') if isinstance(h, dict) else h} | "
-            f"{p.get('credentials_available')} | "
-            f"{(h.get('message') if isinstance(h, dict) else '') or '—'} |"
+            f"| {p.get('name')} | {p.get('operational_status')} | "
+            f"{h.get('status') if isinstance(h, dict) else h} | "
+            f"{p.get('credentials_available')} | {p.get('exhausted', False)} | "
+            f"{(h.get('message') if isinstance(h, dict) else '') or p.get('exhaustion_reason') or '—'} |"
         )
     w("provider_health.md", "\n".join(hl))
 

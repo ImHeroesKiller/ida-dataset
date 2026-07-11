@@ -80,6 +80,18 @@ jobs:
       DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
       # Empty default → learning_session selects mission dynamically
       IDA_LEARNING_INSTRUCTION: ${{ github.event.inputs.mission || '' }}
+      # Discovery providers — optional secrets (MISCONFIGURED if empty, never silent)
+      TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+      GOOGLE_SEARCH_API_KEY: ${{ secrets.GOOGLE_SEARCH_API_KEY }}
+      GOOGLE_SEARCH_ENGINE_ID: ${{ secrets.GOOGLE_SEARCH_ENGINE_ID }}
+      BING_SEARCH_API_KEY: ${{ secrets.BING_SEARCH_API_KEY }}
+      BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+      SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+      YANDEX_API_KEY: ${{ secrets.YANDEX_API_KEY }}
+      YANDEX_USER: ${{ secrets.YANDEX_USER }}
+      COMMONCRAWL_ENABLED: ${{ secrets.COMMONCRAWL_ENABLED || '1' }}
+      OPENALEX_EMAIL: ${{ secrets.OPENALEX_EMAIL }}
+      CROSSREF_MAILTO: ${{ secrets.CROSSREF_MAILTO }}
 
     steps:
       - name: Checkout

@@ -20,7 +20,7 @@ def discover_urls(
     sitemap_url: str | None = None,
     atom_feed: str | None = None,
     limit: int = 20,
-    timeout: float = 20.0,
+    timeout: float = 8.0,
 ) -> list[dict[str, Any]]:
     """Discover candidate document URLs from preferred discovery channels."""
     out: list[dict[str, Any]] = []
@@ -91,7 +91,7 @@ def _parse_feed_xml(text: str, *, kind: str) -> list[dict[str, str]]:
         # regex fallback for broken feeds
         links = re.findall(r"<link[^>]*>(https?://[^<]+)</link>", text, flags=re.I)
         titles = re.findall(r"<title[^>]*>([^<]+)</title>", text, flags=re.I)
-        for i, link in enumerate(links[:20]):
+        for i, link in enumerate(links):
             out.append(
                 {
                     "url": link.strip(),
@@ -130,7 +130,7 @@ def _parse_sitemap(text: str) -> list[dict[str, str]]:
         root = ET.fromstring(text)
     except ET.ParseError:
         locs = re.findall(r"<loc>\s*(https?://[^<\s]+)\s*</loc>", text, flags=re.I)
-        return [{"url": u.strip(), "published_at": ""} for u in locs[:50]]
+        return [{"url": u.strip(), "published_at": ""} for u in locs]
     for el in root.iter():
         if _local(el.tag).lower() != "url":
             continue

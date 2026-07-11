@@ -1,4 +1,9 @@
-"""Discovery provider adapters — discover URLs only; auto-disable without credentials."""
+"""Discovery provider adapters — discover URLs only.
+
+Providers never become knowledge sources. Missing credentials → empty results
+with MISCONFIGURED status reported by the registry (never silent disable).
+Provider page-size caps only where the upstream API requires them.
+"""
 
 from __future__ import annotations
 
@@ -6,14 +11,20 @@ import json
 import os
 import time
 from typing import Any, Optional
-from urllib.parse import quote_plus, urlencode
+from urllib.parse import urlencode
 
 from automation.acquisition.discovery import discover_urls
 from automation.acquisition.discovery_pkg.base import BaseDiscoveryProvider
 from automation.connectors.http_utils import http_get
 
 
-def _item(url: str, title: str = "", snippet: str = "", provider_id: str = "", published_at: str = "") -> dict[str, Any]:
+def _item(
+    url: str,
+    title: str = "",
+    snippet: str = "",
+    provider_id: str = "",
+    published_at: str = "",
+) -> dict[str, Any]:
     return {
         "url": url,
         "title": (title or "")[:200],
@@ -24,12 +35,86 @@ def _item(url: str, title: str = "", snippet: str = "", provider_id: str = "", p
     }
 
 
+def _provider_page_cap(api_type: str, limit: int) -> int:
+    """Only API-native maxima — not arbitrary session document caps."""
+    caps = {
+        "google_cse": 10,  # Google CSE hard max per request
+        "bing": 50,
+        "brave": 20,
+        "serpapi": 20,
+        "tavily": 20,
+        "yandex": 50,
+        "commoncrawl": 100,
+        "rss": 500,
+        "atom": 500,
+        "sitemap": 500,
+    }
+    cap = caps.get(api_type, 20)
+    return max(1, min(int(limit or cap), cap))
+
+
+def probe_tavily_connectivity() -> dict[str, Any]:
+    """Explicit Tavily connectivity check with evidence (no secrets logged)."""
+    key = os.environ.get("TAVILY_API_KEY", "").strip()
+    if not key:
+        return {
+            "probed": False,
+            "ok": False,
+            "status": "MISCONFIGURED",
+            "message": "TAVILY_API_KEY missing",
+            "latency_ms": None,
+        }
+    import urllib.request
+
+    payload = json.dumps(
+        {
+            "api_key": key,
+            "query": "site:worldbank.org indonesia",
+            "max_results": 1,
+            "include_answer": False,
+        }
+    ).encode("utf-8")
+    req = urllib.request.Request(
+        "https://api.tavily.com/search",
+        data=payload,
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "IDA-Dataset-Factory/2.0",
+        },
+        method="POST",
+    )
+    t0 = time.perf_counter()
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            body = resp.read().decode("utf-8", errors="replace")
+            code = getattr(resp, "status", 200) or 200
+        latency = round((time.perf_counter() - t0) * 1000, 1)
+        data = json.loads(body) if body else {}
+        n = len(data.get("results") or [])
+        return {
+            "probed": True,
+            "ok": code == 200,
+            "status": "ACTIVE" if code == 200 else "ERROR",
+            "message": f"http_{code}_results_{n}",
+            "latency_ms": latency,
+            "http_status": code,
+            "result_count": n,
+        }
+    except Exception as exc:  # noqa: BLE001
+        latency = round((time.perf_counter() - t0) * 1000, 1)
+        return {
+            "probed": True,
+            "ok": False,
+            "status": "ERROR",
+            "message": f"connectivity_failed:{type(exc).__name__}",
+            "latency_ms": latency,
+        }
+
+
 class TrustedSiteProvider(BaseDiscoveryProvider):
     """Always-on: emits site-scoped query metadata (no external API)."""
 
     def discover(self, query: str, *, limit: int = 10, **kwargs: Any) -> list[dict[str, Any]]:
-        # This provider does not hit the network; layer uses its queries for other providers
-        # and for connector site targeting.
         return []
 
     def health(self) -> dict[str, Any]:
@@ -42,12 +127,8 @@ class GoogleCseProvider(BaseDiscoveryProvider):
         cx = os.environ.get("GOOGLE_SEARCH_ENGINE_ID", "").strip()
         if not key or not cx:
             return []
-        params = {
-            "key": key,
-            "cx": cx,
-            "q": query,
-            "num": min(limit, 10),
-        }
+        num = _provider_page_cap("google_cse", limit)
+        params = {"key": key, "cx": cx, "q": query, "num": num}
         url = f"{self.config.get('base_url')}?{urlencode(params)}"
         res = http_get(url, timeout=float(self.config.get("timeout") or 20), retries=1)
         if not res.get("ok") or not isinstance(res.get("json"), dict):
@@ -65,8 +146,15 @@ class GoogleCseProvider(BaseDiscoveryProvider):
         return [x for x in out if x["url"]]
 
     def health(self) -> dict[str, Any]:
-        ok = bool(os.environ.get("GOOGLE_SEARCH_API_KEY") and os.environ.get("GOOGLE_SEARCH_ENGINE_ID"))
-        return {"ok": ok, "status": "healthy" if ok else "offline", "message": "credentials" if ok else "missing_credentials"}
+        ok = bool(
+            os.environ.get("GOOGLE_SEARCH_API_KEY")
+            and os.environ.get("GOOGLE_SEARCH_ENGINE_ID")
+        )
+        return {
+            "ok": ok,
+            "status": "healthy" if ok else "offline",
+            "message": "credentials" if ok else "missing_credentials",
+        }
 
 
 class BingProvider(BaseDiscoveryProvider):
@@ -74,7 +162,8 @@ class BingProvider(BaseDiscoveryProvider):
         key = os.environ.get("BING_SEARCH_API_KEY", "").strip()
         if not key:
             return []
-        url = f"{self.config.get('base_url')}?{urlencode({'q': query, 'count': min(limit, 10)})}"
+        count = _provider_page_cap("bing", limit)
+        url = f"{self.config.get('base_url')}?{urlencode({'q': query, 'count': count})}"
         res = http_get(
             url,
             headers={"Ocp-Apim-Subscription-Key": key},
@@ -97,7 +186,11 @@ class BingProvider(BaseDiscoveryProvider):
 
     def health(self) -> dict[str, Any]:
         ok = bool(os.environ.get("BING_SEARCH_API_KEY"))
-        return {"ok": ok, "status": "healthy" if ok else "offline", "message": "credentials" if ok else "missing_credentials"}
+        return {
+            "ok": ok,
+            "status": "healthy" if ok else "offline",
+            "message": "credentials" if ok else "missing_credentials",
+        }
 
 
 class BraveProvider(BaseDiscoveryProvider):
@@ -105,7 +198,8 @@ class BraveProvider(BaseDiscoveryProvider):
         key = os.environ.get("BRAVE_SEARCH_API_KEY", "").strip()
         if not key:
             return []
-        url = f"{self.config.get('base_url')}?{urlencode({'q': query, 'count': min(limit, 10)})}"
+        count = _provider_page_cap("brave", limit)
+        url = f"{self.config.get('base_url')}?{urlencode({'q': query, 'count': count})}"
         res = http_get(
             url,
             headers={"X-Subscription-Token": key, "Accept": "application/json"},
@@ -128,7 +222,11 @@ class BraveProvider(BaseDiscoveryProvider):
 
     def health(self) -> dict[str, Any]:
         ok = bool(os.environ.get("BRAVE_SEARCH_API_KEY"))
-        return {"ok": ok, "status": "healthy" if ok else "offline", "message": "credentials" if ok else "missing_credentials"}
+        return {
+            "ok": ok,
+            "status": "healthy" if ok else "offline",
+            "message": "credentials" if ok else "missing_credentials",
+        }
 
 
 class SerpApiProvider(BaseDiscoveryProvider):
@@ -136,7 +234,8 @@ class SerpApiProvider(BaseDiscoveryProvider):
         key = os.environ.get("SERPAPI_API_KEY", "").strip()
         if not key:
             return []
-        params = {"engine": "google", "q": query, "api_key": key, "num": min(limit, 10)}
+        num = _provider_page_cap("serpapi", limit)
+        params = {"engine": "google", "q": query, "api_key": key, "num": num}
         url = f"{self.config.get('base_url')}?{urlencode(params)}"
         res = http_get(url, timeout=float(self.config.get("timeout") or 25), retries=1)
         if not res.get("ok") or not isinstance(res.get("json"), dict):
@@ -155,7 +254,11 @@ class SerpApiProvider(BaseDiscoveryProvider):
 
     def health(self) -> dict[str, Any]:
         ok = bool(os.environ.get("SERPAPI_API_KEY"))
-        return {"ok": ok, "status": "healthy" if ok else "offline", "message": "credentials" if ok else "missing_credentials"}
+        return {
+            "ok": ok,
+            "status": "healthy" if ok else "offline",
+            "message": "credentials" if ok else "missing_credentials",
+        }
 
 
 class TavilyProvider(BaseDiscoveryProvider):
@@ -163,21 +266,30 @@ class TavilyProvider(BaseDiscoveryProvider):
         key = os.environ.get("TAVILY_API_KEY", "").strip()
         if not key:
             return []
-        # Tavily expects POST; use GET-compatible workaround via query if available
-        # Prefer simple GET to search endpoint is not standard — use urllib POST
         import urllib.request
 
+        max_results = _provider_page_cap("tavily", limit)
         payload = json.dumps(
-            {"api_key": key, "query": query, "max_results": min(limit, 10), "include_answer": False}
+            {
+                "api_key": key,
+                "query": query,
+                "max_results": max_results,
+                "include_answer": False,
+            }
         ).encode("utf-8")
         req = urllib.request.Request(
             str(self.config.get("base_url") or "https://api.tavily.com/search"),
             data=payload,
-            headers={"Content-Type": "application/json", "User-Agent": "IDA-Dataset-Factory/2.0"},
+            headers={
+                "Content-Type": "application/json",
+                "User-Agent": "IDA-Dataset-Factory/2.0",
+            },
             method="POST",
         )
         try:
-            with urllib.request.urlopen(req, timeout=float(self.config.get("timeout") or 25)) as resp:
+            with urllib.request.urlopen(
+                req, timeout=float(self.config.get("timeout") or 25)
+            ) as resp:
                 data = json.loads(resp.read().decode("utf-8", errors="replace"))
         except Exception:  # noqa: BLE001
             return []
@@ -195,52 +307,66 @@ class TavilyProvider(BaseDiscoveryProvider):
 
     def health(self) -> dict[str, Any]:
         ok = bool(os.environ.get("TAVILY_API_KEY"))
-        return {"ok": ok, "status": "healthy" if ok else "offline", "message": "credentials" if ok else "missing_credentials"}
+        return {
+            "ok": ok,
+            "status": "healthy" if ok else "offline",
+            "message": "credentials" if ok else "missing_credentials",
+        }
 
 
 class YandexProvider(BaseDiscoveryProvider):
     def discover(self, query: str, *, limit: int = 10, **kwargs: Any) -> list[dict[str, Any]]:
-        # Yandex XML typically needs user+key; without full config return empty
         key = os.environ.get("YANDEX_API_KEY", "").strip()
-        if not key:
-            return []
-        # Minimal probe — many setups need user id; skip network if incomplete
         user = os.environ.get("YANDEX_USER", "").strip()
-        if not user:
+        if not key or not user:
             return []
         params = {"user": user, "key": key, "query": query}
         url = f"{self.config.get('base_url')}?{urlencode(params)}"
         res = http_get(url, timeout=float(self.config.get("timeout") or 20), retries=1)
         if not res.get("ok"):
             return []
-        # parse simple urls from XML
         import re
 
-        links = re.findall(r"<url>(https?://[^<]+)</url>", res.get("text") or "", flags=re.I)
+        links = re.findall(
+            r"<url>(https?://[^<]+)</url>", res.get("text") or "", flags=re.I
+        )
         return [_item(u, provider_id=self.provider_id) for u in links[:limit]]
 
     def health(self) -> dict[str, Any]:
-        ok = bool(os.environ.get("YANDEX_API_KEY"))
-        return {"ok": ok, "status": "healthy" if ok else "offline", "message": "credentials" if ok else "missing_credentials"}
+        ok = bool(
+            os.environ.get("YANDEX_API_KEY") and os.environ.get("YANDEX_USER")
+        )
+        return {
+            "ok": ok,
+            "status": "healthy" if ok else "offline",
+            "message": "credentials" if ok else "missing_credentials",
+        }
 
 
 class CommonCrawlProvider(BaseDiscoveryProvider):
     def discover(self, query: str, *, limit: int = 10, **kwargs: Any) -> list[dict[str, Any]]:
-        if os.environ.get("COMMONCRAWL_ENABLED", "").strip() not in {"1", "true", "yes"}:
+        # Default ON; explicit disable only
+        if os.environ.get("COMMONCRAWL_ENABLED", "1").strip().lower() in {
+            "0",
+            "false",
+            "no",
+            "off",
+        }:
             return []
-        # CDX API style — use query as domain or url pattern when site: present
         domain = ""
         if "site:" in query:
             part = query.split("site:", 1)[1].split()[0]
             domain = part.strip()
         if not domain:
             return []
-        # Common Crawl index (example endpoint; may vary by crawl id)
+        page = _provider_page_cap("commoncrawl", limit)
         index_url = (
             f"https://index.commoncrawl.org/CC-MAIN-2024-10-index?"
-            f"{urlencode({'url': f'*.{domain}/*', 'output': 'json', 'limit': min(limit, 20)})}"
+            f"{urlencode({'url': f'*.{domain}/*', 'output': 'json', 'limit': page})}"
         )
-        res = http_get(index_url, timeout=float(self.config.get("timeout") or 30), retries=1)
+        res = http_get(
+            index_url, timeout=float(self.config.get("timeout") or 30), retries=1
+        )
         if not res.get("ok"):
             return []
         out = []
@@ -255,8 +381,18 @@ class CommonCrawlProvider(BaseDiscoveryProvider):
         return out
 
     def health(self) -> dict[str, Any]:
-        ok = os.environ.get("COMMONCRAWL_ENABLED", "").strip() in {"1", "true", "yes"}
-        return {"ok": ok, "status": "healthy" if ok else "offline", "message": "toggle" if ok else "disabled"}
+        disabled = os.environ.get("COMMONCRAWL_ENABLED", "1").strip().lower() in {
+            "0",
+            "false",
+            "no",
+            "off",
+        }
+        ok = not disabled
+        return {
+            "ok": ok,
+            "status": "healthy" if ok else "offline",
+            "message": "toggle" if ok else "disabled",
+        }
 
 
 class FeedProvider(BaseDiscoveryProvider):
@@ -265,19 +401,31 @@ class FeedProvider(BaseDiscoveryProvider):
     def discover(self, query: str, *, limit: int = 10, **kwargs: Any) -> list[dict[str, Any]]:
         sources = kwargs.get("trusted_sources") or []
         api_type = str(self.config.get("api_type") or "rss")
+        # source_budget: how many trusted sources to probe (adaptive, not fixed 12)
+        source_budget = int(kwargs.get("source_budget") or len(sources) or 0)
+        if source_budget <= 0:
+            source_budget = len(sources)
         out: list[dict[str, Any]] = []
-        for s in sources[:12]:
+        per_source = max(3, int(limit / max(1, min(source_budget, len(sources) or 1))))
+        for s in sources[:source_budget]:
             base = str(s.get("base_url") or "")
             rss = s.get("rss_feed")
-            kwargs_disc: dict[str, Any] = {"base_url": base, "limit": max(3, limit // 4)}
+            kwargs_disc: dict[str, Any] = {
+                "base_url": base,
+                "limit": per_source,
+            }
             if api_type == "rss":
                 kwargs_disc["rss_feed"] = rss
             elif api_type == "atom":
-                kwargs_disc["atom_feed"] = rss  # reuse if atom-like
+                kwargs_disc["atom_feed"] = rss
             elif api_type == "sitemap":
                 if base:
                     kwargs_disc["sitemap_url"] = base.rstrip("/") + "/sitemap.xml"
             try:
+                # Short timeouts keep multi-source feed harvest within runtime budget
+                kwargs_disc["timeout"] = float(
+                    kwargs.get("timeout") or self.config.get("timeout") or 8.0
+                )
                 found = discover_urls(**kwargs_disc)
             except Exception:  # noqa: BLE001
                 found = []
@@ -301,7 +449,6 @@ class FeedProvider(BaseDiscoveryProvider):
 
 class OpenSearchProvider(BaseDiscoveryProvider):
     def discover(self, query: str, *, limit: int = 10, **kwargs: Any) -> list[dict[str, Any]]:
-        # Optional: trusted sources may declare opensearch_url in notes/config later
         return []
 
     def health(self) -> dict[str, Any]:

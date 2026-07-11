@@ -200,10 +200,17 @@ export type ExecutiveFactoryView = {
     urls_found: number;
     urls_accepted: number;
     urls_rejected: number;
+    urls_remaining: number;
     top_provider: string;
     top_trusted_source: string;
     providers_ready: number;
     providers_offline: number;
+    providers_misconfigured: number;
+    providers_exhausted: number;
+    stop_reason: string;
+    urls_per_hour: number;
+    knowledge_yield: number;
+    provider_utilization_top: string;
   };
   /** Continuous manufacturing intelligence (real state only) */
   manufacturing: {
@@ -702,15 +709,42 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
           topSource = sid;
         }
       }
+      const misconfigured = providers.filter(
+        (p) =>
+          String(p.operational_status || "") === "MISCONFIGURED" ||
+          String(p.status || "") === "misconfigured"
+      ).length;
+      const exhausted = providers.filter((p) => p.exhausted === true).length;
+      // top utilization provider
+      let topUtilName = "—";
+      let topUtil = -1;
+      for (const p of providers) {
+        const u = Number(p.utilization || 0);
+        if (u > topUtil) {
+          topUtil = u;
+          topUtilName = String(p.name || p.provider_id || "—");
+        }
+      }
+      const acceptedN = Number(discoveryAnalytics.urls_accepted || 0);
+      const foundN = Number(discoveryAnalytics.urls_discovered || 0);
       return {
         queries_today: Number(discoveryAnalytics.queries_executed || 0),
-        urls_found: Number(discoveryAnalytics.urls_discovered || 0),
-        urls_accepted: Number(discoveryAnalytics.urls_accepted || 0),
+        urls_found: foundN,
+        urls_accepted: acceptedN,
         urls_rejected: Number(discoveryAnalytics.urls_rejected || 0),
+        urls_remaining: Number(discoveryAnalytics.urls_remaining || 0),
         top_provider: topProvider,
         top_trusted_source: topSource,
         providers_ready: ready,
         providers_offline: offline,
+        providers_misconfigured:
+          misconfigured || Number(discoveryAnalytics.providers_misconfigured || 0),
+        providers_exhausted:
+          exhausted || Number(discoveryAnalytics.providers_exhausted || 0),
+        stop_reason: String(discoveryAnalytics.stop_reason || "—"),
+        urls_per_hour: Number(discoveryAnalytics.urls_per_hour || 0),
+        knowledge_yield: foundN > 0 ? Math.round((acceptedN / foundN) * 1000) / 1000 : 0,
+        provider_utilization_top: topUtilName,
       };
     })(),
     manufacturing: (() => {

@@ -108,9 +108,20 @@ def run_acquisition(
     manager = ConnectorManager(repo_root=root)
     doc_store = DocumentStore(repo_root=root)
 
+    # --- Adaptive source selection (scales with knowledge gap / registry size) ---
+    source_select_limit = 24
+    try:
+        from automation.manufacturing.knowledge_gap import evaluate_dataset
+
+        _gap_pre = evaluate_dataset(dataset, repo_root=root)
+        _gs = float(_gap_pre.get("knowledge_gap_score") or 0)
+        source_select_limit = max(12, min(48, int(12 + _gs / 5)))
+    except Exception:  # noqa: BLE001
+        source_select_limit = 24
+
     # --- Source discovery ---
     trace.start_stage("source_discovery")
-    sources = registry.select_for_mission(dataset=dataset, limit=10)
+    sources = registry.select_for_mission(dataset=dataset, limit=source_select_limit)
     connector_ids = preferred_connector_ids or registry.connector_ids_for(sources)
     fallback_order = [
         "CONN-WB-001",
@@ -198,23 +209,24 @@ def run_acquisition(
     try:
         from automation.acquisition.discovery_pkg.layer import run_discovery
 
-        emit("Discovery", "Running knowledge discovery layer (trusted domains only)")
+        emit("Discovery", "Running adaptive multi-provider discovery (trusted domains only)")
         discovery_pack = run_discovery(
             instruction=instruction,
             dataset=dataset,
             mission_id=mission_id,
             session_id=session_id,
             repo_root=root,
-            max_queries=16,
-            max_urls=20,
             log=emit,
         )
         audit["discovery"] = {
             "knowledge_gap": discovery_pack.get("knowledge_gap"),
+            "budgets": discovery_pack.get("budgets"),
             "queries_generated": len(discovery_pack.get("queries") or []),
             "urls_discovered": (discovery_pack.get("analytics") or {}).get("urls_discovered"),
             "urls_accepted": (discovery_pack.get("analytics") or {}).get("urls_accepted"),
             "urls_rejected": (discovery_pack.get("analytics") or {}).get("urls_rejected"),
+            "urls_remaining": (discovery_pack.get("analytics") or {}).get("urls_remaining"),
+            "stop_reason": discovery_pack.get("stop_reason"),
             "providers": discovery_pack.get("providers"),
         }
         gap = discovery_pack.get("knowledge_gap") or {}
@@ -427,11 +439,34 @@ def run_acquisition(
             break
     results = diversified or prioritized
 
-    # Process budget: target ≥90% of discovered (within soft limit)
+    # Process budget: target ≥90% of discovered (adaptive — not fixed 5/10/20/50)
+    disc_budgets = discovery_pack.get("budgets") or {}
+    gap_meta = discovery_pack.get("knowledge_gap") or {}
+    policy_hard = None
+    policy_soft = None
+    try:
+        from automation.lib.simple_yaml import load_simple_yaml
+
+        _pol = load_simple_yaml(
+            (root / "automation" / "config" / "policies.yaml").read_text(encoding="utf-8")
+        ) or {}
+        _lim = _pol.get("limits") or {}
+        if _lim.get("max_documents") is not None:
+            policy_hard = int(_lim["max_documents"])
+        if _lim.get("max_documents_per_session") is not None:
+            policy_soft = int(_lim["max_documents_per_session"])
+    except Exception:  # noqa: BLE001
+        pass
+    download_budget = disc_budgets.get("download_budget")
+    if download_budget is None:
+        download_budget = max(int(limit or 0), int(policy_soft or 0), 32)
     budget = process_budget(
         len(results),
-        soft_limit=max(limit, 32),
-        hard_limit=100,
+        soft_limit=max(int(limit or 0), int(policy_soft or 0)) or None,
+        hard_limit=policy_hard,
+        gap_score=float(gap_meta.get("knowledge_gap_score") or 0),
+        worker_capacity=int(disc_budgets.get("worker_capacity") or 4),
+        download_budget=int(download_budget) if download_budget else None,
     )
     # Pre-filter duplicates before download (fingerprint / URL)
     pre_dup = 0

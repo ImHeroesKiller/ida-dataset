@@ -727,15 +727,21 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
           <CounterCard label="URLs accepted" value={discovery?.urls_accepted || 0} tone="green" />
           <CounterCard label="URLs rejected" value={discovery?.urls_rejected || 0} tone="neutral" />
           <CounterCard
-            label="Providers ready"
-            value={discovery?.providers_ready || 0}
-            tone="blue"
+            label="URLs remaining"
+            value={discovery?.urls_remaining || 0}
+            tone="neutral"
           />
         </CardBody>
-        <div className="grid gap-3 border-t border-[var(--border)] px-6 py-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 border-t border-[var(--border)] px-6 py-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
           <Stat label="Top discovery provider" value={String(discovery?.top_provider || "—")} />
           <Stat label="Top trusted source" value={String(discovery?.top_trusted_source || "—")} />
-          <Stat label="Providers offline" value={String(discovery?.providers_offline ?? "—")} />
+          <Stat label="Providers ready" value={String(discovery?.providers_ready ?? "—")} />
+          <Stat label="Providers MISCONFIGURED" value={String(discovery?.providers_misconfigured ?? "—")} />
+          <Stat label="Providers exhausted" value={String(discovery?.providers_exhausted ?? "—")} />
+          <Stat label="Stop reason" value={String(discovery?.stop_reason || "—")} />
+          <Stat label="URLs / hour" value={String(discovery?.urls_per_hour ?? "—")} />
+          <Stat label="Knowledge yield" value={String(discovery?.knowledge_yield ?? "—")} />
+          <Stat label="Top utilization" value={String(discovery?.provider_utilization_top || "—")} />
           <Stat
             label="Top producing connector"
             value={String(production?.last_connector || "—")}

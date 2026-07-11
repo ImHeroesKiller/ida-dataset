@@ -1,45 +1,87 @@
 {
-  "started_at": "2026-07-11T11:46:17+00:00",
-  "mission_id": "MIS-20260711-9A55F5",
-  "session_id": "SES-20260711-DE29FE",
-  "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
-  "dataset": "service_library",
+  "started_at": "2026-07-11T11:54:22+00:00",
+  "mission_id": "MIS-AUDIT2",
+  "session_id": "SES-AUDIT2",
+  "instruction": "procurement risk indonesia world bank",
+  "dataset": "industry_library",
   "knowledge_gap": {
-    "dataset": "service_library",
-    "current_rows": 0,
-    "target_rows": 50000,
-    "minimum_target": 2000,
-    "gap_rows": 50000,
-    "coverage_pct": 0.0,
-    "knowledge_gap_score": 138.0,
-    "estimated_universe": 50000,
+    "dataset": "industry_library",
+    "current_rows": 53,
+    "target_rows": 5000,
+    "minimum_target": 250,
+    "gap_rows": 4947,
+    "coverage_pct": 1.06,
+    "knowledge_gap_score": 79.467,
+    "estimated_universe": 5000,
     "priority": "high",
     "continuous": true
   },
-  "queries_generated": 16,
-  "queries_executed": 23,
-  "urls_discovered": 9,
-  "urls_accepted": 3,
-  "urls_rejected": 6,
-  "duplicate_urls": 6,
-  "elapsed_ms": 1143036.8,
+  "budgets": {
+    "query_budget": 41,
+    "url_budget": 339,
+    "per_provider_results": 15,
+    "feed_source_budget": 18,
+    "domain_budget": 18,
+    "max_provider_rounds": 3,
+    "runtime_budget_s": 60.0,
+    "download_budget": 113,
+    "extraction_budget": 113,
+    "publish_budget": 113,
+    "source_select_budget": 18,
+    "worker_capacity": 4,
+    "gap_score": 79.467,
+    "gap_rows": 4947.0,
+    "coverage_pct": 1.06,
+    "mission_priority": "high",
+    "queue_pressure": 0.1,
+    "providers_active": 6,
+    "providers_misconfigured": 6,
+    "stop_policy": "provider_exhausted | knowledge_gap_satisfied | runtime_budget_reached | provider_quota_reached"
+  },
+  "queries_generated": 37,
+  "queries_executed": 85,
+  "urls_discovered": 595,
+  "urls_accepted": 248,
+  "urls_rejected": 347,
+  "urls_remaining": 0,
+  "duplicate_urls": 347,
+  "elapsed_ms": 51750.1,
+  "stop_reason": "completed",
+  "providers_active": 6,
+  "providers_misconfigured": 6,
+  "providers_disabled": 0,
+  "providers_exhausted": 1,
+  "provider_utilization": {
+    "DISC-SITEMAP": 0.0118,
+    "DISC-COMMONCRAWL": 0.4353,
+    "DISC-RSS": 0.0118,
+    "DISC-ATOM": 0.0118,
+    "DISC-OPENSEARCH": 0.0941,
+    "DISC-TRUSTED-SITE": 0.4353,
+    "DISC-GOOGLE-CSE": 0.0,
+    "DISC-BING": 0.0,
+    "DISC-BRAVE": 0.0,
+    "DISC-TAVILY": 0.0,
+    "DISC-SERPAPI": 0.0,
+    "DISC-YANDEX": 0.0
+  },
+  "rows_per_provider": {
+    "DISC-SITEMAP": 20,
+    "DISC-COMMONCRAWL": 540,
+    "DISC-RSS": 15,
+    "DISC-ATOM": 20,
+    "DISC-OPENSEARCH": 0,
+    "DISC-TRUSTED-SITE": 0,
+    "DISC-GOOGLE-CSE": 0,
+    "DISC-BING": 0,
+    "DISC-BRAVE": 0,
+    "DISC-TAVILY": 0,
+    "DISC-SERPAPI": 0,
+    "DISC-YANDEX": 0
+  },
+  "urls_per_hour": 41391.22,
+  "accepted_per_hour": 17252.14,
   "providers": [
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "name": "Trusted Site Search (connector-backed)",
-      "api_type": "trusted_site",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "always_available"
-      },
-      "queries": 12,
-      "urls": 0,
-      "cache_hits": 0,
-      "elapsed_ms": 0.0,
-      "status": "ready",
-      "credentials_available": true
-    },
     {
       "provider_id": "DISC-SITEMAP",
       "name": "Sitemap Discovery",
@@ -50,11 +92,39 @@
         "message": "feed_discovery"
       },
       "queries": 1,
-      "urls": 3,
+      "urls": 20,
       "cache_hits": 0,
-      "elapsed_ms": 439861.9,
+      "elapsed_ms": 4412.0,
       "status": "ready",
-      "credentials_available": true
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 60.032,
+      "utilization": 0.0118
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "api_type": "commoncrawl",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "toggle"
+      },
+      "queries": 37,
+      "urls": 540,
+      "cache_hits": 0,
+      "elapsed_ms": 43668.299999999996,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 53.4,
+      "utilization": 0.4353
     },
     {
       "provider_id": "DISC-RSS",
@@ -66,11 +136,17 @@
         "message": "feed_discovery"
       },
       "queries": 1,
-      "urls": 3,
+      "urls": 15,
       "cache_hits": 0,
-      "elapsed_ms": 352193.4,
+      "elapsed_ms": 1967.3,
       "status": "ready",
-      "credentials_available": true
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 52.5,
+      "utilization": 0.0118
     },
     {
       "provider_id": "DISC-ATOM",
@@ -82,11 +158,17 @@
         "message": "feed_discovery"
       },
       "queries": 1,
-      "urls": 3,
+      "urls": 20,
       "cache_hits": 0,
-      "elapsed_ms": 350956.3,
+      "elapsed_ms": 1233.4,
       "status": "ready",
-      "credentials_available": true
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 52.42,
+      "utilization": 0.0118
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -102,13 +184,173 @@
       "cache_hits": 0,
       "elapsed_ms": 0.0,
       "status": "ready",
-      "credentials_available": true
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": true,
+      "exhaustion_reason": "provider_exhausted_empty_results",
+      "rank_score": 45.9,
+      "utilization": 0.0941
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "name": "Trusted Site Search (connector-backed)",
+      "api_type": "trusted_site",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "always_available"
+      },
+      "queries": 37,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 40.6,
+      "utilization": 0.4353
+    },
+    {
+      "provider_id": "DISC-GOOGLE-CSE",
+      "name": "Google Programmable Search",
+      "api_type": "google_cse",
+      "health": {
+        "ok": false,
+        "status": "offline",
+        "message": "missing credentials: GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_ENGINE_ID"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "misconfigured",
+      "operational_status": "MISCONFIGURED",
+      "credentials_available": false,
+      "disable_reason": "missing credentials: GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_ENGINE_ID",
+      "exhausted": false,
+      "exhaustion_reason": "missing credentials: GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_ENGINE_ID",
+      "rank_score": 2.275,
+      "utilization": 0.0
+    },
+    {
+      "provider_id": "DISC-BING",
+      "name": "Bing Web Search API",
+      "api_type": "bing",
+      "health": {
+        "ok": false,
+        "status": "offline",
+        "message": "missing credentials: BING_SEARCH_API_KEY"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "misconfigured",
+      "operational_status": "MISCONFIGURED",
+      "credentials_available": false,
+      "disable_reason": "missing credentials: BING_SEARCH_API_KEY",
+      "exhausted": false,
+      "exhaustion_reason": "missing credentials: BING_SEARCH_API_KEY",
+      "rank_score": 2.265,
+      "utilization": 0.0
+    },
+    {
+      "provider_id": "DISC-BRAVE",
+      "name": "Brave Search API",
+      "api_type": "brave",
+      "health": {
+        "ok": false,
+        "status": "offline",
+        "message": "missing credentials: BRAVE_SEARCH_API_KEY"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "misconfigured",
+      "operational_status": "MISCONFIGURED",
+      "credentials_available": false,
+      "disable_reason": "missing credentials: BRAVE_SEARCH_API_KEY",
+      "exhausted": false,
+      "exhaustion_reason": "missing credentials: BRAVE_SEARCH_API_KEY",
+      "rank_score": 2.255,
+      "utilization": 0.0
+    },
+    {
+      "provider_id": "DISC-TAVILY",
+      "name": "Tavily",
+      "api_type": "tavily",
+      "health": {
+        "ok": false,
+        "status": "offline",
+        "message": "missing credentials: TAVILY_API_KEY"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "misconfigured",
+      "operational_status": "MISCONFIGURED",
+      "credentials_available": false,
+      "disable_reason": "missing credentials: TAVILY_API_KEY",
+      "exhausted": false,
+      "exhaustion_reason": "missing credentials: TAVILY_API_KEY",
+      "rank_score": 2.251,
+      "utilization": 0.0
+    },
+    {
+      "provider_id": "DISC-SERPAPI",
+      "name": "SerpAPI",
+      "api_type": "serpapi",
+      "health": {
+        "ok": false,
+        "status": "offline",
+        "message": "missing credentials: SERPAPI_API_KEY"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "misconfigured",
+      "operational_status": "MISCONFIGURED",
+      "credentials_available": false,
+      "disable_reason": "missing credentials: SERPAPI_API_KEY",
+      "exhausted": false,
+      "exhaustion_reason": "missing credentials: SERPAPI_API_KEY",
+      "rank_score": 2.245,
+      "utilization": 0.0
+    },
+    {
+      "provider_id": "DISC-YANDEX",
+      "name": "Yandex XML Search",
+      "api_type": "yandex",
+      "health": {
+        "ok": false,
+        "status": "offline",
+        "message": "missing credentials: YANDEX_API_KEY, YANDEX_USER"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "misconfigured",
+      "operational_status": "MISCONFIGURED",
+      "credentials_available": false,
+      "disable_reason": "missing credentials: YANDEX_API_KEY, YANDEX_USER",
+      "exhausted": false,
+      "exhaustion_reason": "missing credentials: YANDEX_API_KEY, YANDEX_USER",
+      "rank_score": 2.14,
+      "utilization": 0.0
     }
   ],
   "query_stats": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id corporate governance service continuous",
+      "query": "site:bps.go.id procurement risk world bank indonesia",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "site",
@@ -117,7 +359,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
+      "query": "site:bps.go.id intitle:procurement procurement risk world bank indonesia",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "intitle",
@@ -126,7 +368,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id corporate governance service continuous",
+      "query": "site:kemenperin.go.id procurement risk world bank indonesia",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "site",
@@ -135,7 +377,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id intitle:corporate corporate governance service continuous",
+      "query": "site:kemenperin.go.id intitle:procurement procurement risk world bank indonesia",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "intitle",
@@ -144,7 +386,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org corporate governance service continuous",
+      "query": "site:adb.org procurement risk world bank indonesia",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "site",
@@ -153,7 +395,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org intitle:corporate corporate governance service continuous",
+      "query": "site:adb.org intitle:procurement procurement risk world bank indonesia",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "intitle",
@@ -162,25 +404,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org corporate governance service continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "kind": "site",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "kind": "intitle",
-      "urls": 0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org corporate governance service continuous",
+      "query": "site:oecd.org procurement risk world bank indonesia",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "site",
@@ -189,7 +413,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org intitle:corporate corporate governance service continuous",
+      "query": "site:oecd.org intitle:procurement procurement risk world bank indonesia",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "intitle",
@@ -198,7 +422,25 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org corporate governance service continuous",
+      "query": "site:worldbank.org procurement risk world bank indonesia",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:worldbank.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:crossref.org procurement risk world bank indonesia",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "kind": "site",
@@ -207,275 +449,2794 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org intitle:corporate corporate governance service continuous",
+      "query": "site:crossref.org intitle:procurement procurement risk world bank indonesia",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "kind": "intitle",
       "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:openalex.org procurement risk world bank indonesia",
+      "domain": "openalex.org",
+      "source_id": "SRC-OPENALEX",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:openalex.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "openalex.org",
+      "source_id": "SRC-OPENALEX",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:pajak.go.id procurement risk world bank indonesia",
+      "domain": "pajak.go.id",
+      "source_id": "SRC-DJP",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:pajak.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "pajak.go.id",
+      "source_id": "SRC-DJP",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:nist.gov procurement risk world bank indonesia",
+      "domain": "nist.gov",
+      "source_id": "SRC-NIST",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:nist.gov intitle:procurement procurement risk world bank indonesia",
+      "domain": "nist.gov",
+      "source_id": "SRC-NIST",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:peraturan.go.id procurement risk world bank indonesia",
+      "domain": "peraturan.go.id",
+      "source_id": "SRC-JDIH",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:peraturan.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "peraturan.go.id",
+      "source_id": "SRC-JDIH",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:cisa.gov procurement risk world bank indonesia",
+      "domain": "cisa.gov",
+      "source_id": "SRC-CISA",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:cisa.gov intitle:procurement procurement risk world bank indonesia",
+      "domain": "cisa.gov",
+      "source_id": "SRC-CISA",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:bpk.go.id procurement risk world bank indonesia",
+      "domain": "bpk.go.id",
+      "source_id": "SRC-BPK",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:bpk.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "bpk.go.id",
+      "source_id": "SRC-BPK",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:menlhk.go.id procurement risk world bank indonesia",
+      "domain": "menlhk.go.id",
+      "source_id": "SRC-KLHK",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:menlhk.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "menlhk.go.id",
+      "source_id": "SRC-KLHK",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:unep.org procurement risk world bank indonesia",
+      "domain": "unep.org",
+      "source_id": "SRC-UNEP",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:unep.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "unep.org",
+      "source_id": "SRC-UNEP",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:ifrs.org procurement risk world bank indonesia",
+      "domain": "ifrs.org",
+      "source_id": "SRC-ISSB",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:ifrs.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "ifrs.org",
+      "source_id": "SRC-ISSB",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:globalreporting.org procurement risk world bank indonesia",
+      "domain": "globalreporting.org",
+      "source_id": "SRC-GRI",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:globalreporting.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "globalreporting.org",
+      "source_id": "SRC-GRI",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:sasb.org procurement risk world bank indonesia",
+      "domain": "sasb.org",
+      "source_id": "SRC-SASB",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:sasb.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "sasb.org",
+      "source_id": "SRC-SASB",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:owasp.org procurement risk world bank indonesia",
+      "domain": "owasp.org",
+      "source_id": "SRC-OWASP",
+      "kind": "site",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "site:owasp.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "owasp.org",
+      "source_id": "SRC-OWASP",
+      "kind": "intitle",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-TRUSTED-SITE",
+      "query": "procurement risk world bank indonesia",
+      "domain": "",
+      "source_id": "",
+      "kind": "open",
+      "urls": 0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bps.go.id procurement risk world bank indonesia",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "urls": 15,
+      "elapsed_ms": 1236.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:bps.go.id procurement risk world bank indonesia",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bps.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "urls": 15,
+      "elapsed_ms": 848.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:bps.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "bps.go.id",
+      "source_id": "SRC-000001",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:kemenperin.go.id procurement risk world bank indonesia",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "urls": 15,
+      "elapsed_ms": 1187.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:kemenperin.go.id procurement risk world bank indonesia",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:kemenperin.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "urls": 15,
+      "elapsed_ms": 900.8,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:kemenperin.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "kemenperin.go.id",
+      "source_id": "SRC-000007",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:adb.org procurement risk world bank indonesia",
+      "domain": "adb.org",
+      "source_id": "SRC-000006",
+      "urls": 15,
+      "elapsed_ms": 1044.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:adb.org procurement risk world bank indonesia",
+      "domain": "adb.org",
+      "source_id": "SRC-000006",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:adb.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "adb.org",
+      "source_id": "SRC-000006",
+      "urls": 15,
+      "elapsed_ms": 1024.9,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:adb.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "adb.org",
+      "source_id": "SRC-000006",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:oecd.org procurement risk world bank indonesia",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 15,
+      "elapsed_ms": 1045.7,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:oecd.org procurement risk world bank indonesia",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:oecd.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 15,
+      "elapsed_ms": 971.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:oecd.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "oecd.org",
+      "source_id": "SRC-000005",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:worldbank.org procurement risk world bank indonesia",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "urls": 15,
+      "elapsed_ms": 1036.4,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:worldbank.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "urls": 15,
+      "elapsed_ms": 863.6,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:crossref.org procurement risk world bank indonesia",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
+      "urls": 15,
+      "elapsed_ms": 1270.8,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:crossref.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
+      "urls": 15,
+      "elapsed_ms": 901.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:openalex.org procurement risk world bank indonesia",
+      "domain": "openalex.org",
+      "source_id": "SRC-OPENALEX",
+      "urls": 15,
+      "elapsed_ms": 942.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:openalex.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "openalex.org",
+      "source_id": "SRC-OPENALEX",
+      "urls": 15,
+      "elapsed_ms": 905.1,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:pajak.go.id procurement risk world bank indonesia",
+      "domain": "pajak.go.id",
+      "source_id": "SRC-DJP",
+      "urls": 15,
+      "elapsed_ms": 1003.4,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:pajak.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "pajak.go.id",
+      "source_id": "SRC-DJP",
+      "urls": 15,
+      "elapsed_ms": 930.2,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:nist.gov procurement risk world bank indonesia",
+      "domain": "nist.gov",
+      "source_id": "SRC-NIST",
+      "urls": 15,
+      "elapsed_ms": 892.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:nist.gov intitle:procurement procurement risk world bank indonesia",
+      "domain": "nist.gov",
+      "source_id": "SRC-NIST",
+      "urls": 15,
+      "elapsed_ms": 929.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:peraturan.go.id procurement risk world bank indonesia",
+      "domain": "peraturan.go.id",
+      "source_id": "SRC-JDIH",
+      "urls": 15,
+      "elapsed_ms": 904.8,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:peraturan.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "peraturan.go.id",
+      "source_id": "SRC-JDIH",
+      "urls": 15,
+      "elapsed_ms": 806.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:cisa.gov procurement risk world bank indonesia",
+      "domain": "cisa.gov",
+      "source_id": "SRC-CISA",
+      "urls": 15,
+      "elapsed_ms": 941.4,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:cisa.gov intitle:procurement procurement risk world bank indonesia",
+      "domain": "cisa.gov",
+      "source_id": "SRC-CISA",
+      "urls": 15,
+      "elapsed_ms": 908.8,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bpk.go.id procurement risk world bank indonesia",
+      "domain": "bpk.go.id",
+      "source_id": "SRC-BPK",
+      "urls": 15,
+      "elapsed_ms": 927.4,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bpk.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "bpk.go.id",
+      "source_id": "SRC-BPK",
+      "urls": 15,
+      "elapsed_ms": 924.2,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:menlhk.go.id procurement risk world bank indonesia",
+      "domain": "menlhk.go.id",
+      "source_id": "SRC-KLHK",
+      "urls": 15,
+      "elapsed_ms": 1221.6,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:menlhk.go.id intitle:procurement procurement risk world bank indonesia",
+      "domain": "menlhk.go.id",
+      "source_id": "SRC-KLHK",
+      "urls": 15,
+      "elapsed_ms": 843.7,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:unep.org procurement risk world bank indonesia",
+      "domain": "unep.org",
+      "source_id": "SRC-UNEP",
+      "urls": 15,
+      "elapsed_ms": 956.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:unep.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "unep.org",
+      "source_id": "SRC-UNEP",
+      "urls": 15,
+      "elapsed_ms": 874.6,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:ifrs.org procurement risk world bank indonesia",
+      "domain": "ifrs.org",
+      "source_id": "SRC-ISSB",
+      "urls": 15,
+      "elapsed_ms": 915.8,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:ifrs.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "ifrs.org",
+      "source_id": "SRC-ISSB",
+      "urls": 15,
+      "elapsed_ms": 834.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:globalreporting.org procurement risk world bank indonesia",
+      "domain": "globalreporting.org",
+      "source_id": "SRC-GRI",
+      "urls": 15,
+      "elapsed_ms": 966.3,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:globalreporting.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "globalreporting.org",
+      "source_id": "SRC-GRI",
+      "urls": 15,
+      "elapsed_ms": 889.5,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:sasb.org procurement risk world bank indonesia",
+      "domain": "sasb.org",
+      "source_id": "SRC-SASB",
+      "urls": 15,
+      "elapsed_ms": 893.6,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:sasb.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "sasb.org",
+      "source_id": "SRC-SASB",
+      "urls": 15,
+      "elapsed_ms": 806.4,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:owasp.org procurement risk world bank indonesia",
+      "domain": "owasp.org",
+      "source_id": "SRC-OWASP",
+      "urls": 15,
+      "elapsed_ms": 939.1,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:owasp.org intitle:procurement procurement risk world bank indonesia",
+      "domain": "owasp.org",
+      "source_id": "SRC-OWASP",
+      "urls": 15,
+      "elapsed_ms": 10179.6,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "procurement risk world bank indonesia",
+      "domain": "",
+      "source_id": "",
+      "urls": 0,
+      "elapsed_ms": 0.0,
       "cached": false
     },
     {
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
-      "urls": 3,
-      "elapsed_ms": 439861.9
+      "urls": 20,
+      "elapsed_ms": 4412.0
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
-      "urls": 3,
-      "elapsed_ms": 352193.4
+      "urls": 15,
+      "elapsed_ms": 1967.3
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
-      "urls": 3,
-      "elapsed_ms": 350956.3
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id corporate governance service continuous",
-      "domain": "bps.go.id",
-      "source_id": "SRC-000001",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:kemenperin.go.id corporate governance service continuous",
-      "domain": "kemenperin.go.id",
-      "source_id": "SRC-000007",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:adb.org corporate governance service continuous",
-      "domain": "adb.org",
-      "source_id": "SRC-000006",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org corporate governance service continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:oecd.org corporate governance service continuous",
-      "domain": "oecd.org",
-      "source_id": "SRC-000005",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:crossref.org corporate governance service continuous",
-      "domain": "crossref.org",
-      "source_id": "SRC-CROSSREF",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:pajak.go.id corporate governance service continuous",
-      "domain": "pajak.go.id",
-      "source_id": "SRC-DJP",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:nist.gov corporate governance service continuous",
-      "domain": "nist.gov",
-      "source_id": "SRC-NIST",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
+      "urls": 20,
+      "elapsed_ms": 1233.4
     }
   ],
   "reputation_top": [
     {
       "id": "SRC-000001",
       "name": "BPS Indonesia",
-      "reputation": 104.974,
-      "score": 99.97,
+      "reputation": 110.075,
+      "score": 105.97,
       "authority": 1.0
     },
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 97.093,
-      "score": 90.698,
+      "reputation": 104.345,
+      "score": 99.229,
       "authority": 1.0
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 95.542,
-      "score": 90.05,
-      "authority": 0.95
-    },
-    {
-      "id": "SRC-000004",
-      "name": "World Bank",
-      "reputation": 95.407,
-      "score": 89.891,
+      "reputation": 100.584,
+      "score": 95.981,
       "authority": 0.95
     },
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "reputation": 94.187,
-      "score": 88.455,
+      "reputation": 99.287,
+      "score": 94.455,
+      "authority": 0.95
+    },
+    {
+      "id": "SRC-000004",
+      "name": "World Bank",
+      "reputation": 98.467,
+      "score": 93.491,
       "authority": 0.95
     },
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 89.825,
-      "score": 84.5,
+      "reputation": 94.925,
+      "score": 90.5,
+      "authority": 0.9
+    },
+    {
+      "id": "SRC-OPENALEX",
+      "name": "OpenAlex",
+      "reputation": 92.535,
+      "score": 87.688,
       "authority": 0.9
     },
     {
       "id": "SRC-DJP",
       "name": "DJP Pajak",
-      "reputation": 77.488,
-      "score": 67.633,
+      "reputation": 82.588,
+      "score": 73.633,
       "authority": 1.0
     },
     {
       "id": "SRC-NIST",
       "name": "NIST",
-      "reputation": 77.318,
-      "score": 67.433,
+      "reputation": 82.418,
+      "score": 73.433,
       "authority": 1.0
     },
     {
       "id": "SRC-JDIH",
       "name": "JDIH / Peraturan.go.id",
-      "reputation": 77.318,
-      "score": 67.433,
+      "reputation": 82.418,
+      "score": 73.433,
       "authority": 1.0
     },
     {
       "id": "SRC-CISA",
       "name": "CISA",
-      "reputation": 77.063,
-      "score": 67.133,
+      "reputation": 82.163,
+      "score": 73.133,
       "authority": 1.0
     },
     {
       "id": "SRC-BPK",
       "name": "BPK",
-      "reputation": 76.808,
-      "score": 66.833,
+      "reputation": 81.908,
+      "score": 72.833,
       "authority": 1.0
     },
     {
       "id": "SRC-KLHK",
       "name": "KLHK",
-      "reputation": 76.553,
-      "score": 66.533,
+      "reputation": 81.653,
+      "score": 72.533,
       "authority": 1.0
     },
     {
       "id": "SRC-UNEP",
       "name": "UNEP",
-      "reputation": 75.723,
-      "score": 66.733,
+      "reputation": 80.823,
+      "score": 72.733,
       "authority": 0.95
     },
     {
       "id": "SRC-ISSB",
       "name": "ISSB / IFRS Sustainability",
-      "reputation": 72.148,
-      "score": 67.233,
+      "reputation": 77.248,
+      "score": 73.233,
       "authority": 0.75
     },
     {
       "id": "SRC-GRI",
       "name": "GRI",
-      "reputation": 71.808,
-      "score": 66.833,
+      "reputation": 76.908,
+      "score": 72.833,
       "authority": 0.75
+    },
+    {
+      "id": "SRC-SASB",
+      "name": "SASB",
+      "reputation": 76.653,
+      "score": 72.533,
+      "authority": 0.75
+    },
+    {
+      "id": "SRC-OWASP",
+      "name": "OWASP",
+      "reputation": 71.298,
+      "score": 66.233,
+      "authority": 0.75
+    }
+  ],
+  "provider_ranking": [
+    {
+      "id": "DISC-SITEMAP",
+      "name": "Sitemap Discovery",
+      "score": 60.032,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.32,
+        "success_rate": 1.0,
+        "latency": 0.019,
+        "freshness": 1.0,
+        "trust": 0.95,
+        "coverage": 0.6,
+        "relevance": 0.4,
+        "config_priority": 0.72
+      }
+    },
+    {
+      "id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "score": 53.4,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.95,
+        "coverage": 0.75,
+        "relevance": 0.4,
+        "config_priority": 0.55
+      }
+    },
+    {
+      "id": "DISC-RSS",
+      "name": "RSS Discovery",
+      "score": 52.5,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.95,
+        "coverage": 0.6,
+        "relevance": 0.4,
+        "config_priority": 0.7
+      }
+    },
+    {
+      "id": "DISC-ATOM",
+      "name": "Atom Discovery",
+      "score": 52.42,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.95,
+        "coverage": 0.6,
+        "relevance": 0.4,
+        "config_priority": 0.68
+      }
+    },
+    {
+      "id": "DISC-OPENSEARCH",
+      "name": "OpenSearch Description",
+      "score": 45.9,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.55,
+        "coverage": 0.5,
+        "relevance": 0.4,
+        "config_priority": 0.5
+      }
+    },
+    {
+      "id": "DISC-TRUSTED-SITE",
+      "name": "Trusted Site Search (connector-backed)",
+      "score": 40.6,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 0.2,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.95,
+        "coverage": 0.75,
+        "relevance": 0.4,
+        "config_priority": 0.95
+      }
+    },
+    {
+      "id": "DISC-GOOGLE-CSE",
+      "name": "Google Programmable Search",
+      "score": 2.275,
+      "status": "MISCONFIGURED",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.05,
+        "coverage": 0.9,
+        "relevance": 0.4,
+        "config_priority": 0.9
+      }
+    },
+    {
+      "id": "DISC-BING",
+      "name": "Bing Web Search API",
+      "score": 2.265,
+      "status": "MISCONFIGURED",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.05,
+        "coverage": 0.9,
+        "relevance": 0.4,
+        "config_priority": 0.85
+      }
+    },
+    {
+      "id": "DISC-BRAVE",
+      "name": "Brave Search API",
+      "score": 2.255,
+      "status": "MISCONFIGURED",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.05,
+        "coverage": 0.9,
+        "relevance": 0.4,
+        "config_priority": 0.8
+      }
+    },
+    {
+      "id": "DISC-TAVILY",
+      "name": "Tavily",
+      "score": 2.251,
+      "status": "MISCONFIGURED",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.05,
+        "coverage": 0.9,
+        "relevance": 0.4,
+        "config_priority": 0.78
+      }
+    },
+    {
+      "id": "DISC-SERPAPI",
+      "name": "SerpAPI",
+      "score": 2.245,
+      "status": "MISCONFIGURED",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.05,
+        "coverage": 0.9,
+        "relevance": 0.4,
+        "config_priority": 0.75
+      }
+    },
+    {
+      "id": "DISC-YANDEX",
+      "name": "Yandex XML Search",
+      "score": 2.14,
+      "status": "MISCONFIGURED",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 1.0,
+        "latency": 0.55,
+        "freshness": 0.45,
+        "trust": 0.05,
+        "coverage": 0.75,
+        "relevance": 0.4,
+        "config_priority": 0.6
+      }
     }
   ],
   "accepted_urls": [
     {
-      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-SITEMAP",
+      "url": "https://www.bps.go.id/",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
       "title": ""
     },
     {
-      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-SITEMAP",
+      "url": "https://www.bps.go.id/248-268",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
       "title": ""
     },
     {
-      "url": "https://www.crossref.org/members-area/",
+      "url": "https://www.bps.go.id/brs/view/id/1267",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-pedaging-menurut-provinsi-2009-2018.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provinsi-2002-2014.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-provinsi-ton-1993-2015.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-berlaku-menurut-provinsi-2010-2016-ribu-rupiah-.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-konstan-2010-menurut-provinsi-2011-2017-persen-.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-2010-laju-pertumbuhan-y-on-y-produk-domestik-bruto-menurut-lapangan-usaha-persen-2014-2016.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2017/03/03/893/nikah-talak-dan-cerai-serta-rujuk-2012-2015",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2017/05/05/1253/-seri-2010-laju-pertumbuhan-kumulatif-produk-domestik-bruto-menurut-lapangan-usaha-persen-2017---2020.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1314/persentase-tenaga-kerja-informal-sektor-pertanian-2015---2018.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1319/upah-rata---rata-per-jam-pekerja-menurut-jenis-kelamin-2015---2018.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/06/05/1436/persentase-perempuan-pernah-kawin-berusia-15-49-tahun-yang-proses-kelahiran-terakhirnya-ditolong-oleh-tenaga-kesehatan-terlatih-menurut-provinsi-2015-2018.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2019/10/04/1655/persentase-perempuan-pernah-kawin-umur-15-49-tahun-yang-proses-kelahiran-terakhirnya-di-fasilitas-kesehatan-40-bawah-menurut-provinsi-2015-2016.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/robots.txt",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/robots.txt",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.adb.org/",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org//",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/?gclid=CjwKCAjwqJSaBhBUEiwAg5W9pz0FxvfsG7XzIr24fYv06Hu3SxyQuMVPyiq4m0oWPyP5XqGtTP8Y2BoCjikQAvD_BwE",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/annual-meetings/event-sustainability",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/board-calendar",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/board-directors",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/management/haruhiko-kuroda",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://adb.org/about/members",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org//about/members",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/members",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/partners",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/about/social-development",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.adb.org/acliff",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.oecd.org/",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.oecd.org",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.oecd.org",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www2.oecd.org/",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.oecd.org/%20els/familiesandchildren/",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.oecd.org/.../Health-at-a-Glance-2015-Key-Findings-AUSTRALIA.pdf",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.oecd.org/2012-08-01/84684-derpreisfuerdieerhoehungdersicherheitbeiderschifffahrtistwesentlichniedrigeralsdiemoeglichenkosteneinesgroangelegtenterroranschlages.htm",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.oecd.org/2014-01-23/264315-switzerland-needs-to-improve-its-approach-to-mental-health-issues-in-the-labour-force.htm",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.oecd.org/2014-04-07/271318-2014-03-China-report-EN.pdf",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.oecd.org/2015-02-09/340079-oecd-iddial-reformlar-hem-guclu-hem-kapsayc-bir-buyume-sureci-baslatabilir.htm",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www5.worldbank.org/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org:443/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://worldbank.org",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.worldbank.org",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.worldbank.org:80/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%E3%80%80",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.crossref.org",
       "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-SITEMAP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.crossref.org/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/01company/16fastfacts.html",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/01company/pr/news071813.html",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://crossref.org/01company/pr/news080408.html",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://crossref.org/01company/pr/news080408.html",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/01company/pr/news080408.html",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/02publishers/20pub_fees.html",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/02publishers/doi-guidelines.pdf",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/02publishers/TitleandDOIownership.pdf",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/06members/50go-live.html",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A1137397506",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A1172330269",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A1216871962",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A170131140",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A1807001487",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A1844359207",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A1972035401",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A1979532623",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A2002850600",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A2031384989",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A203887678",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://openalex.org/A2046647345",
+      "source_id": "SRC-OPENALEX",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://djponline.pajak.go.id/account/aktivasi",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://djponline.pajak.go.id/account/login",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://djponline.pajak.go.id/account/login",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://djponline.pajak.go.id/account/lupapassword",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://djponline.pajak.go.id/account/oauth/authorize?client_id=djponline-ebupot21umum-prod&response_type=code&redirect_uri=https://ebupot2126.pajak.go.id/auth/cek",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://djponline.pajak.go.id/account/oauth/authorize?client_id=ebilling&response_type=code&redirect_uri=https://sse2.pajak.go.id/auth/cek",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://djponline.pajak.go.id/robots.txt",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://djponline.pajak.go.id/robots.txt",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ebupot2126.pajak.go.id/",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ebupot2126.pajak.go.id/auth/login;jsessionid=4B939BEACC02943F465B4238801A467B",
+      "source_id": "SRC-DJP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.nist.gov/",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/%20nistir%208062",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/%3Cnolink%3E/automated-computer-time-service-acts",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/%3D",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/?combine=&term_node_tid_depth=All&field_campus_tid=All&term_node_tid_depth_1=5656&page=0",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/?combine=&term_node_tid_depth=All&field_campus_tid=All&term_node_tid_depth_1=5656&page=1",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/?o%5B0%5D=2747326&page=0",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/?o%5B0%5D=2747326&page=1",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/?o%5B0%5D=2747326&page=2",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.nist.gov/?o%5B0%5D=2747326&page=3",
+      "source_id": "SRC-NIST",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=12&pemrakarsa=106",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=12&pemrakarsa=112",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=12&pemrakarsa=27",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=12&pemrakarsa=34",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=12&pemrakarsa=38",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=12&pemrakarsa=39",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=2&tahun=1960",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=2&tahun=1965",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=2&tahun=1968",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=2&tahun=1998",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=2&tahun=1999",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cari?jenis=2&tahun=2000",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://peraturan.go.id/cariglobal?PeraturanSearch%5Bidglobal%5D=UNDANG-UNDANG+DASAR+NEGARA+REPUBLIK+INDONESIA+1945",
+      "source_id": "SRC-JDIH",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.cisa.gov/",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.cisa.gov",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.cisa.gov/%22%20%5Ct%20%22_blank",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.cisa.gov/%20news/2020/03/19/cisa-releases-guidance-essential-critical-infrastructure-workers-during-covid-19",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.cisa.gov/%E2%80%8Bnstac",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.cisa.gov/2022-year-review",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.cisa.gov/2022-year-review?ref=the-wavelength.ghost.io",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://cisa.gov/?fbclid=IwAR3Lk6C5t3kthyabl-NU0LmygALt9MBg7Z4lOmgL3xgF38odJjDh7cQccZM",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.cisa.gov/?page=0",
+      "source_id": "SRC-CISA",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/annual_report",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/magazine/edisi-11-vol-vi-november-2023/index.html",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/magazine/edisi-11-vol-vi-november-2023_warta_pemeriksa_november_2023_1704265083.pdf",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/magazine/edisi_10_vol_vi_oktober_2023/index.html",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/magazine/edisi_10_vol_vi_oktober_2023_warta_pemeriksa_oktober_2023_1701423881.pdf",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/magazine/edisi_12_vol_vi_desember_2023/index.html",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/magazine/edisi_12_vol_vi_desember_2023_undefined_1706690592.pdf",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/storage/2013/12/UU_1_2004_English.pdf",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/upload/UU152004_English.pdf",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/files/upload/UU_17_tahun_2003_English.pdf",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/assets/highlights/IHPS-1-2023/index.html",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bpk.go.id/laporan_hasil_pemeriksaan",
+      "source_id": "SRC-BPK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/en/",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/gallery/",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/news/klhk-penanganan-karhutla-terpadu-tengah-berlangsung-dan-kondisi-kian-membaik/",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/robots.txt",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/contact",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/contact/",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/download",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/download/",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/event",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/event/",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/pencarian",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/pencarian/",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/post/11",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/post/11/",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.menlhk.go.id/site/post/134",
+      "source_id": "SRC-KLHK",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.unep.org/robots.txt",
+      "source_id": "SRC-UNEP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.unep.org/robots.txt",
+      "source_id": "SRC-UNEP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://unep.org/robots.txt",
+      "source_id": "SRC-UNEP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://unep.org/robots.txt",
+      "source_id": "SRC-UNEP",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.ifrs.org/",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/)",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/)/",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/-/media/feature/about-us/legal-and-governance/constitution-docs/ifrs-foundation-constitution-2018.pdf",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/-/media/feature/aboutus/legal-and-governance/constitution-docs/due-process-handbook.pdf",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/-/media/feature/groups/eeg/eeg-report-march-2019.pdf",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/-/media/feature/implementation/ifrs-17/ifrs17-simplified-accounting-slides.pdf",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/-/media/feature/meetings/2017/december/accounting-standards-advisory-forum/asaf-summary-dec-2017.pdf",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/-/media/feature/meetings/2017/july/iasb/ap03b-modification-financial-liabilities.pdf",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.ifrs.org/-/media/feature/meetings/2017/march/asaf/meeting-summary-mar-17.pdf",
+      "source_id": "SRC-ISSB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://globalreporting.org/",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/%20",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/5th-gri-global-conference/Pages/default.aspx",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/?dm_i=4J5,3P2KM,G004H1,DAOU5,1",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/?ref=news.wherefrom.org",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/?ref=resources.proof.io",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/_layouts/registration/signup.aspx?n=y&dm_t=0,0,0,0,0",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://globalreporting.org/about-gri/",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://globalreporting.org/about-gri",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/about-gri/",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.globalreporting.org/about-gri/contact-us/",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://globalreporting.org/about-gri/governance/",
+      "source_id": "SRC-GRI",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://sasb.org/?ref=resources.proof.io",
+      "source_id": "SRC-SASB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://sasb.org/about/",
+      "source_id": "SRC-SASB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://sasb.org/about/global-use/",
+      "source_id": "SRC-SASB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.sasb.org/about/global-use/",
+      "source_id": "SRC-SASB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://sasb.org/about/governance-archive/",
+      "source_id": "SRC-SASB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://sasb.org/about/sasb-and-other-esg-frameworks/",
+      "source_id": "SRC-SASB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.sasb.org/about/?ref=forwhatitsworth.co",
+      "source_id": "SRC-SASB",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://sasb.org/about/?ref=forwhatitsworth.co",
+      "source_id": "SRC-SASB",
+      "provider_id": "DISC-COMMONCRAWL",
       "title": ""
     }
   ],
   "rejected_urls": [
     {
-      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
+      "url": "https://www.bps.go.id/",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
+      "url": "https://www.bps.go.id/248-268",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.crossref.org/members-area/",
+      "url": "https://www.bps.go.id/brs/view/id/1267",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
+      "url": "https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-pedaging-menurut-provinsi-2009-2018.html",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-ATOM"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
+      "url": "https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provinsi-2002-2014.html",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-ATOM"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.crossref.org/members-area/",
+      "url": "https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-provinsi-ton-1993-2015.html",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-ATOM"
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-berlaku-menurut-provinsi-2010-2016-ribu-rupiah-.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-konstan-2010-menurut-provinsi-2011-2017-persen-.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-2010-laju-pertumbuhan-y-on-y-produk-domestik-bruto-menurut-lapangan-usaha-persen-2014-2016.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2017/03/03/893/nikah-talak-dan-cerai-serta-rujuk-2012-2015",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2017/05/05/1253/-seri-2010-laju-pertumbuhan-kumulatif-produk-domestik-bruto-menurut-lapangan-usaha-persen-2017---2020.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1314/persentase-tenaga-kerja-informal-sektor-pertanian-2015---2018.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1319/upah-rata---rata-per-jam-pekerja-menurut-jenis-kelamin-2015---2018.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/06/05/1436/persentase-perempuan-pernah-kawin-berusia-15-49-tahun-yang-proses-kelahiran-terakhirnya-ditolong-oleh-tenaga-kesehatan-terlatih-menurut-provinsi-2015-2018.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2019/10/04/1655/persentase-perempuan-pernah-kawin-umur-15-49-tahun-yang-proses-kelahiran-terakhirnya-di-fasilitas-kesehatan-40-bawah-menurut-provinsi-2015-2016.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/robots.txt",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/robots.txt",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.adb.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org//",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/?gclid=CjwKCAjwqJSaBhBUEiwAg5W9pz0FxvfsG7XzIr24fYv06Hu3SxyQuMVPyiq4m0oWPyP5XqGtTP8Y2BoCjikQAvD_BwE",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/about/annual-meetings/event-sustainability",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/about/board-calendar",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/about/board-directors",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/about/management/haruhiko-kuroda",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://adb.org/about/members",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org//about/members",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/about/members",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/about/partners",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/about/social-development",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.adb.org/acliff",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.oecd.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www2.oecd.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/%20els/familiesandchildren/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/.../Health-at-a-Glance-2015-Key-Findings-AUSTRALIA.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/2012-08-01/84684-derpreisfuerdieerhoehungdersicherheitbeiderschifffahrtistwesentlichniedrigeralsdiemoeglichenkosteneinesgroangelegtenterroranschlages.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/2014-01-23/264315-switzerland-needs-to-improve-its-approach-to-mental-health-issues-in-the-labour-force.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/2014-04-07/271318-2014-03-China-report-EN.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.oecd.org/2015-02-09/340079-oecd-iddial-reformlar-hem-guclu-hem-kapsayc-bir-buyume-sureci-baslatabilir.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www5.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org:443/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://worldbank.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.worldbank.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.worldbank.org:80/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%E3%80%80",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.crossref.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.crossref.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/01company/16fastfacts.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/01company/pr/news071813.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://crossref.org/01company/pr/news080408.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://crossref.org/01company/pr/news080408.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.crossref.org/01company/pr/news080408.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     }
   ],
   "cache": {
     "hits": 0,
-    "misses": 8,
-    "stores": 8,
-    "cached_queries": 8,
-    "cached_urls": 0
+    "misses": 108,
+    "stores": 108,
+    "cached_queries": 108,
+    "cached_urls": 218
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }
