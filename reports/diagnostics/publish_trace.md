@@ -1,13 +1,14 @@
 # Publish Trace
 
-**Generated:** 2026-07-11T13:10:45+00:00
+**Generated:** 2026-07-11T14:18:19+00:00
 
-- Balance: `{'extracted': 2, 'validated': 2, 'rejected': 0, 'queued': 2, 'published': 2, 'skipped': 0, 'duplicate': 0, 'by_dataset': {'industry_library': 2}, 'balance_ok': True}`
-- Session knowledge_added: `2`
-- Session knowledge_rejected: `0`
-- dry_run: `False`
+- Balance: `{'extracted': 3, 'validated': 3, 'rejected': 3, 'queued': 3, 'published': 0, 'skipped': 3, 'duplicate': 0, 'by_dataset': {}, 'balance_ok': False}`
+- Session knowledge_added: `0`
+- Session knowledge_rejected: `3`
+- dry_run: `True`
 
 | Candidate ID | Dataset | Confidence | Duplicate | Relationships | Published | Queue | Manual review | Reject reason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-A2586EE1B9E4 | industry_library | 0.8375 | False | True | True | False | False | — |
-| CAND-18CCB68EA40E | industry_library | 0.8375 | False | True | True | False | False | — |
+| CAND-B707E7081EA3 | industry_library | 0.92 | False | True | False | True | True | queued_for_human_approval |
+| CAND-1CAE1B4D1FB3 | industry_library | 0.92 | False | True | False | True | True | queued_for_human_approval |
+| CAND-68DBCF40956E | industry_library | 0.92 | False | True | False | True | True | queued_for_human_approval |

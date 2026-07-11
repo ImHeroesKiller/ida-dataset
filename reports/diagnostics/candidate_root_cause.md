@@ -1,43 +1,42 @@
 # Candidate Root Cause
 
-**Generated:** 2026-07-11T13:10:45+00:00
-**Session:** `SESSION-20260711-CF5FA7`
+**Generated:** 2026-07-11T14:18:19+00:00
+**Session:** `SESSION-20260711-610B3E`
 
 > Diagnostics only. No recommendations. Evidence only.
 
 ## Exactly which rule blocked production?
 
-**Primary integrity block reason:** `duplicate_id (primary entity id already exists in target CSV) — e.g. duplicate_id:IND-000054`
+**Primary integrity block reason:** `none`
 
-**dry_run publisher gate:** `False`
+**dry_run publisher gate:** `True`
 
 ## How many candidates?
 
-- Total analyzed: **2**
-- Integrity blocked: **2**
-- Blocked by primary reason: **2**
+- Total analyzed: **3**
+- Integrity blocked: **0**
+- Blocked by primary reason: **0**
 
 ## What evidence proves it?
 
-- `session_id=SESSION-20260711-CF5FA7`
-- `dry_run=False`
-- `candidates_analyzed=2`
-- `integrity_blocked=2`
-- `top_family=duplicate_id count=2`
-- `family_histogram={'duplicate_id': 2}`
-- `reason_histogram={'duplicate_id:IND-000054': 1, 'duplicate_id:IND-000055': 1}`
-- `candidate CAND-A2586EE1B9E4 entity_id=IND-000054 reason=duplicate_id:IND-000054 conf=0.8375`
-- `candidate CAND-18CCB68EA40E entity_id=IND-000055 reason=duplicate_id:IND-000055 conf=0.8375`
+- `session_id=SESSION-20260711-610B3E`
+- `dry_run=True`
+- `candidates_analyzed=3`
+- `integrity_blocked=0`
+- `top_family=none count=0`
+- `family_histogram={}`
+- `reason_histogram={}`
 
 ## Per-candidate integrity reasons
 
 | candidate_id | dataset | confidence | integrity_ok | reason | publish |
 | --- | --- | --- | --- | --- | --- |
-| CAND-A2586EE1B9E4 | industry_library | 0.8375 | False | duplicate_id:IND-000054 | Rejected |
-| CAND-18CCB68EA40E | industry_library | 0.8375 | False | duplicate_id:IND-000055 | Rejected |
+| CAND-1CAE1B4D1FB3 | industry_library | 0.92 | True | ok | Skipped |
+| CAND-68DBCF40956E | industry_library | 0.92 | True | ok | Skipped |
+| CAND-B707E7081EA3 | industry_library | 0.92 | True | ok | Skipped |
 
 ## Could production continue if that rule were satisfied?
 
-If rule/condition `duplicate_id (primary entity id already exists in target CSV) — e.g. duplicate_id:IND-000054` were satisfied for 2/2 candidate(s), integrity_guard.validate_row would return ok for those candidates (publisher append still gated by session dry_run=False).
+If rule/condition `none` were satisfied for 0/3 candidate(s), integrity_guard.validate_row would return ok for those candidates (publisher append still gated by session dry_run=True).
 
 No recommendation is made. Statement is conditional evidence only.

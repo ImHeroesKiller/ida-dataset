@@ -1,45 +1,46 @@
 # Root Cause Analysis
 
-**Generated:** 2026-07-11T13:10:45+00:00
-**Session:** `SESSION-20260711-CF5FA7`
-**Mission:** `MIS-20260711-A36688`
+**Generated:** 2026-07-11T14:18:19+00:00
+**Session:** `SESSION-20260711-610B3E`
+**Mission:** `MIS-20260711-E0F5D5`
 
 > Diagnostics only. No fixes. Evidence only.
 
 ## Why no new rows?
 
-Latest evidence shows published=2; zero-row claim may refer to a later window.
+Production stopped or yielded zero published rows at stage `publish` due to condition `session_dry_run_true`.
 
 ## Exactly which stage stopped production?
 
-**`none (production produced rows)`**
+**`publish`**
 
 ## What condition caused it?
 
-**`rows_published`**
+**`session_dry_run_true`**
 
 ## What module decided it?
 
-**`append path succeeded`**
+**`automation/ci/learning_session.py (dry_run / publish flags)`**
 
 ## What evidence proves it?
 
-- published=2
-- extracted=2
-- discovered=31 downloaded=277 duplicates=223
+- session.dry_run=True
+- knowledge_added=0
+- extracted=3 rejected=3
+- summary=Session completed · published=0 extracted=3 validated=3 rejected=3 docs=86 entity=— · dry_run
 
 ## Metrics snapshot
 
 ```json
 {
-  "documents_discovered": 31,
-  "documents_downloaded": 277,
-  "documents_duplicates": 223,
-  "candidates_extracted": 2,
-  "candidates_rejected": 0,
-  "rows_published": 2,
-  "dry_run": false,
-  "fingerprint_urls_known": 470,
+  "documents_discovered": 21,
+  "documents_downloaded": 86,
+  "documents_duplicates": 64,
+  "candidates_extracted": 3,
+  "candidates_rejected": 3,
+  "rows_published": 0,
+  "dry_run": true,
+  "fingerprint_urls_known": 146,
   "selected_dataset": "service_library"
 }
 ```
@@ -47,11 +48,12 @@ Latest evidence shows published=2; zero-row claim may refer to a later window.
 ## Findings
 ### Finding 1
 
-Session published rows; if overnight gap exists, examine later sessions.
+No rows published because session ran with dry_run.
 
-- `published=2`
-- `extracted=2`
-- `discovered=31 downloaded=277 duplicates=223`
+- `session.dry_run=True`
+- `knowledge_added=0`
+- `extracted=3 rejected=3`
+- `summary=Session completed · published=0 extracted=3 validated=3 rejected=3 docs=86 entity=— · dry_run`
 
 ### Finding 2
 

@@ -1,26 +1,26 @@
 # Factory Capacity
 
-**Generated:** 2026-07-11T13:09:24+00:00
+**Generated:** 2026-07-11T14:16:57+00:00
 
 | Dimension | Value |
 |-----------|------:|
-| Rows/hour | 3.33 |
-| Docs/hour | 461.16 |
-| Rows/session | 3.333 |
+| Rows/hour | 0.0 |
+| Docs/hour | 503.37 |
+| Rows/session | 3.231 |
 | Top connector | SRC-CROSSREF |
 | Top source | SRC-CROSSREF |
 | Top mission | Bootstrap Buyer Persona Library — continuous knowledge manufacturing for buyer_p |
-| Avg connector latency (ms) | 14367.5 |
-| Worker utilization | 0.084 |
+| Avg connector latency (ms) | 2503.3 |
+| Worker utilization | 0.372 |
 | Document queue depth | 0 |
-| Candidate queue depth | 0 |
+| Candidate queue depth | 6 |
 | Publish queue depth | 6 |
-| Process ratio | 95.8% |
-| Knowledge growth velocity | 3.333 rows/productive session |
-| Production efficiency | 0.007 rows/doc |
+| Process ratio | 208.2% |
+| Knowledge growth velocity | 3.231 rows/productive session |
+| Production efficiency | 0.5 rows/doc |
 | Auto-publish confidence gate | 0.92 |
-| Automatic publish (last) | 2 |
-| Manual review (last) | 0 |
+| Automatic publish (last) | 0 |
+| Manual review (last) | 3 |
 
 ## Success targets
 

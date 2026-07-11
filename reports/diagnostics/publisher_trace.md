@@ -1,10 +1,11 @@
 # Publisher Trace
 
-**Generated:** 2026-07-11T13:10:45+00:00
+**Generated:** 2026-07-11T14:18:19+00:00
 
 | candidate_id | Publish attempted? | Decision | Reason | Integrity ok | dry_run | trace_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| CAND-A2586EE1B9E4 | YES | Rejected | integrity_guard:duplicate_id:IND-000054 | False | False | published |
-| CAND-18CCB68EA40E | YES | Rejected | integrity_guard:duplicate_id:IND-000055 | False | False | published |
+| CAND-1CAE1B4D1FB3 | NO | Skipped | session_dry_run_true — publisher did not append | True | True | manual_review |
+| CAND-68DBCF40956E | NO | Skipped | session_dry_run_true — publisher did not append | True | True | manual_review |
+| CAND-B707E7081EA3 | NO | Skipped | session_dry_run_true — publisher did not append | True | True | manual_review |
 
 Decisions: Published | Rejected | Queued | Manual Review | Skipped

@@ -1,7 +1,7 @@
 # Hard Limit Audit
 
-**Generated:** 2026-07-11T12:46:46+00:00
-**Occurrences found:** 269
+**Generated:** 2026-07-11T14:15:02+00:00
+**Occurrences found:** 303
 
 Search covers acquisition, config, learning, search, and CI paths.
 
@@ -108,14 +108,14 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/acquisition/pipeline.py` | 465 | `soft_limit=max(int(limit or 0), int(policy_soft or 0)) or None,` |
 | `automation/acquisition/pipeline.py` | 466 | `hard_limit=policy_hard,` |
 | `automation/acquisition/pipeline.py` | 497 | `"process_budget": budget,` |
-| `automation/acquisition/pipeline.py` | 529 | `emit("Downloading", f"Downloading report {str(res.title or '')[:80]}")` |
-| `automation/acquisition/pipeline.py` | 554 | `d.setdefault("metadata", {})["text_excerpt"] = str(dm["text"])[:8000]` |
-| `automation/acquisition/pipeline.py` | 646 | `text=text_fp[:5000],` |
-| `automation/acquisition/pipeline.py` | 759 | `for p in sorted(alt_incoming.glob("*.json"))[:24]:` |
-| `automation/acquisition/pipeline.py` | 817 | `f"Failures: {audit['failures'][:5]}"` |
-| `automation/acquisition/pipeline.py` | 912 | `"evidence_snippet": snip[:500],` |
-| `automation/acquisition/pipeline.py` | 1544 | `doc_id = f"DOC-{checksum[:12].upper()}"` |
-| `automation/acquisition/pipeline.py` | 1565 | `"text_excerpt": text[:8000],` |
+| `automation/acquisition/pipeline.py` | 541 | `emit("Downloading", f"Downloading report {str(res.title or '')[:80]}")` |
+| `automation/acquisition/pipeline.py` | 569 | `d.setdefault("metadata", {})["text_excerpt"] = str(dm["text"])[:8000]` |
+| `automation/acquisition/pipeline.py` | 664 | `text=text_fp[:5000],` |
+| `automation/acquisition/pipeline.py` | 777 | `for p in sorted(alt_incoming.glob("*.json"))[:24]:` |
+| `automation/acquisition/pipeline.py` | 835 | `f"Failures: {audit['failures'][:5]}"` |
+| `automation/acquisition/pipeline.py` | 930 | `"evidence_snippet": snip[:500],` |
+| `automation/acquisition/pipeline.py` | 1596 | `doc_id = f"DOC-{checksum[:12].upper()}"` |
+| `automation/acquisition/pipeline.py` | 1617 | `"text_excerpt": text[:8000],` |
 | `automation/acquisition/download_manager.py` | 142 | `url=url, content_hash=content_hash, text=text[:5000]` |
 | `automation/acquisition/download_manager.py` | 162 | `doc_id = f"DOC-{content_hash[:12].upper()}"` |
 | `automation/acquisition/download_manager.py` | 184 | `document_id=f"DOC-{content_hash[:12].upper()}",` |
@@ -162,6 +162,40 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/acquisition/discovery_pkg/query_engine.py` | 115 | `if len(queries) >= max_queries:` |
 | `automation/acquisition/discovery_pkg/query_engine.py` | 119 | `if len(queries) < max_queries:` |
 | `automation/acquisition/discovery_pkg/query_engine.py` | 145 | `if len(out) >= max_queries:` |
+| `automation/acquisition/fulltext/quality.py` | 27 | `if rep == "pdf" or raw[:4] == b"%PDF":` |
+| `automation/acquisition/fulltext/quality.py` | 38 | `if rep == "metadata_json" or "json" in ct or text.lstrip()[:1] in "{[":` |
+| `automation/acquisition/fulltext/quality.py` | 45 | `return strip_html(text)[:5000]` |
+| `automation/acquisition/fulltext/quality.py` | 57 | `for i in o[:100]:` |
+| `automation/acquisition/fulltext/quality.py` | 82 | `tables = len(re.findall(r"(?i)<table\|\btable\b", usable + (raw[:20000].decode("utf-8", errors="replace") if raw else "")))` |
+| `automation/acquisition/fulltext/quality.py` | 84 | `figures = len(re.findall(r"(?i)\bfigure\b\|\bfig\.\s*\d\|<img\b", usable + (raw[:10000].decode("utf-8", errors="replace") if raw else "")))` |
+| `automation/acquisition/fulltext/downloader.py` | 56 | `text_head = raw[:12000].decode("utf-8", errors="replace")` |
+| `automation/acquisition/fulltext/downloader.py` | 118 | `h = hashlib.sha256(raw).hexdigest()[:16]` |
+| `automation/acquisition/fulltext/reports.py` | 163 | `for r in records[:40]` |
+| `automation/acquisition/fulltext/ranking.py` | 34 | `head = raw[:16] if raw else b""` |
+| `automation/acquisition/fulltext/ranking.py` | 42 | `if "xml" in ct or head.startswith(b"<?xml") or (head.startswith(b"<") and b"xmlns" in raw[:500]):` |
+| `automation/acquisition/fulltext/ranking.py` | 43 | `if b"<html" in raw[:500].lower() or b"<!doctype html" in raw[:200].lower():` |
+| `automation/acquisition/fulltext/ranking.py` | 46 | `if "json" in ct or (raw[:1] in (b"{", b"[") and b'"' in raw[:200]):` |
+| `automation/acquisition/fulltext/ranking.py` | 52 | `if "html" in ct or b"<html" in raw[:500].lower() or b"<!doctype html" in raw[:200].lower():` |
+| `automation/acquisition/fulltext/open_access.py` | 143 | `"abstract": abstract[:4000],` |
+| `automation/acquisition/fulltext/open_access.py` | 213 | `q = f'ti:"{title[:120]}"'` |
+| `automation/acquisition/fulltext/open_access.py` | 216 | `api = "http://export.arxiv.org/api/query?" + urlencode({"search_query": q, "start": 0, "max_results": 3})` |
+| `automation/acquisition/fulltext/chain.py` | 114 | `"records": list(self.records)[:200],` |
+| `automation/acquisition/fulltext/chain.py` | 164 | `head = p.read_text(encoding="utf-8", errors="replace")[:200]` |
+| `automation/acquisition/fulltext/chain.py` | 176 | `rep = "metadata_json" if "json" in ct.lower() or (raw[:1] in (b"{", b"[")) else (` |
+| `automation/acquisition/fulltext/chain.py` | 179 | `if raw[:4] == b"%PDF":` |
+| `automation/acquisition/fulltext/chain.py` | 218 | `document_id = str(doc.get("document_id") or f"DOC-{hashlib.sha256(url.encode()).hexdigest()[:12].upper()}")` |
+| `automation/acquisition/fulltext/chain.py` | 276 | `chain_log.append({"step": "crossref", "ok": False, "error": str(exc)[:120]})` |
+| `automation/acquisition/fulltext/chain.py` | 286 | `chain_log.append({"step": "doi.org", "ok": False, "error": str(exc)[:120]})` |
+| `automation/acquisition/fulltext/chain.py` | 296 | `chain_log.append({"step": "openalex_id", "ok": False, "error": str(exc)[:120]})` |
+| `automation/acquisition/fulltext/chain.py` | 310 | `chain_log.append({"step": "discover", "ok": False, "error": str(exc)[:120]})` |
+| `automation/acquisition/fulltext/chain.py` | 331 | `dl = {"ok": False, "error": str(exc)[:120], "url": u, "failure_kind": "failed"}` |
+| `automation/acquisition/fulltext/chain.py` | 340 | `{"step": "download", "url": u[:100], "ok": False, "error": dl.get("error")}` |
+| `automation/acquisition/fulltext/chain.py` | 369 | `"url": u[:100],` |
+| `automation/acquisition/fulltext/chain.py` | 541 | `meta["text_excerpt"] = readable[:80000]` |
+| `automation/acquisition/fulltext/doi.py` | 33 | `blob = str(src)[:8000]` |
+| `automation/acquisition/fulltext/doi.py` | 125 | `"title": str(title or "")[:300],` |
+| `automation/acquisition/fulltext/doi.py` | 133 | `"abstract": abstract[:4000],` |
+| `automation/acquisition/fulltext/doi.py` | 136 | `"raw_message_keys": list(msg.keys())[:40],` |
 | `automation/config/product_targets.yaml` | 3 | `# hard_limit: null means the factory never stops for an arbitrary numeric ceiling.` |
 | `automation/config/product_targets.yaml` | 38 | `hard_limit: null` |
 | `automation/config/product_targets.yaml` | 43 | `hard_limit: null` |
@@ -197,7 +231,7 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/learning/live_runtime.py` | 549 | `task=reason[:120],` |
 | `automation/learning/heartbeat.py` | 136 | `data["last_error"] = (error or "production_failed")[:500]` |
 | `automation/learning/heartbeat.py` | 139 | `data["last_error"] = str(error)[:500]` |
-| `automation/learning/state/acquisition_performance.json` | 646 | `"process_budget": 117,` |
+| `automation/learning/state/acquisition_performance.json` | 634 | `"process_budget": 500,` |
 | `automation/learning/state/manufacturing_state.json` | 64 | `"hard_limit": null,` |
 | `automation/learning/state/manufacturing_state.json` | 83 | `"hard_limit": null` |
 | `automation/learning/state/manufacturing_state.json` | 101 | `"hard_limit": null,` |

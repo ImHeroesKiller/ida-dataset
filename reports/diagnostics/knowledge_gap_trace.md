@@ -1,6 +1,6 @@
 # Knowledge Gap Trace
 
-**Generated:** 2026-07-11T13:10:45+00:00
+**Generated:** 2026-07-11T14:18:19+00:00
 **Mode:** `{'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_datasets': ['discovery_question_library'], 'below_minimum': ['discovery_question_library', 'service_library', 'business_signal_library', 'competitor_library', 'product_catalog', 'buyer_persona_library', 'risk_library', 'decision_maker_library', 'trend_library', 'regulation_library', 'industry_library', 'framework_library', 'solution_library', 'case_study_library', 'company_profile', 'pain_point_library', 'opportunity_analysis']}`
 **Selected mission:** `discovery_question_library`
 

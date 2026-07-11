@@ -4,20 +4,21 @@ Adaptive scores used for mission source selection.
 
 | Rank | Source | Score |
 |-----:|--------|------:|
-| 1 | BPS Indonesia | 99.97 |
-| 2 | World Bank | 92.591 |
-| 3 | Asian Development Bank | 90.086 |
-| 4 | OECD | 88.455 |
-| 5 | Kemenperin | 87.449 |
-| 6 | Crossref | 84.233 |
-| 7 | DJP Pajak | 67.633 |
-| 8 | NIST | 67.433 |
-| 9 | JDIH / Peraturan.go.id | 67.433 |
-| 10 | ISSB / IFRS Sustainability | 67.233 |
-| 11 | CISA | 67.133 |
-| 12 | GRI | 66.833 |
-| 13 | BPK | 66.833 |
-| 14 | UNEP | 66.733 |
-| 15 | SASB | 66.533 |
-| 16 | KLHK | 66.533 |
-| 17 | OWASP | 66.233 |
+| 1 | World Bank | 100.185 |
+| 2 | BPS Indonesia | 96.909 |
+| 3 | Kemenperin | 91.672 |
+| 4 | Crossref | 90.276 |
+| 5 | Asian Development Bank | 88.489 |
+| 6 | OpenAlex | 86.069 |
+| 7 | OECD | 84.498 |
+| 8 | DJP Pajak | 79.45 |
+| 9 | NIST | 79.25 |
+| 10 | JDIH / Peraturan.go.id | 79.25 |
+| 11 | ISSB / IFRS Sustainability | 79.05 |
+| 12 | CISA | 78.95 |
+| 13 | GRI | 78.65 |
+| 14 | BPK | 78.65 |
+| 15 | UNEP | 78.55 |
+| 16 | KLHK | 78.35 |
+| 17 | SASB | 72.533 |
+| 18 | OWASP | 72.05 |
