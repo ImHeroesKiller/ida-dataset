@@ -1310,3 +1310,376 @@ sources:
     publish: true
     archive_documents: true
     notes: "Trusted registry entry — enable when connector registered; discovery may site: this domain"
+
+  # ─── Enterprise Function trusted sources (config-only expansion) ───
+  - id: SRC-NIST
+    name: NIST
+    category: government
+    enabled: true
+    priority: 88
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.nist.gov
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 15
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: US
+    trust_score: 0.96
+    minimum_confidence: 0.85
+    allowed_datasets: [framework_library, regulation_library, risk_library, trend_library, industry_library, buyer_persona_library, decision_maker_library, competitor_library]
+    enterprise_functions: [cyber_security, information_technology, cloud, ai, risk_management, compliance]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: US NIST — cybersecurity & standards (trusted)
+
+  - id: SRC-CISA
+    name: CISA
+    category: government
+    enabled: true
+    priority: 86
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.cisa.gov
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 15
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: US
+    trust_score: 0.95
+    minimum_confidence: 0.85
+    allowed_datasets: [framework_library, regulation_library, risk_library, trend_library, industry_library]
+    enterprise_functions: [cyber_security, risk_management, information_technology]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: CISA cybersecurity advisories (trusted)
+
+  - id: SRC-OWASP
+    name: OWASP
+    category: industry_association
+    enabled: true
+    priority: 82
+    collector: generic_website
+    connector_id: null
+    base_url: https://owasp.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 15
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.90
+    minimum_confidence: 0.85
+    allowed_datasets: [framework_library, risk_library, trend_library, solution_library]
+    enterprise_functions: [cyber_security, software_engineering, information_technology]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: OWASP application security (trusted)
+
+  - id: SRC-JDIH
+    name: JDIH / Peraturan.go.id
+    category: government
+    enabled: true
+    priority: 88
+    collector: generic_website
+    connector_id: null
+    base_url: https://peraturan.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 12
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.96
+    minimum_confidence: 0.85
+    allowed_datasets: [regulation_library, risk_library, industry_library, decision_maker_library]
+    enterprise_functions: [legal, compliance, corporate_governance, tax, human_resources]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Indonesia official regulations portal (trusted)
+
+  - id: SRC-BPK
+    name: BPK
+    category: government
+    enabled: true
+    priority: 84
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.bpk.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 12
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.94
+    minimum_confidence: 0.85
+    allowed_datasets: [regulation_library, risk_library, framework_library, industry_library]
+    enterprise_functions: [internal_audit, compliance, finance, corporate_governance]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Badan Pemeriksa Keuangan (trusted)
+
+  - id: SRC-DJP
+    name: DJP Pajak
+    category: government
+    enabled: true
+    priority: 90
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.pajak.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 12
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.96
+    minimum_confidence: 0.85
+    allowed_datasets: [regulation_library, risk_library, framework_library, industry_library]
+    enterprise_functions: [tax, finance, accounting, compliance]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Direktorat Jenderal Pajak (trusted)
+
+  - id: SRC-KLHK
+    name: KLHK
+    category: government
+    enabled: true
+    priority: 82
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.menlhk.go.id
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 12
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: id
+    country: ID
+    trust_score: 0.93
+    minimum_confidence: 0.85
+    allowed_datasets: [regulation_library, risk_library, trend_library, industry_library]
+    enterprise_functions: [health_safety_environment, esg, compliance, manufacturing]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Ministry of Environment and Forestry Indonesia (trusted)
+
+  - id: SRC-UNEP
+    name: UNEP
+    category: international_organization
+    enabled: true
+    priority: 84
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.unep.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 15
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.93
+    minimum_confidence: 0.85
+    allowed_datasets: [regulation_library, risk_library, trend_library, framework_library, industry_library]
+    enterprise_functions: [esg, health_safety_environment, corporate_governance]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: UN Environment Programme (trusted)
+
+  - id: SRC-GRI
+    name: GRI
+    category: industry_association
+    enabled: true
+    priority: 86
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.globalreporting.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 12
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.92
+    minimum_confidence: 0.85
+    allowed_datasets: [framework_library, regulation_library, trend_library, industry_library]
+    enterprise_functions: [esg, corporate_governance, investor_relations]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Global Reporting Initiative ESG standards (trusted)
+
+  - id: SRC-SASB
+    name: SASB
+    category: industry_association
+    enabled: true
+    priority: 84
+    collector: generic_website
+    connector_id: null
+    base_url: https://sasb.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 12
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.91
+    minimum_confidence: 0.85
+    allowed_datasets: [framework_library, trend_library, industry_library, risk_library]
+    enterprise_functions: [esg, investor_relations, finance]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: SASB sustainability standards (trusted)
+
+  - id: SRC-ISSB
+    name: ISSB / IFRS Sustainability
+    category: industry_association
+    enabled: true
+    priority: 88
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.ifrs.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 12
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.94
+    minimum_confidence: 0.85
+    allowed_datasets: [framework_library, regulation_library, trend_library, industry_library]
+    enterprise_functions: [esg, accounting, finance, investor_relations]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: IFRS Foundation / ISSB sustainability disclosure (trusted)
+
+  - id: SRC-SHRM
+    name: SHRM
+    category: industry_association
+    enabled: true
+    priority: 78
+    collector: generic_website
+    connector_id: null
+    base_url: https://www.shrm.org
+    api_endpoint: null
+    rss_feed: null
+    authentication: none
+    headers: {}
+    query_template: "{query}"
+    rate_limit: 12
+    timeout: 30
+    retry: 2
+    supported_document_types: [html, pdf]
+    language: en
+    country: multi
+    trust_score: 0.88
+    minimum_confidence: 0.85
+    allowed_datasets: [buyer_persona_library, decision_maker_library, framework_library, trend_library, pain_point_library]
+    enterprise_functions: [human_resources, recruitment, learning_development, payroll, industrial_relations]
+    update_frequency: weekly
+    parser: html
+    extractor: grounded_text
+    validator: dps
+    publish: true
+    archive_documents: true
+    notes: Society for Human Resource Management (trusted)

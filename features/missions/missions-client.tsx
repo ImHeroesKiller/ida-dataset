@@ -72,14 +72,16 @@ const statusStyle: Record<string, string> = {
 };
 
 const SUGGESTED_MISSIONS = [
-  "Produce Buyer Persona Dataset for banking and manufacturing",
-  "Produce Decision Maker patterns for enterprise Indonesia",
-  "Produce Competitor Dataset for manufacturing Indonesia",
-  "Produce Regulation Dataset — employment and banking",
-  "Produce Risk Dataset — operational and regulatory risk",
-  "Produce Trend Dataset — digital economy Indonesia",
-  "Produce Industry Dataset — expand industry_library",
-  "Market intelligence signals for Indonesian SMEs",
+  "Buyer Persona — HR Director and Finance Manager Indonesia",
+  "Decision Maker — IT Director and Plant Manager patterns",
+  "Regulation — employment, tax, data privacy, environment",
+  "Risk — cyber security, treasury, supply chain",
+  "Trend — ESG, manufacturing automation, recruitment",
+  "Framework — NIST cyber security and ISO quality",
+  "Procurement × Regulation — LKPP and government procurement",
+  "Competitor — manufacturing and banking Indonesia",
+  "Finance × Risk — OJK and Bank Indonesia knowledge",
+  "Market intelligence across all enterprise functions",
 ];
 
 const PIPELINE = [

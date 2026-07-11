@@ -1,0 +1,342 @@
+# Trusted source → Enterprise Function mapping (configuration only).
+# Source IDs reference automation/config/source_registry.yaml.
+# Discovery site hosts used for site: queries (trusted domains only).
+
+version: "2.0"
+
+# Default multi-function sources (broad enterprise coverage)
+global_sources:
+  - SRC-000004  # World Bank
+  - SRC-000005  # OECD
+  - SRC-IMF
+  - SRC-000006  # ADB
+  - SRC-000001  # BPS
+
+by_function:
+  finance:
+    sources: [SRC-OJK, SRC-BI, SRC-IMF, SRC-000004, SRC-BEI, SRC-IFC]
+    site_hosts: [ojk.go.id, bi.go.id, imf.org, worldbank.org, idx.co.id]
+    query_examples:
+      - "site:ojk.go.id risk management"
+      - "site:bi.go.id monetary policy"
+      - "site:imf.org financial stability"
+
+  accounting:
+    sources: [SRC-OJK, SRC-BEI, SRC-IFC, SRC-000005]
+    site_hosts: [ifrs.org, ojk.go.id, idx.co.id, oecd.org]
+    query_examples:
+      - "site:ifrs.org financial reporting"
+      - "site:ojk.go.id accounting"
+
+  treasury:
+    sources: [SRC-BI, SRC-IMF, SRC-OJK, SRC-000004]
+    site_hosts: [bi.go.id, imf.org, ojk.go.id, worldbank.org]
+    query_examples:
+      - "site:bi.go.id treasury liquidity"
+      - "site:imf.org cash management"
+
+  tax:
+    sources: [SRC-DJP, SRC-000001, SRC-KEMENDAG]
+    site_hosts: [pajak.go.id, bps.go.id, kemendag.go.id]
+    query_examples:
+      - "site:pajak.go.id corporate tax"
+      - "site:pajak.go.id transfer pricing"
+
+  human_resources:
+    sources: [SRC-ILO, SRC-KEMNAKER, SRC-APINDO, SRC-SHRM]
+    site_hosts: [ilo.org, kemnaker.go.id, apindo.or.id, shrm.org]
+    query_examples:
+      - "site:ilo.org recruitment"
+      - "site:kemnaker.go.id employment"
+
+  recruitment:
+    sources: [SRC-ILO, SRC-KEMNAKER, SRC-APINDO, SRC-SHRM]
+    site_hosts: [ilo.org, kemnaker.go.id, shrm.org]
+    query_examples:
+      - "site:ilo.org hiring skills"
+      - "site:kemnaker.go.id tenaga kerja"
+
+  learning_development:
+    sources: [SRC-ILO, SRC-UNESCO, SRC-SHRM, SRC-000005]
+    site_hosts: [ilo.org, unesco.org, oecd.org, shrm.org]
+    query_examples:
+      - "site:oecd.org skills training"
+      - "site:ilo.org lifelong learning"
+
+  payroll:
+    sources: [SRC-KEMNAKER, SRC-ILO, SRC-DJP]
+    site_hosts: [kemnaker.go.id, ilo.org, pajak.go.id]
+    query_examples:
+      - "site:kemnaker.go.id upah"
+      - "site:ilo.org wages"
+
+  industrial_relations:
+    sources: [SRC-ILO, SRC-KEMNAKER, SRC-APINDO]
+    site_hosts: [ilo.org, kemnaker.go.id, apindo.or.id]
+    query_examples:
+      - "site:ilo.org collective bargaining"
+      - "site:kemnaker.go.id hubungan industrial"
+
+  information_technology:
+    sources: [SRC-NIST, SRC-ITU, SRC-IEEE, SRC-LINUXF, SRC-KOMINFO]
+    site_hosts: [nist.gov, itu.int, ieee.org, linuxfoundation.org, kominfo.go.id]
+    query_examples:
+      - "site:nist.gov framework"
+      - "site:itu.int digital"
+
+  infrastructure:
+    sources: [SRC-ITU, SRC-IEEE, SRC-LINUXF, SRC-CNCF]
+    site_hosts: [itu.int, ieee.org, cncf.io]
+    query_examples:
+      - "site:cncf.io infrastructure"
+      - "site:ieee.org network"
+
+  software_engineering:
+    sources: [SRC-CNCF, SRC-LINUXF, SRC-IEEE, SRC-OPENSSF]
+    site_hosts: [cncf.io, linuxfoundation.org, openssf.org]
+    query_examples:
+      - "site:cncf.io cloud native"
+      - "site:openssf.org secure software"
+
+  cyber_security:
+    sources: [SRC-NIST, SRC-CISA, SRC-OWASP, SRC-OPENSSF, SRC-KOMINFO]
+    site_hosts: [nist.gov, cisa.gov, owasp.org, openssf.org]
+    query_examples:
+      - "site:nist.gov cyber security framework"
+      - "site:cisa.gov cybersecurity"
+      - "site:owasp.org top"
+
+  cloud:
+    sources: [SRC-CNCF, SRC-LINUXF, SRC-NIST]
+    site_hosts: [cncf.io, linuxfoundation.org, nist.gov]
+    query_examples:
+      - "site:cncf.io cloud native"
+      - "site:nist.gov cloud computing"
+
+  ai:
+    sources: [SRC-000005, SRC-NIST, SRC-UNESCO, SRC-ITU]
+    site_hosts: [oecd.org, nist.gov, unesco.org, itu.int]
+    query_examples:
+      - "site:oecd.org artificial intelligence"
+      - "site:nist.gov AI risk"
+
+  data_engineering:
+    sources: [SRC-CNCF, SRC-LINUXF, SRC-000005]
+    site_hosts: [cncf.io, linuxfoundation.org, oecd.org]
+    query_examples:
+      - "site:cncf.io data"
+      - "site:oecd.org data governance"
+
+  business_intelligence:
+    sources: [SRC-000005, SRC-000004, SRC-000001]
+    site_hosts: [oecd.org, worldbank.org, bps.go.id]
+    query_examples:
+      - "site:oecd.org indicators"
+      - "site:worldbank.org data"
+
+  manufacturing:
+    sources: [SRC-UNIDO, SRC-000007, SRC-ISO, SRC-000005]
+    site_hosts: [unido.org, kemenperin.go.id, iso.org, oecd.org]
+    query_examples:
+      - "site:unido.org manufacturing"
+      - "site:kemenperin.go.id industri"
+      - "site:iso.org quality"
+
+  production:
+    sources: [SRC-UNIDO, SRC-000007, SRC-ISO]
+    site_hosts: [unido.org, kemenperin.go.id, iso.org]
+    query_examples:
+      - "site:iso.org production"
+      - "site:unido.org industrial production"
+
+  operations:
+    sources: [SRC-UNIDO, SRC-000005, SRC-ISO]
+    site_hosts: [oecd.org, unido.org, iso.org]
+    query_examples:
+      - "site:oecd.org operations"
+      - "site:iso.org management systems"
+
+  procurement:
+    sources: [SRC-LKPP, SRC-000004, SRC-000005]
+    site_hosts: [lkpp.go.id, worldbank.org, oecd.org]
+    query_examples:
+      - "site:lkpp.go.id pengadaan"
+      - "site:oecd.org procurement trends"
+
+  supply_chain:
+    sources: [SRC-UNCTAD, SRC-WTO, SRC-000005, SRC-000004]
+    site_hosts: [unctad.org, wto.org, oecd.org, worldbank.org]
+    query_examples:
+      - "site:unctad.org supply chain"
+      - "site:wto.org trade logistics"
+
+  warehouse:
+    sources: [SRC-UNCTAD, SRC-ISO]
+    site_hosts: [unctad.org, iso.org]
+    query_examples:
+      - "site:unctad.org logistics warehouse"
+
+  logistics:
+    sources: [SRC-UNCTAD, SRC-WTO, SRC-000004]
+    site_hosts: [unctad.org, wto.org, worldbank.org]
+    query_examples:
+      - "site:worldbank.org logistics performance"
+      - "site:unctad.org transport"
+
+  legal:
+    sources: [SRC-JDIH, SRC-BPK, SRC-KEMNAKER]
+    site_hosts: [jdih.kemenkumham.go.id, bpk.go.id, peraturan.go.id]
+    query_examples:
+      - "site:peraturan.go.id"
+      - "site:bpk.go.id audit"
+
+  compliance:
+    sources: [SRC-OJK, SRC-BPK, SRC-JDIH, SRC-NIST]
+    site_hosts: [ojk.go.id, bpk.go.id, nist.gov]
+    query_examples:
+      - "site:ojk.go.id compliance"
+      - "site:bpk.go.id"
+
+  risk_management:
+    sources: [SRC-OJK, SRC-IMF, SRC-000004, SRC-NIST]
+    site_hosts: [ojk.go.id, imf.org, worldbank.org, nist.gov]
+    query_examples:
+      - "site:ojk.go.id risk management"
+      - "site:imf.org financial risk"
+
+  corporate_governance:
+    sources: [SRC-OJK, SRC-BEI, SRC-000005, SRC-IFC]
+    site_hosts: [ojk.go.id, idx.co.id, oecd.org, ifc.org]
+    query_examples:
+      - "site:oecd.org corporate governance"
+      - "site:ojk.go.id tata kelola"
+
+  esg:
+    sources: [SRC-GRI, SRC-SASB, SRC-ISSB, SRC-UNDP, SRC-000004]
+    site_hosts: [globalreporting.org, sasb.org, ifrs.org, undp.org, worldbank.org]
+    query_examples:
+      - "site:globalreporting.org GRI"
+      - "site:ifrs.org sustainability"
+
+  health_safety_environment:
+    sources: [SRC-ILO, SRC-WHO, SRC-KLHK, SRC-ISO]
+    site_hosts: [ilo.org, who.int, menlhk.go.id, iso.org]
+    query_examples:
+      - "site:ilo.org occupational safety"
+      - "site:who.int health"
+
+  environment:
+    sources: [SRC-KLHK, SRC-UNEP, SRC-000005]
+    site_hosts: [menlhk.go.id, unep.org, oecd.org]
+    query_examples:
+      - "site:unep.org environment"
+      - "site:menlhk.go.id"
+
+  business_development:
+    sources: [SRC-BKPM, SRC-KADIN, SRC-APINDO, SRC-000004, SRC-IFC]
+    site_hosts: [bkpm.go.id, kadin.id, apindo.or.id, worldbank.org]
+    query_examples:
+      - "site:bkpm.go.id investment"
+      - "site:worldbank.org private sector"
+
+  sales:
+    sources: [SRC-000005, SRC-WTO, SRC-KEMENDAG]
+    site_hosts: [oecd.org, wto.org, kemendag.go.id]
+    query_examples:
+      - "site:oecd.org trade"
+      - "site:wto.org market access"
+
+  marketing:
+    sources: [SRC-000005, SRC-GSMA, SRC-KOMINFO]
+    site_hosts: [oecd.org, gsma.com, kominfo.go.id]
+    query_examples:
+      - "site:oecd.org digital marketing"
+      - "site:gsma.com mobile economy"
+
+  customer_success:
+    sources: [SRC-000005, SRC-ISO]
+    site_hosts: [oecd.org, iso.org]
+    query_examples:
+      - "site:iso.org customer satisfaction"
+
+  customer_service:
+    sources: [SRC-ISO, SRC-000005]
+    site_hosts: [iso.org, oecd.org]
+    query_examples:
+      - "site:iso.org service quality"
+
+  field_service:
+    sources: [SRC-ISO, SRC-IEEE]
+    site_hosts: [iso.org, ieee.org]
+    query_examples:
+      - "site:iso.org maintenance"
+
+  project_management:
+    sources: [SRC-ISO, SRC-000004]
+    site_hosts: [iso.org, worldbank.org]
+    query_examples:
+      - "site:iso.org project management"
+
+  pmo:
+    sources: [SRC-ISO, SRC-000004]
+    site_hosts: [iso.org, worldbank.org]
+    query_examples:
+      - "site:worldbank.org project portfolio"
+
+  corporate_strategy:
+    sources: [SRC-000005, SRC-000004, SRC-IMF, SRC-IFC]
+    site_hosts: [oecd.org, worldbank.org, imf.org, ifc.org]
+    query_examples:
+      - "site:oecd.org industrial strategy"
+      - "site:worldbank.org private sector strategy"
+
+  research_development:
+    sources: [SRC-UNESCO, SRC-000005, SRC-IEEE]
+    site_hosts: [unesco.org, oecd.org, ieee.org]
+    query_examples:
+      - "site:oecd.org R&D"
+      - "site:unesco.org science"
+
+  quality_assurance:
+    sources: [SRC-ISO, SRC-IEEE]
+    site_hosts: [iso.org, ieee.org]
+    query_examples:
+      - "site:iso.org quality management"
+
+  quality_control:
+    sources: [SRC-ISO, SRC-UNIDO]
+    site_hosts: [iso.org, unido.org]
+    query_examples:
+      - "site:iso.org quality control"
+
+  public_relations:
+    sources: [SRC-KOMINFO, SRC-000005]
+    site_hosts: [kominfo.go.id, oecd.org]
+    query_examples:
+      - "site:kominfo.go.id komunikasi"
+
+  investor_relations:
+    sources: [SRC-BEI, SRC-OJK, SRC-IFC]
+    site_hosts: [idx.co.id, ojk.go.id, ifc.org]
+    query_examples:
+      - "site:idx.co.id investor"
+      - "site:ojk.go.id disclosure"
+
+  administration:
+    sources: [SRC-000001, SRC-000005]
+    site_hosts: [bps.go.id, oecd.org]
+    query_examples:
+      - "site:oecd.org public administration"
+
+  general_affairs:
+    sources: [SRC-ISO, SRC-000005]
+    site_hosts: [iso.org, oecd.org]
+    query_examples:
+      - "site:iso.org facility management"
+
+  internal_audit:
+    sources: [SRC-BPK, SRC-OJK, SRC-IFC]
+    site_hosts: [bpk.go.id, ojk.go.id, ifc.org]
+    query_examples:
+      - "site:bpk.go.id audit"
+      - "site:ojk.go.id internal control"

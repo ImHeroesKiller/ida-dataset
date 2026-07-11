@@ -1,0 +1,440 @@
+# Canonical Enterprise Function Taxonomy — IDA Dataset Factory v2.0
+# Knowledge expansion only. Does NOT change dataset schemas or domain folder layout.
+# Datasets remain under domains/business_development/ (frozen path).
+# Business Development is one enterprise function among many.
+
+version: "2.0"
+description: >
+  Every existing dataset (Industry, Company, Service, Product, Pain Point, Solution,
+  Framework, Case Study, Buyer Persona, Decision Maker, Regulation, Risk, Trend,
+  Opportunity, Competitor) must continuously grow across all enterprise functions.
+
+# Product datasets (schema-frozen) — all functions may contribute knowledge
+datasets:
+  - industry_library
+  - company_profile
+  - service_library
+  - product_catalog
+  - pain_point_library
+  - solution_library
+  - framework_library
+  - case_study_library
+  - buyer_persona_library
+  - decision_maker_library
+  - regulation_library
+  - risk_library
+  - trend_library
+  - opportunity_analysis
+  - competitor_library
+
+# Business priority weight (higher = manufacture first when gaps equal)
+# Used for mission selection balance, not a finish line.
+default_business_priority: 50
+
+functions:
+  - id: corporate_strategy
+    name: Corporate Strategy
+    priority: 92
+    keywords: [strategy, strategic, corporate strategy, board, vision, portfolio, M&A, merger]
+    persona_roles: [Chief Strategy Officer, Strategy Director, Corporate Planner]
+    topic_hints: [Corporate Strategy Indonesia, Portfolio Strategy, Strategic Planning]
+    discovery_terms: [corporate strategy, strategic planning, portfolio management]
+
+  - id: business_development
+    name: Business Development
+    priority: 88
+    keywords: [business development, partnership, go-to-market, pipeline, deal, sales development]
+    persona_roles: [Head of Business Development, BD Manager, Partnership Lead]
+    topic_hints: [Business Development Indonesia, Partnership Strategy, Market Entry]
+    discovery_terms: [business development, partnerships, market entry]
+
+  - id: sales
+    name: Sales
+    priority: 86
+    keywords: [sales, account executive, quota, CRM, revenue, closing, win rate, sales enablement]
+    persona_roles: [VP Sales, Sales Director, Account Executive]
+    topic_hints: [Enterprise Sales Indonesia, B2B Sales, Account Management]
+    discovery_terms: [enterprise sales, B2B sales, sales enablement]
+
+  - id: marketing
+    name: Marketing
+    priority: 84
+    keywords: [marketing, brand, campaign, demand gen, content marketing, SEO, digital marketing]
+    persona_roles: [CMO, Marketing Director, Brand Manager]
+    topic_hints: [B2B Marketing Indonesia, Demand Generation, Brand Strategy]
+    discovery_terms: [marketing strategy, demand generation, brand management]
+
+  - id: customer_success
+    name: Customer Success
+    priority: 80
+    keywords: [customer success, retention, churn, NPS, CSAT, onboarding, expansion revenue]
+    persona_roles: [VP Customer Success, CSM Lead, Customer Experience Director]
+    topic_hints: [Customer Success Indonesia, Retention Strategy, Account Health]
+    discovery_terms: [customer success, retention, churn reduction]
+
+  - id: finance
+    name: Finance
+    priority: 95
+    keywords: [finance, financial, CFO, FP&A, budgeting, forecasting, capital, treasury operations]
+    persona_roles: [CFO, Finance Manager, FP&A Head]
+    topic_hints: [Corporate Finance Indonesia, FP&A, Financial Management]
+    discovery_terms: [corporate finance, financial management, FP&A]
+
+  - id: accounting
+    name: Accounting
+    priority: 82
+    keywords: [accounting, bookkeeping, ledger, IFRS, GAAP, financial reporting, audit trail]
+    persona_roles: [Chief Accountant, Controller, Accounting Manager]
+    topic_hints: [Financial Reporting Indonesia, IFRS Adoption, Accounting Standards]
+    discovery_terms: [accounting standards, IFRS, financial reporting]
+
+  - id: treasury
+    name: Treasury
+    priority: 78
+    keywords: [treasury, cash management, liquidity, FX, foreign exchange, funding, debt capital]
+    persona_roles: [Treasurer, Treasury Manager, Cash Manager]
+    topic_hints: [Corporate Treasury Indonesia, Cash Management, Liquidity Risk]
+    discovery_terms: [corporate treasury, cash management, liquidity]
+
+  - id: tax
+    name: Tax
+    priority: 85
+    keywords: [tax, taxation, VAT, PPN, PPh, transfer pricing, fiscal, DJP, tax compliance]
+    persona_roles: [Tax Director, Tax Manager, Head of Tax]
+    topic_hints: [Tax Compliance Indonesia, Corporate Tax, Transfer Pricing]
+    discovery_terms: [tax compliance, corporate tax, transfer pricing]
+
+  - id: internal_audit
+    name: Internal Audit
+    priority: 76
+    keywords: [internal audit, audit committee, control testing, SOX, assurance, internal control]
+    persona_roles: [Chief Audit Executive, Internal Audit Manager]
+    topic_hints: [Internal Audit Indonesia, Control Frameworks, Audit Committee]
+    discovery_terms: [internal audit, internal controls, audit committee]
+
+  - id: procurement
+    name: Procurement
+    priority: 90
+    keywords: [procurement, purchasing, tender, RFP, vendor, supplier selection, e-procurement, LKPP]
+    persona_roles: [CPO, Procurement Head, Purchasing Manager]
+    topic_hints: [Procurement Indonesia, Government Procurement, Vendor Management]
+    discovery_terms: [procurement, public procurement, vendor management]
+
+  - id: supply_chain
+    name: Supply Chain
+    priority: 88
+    keywords: [supply chain, SCM, logistics network, inventory planning, demand planning, S&OP]
+    persona_roles: [Supply Chain Director, SCO, Demand Planner]
+    topic_hints: [Supply Chain Indonesia, Demand Planning, Supply Resilience]
+    discovery_terms: [supply chain, demand planning, supply resilience]
+
+  - id: warehouse
+    name: Warehouse
+    priority: 70
+    keywords: [warehouse, warehousing, WMS, inventory storage, fulfillment center, stockroom]
+    persona_roles: [Warehouse Manager, Distribution Center Head]
+    topic_hints: [Warehouse Operations Indonesia, WMS, Inventory Storage]
+    discovery_terms: [warehouse management, WMS, inventory storage]
+
+  - id: logistics
+    name: Logistics
+    priority: 80
+    keywords: [logistics, freight, shipping, transportation, last mile, fleet, 3PL]
+    persona_roles: [Logistics Director, Fleet Manager, 3PL Manager]
+    topic_hints: [Logistics Indonesia, Freight, Last Mile Delivery]
+    discovery_terms: [logistics, freight, transportation management]
+
+  - id: manufacturing
+    name: Manufacturing
+    priority: 90
+    keywords: [manufacturing, factory, plant, production line, industrial, OEM, lean manufacturing]
+    persona_roles: [Plant Manager, Manufacturing Director, Production Head]
+    topic_hints: [Manufacturing Indonesia, Factory Operations, Industrial Production]
+    discovery_terms: [manufacturing, industrial production, factory operations]
+
+  - id: production
+    name: Production
+    priority: 82
+    keywords: [production planning, capacity planning, OEE, yield, batch production, throughput]
+    persona_roles: [Production Manager, Operations Planner]
+    topic_hints: [Production Planning Indonesia, OEE, Capacity Management]
+    discovery_terms: [production planning, OEE, capacity planning]
+
+  - id: operations
+    name: Operations
+    priority: 88
+    keywords: [operations, ops, operational excellence, process improvement, continuous improvement]
+    persona_roles: [COO, Operations Director, Ops Manager]
+    topic_hints: [Operations Excellence Indonesia, Process Improvement]
+    discovery_terms: [operations management, operational excellence]
+
+  - id: project_management
+    name: Project Management
+    priority: 78
+    keywords: [project management, PMBOK, agile project, project delivery, milestone, Gantt]
+    persona_roles: [Project Director, Senior PM, Program Manager]
+    topic_hints: [Project Management Indonesia, Delivery Excellence]
+    discovery_terms: [project management, project delivery]
+
+  - id: pmo
+    name: PMO
+    priority: 72
+    keywords: [project management office, portfolio governance, project portfolio]
+    persona_roles: [PMO Head, Portfolio Manager]
+    topic_hints: [PMO Indonesia, Portfolio Governance]
+    discovery_terms: [project management office, portfolio governance]
+
+  - id: human_resources
+    name: Human Resources
+    priority: 90
+    keywords: [human resources, HR, people operations, workforce, talent management, HRBP]
+    persona_roles: [CHRO, HR Director, HR Business Partner]
+    topic_hints: [Human Resources Indonesia, Workforce Strategy, Talent Management]
+    discovery_terms: [human resources, workforce, talent management]
+
+  - id: recruitment
+    name: Recruitment
+    priority: 80
+    keywords: [recruitment, hiring, talent acquisition, recruiting, ATS, employer branding]
+    persona_roles: [Talent Acquisition Head, Recruitment Manager]
+    topic_hints: [Recruitment Indonesia, Talent Acquisition, Hiring]
+    discovery_terms: [recruitment, talent acquisition, hiring]
+
+  - id: learning_development
+    name: Learning & Development
+    priority: 74
+    keywords: [learning and development, L&D, training, upskilling, capability building, LMS]
+    persona_roles: [L&D Director, Learning Manager, Capability Head]
+    topic_hints: [Learning Development Indonesia, Upskilling, Corporate Training]
+    discovery_terms: [learning and development, corporate training, upskilling]
+
+  - id: payroll
+    name: Payroll
+    priority: 70
+    keywords: [payroll, compensation, benefits, salary, wage, BPJS, thr, take-home pay]
+    persona_roles: [Payroll Manager, Compensation Benefits Head]
+    topic_hints: [Payroll Indonesia, Compensation Benefits]
+    discovery_terms: [payroll, compensation and benefits]
+
+  - id: industrial_relations
+    name: Industrial Relations
+    priority: 76
+    keywords: [industrial relations, labor relations, union, collective bargaining, employment relations]
+    persona_roles: [IR Manager, Employee Relations Head]
+    topic_hints: [Industrial Relations Indonesia, Labor Relations]
+    discovery_terms: [industrial relations, labor relations, collective bargaining]
+
+  - id: legal
+    name: Legal
+    priority: 88
+    keywords: [legal, counsel, litigation, contract law, corporate legal, general counsel]
+    persona_roles: [General Counsel, Legal Counsel, Legal Manager]
+    topic_hints: [Corporate Legal Indonesia, Contract Law, Legal Compliance]
+    discovery_terms: [corporate legal, commercial law, contracts]
+
+  - id: compliance
+    name: Compliance
+    priority: 90
+    keywords: [compliance, regulatory compliance, AML, KYC, policy compliance, ethics]
+    persona_roles: [Chief Compliance Officer, Compliance Manager]
+    topic_hints: [Regulatory Compliance Indonesia, Compliance Management]
+    discovery_terms: [regulatory compliance, compliance management]
+
+  - id: risk_management
+    name: Risk Management
+    priority: 92
+    keywords: [risk management, enterprise risk, ERM, risk assessment, risk mitigation, risk appetite]
+    persona_roles: [CRO, Risk Director, ERM Manager]
+    topic_hints: [Enterprise Risk Indonesia, Risk Management Framework]
+    discovery_terms: [enterprise risk management, risk assessment]
+
+  - id: corporate_governance
+    name: Corporate Governance
+    priority: 84
+    keywords: [corporate governance, board governance, GCG, stewardship, shareholder rights]
+    persona_roles: [Company Secretary, Governance Officer]
+    topic_hints: [Corporate Governance Indonesia, Board Governance]
+    discovery_terms: [corporate governance, board governance]
+
+  - id: information_technology
+    name: Information Technology
+    priority: 90
+    keywords: [information technology, IT, ITIL, IT service, CIO, systems, enterprise IT]
+    persona_roles: [CIO, IT Director, IT Manager]
+    topic_hints: [Enterprise IT Indonesia, IT Service Management]
+    discovery_terms: [information technology, IT service management]
+
+  - id: infrastructure
+    name: Infrastructure
+    priority: 78
+    keywords: [infrastructure, data center, network infrastructure, servers, IT infrastructure]
+    persona_roles: [Infrastructure Head, Network Manager]
+    topic_hints: [IT Infrastructure Indonesia, Data Center]
+    discovery_terms: [IT infrastructure, data center, network]
+
+  - id: software_engineering
+    name: Software Engineering
+    priority: 82
+    keywords: [software engineering, software development, SDLC, devops, engineering team, coding]
+    persona_roles: [CTO, Engineering Director, VP Engineering]
+    topic_hints: [Software Engineering Indonesia, DevOps, SDLC]
+    discovery_terms: [software engineering, software development, DevOps]
+
+  - id: cyber_security
+    name: Cyber Security
+    priority: 94
+    keywords: [cyber security, cybersecurity, information security, SOC, vulnerability, NIST, CISA]
+    persona_roles: [CISO, Security Director, SOC Manager]
+    topic_hints: [Cybersecurity Indonesia, Information Security Framework]
+    discovery_terms: [cybersecurity, information security, NIST]
+
+  - id: cloud
+    name: Cloud
+    priority: 80
+    keywords: [cloud, cloud computing, multi-cloud, SaaS, IaaS, PaaS, cloud native]
+    persona_roles: [Cloud Architect, Cloud Director]
+    topic_hints: [Cloud Computing Indonesia, Cloud Migration]
+    discovery_terms: [cloud computing, cloud migration, multi-cloud]
+
+  - id: ai
+    name: AI
+    priority: 86
+    keywords: [artificial intelligence, machine learning, generative ai, large language model, ai governance]
+    persona_roles: [AI Lead, Head of AI, ML Engineering Manager]
+    topic_hints: [AI Adoption Indonesia, Generative AI Enterprise]
+    discovery_terms: [artificial intelligence, machine learning, AI governance]
+
+  - id: data_engineering
+    name: Data Engineering
+    priority: 80
+    keywords: [data engineering, data pipeline, ETL, data platform, lakehouse, streaming data]
+    persona_roles: [Head of Data Engineering, Data Platform Lead]
+    topic_hints: [Data Engineering Indonesia, Data Platform]
+    discovery_terms: [data engineering, data pipelines, data platform]
+
+  - id: business_intelligence
+    name: Business Intelligence
+    priority: 78
+    keywords: [business intelligence, analytics platform, kpi reporting, data visualization]
+    persona_roles: [BI Director, Analytics Manager]
+    topic_hints: [Business Intelligence Indonesia, Analytics]
+    discovery_terms: [business intelligence, analytics, KPI]
+
+  - id: quality_assurance
+    name: Quality Assurance
+    priority: 76
+    keywords: [quality assurance, QA, software testing, test automation, quality engineering]
+    persona_roles: [QA Director, Quality Engineering Manager]
+    topic_hints: [Quality Assurance Indonesia, Test Automation]
+    discovery_terms: [quality assurance, software testing]
+
+  - id: quality_control
+    name: Quality Control
+    priority: 74
+    keywords: [quality control, QC, inspection, defect rate, quality inspection, SPC]
+    persona_roles: [QC Manager, Quality Control Head]
+    topic_hints: [Quality Control Manufacturing Indonesia, Inspection]
+    discovery_terms: [quality control, inspection, defect reduction]
+
+  - id: customer_service
+    name: Customer Service
+    priority: 78
+    keywords: [customer service, contact center, helpdesk, support ticket, service desk, call center]
+    persona_roles: [Customer Service Director, Contact Center Head]
+    topic_hints: [Customer Service Indonesia, Contact Center]
+    discovery_terms: [customer service, contact center, helpdesk]
+
+  - id: field_service
+    name: Field Service
+    priority: 70
+    keywords: [field service, field technician, onsite support, service technician, FSM]
+    persona_roles: [Field Service Manager, Service Operations Head]
+    topic_hints: [Field Service Indonesia, Onsite Service]
+    discovery_terms: [field service, field operations]
+
+  - id: research_development
+    name: Research & Development
+    priority: 82
+    keywords: [research and development, R&D, innovation, product development, research lab]
+    persona_roles: [R&D Director, Innovation Head]
+    topic_hints: [R&D Indonesia, Innovation Management]
+    discovery_terms: [research and development, innovation, product R&D]
+
+  - id: esg
+    name: ESG
+    priority: 88
+    keywords: [ESG, sustainability, sustainable, GRI, SASB, ISSB, carbon, net zero, sustainability report]
+    persona_roles: [ESG Director, Sustainability Officer]
+    topic_hints: [ESG Indonesia, Sustainability Reporting, Net Zero]
+    discovery_terms: [ESG, sustainability reporting, GRI]
+
+  - id: health_safety_environment
+    name: Health Safety Environment
+    priority: 84
+    keywords: [HSE, health safety environment, occupational safety, K3, OHS, environmental health]
+    persona_roles: [HSE Director, Safety Manager]
+    topic_hints: [HSE Indonesia, Occupational Safety, K3]
+    discovery_terms: [health safety environment, occupational safety, OHS]
+
+  - id: administration
+    name: Administration
+    priority: 60
+    keywords: [administration, admin, office administration, clerical, administrative services]
+    persona_roles: [Administration Manager, Office Manager]
+    topic_hints: [Administration Indonesia, Office Management]
+    discovery_terms: [office administration, administrative management]
+
+  - id: general_affairs
+    name: General Affairs
+    priority: 62
+    keywords: [general affairs, facilities management, office facilities, workplace services]
+    persona_roles: [GA Manager, Facilities Manager]
+    topic_hints: [General Affairs Indonesia, Facilities Management]
+    discovery_terms: [general affairs, facilities management]
+
+  - id: public_relations
+    name: Public Relations
+    priority: 72
+    keywords: [public relations, corporate communications, media relations, reputation management]
+    persona_roles: [PR Director, Communications Head]
+    topic_hints: [Public Relations Indonesia, Corporate Communications]
+    discovery_terms: [public relations, corporate communications]
+
+  - id: investor_relations
+    name: Investor Relations
+    priority: 80
+    keywords: [investor relations, shareholder communication, earnings call, capital markets]
+    persona_roles: [IR Director, Head of Investor Relations]
+    topic_hints: [Investor Relations Indonesia, Capital Markets Communication]
+    discovery_terms: [investor relations, shareholder communication]
+
+# Per-dataset knowledge role hints (schema unchanged — guidance for manufacturing topics)
+dataset_function_focus:
+  buyer_persona_library:
+    emphasis: persona_roles
+  decision_maker_library:
+    emphasis: persona_roles
+  regulation_library:
+    emphasis: discovery_terms
+  risk_library:
+    emphasis: discovery_terms
+  trend_library:
+    emphasis: discovery_terms
+  framework_library:
+    emphasis: discovery_terms
+  pain_point_library:
+    emphasis: topic_hints
+  solution_library:
+    emphasis: topic_hints
+  competitor_library:
+    emphasis: topic_hints
+  opportunity_analysis:
+    emphasis: topic_hints
+  industry_library:
+    emphasis: topic_hints
+  company_profile:
+    emphasis: topic_hints
+
+# Minimum expected rows per function×dataset cell for gap scoring (not a hard stop)
+gap_floor_per_cell: 2
+balance_weight: 1.0

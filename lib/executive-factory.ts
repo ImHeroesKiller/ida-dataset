@@ -237,6 +237,13 @@ export type ExecutiveFactoryView = {
     process_ratio_pct: number;
     auto_publish_ratio: number;
     manual_review_ratio: number;
+    /** Enterprise function generalization metrics (metrics-only; no redesign) */
+    enterprise_function_count: number;
+    knowledge_by_top_function: string;
+    coverage_top_function: string;
+    top_growing_function: string;
+    weakest_function: string;
+    production_distribution_top: string;
   };
   coverage: Array<{
     key: string;
@@ -761,6 +768,28 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
       const autoN = Number(pubPol.last_published || 0);
       const manN = Number(pubPol.last_manual_or_skipped || 0);
       const autoDenom = Math.max(1, autoN + manN);
+      const efState =
+        (manufacturingState.enterprise_functions as Record<string, unknown>) ||
+        readJson(repoPath("automation/learning/state/enterprise_function_state.json")) ||
+        readJson(repoPath("reports/enterprise/enterprise_state.json")) ||
+        {};
+      const efTopGrow = (efState.top_growing_function || {}) as Record<string, unknown>;
+      const efWeak = (efState.weakest_function || {}) as Record<string, unknown>;
+      const efKb = Array.isArray(efState.knowledge_by_function)
+        ? (efState.knowledge_by_function as Array<Record<string, unknown>>)
+        : [];
+      const efCov = Array.isArray(efState.coverage_by_function)
+        ? (efState.coverage_by_function as Array<Record<string, unknown>>)
+        : [];
+      const efDist = Array.isArray(efState.production_distribution)
+        ? (efState.production_distribution as Array<Record<string, unknown>>)
+        : [];
+      const topKb = efKb[0] || {};
+      const topCov =
+        [...efCov].sort(
+          (a, b) => Number(b.coverage_pct || 0) - Number(a.coverage_pct || 0)
+        )[0] || {};
+      const topDist = efDist[0] || {};
       return {
         mode: String(modeObj.mode || "CONTINUOUS"),
         knowledge_gap_dataset: String(
@@ -809,6 +838,32 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
           Math.round((autoN / autoDenom) * 1000) / 1000,
         manual_review_ratio:
           Math.round((manN / autoDenom) * 1000) / 1000,
+        enterprise_function_count: Number(efState.function_count || 0),
+        knowledge_by_top_function: String(
+          topKb.name
+            ? `${topKb.name} (${topKb.rows || 0})`
+            : "—"
+        ),
+        coverage_top_function: String(
+          topCov.name
+            ? `${topCov.name} (${topCov.coverage_pct ?? 0}%)`
+            : "—"
+        ),
+        top_growing_function: String(
+          efTopGrow.name
+            ? `${efTopGrow.name} (${efTopGrow.rows || 0})`
+            : topKb.name || "—"
+        ),
+        weakest_function: String(
+          efWeak.name
+            ? `${efWeak.name} (${efWeak.coverage_pct ?? efWeak.rows ?? 0})`
+            : "—"
+        ),
+        production_distribution_top: String(
+          topDist.name
+            ? `${topDist.name} ${topDist.share_pct ?? 0}%`
+            : "—"
+        ),
       };
     })(),
     coverage,

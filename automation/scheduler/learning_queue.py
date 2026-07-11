@@ -75,7 +75,12 @@ class LearningQueue:
                 target_dataset=str(item.get("target_dataset") or ""),
                 domain=str(item.get("domain") or ""),
                 estimated_effort=float(item.get("estimated_effort") or 1.0),
-                metadata={"source": "continuous_catalog"},
+                metadata={
+                    "source": "continuous_catalog",
+                    "enterprise_function": str(
+                        item.get("enterprise_function") or "multi"
+                    ),
+                },
             )
             tasks.append(task)
             existing.add(tid)

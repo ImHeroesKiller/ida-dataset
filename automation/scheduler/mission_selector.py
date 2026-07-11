@@ -410,6 +410,12 @@ def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
             "competitor_library",
         }:
             starvation_boost = 220.0
+        # Enterprise Function gap boost — balance production beyond Business Development
+        ef_boost = 0.0
+        ef_id = mfg_item.get("enterprise_function")
+        ef_gap = float(mfg_item.get("function_gap_score") or 0)
+        if ef_gap:
+            ef_boost = min(120.0, ef_gap * 2.0)
         score = (
             gap_score * 10.0
             + gap_weight * 500.0
@@ -418,6 +424,7 @@ def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
             + relationship_impact * 1.2
             + soft_boost
             + starvation_boost
+            + ef_boost
             + (50.0 if cur == 0 else 0.0)
         ) * source_factor
         # Dynamic instruction from manufacturing controller when available
@@ -434,6 +441,8 @@ def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
                 "title": title,
                 "mode": mode_name,
                 "knowledge_gap_score": gap_score,
+                "enterprise_function": ef_id,
+                "function_gap_score": ef_gap,
             }
         )
 

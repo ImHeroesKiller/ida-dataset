@@ -688,6 +688,30 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
           <Stat label="Process ratio" value={`${Number(manufacturing?.process_ratio_pct || 0)}%`} />
           <Stat label="Auto-publish ratio" value={String(Number(manufacturing?.auto_publish_ratio || 0))} />
           <Stat label="Manual review ratio" value={String(Number(manufacturing?.manual_review_ratio || 0))} />
+          <Stat
+            label="Enterprise functions"
+            value={String(Number(manufacturing?.enterprise_function_count || 0) || "—")}
+          />
+          <Stat
+            label="Knowledge by function"
+            value={String(manufacturing?.knowledge_by_top_function || "—").slice(0, 40)}
+          />
+          <Stat
+            label="Coverage by function"
+            value={String(manufacturing?.coverage_top_function || "—").slice(0, 40)}
+          />
+          <Stat
+            label="Top growing function"
+            value={String(manufacturing?.top_growing_function || "—").slice(0, 40)}
+          />
+          <Stat
+            label="Weakest function"
+            value={String(manufacturing?.weakest_function || "—").slice(0, 40)}
+          />
+          <Stat
+            label="Production distribution"
+            value={String(manufacturing?.production_distribution_top || "—").slice(0, 40)}
+          />
         </CardBody>
       </Card>
 

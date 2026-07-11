@@ -10,6 +10,6 @@
 The factory continues while trusted, validated knowledge still exists.
 It only slows for: no updates, API quota, rate limits, backoff, maintenance.
 
-Selected mission: **Bootstrap Discovery Question Library**
+Selected mission: **corporate strategy — discovery question knowledge for Corporate Strategy**
 
-Bootstrap Discovery Question Library — continuous knowledge manufacturing for discovery_question_library (gap_score=125.25, universe_remaining=5000, mode=BOOTSTRAP)
+corporate strategy — discovery question knowledge for Corporate Strategy — continuous knowledge manufacturing for discovery_question_library across enterprise function Corporate Strategy (function_gap=0; not BD-only); dataset_gap=125.25; mode=BOOTSTRAP

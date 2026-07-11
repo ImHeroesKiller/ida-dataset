@@ -36,76 +36,103 @@ MANUFACTURED_DATASETS = [
 ]
 
 
-# Mission templates driven by knowledge demand (not a finish line)
+# Mission templates driven by knowledge demand (not a finish line).
+# Enterprise-function-aware topics are preferred via enterprise_functions module;
+# these remain fallbacks when taxonomy is unavailable.
 _TOPIC_HINTS = {
     "industry_library": [
-        "Outsourcing Services Indonesia",
-        "Manufacturing Indonesia",
+        "Manufacturing Industry Indonesia",
+        "Financial Services Industry Indonesia",
         "Digital Economy Indonesia",
         "Healthcare Services Indonesia",
-        "Construction Industry Indonesia",
+        "Logistics Industry Indonesia",
+        "Energy Industry Indonesia",
     ],
     "company_profile": [
-        "Construction Companies Indonesia",
-        "Banking Companies Indonesia",
         "Manufacturing Companies Indonesia",
+        "Banking Companies Indonesia",
+        "Technology Companies Indonesia",
+        "Logistics Companies Indonesia",
     ],
     "product_catalog": [
-        "Manufacturing Products",
+        "Manufacturing Products Indonesia",
         "Digital Products Indonesia",
-        "Industrial Services Catalog",
+        "Industrial Equipment Catalog",
     ],
     "service_library": [
-        "Outsourcing Services Indonesia",
         "Managed IT Services Indonesia",
         "BPO Services Indonesia",
+        "Logistics Services Indonesia",
+        "HR Outsourcing Indonesia",
     ],
     "business_signal_library": [
-        "New OECD Labor Publications",
+        "New OECD Publications",
         "World Bank Indonesia Reports",
-        "OJK Banking Signals",
+        "OJK Regulatory Signals",
+        "ILO Labor Signals",
+        "NIST Cybersecurity Signals",
     ],
     "pain_point_library": [
         "Manufacturing Pain Points Indonesia",
-        "Banking Operational Pain Points",
+        "Finance Operations Pain Points",
+        "IT Security Pain Points",
+        "HR Recruitment Pain Points",
+        "Supply Chain Pain Points",
     ],
     "solution_library": [
         "Predictive Maintenance Solutions",
         "Digital Banking Solutions",
+        "Cybersecurity Solutions",
+        "Procurement Automation Solutions",
     ],
     "framework_library": [
-        "WHO Healthcare Guidelines",
-        "OECD Labor Frameworks",
+        "NIST Cybersecurity Framework",
+        "ISO Quality Frameworks",
+        "OECD Governance Frameworks",
+        "ILO Labor Frameworks",
+        "GRI ESG Frameworks",
     ],
     "buyer_persona_library": [
-        "Buyer Persona Manufacturing Indonesia",
-        "Buyer Persona Banking Indonesia",
-        "Workforce Buyer Personas Indonesia",
+        "HR Director Buyer Persona Indonesia",
+        "CFO Finance Buyer Persona Indonesia",
+        "IT Director Buyer Persona Indonesia",
+        "Plant Manager Buyer Persona Indonesia",
+        "Procurement Head Buyer Persona Indonesia",
+        "Legal Counsel Buyer Persona Indonesia",
     ],
     "decision_maker_library": [
-        "Decision Maker Patterns Indonesia",
-        "Executive Roles Manufacturing Indonesia",
-        "Board and Director Structures Indonesia",
+        "Finance Decision Maker Patterns Indonesia",
+        "IT Decision Maker Patterns Indonesia",
+        "Operations Decision Maker Patterns Indonesia",
+        "HR Decision Maker Patterns Indonesia",
     ],
     "regulation_library": [
-        "OJK Banking Regulations",
+        "OJK Financial Regulations",
         "Kemnaker Employment Regulations",
-        "Indonesia Industry Regulation",
+        "Tax Regulations Indonesia",
+        "Data Privacy Regulations",
+        "Environmental Regulations Indonesia",
+        "Procurement Regulations LKPP",
     ],
     "risk_library": [
-        "Operational Risk Indonesia",
-        "Regulatory Risk Banking Indonesia",
+        "Cybersecurity Risk Indonesia",
+        "Treasury Liquidity Risk",
         "Supply Chain Risk Manufacturing",
+        "Employment Relations Risk",
+        "ESG Climate Risk",
     ],
     "trend_library": [
-        "Digital Economy Trends Indonesia",
-        "Labor Market Trends Indonesia",
-        "Green Transition Industry Trends",
+        "Cybersecurity Trends",
+        "Treasury Digitalization Trends",
+        "Manufacturing Automation Trends",
+        "Recruitment Trends Indonesia",
+        "ESG Reporting Trends",
+        "AI Enterprise Adoption Trends",
     ],
     "competitor_library": [
         "Competitor Landscape Manufacturing Indonesia",
         "Competitor Landscape Banking Indonesia",
-        "Public Company Competitive Set Indonesia",
+        "Competitor Landscape Technology Indonesia",
     ],
 }
 
@@ -151,8 +178,29 @@ def _counts(repo: Path) -> dict[str, int]:
 
 
 def _pick_topic(dataset: str, mode: str, evaluation: dict[str, Any]) -> str:
+    # Prefer enterprise-function-balanced topic (all functions, not BD-only)
+    try:
+        from automation.manufacturing.enterprise_functions import (
+            enrich_mission_instruction,
+        )
+
+        enriched = enrich_mission_instruction(
+            dataset,
+            "",
+            current_rows=int(evaluation.get("current_rows") or 0),
+        )
+        topic = str(enriched.get("title") or "")
+        if topic:
+            prefix = mode_mission_prefix(mode)
+            if mode == "MAINTENANCE":
+                return f"{prefix} {topic}"
+            if mode == "CONTINUOUS":
+                return f"{prefix} publications for {topic}"
+            return f"{prefix} {topic}"
+    except Exception:  # noqa: BLE001
+        pass
     hints = _TOPIC_HINTS.get(dataset) or [dataset.replace("_", " ").title()]
-    # rotate by row count for variety
+    # rotate by row count for variety across enterprise contexts
     idx = int(evaluation.get("current_rows") or 0) % len(hints)
     topic = hints[idx]
     prefix = mode_mission_prefix(mode)
@@ -189,15 +237,38 @@ class ManufacturingController:
         targets = load_dynamic_targets(self.repo_root)
 
         # Dynamic mission proposals (never empty while work exists)
+        # Balanced across Enterprise Function × Dataset knowledge gaps.
         missions: list[dict[str, Any]] = []
         for e in evaluations[:8]:
             ds = e["dataset"]
+            ef_meta: dict[str, Any] = {}
+            try:
+                from automation.manufacturing.enterprise_functions import (
+                    enrich_mission_instruction,
+                )
+
+                ef_meta = enrich_mission_instruction(
+                    ds,
+                    "",
+                    current_rows=int(e.get("current_rows") or 0),
+                )
+            except Exception:  # noqa: BLE001
+                ef_meta = {}
             topic = _pick_topic(ds, mode["mode"], e)
             instruction = (
                 f"{topic} — continuous knowledge manufacturing for {ds} "
                 f"(gap_score={e.get('knowledge_gap_score')}, "
-                f"universe_remaining={e.get('universe_gap')}, mode={mode['mode']})"
+                f"universe_remaining={e.get('universe_gap')}, mode={mode['mode']}"
+                f", enterprise_function={ef_meta.get('enterprise_function') or 'multi'})"
             )
+            if ef_meta.get("instruction"):
+                instruction = (
+                    f"{ef_meta['instruction']}; dataset_gap={e.get('knowledge_gap_score')}; "
+                    f"mode={mode['mode']}"
+                )
+                if ef_meta.get("title"):
+                    # Keep mode prefix from _pick_topic when useful
+                    topic = str(ef_meta["title"])
             missions.append(
                 {
                     "dataset": ds,
@@ -210,9 +281,14 @@ class ManufacturingController:
                     "stretch_target": (e.get("profile") or {}).get("stretch_target"),
                     "minimum_target": (e.get("profile") or {}).get("minimum_target"),
                     "hard_limit": (e.get("profile") or {}).get("hard_limit"),
+                    "enterprise_function": ef_meta.get("enterprise_function"),
+                    "enterprise_function_name": ef_meta.get("enterprise_function_name"),
+                    "discovery_queries": ef_meta.get("discovery_queries") or [],
+                    "function_gap_score": ef_meta.get("function_gap_score"),
                     "priority_reason": (
                         f"mode={mode['mode']}; gap_score={e.get('knowledge_gap_score')}; "
-                        f"opportunity={e.get('knowledge_opportunity')}"
+                        f"opportunity={e.get('knowledge_opportunity')}; "
+                        f"enterprise_function={ef_meta.get('enterprise_function') or 'multi'}"
                     ),
                 }
             )
@@ -251,9 +327,19 @@ class ManufacturingController:
             },
             "governance": (
                 "IDA Dataset Factory has no predefined finish line. "
-                "Success is knowledge growth, coverage, freshness, confidence, quality."
+                "Success is knowledge growth, coverage, freshness, confidence, quality. "
+                "Business Development is one enterprise function among the full taxonomy."
             ),
         }
+        # Enterprise function generalization metrics (additive; freeze-compliant)
+        try:
+            from automation.manufacturing.enterprise_functions import (
+                build_enterprise_state,
+            )
+
+            state["enterprise_functions"] = build_enterprise_state(self.repo_root)
+        except Exception:  # noqa: BLE001
+            state["enterprise_functions"] = {"error": "unavailable"}
         return state
 
     def persist(self, state: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -275,6 +361,20 @@ class ManufacturingController:
             from automation.manufacturing.reports import write_manufacturing_reports
 
             write_manufacturing_reports(state, repo_root=self.repo_root)
+        except Exception:  # noqa: BLE001
+            pass
+        try:
+            from automation.manufacturing.enterprise_functions import (
+                write_enterprise_reports,
+                run_enterprise_generalization,
+            )
+
+            # Persist full enterprise snapshot + markdown reports
+            run_enterprise_generalization(self.repo_root)
+            if state.get("enterprise_functions"):
+                write_enterprise_reports(
+                    state.get("enterprise_functions"), repo_root=self.repo_root
+                )
         except Exception:  # noqa: BLE001
             pass
         return state

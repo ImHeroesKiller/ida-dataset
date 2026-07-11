@@ -64,12 +64,15 @@ priorities:
     weight: 10
 
 # Continuous learning backlog seeds (gap-driven; not extraction)
+# Domain path remains domains/business_development/ (frozen layout).
+# enterprise_function generalizes manufacturing beyond Business Development alone.
 continuous_catalog:
   # Default production mission — Produce Industry Dataset (lowest coverage first)
   - task_id: CL-IND-001
     title: Produce Industry Dataset
     target_dataset: industry_library
     domain: business_development
+    enterprise_function: multi
     priority: P0
     kind: continuous
     mission_id: MIS-PRODUCE-INDUSTRY-DATASET
@@ -81,18 +84,21 @@ continuous_catalog:
     title: Expand Pain Point Library
     target_dataset: pain_point_library
     domain: business_development
+    enterprise_function: multi
     priority: P3
     kind: continuous
   - task_id: CL-CASE-001
     title: Collect new Case Studies
     target_dataset: case_study_library
     domain: business_development
+    enterprise_function: multi
     priority: P3
     kind: continuous
   - task_id: CL-PERSONA-001
     title: Produce Buyer Persona Dataset
     target_dataset: buyer_persona_library
     domain: business_development
+    enterprise_function: multi
     priority: P1
     kind: continuous
     mission_id: MIS-PRODUCE-BUYER-PERSONA
@@ -100,6 +106,7 @@ continuous_catalog:
     title: Produce Decision Maker Dataset
     target_dataset: decision_maker_library
     domain: business_development
+    enterprise_function: multi
     priority: P1
     kind: continuous
     mission_id: MIS-PRODUCE-DECISION-MAKER
@@ -107,6 +114,7 @@ continuous_catalog:
     title: Produce Regulation Dataset
     target_dataset: regulation_library
     domain: business_development
+    enterprise_function: multi
     priority: P1
     kind: continuous
     mission_id: MIS-PRODUCE-REGULATION
@@ -114,6 +122,7 @@ continuous_catalog:
     title: Produce Risk Dataset
     target_dataset: risk_library
     domain: business_development
+    enterprise_function: multi
     priority: P1
     kind: continuous
     mission_id: MIS-PRODUCE-RISK
@@ -121,6 +130,7 @@ continuous_catalog:
     title: Produce Trend Dataset
     target_dataset: trend_library
     domain: business_development
+    enterprise_function: multi
     priority: P1
     kind: continuous
     mission_id: MIS-PRODUCE-TREND
@@ -128,6 +138,7 @@ continuous_catalog:
     title: Produce Competitor Dataset
     target_dataset: competitor_library
     domain: business_development
+    enterprise_function: multi
     priority: P1
     kind: continuous
     mission_id: MIS-PRODUCE-COMPETITOR
@@ -135,13 +146,65 @@ continuous_catalog:
     title: Refresh Frameworks
     target_dataset: framework_library
     domain: business_development
+    enterprise_function: multi
     priority: P4
     kind: continuous
   - task_id: CL-SIG-001
     title: Expand Business Signal Library
     target_dataset: business_signal_library
     domain: business_development
+    enterprise_function: multi
     priority: P3
+    kind: continuous
+  # Function-balanced seeds (same datasets; different enterprise contexts)
+  - task_id: CL-EF-FIN-RISK
+    title: Finance × Risk knowledge
+    target_dataset: risk_library
+    domain: business_development
+    enterprise_function: finance
+    priority: P2
+    kind: continuous
+  - task_id: CL-EF-HR-PERSONA
+    title: HR × Buyer Persona knowledge
+    target_dataset: buyer_persona_library
+    domain: business_development
+    enterprise_function: human_resources
+    priority: P2
+    kind: continuous
+  - task_id: CL-EF-IT-TREND
+    title: IT × Trend knowledge
+    target_dataset: trend_library
+    domain: business_development
+    enterprise_function: information_technology
+    priority: P2
+    kind: continuous
+  - task_id: CL-EF-OPS-FW
+    title: Operations × Framework knowledge
+    target_dataset: framework_library
+    domain: business_development
+    enterprise_function: operations
+    priority: P2
+    kind: continuous
+  - task_id: CL-EF-CYBER-REG
+    title: Cyber Security × Regulation knowledge
+    target_dataset: regulation_library
+    domain: business_development
+    enterprise_function: cyber_security
+    priority: P2
+    kind: continuous
+  - task_id: CL-EF-ESG-TREND
+    title: ESG × Trend knowledge
+    target_dataset: trend_library
+    domain: business_development
+    enterprise_function: esg
+    priority: P2
+    kind: continuous
+  - task_id: CL-EF-PROC-REG
+    title: Procurement × Regulation knowledge
+    target_dataset: regulation_library
+    domain: business_development
+    enterprise_function: procurement
+    priority: P2
     kind: continuous
 
 # Architecture enforcement
