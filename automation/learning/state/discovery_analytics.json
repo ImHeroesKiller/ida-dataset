@@ -1,8 +1,8 @@
 {
-  "started_at": "2026-07-11T04:18:30+00:00",
-  "mission_id": "MIS-20260711-326007",
-  "session_id": "SES-20260711-D71612",
-  "instruction": "Bootstrap Buyer Persona Library — continuous knowledge manufacturing for buyer_persona_library (gap_score=142.5, universe_remaining=5000, mode=BOOTSTRAP)",
+  "started_at": "2026-07-11T04:48:48+00:00",
+  "mission_id": "MIS-20260711-1B1B1E",
+  "session_id": "SES-20260711-784A5F",
+  "instruction": "Expand Industry Library — factory learn cycle",
   "dataset": "industry_library",
   "knowledge_gap": {
     "dataset": "industry_library",
@@ -22,7 +22,7 @@
   "urls_accepted": 3,
   "urls_rejected": 6,
   "duplicate_urls": 6,
-  "elapsed_ms": 547546.3,
+  "elapsed_ms": 547349.0,
   "providers": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -52,7 +52,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 210581.6,
+      "elapsed_ms": 210634.1,
       "status": "ready",
       "credentials_available": true
     },
@@ -68,7 +68,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 168300.5,
+      "elapsed_ms": 168154.2,
       "status": "ready",
       "credentials_available": true
     },
@@ -84,7 +84,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 168635.6,
+      "elapsed_ms": 168526.7,
       "status": "ready",
       "credentials_available": true
     },
@@ -108,7 +108,7 @@
   "query_stats": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id bootstrap buyer persona continuous",
+      "query": "site:bps.go.id industry factory cycle",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "site",
@@ -117,7 +117,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id intitle:bootstrap bootstrap buyer persona continuous",
+      "query": "site:bps.go.id intitle:industry industry factory cycle",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "intitle",
@@ -126,7 +126,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id bootstrap buyer persona continuous",
+      "query": "site:kemenperin.go.id industry factory cycle",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "site",
@@ -135,7 +135,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id intitle:bootstrap bootstrap buyer persona continuous",
+      "query": "site:kemenperin.go.id intitle:industry industry factory cycle",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "intitle",
@@ -144,7 +144,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org bootstrap buyer persona continuous",
+      "query": "site:adb.org industry factory cycle",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "site",
@@ -153,7 +153,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org intitle:bootstrap bootstrap buyer persona continuous",
+      "query": "site:adb.org intitle:industry industry factory cycle",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "intitle",
@@ -162,7 +162,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org bootstrap buyer persona continuous",
+      "query": "site:oecd.org industry factory cycle",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "site",
@@ -171,7 +171,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org intitle:bootstrap bootstrap buyer persona continuous",
+      "query": "site:oecd.org intitle:industry industry factory cycle",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "intitle",
@@ -180,7 +180,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org bootstrap buyer persona continuous",
+      "query": "site:worldbank.org industry factory cycle",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "site",
@@ -189,7 +189,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org intitle:bootstrap bootstrap buyer persona continuous",
+      "query": "site:worldbank.org intitle:industry industry factory cycle",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "intitle",
@@ -198,7 +198,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:openalex.org bootstrap buyer persona continuous",
+      "query": "site:openalex.org industry factory cycle",
       "domain": "openalex.org",
       "source_id": "SRC-OPENALEX",
       "kind": "site",
@@ -207,7 +207,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:openalex.org intitle:bootstrap bootstrap buyer persona continuous",
+      "query": "site:openalex.org intitle:industry industry factory cycle",
       "domain": "openalex.org",
       "source_id": "SRC-OPENALEX",
       "kind": "intitle",
@@ -218,23 +218,23 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 210581.6
+      "elapsed_ms": 210634.1
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 168300.5
+      "elapsed_ms": 168154.2
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 168635.6
+      "elapsed_ms": 168526.7
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id bootstrap buyer persona continuous",
+      "query": "site:bps.go.id industry factory cycle",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
@@ -243,7 +243,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:kemenperin.go.id bootstrap buyer persona continuous",
+      "query": "site:kemenperin.go.id industry factory cycle",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
@@ -252,7 +252,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:adb.org bootstrap buyer persona continuous",
+      "query": "site:adb.org industry factory cycle",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "urls": 0,
@@ -261,7 +261,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:oecd.org bootstrap buyer persona continuous",
+      "query": "site:oecd.org industry factory cycle",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "urls": 0,
@@ -270,7 +270,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org bootstrap buyer persona continuous",
+      "query": "site:worldbank.org industry factory cycle",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
@@ -279,7 +279,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:openalex.org bootstrap buyer persona continuous",
+      "query": "site:openalex.org industry factory cycle",
       "domain": "openalex.org",
       "source_id": "SRC-OPENALEX",
       "urls": 0,
@@ -288,7 +288,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:crossref.org bootstrap buyer persona continuous",
+      "query": "site:crossref.org industry factory cycle",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "urls": 0,
@@ -307,15 +307,15 @@
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 104.392,
-      "score": 99.285,
+      "reputation": 104.375,
+      "score": 99.265,
       "authority": 1.0
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 100.674,
-      "score": 96.087,
+      "reputation": 100.644,
+      "score": 96.052,
       "authority": 0.95
     },
     {
@@ -328,8 +328,8 @@
     {
       "id": "SRC-000004",
       "name": "World Bank",
-      "reputation": 97.001,
-      "score": 91.766,
+      "reputation": 97.447,
+      "score": 92.291,
       "authority": 0.95
     },
     {
@@ -342,8 +342,8 @@
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 89.825,
-      "score": 84.5,
+      "reputation": 91.1,
+      "score": 86.0,
       "authority": 0.9
     }
   ],

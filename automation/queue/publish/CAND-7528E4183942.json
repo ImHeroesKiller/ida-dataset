@@ -1,0 +1,47 @@
+{
+  "candidate_id": "CAND-7528E4183942",
+  "entity_type": "business_signal_library",
+  "entity_id": "SIG-000025",
+  "target_dataset": "business_signal_library",
+  "canonical_name": "World Bank document",
+  "payload": {
+    "Signal ID": "SIG-000025",
+    "Signal Name": "World Bank document",
+    "Signal Type": "document_derived",
+    "Description": "World Bank document World Bank document World Bank document related to: Expand Industry Library — factory learn cycle Indonesia World Bank document related to: Expand Industry Library — factory learn cycle Indonesia",
+    "Industry": "",
+    "Source": "SRC-000004",
+    "Source URL": "https://documents.worldbank.org/search?q=Expand+Industry+Library+—+factory+learn+cycle+Indonesia",
+    "Published Date": "",
+    "Retrieved Date": "2026-07-11T04:49:29+00:00",
+    "Confidence": "0.92",
+    "Mission ID": "MIS-20260711-1B1B1E",
+    "Version": "acquisition-grounded-2.0.0",
+    "Data Sources": "source_ids=SRC-000004; urls=https://documents.worldbank.org/search?q=Expand+Industry+Library+—+factory+learn+cycle+Indonesia; published=; retrieved=2026-07-11T04:49:29+00:00; confidence=0.92; version=acquisition-grounded-2.0.0; discovery_provider=connector",
+    "Notes": "provenance: source=SRC-000004; document=DOC-1C7ABF5820D1; mission=MIS-20260711-1B1B1E; discovery_provider=connector; append_only=true; extraction=grounded_text"
+  },
+  "provenance": {
+    "source_id": "SRC-000004",
+    "source_url": "https://documents.worldbank.org/search?q=Expand+Industry+Library+—+factory+learn+cycle+Indonesia",
+    "retrieved_at": "2026-07-11T04:49:29+00:00",
+    "confidence": 0.92,
+    "extraction_version": "acquisition-grounded-2.0.0",
+    "validation_status": "pending",
+    "reviewer": null,
+    "published_at": null
+  },
+  "links": {},
+  "rejection_reasons": [],
+  "duplicate_of": null,
+  "stage_history": [],
+  "created_at": "2026-07-11T04:49:44+00:00",
+  "updated_at": "2026-07-11T04:49:44+00:00",
+  "metadata": {
+    "mission_id": "MIS-20260711-1B1B1E",
+    "session_id": "SES-20260711-784A5F",
+    "document_id": "DOC-1C7ABF5820D1",
+    "dataset": "business_signal_library",
+    "schema_version": "1.0",
+    "extraction_stage": "fast"
+  }
+}

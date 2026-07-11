@@ -1,34 +1,26 @@
 # worktree_before_certify.md
 
-- **time:** 2026-07-11T04:19:14Z
+- **time:** 2026-07-11T04:49:47Z
 
 ## git status --porcelain=v1
 
 ```
  M automation/learning/state/acquisition_performance.json
  M automation/learning/state/current_snapshot.json
- M automation/learning/state/daily_2026-07-11.json
  M automation/learning/state/discovery_analytics.json
  M automation/learning/state/learning_journal.jsonl
  M automation/learning/state/live_activity.json
- M automation/learning/state/manufacturing_state.json
  M automation/learning/state/production_trace.json
  M automation/learning/state/snapshot_2026-07-11.json
  M automation/learning/state/source_health.json
  M automation/learning/state/source_performance.json
  M automation/sessions/index.json
- M domains/business_development/business_signal_library.csv
  M reports/discovery/provider_health.md
  M reports/discovery/provider_statistics.md
  M reports/discovery/query_statistics.md
  M reports/discovery/reputation_scores.md
- M reports/manufacturing/factory_economics.md
- M reports/manufacturing/growth_velocity.md
- M reports/manufacturing/knowledge_gap.md
- M reports/manufacturing/knowledge_universe.md
- M reports/manufacturing/production_capacity.md
- M reports/manufacturing/scheduler_decisions.md
  M reports/performance/api_statistics.md
+ M reports/performance/cache_statistics.md
  M reports/performance/connector_performance.md
  M reports/performance/crawler_statistics.md
  M reports/performance/download_statistics.md
@@ -44,10 +36,13 @@
  M reports/reliability/git_worktree_trace.md
  M reports/reliability/worktree_before_sync.md
  M reports/reliability/writer_finalize.json
-?? automation/learning/state/sessions/SES-20260711-D71612.jsonl
-?? automation/sessions/2026-07-11/SESSION-20260711-14E554.json
-?? reports/production/production_trace_SES-20260711-D71612.json
-?? reports/production/sessions/SES-20260711-D71612/
+?? automation/learning/state/sessions/SES-20260711-784A5F.jsonl
+?? automation/queue/publish/CAND-7528E4183942.json
+?? automation/queue/publish/CAND-D03DE2F0A439.json
+?? automation/queue/publish/CAND-F04B1DEAECD0.json
+?? automation/sessions/2026-07-11/SESSION-20260711-6BC023.json
+?? reports/production/production_trace_SES-20260711-784A5F.json
+?? reports/production/sessions/SES-20260711-784A5F/
 ```
 
 ## git diff --name-only
@@ -55,28 +50,20 @@
 ```
 automation/learning/state/acquisition_performance.json
 automation/learning/state/current_snapshot.json
-automation/learning/state/daily_2026-07-11.json
 automation/learning/state/discovery_analytics.json
 automation/learning/state/learning_journal.jsonl
 automation/learning/state/live_activity.json
-automation/learning/state/manufacturing_state.json
 automation/learning/state/production_trace.json
 automation/learning/state/snapshot_2026-07-11.json
 automation/learning/state/source_health.json
 automation/learning/state/source_performance.json
 automation/sessions/index.json
-domains/business_development/business_signal_library.csv
 reports/discovery/provider_health.md
 reports/discovery/provider_statistics.md
 reports/discovery/query_statistics.md
 reports/discovery/reputation_scores.md
-reports/manufacturing/factory_economics.md
-reports/manufacturing/growth_velocity.md
-reports/manufacturing/knowledge_gap.md
-reports/manufacturing/knowledge_universe.md
-reports/manufacturing/production_capacity.md
-reports/manufacturing/scheduler_decisions.md
 reports/performance/api_statistics.md
+reports/performance/cache_statistics.md
 reports/performance/connector_performance.md
 reports/performance/crawler_statistics.md
 reports/performance/download_statistics.md
@@ -97,46 +84,38 @@ reports/reliability/writer_finalize.json
 ## git diff --stat
 
 ```
- .../learning/state/acquisition_performance.json    |  58 +++---
- automation/learning/state/current_snapshot.json    |   6 +-
- automation/learning/state/daily_2026-07-11.json    |   4 +-
- automation/learning/state/discovery_analytics.json |  36 ++--
- automation/learning/state/learning_journal.jsonl   |  73 +++++++
- automation/learning/state/live_activity.json       |   6 +-
- automation/learning/state/manufacturing_state.json | 230 ++++++++++-----------
- automation/learning/state/production_trace.json    | 156 +++++++-------
- automation/learning/state/snapshot_2026-07-11.json |   6 +-
- automation/learning/state/source_health.json       |  30 +--
- automation/learning/state/source_performance.json  |  64 +++---
- automation/sessions/index.json                     |  30 ++-
- .../business_signal_library.csv                    |   3 +
+ .../learning/state/acquisition_performance.json    | 132 +++----
+ automation/learning/state/current_snapshot.json    |   2 +-
+ automation/learning/state/discovery_analytics.json |  76 ++--
+ automation/learning/state/learning_journal.jsonl   |  63 ++++
+ automation/learning/state/live_activity.json       |  10 +-
+ automation/learning/state/production_trace.json    | 404 +++++++++------------
+ automation/learning/state/snapshot_2026-07-11.json |   2 +-
+ automation/learning/state/source_health.json       |   2 +-
+ automation/learning/state/source_performance.json  |  62 ++--
+ automation/sessions/index.json                     |  30 +-
  reports/discovery/provider_health.md               |   2 +-
  reports/discovery/provider_statistics.md           |  10 +-
- reports/discovery/query_statistics.md              |   8 +-
+ reports/discovery/query_statistics.md              |  46 +--
  reports/discovery/reputation_scores.md             |   8 +-
- reports/manufacturing/factory_economics.md         |  10 +-
- reports/manufacturing/growth_velocity.md           |  44 ++--
- reports/manufacturing/knowledge_gap.md             |   4 +-
- reports/manufacturing/knowledge_universe.md        |   2 +-
- reports/manufacturing/production_capacity.md       |  20 +-
- reports/manufacturing/scheduler_decisions.md       |   2 +-
  reports/performance/api_statistics.md              |  14 +-
+ reports/performance/cache_statistics.md            |   4 +-
  reports/performance/connector_performance.md       |  16 +-
- reports/performance/crawler_statistics.md          |   2 +-
- reports/performance/download_statistics.md         |   2 +-
+ reports/performance/crawler_statistics.md          |  32 +-
+ reports/performance/download_statistics.md         |  20 +-
  reports/performance/source_ranking.md              |   8 +-
- reports/performance/throughput.md                  |  10 +-
- reports/production/candidate_pipeline.md           |   8 +-
- reports/production/connector_summary.md            |  32 +--
- reports/production/document_pipeline.md            |   2 +-
- reports/production/evidence_trace.md               |  14 +-
- reports/production/production_trace.md             |  26 +--
- reports/production/publish_pipeline.md             |   2 +-
- reports/production/runtime_statistics.md           |  20 +-
- reports/reliability/git_worktree_trace.md          | 162 +++++++++++++++
- reports/reliability/worktree_before_sync.md        |  34 +--
+ reports/performance/throughput.md                  |  14 +-
+ reports/production/candidate_pipeline.md           |  10 +-
+ reports/production/connector_summary.md            |  50 +--
+ reports/production/document_pipeline.md            |  14 +-
+ reports/production/evidence_trace.md               |  32 +-
+ reports/production/production_trace.md             |  34 +-
+ reports/production/publish_pipeline.md             |  14 +-
+ reports/production/runtime_statistics.md           |  44 ++-
+ reports/reliability/git_worktree_trace.md          | 141 +++++++
+ reports/reliability/worktree_before_sync.md        | 108 +++---
  reports/reliability/writer_finalize.json           |   2 +-
- 39 files changed, 716 insertions(+), 450 deletions(-)
+ 31 files changed, 771 insertions(+), 635 deletions(-)
 ```
 
 ## git diff --cached --name-only

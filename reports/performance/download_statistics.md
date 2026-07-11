@@ -3,25 +3,25 @@
 ```json
 {
   "requested": 4,
-  "downloaded": 3,
+  "downloaded": 1,
   "not_modified": 0,
   "skipped_duplicate": 0,
-  "failed": 1,
-  "bytes": 123247,
-  "elapsed_ms": 3349.4000000000005,
+  "failed": 3,
+  "bytes": 42905,
+  "elapsed_ms": 3353.2000000000003,
   "retries": 2,
   "http_cache": {
     "hits": 0,
-    "misses": 3,
+    "misses": 1,
     "not_modified": 0,
-    "stores": 3,
+    "stores": 1,
     "bytes_saved_est": 0
   },
   "fingerprints": {
-    "skips": 3,
-    "adds": 8,
-    "unique_hashes": 8,
-    "unique_urls": 8
+    "skips": 1,
+    "adds": 6,
+    "unique_hashes": 6,
+    "unique_urls": 6
   }
 }
 ```

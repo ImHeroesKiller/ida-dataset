@@ -1,0 +1,47 @@
+{
+  "candidate_id": "CAND-D03DE2F0A439",
+  "entity_type": "business_signal_library",
+  "entity_id": "SIG-000027",
+  "target_dataset": "business_signal_library",
+  "canonical_name": "K-popnomics: How Indonesia and other nations can learn from Korean pop music industry",
+  "payload": {
+    "Signal ID": "SIG-000027",
+    "Signal Name": "K-popnomics: How Indonesia and other nations can learn from Korean pop music industry",
+    "Signal Type": "document_derived",
+    "Description": "K-popnomics: How Indonesia and other nations can learn from Korean pop music industry {\"status\":\"ok\",\"message-type\":\"work\",\"message-version\":\"1.0.0\",\"message\":{\"indexed\":{\"date-parts\":[[2025,8,27]],\"date-time\":\"2025-08-27T00:03:21Z\",\"timestamp\":1756253001005,\"version\":\"3.44.0\"},\"posted\":{\"date-parts\":[[2018,12,7]]},\"group-title\":\"Article\",\"reference-count\":0,\"publisher\":\"The Conversation\",\"content-domain\":{\"domain\":[],\"crossmark-restriction\":false},\"short-container-title\":[],\"DOI\":\"10.64628\\/aan",
+    "Industry": "",
+    "Source": "SRC-CROSSREF",
+    "Source URL": "https://api.crossref.org/works/10.64628/aan.5k75n9srk",
+    "Published Date": "",
+    "Retrieved Date": "2026-07-11T04:49:36+00:00",
+    "Confidence": "0.90",
+    "Mission ID": "MIS-20260711-1B1B1E",
+    "Version": "acquisition-grounded-2.0.0",
+    "Data Sources": "source_ids=SRC-CROSSREF; urls=https://api.crossref.org/works/10.64628/aan.5k75n9srk; published=; retrieved=2026-07-11T04:49:36+00:00; confidence=0.90; version=acquisition-grounded-2.0.0; discovery_provider=connector",
+    "Notes": "provenance: source=SRC-CROSSREF; document=DOC-030B58207BDD; mission=MIS-20260711-1B1B1E; discovery_provider=connector; append_only=true; extraction=grounded_text"
+  },
+  "provenance": {
+    "source_id": "SRC-CROSSREF",
+    "source_url": "https://api.crossref.org/works/10.64628/aan.5k75n9srk",
+    "retrieved_at": "2026-07-11T04:49:36+00:00",
+    "confidence": 0.9,
+    "extraction_version": "acquisition-grounded-2.0.0",
+    "validation_status": "pending",
+    "reviewer": null,
+    "published_at": null
+  },
+  "links": {},
+  "rejection_reasons": [],
+  "duplicate_of": null,
+  "stage_history": [],
+  "created_at": "2026-07-11T04:49:44+00:00",
+  "updated_at": "2026-07-11T04:49:44+00:00",
+  "metadata": {
+    "mission_id": "MIS-20260711-1B1B1E",
+    "session_id": "SES-20260711-784A5F",
+    "document_id": "DOC-030B58207BDD",
+    "dataset": "business_signal_library",
+    "schema_version": "1.0",
+    "extraction_stage": "fast"
+  }
+}
