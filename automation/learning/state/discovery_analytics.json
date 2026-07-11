@@ -1,28 +1,28 @@
 {
-  "started_at": "2026-07-11T04:48:48+00:00",
-  "mission_id": "MIS-20260711-1B1B1E",
-  "session_id": "SES-20260711-784A5F",
-  "instruction": "Expand Industry Library — factory learn cycle",
-  "dataset": "industry_library",
+  "started_at": "2026-07-11T08:14:18+00:00",
+  "mission_id": "MIS-20260711-5A1A02",
+  "session_id": "SES-20260711-D73A0C",
+  "instruction": "Bootstrap BPO Services Indonesia — continuous knowledge manufacturing for service_library (gap_score=112.922, universe_remaining=49935, mode=BOOTSTRAP)",
+  "dataset": "service_library",
   "knowledge_gap": {
-    "dataset": "industry_library",
-    "current_rows": 53,
-    "target_rows": 5000,
-    "minimum_target": 250,
-    "gap_rows": 4947,
-    "coverage_pct": 1.06,
-    "knowledge_gap_score": 79.467,
-    "estimated_universe": 5000,
+    "dataset": "service_library",
+    "current_rows": 0,
+    "target_rows": 50000,
+    "minimum_target": 2000,
+    "gap_rows": 50000,
+    "coverage_pct": 0.0,
+    "knowledge_gap_score": 138.0,
+    "estimated_universe": 50000,
     "priority": "high",
     "continuous": true
   },
-  "queries_generated": 15,
-  "queries_executed": 22,
+  "queries_generated": 13,
+  "queries_executed": 21,
   "urls_discovered": 9,
   "urls_accepted": 3,
   "urls_rejected": 6,
   "duplicate_urls": 6,
-  "elapsed_ms": 547349.0,
+  "elapsed_ms": 546780.6,
   "providers": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -52,7 +52,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 210634.1,
+      "elapsed_ms": 210337.1,
       "status": "ready",
       "credentials_available": true
     },
@@ -68,7 +68,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 168154.2,
+      "elapsed_ms": 168024.1,
       "status": "ready",
       "credentials_available": true
     },
@@ -84,7 +84,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 168526.7,
+      "elapsed_ms": 168399.3,
       "status": "ready",
       "credentials_available": true
     },
@@ -97,7 +97,7 @@
         "status": "idle",
         "message": "optional"
       },
-      "queries": 7,
+      "queries": 6,
       "urls": 0,
       "cache_hits": 0,
       "elapsed_ms": 0.0,
@@ -108,7 +108,7 @@
   "query_stats": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id industry factory cycle",
+      "query": "site:bps.go.id bootstrap bpo services continuous indonesia",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "site",
@@ -117,7 +117,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id intitle:industry industry factory cycle",
+      "query": "site:bps.go.id intitle:bootstrap bootstrap bpo services continuous indonesia",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "intitle",
@@ -126,7 +126,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id industry factory cycle",
+      "query": "site:kemenperin.go.id bootstrap bpo services continuous indonesia",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "site",
@@ -135,7 +135,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id intitle:industry industry factory cycle",
+      "query": "site:kemenperin.go.id intitle:bootstrap bootstrap bpo services continuous indonesia",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "intitle",
@@ -144,7 +144,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org industry factory cycle",
+      "query": "site:adb.org bootstrap bpo services continuous indonesia",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "site",
@@ -153,7 +153,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org intitle:industry industry factory cycle",
+      "query": "site:adb.org intitle:bootstrap bootstrap bpo services continuous indonesia",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "intitle",
@@ -162,7 +162,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org industry factory cycle",
+      "query": "site:oecd.org bootstrap bpo services continuous indonesia",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "site",
@@ -171,7 +171,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org intitle:industry industry factory cycle",
+      "query": "site:oecd.org intitle:bootstrap bootstrap bpo services continuous indonesia",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "intitle",
@@ -180,7 +180,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org industry factory cycle",
+      "query": "site:worldbank.org bootstrap bpo services continuous indonesia",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "site",
@@ -189,7 +189,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org intitle:industry industry factory cycle",
+      "query": "site:worldbank.org intitle:bootstrap bootstrap bpo services continuous indonesia",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "intitle",
@@ -198,18 +198,18 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:openalex.org industry factory cycle",
-      "domain": "openalex.org",
-      "source_id": "SRC-OPENALEX",
+      "query": "site:crossref.org bootstrap bpo services continuous indonesia",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
       "kind": "site",
       "urls": 0,
       "cached": false
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:openalex.org intitle:industry industry factory cycle",
-      "domain": "openalex.org",
-      "source_id": "SRC-OPENALEX",
+      "query": "site:crossref.org intitle:bootstrap bootstrap bpo services continuous indonesia",
+      "domain": "crossref.org",
+      "source_id": "SRC-CROSSREF",
       "kind": "intitle",
       "urls": 0,
       "cached": false
@@ -218,23 +218,23 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 210634.1
+      "elapsed_ms": 210337.1
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 168154.2
+      "elapsed_ms": 168024.1
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 168526.7
+      "elapsed_ms": 168399.3
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id industry factory cycle",
+      "query": "site:bps.go.id bootstrap bpo services continuous indonesia",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
@@ -243,7 +243,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:kemenperin.go.id industry factory cycle",
+      "query": "site:kemenperin.go.id bootstrap bpo services continuous indonesia",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
@@ -252,7 +252,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:adb.org industry factory cycle",
+      "query": "site:adb.org bootstrap bpo services continuous indonesia",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "urls": 0,
@@ -261,7 +261,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:oecd.org industry factory cycle",
+      "query": "site:oecd.org bootstrap bpo services continuous indonesia",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "urls": 0,
@@ -270,7 +270,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org industry factory cycle",
+      "query": "site:worldbank.org bootstrap bpo services continuous indonesia",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
@@ -279,16 +279,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:openalex.org industry factory cycle",
-      "domain": "openalex.org",
-      "source_id": "SRC-OPENALEX",
-      "urls": 0,
-      "elapsed_ms": 0.0,
-      "cached": false
-    },
-    {
-      "provider_id": "DISC-OPENSEARCH",
-      "query": "site:crossref.org industry factory cycle",
+      "query": "site:crossref.org bootstrap bpo services continuous indonesia",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "urls": 0,
@@ -300,50 +291,43 @@
     {
       "id": "SRC-000001",
       "name": "BPS Indonesia",
-      "reputation": 110.075,
-      "score": 105.97,
+      "reputation": 104.974,
+      "score": 99.97,
       "authority": 1.0
     },
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 104.375,
-      "score": 99.265,
+      "reputation": 99.264,
+      "score": 93.252,
       "authority": 1.0
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 100.644,
-      "score": 96.052,
+      "reputation": 95.52,
+      "score": 90.023,
       "authority": 0.95
     },
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "reputation": 99.287,
-      "score": 94.455,
+      "reputation": 94.187,
+      "score": 88.455,
       "authority": 0.95
     },
     {
       "id": "SRC-000004",
       "name": "World Bank",
-      "reputation": 97.447,
-      "score": 92.291,
+      "reputation": 92.475,
+      "score": 86.441,
       "authority": 0.95
-    },
-    {
-      "id": "SRC-OPENALEX",
-      "name": "OpenAlex",
-      "reputation": 91.897,
-      "score": 86.938,
-      "authority": 0.9
     },
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 91.1,
-      "score": 86.0,
+      "reputation": 86.638,
+      "score": 80.75,
       "authority": 0.9
     }
   ],
@@ -407,9 +391,9 @@
   ],
   "cache": {
     "hits": 0,
-    "misses": 7,
-    "stores": 7,
-    "cached_queries": 7,
+    "misses": 6,
+    "stores": 6,
+    "cached_queries": 6,
     "cached_urls": 0
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."

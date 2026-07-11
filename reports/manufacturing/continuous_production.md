@@ -12,4 +12,4 @@ It only slows for: no updates, API quota, rate limits, backoff, maintenance.
 
 Selected mission: **Bootstrap Discovery Question Library**
 
-Bootstrap Discovery Question Library — continuous knowledge manufacturing for discovery_question_library (gap_score=125.25, universe_remaining=5160, mode=BOOTSTRAP)
+Bootstrap Discovery Question Library — continuous knowledge manufacturing for discovery_question_library (gap_score=125.25, universe_remaining=5000, mode=BOOTSTRAP)

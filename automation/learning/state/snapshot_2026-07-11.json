@@ -1,17 +1,24 @@
 {
   "date": "2026-07-11",
-  "captured_at": "2026-07-11T04:49:44+00:00",
-  "datasets_total": 12,
-  "datasets_populated": 10,
-  "datasets_gaps": 2,
-  "rows_total": 756,
-  "coverage_pct": 83.3,
+  "captured_at": "2026-07-11T08:14:59+00:00",
+  "datasets_total": 17,
+  "datasets_populated": 16,
+  "datasets_gaps": 1,
+  "rows_total": 799,
+  "coverage_pct": 94.1,
   "by_dataset": [
     {
       "path": "domains/business_development/business_signal_library.csv",
       "name": "business_signal_library",
       "domain": "business_development",
-      "rows": 24,
+      "rows": 29,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/buyer_persona_library.csv",
+      "name": "buyer_persona_library",
+      "domain": "business_development",
+      "rows": 4,
       "is_gap": false
     },
     {
@@ -32,8 +39,15 @@
       "path": "domains/business_development/competitor_library.csv",
       "name": "competitor_library",
       "domain": "business_development",
-      "rows": 0,
-      "is_gap": true
+      "rows": 6,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/decision_maker_library.csv",
+      "name": "decision_maker_library",
+      "domain": "business_development",
+      "rows": 3,
+      "is_gap": false
     },
     {
       "path": "domains/business_development/discovery_question_library.csv",
@@ -85,10 +99,31 @@
       "is_gap": false
     },
     {
+      "path": "domains/business_development/regulation_library.csv",
+      "name": "regulation_library",
+      "domain": "business_development",
+      "rows": 5,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/risk_library.csv",
+      "name": "risk_library",
+      "domain": "business_development",
+      "rows": 10,
+      "is_gap": false
+    },
+    {
       "path": "domains/business_development/solution_library.csv",
       "name": "solution_library",
       "domain": "business_development",
       "rows": 58,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/trend_library.csv",
+      "name": "trend_library",
+      "domain": "business_development",
+      "rows": 10,
       "is_gap": false
     }
   ]

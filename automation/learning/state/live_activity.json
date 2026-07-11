@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260711-6BC023",
-  "mission_id": "MIS-20260711-1B1B1E",
+  "session_id": "SESSION-20260711-F61AC8",
+  "mission_id": "MIS-20260711-5A1A02",
   "progress": 100,
-  "current_thought": "Session completed · published=0 extracted=3 validated=3 rejected=3 docs=5 entity=— · dry_run",
+  "current_thought": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=11 entity=Analysis of Factors Influencing Poverty in Indonesia Using the Bootstrap Aggregating Multivariate Adaptive Regression Spline",
   "current_task": "Idle",
-  "last_learned": null,
-  "updated_at": "2026-07-11T04:49:44+00:00",
+  "last_learned": "Analysis of Factors Influencing Poverty in Indonesia Using the Bootstrap Aggregating Multivariate Adaptive Regression Spline",
+  "updated_at": "2026-07-11T08:14:59+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }

@@ -8,10 +8,10 @@ Accepted discovery URLs attributed to trusted registry sources.
 
 ## Knowledge gap
 
-- Dataset: `industry_library`
-- Current: 53
-- Target: 5000
-- Gap: 4947
-- Coverage: 1.06%
+- Dataset: `service_library`
+- Current: 0
+- Target: 50000
+- Gap: 50000
+- Coverage: 0.0%
 
 > Search engines are discovery tools only. Knowledge is extracted solely from trusted sources.

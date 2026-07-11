@@ -1,34 +1,33 @@
 # Queue Efficiency
 
-**Generated:** 2026-07-11T05:52:55+00:00
+**Generated:** 2026-07-11T08:14:59+00:00
 
 ## Depths
 
 | Queue | Metric | Value |
 |-------|--------|------:|
-| Document | incoming | 13 |
+| Document | incoming | 0 |
 | Document | processing | 0 |
-| Document | processed | 20 |
-| Document | depth | 13 |
+| Document | processed | 21 |
+| Document | depth | 0 |
 | Candidate | pending | 0 |
-| Candidate | approved | 18 |
+| Candidate | approved | 5 |
 | Candidate | rejected | 0 |
-| Publish | depth | 0 |
+| Publish | depth | 6 |
 
 ## Starvation / imbalance
 
-- `document_queue_idle_workers`
-- `publish_queue_starved_of_approved`
+- None detected
 
 ## Rebalance signals
 
 ```json
 {
-  "prefer_process_incoming": true,
-  "prefer_drain_publish": false,
+  "prefer_process_incoming": false,
+  "prefer_drain_publish": true,
   "prefer_review_pending": false,
-  "document_weight": 0.3939393939393939,
+  "document_weight": 0.0,
   "candidate_weight": 0.0,
-  "publish_weight": 0.0
+  "publish_weight": 0.5454545454545454
 }
 ```

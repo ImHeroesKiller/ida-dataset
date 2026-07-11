@@ -1,7 +1,7 @@
 # Growth Velocity
 
 - Growth velocity: **2.86** rows/day
-- Coverage velocity: **13524.72** rows/day capacity
+- Coverage velocity: **20.0** rows/day capacity
 - Knowledge produced (all datasets): **545**
 
 ```json
@@ -14,21 +14,21 @@
   "sessions_24h": 35,
   "sessions_7d": 35,
   "sessions_30d": 35,
-  "rows_per_hour": 563.53,
-  "rows_per_day": 13524.72,
-  "rows_per_week": 94673.04,
-  "rows_per_month": 405741.6,
-  "documents_per_hour": 563.53,
-  "candidates_per_hour": 422.65,
+  "rows_per_hour": 0.83,
+  "rows_per_day": 20.0,
+  "rows_per_week": 140.0,
+  "rows_per_month": 600.0,
+  "documents_per_hour": 29.85,
+  "candidates_per_hour": 22.39,
   "validation_throughput": "integrity_guard_inline",
   "publish_throughput": "append_only_csv",
   "connector_throughput": {
-    "documents": 12,
-    "rows": 12,
-    "documents_per_hour": 563.53,
-    "rows_per_hour": 563.53,
-    "documents_per_second": 0.157,
-    "rows_per_second": 0.157
+    "documents": 5,
+    "rows": 0,
+    "documents_per_hour": 29.85,
+    "rows_per_hour": 0.0,
+    "documents_per_second": 0.008,
+    "rows_per_second": 0.0
   },
   "mission_throughput_sessions_24h": 35,
   "growth_velocity_rows_per_day": 2.86
