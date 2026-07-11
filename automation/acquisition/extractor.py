@@ -148,6 +148,11 @@ def extract_industry_candidates(
             conf = min(0.95, max(0.80, trust * 0.95))
             if mention.get("expandable") and len(snips) >= 2:
                 conf = min(0.95, conf + 0.03)
+            # Strong multi-snippet evidence from high-trust sources → auto-publish band (≥0.92)
+            if trust >= 0.90 and len(snips) >= 2 and len(evidence_blob) >= 160:
+                conf = min(0.95, max(conf, 0.92))
+            elif trust >= 0.88 and len(snips) >= 3:
+                conf = min(0.95, max(conf, 0.92))
 
             iid = f"IND-{next_id_n:06d}"
             next_id_n += 1

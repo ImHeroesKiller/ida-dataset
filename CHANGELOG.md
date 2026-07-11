@@ -9,6 +9,17 @@
 - Growth strategy: **knowledge expansion only** (connectors, datasets, coverage, quality, production fixes)
 - Forbidden: architecture/schema/queue redesign, RAG, agents, decision/reasoning engines
 
+### Performance (throughput — no architecture change)
+
+- Adaptive document prioritization + pre-download dedupe; process budget targets ≥90% of discovered docs
+- Concurrent downloads with adaptive worker pool (2→4→8→16) from connector latency
+- Multi-stage extraction: fast / medium / deep; LLM skipped when deterministic extraction suffices
+- Auto-publish gate at confidence ≥0.92; lower confidence → manual review queue
+- Queue rebalance drains leftover incoming documents into the active session
+- Per-session document budget raised (32) within policy hard caps
+- Performance reports under `reports/performance/` (bottleneck, capacity, queues, connectors)
+- Dashboard metrics only: rows/hour, docs/hour, worker utilization, queue depth, process ratio
+
 ## 2.0.0 — 2026-07-10
 
 ### IDA Dataset Factory (Knowledge Factory reset)

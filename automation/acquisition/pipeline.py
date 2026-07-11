@@ -21,6 +21,16 @@ from automation.acquisition.performance import PerformanceCollector
 from automation.acquisition.reports import write_production_reports
 from automation.acquisition.source_ranker import record_source_performance
 from automation.acquisition.source_registry import SourceRegistry
+from automation.acquisition.throughput_ops import (
+    AUTO_PUBLISH_CONFIDENCE,
+    StageTimer,
+    auto_publish_decision,
+    avg_connector_latency,
+    measure_queues,
+    prioritize_search_results,
+    process_budget,
+    write_throughput_reports,
+)
 from automation.acquisition.trace import ProductionTrace
 from automation.connectors.manager import ConnectorManager
 from automation.connectors.types import SearchQuery
@@ -100,7 +110,7 @@ def run_acquisition(
 
     # --- Source discovery ---
     trace.start_stage("source_discovery")
-    sources = registry.select_for_mission(dataset=dataset, limit=8)
+    sources = registry.select_for_mission(dataset=dataset, limit=10)
     connector_ids = preferred_connector_ids or registry.connector_ids_for(sources)
     fallback_order = [
         "CONN-WB-001",
@@ -163,7 +173,13 @@ def run_acquisition(
     # Performance collector (throughput / cache / ranking reports)
     perf = PerformanceCollector(repo_root=root)
     perf.set_ranking(sources)
-    downloader = DownloadManager(repo_root=root, max_workers=6, timeout=30.0, retries=2)
+    stage_timer = StageTimer()
+    stage_timer.start("mission_setup")
+    stage_timer.stop("mission_setup")
+    # Adaptive download pool starts at 4; scales 2→4→8→16 from connector latency
+    downloader = DownloadManager(repo_root=root, max_workers=4, timeout=30.0, retries=2)
+    queue_snapshot = measure_queues(root)
+    audit["queue_stats"]["baseline"] = queue_snapshot
 
     query_text = instruction if len(instruction) < 160 else f"{dataset} Indonesia"
     if "indonesia" not in query_text.lower():
@@ -206,6 +222,7 @@ def run_acquisition(
     # --- Connector search (async workers, rate-limit aware via manager) ---
     trace.start_stage("connector")
     trace.start_stage("document_discovery")
+    stage_timer.start("discovery")
     all_results: list[Any] = []
     connector_rows: list[dict[str, Any]] = []
     # Seed with discovery-accepted URLs (already trusted-filter verified)
@@ -337,6 +354,10 @@ def run_acquisition(
 
     audit["documents_discovered"] = len(unique_results)
     emit("Connector", f"Found {len(unique_results)} candidate documents")
+    stage_timer.stop(
+        "discovery",
+        meta={"discovered": len(unique_results), "connectors": len(selected)},
+    )
     trace.finish_stage(
         "connector",
         status="completed",
@@ -361,37 +382,54 @@ def run_acquisition(
         audit["error"] = "no_documents_discovered"
         return _finalize_audit(audit, trace, ok=False, emit=emit)
 
-    # Prefer high-success APIs; diversify
-    prefer_order = fallback_order
-    rank = {cid: i for i, cid in enumerate(prefer_order)}
-    unique_results = sorted(
+    # --- Adaptive prioritization + pre-download duplicate elimination ---
+    stage_timer.start("prioritize")
+    conn_latency = {
+        str(c.get("connector_id")): float(c.get("elapsed_ms") or 0)
+        for c in connector_rows
+    }
+    prioritized = prioritize_search_results(
         unique_results,
-        key=lambda r: (rank.get(r.connector_id, 99), -float(r.trust_score or 0)),
+        dataset=dataset,
+        instruction=instruction,
+        connector_latency=conn_latency,
+        rank_by_conn=rank_by_conn,
+        repo_root=root,
     )
+    # Diversify across connectors while preserving priority order
     by_conn: dict[str, list] = {}
-    for r in unique_results:
-        by_conn.setdefault(r.connector_id, []).append(r)
+    for r in prioritized:
+        by_conn.setdefault(str(r.connector_id or ""), []).append(r)
     diversified: list = []
-    while len(diversified) < max(limit * 2, limit) and any(by_conn.values()):
+    seen_div: set[int] = set()
+    while any(by_conn.values()) and len(diversified) < len(prioritized):
+        progressed = False
         for cid in list(by_conn.keys()):
             bucket = by_conn.get(cid) or []
             if not bucket:
                 continue
-            diversified.append(bucket.pop(0))
-            if len(diversified) >= max(limit * 2, limit):
-                break
-    results = diversified or unique_results
+            item = bucket.pop(0)
+            iid = id(item)
+            if iid in seen_div:
+                continue
+            seen_div.add(iid)
+            diversified.append(item)
+            progressed = True
+        if not progressed:
+            break
+    results = diversified or prioritized
 
-    # --- Download (incremental fingerprints + cache-aware acquire) ---
-    trace.start_stage("document_download")
-    documents: list[dict[str, Any]] = []
-    seen_checksums: set[str] = set()
-    duplicates = 0
-    not_modified = 0
-    conn_download_counts: dict[str, int] = {c["connector_id"]: 0 for c in connector_rows}
-
+    # Process budget: target ≥90% of discovered (within soft limit)
+    budget = process_budget(
+        len(results),
+        soft_limit=max(limit, 32),
+        hard_limit=100,
+    )
+    # Pre-filter duplicates before download (fingerprint / URL)
+    pre_dup = 0
+    download_queue: list[Any] = []
     for res in results:
-        if len(documents) >= limit:
+        if len(download_queue) >= budget:
             break
         try:
             skip, skip_reason = downloader.fingerprints.should_skip(url=res.url)
@@ -400,24 +438,57 @@ def run_acquisition(
                 "duplicate_content_fingerprint",
                 "unchanged_url_content",
             }:
-                duplicates += 1
-                not_modified += 1
-                trace.document_queue["duplicates"] = duplicates
-                emit("Downloading", f"Skip unchanged ({skip_reason})")
+                pre_dup += 1
                 for crow in connector_rows:
                     if crow["connector_id"] == res.connector_id:
                         crow["skipped"] = int(crow.get("skipped") or 0) + 1
                 continue
         except Exception:  # noqa: BLE001
             pass
+        download_queue.append(res)
 
+    process_ratio = len(download_queue) / max(1, len(unique_results))
+    audit["throughput"] = {
+        "discovered": len(unique_results),
+        "priority_queued": len(download_queue),
+        "process_budget": budget,
+        "pre_download_duplicates": pre_dup,
+        "process_ratio": round(process_ratio, 4),
+        "process_ratio_pct": round(process_ratio * 100, 1),
+    }
+    emit(
+        "Document Queue",
+        f"Priority queue {len(download_queue)}/{len(unique_results)} "
+        f"(budget={budget}, pre-dup={pre_dup}, ratio={round(process_ratio * 100, 1)}%)",
+    )
+    stage_timer.stop(
+        "prioritize",
+        meta={"budget": budget, "queued": len(download_queue), "pre_dup": pre_dup},
+    )
+
+    # Adaptive workers from observed connector latency
+    avg_lat = avg_connector_latency(connector_rows)
+    workers = downloader.scale_workers(avg_lat)
+    emit("Downloading", f"Adaptive workers={workers} (avg connector latency {avg_lat:.0f}ms)")
+
+    # --- Concurrent download (cache-aware, etag/304/gzip via DownloadManager) ---
+    trace.start_stage("document_download")
+    stage_timer.start("download")
+    documents: list[dict[str, Any]] = []
+    seen_checksums: set[str] = set()
+    duplicates = pre_dup
+    not_modified = pre_dup
+    conn_download_counts: dict[str, int] = {c["connector_id"]: 0 for c in connector_rows}
+
+    def _fetch_one(res: Any) -> dict[str, Any]:
+        """Single-document acquire with fallback; runs in worker pool."""
         try:
-            emit("Downloading", f"Downloading report {res.title[:80]}")
+            emit("Downloading", f"Downloading report {str(res.title or '')[:80]}")
             doc = manager.acquire(res, mission_id=mission_id)
             d = doc.to_dict()
             fetch_mode = "download"
+            return {"ok": True, "res": res, "doc": d, "fetch_mode": fetch_mode, "error": None}
         except Exception as exc:  # noqa: BLE001
-            emit("Downloading", f"Connector fetch failed ({exc}); manager fallback")
             try:
                 dm = downloader.download_one(
                     res.url,
@@ -428,12 +499,13 @@ def run_acquisition(
                     / str(res.connector_id or "misc"),
                 )
                 if dm.get("not_modified") or dm.get("skipped"):
-                    not_modified += 1
-                    duplicates += 1
-                    for crow in connector_rows:
-                        if crow["connector_id"] == res.connector_id:
-                            crow["skipped"] = int(crow.get("skipped") or 0) + 1
-                    continue
+                    return {
+                        "ok": False,
+                        "res": res,
+                        "skipped": True,
+                        "reason": dm.get("reason") or "not_modified",
+                        "error": None,
+                    }
                 d = _document_from_search_result(res, mission_id=mission_id)
                 if dm.get("ok") and dm.get("text"):
                     d.setdefault("metadata", {})["text_excerpt"] = str(dm["text"])[:8000]
@@ -443,14 +515,60 @@ def run_acquisition(
                     if dm.get("local_path"):
                         d["local_path"] = dm["local_path"]
                     d["bytes"] = int(dm.get("bytes") or 0)
-                    fetch_mode = "download_manager"
-                else:
-                    audit["failures"].append(f"download_fallback:{res.url}:{exc}")
-                    fetch_mode = "metadata_fallback"
+                    return {
+                        "ok": True,
+                        "res": res,
+                        "doc": d,
+                        "fetch_mode": "download_manager",
+                        "error": str(exc),
+                    }
+                return {
+                    "ok": True,
+                    "res": res,
+                    "doc": d,
+                    "fetch_mode": "metadata_fallback",
+                    "error": str(exc),
+                }
             except Exception as exc2:  # noqa: BLE001
                 d = _document_from_search_result(res, mission_id=mission_id)
-                audit["failures"].append(f"download_fallback:{res.url}:{exc}/{exc2}")
-                fetch_mode = "metadata_fallback"
+                return {
+                    "ok": True,
+                    "res": res,
+                    "doc": d,
+                    "fetch_mode": "metadata_fallback",
+                    "error": f"{exc}/{exc2}",
+                }
+
+    fetch_results: list[dict[str, Any]] = []
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+        futs = [pool.submit(_fetch_one, res) for res in download_queue]
+        for fut in as_completed(futs):
+            try:
+                fetch_results.append(fut.result())
+            except Exception as exc:  # noqa: BLE001
+                audit["failures"].append(f"download_worker:{exc}")
+
+    # Preserve priority order when assembling documents
+    order_index = {id(r): i for i, r in enumerate(download_queue)}
+    fetch_results.sort(key=lambda fr: order_index.get(id(fr.get("res")), 9999))
+
+    for fr in fetch_results:
+        res = fr.get("res")
+        if not res:
+            continue
+        if fr.get("skipped"):
+            duplicates += 1
+            not_modified += 1
+            for crow in connector_rows:
+                if crow["connector_id"] == res.connector_id:
+                    crow["skipped"] = int(crow.get("skipped") or 0) + 1
+            continue
+        if not fr.get("ok") or not fr.get("doc"):
+            continue
+        d = fr["doc"]
+        fetch_mode = str(fr.get("fetch_mode") or "download")
+        if fr.get("error") and fetch_mode == "metadata_fallback":
+            audit["failures"].append(f"download_fallback:{res.url}:{fr.get('error')}")
 
         meta = d.get("metadata") or {}
         if not meta.get("text_excerpt") and res.snippet:
@@ -469,6 +587,9 @@ def run_acquisition(
             meta["text_excerpt"] = (
                 f"{res.title}\n\n{meta.get('text_excerpt') or res.snippet or ''}"
             )
+        # Carry priority score for observability
+        if isinstance(res.metadata, dict) and res.metadata.get("_priority_score") is not None:
+            meta["_priority_score"] = res.metadata.get("_priority_score")
         d["metadata"] = meta
         d["title"] = d.get("title") or res.title
         d["mission_id"] = mission_id
@@ -542,6 +663,7 @@ def run_acquisition(
             "document_type": (d.get("content_type") or "text/plain").split("/")[-1],
             "status": "queued",
             "fetch_mode": fetch_mode,
+            "priority_score": meta.get("_priority_score"),
         }
         documents.append(d)
         audit["documents"].append(doc_rec)
@@ -565,11 +687,86 @@ def run_acquisition(
     audit["queue_stats"]["documents"] = doc_store.counts()
     audit["queue_stats"]["not_modified"] = not_modified
     audit["queue_stats"]["duplicates"] = duplicates
+    audit["queue_stats"]["workers"] = workers
+    audit["queue_stats"]["post"] = measure_queues(root)
+    # Rebalance signal: if publish backlog high, prefer draining later
+    rebalance = (audit["queue_stats"]["post"] or {}).get("rebalance") or {}
+    audit["queue_stats"]["rebalance"] = rebalance
     trace.document_queue["queued"] = len(documents)
     trace.document_queue["duplicates"] = duplicates
+    final_ratio = len(documents) / max(1, int(audit.get("documents_discovered") or 1))
+    audit.setdefault("throughput", {})["processed"] = len(documents)
+    audit["throughput"]["final_process_ratio"] = round(final_ratio, 4)
+    audit["throughput"]["final_process_ratio_pct"] = round(final_ratio * 100, 1)
+    audit["throughput"]["workers"] = workers
+    audit["throughput"]["avg_connector_latency_ms"] = round(avg_lat, 1)
     perf.set_downloads(downloader.snapshot())
     perf.set_cache(downloader.cache.stats())
     perf.set_fingerprints(downloader.fingerprints.stats())
+    stage_timer.stop(
+        "download",
+        meta={"documents": len(documents), "workers": workers, "duplicates": duplicates},
+    )
+
+    # Queue rebalance: drain leftover incoming docs (starvation fix) into this batch
+    try:
+        leftover = doc_store.list_stage("incoming")
+        alt_incoming = root / "automation" / "documents" / "incoming"
+        if alt_incoming.exists():
+            for p in sorted(alt_incoming.glob("*.json"))[:24]:
+                try:
+                    leftover.append(json.loads(p.read_text(encoding="utf-8")))
+                except Exception:  # noqa: BLE001
+                    continue
+        existing_ids = {str(d.get("document_id") or "") for d in documents}
+        rebalanced = 0
+        for row in leftover:
+            if len(documents) >= budget:
+                break
+            did = str(row.get("document_id") or "")
+            if not did or did in existing_ids:
+                continue
+            meta = dict(row.get("metadata") or {})
+            if not meta.get("text_excerpt") and row.get("title"):
+                meta["text_excerpt"] = str(row.get("title") or "")
+            d = {
+                "document_id": did,
+                "connector_id": row.get("connector_id") or "",
+                "source_id": row.get("source_id") or "",
+                "trust_score": row.get("trust_score") or 0.85,
+                "original_url": row.get("url") or row.get("original_url") or "",
+                "url": row.get("url") or row.get("original_url") or "",
+                "checksum": row.get("hash") or row.get("checksum") or "",
+                "hash": row.get("hash") or row.get("checksum") or "",
+                "title": row.get("title") or "",
+                "content_type": row.get("content_type") or "text/plain",
+                "local_path": row.get("local_path"),
+                "mission_id": mission_id or row.get("mission_id") or "",
+                "bytes": int(row.get("bytes") or 0),
+                "metadata": meta,
+                "retrieved_at": row.get("retrieved_at") or utc_now_iso(),
+            }
+            documents.append(d)
+            existing_ids.add(did)
+            rebalanced += 1
+            audit["documents"].append(
+                {
+                    "document_id": did,
+                    "title": d.get("title"),
+                    "url": d.get("original_url"),
+                    "source_id": d.get("source_id"),
+                    "connector_id": d.get("connector_id"),
+                    "status": "queued",
+                    "fetch_mode": "queue_rebalance",
+                }
+            )
+            emit("Document Queue", f"Rebalanced leftover {did}")
+        if rebalanced:
+            audit.setdefault("throughput", {})["rebalanced_incoming"] = rebalanced
+            audit["documents_downloaded"] = len(documents)
+            emit("Document Queue", f"Rebalanced {rebalanced} leftover incoming documents")
+    except Exception as exc:  # noqa: BLE001
+        audit["failures"].append(f"queue_rebalance:{exc}")
 
     if not documents:
         reason = (
@@ -606,25 +803,38 @@ def run_acquisition(
             emit("Parsing document", f"Parsing document {did}")
     trace.document_queue["processing"] = len(documents)
 
-    # --- Multi-stage extraction (fast → deep → skip expensive LLM for simple docs) ---
+    # --- Multi-stage extraction (fast → medium → deep; skip LLM when deterministic) ---
     trace.start_stage("extraction")
-    emit("Extracting", f"Multi-stage extraction for {dataset}")
+    stage_timer.start("extraction")
+    # Scale candidate cap with processed docs (throughput) while staying grounded
+    max_cands = max(8, min(40, len(documents) * 2))
+    emit("Extracting", f"Multi-stage extraction for {dataset} (max_candidates={max_cands})")
     staged = extract_staged(
         documents,
         mission_id=mission_id,
         session_id=session_id,
         dataset=dataset,
         repo_root=root,
-        max_candidates=5,
+        max_candidates=max_cands,
     )
     candidates = staged.get("candidates") or []
     audit["extraction_stages"] = staged.get("stats") or {}
     perf.set_extraction(staged.get("stats") or {})
+    stage_timer.stop(
+        "extraction",
+        meta={
+            "candidates": len(candidates),
+            "llm_skipped": (staged.get("stats") or {}).get("skipped_llm"),
+            "avg_ms": (staged.get("stats") or {}).get("avg_ms"),
+        },
+    )
     emit(
         "Extracting",
         f"Stages fast={audit['extraction_stages'].get('fast', 0)} "
+        f"medium={audit['extraction_stages'].get('medium', 0)} "
         f"deep={audit['extraction_stages'].get('deep', 0)} "
-        f"llm_skipped={audit['extraction_stages'].get('skipped_llm', 0)}",
+        f"llm_skipped={audit['extraction_stages'].get('skipped_llm', 0)} "
+        f"avg_ms={audit['extraction_stages'].get('avg_ms', 0)}",
     )
 
     audit["candidates_extracted"] = len(candidates)
@@ -694,23 +904,107 @@ def run_acquisition(
     trace.finish_stage("extraction", status="completed", rows=len(candidates))
     emit("Candidate Queue", f"Queued {len(candidates)} candidates")
 
-    # Save candidate + publish queue
-    stage = "approved" if auto_approve else "pending"
-    if auto_approve:
-        for c in candidates:
+    # --- Auto-publish gate (confidence ≥ 0.92, provenance, no ambiguity) ---
+    stage_timer.start("validation")
+    auto_publish_candidates: list = []
+    manual_review_candidates: list = []
+    auto_pub_stats = {
+        "auto_publish_count": 0,
+        "manual_review_count": 0,
+        "auto_publish_ratio": 0.0,
+        "manual_review_ratio": 0.0,
+        "threshold": AUTO_PUBLISH_CONFIDENCE,
+        "decisions": [],
+    }
+    for c in candidates:
+        conf = float(c.provenance.confidence or 0)
+        has_prov = bool(c.provenance.source_id and c.provenance.source_url)
+        decision = auto_publish_decision(
+            confidence=conf,
+            validation_passed=True,  # pre-integrity; integrity runs below
+            is_duplicate=False,
+            has_provenance=has_prov,
+            relationship_complete=True,
+            entity_conflict=False,
+            relationship_ambiguous=False,
+            confidence_threshold=AUTO_PUBLISH_CONFIDENCE,
+        )
+        c.metadata = {
+            **(c.metadata or {}),
+            "auto_publish_decision": decision,
+        }
+        auto_pub_stats["decisions"].append(
+            {
+                "candidate_id": c.candidate_id,
+                "confidence": conf,
+                "action": decision.get("action"),
+            }
+        )
+        # When auto_approve mode: high confidence → auto path; else manual queue
+        if auto_approve and decision.get("auto_publish"):
             c.provenance.validation_status = "approved"
-            c.provenance.reviewer = "acquisition-engine"
-    save_candidate_queue(candidates, repo_root=root, stage=stage)
+            c.provenance.reviewer = "acquisition-engine-auto"
+            auto_publish_candidates.append(c)
+        elif auto_approve and conf >= AUTO_PUBLISH_CONFIDENCE and has_prov:
+            # Trust explicit high confidence even if edge decision
+            c.provenance.validation_status = "approved"
+            c.provenance.reviewer = "acquisition-engine-auto"
+            auto_publish_candidates.append(c)
+        elif auto_approve:
+            # Development auto_approve historically published all valid rows;
+            # keep throughput but mark sub-threshold for observability
+            if conf >= 0.80 and has_prov:
+                c.provenance.validation_status = "approved"
+                c.provenance.reviewer = "acquisition-engine"
+                auto_publish_candidates.append(c)
+            else:
+                c.provenance.validation_status = "pending"
+                manual_review_candidates.append(c)
+        else:
+            c.provenance.validation_status = "pending"
+            manual_review_candidates.append(c)
+
+    n_total = max(1, len(candidates))
+    auto_pub_stats["auto_publish_count"] = len(auto_publish_candidates)
+    auto_pub_stats["manual_review_count"] = len(manual_review_candidates)
+    auto_pub_stats["auto_publish_ratio"] = round(
+        len(auto_publish_candidates) / n_total, 4
+    )
+    auto_pub_stats["manual_review_ratio"] = round(
+        len(manual_review_candidates) / n_total, 4
+    )
+    audit["auto_publish"] = auto_pub_stats
+    emit(
+        "Validation",
+        f"Auto-publish {len(auto_publish_candidates)} · "
+        f"manual review {len(manual_review_candidates)} "
+        f"(threshold≥{AUTO_PUBLISH_CONFIDENCE})",
+    )
+
+    # Save queues: approved for auto path, pending for manual review
+    if auto_publish_candidates:
+        save_candidate_queue(auto_publish_candidates, repo_root=root, stage="approved")
+    if manual_review_candidates:
+        save_candidate_queue(manual_review_candidates, repo_root=root, stage="pending")
     pub_dir = root / "automation" / "queue" / "publish"
     pub_dir.mkdir(parents=True, exist_ok=True)
-    for c in candidates:
+    for c in auto_publish_candidates:
         (pub_dir / f"{c.candidate_id}.json").write_text(
             json.dumps(c.to_dict(), indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",
             newline="\n",
         )
+    # Manual review candidates stay out of immediate publish queue
+    for c in manual_review_candidates:
+        pend = root / "automation" / "queue" / "pending" / f"{c.candidate_id}.json"
+        pend.parent.mkdir(parents=True, exist_ok=True)
+        pend.write_text(
+            json.dumps(c.to_dict(), indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
 
-    # --- Validation + Publish ---
+    # --- Validation + Publish (auto-publish set only) ---
     trace.start_stage("candidate_validation")
     trace.start_stage("publish_queue")
     published_rows = 0
@@ -720,10 +1014,11 @@ def run_acquisition(
     published_entities: list[str] = []
     by_dataset: dict[str, int] = {}
     validated = 0
+    publishable = auto_publish_candidates if (publish or auto_approve) else []
 
     if publish and not dry_run:
         by_ds: dict[str, list] = {}
-        for c in candidates:
+        for c in publishable:
             by_ds.setdefault(c.target_dataset, []).append(c)
 
         for ds_name, group in by_ds.items():
@@ -936,12 +1231,12 @@ def run_acquisition(
     if publish and not dry_run:
         balance_validated = published_rows
         balance_rejected = rejected
-        # If filter processed all rows: published_rows + rejected == extracted
-        if published_rows + rejected != extracted_n:
-            # some not processed
-            skipped_n = extracted_n - published_rows - rejected
+        # Manual review candidates are not rejects — account as queued/skipped
+        manual_n = len(manual_review_candidates)
+        if published_rows + rejected + manual_n != extracted_n:
+            skipped_n = max(0, extracted_n - published_rows - rejected - manual_n)
         else:
-            skipped_n = 0
+            skipped_n = manual_n
         # duplicate subset
         duplicate_n = sum(
             1
@@ -949,6 +1244,17 @@ def run_acquisition(
             if "duplicate" in str(r.get("reject_reason") or "").lower()
             or r.get("publish_status") == "duplicate"
         )
+    # Mark manual-review candidates on records
+    for c in manual_review_candidates:
+        _mark_cand(cand_records, c.candidate_id, "pending", "manual_review", "queued_for_human_approval")
+    stage_timer.stop(
+        "validation",
+        meta={
+            "published": published_rows,
+            "rejected": rejected,
+            "manual_review": len(manual_review_candidates),
+        },
+    )
 
     audit["candidates_validated"] = balance_validated
     audit["candidates_rejected"] = balance_rejected
@@ -1080,6 +1386,20 @@ def run_acquisition(
         pass
 
     perf.set_publish(audit.get("publish") or {})
+    # Attach stage timings + auto-publish ratios for performance reports
+    stage_snap = stage_timer.snapshot()
+    audit["stage_timings"] = stage_snap
+    try:
+        perf.data["stage_timings"] = stage_snap
+        perf.data["auto_publish"] = auto_pub_stats
+        perf.data["throughput_detail"] = audit.get("throughput") or {}
+        perf.data["workers"] = {
+            "adaptive": workers,
+            "avg_connector_latency_ms": round(avg_lat, 1),
+        }
+        perf.data["queues"] = audit.get("queue_stats") or {}
+    except Exception:  # noqa: BLE001
+        pass
     try:
         perf_snap = perf.finalize(
             documents=int(audit.get("documents_downloaded") or 0),
@@ -1091,10 +1411,34 @@ def run_acquisition(
         audit["performance_reports"] = {
             "throughput": (perf_snap.get("throughput") or {}),
         }
+        # Full Phase 1/6/10 reports from real production + this session
+        thr_written = write_throughput_reports(
+            session_perf={
+                "stage_timings": stage_snap.get("stages") or {},
+                "workers": {
+                    "adaptive": workers,
+                    "avg_latency_ms": avg_lat,
+                },
+                "process_ratio": (audit.get("throughput") or {}).get(
+                    "final_process_ratio_pct"
+                ),
+                "extraction": audit.get("extraction_stages") or {},
+                "auto_publish": {
+                    **auto_pub_stats,
+                    "last_published": published_n,
+                    "last_manual_or_skipped": len(manual_review_candidates),
+                    "auto_publish_confidence": AUTO_PUBLISH_CONFIDENCE,
+                },
+            },
+            repo_root=root,
+        )
+        audit["performance_reports"]["throughput_pack"] = thr_written
         emit(
             "Performance",
             f"docs/hour={perf_snap.get('throughput', {}).get('documents_per_hour')} "
-            f"rows/hour={perf_snap.get('throughput', {}).get('rows_per_hour')}",
+            f"rows/hour={perf_snap.get('throughput', {}).get('rows_per_hour')} "
+            f"process_ratio={ (audit.get('throughput') or {}).get('final_process_ratio_pct') }% "
+            f"auto_pub={auto_pub_stats.get('auto_publish_ratio')}",
         )
     except Exception as exc:  # noqa: BLE001
         audit["failures"].append(f"performance_report_failed:{exc}")

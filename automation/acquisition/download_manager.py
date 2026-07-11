@@ -29,7 +29,7 @@ class DownloadManager:
         retries: int = 2,
     ):
         self.repo_root = repo_root or find_repo_root()
-        self.max_workers = max(1, max_workers)
+        self.max_workers = max(1, min(16, max_workers))
         self.timeout = timeout
         self.retries = retries
         self.cache = HttpCache(self.repo_root)
@@ -43,7 +43,22 @@ class DownloadManager:
             "bytes": 0,
             "elapsed_ms": 0.0,
             "retries": 0,
+            "max_workers": self.max_workers,
+            "adaptive_workers": self.max_workers,
+            "connection_reuse": True,
+            "accept_encoding": "gzip, deflate",
+            "etag_conditional": True,
         }
+
+    def scale_workers(self, avg_latency_ms: float) -> int:
+        """Adaptive pool: 2 → 4 → 8 → 16 based on connector latency."""
+        from automation.acquisition.throughput_ops import adaptive_workers
+
+        n = adaptive_workers(avg_latency_ms, max_workers=16)
+        self.max_workers = n
+        self.stats["adaptive_workers"] = n
+        self.stats["max_workers"] = n
+        return n
 
     def download_one(
         self,

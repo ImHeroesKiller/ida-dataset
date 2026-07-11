@@ -239,4 +239,88 @@ def write_performance_reports(
     rank_lines.append("")
     w("source_ranking.md", "\n".join(rank_lines))
 
+    # Extraction path observability
+    w(
+        "extraction_statistics.md",
+        "\n".join(
+            [
+                "# Extraction Statistics",
+                "",
+                "```json",
+                json.dumps(ext, indent=2, ensure_ascii=False),
+                "```",
+                "",
+                f"| Metric | Value |",
+                f"|--------|------:|",
+                f"| Fast path candidates | {ext.get('fast', 0)} |",
+                f"| Medium path candidates | {ext.get('medium', 0)} |",
+                f"| Deep path candidates | {ext.get('deep', 0)} |",
+                f"| LLM used | {ext.get('llm_used', ext.get('llm', 0))} |",
+                f"| LLM skipped | {ext.get('skipped_llm', ext.get('llm_skipped', 0))} |",
+                f"| Avg extraction ms | {ext.get('avg_ms', ext.get('average_extraction_ms', 0))} |",
+                "",
+            ]
+        ),
+    )
+
+    # Stage timings if present
+    stages = data.get("stage_timings") or {}
+    stage_rows = stages.get("stages") if isinstance(stages, dict) else {}
+    if stage_rows:
+        sl = [
+            "# Stage Timings",
+            "",
+            "| Stage | Count | Avg ms | Max ms |",
+            "|-------|------:|-------:|-------:|",
+        ]
+        for name, st in stage_rows.items():
+            if not isinstance(st, dict):
+                continue
+            sl.append(
+                f"| {name} | {st.get('count', 1)} | {st.get('avg_ms', 0)} | {st.get('max_ms', 0)} |"
+            )
+        sl.append("")
+        w("stage_timings.md", "\n".join(sl))
+
+    # Auto-publish ratio
+    ap = data.get("auto_publish") or {}
+    if ap:
+        w(
+            "auto_publish.md",
+            "\n".join(
+                [
+                    "# Auto-Publish Gate",
+                    "",
+                    f"| Metric | Value |",
+                    f"|--------|------:|",
+                    f"| Threshold | {ap.get('threshold', 0.92)} |",
+                    f"| Auto-publish count | {ap.get('auto_publish_count', 0)} |",
+                    f"| Manual review count | {ap.get('manual_review_count', 0)} |",
+                    f"| Auto-publish ratio | {ap.get('auto_publish_ratio', 0)} |",
+                    f"| Manual review ratio | {ap.get('manual_review_ratio', 0)} |",
+                    "",
+                ]
+            ),
+        )
+
+    # Always refresh aggregate throughput pack from real production
+    try:
+        from automation.acquisition.throughput_ops import write_throughput_reports
+
+        thr_pack = write_throughput_reports(
+            session_perf={
+                "stage_timings": (stage_rows or {}),
+                "workers": data.get("workers"),
+                "extraction": ext,
+                "auto_publish": ap,
+                "process_ratio": (data.get("throughput_detail") or {}).get(
+                    "final_process_ratio_pct"
+                ),
+            },
+            repo_root=root,
+        )
+        written.update(thr_pack)
+    except Exception:  # noqa: BLE001
+        pass
+
     return written

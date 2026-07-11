@@ -548,6 +548,19 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
           <Stat label="Top source" value={String(manufacturing?.top_source || "—")} />
           <Stat label="Top connector" value={String(manufacturing?.top_connector || production?.last_connector || "—")} />
           <Stat label="Top mission" value={String(manufacturing?.top_mission || "—").slice(0, 48)} />
+          {/* Throughput metrics only — layout unchanged */}
+          <Stat label="Rows/hour" value={String(Number(manufacturing?.rows_per_hour || manufacturing?.factory_capacity_rph || 0))} />
+          <Stat label="Docs/hour" value={String(Number(manufacturing?.docs_per_hour || 0))} />
+          <Stat label="Rows/session" value={String(Number(manufacturing?.rows_per_session || kpis.capacity?.average_rows_per_session || 0))} />
+          <Stat label="Avg connector latency" value={`${Number(manufacturing?.avg_connector_latency_ms || 0)} ms`} />
+          <Stat label="Worker utilization" value={String(Number(manufacturing?.worker_utilization || 0))} />
+          <Stat label="Queue depth" value={String(Number(manufacturing?.queue_depth || 0))} />
+          <Stat label="Pipeline throughput" value={`${Number(manufacturing?.pipeline_throughput || 0)} rph`} />
+          <Stat label="Knowledge growth velocity" value={String(Number(manufacturing?.knowledge_growth_velocity || manufacturing?.growth_velocity || 0))} />
+          <Stat label="Production efficiency" value={String(Number(manufacturing?.production_efficiency || 0))} />
+          <Stat label="Process ratio" value={`${Number(manufacturing?.process_ratio_pct || 0)}%`} />
+          <Stat label="Auto-publish ratio" value={String(Number(manufacturing?.auto_publish_ratio || 0))} />
+          <Stat label="Manual review ratio" value={String(Number(manufacturing?.manual_review_ratio || 0))} />
         </CardBody>
       </Card>
 

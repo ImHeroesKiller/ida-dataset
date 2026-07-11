@@ -16,14 +16,17 @@ approval_mode: manual
 review_required: true
 
 # Confidence gate (0.0 – 1.0)
+# Rejection floor remains 0.80 (maintain 0 rejects on valid grounded rows).
+# Auto-publish preference is 0.92 (see acquisition/throughput_ops.AUTO_PUBLISH_CONFIDENCE).
 confidence_threshold: 0.80
 
-# Limits (human safety rails)
+# Limits (human safety rails) — session throughput raised within daily hard caps
 limits:
   max_documents: 100
   max_rows_per_day: 200
   max_updates_per_day: 50
-  max_sources_per_run: 10
+  max_sources_per_run: 12
+  max_documents_per_session: 32
 
 # Provenance is mandatory; these columns are always attached
 provenance_fields:

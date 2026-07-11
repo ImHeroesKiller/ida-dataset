@@ -239,6 +239,19 @@ export type ExecutiveFactoryView = {
     factory_capacity_rph: number;
     production_cost: number;
     knowledge_roi: number;
+    /** Throughput metrics (real production only — metrics-only dashboard evolution) */
+    rows_per_hour: number;
+    docs_per_hour: number;
+    rows_per_session: number;
+    avg_connector_latency_ms: number;
+    worker_utilization: number;
+    queue_depth: number;
+    pipeline_throughput: number;
+    knowledge_growth_velocity: number;
+    production_efficiency: number;
+    process_ratio_pct: number;
+    auto_publish_ratio: number;
+    manual_review_ratio: number;
   };
   coverage: Array<{
     key: string;
@@ -350,6 +363,10 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
     readJson(repoPath("automation/learning/state/discovery_analytics.json")) || {};
   const manufacturingState =
     readJson(repoPath("automation/learning/state/manufacturing_state.json")) || {};
+  const throughputStats =
+    readJson(repoPath("automation/learning/state/throughput_stats.json")) || {};
+  const acquisitionPerf =
+    readJson(repoPath("automation/learning/state/acquisition_performance.json")) || {};
   const currentSource = String(
     activity.current_source ||
       productionTrace.current_connector ||
@@ -732,7 +749,33 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
                   .connector_id ||
                 "—"
             )
-          : String(productionTrace.last_connector || "—");
+          : String(
+              throughputStats.top_connector ||
+                productionTrace.last_connector ||
+                "—"
+            );
+      const thr = (throughputStats.throughput ||
+        acquisitionPerf.throughput ||
+        {}) as Record<string, unknown>;
+      const wrk = (throughputStats.workers || {}) as Record<string, unknown>;
+      const tr = (throughputStats.traces || {}) as Record<string, unknown>;
+      const sess = (throughputStats.sessions || {}) as Record<string, unknown>;
+      const q = (throughputStats.queues || {}) as Record<string, unknown>;
+      const dq = (q.document_queue || {}) as Record<string, unknown>;
+      const cq = (q.candidate_queue || {}) as Record<string, unknown>;
+      const pq = (q.publish_queue || {}) as Record<string, unknown>;
+      const pubPol = (throughputStats.publish_policy || {}) as Record<
+        string,
+        unknown
+      >;
+      const rowsH = Number(thr.rows_per_hour || cap.rows_per_hour || 0);
+      const docsH = Number(thr.documents_per_hour || cap.documents_per_hour || 0);
+      const rowsSess = Number(sess.rows_per_session || kpis.capacity?.average_rows_per_session || 0);
+      const docs = Number(thr.documents || tr.documents_processed || 0);
+      const rows = Number(thr.rows || tr.rows_published || 0);
+      const autoN = Number(pubPol.last_published || 0);
+      const manN = Number(pubPol.last_manual_or_skipped || 0);
+      const autoDenom = Math.max(1, autoN + manN);
       return {
         mode: String(modeObj.mode || "CONTINUOUS"),
         knowledge_gap_dataset: String(
@@ -755,12 +798,32 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
         top_dataset: String(
           manufacturingState.top_dataset || topEval.dataset || "—"
         ),
-        top_source: topSrc,
+        top_source: String(throughputStats.top_source || topSrc || "—"),
         top_connector: topConn,
-        top_mission: String(sel.title || sel.instruction || "—").slice(0, 80),
-        factory_capacity_rph: Number(cap.rows_per_hour || 0),
+        top_mission: String(
+          throughputStats.top_mission || sel.title || sel.instruction || "—"
+        ).slice(0, 80),
+        factory_capacity_rph: Number(cap.rows_per_hour || rowsH || 0),
         production_cost: Number(eco.estimated_production_cost_usd || 0),
         knowledge_roi: Number(eco.knowledge_roi || 0),
+        rows_per_hour: rowsH,
+        docs_per_hour: docsH,
+        rows_per_session: rowsSess,
+        avg_connector_latency_ms: Number(wrk.avg_connector_latency_ms || 0),
+        worker_utilization: Number(wrk.utilization_est || 0),
+        queue_depth:
+          Number(dq.depth || 0) + Number(cq.depth || 0) + Number(pq.depth || 0),
+        pipeline_throughput: rowsH > 0 ? rowsH : docsH,
+        knowledge_growth_velocity: Number(
+          growth.growth_velocity || sess.rows_per_session || 0
+        ),
+        production_efficiency:
+          docs > 0 ? Math.round((rows / docs) * 1000) / 1000 : 0,
+        process_ratio_pct: Number(tr.process_ratio_pct || 0),
+        auto_publish_ratio:
+          Math.round((autoN / autoDenom) * 1000) / 1000,
+        manual_review_ratio:
+          Math.round((manN / autoDenom) * 1000) / 1000,
       };
     })(),
     coverage,
