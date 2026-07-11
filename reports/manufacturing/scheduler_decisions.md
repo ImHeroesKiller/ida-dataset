@@ -4,14 +4,14 @@ Manufacturing controller proposals (highest-value knowledge demand).
 
 | # | Mode | Dataset | Title | Gap score | Universe rem. |
 |--:|------|---------|-------|----------:|--------------:|
-| 1 | BOOTSTRAP | discovery_question_library | corporate strategy — discovery question knowledge for Corporate Strategy | 125.25 | 5170 |
+| 1 | BOOTSTRAP | discovery_question_library | corporate strategy — discovery question knowledge for Corporate Strategy | 125.25 | 5654 |
 | 2 | BOOTSTRAP | service_library | corporate governance — service knowledge for Corporate Governance | 112.922 | 49935 |
 | 3 | BOOTSTRAP | business_signal_library | general affairs — business signal knowledge for General Affairs | 94.197 | 49956 |
 | 4 | BOOTSTRAP | competitor_library | business development — competitor knowledge for Business Development | 89.305 | 19994 |
 | 5 | BOOTSTRAP | product_catalog | tax compliance — product catalog knowledge for Tax | 88.606 | 49942 |
-| 6 | BOOTSTRAP | buyer_persona_library | Chief Compliance Officer — Compliance (buyer persona library) | 83.541 | 5166 |
-| 7 | BOOTSTRAP | risk_library | enterprise risk management — risk knowledge for Risk Management | 81.836 | 5160 |
-| 8 | BOOTSTRAP | decision_maker_library | Chief Compliance Officer — Compliance (decision maker library) | 81.11 | 5167 |
+| 6 | BOOTSTRAP | buyer_persona_library | Chief Compliance Officer — Compliance (buyer persona library) | 83.543 | 5650 |
+| 7 | BOOTSTRAP | risk_library | enterprise risk management — risk knowledge for Risk Management | 81.842 | 5644 |
+| 8 | BOOTSTRAP | decision_maker_library | Chief Compliance Officer — Compliance (decision maker library) | 81.112 | 5651 |
 
 ## Decision chain
 

@@ -4,13 +4,21 @@ Adaptive scores used for mission source selection.
 
 | Rank | Source | Score |
 |-----:|--------|------:|
-| 1 | BPS Indonesia | 99.97 |
-| 2 | Kemenperin | 90.698 |
-| 3 | Asian Development Bank | 90.05 |
-| 4 | World Bank | 89.891 |
-| 5 | OECD | 88.455 |
-| 6 | Crossref | 84.5 |
-| 7 | DJP Pajak | 67.633 |
-| 8 | NIST | 67.433 |
-| 9 | JDIH / Peraturan.go.id | 67.433 |
-| 10 | ISSB / IFRS Sustainability | 67.233 |
+| 1 | BPS Indonesia | 105.97 |
+| 2 | World Bank | 98.291 |
+| 3 | Asian Development Bank | 96.108 |
+| 4 | OECD | 94.455 |
+| 5 | Kemenperin | 93.123 |
+| 6 | Crossref | 90.205 |
+| 7 | OpenAlex | 82.904 |
+| 8 | DJP Pajak | 73.633 |
+| 9 | NIST | 73.433 |
+| 10 | JDIH / Peraturan.go.id | 73.433 |
+| 11 | ISSB / IFRS Sustainability | 73.233 |
+| 12 | CISA | 73.133 |
+| 13 | GRI | 72.833 |
+| 14 | BPK | 72.833 |
+| 15 | UNEP | 72.733 |
+| 16 | SASB | 72.533 |
+| 17 | KLHK | 72.533 |
+| 18 | OWASP | 66.233 |

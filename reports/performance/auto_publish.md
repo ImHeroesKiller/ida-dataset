@@ -3,7 +3,7 @@
 | Metric | Value |
 |--------|------:|
 | Threshold | 0.92 |
-| Auto-publish count | 5 |
-| Manual review count | 0 |
-| Auto-publish ratio | 1.0 |
-| Manual review ratio | 0.0 |
+| Auto-publish count | 0 |
+| Manual review count | 2 |
+| Auto-publish ratio | 0.0 |
+| Manual review ratio | 1.0 |

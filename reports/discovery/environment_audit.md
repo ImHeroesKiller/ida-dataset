@@ -1,6 +1,6 @@
 # Environment Audit
 
-**Generated:** 2026-07-11T11:54:22+00:00
+**Generated:** 2026-07-11T12:20:30+00:00
 
 Credentials are never logged. Status only: Loaded / Missing / Disabled.
 
@@ -13,10 +13,10 @@ Credentials are never logged. Status only: Loaded / Missing / Disabled.
 | `BING_SEARCH_API_KEY` | Missing |
 | `BRAVE_SEARCH_API_KEY` | Missing |
 | `SERPAPI_API_KEY` | Missing |
-| `TAVILY_API_KEY` | Missing |
+| `TAVILY_API_KEY` | Loaded |
 | `YANDEX_API_KEY` | Missing |
 | `YANDEX_USER` | Missing |
-| `COMMONCRAWL_ENABLED` | Missing |
+| `COMMONCRAWL_ENABLED` | Loaded |
 | `RSS_ENABLED` | Missing |
 | `ATOM_ENABLED` | Missing |
 | `SITEMAP_ENABLED` | Missing |
@@ -32,10 +32,10 @@ Credentials are never logged. Status only: Loaded / Missing / Disabled.
 | `BING_SEARCH_API_KEY` | True | Mapped (secret may be empty) |
 | `BRAVE_SEARCH_API_KEY` | True | Mapped (secret may be empty) |
 | `SERPAPI_API_KEY` | True | Mapped (secret may be empty) |
-| `TAVILY_API_KEY` | True | Mapped (secret may be empty) |
+| `TAVILY_API_KEY` | True | Loaded |
 | `YANDEX_API_KEY` | True | Mapped (secret may be empty) |
 | `YANDEX_USER` | True | Mapped (secret may be empty) |
-| `COMMONCRAWL_ENABLED` | True | Mapped (secret may be empty) |
+| `COMMONCRAWL_ENABLED` | True | Loaded |
 | `RSS_ENABLED` | False | Missing mapping |
 | `ATOM_ENABLED` | False | Missing mapping |
 | `SITEMAP_ENABLED` | False | Missing mapping |

@@ -1,27 +1,27 @@
 # Provider Statistics
 
-**Generated:** 2026-07-11T11:54:22+00:00
-**Session:** `SES-AUDIT2` · **Mission:** `MIS-AUDIT2`
+**Generated:** 2026-07-11T12:20:29+00:00
+**Session:** `SES-20260711-D7A3F9` · **Mission:** `MIS-20260711-AE8D9F`
 
-Queries executed: **85**
-URLs discovered: **595**
-URLs accepted: **248**
-URLs rejected: **347**
+Queries executed: **93**
+URLs discovered: **313**
+URLs accepted: **273**
+URLs rejected: **40**
 URLs remaining: **0**
-Stop reason: **completed**
-URLs/hour: **41391.22** · Accepted/hour: **17252.14**
+Stop reason: **runtime_budget_reached**
+URLs/hour: **2195.89** · Accepted/hour: **1915.27**
 
 | Provider | Type | Op status | Queries | URLs | Util | Exhausted | Cache | ms | Status |
 |----------|------|-----------|--------:|-----:|-----:|-----------|------:|---:|--------|
-| Sitemap Discovery | sitemap | ACTIVE | 1 | 20 | 0.0118 | False | 0 | 4412.0 | ready |
-| Common Crawl Index | commoncrawl | ACTIVE | 37 | 540 | 0.4353 | False | 0 | 43668.299999999996 | ready |
-| RSS Discovery | rss | ACTIVE | 1 | 15 | 0.0118 | False | 0 | 1967.3 | ready |
-| Atom Discovery | atom | ACTIVE | 1 | 20 | 0.0118 | False | 0 | 1233.4 | ready |
-| OpenSearch Description | opensearch | ACTIVE | 8 | 0 | 0.0941 | True | 0 | 0.0 | ready |
-| Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 37 | 0 | 0.4353 | False | 0 | 0.0 | ready |
+| Atom Discovery | atom | ACTIVE | 1 | 12 | 0.0108 | False | 0 | 282836.2 | ready |
+| Sitemap Discovery | sitemap | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
+| RSS Discovery | rss | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
+| Common Crawl Index | commoncrawl | ACTIVE | 10 | 30 | 0.1075 | True | 0 | 190014.09999999998 | ready |
+| Tavily | tavily | ACTIVE | 37 | 271 | 0.3978 | False | 0 | 40035.799999999996 | ready |
+| Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 37 | 0 | 0.3978 | False | 0 | 0.0 | ready |
+| OpenSearch Description | opensearch | ACTIVE | 8 | 0 | 0.086 | True | 0 | 0.0 | ready |
 | Google Programmable Search | google_cse | MISCONFIGURED | 0 | 0 | 0.0 | False | 0 | 0.0 | misconfigured |
 | Bing Web Search API | bing | MISCONFIGURED | 0 | 0 | 0.0 | False | 0 | 0.0 | misconfigured |
 | Brave Search API | brave | MISCONFIGURED | 0 | 0 | 0.0 | False | 0 | 0.0 | misconfigured |
-| Tavily | tavily | MISCONFIGURED | 0 | 0 | 0.0 | False | 0 | 0.0 | misconfigured |
 | SerpAPI | serpapi | MISCONFIGURED | 0 | 0 | 0.0 | False | 0 | 0.0 | misconfigured |
 | Yandex XML Search | yandex | MISCONFIGURED | 0 | 0 | 0.0 | False | 0 | 0.0 | misconfigured |

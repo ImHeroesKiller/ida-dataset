@@ -1,6 +1,6 @@
 # Mission Trace
 
-**Generated:** 2026-07-11T11:49:33+00:00
+**Generated:** 2026-07-11T12:22:38+00:00
 **Selected:** `service_library` · score=2137.87
 **Reason:** mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · sources=13 · continuous=true
 **Instruction:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
@@ -11,19 +11,19 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | service_library | 65 | 0.1 | 112.922 | 2137.87 | True | True | — |
 | competitor_library | 6 | 0.0 | 89.305 | 1921.5 | True | False | eligible_but_not_selected; score=1921.5 < selected=service_library score=2137.87 |
-| buyer_persona_library | 4 | 0.1 | 83.541 | 1895.51 | True | False | eligible_but_not_selected; score=1895.51 < selected=service_library score=2137.87 |
+| buyer_persona_library | 4 | 0.1 | 83.543 | 1895.53 | True | False | eligible_but_not_selected; score=1895.53 < selected=service_library score=2137.87 |
 | product_catalog | 123 | 0.2 | 88.606 | 1890.83 | True | False | eligible_but_not_selected; score=1890.83 < selected=service_library score=2137.87 |
-| decision_maker_library | 3 | 0.1 | 81.11 | 1875.4 | True | False | eligible_but_not_selected; score=1875.4 < selected=service_library score=2137.87 |
-| risk_library | 10 | 0.2 | 81.836 | 1829.76 | True | False | eligible_but_not_selected; score=1829.76 < selected=service_library score=2137.87 |
-| trend_library | 10 | 0.2 | 80.486 | 1689.26 | True | False | eligible_but_not_selected; score=1689.26 < selected=service_library score=2137.87 |
+| decision_maker_library | 3 | 0.1 | 81.112 | 1875.42 | True | False | eligible_but_not_selected; score=1875.42 < selected=service_library score=2137.87 |
+| risk_library | 10 | 0.2 | 81.842 | 1829.82 | True | False | eligible_but_not_selected; score=1829.82 < selected=service_library score=2137.87 |
+| trend_library | 10 | 0.2 | 80.492 | 1689.32 | True | False | eligible_but_not_selected; score=1689.32 < selected=service_library score=2137.87 |
 | company_profile | 86 | 0.1 | 77.563 | 1660.7 | True | False | eligible_but_not_selected; score=1660.7 < selected=service_library score=2137.87 |
 | solution_library | 58 | 0.2 | 78.268 | 1660.21 | True | False | eligible_but_not_selected; score=1660.21 < selected=service_library score=2137.87 |
 | pain_point_library | 58 | 0.2 | 77.531 | 1656.34 | True | False | eligible_but_not_selected; score=1656.34 < selected=service_library score=2137.87 |
-| framework_library | 40 | 0.8 | 79.121 | 1627.21 | True | False | eligible_but_not_selected; score=1627.21 < selected=service_library score=2137.87 |
+| framework_library | 40 | 0.8 | 79.147 | 1627.47 | True | False | eligible_but_not_selected; score=1627.47 < selected=service_library score=2137.87 |
 | opportunity_analysis | 25 | 0.1 | 77.176 | 1625.13 | True | False | eligible_but_not_selected; score=1625.13 < selected=service_library score=2137.87 |
 | case_study_library | 40 | 0.4 | 77.693 | 1607.93 | True | False | eligible_but_not_selected; score=1607.93 < selected=service_library score=2137.87 |
 | regulation_library | 5 | 0.1 | 80.401 | 928.75 | True | False | eligible_but_not_selected; score=928.75 < selected=service_library score=2137.87 |
-| industry_library | 53 | 1.1 | 79.481 | 904.7 | True | False | eligible_but_not_selected; score=904.7 < selected=service_library score=2137.87 |
+| industry_library | 53 | 1.1 | 79.516 | 904.7 | True | False | eligible_but_not_selected; score=904.7 < selected=service_library score=2137.87 |
 
 ## Evidence
 
