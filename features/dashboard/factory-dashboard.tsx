@@ -71,11 +71,26 @@ function mapEventStage(verb?: string, stage?: string, task?: string): PipelineSt
 }
 
 function statusTone(s: string) {
-  if (s === "RUNNING") return "text-emerald-600 dark:text-emerald-300 bg-emerald-500/15";
-  if (s === "ERROR") return "text-red-600 dark:text-red-300 bg-red-500/15";
-  if (s === "WAITING") return "text-amber-700 dark:text-amber-300 bg-amber-500/15";
-  if (s === "ONLINE") return "text-sky-700 dark:text-sky-300 bg-sky-500/15";
+  if (s === "RUNNING" || s === "Running")
+    return "text-emerald-600 dark:text-emerald-300 bg-emerald-500/15";
+  if (s === "ERROR" || s === "Failed")
+    return "text-red-600 dark:text-red-300 bg-red-500/15";
+  if (s === "WAITING" || s === "Publishing")
+    return "text-amber-700 dark:text-amber-300 bg-amber-500/15";
+  if (s === "ONLINE" || s === "Idle")
+    return "text-sky-700 dark:text-sky-300 bg-sky-500/15";
   return "text-[var(--text-muted)] bg-[var(--panel-2)]";
+}
+
+/** Countdown mm:ss until next scheduled production (client clock only). */
+function formatCountdown(targetIso: string | null | undefined, nowMs: number): string {
+  if (!targetIso) return "—";
+  const t = new Date(targetIso).getTime();
+  if (!Number.isFinite(t)) return "—";
+  const diff = Math.max(0, Math.floor((t - nowMs) / 1000));
+  const m = Math.floor(diff / 60);
+  const s = diff % 60;
+  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 
 function sessionStatusBucket(st: string): "queued" | "running" | "completed" | "failed" | "skipped" {
@@ -105,6 +120,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
   const [replayIdx, setReplayIdx] = useState(-1);
   const [replayPlaying, setReplayPlaying] = useState(false);
   const [pulse, setPulse] = useState(false);
+  const [nowMs, setNowMs] = useState(() => Date.now());
   const prevSnap = useRef<{
     rows: number;
     mission: string;
@@ -120,6 +136,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
     }, 4200);
   }, []);
 
+  // Production data refresh — coverage, row counts, status, queues (no full page reload)
   const refresh = useCallback(async () => {
     try {
       const res = await fetch("/api/factory/status", { cache: "no-store" });
@@ -134,12 +151,19 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
 
   useEffect(() => {
     void refresh();
-    // Match existing architecture poll cadence (not faster than LearningProvider 5s)
-    const id = setInterval(() => void refresh(), 5000);
+    // Auto-refresh production metrics every 30s (existing fetch path; no websocket/SSE)
+    const id = setInterval(() => void refresh(), 30_000);
     return () => clearInterval(id);
   }, [refresh]);
 
+  // 1s tick for next-production countdown only
+  useEffect(() => {
+    const id = setInterval(() => setNowMs(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
   const gaRunning = Boolean(dashboard.github_actions?.running);
+  const gaQueued = Boolean(dashboard.github_actions?.queued);
   const status: string = useMemo(() => {
     if (exec?.status) {
       if (gaRunning && exec.status !== "ERROR") return "RUNNING";
@@ -257,6 +281,55 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
   const production = exec?.production;
   const discovery = exec?.discovery;
   const manufacturing = exec?.manufacturing;
+
+  /** Production Status card values: Running | Idle | Publishing | Failed */
+  const productionStatusLabel = useMemo(() => {
+    if (status === "ERROR" || kpis.factory_status === "error") return "Failed";
+    const stageBlob =
+      `${exec?.current_stage || ""} ${liveStage} ${activity.current_task || ""} ${production?.current_stage || ""}`.toLowerCase();
+    if (
+      /publish|append|knowledge added|knowledge updated/.test(stageBlob) &&
+      (gaRunning || status === "RUNNING")
+    ) {
+      return "Publishing";
+    }
+    if (gaRunning || status === "RUNNING" || gaQueued) return "Running";
+    return "Idle";
+  }, [
+    status,
+    kpis.factory_status,
+    exec?.current_stage,
+    liveStage,
+    activity.current_task,
+    production?.current_stage,
+    gaRunning,
+    gaQueued,
+  ]);
+
+  const lastProductionIso = useMemo(() => {
+    return (
+      dashboard.last_successful_run?.end_time ||
+      dashboard.last_successful_run?.start_time ||
+      exec?.heartbeat.last_event_ts ||
+      (dashboard.sessions || []).find((s) => s.end_time)?.end_time ||
+      null
+    );
+  }, [dashboard, exec?.heartbeat.last_event_ts]);
+
+  const nextProductionIso = useMemo(() => {
+    return (
+      exec?.next_scheduled_run ||
+      dashboard.next_scheduled_run ||
+      dashboard.github_actions?.next_scheduled_hint ||
+      null
+    );
+  }, [
+    exec?.next_scheduled_run,
+    dashboard.next_scheduled_run,
+    dashboard.github_actions,
+  ]);
+
+  const countdownLabel = formatCountdown(nextProductionIso, nowMs);
 
   const coverage = exec?.coverage || [];
   const feed = exec?.knowledge_feed || [];
@@ -413,6 +486,60 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
         {msg ? (
           <p className="px-6 pb-4 text-xs text-[var(--text-faint)]">{msg}</p>
         ) : null}
+      </Card>
+
+      {/* Production Status Card — metrics only; layout patterns reused */}
+      <Card>
+        <CardHeader
+          title="Production status"
+          description="Continuous production monitor · 15-minute schedule · 30s auto-refresh"
+        />
+        <CardBody className="grid gap-3 p-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Stat
+            label="Production Status"
+            value={productionStatusLabel}
+            className={statusTone(productionStatusLabel)}
+          />
+          <Stat
+            label="Last Production"
+            value={formatWib(lastProductionIso)}
+          />
+          <Stat
+            label="Next Production"
+            value={formatWib(nextProductionIso)}
+          />
+          <Stat
+            label="Countdown"
+            value={countdownLabel}
+          />
+          <Stat
+            label="Queue depth"
+            value={String(
+              (production?.documents_queued ?? counters.documents_queued ?? 0) +
+                (production?.candidates_queued ?? counters.candidates_queued ?? 0) +
+                (production?.publish_queue ?? counters.publish_queue_size ?? 0)
+            )}
+          />
+          <Stat
+            label="Rows today"
+            value={String(counters.rows_today ?? kpis.rows_added_today ?? 0)}
+          />
+          <Stat
+            label="Dataset coverage"
+            value={
+              kpis.coverage_label ||
+              `${Number(kpis.dataset_coverage || 0).toFixed(1)}%`
+            }
+          />
+          <Stat
+            label="Docs processed"
+            value={String(
+              production?.documents_processed ??
+                counters.documents_downloaded ??
+                0
+            )}
+          />
+        </CardBody>
       </Card>
 
       {/* PANEL 2 — Live counters (real runtime only) */}
