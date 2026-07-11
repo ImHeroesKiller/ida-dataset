@@ -40,6 +40,8 @@ Core factory, mission engine, validation, and exports operate without paid disco
 | `UNPAYWALL_EMAIL` | Unpaywall API email (required for OA PDF discovery) |
 | `CORE_API_KEY` | CORE API bearer (optional; higher rate limits) |
 | `IDA_FULLTEXT_ENABLED` | Full-text framework toggle (default `1`; set `0` to disable) |
+| `HF_TOKEN` | Hugging Face Hub write token for continuous dataset publish | |
+| `HF_DATASET_REPO` | Target dataset repo (default `ariew/ida-dataset`) |
 
 ---
 
@@ -98,6 +100,9 @@ Dashboard/API routes must never print secret values.
 2. Add the same optional keys as repository secrets  
 3. Map into workflow `env:` only when a job needs discovery APIs  
 4. Prefer open providers for unattended scheduled runs to avoid unexpected cost  
+5. For continuous Hub publish after learning: set **`HF_TOKEN`** (write access to `ariew/ida-dataset`)  
+6. Optional: **`HF_DATASET_REPO`** override (defaults to `ariew/ida-dataset`)  
+7. Hugging Face publish is **non-blocking** — learning success does not depend on Hub availability
 
 ---
 

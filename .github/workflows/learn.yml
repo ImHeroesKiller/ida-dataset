@@ -220,6 +220,7 @@ jobs:
             reports/discovery/
             reports/performance/
             reports/manufacturing/
+            reports/huggingface/
             automation/learning/state/
           if-no-files-found: warn
 
@@ -286,6 +287,41 @@ jobs:
           python automation/ci/worktree_trace.py --stage after_safe_push --ephemeral || true
         env:
           GIT_SAFE_PUSH_RETRIES: "3"
+
+      # Hugging Face continuous dataset publish — NEVER fails manufacturing
+      - name: Publish Hugging Face dataset
+        id: hf_publish
+        if: >-
+          always() &&
+          steps.cfg.outputs.commit_session == 'true' &&
+          steps.cfg.outputs.dry_run != 'true' &&
+          steps.learn.outputs.exit_code == '0'
+        continue-on-error: true
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          # Optional override; Python defaults to ariew/ida-dataset when empty
+          HF_DATASET_REPO: ${{ secrets.HF_DATASET_REPO }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          set +e
+          python -m pip install -q "huggingface_hub>=0.23.0" "pyarrow>=14.0.0" || \
+            python -m pip install -q huggingface_hub
+          python automation/ci/huggingface_publish.py --retries 3
+          code=$?
+          echo "hf_exit=${code}" >> "$GITHUB_OUTPUT"
+          # Always succeed this step — HF is retryable, not a manufacturing gate
+          exit 0
+
+      - name: Upload Hugging Face publish reports
+        if: always() && steps.hf_publish.outcome != 'skipped'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: huggingface-publish-${{ steps.learn.outputs.session_id || github.run_id }}
+          path: |
+            reports/huggingface/
+            automation/learning/state/huggingface_publish_state.json
+          if-no-files-found: warn
 
       - name: Enforce exit code
         if: always() && steps.learn.outputs.exit_code != '0'
