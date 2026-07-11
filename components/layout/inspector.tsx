@@ -7,13 +7,13 @@ export function InspectorPanel() {
   const { selection, clear } = useInspector();
 
   return (
-    <aside className="hidden h-full w-[var(--inspector-w)] shrink-0 flex-col border-l border-zinc-800/90 bg-[#0b0b0d] xl:flex">
-      <div className="flex h-[var(--topbar-h)] items-center justify-between border-b border-zinc-800/90 px-3">
-        <div className="text-xs font-medium text-zinc-200">Inspector</div>
+    <aside className="hidden h-full w-[var(--inspector-w)] shrink-0 flex-col border-l border-[var(--border)] bg-[var(--panel)] xl:flex">
+      <div className="flex h-[var(--topbar-h)] items-center justify-between border-b border-[var(--border)] px-3">
+        <div className="text-small font-medium text-[var(--text)]">Inspector</div>
         {selection ? (
           <button
             onClick={clear}
-            className="text-[11px] text-zinc-500 hover:text-zinc-300"
+            className="text-caption text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"
           >
             Clear
           </button>
@@ -21,7 +21,7 @@ export function InspectorPanel() {
       </div>
       <div className="flex-1 overflow-y-auto p-3 scrollbar-thin">
         {!selection ? (
-          <div className="rounded-md border border-dashed border-zinc-800 p-3 text-xs text-zinc-500">
+          <div className="rounded-[var(--radius-lg)] border border-dashed border-[var(--border)] bg-[var(--panel-2)] p-3 text-small text-[var(--text-muted)]">
             Select a dataset, entity, plan, report, or review candidate to
             inspect details here.
           </div>
@@ -31,25 +31,29 @@ export function InspectorPanel() {
               <div className="mb-1 flex items-center gap-2">
                 <Badge>{selection.kind}</Badge>
               </div>
-              <h3 className="text-sm font-medium text-zinc-100">
+              <h3 className="text-card-title text-[var(--text)]">
                 {selection.title}
               </h3>
               {selection.subtitle ? (
-                <p className="mt-1 text-xs text-zinc-500">{selection.subtitle}</p>
+                <p className="mt-1 text-caption text-[var(--text-muted)]">
+                  {selection.subtitle}
+                </p>
               ) : null}
             </div>
             {selection.meta ? (
-              <dl className="space-y-1.5 rounded-md border border-zinc-800 bg-zinc-950/70 p-2.5">
+              <dl className="space-y-1.5 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--panel-2)] p-2.5">
                 {Object.entries(selection.meta).map(([k, v]) => (
-                  <div key={k} className="grid grid-cols-3 gap-2 text-[11px]">
-                    <dt className="text-zinc-500">{k}</dt>
-                    <dd className="col-span-2 break-all text-zinc-300">{v}</dd>
+                  <div key={k} className="grid grid-cols-3 gap-2 text-caption">
+                    <dt className="text-[var(--text-muted)]">{k}</dt>
+                    <dd className="col-span-2 break-all text-[var(--text-secondary)]">
+                      {v}
+                    </dd>
                   </div>
                 ))}
               </dl>
             ) : null}
             {selection.body ? (
-              <pre className="overflow-x-auto rounded-md border border-zinc-800 bg-zinc-950 p-2.5 text-[11px] leading-relaxed whitespace-pre-wrap text-zinc-400">
+              <pre className="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--panel-2)] p-2.5 text-caption leading-relaxed whitespace-pre-wrap text-[var(--text-secondary)]">
                 {selection.body}
               </pre>
             ) : null}

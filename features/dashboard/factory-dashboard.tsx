@@ -72,14 +72,16 @@ function mapEventStage(verb?: string, stage?: string, task?: string): PipelineSt
 
 function statusTone(s: string) {
   if (s === "RUNNING" || s === "Running")
-    return "text-emerald-600 dark:text-emerald-300 bg-emerald-500/15";
+    return "text-[var(--badge-running-fg)] bg-[var(--badge-running-bg)]";
   if (s === "ERROR" || s === "Failed")
-    return "text-red-600 dark:text-red-300 bg-red-500/15";
+    return "text-[var(--badge-error-fg)] bg-[var(--badge-error-bg)]";
   if (s === "WAITING" || s === "Publishing")
-    return "text-amber-700 dark:text-amber-300 bg-amber-500/15";
+    return s === "Publishing"
+      ? "text-[var(--badge-publishing-fg)] bg-[var(--badge-publishing-bg)]"
+      : "text-[var(--badge-warning-fg)] bg-[var(--badge-warning-bg)]";
   if (s === "ONLINE" || s === "Idle")
-    return "text-sky-700 dark:text-sky-300 bg-sky-500/15";
-  return "text-[var(--text-muted)] bg-[var(--panel-2)]";
+    return "text-[var(--badge-idle-fg)] bg-[var(--badge-idle-bg)]";
+  return "text-[var(--text-secondary)] bg-[var(--panel-2)]";
 }
 
 /** Countdown mm:ss until next scheduled production (client clock only). */
@@ -379,15 +381,13 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
       </div>
 
       {/* Header + Heartbeat */}
-      <header className="flex flex-wrap items-start justify-between gap-4">
-        <div className="space-y-2">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--text-faint)]">
+      <header className="flex flex-wrap items-start justify-between gap-6">
+        <div className="space-y-3">
+          <p className="text-caption font-semibold uppercase tracking-[0.14em] text-[var(--text-muted)]">
             IDA Dataset Factory · Executive
           </p>
-          <h1 className="text-3xl font-semibold tracking-tight text-[var(--text)]">
-            Living Knowledge Factory
-          </h1>
-          <p className="max-w-2xl text-sm text-[var(--text-muted)]">
+          <h1 className="text-page-title">Living Knowledge Factory</h1>
+          <p className="max-w-2xl text-body text-[var(--text-secondary)]">
             {loading
               ? "Loading factory status…"
               : exec?.heartbeat.last_event ||
@@ -398,30 +398,30 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
         </div>
         <div
           className={cn(
-            "flex min-w-[220px] flex-col gap-1 rounded-2xl border border-[var(--border)] bg-[var(--panel)] px-4 py-3",
-            pulse && "ring-2 ring-emerald-400/50"
+            "flex min-w-[240px] flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--border)] bg-[var(--panel)] px-5 py-4 shadow-[var(--shadow)]",
+            pulse && "ring-2 ring-[var(--green)]/40"
           )}
         >
-          <div className="flex items-center gap-2 text-sm font-semibold">
+          <div className="flex items-center gap-2 text-small font-semibold text-[var(--text)]">
             <span
               className={cn(
                 "inline-block h-2.5 w-2.5 rounded-full",
                 status === "RUNNING" || pulse
-                  ? "animate-pulse bg-emerald-500"
+                  ? "animate-pulse bg-[var(--green)]"
                   : status === "ERROR"
-                    ? "bg-red-500"
-                    : "bg-zinc-400"
+                    ? "bg-[var(--red)]"
+                    : "bg-[var(--text-muted)]"
               )}
             />
             {status === "ERROR" ? "ERROR" : hb?.online ? "ONLINE" : "OFFLINE"}
           </div>
-          <p className="text-[11px] text-[var(--text-faint)]">
+          <p className="text-caption text-[var(--text-muted)]">
             Health {hb?.factory_health ?? kpis.dataset_readiness}
             {hb?.production_readiness != null
               ? ` · Readiness ${hb.production_readiness}`
               : ""}
           </p>
-          <p className="truncate text-[11px] text-[var(--text-muted)]">
+          <p className="truncate text-caption text-[var(--text-secondary)]">
             Last · {hb?.last_session || "—"}
           </p>
         </div>
@@ -787,7 +787,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
                     <span
                       className={cn(
                         "h-2 w-2 rounded-full",
-                        active ? "bg-emerald-500" : "bg-zinc-500/40"
+                        active ? "bg-[var(--green)]" : "bg-[var(--text-disabled)]"
                       )}
                     />
                     {s.label}
@@ -875,7 +875,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
                       bucket === "running" && "bg-sky-500/15 text-sky-700 dark:text-sky-300",
                       bucket === "failed" && "bg-red-500/15 text-red-700 dark:text-red-300",
                       bucket === "queued" && "bg-amber-500/15 text-amber-800 dark:text-amber-300",
-                      bucket === "skipped" && "bg-zinc-500/15 text-zinc-600"
+                      bucket === "skipped" && "bg-[var(--badge-idle-bg)] text-[var(--badge-idle-fg)]"
                     )}
                   >
                     {bucket}

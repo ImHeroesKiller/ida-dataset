@@ -23,16 +23,17 @@ export default function DatasetsPage() {
   });
   return (
     <Shell title="Datasets">
-      <div className="mb-3">
-        <p className="text-sm text-zinc-300">
-          Read-only CSV browser for domain knowledge assets.
-        </p>
-        <p className="text-xs text-zinc-500">
-          Coverage = current rows / product target · readiness 0–100 beside each
-          dataset. No editing from UI — observe only.
-        </p>
+      <div className="mx-auto max-w-7xl space-y-6">
+        <header>
+          <h1 className="text-page-title">Dataset catalog</h1>
+          <p className="mt-2 max-w-2xl text-body text-[var(--text-secondary)]">
+            Product knowledge libraries for LLM fine-tuning. Coverage is current
+            rows versus product target; readiness is a 0–100 quality score.
+            Observe only — no in-UI editing.
+          </p>
+        </header>
+        <DatasetsClient datasets={enriched} />
       </div>
-      <DatasetsClient datasets={enriched} />
     </Shell>
   );
 }

@@ -15,9 +15,13 @@ export function Progress({
         "h-2 overflow-hidden rounded-full bg-[var(--panel-2)]",
         className
       )}
+      role="progressbar"
+      aria-valuenow={Math.round(pct)}
+      aria-valuemin={0}
+      aria-valuemax={100}
     >
       <div
-        className="h-full rounded-full bg-blue-500 transition-all duration-500"
+        className="h-full rounded-full bg-[var(--blue)] transition-all duration-500"
         style={{ width: `${pct}%` }}
       />
     </div>

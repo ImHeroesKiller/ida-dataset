@@ -63,13 +63,24 @@ function mapStatus(
 }
 
 const statusStyle: Record<string, string> = {
-  queued: "bg-amber-500/15 text-amber-800 dark:text-amber-300",
-  running: "bg-sky-500/15 text-sky-700 dark:text-sky-300",
-  completed: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
-  failed: "bg-red-500/15 text-red-700 dark:text-red-300",
-  cancelled: "bg-zinc-500/15 text-zinc-600 dark:text-zinc-300",
-  superseded: "bg-violet-500/15 text-violet-700 dark:text-violet-300",
+  queued: "bg-[var(--badge-warning-bg)] text-[var(--badge-warning-fg)]",
+  running: "bg-[var(--badge-running-bg)] text-[var(--badge-running-fg)]",
+  completed: "bg-[var(--badge-completed-bg)] text-[var(--badge-completed-fg)]",
+  failed: "bg-[var(--badge-error-bg)] text-[var(--badge-error-fg)]",
+  cancelled: "bg-[var(--badge-idle-bg)] text-[var(--badge-idle-fg)]",
+  superseded: "bg-[var(--badge-publishing-bg)] text-[var(--badge-publishing-fg)]",
 };
+
+const SUGGESTED_MISSIONS = [
+  "Produce Buyer Persona Dataset for banking and manufacturing",
+  "Produce Decision Maker patterns for enterprise Indonesia",
+  "Produce Competitor Dataset for manufacturing Indonesia",
+  "Produce Regulation Dataset — employment and banking",
+  "Produce Risk Dataset — operational and regulatory risk",
+  "Produce Trend Dataset — digital economy Indonesia",
+  "Produce Industry Dataset — expand industry_library",
+  "Market intelligence signals for Indonesian SMEs",
+];
 
 const PIPELINE = [
   "Searching",
@@ -319,10 +330,13 @@ export function MissionsClient({
         ))}
       </div>
 
-      <p className="text-sm text-[var(--text-muted)]">
-        Tell the factory what dataset to grow next. Missions queue into autonomous
-        production and never stop continuous learning.
-      </p>
+      <header className="space-y-2">
+        <h1 className="text-page-title">Missions</h1>
+        <p className="max-w-2xl text-body text-[var(--text-secondary)]">
+          Tell the factory what dataset to grow next. Missions queue into
+          autonomous production and never stop continuous learning.
+        </p>
+      </header>
 
       {/* Create */}
       <Card>
@@ -330,35 +344,55 @@ export function MissionsClient({
           title="Dispatch mission"
           description="Describe the production goal in plain language"
         />
-        <CardBody className="flex flex-col gap-3 p-6 sm:flex-row sm:items-start">
-          <Input
+        <CardBody className="space-y-4">
+          <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
+              if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
                 void createMission();
               }
             }}
             disabled={busy}
-            placeholder="e.g. Produce buyer personas for banking and manufacturing"
-            className="flex-1"
+            rows={4}
+            placeholder="e.g. Produce buyer personas for banking and manufacturing Indonesia — expand coverage with trusted sources only"
+            className="w-full resize-y rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--panel)] px-4 py-3 text-body text-[var(--text)] outline-none placeholder:text-[var(--text-muted)] focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/20 disabled:opacity-50"
+            aria-label="Mission instruction"
           />
-          <Button
-            className="shrink-0"
-            disabled={busy || !text.trim()}
-            onClick={() => void createMission()}
-          >
-            {busy ? "Dispatching…" : "Dispatch"}
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            {SUGGESTED_MISSIONS.map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => setText(s)}
+                className="rounded-full border border-[var(--border)] bg-[var(--panel-2)] px-3 py-1.5 text-caption font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--blue)] hover:text-[var(--text)]"
+              >
+                {s.split("—")[0].replace("Produce ", "").trim().slice(0, 28)}
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-caption text-[var(--text-muted)]">
+              ⌘/Ctrl + Enter to dispatch
+            </p>
+            <Button
+              size="lg"
+              disabled={busy || !text.trim()}
+              onClick={() => void createMission()}
+              loading={busy}
+            >
+              {busy ? "Dispatching…" : "Dispatch mission"}
+            </Button>
+          </div>
         </CardBody>
         {msg ? (
           <p
             className={cn(
-              "px-6 pb-4 text-sm",
+              "px-6 pb-5 text-small font-medium",
               msgTone === "ok"
-                ? "text-emerald-700 dark:text-emerald-300"
-                : "text-red-600 dark:text-red-300"
+                ? "text-[var(--green)]"
+                : "text-[var(--red)]"
             )}
           >
             {msg}

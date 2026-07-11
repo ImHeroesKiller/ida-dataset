@@ -1,38 +1,39 @@
 export type ModuleStatus = "healthy" | "waiting" | "running" | "error" | "disabled";
 
+/** WCAG-friendly status styles using design tokens (no low-contrast zinc). */
 export const STATUS_META: Record<
   ModuleStatus,
   { label: string; color: string; bg: string; ring: string }
 > = {
   healthy: {
     label: "Healthy",
-    color: "text-emerald-400",
-    bg: "bg-emerald-500/15",
-    ring: "ring-emerald-500/40",
+    color: "text-[var(--badge-healthy-fg)]",
+    bg: "bg-[var(--badge-healthy-bg)]",
+    ring: "ring-[var(--green)]/30",
   },
   waiting: {
     label: "Waiting",
-    color: "text-amber-300",
-    bg: "bg-amber-500/15",
-    ring: "ring-amber-500/40",
+    color: "text-[var(--badge-warning-fg)]",
+    bg: "bg-[var(--badge-warning-bg)]",
+    ring: "ring-[var(--orange)]/30",
   },
   running: {
     label: "Running",
-    color: "text-sky-400",
-    bg: "bg-sky-500/15",
-    ring: "ring-sky-500/40",
+    color: "text-[var(--badge-running-fg)]",
+    bg: "bg-[var(--badge-running-bg)]",
+    ring: "ring-[var(--blue)]/30",
   },
   error: {
     label: "Error",
-    color: "text-red-400",
-    bg: "bg-red-500/15",
-    ring: "ring-red-500/40",
+    color: "text-[var(--badge-error-fg)]",
+    bg: "bg-[var(--badge-error-bg)]",
+    ring: "ring-[var(--red)]/30",
   },
   disabled: {
     label: "Disabled",
-    color: "text-zinc-400",
-    bg: "bg-zinc-500/15",
-    ring: "ring-zinc-500/30",
+    color: "text-[var(--badge-idle-fg)]",
+    bg: "bg-[var(--badge-idle-bg)]",
+    ring: "ring-[var(--border)]",
   },
 };
 

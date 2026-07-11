@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Badge, RoleBadge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import { useInspector } from "@/components/layout/inspector-context";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +22,13 @@ type DatasetInfo = {
   coverage_pct?: number;
   coverage_label?: string;
 };
+
+function healthFromReadiness(r?: number): "healthy" | "warning" | "idle" {
+  if (r == null) return "idle";
+  if (r >= 70) return "healthy";
+  if (r >= 40) return "warning";
+  return "idle";
+}
 
 export function DatasetsClient({ datasets }: { datasets: DatasetInfo[] }) {
   const { inspect } = useInspector();
@@ -64,20 +72,31 @@ export function DatasetsClient({ datasets }: { datasets: DatasetInfo[] }) {
     };
   }, [selected]);
 
+  const selectedMeta = datasets.find((d) => d.relativePath === selected);
+
   return (
-    <div className="grid gap-3 xl:grid-cols-[300px_1fr]">
-      <Card>
-        <CardHeader title="Catalog" description={`${datasets.length} files`} />
-        <CardBody className="space-y-2">
+    <div className="space-y-6">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-1 flex-col gap-3 sm:max-w-md">
+          <label className="text-caption font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+            Search catalog
+          </label>
           <Input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Search datasets…"
+            placeholder="Search datasets by name or domain…"
+            aria-label="Search datasets"
           />
+        </div>
+        <div className="w-full sm:w-56">
+          <label className="text-caption font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+            Domain
+          </label>
           <select
-            className="h-8 w-full rounded-md border border-zinc-800 bg-zinc-950 px-2 text-xs"
+            className="mt-2 h-11 w-full rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--panel)] px-4 text-small text-[var(--text)]"
             value={domain}
             onChange={(e) => setDomain(e.target.value)}
+            aria-label="Filter by domain"
           >
             <option value="all">All domains</option>
             {domains.map((d) => (
@@ -86,133 +105,147 @@ export function DatasetsClient({ datasets }: { datasets: DatasetInfo[] }) {
               </option>
             ))}
           </select>
-          <div className="max-h-[520px] space-y-0.5 overflow-y-auto scrollbar-thin">
-            {filtered.map((d) => (
-              <button
-                key={d.id}
-                className={cn(
-                  "flex w-full flex-col rounded-md px-2 py-1.5 text-left hover:bg-zinc-900",
-                  selected === d.relativePath &&
-                    "bg-zinc-900 ring-1 ring-zinc-700"
-                )}
-                onClick={() => {
-                  setSelected(d.relativePath);
-                  inspect({
-                    kind: "dataset",
-                    title: d.name,
-                    subtitle: d.coverage_label
-                      ? `${d.relativePath} · ${d.coverage_label} · readiness ${d.readiness ?? "—"}`
-                      : d.relativePath,
-                    meta: {
-                      Domain: d.domain,
-                      Rows: String(d.rowCount),
-                      "Product target":
-                        d.product_target != null
-                          ? String(d.product_target)
-                          : "—",
-                      Coverage:
-                        d.coverage_label != null
-                          ? `${d.coverage_label} (${d.coverage_pct ?? 0}%)`
-                          : "—",
-                      Readiness:
-                        d.readiness != null ? String(d.readiness) : "—",
-                      Columns: String(d.columnCount),
-                      Placeholder: String(d.isPlaceholder),
-                    },
-                    body: d.headers.join(", "),
-                  });
-                }}
-              >
-                <div className="flex w-full items-start justify-between gap-2">
-                  <div className="min-w-0">
-                    <span className="text-xs text-zinc-100">{d.name}</span>
-                    <span className="mt-0.5 block text-[10px] text-zinc-500">
-                      {d.domain}
-                      {d.coverage_label
-                        ? ` · ${d.coverage_label}`
-                        : ` · ${d.rowCount} rows`}
-                      {d.coverage_pct != null ? ` · ${d.coverage_pct}%` : ""}
-                      {d.isPlaceholder ? " · placeholder" : ""}
-                    </span>
+        </div>
+      </div>
+
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {filtered.map((d) => {
+          const target = d.product_target ?? 0;
+          const gap = Math.max(0, target - d.rowCount);
+          const cov = d.coverage_pct ?? 0;
+          const active = selected === d.relativePath;
+          const health = healthFromReadiness(d.readiness);
+          return (
+            <button
+              key={d.id}
+              type="button"
+              onClick={() => {
+                setSelected(d.relativePath);
+                inspect({
+                  kind: "dataset",
+                  title: d.name,
+                  subtitle: d.coverage_label
+                    ? `${d.relativePath} · ${d.coverage_label} · readiness ${d.readiness ?? "—"}`
+                    : d.relativePath,
+                  meta: {
+                    Domain: d.domain,
+                    Rows: String(d.rowCount),
+                    "Product target":
+                      d.product_target != null ? String(d.product_target) : "—",
+                    Coverage:
+                      d.coverage_label != null
+                        ? `${d.coverage_label} (${d.coverage_pct ?? 0}%)`
+                        : "—",
+                    Readiness: d.readiness != null ? String(d.readiness) : "—",
+                    Columns: String(d.columnCount),
+                    Placeholder: String(d.isPlaceholder),
+                  },
+                  body: d.headers.join(", "),
+                });
+              }}
+              className={cn(
+                "rounded-[var(--radius-xl)] border bg-[var(--panel)] p-6 text-left shadow-[var(--shadow)] transition-all",
+                active
+                  ? "border-[var(--blue)] ring-2 ring-[var(--blue)]/25"
+                  : "border-[var(--border)] hover:border-[var(--blue)]/40 hover:shadow-[var(--shadow-md)]"
+              )}
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <h3 className="text-card-title truncate">{d.name}</h3>
+                  <p className="mt-1 text-caption text-[var(--text-muted)]">
+                    {d.domain}
+                    {d.isPlaceholder ? " · placeholder" : ""}
+                  </p>
+                </div>
+                <RoleBadge role={health} />
+              </div>
+
+              <div className="mt-5 grid grid-cols-2 gap-3 text-small">
+                <div>
+                  <div className="text-caption text-[var(--text-muted)]">Rows</div>
+                  <div className="font-semibold tabular-nums text-[var(--text)]">
+                    {d.rowCount.toLocaleString()}
                   </div>
-                  <span
-                    className="shrink-0 text-[10px] font-semibold text-emerald-400"
-                    title="Dataset readiness (0–100)"
-                  >
+                </div>
+                <div>
+                  <div className="text-caption text-[var(--text-muted)]">Target</div>
+                  <div className="font-semibold tabular-nums text-[var(--text)]">
+                    {target ? target.toLocaleString() : "—"}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-caption text-[var(--text-muted)]">Gap</div>
+                  <div className="font-semibold tabular-nums text-[var(--text)]">
+                    {target ? gap.toLocaleString() : "—"}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-caption text-[var(--text-muted)]">Readiness</div>
+                  <div className="font-semibold tabular-nums text-[var(--text)]">
                     {d.readiness != null ? d.readiness : "—"}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-5">
+                <div className="mb-2 flex items-center justify-between text-caption">
+                  <span className="text-[var(--text-muted)]">Coverage</span>
+                  <span className="font-semibold text-[var(--text-secondary)]">
+                    {cov}%
+                    {d.coverage_label ? ` · ${d.coverage_label}` : ""}
                   </span>
                 </div>
-              </button>
-            ))}
-          </div>
-        </CardBody>
-      </Card>
-
-      <Card>
-        <CardHeader
-          title="Preview"
-          description="Read-only sample (first 50 rows)"
-          action={
-            selected ? (
-              <Badge className="font-mono text-[10px]">{selected}</Badge>
-            ) : null
-          }
-        />
-        <CardBody className="overflow-x-auto">
-          {!preview ? (
-            <p className="text-xs text-zinc-500">Select a dataset.</p>
-          ) : preview.error ? (
-            <p className="text-xs text-red-400">{preview.error}</p>
-          ) : (
-            <>
-              <div className="mb-2 flex flex-wrap gap-1.5 text-[11px] text-zinc-500">
-                <span>{preview.rowCount} total rows</span>
-                <span>·</span>
-                <span>{preview.headers.length} columns</span>
-                <span>·</span>
-                <span>Statistics: non-empty headers only</span>
+                <Progress value={cov} />
               </div>
-              <table className="w-full min-w-[720px] text-left text-[11px]">
-                <thead className="border-b border-zinc-800 text-zinc-500">
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Badge>{d.columnCount} columns</Badge>
+                <Badge>{d.relativePath.split("/").pop()}</Badge>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {selectedMeta ? (
+        <Card>
+          <CardHeader
+            title={`Preview · ${selectedMeta.name}`}
+            description={selectedMeta.relativePath}
+          />
+          <CardBody className="overflow-x-auto">
+            {preview?.error ? (
+              <p className="text-small text-[var(--red)]">{preview.error}</p>
+            ) : preview?.headers?.length ? (
+              <table className="ds-table min-w-[640px]">
+                <thead>
                   <tr>
-                    {preview.headers.map((h) => (
-                      <th key={h} className="px-2 py-1 font-medium whitespace-nowrap">
-                        {h}
-                      </th>
+                    {preview.headers.slice(0, 8).map((h) => (
+                      <th key={h}>{h}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {preview.previewRows.length === 0 ? (
-                    <tr>
-                      <td
-                        className="px-2 py-3 text-zinc-500"
-                        colSpan={Math.max(preview.headers.length, 1)}
-                      >
-                        Waiting for first execution / header-only placeholder
-                      </td>
+                  {(preview.previewRows || []).slice(0, 12).map((row, i) => (
+                    <tr key={i}>
+                      {preview.headers.slice(0, 8).map((h) => (
+                        <td key={h} className="max-w-[180px] truncate">
+                          {row[h] ?? ""}
+                        </td>
+                      ))}
                     </tr>
-                  ) : (
-                    preview.previewRows.map((row, idx) => (
-                      <tr key={idx} className="border-b border-zinc-900/70">
-                        {preview.headers.map((h) => (
-                          <td
-                            key={h}
-                            className="max-w-[220px] truncate px-2 py-1 text-zinc-300"
-                            title={row[h]}
-                          >
-                            {row[h]}
-                          </td>
-                        ))}
-                      </tr>
-                    ))
-                  )}
+                  ))}
                 </tbody>
               </table>
-            </>
-          )}
-        </CardBody>
-      </Card>
+            ) : (
+              <p className="text-small text-[var(--text-muted)]">
+                Select a dataset card to preview rows.
+              </p>
+            )}
+          </CardBody>
+        </Card>
+      ) : null}
     </div>
   );
 }

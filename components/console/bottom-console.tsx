@@ -184,7 +184,7 @@ export function BottomConsole() {
         <span
           className={cn(
             "h-2 w-2 shrink-0 rounded-full",
-            status === "running" ? "animate-pulse bg-emerald-500" : "bg-zinc-400"
+            status === "running" ? "animate-pulse bg-[var(--green)]" : "bg-[var(--text-disabled)]"
           )}
         />
         <p className="min-w-0 flex-1 truncate text-xs text-[var(--text-muted)]">
