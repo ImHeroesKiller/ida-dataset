@@ -111,6 +111,20 @@ def run_session(
     session["mission_id"] = None
     save_session(session, repo_root)
 
+    # Scheduler heartbeat (observe-only; does not redesign scheduler)
+    try:
+        from automation.learning.heartbeat import cycle_start
+
+        cycle_start(
+            job=(mission or instruction or "production cycle")[:160],
+            job_id=session_id,
+            dataset=str(dataset or ""),
+            session_id=session_id,
+            repo_root=repo_root,
+        )
+    except Exception:  # noqa: BLE001
+        pass
+
     # Mark activity for any local observers (not required on Vercel)
     journal.write_activity(
         {
@@ -440,6 +454,31 @@ def run_session(
         },
         repo_root=repo_root,
     )
+
+    # Close scheduler heartbeat for this cycle
+    try:
+        from automation.learning.heartbeat import (
+            cycle_failure,
+            cycle_publishing,
+            cycle_success,
+        )
+
+        if session.get("status") == "completed":
+            pub_n = int(session.get("knowledge_added") or 0)
+            if pub_n > 0:
+                cycle_publishing(repo_root=repo_root)
+            cycle_success(
+                repo_root=repo_root,
+                summary=str(session.get("summary") or "")[:160],
+            )
+        else:
+            err0 = (session.get("errors") or ["session_failed"])[0]
+            cycle_failure(
+                error=str(err0)[:500],
+                repo_root=repo_root,
+            )
+    except Exception:  # noqa: BLE001
+        pass
 
     final_path = session_path(session_id, repo_root)
     return {
