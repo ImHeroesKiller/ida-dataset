@@ -74,7 +74,19 @@ const CATALOG: Array<{
     title: "Produce Buyer Persona Dataset",
     instruction: "Produce Buyer Persona Dataset — structured buyer personas (Batch-009)",
     product_priority: 96,
-    current: () => 0,
+    current: () => rowCount("domains/business_development/buyer_persona_library.csv"),
+    deps: () =>
+      rowCount("domains/business_development/industry_library.csv") >= 50 &&
+      rowCount("domains/business_development/company_profile.csv") >= 25,
+  },
+  {
+    batch_id: "Batch-010",
+    dataset: "decision_maker_library",
+    target_key: "decision_maker_library",
+    title: "Produce Decision Maker Dataset",
+    instruction: "Produce Decision Maker Dataset — decision-maker patterns (Batch-010)",
+    product_priority: 94,
+    current: () => rowCount("domains/business_development/decision_maker_library.csv"),
     deps: () =>
       rowCount("domains/business_development/industry_library.csv") >= 50 &&
       rowCount("domains/business_development/company_profile.csv") >= 25,
@@ -125,9 +137,41 @@ const CATALOG: Array<{
     target_key: "regulation_library",
     title: "Produce Regulation Dataset",
     instruction: "Produce Regulation Dataset — regulation knowledge (Batch-011)",
-    product_priority: 88,
-    current: () => 0,
+    product_priority: 93,
+    current: () => rowCount("domains/business_development/regulation_library.csv"),
     deps: () => rowCount("domains/business_development/industry_library.csv") >= 50,
+  },
+  {
+    batch_id: "Batch-013",
+    dataset: "risk_library",
+    target_key: "risk_library",
+    title: "Produce Risk Dataset",
+    instruction: "Produce Risk Dataset — industry and operational risks (Batch-013)",
+    product_priority: 86,
+    current: () => rowCount("domains/business_development/risk_library.csv"),
+    deps: () => rowCount("domains/business_development/industry_library.csv") >= 50,
+  },
+  {
+    batch_id: "Batch-014",
+    dataset: "trend_library",
+    target_key: "trend_library",
+    title: "Produce Trend Dataset",
+    instruction: "Produce Trend Dataset — industry trends (Batch-014)",
+    product_priority: 85,
+    current: () => rowCount("domains/business_development/trend_library.csv"),
+    deps: () => rowCount("domains/business_development/industry_library.csv") >= 50,
+  },
+  {
+    batch_id: "Batch-015",
+    dataset: "competitor_library",
+    target_key: "competitor_library",
+    title: "Produce Competitor Dataset",
+    instruction: "Produce Competitor Dataset — expand competitor_library (Batch-015)",
+    product_priority: 90,
+    current: () => rowCount("domains/business_development/competitor_library.csv"),
+    deps: () =>
+      rowCount("domains/business_development/industry_library.csv") >= 50 &&
+      rowCount("domains/business_development/company_profile.csv") >= 20,
   },
 ];
 
@@ -144,7 +188,20 @@ export function select_next_mission(): {
       if (cov >= 100) return null;
       const gap = (100 - cov) / 100;
       let score = gap * 1000 + c.product_priority * 2 + (cur === 0 ? 50 : 0);
-      if (c.batch_id === "Batch-009" && cur === 0) score += 200;
+      // Anti-starvation for zero-coverage libraries
+      if (
+        cur === 0 &&
+        [
+          "buyer_persona_library",
+          "decision_maker_library",
+          "regulation_library",
+          "risk_library",
+          "trend_library",
+          "competitor_library",
+        ].includes(c.dataset)
+      ) {
+        score += 220;
+      }
       return {
         batch_id: c.batch_id,
         dataset: c.dataset,

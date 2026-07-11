@@ -26,6 +26,11 @@ ID_FIELDS: dict[str, str] = {
     "competitor_library": "Competitor ID",
     "business_signal_library": "Signal ID",
     "discovery_question_library": "Question ID",
+    "buyer_persona_library": "Persona ID",
+    "decision_maker_library": "Decision Maker ID",
+    "regulation_library": "Regulation ID",
+    "risk_library": "Risk ID",
+    "trend_library": "Trend ID",
 }
 
 ID_PATTERNS: dict[str, re.Pattern[str]] = {
@@ -38,6 +43,11 @@ ID_PATTERNS: dict[str, re.Pattern[str]] = {
     "case_study_library": re.compile(r"^CASE-", re.I),
     "opportunity_analysis": re.compile(r"^(OPP|OP)-", re.I),
     "competitor_library": re.compile(r"^CMP-", re.I),
+    "buyer_persona_library": re.compile(r"^PER-", re.I),
+    "decision_maker_library": re.compile(r"^DM-", re.I),
+    "regulation_library": re.compile(r"^REG-", re.I),
+    "risk_library": re.compile(r"^RISK-", re.I),
+    "trend_library": re.compile(r"^TRD-", re.I),
 }
 
 
@@ -169,9 +179,15 @@ def validate_row(
         "product_catalog",
         "pain_point_library",
         "solution_library",
+        "buyer_persona_library",
+        "decision_maker_library",
+        "regulation_library",
+        "risk_library",
+        "trend_library",
+        "competitor_library",
     }:
         if "SRC-" not in blob and "source" not in blob.lower() and not str(
-            row.get("Data Sources") or row.get("Data Source") or ""
+            row.get("Data Sources") or row.get("Data Source") or row.get("Information Source") or ""
         ).strip():
             # allow if confidence present from structured provenance path
             if conf is None:

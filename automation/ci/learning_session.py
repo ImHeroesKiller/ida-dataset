@@ -94,6 +94,7 @@ def run_session(
     pace: float,
     auto_approve: bool,
     publish: bool,
+    dataset: str | None = None,
 ) -> dict[str, Any]:
     """Execute one learning session and persist SESSION-*.json."""
     session_id = new_session_id()
@@ -167,10 +168,24 @@ def run_session(
         )
         save_session(session, repo_root)
 
+        # Resolve target dataset from selector / instruction (coverage libraries)
+        target_dataset = dataset or "industry_library"
+        try:
+            from automation.acquisition.dataset_routing import (
+                resolve_dataset_from_instruction,
+            )
+
+            target_dataset = resolve_dataset_from_instruction(
+                instruction, explicit=dataset, default=target_dataset
+            )
+        except Exception:  # noqa: BLE001
+            pass
+
         # Run the frozen live session body (same engines; GHA execution only).
         # skip_lock: GHA job is the exclusive executor; no dashboard spawn.
         live = run_live_session(
             instruction=instruction,
+            dataset=target_dataset,
             auto_approve=auto_approve and not dry_run,
             publish=publish and not dry_run,
             pace=pace,
@@ -199,7 +214,7 @@ def run_session(
 
         planner_output = {
             "gaps_focus": live.get("industry_name") or instruction,
-            "dataset": "industry_library",
+            "dataset": live.get("dataset") or target_dataset,
             "snapshot": live.get("snapshot"),
         }
         connector_output = {
@@ -270,7 +285,7 @@ def run_session(
         publish_summary = {
             "published": bool(live.get("published")),
             "dry_run": dry_run,
-            "dataset": "industry_library",
+            "dataset": live.get("dataset") or target_dataset,
             "entity": live.get("industry_name"),
             "rows_published": int(publish_balance.get("published") or knowledge_delta["added"]),
             "extracted": publish_balance.get("extracted"),
@@ -569,6 +584,12 @@ def main(argv: Optional[list[str]] = None) -> int:
     publish = allow_publish and not args.no_publish
     auto_approve = not args.pending_review
 
+    selected_dataset = None
+    try:
+        selected_dataset = (selector_meta.get("selected") or {}).get("dataset")
+    except Exception:  # noqa: BLE001
+        selected_dataset = None
+
     result = run_session(
         repo_root=repo_root,
         environment=environment,
@@ -579,6 +600,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         pace=args.pace,
         auto_approve=auto_approve,
         publish=publish,
+        dataset=selected_dataset,
     )
 
     session = result.get("session") or {}

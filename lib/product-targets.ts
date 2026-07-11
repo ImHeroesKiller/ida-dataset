@@ -57,6 +57,8 @@ const DEFAULTS: ProductTargetsConfig = {
     buyer_persona_library: 500,
     decision_maker_library: 500,
     regulation_library: 1000,
+    risk_library: 500,
+    trend_library: 500,
     competitor_library: 1000,
     opportunity_analysis: 2000,
     business_signal_library: 1000,

@@ -22,6 +22,8 @@ targets:
   buyer_persona_library: 500
   decision_maker_library: 500
   regulation_library: 1000
+  risk_library: 500
+  trend_library: 500
   competitor_library: 1000
   opportunity_analysis: 2000
   business_signal_library: 1000
@@ -87,6 +89,16 @@ datasets:
   regulation_library:
     minimum_target: 1000
     stretch_target: 10000
+    estimated_universe: dynamic
+    hard_limit: null
+  risk_library:
+    minimum_target: 500
+    stretch_target: 5000
+    estimated_universe: dynamic
+    hard_limit: null
+  trend_library:
+    minimum_target: 500
+    stretch_target: 5000
     estimated_universe: dynamic
     hard_limit: null
   competitor_library:

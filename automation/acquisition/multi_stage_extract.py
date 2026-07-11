@@ -13,6 +13,7 @@ from automation.acquisition.extractor import (
     extract_business_signal_candidates,
     extract_industry_candidates,
 )
+from automation.acquisition.library_extract import EXTRACTORS, extract_for_dataset
 from automation.lib.models import CandidateRecord
 
 
@@ -42,6 +43,7 @@ def extract_staged(
         "average_extraction_ms": 0.0,
         "total_ms": 0.0,
         "path_ms": {},
+        "target_dataset": dataset,
     }
     fast_docs: list[dict[str, Any]] = []
     medium_docs: list[dict[str, Any]] = []
@@ -64,6 +66,38 @@ def extract_staged(
             stats["documents_deep"] += 1
 
     candidates: list[CandidateRecord] = []
+    library_ds = dataset in EXTRACTORS
+
+    def _run_extractor(
+        docs: list[dict[str, Any]],
+        remaining: int,
+    ) -> list[CandidateRecord]:
+        if not docs or remaining <= 0:
+            return []
+        if library_ds:
+            return extract_for_dataset(
+                dataset,
+                docs,
+                mission_id=mission_id,
+                session_id=session_id,
+                repo_root=repo_root,
+                max_candidates=remaining,
+            )
+        if dataset == "business_signal_library":
+            return extract_business_signal_candidates(
+                docs,
+                mission_id=mission_id,
+                session_id=session_id,
+                repo_root=repo_root,
+                max_candidates=remaining,
+            )
+        return extract_industry_candidates(
+            docs,
+            mission_id=mission_id,
+            session_id=session_id,
+            repo_root=repo_root,
+            max_candidates=remaining,
+        )
 
     def _run_path(
         label: str,
@@ -73,46 +107,57 @@ def extract_staged(
         if not docs or remaining <= 0:
             return []
         t0 = time.perf_counter()
-        batch = extract_industry_candidates(
-            docs,
-            mission_id=mission_id,
-            session_id=session_id,
-            repo_root=repo_root,
-            max_candidates=remaining,
-        )
+        batch = _run_extractor(docs, remaining)
         stats["path_ms"][label] = round((time.perf_counter() - t0) * 1000, 2)
         return batch
 
-    # Stage 1 — Fast (metadata only)
-    batch = _run_path("fast", fast_docs, max_candidates)
-    stats["fast"] += len(batch)
-    candidates.extend(batch)
-
-    # Stage 2 — Medium (text extraction, still deterministic)
-    remaining = max_candidates - len(candidates)
-    batch = _run_path("medium", medium_docs, remaining)
-    stats["medium"] += len(batch)
-    candidates.extend(batch)
-
-    # Stage 3 — Deep (long docs) only if still under cap
-    remaining = max_candidates - len(candidates)
-    batch = _run_path("deep", deep_docs, remaining)
-    stats["deep"] += len(batch)
-    candidates.extend(batch)
-
-    # Fallback business signals if nothing grounded yet
-    if not candidates:
+    # Library extractors assign sequential IDs from CSV — run once on full doc set
+    # to avoid duplicate_id_in_batch across fast/medium/deep passes.
+    if library_ds:
         t0 = time.perf_counter()
-        batch = extract_business_signal_candidates(
+        batch = extract_for_dataset(
+            dataset,
             documents,
             mission_id=mission_id,
             session_id=session_id,
             repo_root=repo_root,
-            max_candidates=min(5, max_candidates),
+            max_candidates=max_candidates,
         )
-        stats["path_ms"]["signal_fallback"] = round((time.perf_counter() - t0) * 1000, 2)
+        stats["path_ms"]["library_full_pass"] = round((time.perf_counter() - t0) * 1000, 2)
+        stats["medium"] += len(batch)
+        stats["documents_medium"] = len(documents)
+        candidates.extend(batch)
+    else:
+        # Stage 1 — Fast (metadata only)
+        batch = _run_path("fast", fast_docs, max_candidates)
         stats["fast"] += len(batch)
         candidates.extend(batch)
+
+        # Stage 2 — Medium (text extraction, still deterministic)
+        remaining = max_candidates - len(candidates)
+        batch = _run_path("medium", medium_docs, remaining)
+        stats["medium"] += len(batch)
+        candidates.extend(batch)
+
+        # Stage 3 — Deep (long docs) only if still under cap
+        remaining = max_candidates - len(candidates)
+        batch = _run_path("deep", deep_docs, remaining)
+        stats["deep"] += len(batch)
+        candidates.extend(batch)
+
+        # Fallback business signals only for industry path when nothing grounded
+        if not candidates:
+            t0 = time.perf_counter()
+            batch = extract_business_signal_candidates(
+                documents,
+                mission_id=mission_id,
+                session_id=session_id,
+                repo_root=repo_root,
+                max_candidates=min(5, max_candidates),
+            )
+            stats["path_ms"]["signal_fallback"] = round((time.perf_counter() - t0) * 1000, 2)
+            stats["fast"] += len(batch)
+            candidates.extend(batch)
 
     # Stage 4 — LLM only if required (insufficient deterministic yield)
     # Factory core keeps LLM off; skip for cost/latency unless empty after deep.

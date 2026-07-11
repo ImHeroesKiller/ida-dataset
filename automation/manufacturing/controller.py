@@ -28,7 +28,10 @@ MANUFACTURED_DATASETS = [
     "competitor_library",
     "business_signal_library",
     "buyer_persona_library",
+    "decision_maker_library",
     "regulation_library",
+    "risk_library",
+    "trend_library",
     "discovery_question_library",
 ]
 
@@ -74,9 +77,35 @@ _TOPIC_HINTS = {
         "WHO Healthcare Guidelines",
         "OECD Labor Frameworks",
     ],
+    "buyer_persona_library": [
+        "Buyer Persona Manufacturing Indonesia",
+        "Buyer Persona Banking Indonesia",
+        "Workforce Buyer Personas Indonesia",
+    ],
+    "decision_maker_library": [
+        "Decision Maker Patterns Indonesia",
+        "Executive Roles Manufacturing Indonesia",
+        "Board and Director Structures Indonesia",
+    ],
     "regulation_library": [
         "OJK Banking Regulations",
         "Kemnaker Employment Regulations",
+        "Indonesia Industry Regulation",
+    ],
+    "risk_library": [
+        "Operational Risk Indonesia",
+        "Regulatory Risk Banking Indonesia",
+        "Supply Chain Risk Manufacturing",
+    ],
+    "trend_library": [
+        "Digital Economy Trends Indonesia",
+        "Labor Market Trends Indonesia",
+        "Green Transition Industry Trends",
+    ],
+    "competitor_library": [
+        "Competitor Landscape Manufacturing Indonesia",
+        "Competitor Landscape Banking Indonesia",
+        "Public Company Competitive Set Indonesia",
     ],
 }
 
@@ -112,8 +141,11 @@ def _counts(repo: Path) -> dict[str, int]:
         "opportunity_analysis": n("opportunity_analysis"),
         "competitor_library": n("competitor_library"),
         "business_signal_library": n("business_signal_library"),
-        "buyer_persona_library": 0,
-        "regulation_library": 0,
+        "buyer_persona_library": n("buyer_persona_library"),
+        "decision_maker_library": n("decision_maker_library"),
+        "regulation_library": n("regulation_library"),
+        "risk_library": n("risk_library"),
+        "trend_library": n("trend_library"),
         "discovery_question_library": n("discovery_question_library"),
     }
 

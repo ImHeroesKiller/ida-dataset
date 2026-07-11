@@ -109,22 +109,7 @@ function countServiceRows(): number {
 
 function datasetRowCount(stem: string): number {
   if (stem === "service_library") return countServiceRows();
-  if (stem === "risk_library" || stem === "trend_library" || stem === "buyer_persona_library" || stem === "decision_maker_library" || stem === "regulation_library") {
-    // dedicated files may not exist yet
-    const candidates = [
-      repoPath(`domains/business_development/${stem}.csv`),
-    ];
-    for (const p of candidates) {
-      if (!fs.existsSync(p)) continue;
-      try {
-        const n = fs.readFileSync(p, "utf8").split("\n").filter(Boolean).length - 1;
-        return Math.max(0, n);
-      } catch {
-        /* */
-      }
-    }
-    return 0;
-  }
+  // buyer_persona / decision_maker / regulation / risk / trend use dedicated CSVs
   const p = repoPath(`domains/business_development/${stem}.csv`);
   if (!fs.existsSync(p)) return 0;
   try {

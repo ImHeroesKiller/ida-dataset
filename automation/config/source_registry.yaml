@@ -42,7 +42,7 @@ sources:
     country: ID
     trust_score: 0.95
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, company_profile, business_signal_library]
+    allowed_datasets: [industry_library, company_profile, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: daily
     parser: html
     extractor: grounded_text
@@ -72,7 +72,7 @@ sources:
     country: multi
     trust_score: 0.92
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, company_profile, business_signal_library, framework_library]
+    allowed_datasets: [industry_library, company_profile, business_signal_library, framework_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: daily
     parser: json
     extractor: grounded_text
@@ -102,7 +102,7 @@ sources:
     country: multi
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, framework_library, business_signal_library]
+    allowed_datasets: [industry_library, framework_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -132,7 +132,7 @@ sources:
     country: multi
     trust_score: 0.92
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -162,7 +162,7 @@ sources:
     country: multi
     trust_score: 0.88
     minimum_confidence: 0.82
-    allowed_datasets: [industry_library, business_signal_library, framework_library]
+    allowed_datasets: [industry_library, business_signal_library, framework_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: daily
     parser: json
     extractor: grounded_text
@@ -192,7 +192,7 @@ sources:
     country: multi
     trust_score: 0.90
     minimum_confidence: 0.82
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: daily
     parser: json
     extractor: grounded_text
@@ -222,7 +222,7 @@ sources:
     country: ID
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, company_profile]
+    allowed_datasets: [industry_library, company_profile, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -252,7 +252,7 @@ sources:
     country: ID
     trust_score: 0.88
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, pain_point_library]
+    allowed_datasets: [industry_library, pain_point_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -282,7 +282,7 @@ sources:
     country: ID
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [product_catalog, public_procurement]
+    allowed_datasets: [product_catalog, public_procurement, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -312,7 +312,7 @@ sources:
     country: ID
     trust_score: 0.88
     minimum_confidence: 0.85
-    allowed_datasets: [company_profile, industry_library]
+    allowed_datasets: [company_profile, industry_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -342,7 +342,7 @@ sources:
     country: ID
     trust_score: 0.82
     minimum_confidence: 0.82
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -372,7 +372,7 @@ sources:
     country: ID
     trust_score: 0.82
     minimum_confidence: 0.82
-    allowed_datasets: [industry_library, company_profile]
+    allowed_datasets: [industry_library, company_profile, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -402,7 +402,7 @@ sources:
     country: multi
     trust_score: 0.92
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library, pain_point_library]
+    allowed_datasets: [industry_library, business_signal_library, pain_point_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -432,7 +432,7 @@ sources:
     country: multi
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, framework_library]
+    allowed_datasets: [industry_library, framework_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -462,7 +462,7 @@ sources:
     country: multi
     trust_score: 0.93
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -492,7 +492,7 @@ sources:
     country: multi
     trust_score: 0.91
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library]
+    allowed_datasets: [industry_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -522,7 +522,7 @@ sources:
     country: multi
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, framework_library]
+    allowed_datasets: [industry_library, framework_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -552,7 +552,7 @@ sources:
     country: multi
     trust_score: 0.93
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, healthcare]
+    allowed_datasets: [industry_library, healthcare, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -582,7 +582,7 @@ sources:
     country: multi
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, product_catalog]
+    allowed_datasets: [industry_library, product_catalog, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -612,7 +612,7 @@ sources:
     country: multi
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -642,7 +642,7 @@ sources:
     country: ID
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, company_profile, business_signal_library]
+    allowed_datasets: [industry_library, company_profile, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: json
     extractor: grounded_text
@@ -672,7 +672,7 @@ sources:
     country: ID
     trust_score: 0.88
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, company_profile]
+    allowed_datasets: [industry_library, company_profile, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -702,7 +702,7 @@ sources:
     country: ID
     trust_score: 0.88
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, company_profile, opportunity_analysis]
+    allowed_datasets: [industry_library, company_profile, opportunity_analysis, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -732,7 +732,7 @@ sources:
     country: ID
     trust_score: 0.94
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, company_profile, framework_library]
+    allowed_datasets: [industry_library, company_profile, framework_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -762,7 +762,7 @@ sources:
     country: ID
     trust_score: 0.90
     minimum_confidence: 0.85
-    allowed_datasets: [company_profile, industry_library]
+    allowed_datasets: [company_profile, industry_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: daily
     parser: html
     extractor: grounded_text
@@ -792,7 +792,7 @@ sources:
     country: multi
     trust_score: 0.91
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -822,7 +822,7 @@ sources:
     country: multi
     trust_score: 0.91
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -852,7 +852,7 @@ sources:
     country: multi
     trust_score: 0.9
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -882,7 +882,7 @@ sources:
     country: multi
     trust_score: 0.86
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -912,7 +912,7 @@ sources:
     country: multi
     trust_score: 0.85
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -942,7 +942,7 @@ sources:
     country: multi
     trust_score: 0.85
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -972,7 +972,7 @@ sources:
     country: multi
     trust_score: 0.9
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1002,7 +1002,7 @@ sources:
     country: multi
     trust_score: 0.84
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1032,7 +1032,7 @@ sources:
     country: multi
     trust_score: 0.88
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1062,7 +1062,7 @@ sources:
     country: multi
     trust_score: 0.93
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1092,7 +1092,7 @@ sources:
     country: multi
     trust_score: 0.88
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1122,7 +1122,7 @@ sources:
     country: multi
     trust_score: 0.88
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1152,7 +1152,7 @@ sources:
     country: multi
     trust_score: 0.84
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1182,7 +1182,7 @@ sources:
     country: multi
     trust_score: 0.88
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1212,7 +1212,7 @@ sources:
     country: multi
     trust_score: 0.9
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1242,7 +1242,7 @@ sources:
     country: multi
     trust_score: 0.84
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1272,7 +1272,7 @@ sources:
     country: multi
     trust_score: 0.84
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text
@@ -1302,7 +1302,7 @@ sources:
     country: multi
     trust_score: 0.84
     minimum_confidence: 0.85
-    allowed_datasets: [industry_library, business_signal_library]
+    allowed_datasets: [industry_library, business_signal_library, buyer_persona_library, decision_maker_library, regulation_library, risk_library, trend_library, competitor_library]
     update_frequency: weekly
     parser: html
     extractor: grounded_text

@@ -89,18 +89,48 @@ continuous_catalog:
     domain: business_development
     priority: P3
     kind: continuous
+  - task_id: CL-PERSONA-001
+    title: Produce Buyer Persona Dataset
+    target_dataset: buyer_persona_library
+    domain: business_development
+    priority: P1
+    kind: continuous
+    mission_id: MIS-PRODUCE-BUYER-PERSONA
+  - task_id: CL-DM-001
+    title: Produce Decision Maker Dataset
+    target_dataset: decision_maker_library
+    domain: business_development
+    priority: P1
+    kind: continuous
+    mission_id: MIS-PRODUCE-DECISION-MAKER
+  - task_id: CL-REG-001
+    title: Produce Regulation Dataset
+    target_dataset: regulation_library
+    domain: business_development
+    priority: P1
+    kind: continuous
+    mission_id: MIS-PRODUCE-REGULATION
+  - task_id: CL-RISK-001
+    title: Produce Risk Dataset
+    target_dataset: risk_library
+    domain: business_development
+    priority: P1
+    kind: continuous
+    mission_id: MIS-PRODUCE-RISK
+  - task_id: CL-TREND-001
+    title: Produce Trend Dataset
+    target_dataset: trend_library
+    domain: business_development
+    priority: P1
+    kind: continuous
+    mission_id: MIS-PRODUCE-TREND
   - task_id: CL-COMP-001
-    title: Update Competitor Library
+    title: Produce Competitor Dataset
     target_dataset: competitor_library
     domain: business_development
-    priority: P2
+    priority: P1
     kind: continuous
-  - task_id: CL-REG-001
-    title: Refresh Regulations knowledge
-    target_dataset: framework_library
-    domain: legal
-    priority: P3
-    kind: continuous
+    mission_id: MIS-PRODUCE-COMPETITOR
   - task_id: CL-FW-001
     title: Refresh Frameworks
     target_dataset: framework_library

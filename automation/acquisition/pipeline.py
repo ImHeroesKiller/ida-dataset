@@ -181,9 +181,17 @@ def run_acquisition(
     queue_snapshot = measure_queues(root)
     audit["queue_stats"]["baseline"] = queue_snapshot
 
-    query_text = instruction if len(instruction) < 160 else f"{dataset} Indonesia"
-    if "indonesia" not in query_text.lower():
-        query_text = f"{query_text} Indonesia"
+    # Dataset-aware search query (coverage libraries get specialized trusted topics)
+    try:
+        from automation.acquisition.dataset_routing import search_query_for_dataset
+
+        query_text = search_query_for_dataset(dataset, instruction)
+    except Exception:  # noqa: BLE001
+        query_text = instruction if len(instruction) < 160 else f"{dataset} Indonesia"
+        if "indonesia" not in query_text.lower():
+            query_text = f"{query_text} Indonesia"
+    audit["search_query"] = query_text
+    emit("Mission", f"Target dataset={dataset} · query={query_text[:100]}")
 
     # --- Discovery Layer (search engines discover URLs only) ---
     discovery_pack: dict[str, Any] = {}

@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-07-11T06:12:10+00:00",
+  "results": [
+    {
+      "dataset": "buyer_persona_library",
+      "published": 4,
+      "ok": true
+    },
+    {
+      "dataset": "decision_maker_library",
+      "published": 3,
+      "ok": true
+    },
+    {
+      "dataset": "regulation_library",
+      "published": 5,
+      "ok": true
+    },
+    {
+      "dataset": "risk_library",
+      "published": 10,
+      "ok": true
+    },
+    {
+      "dataset": "trend_library",
+      "published": 10,
+      "ok": true
+    },
+    {
+      "dataset": "competitor_library",
+      "published": 6,
+      "ok": true,
+      "note": "cleaned precision names from real PT/Ltd evidence"
+    }
+  ]
+}

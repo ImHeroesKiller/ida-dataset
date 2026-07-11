@@ -10,6 +10,6 @@
 The factory continues while trusted, validated knowledge still exists.
 It only slows for: no updates, API quota, rate limits, backoff, maintenance.
 
-Selected mission: **Bootstrap Buyer Persona Library**
+Selected mission: **Bootstrap Discovery Question Library**
 
-Bootstrap Buyer Persona Library — continuous knowledge manufacturing for buyer_persona_library (gap_score=142.5, universe_remaining=5000, mode=BOOTSTRAP)
+Bootstrap Discovery Question Library — continuous knowledge manufacturing for discovery_question_library (gap_score=125.25, universe_remaining=5160, mode=BOOTSTRAP)

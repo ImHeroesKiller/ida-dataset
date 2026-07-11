@@ -113,25 +113,42 @@ CATALOG: list[dict[str, Any]] = [
         "batch_id": "Batch-009",
         "dataset": "buyer_persona_library",
         "target_key": "buyer_persona_library",
-        "path": "domains/business_development/discovery_question_library.csv",  # interim store until dedicated CSV
+        "path": "domains/business_development/buyer_persona_library.csv",
         "title": "Produce Buyer Persona Dataset",
         "instruction": "Produce Buyer Persona Dataset — structured buyer personas (Batch-009)",
-        "product_priority": 96,  # next official empty class — high
+        "product_priority": 96,
         "hard_deps": ["industry_library", "company_profile"],
         "min_baseline": 25,
-        "logical_only": True,  # may not have dedicated CSV yet
+        "business_value": 95,
+        "relationship_impact": 90,
+    },
+    {
+        "batch_id": "Batch-010",
+        "dataset": "decision_maker_library",
+        "target_key": "decision_maker_library",
+        "path": "domains/business_development/decision_maker_library.csv",
+        "title": "Produce Decision Maker Dataset",
+        "instruction": "Produce Decision Maker Dataset — decision-maker patterns (Batch-010)",
+        "product_priority": 94,
+        "hard_deps": ["industry_library", "company_profile"],
+        "min_baseline": 25,
+        "business_value": 92,
+        "relationship_impact": 88,
+        # Soft prefer buyer persona — not a permanent block
+        "soft_deps": ["buyer_persona_library"],
     },
     {
         "batch_id": "Batch-011",
         "dataset": "regulation_library",
         "target_key": "regulation_library",
-        "path": "",
+        "path": "domains/business_development/regulation_library.csv",
         "title": "Produce Regulation Dataset",
         "instruction": "Produce Regulation Dataset — regulation knowledge for industries (Batch-011)",
-        "product_priority": 88,
+        "product_priority": 93,
         "hard_deps": ["industry_library"],
         "min_baseline": 50,
-        "logical_only": True,
+        "business_value": 94,
+        "relationship_impact": 85,
     },
     {
         "batch_id": "Batch-012",
@@ -143,6 +160,34 @@ CATALOG: list[dict[str, Any]] = [
         "product_priority": 75,
         "hard_deps": ["company_profile", "pain_point_library", "solution_library"],
         "min_baseline": 25,
+        "business_value": 80,
+        "relationship_impact": 70,
+    },
+    {
+        "batch_id": "Batch-013",
+        "dataset": "risk_library",
+        "target_key": "risk_library",
+        "path": "domains/business_development/risk_library.csv",
+        "title": "Produce Risk Dataset",
+        "instruction": "Produce Risk Dataset — industry and operational risk knowledge (Batch-013)",
+        "product_priority": 86,
+        "hard_deps": ["industry_library"],
+        "min_baseline": 50,
+        "business_value": 88,
+        "relationship_impact": 75,
+    },
+    {
+        "batch_id": "Batch-014",
+        "dataset": "trend_library",
+        "target_key": "trend_library",
+        "path": "domains/business_development/trend_library.csv",
+        "title": "Produce Trend Dataset",
+        "instruction": "Produce Trend Dataset — industry trends and market signals (Batch-014)",
+        "product_priority": 85,
+        "hard_deps": ["industry_library"],
+        "min_baseline": 50,
+        "business_value": 86,
+        "relationship_impact": 72,
     },
     {
         "batch_id": "Batch-015",
@@ -151,9 +196,11 @@ CATALOG: list[dict[str, Any]] = [
         "path": "domains/business_development/competitor_library.csv",
         "title": "Produce Competitor Dataset",
         "instruction": "Produce Competitor Dataset — expand competitor_library",
-        "product_priority": 70,
-        "hard_deps": ["company_profile", "product_catalog"],
+        "product_priority": 90,
+        "hard_deps": ["industry_library", "company_profile"],
         "min_baseline": 20,
+        "business_value": 90,
+        "relationship_impact": 80,
     },
 ]
 
@@ -222,8 +269,11 @@ def _counts(repo: Path) -> dict[str, int]:
         "case_study_library": _row_count(bd / "case_study_library.csv"),
         "opportunity_analysis": _row_count(bd / "opportunity_analysis.csv"),
         "competitor_library": _row_count(bd / "competitor_library.csv"),
-        "buyer_persona_library": 0,  # dedicated store not yet present
-        "regulation_library": 0,
+        "buyer_persona_library": _row_count(bd / "buyer_persona_library.csv"),
+        "decision_maker_library": _row_count(bd / "decision_maker_library.csv"),
+        "regulation_library": _row_count(bd / "regulation_library.csv"),
+        "risk_library": _row_count(bd / "risk_library.csv"),
+        "trend_library": _row_count(bd / "trend_library.csv"),
         "discovery_question_library": _row_count(bd / "discovery_question_library.csv"),
         "business_signal_library": _row_count(bd / "business_signal_library.csv"),
     }
@@ -338,14 +388,38 @@ def select_next_mission(repo_root: Path | None = None) -> dict[str, Any]:
         gap_weight = (100.0 - min(cov, 99.0)) / 100.0
         mfg_item = mfg_by_ds.get(key) or {}
         gap_score = float(mfg_item.get("knowledge_gap_score") or 0)
+        # Knowledge Priority Score:
+        # coverage gap + dependency readiness + business value + relationship impact
+        business_value = float(item.get("business_value") or item["product_priority"])
+        relationship_impact = float(item.get("relationship_impact") or 50)
+        soft_boost = 0.0
+        for sd in item.get("soft_deps") or []:
+            if counts.get(sd, 0) > 0:
+                soft_boost += 15.0
+            else:
+                # soft dep missing: slight preference still, never hard-block
+                soft_boost -= 5.0
+        # Empty coverage libraries get anti-starvation boost (never permanent postpone)
+        starvation_boost = 0.0
+        if cur == 0 and item["dataset"] in {
+            "buyer_persona_library",
+            "decision_maker_library",
+            "regulation_library",
+            "risk_library",
+            "trend_library",
+            "competitor_library",
+        }:
+            starvation_boost = 220.0
         score = (
             gap_score * 10.0
             + gap_weight * 500.0
             + float(item["product_priority"]) * 2.0
+            + business_value * 1.5
+            + relationship_impact * 1.2
+            + soft_boost
+            + starvation_boost
             + (50.0 if cur == 0 else 0.0)
         ) * source_factor
-        if item["batch_id"] == "Batch-009" and cur == 0:
-            score += 200.0
         # Dynamic instruction from manufacturing controller when available
         instruction = str(mfg_item.get("instruction") or item["instruction"])
         title = str(mfg_item.get("title") or item["title"])

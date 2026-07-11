@@ -57,6 +57,15 @@ def run_live_session(
 ) -> dict[str, Any]:
     """Execute one live learning session with streaming journal events."""
     root = repo_root or find_repo_root()
+    # Route dataset from mission instruction (coverage libraries must not stay industry-only)
+    try:
+        from automation.acquisition.dataset_routing import resolve_dataset_from_instruction
+
+        dataset = resolve_dataset_from_instruction(
+            instruction, explicit=dataset, default=dataset or "industry_library"
+        )
+    except Exception:  # noqa: BLE001
+        pass
     session_id = f"SES-{utc_now_iso()[:10].replace('-', '')}-{uuid4().hex[:6].upper()}"
     t0 = time.time()
     lifecycle: RuntimeLifecycle | None = None
@@ -745,6 +754,7 @@ def _run_live_session_body(
         "session_id": session_id,
         "mission_id": mission_id,
         "correlation_id": correlation_id,
+        "dataset": dataset,
         "published": published,
         "knowledge_added": published_n,
         "industry_id": industry_id,

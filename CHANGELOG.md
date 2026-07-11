@@ -9,6 +9,13 @@
 - Growth strategy: **knowledge expansion only** (connectors, datasets, coverage, quality, production fixes)
 - Forbidden: architecture/schema/queue redesign, RAG, agents, decision/reasoning engines
 
+### Dataset coverage completion (P0 — no architecture change)
+
+- Enabled continuous production for Buyer Persona, Decision Maker, Regulation, Risk, Trend, Competitor
+- Dedicated CSVs + grounded extractors + mission/dataset routing
+- Continuous catalog + selector anti-starvation so libraries are never permanently blocked
+- Root-cause and coverage reports under `reports/coverage/`
+
 ### Performance (throughput — no architecture change)
 
 - Adaptive document prioritization + pre-download dedupe; process budget targets ≥90% of discovered docs

@@ -4,14 +4,14 @@ Manufacturing controller proposals (highest-value knowledge demand).
 
 | # | Mode | Dataset | Title | Gap score | Universe rem. |
 |--:|------|---------|-------|----------:|--------------:|
-| 1 | BOOTSTRAP | buyer_persona_library | Bootstrap Buyer Persona Library | 142.5 | 5000 |
-| 2 | BOOTSTRAP | regulation_library | Bootstrap OJK Banking Regulations | 138.0 | 10000 |
-| 3 | BOOTSTRAP | competitor_library | Bootstrap Competitor Library | 129.75 | 20000 |
-| 4 | BOOTSTRAP | discovery_question_library | Bootstrap Discovery Question Library | 125.25 | 5000 |
-| 5 | BOOTSTRAP | service_library | Bootstrap BPO Services Indonesia | 112.922 | 49935 |
-| 6 | BOOTSTRAP | business_signal_library | Bootstrap New OECD Labor Publications | 94.225 | 49979 |
-| 7 | BOOTSTRAP | product_catalog | Bootstrap Digital Products Indonesia | 88.606 | 49942 |
-| 8 | BOOTSTRAP | industry_library | Bootstrap Healthcare Services Indonesia | 79.467 | 4947 |
+| 1 | BOOTSTRAP | discovery_question_library | Bootstrap Discovery Question Library | 125.25 | 5160 |
+| 2 | BOOTSTRAP | service_library | Bootstrap BPO Services Indonesia | 112.922 | 49935 |
+| 3 | BOOTSTRAP | business_signal_library | Bootstrap New OECD Labor Publications | 94.221 | 49976 |
+| 4 | BOOTSTRAP | competitor_library | Bootstrap Competitor Landscape Manufacturing Indonesia | 89.305 | 19994 |
+| 5 | BOOTSTRAP | product_catalog | Bootstrap Digital Products Indonesia | 88.606 | 49942 |
+| 6 | BOOTSTRAP | buyer_persona_library | Bootstrap Buyer Persona Banking Indonesia | 83.54 | 5156 |
+| 7 | BOOTSTRAP | risk_library | Bootstrap Regulatory Risk Banking Indonesia | 81.835 | 5150 |
+| 8 | BOOTSTRAP | decision_maker_library | Bootstrap Decision Maker Patterns Indonesia | 81.11 | 5157 |
 
 ## Decision chain
 
