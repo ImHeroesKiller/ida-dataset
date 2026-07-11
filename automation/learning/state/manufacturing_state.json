@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-07-10T22:59:20+00:00",
+  "updated_at": "2026-07-11T00:04:31+00:00",
   "continuous_manufacturing": true,
   "never_stop_at_numeric_target": true,
   "mode": {
@@ -44,7 +44,7 @@
     "case_study_library": 40,
     "opportunity_analysis": 25,
     "competitor_library": 0,
-    "business_signal_library": 15,
+    "business_signal_library": 18,
     "buyer_persona_library": 0,
     "regulation_library": 0,
     "discovery_question_library": 0
@@ -71,10 +71,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 5000,
           "minimum_target": 500,
           "hard_limit": null
@@ -119,10 +119,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 10000,
           "minimum_target": 1000,
           "hard_limit": null
@@ -167,10 +167,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 20000,
           "minimum_target": 1000,
           "hard_limit": null
@@ -215,10 +215,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 5000,
           "minimum_target": 500,
           "hard_limit": null
@@ -263,10 +263,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 50000,
           "minimum_target": 2000,
           "hard_limit": null
@@ -292,7 +292,7 @@
     },
     {
       "dataset": "business_signal_library",
-      "current_rows": 15,
+      "current_rows": 18,
       "profile": {
         "dataset": "business_signal_library",
         "minimum_target": 1000,
@@ -305,35 +305,35 @@
       "universe": {
         "dataset": "business_signal_library",
         "estimated_universe": 50000,
-        "current_rows": 15,
-        "remaining_estimate": 49985,
-        "fill_pct": 0.03,
+        "current_rows": 18,
+        "remaining_estimate": 49982,
+        "fill_pct": 0.04,
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 50000,
           "minimum_target": 1000,
           "hard_limit": null
         }
       },
-      "coverage_stretch_pct": 0.03,
-      "coverage_minimum_pct": 1.5,
-      "knowledge_gap": 50970,
-      "minimum_gap": 985,
-      "stretch_gap": 49985,
-      "universe_gap": 49985,
-      "knowledge_opportunity": 49985,
+      "coverage_stretch_pct": 0.04,
+      "coverage_minimum_pct": 1.8,
+      "knowledge_gap": 50964,
+      "minimum_gap": 982,
+      "stretch_gap": 49982,
+      "universe_gap": 49982,
+      "knowledge_opportunity": 49982,
       "freshness_gap": 1.0,
       "confidence_gap": 0.15,
       "relationship_gap": 0.2,
       "knowledge_density": 0.6,
       "avg_confidence": 0.85,
       "freshness": 0.0,
-      "knowledge_gap_score": 94.232,
+      "knowledge_gap_score": 94.228,
       "below_minimum": true,
       "hard_limit": null,
       "should_continue": true
@@ -359,10 +359,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 50000,
           "minimum_target": 5000,
           "hard_limit": null
@@ -407,10 +407,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 5000,
           "minimum_target": 250,
           "hard_limit": null
@@ -455,10 +455,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 5000,
           "minimum_target": 500,
           "hard_limit": null
@@ -503,10 +503,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 30000,
           "minimum_target": 3000,
           "hard_limit": null
@@ -551,10 +551,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 10000,
           "minimum_target": 1000,
           "hard_limit": null
@@ -599,10 +599,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 100000,
           "minimum_target": 10000,
           "hard_limit": null
@@ -647,10 +647,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 30000,
           "minimum_target": 3000,
           "hard_limit": null
@@ -695,10 +695,10 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 43,
-          "historical_rows_yielded": 9.0,
-          "historical_docs": 54.0,
-          "rows_per_attempt": 0.129,
-          "publication_frequency_factor": 2.08,
+          "historical_rows_yielded": 12.0,
+          "historical_docs": 60.0,
+          "rows_per_attempt": 0.143,
+          "publication_frequency_factor": 2.2,
           "stretch_target": 20000,
           "minimum_target": 2000,
           "hard_limit": null
@@ -792,15 +792,15 @@
     {
       "dataset": "business_signal_library",
       "title": "Bootstrap New OECD Labor Publications",
-      "instruction": "Bootstrap New OECD Labor Publications — continuous knowledge manufacturing for business_signal_library (gap_score=94.232, universe_remaining=49985, mode=BOOTSTRAP)",
+      "instruction": "Bootstrap New OECD Labor Publications — continuous knowledge manufacturing for business_signal_library (gap_score=94.228, universe_remaining=49982, mode=BOOTSTRAP)",
       "mode": "BOOTSTRAP",
-      "knowledge_gap_score": 94.232,
-      "universe_gap": 49985,
-      "current_rows": 15,
+      "knowledge_gap_score": 94.228,
+      "universe_gap": 49982,
+      "current_rows": 18,
       "stretch_target": 50000,
       "minimum_target": 1000,
       "hard_limit": null,
-      "priority_reason": "mode=BOOTSTRAP; gap_score=94.232; opportunity=49985"
+      "priority_reason": "mode=BOOTSTRAP; gap_score=94.228; opportunity=49982"
     },
     {
       "dataset": "product_catalog",
@@ -851,18 +851,18 @@
     "cache_hit_rate": 0.0,
     "rows_produced": 3,
     "rows_rejected": 0,
-    "documents_processed": 54,
+    "documents_processed": 60,
     "rows_per_source": [
       {
         "source_id": "SRC-CROSSREF",
-        "rows": 6,
-        "documents": 25,
+        "rows": 8,
+        "documents": 30,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000004",
-        "rows": 2,
-        "documents": 9,
+        "rows": 3,
+        "documents": 10,
         "success_rate": 1.0
       },
       {
@@ -904,7 +904,7 @@
         "source_name": "BPS Indonesia",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 6203.0,
+        "elapsed_ms": 6143.3,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -922,7 +922,7 @@
         "source_name": "Kemenperin",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 3169.7,
+        "elapsed_ms": 3067.6,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -931,7 +931,7 @@
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 99.393
+        "rank_score": 99.339
       },
       {
         "connector_id": "CONN-ADB-001",
@@ -940,7 +940,7 @@
         "source_name": "Asian Development Bank",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 3115.3,
+        "elapsed_ms": 3124.7,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -949,7 +949,7 @@
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 96.305
+        "rank_score": 96.204
       },
       {
         "connector_id": "CONN-OECD-001",
@@ -958,7 +958,7 @@
         "source_name": "OECD",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 3168.6,
+        "elapsed_ms": 3124.0,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -976,18 +976,18 @@
         "source_name": "World Bank",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 1539.8,
+        "elapsed_ms": 1014.2,
         "documents_discovered": 1,
         "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-10T22:06:10+00:00",
+        "last_successful_sync": "2026-07-10T23:08:27+00:00",
         "urls": [
           "https://documents.worldbank.org/search?q=Bootstrap+Buyer+Persona+Library+—+continuous+knowledge+manufacturing+for+buyer_persona_library+(gap_score=142.5,+universe_remaining=5000,+mode=BOOTSTRAP)+Indonesia"
         ],
         "error": null,
-        "rank_score": 90.191
+        "rank_score": 90.716
       },
       {
         "connector_id": "CONN-OPENALEX-001",
@@ -996,7 +996,7 @@
         "source_name": "OpenAlex",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 386.7,
+        "elapsed_ms": 592.0,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -1014,13 +1014,13 @@
         "source_name": "Crossref",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 338.2,
+        "elapsed_ms": 313.6,
         "documents_discovered": 5,
         "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-10T22:06:08+00:00",
+        "last_successful_sync": "2026-07-10T23:08:27+00:00",
         "urls": [
           "https://api.crossref.org/works/10.32614/cran.package.bs4cards",
           "https://api.crossref.org/works/10.1016/j.array.2026.100744",
@@ -1029,54 +1029,54 @@
           "https://api.crossref.org/works/10.36227/techrxiv.16608487.v1"
         ],
         "error": null,
-        "rank_score": 80.0
+        "rank_score": 81.5
       }
     ],
     "rows_per_gb": 26136.34,
     "rows_per_api_call": 0.1154,
     "estimated_production_cost_usd": 0.026,
     "knowledge_roi": 115.38,
-    "attempts": 70
+    "attempts": 84
   },
   "capacity": {
     "rows_last_hour": 3,
-    "rows_today_approx": 11,
-    "rows_this_week": 11,
-    "rows_this_month": 11,
+    "rows_today_approx": 14,
+    "rows_this_week": 14,
+    "rows_this_month": 14,
     "sessions_last_hour": 1,
-    "sessions_24h": 31,
-    "sessions_7d": 31,
-    "sessions_30d": 31,
-    "rows_per_hour": 18.36,
-    "rows_per_day": 440.64,
-    "rows_per_week": 3084.48,
-    "rows_per_month": 13219.2,
-    "documents_per_hour": 30.6,
-    "candidates_per_hour": 22.95,
+    "sessions_24h": 32,
+    "sessions_7d": 32,
+    "sessions_30d": 32,
+    "rows_per_hour": 18.4,
+    "rows_per_day": 441.6,
+    "rows_per_week": 3091.2,
+    "rows_per_month": 13248.0,
+    "documents_per_hour": 30.67,
+    "candidates_per_hour": 23.0,
     "validation_throughput": "integrity_guard_inline",
     "publish_throughput": "append_only_csv",
     "connector_throughput": {
       "documents": 5,
       "rows": 3,
-      "documents_per_hour": 30.6,
-      "rows_per_hour": 18.36,
-      "documents_per_second": 0.008,
+      "documents_per_hour": 30.67,
+      "rows_per_hour": 18.4,
+      "documents_per_second": 0.009,
       "rows_per_second": 0.005
     },
-    "mission_throughput_sessions_24h": 31,
-    "growth_velocity_rows_per_day": 1.57
+    "mission_throughput_sessions_24h": 32,
+    "growth_velocity_rows_per_day": 2.0
   },
   "growth": {
-    "growth_velocity": 1.57,
-    "coverage_velocity": 440.64,
+    "growth_velocity": 2.0,
+    "coverage_velocity": 441.6,
     "freshness_velocity": null,
-    "knowledge_produced_total": 498
+    "knowledge_produced_total": 501
   },
   "top_dataset": "buyer_persona_library",
   "knowledge_gap_summary": {
     "highest_gap_dataset": "buyer_persona_library",
     "highest_gap_score": 142.5,
-    "total_universe_remaining": 389502
+    "total_universe_remaining": 389499
   },
   "governance": "IDA Dataset Factory has no predefined finish line. Success is knowledge growth, coverage, freshness, confidence, quality."
 }
