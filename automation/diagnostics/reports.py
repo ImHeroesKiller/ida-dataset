@@ -8,6 +8,7 @@ from typing import Any, Optional
 
 from automation.diagnostics.analyzer import analyze_root_cause
 from automation.diagnostics.collector import collect_full_bundle
+from automation.diagnostics.candidate_reports import write_candidate_lifecycle_reports
 from automation.lib.models import utc_now_iso
 from automation.lib.paths import find_repo_root
 
@@ -618,5 +619,14 @@ def write_diagnostics_bundle(
     p = out / "root_cause_analysis.md"
     _w(p, body)
     written["root_cause_analysis.md"] = str(p.relative_to(root))
+
+    # Candidate lifecycle diagnostics (validation / integrity / publisher)
+    try:
+        cand_written = write_candidate_lifecycle_reports(
+            repo_root=root, session=session if isinstance(session, dict) else None
+        )
+        written.update(cand_written)
+    except Exception:  # noqa: BLE001
+        pass
 
     return written
