@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260711-41DBF5",
-  "mission_id": "MIS-20260711-CF302E",
+  "session_id": "SESSION-20260711-9942B1",
+  "mission_id": "MIS-20260711-BEECA3",
   "progress": 100,
-  "current_thought": "Session completed · published=2 extracted=3 validated=2 rejected=1 docs=90 entity=Halal Industry",
+  "current_thought": "Session completed · published=0 extracted=4 validated=4 rejected=4 docs=73 entity=— · dry_run",
   "current_task": "Idle",
-  "last_learned": "Halal Industry",
-  "updated_at": "2026-07-11T17:59:27+00:00",
+  "last_learned": null,
+  "updated_at": "2026-07-11T18:54:30+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }

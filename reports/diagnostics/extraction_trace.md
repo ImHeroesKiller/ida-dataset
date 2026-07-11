@@ -1,6 +1,6 @@
 # Extraction Trace
 
-**Generated:** 2026-07-11T18:00:48+00:00
+**Generated:** 2026-07-11T18:55:52+00:00
 
 - Stage stats: `{}`
 - Fast: `None` · Medium: `None` · Deep: `None`
@@ -8,6 +8,7 @@
 
 | Candidate | Entity | Type/Dataset | Confidence | Stage | Validation | Publish |
 | --- | --- | --- | --- | --- | --- | --- |
-| CAND-5D05664CF73E | Halal Industry | industry_library | 0.92 | — | approved | published |
-| CAND-D5FB552C5669 | Electric Vehicle Ecosystem | industry_library | 0.8375 | — | approved | published |
-| CAND-E9B6307893CE | Nickel Downstream Industry | industry_library | 0.92 | — | pending | pending |
+| CAND-AF5EE372F987 | MSMEs / UMKM | industry_library | 0.92 | — | pending | manual_review |
+| CAND-AAC974FAABFD | Green Industry | industry_library | 0.8375 | — | pending | manual_review |
+| CAND-0273F818BCE5 | Nickel Downstream Industry | industry_library | 0.92 | — | pending | manual_review |
+| CAND-C16E21791B67 | Shared Services Centers | industry_library | 0.92 | — | pending | manual_review |

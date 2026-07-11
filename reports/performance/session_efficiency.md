@@ -1,15 +1,15 @@
 # Session Efficiency
 
-**Generated:** 2026-07-11T17:59:27+00:00
+**Generated:** 2026-07-11T18:54:30+00:00
 
 | Metric | Value |
 |--------|------:|
-| Sessions | 47 |
-| Sessions with rows | 14 |
-| Total rows | 47 |
-| Avg duration (s) | 304.809 |
+| Sessions | 48 |
+| Sessions with rows | 15 |
+| Total rows | 49 |
+| Avg duration (s) | 324.271 |
 | Max duration (s) | 2353.0 |
-| Rows/session | 3.357 |
+| Rows/session | 3.267 |
 | Top mission | Bootstrap Buyer Persona Library — continuous knowledge manufacturing for buyer_p |
 
 Mission density: hourly `learn.yml` + non-overlapping concurrency.

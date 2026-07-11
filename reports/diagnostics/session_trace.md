@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-07-11T18:00:48+00:00
+**Generated:** 2026-07-11T18:55:52+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260711-41DBF5 |
+| session_id | SESSION-20260711-9942B1 |
 | status | completed |
-| mission | Expand Industry Library |
-| trigger | mission |
-| dry_run | False |
-| duration_seconds | 1239.0 |
-| knowledge_added | 2 |
-| knowledge_rejected | 1 |
-| summary | Session completed · published=2 extracted=3 validated=2 rejected=1 docs=90 entity=Halal Industry |
-| start_time | 2026-07-11T17:38:48+00:00 |
-| end_time | 2026-07-11T17:59:27+00:00 |
+| mission | Expand Industry Library — factory learn cycle |
+| trigger | manual |
+| dry_run | True |
+| duration_seconds | 654.0 |
+| knowledge_added | 0 |
+| knowledge_rejected | 4 |
+| summary | Session completed · published=0 extracted=4 validated=4 rejected=4 docs=73 entity=— · dry_run |
+| start_time | 2026-07-11T18:43:36+00:00 |
+| end_time | 2026-07-11T18:54:30+00:00 |
 
 ## Pipeline stages
 
@@ -26,27 +26,27 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · |
-| source_discovery | completed | 2.6 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
-| connector_calls | completed | — | 28 | — | discovered=28 |
-| document_discovery | completed | 94110.4 | 204 | — |  |
-| documents_skipped | completed | — | 60 | — | duplicates_or_skips=60 |
-| document_download | completed | 370722.2 | 90 | — | downloaded=90 |
-| extraction | completed | 89.8 | — | 3 |  |
-| validation | completed | — | — | 2 |  |
-| publish | completed | — | — | 2 |  |
+| source_discovery | completed | 3.2 | — | — | connectors=[{'connector_id': 'CONN-CROSSREF-001', 'name': 'Crossref', 'source_id |
+| connector_calls | completed | — | 21 | — | discovered=21 |
+| document_discovery | completed | 6137.3 | 132 | — |  |
+| documents_skipped | completed | — | 59 | — | duplicates_or_skips=59 |
+| document_download | completed | 161423.7 | 73 | — | downloaded=73 |
+| extraction | completed | 68.6 | — | 4 |  |
+| validation | completed | — | — | 4 |  |
+| publish | completed | — | — | 0 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
-| end_session | completed | — | — | — | Session completed · published=2 extracted=3 validated=2 rejected=1 docs=90 entit |
+| end_session | completed | — | — | — | Session completed · published=0 extracted=4 validated=4 rejected=4 docs=73 entit |
 
 ## Funnel
 
 | Metric | Value |
 | --- | --- |
-| documents_discovered | 28 |
-| documents_downloaded | 90 |
-| documents_duplicates | 60 |
-| candidates_extracted | 3 |
-| candidates_validated | 2 |
-| candidates_rejected | 1 |
-| rows_published | 2 |
+| documents_discovered | 21 |
+| documents_downloaded | 73 |
+| documents_duplicates | 59 |
+| candidates_extracted | 4 |
+| candidates_validated | 4 |
+| candidates_rejected | 4 |
+| rows_published | 0 |
 
 **Next mission (rank #2):** `competitor_library`
