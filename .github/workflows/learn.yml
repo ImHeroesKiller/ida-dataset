@@ -288,28 +288,56 @@ jobs:
         env:
           GIT_SAFE_PUSH_RETRIES: "3"
 
-      # Hugging Face continuous dataset publish — NEVER fails manufacturing
+      # Hugging Face continuous dataset publish
+      # ALWAYS runs after successful learning + commit_session (even if learning dry_run).
+      # Learning dry_run must not block public export of existing domains.
+      # Manufacturing NEVER fails on HF errors (continue-on-error + exit 0), but errors are LOUD.
       - name: Publish Hugging Face dataset
         id: hf_publish
         if: >-
           always() &&
           steps.cfg.outputs.commit_session == 'true' &&
-          steps.cfg.outputs.dry_run != 'true' &&
           steps.learn.outputs.exit_code == '0'
         continue-on-error: true
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          # Optional override; Python defaults to ariew/ida-dataset when empty
           HF_DATASET_REPO: ${{ secrets.HF_DATASET_REPO }}
           PYTHONUNBUFFERED: "1"
+          IDA_COMMIT_SESSION: ${{ steps.cfg.outputs.commit_session }}
+          IDA_LEARNING_DRY_RUN: ${{ steps.cfg.outputs.dry_run }}
+          IDA_LEARN_EXIT_CODE: ${{ steps.learn.outputs.exit_code }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          GITHUB_SHA: ${{ github.sha }}
         run: |
           set +e
+          echo "============================================================"
+          echo "HF PUBLISH GATE (explicit — never silent)"
+          echo "============================================================"
+          echo "commit_session=${{ steps.cfg.outputs.commit_session }}"
+          echo "learning_dry_run=${{ steps.cfg.outputs.dry_run }}"
+          echo "learn_exit_code=${{ steps.learn.outputs.exit_code }}"
+          echo "branch=${{ github.ref_name }}"
+          echo "sha=${{ github.sha }}"
+          if [ -n "${HF_TOKEN}" ]; then
+            echo "HF_TOKEN=Detected (len=${#HF_TOKEN})"
+          else
+            echo "HF_TOKEN=Missing"
+          fi
+          echo "HF_DATASET_REPO=${HF_DATASET_REPO:-ariew/ida-dataset}"
+          echo "============================================================"
           python -m pip install -q "huggingface_hub>=0.23.0" "pyarrow>=14.0.0" || \
             python -m pip install -q huggingface_hub
-          python automation/ci/huggingface_publish.py --retries 3
+          # Live publish of current domains (learning dry_run does not block Hub export)
+          python automation/ci/huggingface_publish.py --retries 3 --force-full
           code=$?
           echo "hf_exit=${code}" >> "$GITHUB_OUTPUT"
-          # Always succeed this step — HF is retryable, not a manufacturing gate
+          if [ ! -f reports/huggingface/publish_trace.md ]; then
+            echo "WARN: publish_trace.md missing — publisher may have crashed early"
+          else
+            echo "Reports present under reports/huggingface/"
+            ls -la reports/huggingface/ || true
+          fi
+          # Always exit 0 so manufacturing is not gated; diagnostics already printed
           exit 0
 
       - name: Upload Hugging Face publish reports

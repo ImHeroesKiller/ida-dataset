@@ -1,21 +1,17 @@
 # Verification
 
-**Generated:** 2026-07-11T14:22:48+00:00
+**Generated:** 2026-07-11T15:03:27+00:00
 
-| Check | Value |
-|-------|------:|
-| Auth OK | None |
-| Repo exists | None |
-| Whoami | None |
-| Files checked | None |
-| Files found | None |
-| README present | None |
-| Verify OK | None |
+**Result: `FAIL`**
 
-## Missing files
+| Check | Status |
+|-------|--------|
+| Auth | FAIL |
+| Repo exists | FAIL |
+| README | FAIL |
+| CSV | FAIL |
+| JSONL | FAIL |
+| Parquet | N/A or FAIL |
+| Latest commit | — |
 
-- none
-
-## Errors
-
-- none
+Repository URL: https://huggingface.co/datasets/ariew/ida-dataset
