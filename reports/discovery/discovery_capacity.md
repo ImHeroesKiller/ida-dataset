@@ -1,15 +1,15 @@
 # Discovery Capacity
 
-**Generated:** 2026-07-11T18:51:43+00:00
+**Generated:** 2026-07-11T19:20:56+00:00
 
 | Dimension | Value |
 |-----------|------:|
 | Active providers | 7 |
 | Misconfigured providers | 0 |
-| Query budget (adaptive) | 42 |
-| URL budget (adaptive) | 600 |
-| Download budget | 150 |
-| Runtime budget (s) | 461.53 |
-| Per-provider results | 15 |
+| Query budget (adaptive) | 46 |
+| URL budget (adaptive) | 1506 |
+| Download budget | 500 |
+| Runtime budget (s) | 538.0 |
+| Per-provider results | 20 |
 
 Limiting factor should be provider quotas, runtime, or real source exhaustion — not code constants.
