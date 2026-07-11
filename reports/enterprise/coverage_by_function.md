@@ -48,4 +48,4 @@
 | Information Technology | 202 | 8/15 | 53.33% | 90 |
 | Finance | 112 | 9/15 | 60.0% | 95 |
 | Operations | 233 | 9/15 | 60.0% | 88 |
-| Manufacturing | 99 | 11/15 | 73.33% | 90 |
+| Manufacturing | 100 | 11/15 | 73.33% | 90 |

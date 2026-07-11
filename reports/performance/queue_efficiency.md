@@ -1,6 +1,6 @@
 # Queue Efficiency
 
-**Generated:** 2026-07-11T17:09:33+00:00
+**Generated:** 2026-07-11T17:59:27+00:00
 
 ## Depths
 
@@ -8,12 +8,12 @@
 |-------|--------|------:|
 | Document | incoming | 0 |
 | Document | processing | 0 |
-| Document | processed | 106 |
+| Document | processed | 104 |
 | Document | depth | 0 |
 | Candidate | pending | 0 |
-| Candidate | approved | 5 |
+| Candidate | approved | 3 |
 | Candidate | rejected | 0 |
-| Publish | depth | 6 |
+| Publish | depth | 7 |
 
 ## Starvation / imbalance
 
@@ -28,6 +28,6 @@
   "prefer_review_pending": false,
   "document_weight": 0.0,
   "candidate_weight": 0.0,
-  "publish_weight": 0.5454545454545454
+  "publish_weight": 0.7
 }
 ```

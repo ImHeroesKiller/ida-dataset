@@ -31,7 +31,7 @@
     {
       "id": "manufacturing",
       "name": "Manufacturing",
-      "rows": 99,
+      "rows": 100,
       "priority": 90
     },
     {
@@ -544,7 +544,7 @@
       "id": "manufacturing",
       "name": "Manufacturing",
       "priority": 90,
-      "rows": 99,
+      "rows": 100,
       "datasets_at_floor": 11,
       "datasets_total": 15,
       "coverage_pct": 73.33
@@ -573,21 +573,21 @@
       "id": "operations",
       "name": "Operations",
       "rows": 233,
-      "share_pct": 13.78,
+      "share_pct": 13.77,
       "priority": 88
     },
     {
       "id": "information_technology",
       "name": "Information Technology",
       "rows": 202,
-      "share_pct": 11.95,
+      "share_pct": 11.94,
       "priority": 90
     },
     {
       "id": "sales",
       "name": "Sales",
       "rows": 120,
-      "share_pct": 7.1,
+      "share_pct": 7.09,
       "priority": 86
     },
     {
@@ -600,8 +600,8 @@
     {
       "id": "manufacturing",
       "name": "Manufacturing",
-      "rows": 99,
-      "share_pct": 5.85,
+      "rows": 100,
+      "share_pct": 5.91,
       "priority": 90
     },
     {
@@ -615,7 +615,7 @@
       "id": "compliance",
       "name": "Compliance",
       "rows": 85,
-      "share_pct": 5.03,
+      "share_pct": 5.02,
       "priority": 90
     },
     {
@@ -1311,6 +1311,6 @@
     "business_priority": 95,
     "gap_score": 59.5
   },
-  "unclassified_rows": 40,
-  "labeled_assignments": 1691
+  "unclassified_rows": 41,
+  "labeled_assignments": 1692
 }

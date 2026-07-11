@@ -1,14 +1,14 @@
 # Root Cause Analysis
 
-**Generated:** 2026-07-11T17:10:54+00:00
-**Session:** `SESSION-20260711-29CE5A`
-**Mission:** `MIS-20260711-A8B8B6`
+**Generated:** 2026-07-11T18:00:48+00:00
+**Session:** `SESSION-20260711-41DBF5`
+**Mission:** `MIS-20260711-CF302E`
 
 > Diagnostics only. No fixes. Evidence only.
 
 ## Why no new rows?
 
-Latest evidence shows published=5; zero-row claim may refer to a later window.
+Latest evidence shows published=2; zero-row claim may refer to a later window.
 
 ## Exactly which stage stopped production?
 
@@ -24,20 +24,20 @@ Latest evidence shows published=5; zero-row claim may refer to a later window.
 
 ## What evidence proves it?
 
-- published=5
-- extracted=5
-- discovered=21 downloaded=95 duplicates=56
+- published=2
+- extracted=3
+- discovered=28 downloaded=90 duplicates=60
 
 ## Metrics snapshot
 
 ```json
 {
-  "documents_discovered": 21,
-  "documents_downloaded": 95,
-  "documents_duplicates": 56,
-  "candidates_extracted": 5,
-  "candidates_rejected": 0,
-  "rows_published": 5,
+  "documents_discovered": 28,
+  "documents_downloaded": 90,
+  "documents_duplicates": 60,
+  "candidates_extracted": 3,
+  "candidates_rejected": 1,
+  "rows_published": 2,
   "dry_run": false,
   "fingerprint_urls_known": 148,
   "selected_dataset": "service_library"
@@ -49,9 +49,9 @@ Latest evidence shows published=5; zero-row claim may refer to a later window.
 
 Session published rows; if overnight gap exists, examine later sessions.
 
-- `published=5`
-- `extracted=5`
-- `discovered=21 downloaded=95 duplicates=56`
+- `published=2`
+- `extracted=3`
+- `discovered=28 downloaded=90 duplicates=60`
 
 ### Finding 2
 

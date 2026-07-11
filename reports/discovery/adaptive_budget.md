@@ -1,26 +1,26 @@
 # Adaptive Budget
 
-**Generated:** 2026-07-11T16:42:46+00:00
+**Generated:** 2026-07-11T17:51:41+00:00
 
 Budgets scale with mission priority, knowledge gap, queue health, provider health, worker capacity, and runtime.
 
 | Budget | Value |
 |--------|------:|
-| `query_budget` | 46 |
-| `url_budget` | 1500 |
-| `per_provider_results` | 20 |
-| `feed_source_budget` | 17 |
-| `domain_budget` | 17 |
+| `query_budget` | 42 |
+| `url_budget` | 600 |
+| `per_provider_results` | 15 |
+| `feed_source_budget` | 18 |
+| `domain_budget` | 18 |
 | `max_provider_rounds` | 3 |
-| `runtime_budget_s` | 507.51800000000003 |
-| `download_budget` | 500 |
-| `extraction_budget` | 500 |
-| `publish_budget` | 500 |
-| `source_select_budget` | 17 |
+| `runtime_budget_s` | 461.56 |
+| `download_budget` | 150 |
+| `extraction_budget` | 150 |
+| `publish_budget` | 150 |
+| `source_select_budget` | 18 |
 | `worker_capacity` | 4 |
-| `gap_score` | 89.518 |
-| `gap_rows` | 29942.0 |
-| `coverage_pct` | 0.19 |
+| `gap_score` | 79.56 |
+| `gap_rows` | 6545.0 |
+| `coverage_pct` | 1.1 |
 | `mission_priority` | high |
 | `queue_pressure` | 0.03 |
 | `providers_active` | 7 |

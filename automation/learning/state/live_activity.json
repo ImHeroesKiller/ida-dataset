@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260711-29CE5A",
-  "mission_id": "MIS-20260711-A8B8B6",
+  "session_id": "SESSION-20260711-41DBF5",
+  "mission_id": "MIS-20260711-CF302E",
   "progress": 100,
-  "current_thought": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=95 entity=World Bank document",
+  "current_thought": "Session completed · published=2 extracted=3 validated=2 rejected=1 docs=90 entity=Halal Industry",
   "current_task": "Idle",
-  "last_learned": "World Bank document",
-  "updated_at": "2026-07-11T17:09:33+00:00",
+  "last_learned": "Halal Industry",
+  "updated_at": "2026-07-11T17:59:27+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }

@@ -4,17 +4,17 @@ Top function (volume): **Operations** (233 labeled rows)
 
 Weakest function (volume): **PMO** (0 labeled rows)
 
-Unclassified rows (no keyword hit): **40**
+Unclassified rows (no keyword hit): **41**
 
 | Function | Rows | Share % | Priority |
 |----------|------|---------|----------|
-| Operations | 233 | 13.78% | 88 |
-| Information Technology | 202 | 11.95% | 90 |
-| Sales | 120 | 7.1% | 86 |
+| Operations | 233 | 13.77% | 88 |
+| Information Technology | 202 | 11.94% | 90 |
+| Sales | 120 | 7.09% | 86 |
 | Finance | 112 | 6.62% | 95 |
-| Manufacturing | 99 | 5.85% | 90 |
+| Manufacturing | 100 | 5.91% | 90 |
 | Procurement | 94 | 5.56% | 90 |
-| Compliance | 85 | 5.03% | 90 |
+| Compliance | 85 | 5.02% | 90 |
 | Logistics | 79 | 4.67% | 80 |
 | Cloud | 77 | 4.55% | 80 |
 | Corporate Strategy | 45 | 2.66% | 92 |
