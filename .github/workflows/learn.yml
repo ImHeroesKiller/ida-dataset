@@ -92,6 +92,9 @@ jobs:
       COMMONCRAWL_ENABLED: ${{ secrets.COMMONCRAWL_ENABLED || '1' }}
       OPENALEX_EMAIL: ${{ secrets.OPENALEX_EMAIL }}
       CROSSREF_MAILTO: ${{ secrets.CROSSREF_MAILTO }}
+      UNPAYWALL_EMAIL: ${{ secrets.UNPAYWALL_EMAIL }}
+      CORE_API_KEY: ${{ secrets.CORE_API_KEY }}
+      IDA_FULLTEXT_ENABLED: ${{ secrets.IDA_FULLTEXT_ENABLED || '1' }}
 
     steps:
       - name: Checkout

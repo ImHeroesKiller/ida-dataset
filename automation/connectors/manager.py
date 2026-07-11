@@ -245,6 +245,7 @@ class ConnectorManager:
             dry = bool(cfg.get("dry_run", False))
             doc = self.retry.run(cid, _download, dry_run=dry)
             # Persist text payload into document metadata for extractors
+            content_path = doc.local_path
             if doc.local_path:
                 try:
                     from pathlib import Path
@@ -256,11 +257,31 @@ class ConnectorManager:
                             **(doc.metadata or {}),
                             "text_excerpt": text[:8000],
                             "text_length": len(text),
+                            "content_path": str(p),
                         }
                 except Exception:  # noqa: BLE001
                     pass
+            # Full-text acquisition: upgrade metadata/API shells to richest legal body
+            if not dry:
+                try:
+                    from automation.acquisition.fulltext.chain import enrich_document_ref
+
+                    enrich_document_ref(doc)
+                    if doc.local_path:
+                        content_path = doc.local_path
+                except Exception:  # noqa: BLE001
+                    pass
             path = self.queue.enqueue(doc)
-            doc.local_path = str(path)
+            # Keep content path for extractors; queue JSON path stored in metadata
+            doc.metadata = {
+                **(doc.metadata or {}),
+                "queue_path": str(path),
+                "content_path": content_path or (doc.metadata or {}).get("content_path"),
+            }
+            if content_path:
+                doc.local_path = content_path
+            else:
+                doc.local_path = str(path)
             self.metrics.bump(cid, downloads=1, documents_retrieved=1, queue_added=1)
             self.events.emit(
                 "queue_added",

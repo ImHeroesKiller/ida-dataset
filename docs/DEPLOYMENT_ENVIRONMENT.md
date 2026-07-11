@@ -37,6 +37,9 @@ Core factory, mission engine, validation, and exports operate without paid disco
 |----------|----------|
 | `OPENALEX_EMAIL` | OpenAlex polite pool (optional mailto) |
 | `CROSSREF_MAILTO` | Crossref User-Agent mailto (optional) |
+| `UNPAYWALL_EMAIL` | Unpaywall API email (required for OA PDF discovery) |
+| `CORE_API_KEY` | CORE API bearer (optional; higher rate limits) |
+| `IDA_FULLTEXT_ENABLED` | Full-text framework toggle (default `1`; set `0` to disable) |
 
 ---
 

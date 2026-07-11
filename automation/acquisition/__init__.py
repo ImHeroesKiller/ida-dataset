@@ -21,3 +21,5 @@ __all__ = [
     "run_discovery",
     "DiscoveryRegistry",
 ]
+
+# Full-text framework is imported on demand from automation.acquisition.fulltext

@@ -524,12 +524,27 @@ def run_acquisition(
     conn_download_counts: dict[str, int] = {c["connector_id"]: 0 for c in connector_rows}
 
     def _fetch_one(res: Any) -> dict[str, Any]:
-        """Single-document acquire with fallback; runs in worker pool."""
+        """Single-document acquire with full-text enrichment; runs in worker pool."""
+        def _enrich(d: dict[str, Any], mode: str) -> dict[str, Any]:
+            try:
+                from automation.acquisition.fulltext.chain import enrich_document_dict
+
+                d = enrich_document_dict(d, repo_root=root)
+                ft = (d.get("metadata") or {}).get("fulltext") or {}
+                if ft.get("result") == "enriched":
+                    mode = f"{mode}+fulltext"
+            except Exception:  # noqa: BLE001
+                pass
+            return d, mode
+
         try:
             emit("Downloading", f"Downloading report {str(res.title or '')[:80]}")
             doc = manager.acquire(res, mission_id=mission_id)
             d = doc.to_dict()
             fetch_mode = "download"
+            # acquire() already runs fulltext; keep mode tag if enriched
+            if ((d.get("metadata") or {}).get("fulltext") or {}).get("result") == "enriched":
+                fetch_mode = "download+fulltext"
             return {"ok": True, "res": res, "doc": d, "fetch_mode": fetch_mode, "error": None}
         except Exception as exc:  # noqa: BLE001
             try:
@@ -558,27 +573,30 @@ def run_acquisition(
                     if dm.get("local_path"):
                         d["local_path"] = dm["local_path"]
                     d["bytes"] = int(dm.get("bytes") or 0)
+                    d, mode = _enrich(d, "download_manager")
                     return {
                         "ok": True,
                         "res": res,
                         "doc": d,
-                        "fetch_mode": "download_manager",
+                        "fetch_mode": mode,
                         "error": str(exc),
                     }
+                d, mode = _enrich(d, "metadata_fallback")
                 return {
                     "ok": True,
                     "res": res,
                     "doc": d,
-                    "fetch_mode": "metadata_fallback",
+                    "fetch_mode": mode,
                     "error": str(exc),
                 }
             except Exception as exc2:  # noqa: BLE001
                 d = _document_from_search_result(res, mission_id=mission_id)
+                d, mode = _enrich(d, "metadata_fallback")
                 return {
                     "ok": True,
                     "res": res,
                     "doc": d,
-                    "fetch_mode": "metadata_fallback",
+                    "fetch_mode": mode,
                     "error": f"{exc}/{exc2}",
                 }
 
@@ -1528,6 +1546,40 @@ def _finalize_audit(
     except Exception as exc:  # noqa: BLE001
         audit["failures"].append(f"report_write_failed:{exc}")
         emit("Reports", f"Report write failed: {exc}")
+    # Full-text acquisition stats + reports (acquisition extension only)
+    try:
+        from automation.acquisition.fulltext.chain import get_session, persist_session_stats
+        from automation.acquisition.fulltext.reports import write_fulltext_reports
+
+        ft_path = persist_session_stats(get_session(), repo_root=trace.repo_root)
+        ft_stats = get_session().snapshot()
+        audit["fulltext"] = {
+            k: ft_stats.get(k)
+            for k in (
+                "attempts",
+                "enriched",
+                "metadata_pct",
+                "fulltext_pct",
+                "pdf_pct",
+                "html_pct",
+                "doi_resolution_rate",
+                "doi_fulltext_rate",
+                "avg_content_size",
+                "avg_richness",
+                "open_access",
+                "publisher",
+            )
+        }
+        ft_written = write_fulltext_reports(ft_stats, repo_root=trace.repo_root)
+        audit.setdefault("reports", {})["fulltext"] = ft_written
+        emit(
+            "FullText",
+            f"enriched={ft_stats.get('enriched')} metadata%={ft_stats.get('metadata_pct')} "
+            f"fulltext%={ft_stats.get('fulltext_pct')} doi_ft={ft_stats.get('doi_fulltext_rate')}% "
+            f"avg_chars={ft_stats.get('avg_content_size')} ({ft_path.name})",
+        )
+    except Exception as exc:  # noqa: BLE001
+        audit["failures"].append(f"fulltext_report_failed:{exc}")
     return audit
 
 

@@ -212,6 +212,21 @@ export type ExecutiveFactoryView = {
     knowledge_yield: number;
     provider_utilization_top: string;
   };
+  /** Full-text acquisition (metrics only — no layout redesign) */
+  fulltext: {
+    metadata_pct: number;
+    fulltext_pct: number;
+    pdf_pct: number;
+    html_pct: number;
+    avg_richness: number;
+    avg_content_size: number;
+    doi_resolution_rate: number;
+    doi_fulltext_rate: number;
+    open_access: number;
+    publisher: number;
+    repository: number;
+    enriched: number;
+  };
   /** Continuous manufacturing intelligence (real state only) */
   manufacturing: {
     mode: string;
@@ -360,6 +375,8 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
     readJson(repoPath("automation/learning/state/production_trace.json")) || {};
   const discoveryAnalytics =
     readJson(repoPath("automation/learning/state/discovery_analytics.json")) || {};
+  const fulltextAcquisition =
+    readJson(repoPath("automation/learning/state/fulltext_acquisition.json")) || {};
   const manufacturingState =
     readJson(repoPath("automation/learning/state/manufacturing_state.json")) || {};
   const throughputStats =
@@ -747,6 +764,20 @@ export function getExecutiveFactoryView(): ExecutiveFactoryView {
         provider_utilization_top: topUtilName,
       };
     })(),
+    fulltext: {
+      metadata_pct: Number(fulltextAcquisition.metadata_pct || 0),
+      fulltext_pct: Number(fulltextAcquisition.fulltext_pct || 0),
+      pdf_pct: Number(fulltextAcquisition.pdf_pct || 0),
+      html_pct: Number(fulltextAcquisition.html_pct || 0),
+      avg_richness: Number(fulltextAcquisition.avg_richness || 0),
+      avg_content_size: Number(fulltextAcquisition.avg_content_size || 0),
+      doi_resolution_rate: Number(fulltextAcquisition.doi_resolution_rate || 0),
+      doi_fulltext_rate: Number(fulltextAcquisition.doi_fulltext_rate || 0),
+      open_access: Number(fulltextAcquisition.open_access || 0),
+      publisher: Number(fulltextAcquisition.publisher || 0),
+      repository: Number(fulltextAcquisition.repository || 0),
+      enriched: Number(fulltextAcquisition.enriched || 0),
+    },
     manufacturing: (() => {
       const modeObj = (manufacturingState.mode || {}) as Record<string, unknown>;
       const gap = (manufacturingState.knowledge_gap_summary ||

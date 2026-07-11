@@ -282,6 +282,7 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
   };
   const production = exec?.production;
   const discovery = exec?.discovery;
+  const fulltext = exec?.fulltext;
   const manufacturing = exec?.manufacturing;
 
   /** Production Status card values: Running | Idle | Publishing | Failed */
@@ -746,6 +747,30 @@ export function FactoryDashboard({ kpis: initialKpis }: { kpis: FactoryKpis }) {
             label="Top producing connector"
             value={String(production?.last_connector || "—")}
           />
+        </div>
+      </Card>
+
+      {/* Full-text acquisition metrics — metrics-only evolution (no redesign) */}
+      <Card>
+        <CardHeader
+          title="Full-text acquisition"
+          description="DOI resolution · representation richness · metadata last-resort"
+        />
+        <CardBody className="grid gap-3 p-6 sm:grid-cols-2 lg:grid-cols-5">
+          <CounterCard label="Metadata %" value={fulltext?.metadata_pct || 0} tone="neutral" />
+          <CounterCard label="Full-text %" value={fulltext?.fulltext_pct || 0} tone="green" />
+          <CounterCard label="PDF %" value={fulltext?.pdf_pct || 0} tone="blue" />
+          <CounterCard label="HTML %" value={fulltext?.html_pct || 0} tone="blue" />
+          <CounterCard label="Enriched" value={fulltext?.enriched || 0} tone="green" />
+        </CardBody>
+        <div className="grid gap-3 border-t border-[var(--border)] px-6 py-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+          <Stat label="Avg richness score" value={String(fulltext?.avg_richness ?? "—")} />
+          <Stat label="Avg content size" value={String(fulltext?.avg_content_size ?? "—")} />
+          <Stat label="DOI resolution %" value={String(fulltext?.doi_resolution_rate ?? "—")} />
+          <Stat label="DOI → full-text %" value={String(fulltext?.doi_fulltext_rate ?? "—")} />
+          <Stat label="Open access hits" value={String(fulltext?.open_access ?? "—")} />
+          <Stat label="Publisher hits" value={String(fulltext?.publisher ?? "—")} />
+          <Stat label="Repository hits" value={String(fulltext?.repository ?? "—")} />
         </div>
       </Card>
 
