@@ -1,6 +1,6 @@
 # worktree_before_certify.md
 
-- **time:** 2026-07-11T21:10:34Z
+- **time:** 2026-07-11T22:15:40Z
 
 ## git status --porcelain=v1
 
@@ -96,10 +96,10 @@
  M reports/reliability/git_worktree_trace.md
  M reports/reliability/worktree_before_sync.md
  M reports/reliability/writer_finalize.json
-?? automation/learning/state/sessions/SES-20260711-AB2D95.jsonl
-?? automation/sessions/2026-07-11/SESSION-20260711-EDE650.json
-?? reports/production/production_trace_SES-20260711-AB2D95.json
-?? reports/production/sessions/SES-20260711-AB2D95/
+?? automation/learning/state/sessions/SES-20260711-D442E3.jsonl
+?? automation/sessions/2026-07-11/SESSION-20260711-4D5D42.json
+?? reports/production/production_trace_SES-20260711-D442E3.json
+?? reports/production/sessions/SES-20260711-D442E3/
 ```
 
 ## git diff --name-only
@@ -201,23 +201,23 @@ reports/reliability/writer_finalize.json
 ## git diff --stat
 
 ```
- .../learning/state/acquisition_performance.json    |  294 +--
+ .../learning/state/acquisition_performance.json    |  298 +--
  automation/learning/state/current_snapshot.json    |    6 +-
  automation/learning/state/daily_2026-07-11.json    |    4 +-
- automation/learning/state/discovery_analytics.json |  856 +++++--
- automation/learning/state/learning_journal.jsonl   |  631 ++++++
+ automation/learning/state/discovery_analytics.json |  698 +++----
+ automation/learning/state/learning_journal.jsonl   |  582 ++++++
  automation/learning/state/live_activity.json       |    8 +-
- automation/learning/state/manufacturing_state.json |  297 ++-
- automation/learning/state/production_trace.json    | 2392 +++++++++++++-------
+ automation/learning/state/manufacturing_state.json |  308 +--
+ automation/learning/state/production_trace.json    | 2122 +++++++++++---------
  automation/learning/state/snapshot_2026-07-11.json |    6 +-
  automation/learning/state/source_health.json       |   86 +-
- automation/learning/state/source_performance.json  |   78 +-
- automation/sessions/index.json                     |   30 +-
+ automation/learning/state/source_performance.json  |   96 +-
+ automation/sessions/index.json                     |   58 +-
  .../business_signal_library.csv                    |    5 +
  reports/diagnostics/candidate_lifecycle.md         |   16 +-
  reports/diagnostics/candidate_root_cause.md        |   32 +-
  reports/diagnostics/dataset_validation_summary.md  |    4 +-
- reports/diagnostics/document_trace.md              |  132 +-
+ reports/diagnostics/document_trace.md              |  125 +-
  reports/diagnostics/extraction_trace.md            |   12 +-
  reports/diagnostics/false_negative_analysis.md     |   12 +-
  reports/diagnostics/integrity_trace.md             |  116 +-
@@ -232,25 +232,25 @@ reports/reliability/writer_finalize.json
  reports/diagnostics/source_trace.md                |   30 +-
  reports/diagnostics/validation_statistics.md       |    2 +-
  reports/diagnostics/validation_trace.md            |  124 +-
- reports/discovery/accepted_urls.md                 |  122 +-
+ reports/discovery/accepted_urls.md                 |  125 +-
  reports/discovery/adaptive_budget.md               |    2 +-
  reports/discovery/discovery_capacity.md            |    2 +-
  reports/discovery/environment_audit.md             |    2 +-
- reports/discovery/hard_limit_audit.md              |    4 +-
+ reports/discovery/hard_limit_audit.md              |   16 +-
  reports/discovery/provider_audit.md                |    8 +-
- reports/discovery/provider_exhaustion.md           |    6 +-
+ reports/discovery/provider_exhaustion.md           |    4 +-
  reports/discovery/provider_health.md               |    4 +-
  reports/discovery/provider_ranking.md              |    6 +-
  reports/discovery/provider_statistics.md           |   20 +-
  reports/discovery/provider_yield.md                |    6 +-
- reports/discovery/query_statistics.md              |   36 +-
- reports/discovery/rejected_urls.md                 |   25 +
- reports/discovery/reputation_scores.md             |    6 +-
+ reports/discovery/query_statistics.md              |   42 +-
+ reports/discovery/rejected_urls.md                 |    7 +-
+ reports/discovery/reputation_scores.md             |    8 +-
  reports/discovery/throughput_analysis.md           |   10 +-
- reports/discovery/trusted_source_usage.md          |   10 +-
- reports/fulltext/acquisition_success.md            |   50 +-
+ reports/discovery/trusted_source_usage.md          |    8 +-
+ reports/fulltext/acquisition_success.md            |   56 +-
  reports/fulltext/content_richness.md               |   10 +-
- reports/fulltext/doi_resolution.md                 |   14 +-
+ reports/fulltext/doi_resolution.md                 |    8 +-
  reports/fulltext/fallback_chain.md                 |    2 +-
  reports/fulltext/fulltext_statistics.md            |   16 +-
  reports/fulltext/knowledge_gain_projection.md      |   16 +-
@@ -258,11 +258,11 @@ reports/reliability/writer_finalize.json
  reports/fulltext/repository_statistics.md          |    6 +-
  reports/fulltext/representation_quality.md         |   10 +-
  reports/fulltext/validation_before_after.md        |   14 +-
- reports/manufacturing/factory_economics.md         |   28 +-
- reports/manufacturing/growth_velocity.md           |   46 +-
+ reports/manufacturing/factory_economics.md         |   38 +-
+ reports/manufacturing/growth_velocity.md           |   40 +-
  reports/manufacturing/knowledge_gap.md             |    4 +-
  reports/manufacturing/knowledge_universe.md        |    2 +-
- reports/manufacturing/production_capacity.md       |   20 +-
+ reports/manufacturing/production_capacity.md       |   18 +-
  reports/manufacturing/scheduler_decisions.md       |    2 +-
  reports/performance/api_statistics.md              |   14 +-
  reports/performance/cache_statistics.md            |    4 +-
@@ -271,28 +271,28 @@ reports/reliability/writer_finalize.json
  reports/performance/crawler_statistics.md          |   56 +-
  reports/performance/download_statistics.md         |   26 +-
  reports/performance/extraction_statistics.md       |   26 +-
- reports/performance/factory_capacity.md            |   20 +-
+ reports/performance/factory_capacity.md            |   18 +-
  reports/performance/pipeline_bottleneck.md         |   48 +-
  reports/performance/production_capacity.md         |   16 +-
  reports/performance/queue_efficiency.md            |    4 +-
- reports/performance/session_efficiency.md          |   14 +-
+ reports/performance/session_efficiency.md          |   12 +-
  reports/performance/source_efficiency.md           |   16 +-
- reports/performance/source_ranking.md              |    6 +-
+ reports/performance/source_ranking.md              |    8 +-
  reports/performance/stage_timings.md               |   12 +-
  reports/performance/throughput.md                  |   16 +-
  reports/performance/throughput_report.md           |   18 +-
  reports/performance/worker_utilization.md          |   10 +-
  reports/production/candidate_pipeline.md           |   12 +-
- reports/production/connector_summary.md            |   34 +-
- reports/production/document_pipeline.md            |  128 +-
- reports/production/evidence_trace.md               |   50 +-
- reports/production/production_trace.md             |   34 +-
+ reports/production/connector_summary.md            |   22 +-
+ reports/production/document_pipeline.md            |  127 +-
+ reports/production/evidence_trace.md               |   38 +-
+ reports/production/production_trace.md             |   32 +-
  reports/production/publish_pipeline.md             |    2 +-
- reports/production/runtime_statistics.md           |   34 +-
+ reports/production/runtime_statistics.md           |   32 +-
  reports/reliability/git_worktree_trace.md          |  318 +++
- reports/reliability/worktree_before_sync.md        |  132 +-
+ reports/reliability/worktree_before_sync.md        |   74 +-
  reports/reliability/writer_finalize.json           |    2 +-
- 91 files changed, 4582 insertions(+), 2280 deletions(-)
+ 91 files changed, 3653 insertions(+), 2700 deletions(-)
 ```
 
 ## git diff --cached --name-only
