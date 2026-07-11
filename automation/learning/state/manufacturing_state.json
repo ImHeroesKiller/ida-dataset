@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-07-11T14:17:17+00:00",
+  "updated_at": "2026-07-11T14:34:25+00:00",
   "continuous_manufacturing": true,
   "never_stop_at_numeric_target": true,
   "mode": {
@@ -1083,7 +1083,7 @@
     "bandwidth_gb": 0.617884,
     "api_requests": 260,
     "cache_hits": 0,
-    "cache_misses": 64,
+    "cache_misses": 0,
     "cache_hit_rate": 0.0,
     "rows_produced": 39,
     "rows_rejected": 0,

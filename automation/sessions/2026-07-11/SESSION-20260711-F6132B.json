@@ -1,0 +1,137 @@
+{
+  "session_id": "SESSION-20260711-F6132B",
+  "start_time": "2026-07-11T14:34:40+00:00",
+  "end_time": null,
+  "duration_seconds": null,
+  "knowledge_added": 0,
+  "knowledge_updated": 0,
+  "knowledge_rejected": 0,
+  "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+  "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+  "status": "running",
+  "errors": [],
+  "summary": "Learning session starting",
+  "trigger": "manual",
+  "dry_run": true,
+  "environment": "development",
+  "planner_output": null,
+  "connector_output": null,
+  "knowledge_delta": null,
+  "publish_summary": null,
+  "telemetry": {
+    "scheduler_tick": {
+      "ok": true,
+      "allocation": {
+        "continuous": 85.0,
+        "directed": 0.0,
+        "maintenance": 5.0,
+        "ontology": 5.0,
+        "policy": 5.0,
+        "profile": "idle",
+        "updated_at": "2026-07-11T14:34:40+00:00"
+      },
+      "dispatched": null
+    }
+  },
+  "logs": [
+    "[2026-07-11T14:34:40+00:00] Session: Learning session SESSION-20260711-F6132B started via manual",
+    "[2026-07-11T14:34:40+00:00] Scheduler: Continuous Learning Scheduler tick (GHA execution)",
+    "[2026-07-11T14:34:40+00:00] Scheduler: Scheduler tick complete — continuous learning allocated"
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "ts": "2026-07-11T14:34:40+00:00",
+      "verb": "Session",
+      "detail": "Learning session SESSION-20260711-F6132B started via manual",
+      "stage": "session",
+      "status": "started",
+      "dataset": null,
+      "mission_id": null,
+      "session_id": "SESSION-20260711-F6132B",
+      "progress": 1,
+      "current_task": "Session bootstrap",
+      "current_entity": null,
+      "current_document": null,
+      "current_source": null,
+      "current_relationship": null,
+      "confidence": null,
+      "duration_ms": null,
+      "meta": {}
+    },
+    {
+      "seq": 2,
+      "ts": "2026-07-11T14:34:40+00:00",
+      "verb": "Scheduler",
+      "detail": "Continuous Learning Scheduler tick (GHA execution)",
+      "stage": "scheduler",
+      "status": "started",
+      "dataset": null,
+      "mission_id": null,
+      "session_id": "SESSION-20260711-F6132B",
+      "progress": 5,
+      "current_task": "Continuous Learning Scheduler tick (GHA execution)",
+      "current_entity": null,
+      "current_document": null,
+      "current_source": null,
+      "current_relationship": null,
+      "confidence": null,
+      "duration_ms": null,
+      "meta": {}
+    },
+    {
+      "seq": 3,
+      "ts": "2026-07-11T14:34:40+00:00",
+      "verb": "Scheduler",
+      "detail": "Scheduler tick complete — continuous learning allocated",
+      "stage": "scheduler",
+      "status": "completed",
+      "dataset": null,
+      "mission_id": null,
+      "session_id": "SESSION-20260711-F6132B",
+      "progress": 12,
+      "current_task": "Scheduler tick complete — continuous learning allocated",
+      "current_entity": null,
+      "current_document": null,
+      "current_source": null,
+      "current_relationship": null,
+      "confidence": null,
+      "duration_ms": null,
+      "meta": {
+        "allocation": {
+          "continuous": 85.0,
+          "directed": 0.0,
+          "maintenance": 5.0,
+          "ontology": 5.0,
+          "policy": 5.0,
+          "profile": "idle",
+          "updated_at": "2026-07-11T14:34:40+00:00"
+        }
+      }
+    }
+  ],
+  "github": {
+    "run_id": "29156342559",
+    "run_number": "29",
+    "workflow": "Learn",
+    "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+    "actor": "ImHeroesKiller",
+    "event_name": "workflow_dispatch",
+    "sha": "4bca13972cb3753a091eb68db28e20776e8b6e01",
+    "ref": "refs/heads/main",
+    "repository": "ImHeroesKiller/ida-dataset",
+    "server_url": "https://github.com"
+  },
+  "execution_model": "github_actions",
+  "architecture": [
+    "Scheduler",
+    "Planner",
+    "Policy",
+    "Connector Manager",
+    "Pipeline",
+    "Review",
+    "Publisher",
+    "Telemetry"
+  ],
+  "mission_id": null
+}
