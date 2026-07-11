@@ -1,8 +1,8 @@
 {
-  "started_at": "2026-07-11T08:31:33+00:00",
-  "mission_id": "MIS-20260711-CBA9CC",
-  "session_id": "SES-20260711-C77248",
-  "instruction": "Bootstrap BPO Services Indonesia — continuous knowledge manufacturing for service_library (gap_score=112.922, universe_remaining=49935, mode=BOOTSTRAP)",
+  "started_at": "2026-07-11T10:21:00+00:00",
+  "mission_id": "MIS-20260711-2A6107",
+  "session_id": "SES-20260711-5BAD14",
+  "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
     "dataset": "service_library",
@@ -16,13 +16,13 @@
     "priority": "high",
     "continuous": true
   },
-  "queries_generated": 13,
-  "queries_executed": 21,
+  "queries_generated": 16,
+  "queries_executed": 23,
   "urls_discovered": 9,
   "urls_accepted": 3,
   "urls_rejected": 6,
   "duplicate_urls": 6,
-  "elapsed_ms": 545108.8,
+  "elapsed_ms": 1146287.2,
   "providers": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -52,7 +52,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 209833.0,
+      "elapsed_ms": 441273.3,
       "status": "ready",
       "credentials_available": true
     },
@@ -68,7 +68,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 167350.4,
+      "elapsed_ms": 351510.9,
       "status": "ready",
       "credentials_available": true
     },
@@ -84,7 +84,7 @@
       "queries": 1,
       "urls": 3,
       "cache_hits": 0,
-      "elapsed_ms": 167903.2,
+      "elapsed_ms": 353477.3,
       "status": "ready",
       "credentials_available": true
     },
@@ -97,7 +97,7 @@
         "status": "idle",
         "message": "optional"
       },
-      "queries": 6,
+      "queries": 8,
       "urls": 0,
       "cache_hits": 0,
       "elapsed_ms": 0.0,
@@ -108,7 +108,7 @@
   "query_stats": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id bootstrap bpo services continuous indonesia",
+      "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "site",
@@ -117,7 +117,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id intitle:bootstrap bootstrap bpo services continuous indonesia",
+      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "intitle",
@@ -126,7 +126,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id bootstrap bpo services continuous indonesia",
+      "query": "site:kemenperin.go.id corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "site",
@@ -135,7 +135,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id intitle:bootstrap bootstrap bpo services continuous indonesia",
+      "query": "site:kemenperin.go.id intitle:corporate corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "intitle",
@@ -144,7 +144,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org bootstrap bpo services continuous indonesia",
+      "query": "site:adb.org corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "site",
@@ -153,7 +153,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org intitle:bootstrap bootstrap bpo services continuous indonesia",
+      "query": "site:adb.org intitle:corporate corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "intitle",
@@ -162,7 +162,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org bootstrap bpo services continuous indonesia",
+      "query": "site:oecd.org corporate governance service continuous",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "site",
@@ -171,7 +171,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org intitle:bootstrap bootstrap bpo services continuous indonesia",
+      "query": "site:oecd.org intitle:corporate corporate governance service continuous",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "intitle",
@@ -180,7 +180,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org bootstrap bpo services continuous indonesia",
+      "query": "site:worldbank.org corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "site",
@@ -189,7 +189,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org intitle:bootstrap bootstrap bpo services continuous indonesia",
+      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "intitle",
@@ -198,7 +198,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org bootstrap bpo services continuous indonesia",
+      "query": "site:crossref.org corporate governance service continuous",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "kind": "site",
@@ -207,7 +207,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:crossref.org intitle:bootstrap bootstrap bpo services continuous indonesia",
+      "query": "site:crossref.org intitle:corporate corporate governance service continuous",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
       "kind": "intitle",
@@ -218,23 +218,23 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 209833.0
+      "elapsed_ms": 441273.3
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 167350.4
+      "elapsed_ms": 351510.9
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 3,
-      "elapsed_ms": 167903.2
+      "elapsed_ms": 353477.3
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id bootstrap bpo services continuous indonesia",
+      "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
@@ -243,7 +243,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:kemenperin.go.id bootstrap bpo services continuous indonesia",
+      "query": "site:kemenperin.go.id corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
@@ -252,7 +252,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:adb.org bootstrap bpo services continuous indonesia",
+      "query": "site:adb.org corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "urls": 0,
@@ -261,7 +261,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:oecd.org bootstrap bpo services continuous indonesia",
+      "query": "site:oecd.org corporate governance service continuous",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "urls": 0,
@@ -270,7 +270,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org bootstrap bpo services continuous indonesia",
+      "query": "site:worldbank.org corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
@@ -279,9 +279,27 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:crossref.org bootstrap bpo services continuous indonesia",
+      "query": "site:crossref.org corporate governance service continuous",
       "domain": "crossref.org",
       "source_id": "SRC-CROSSREF",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:pajak.go.id corporate governance service continuous",
+      "domain": "pajak.go.id",
+      "source_id": "SRC-DJP",
+      "urls": 0,
+      "elapsed_ms": 0.0,
+      "cached": false
+    },
+    {
+      "provider_id": "DISC-OPENSEARCH",
+      "query": "site:nist.gov corporate governance service continuous",
+      "domain": "nist.gov",
+      "source_id": "SRC-NIST",
       "urls": 0,
       "elapsed_ms": 0.0,
       "cached": false
@@ -298,15 +316,15 @@
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 99.253,
-      "score": 93.239,
+      "reputation": 99.245,
+      "score": 93.229,
       "authority": 1.0
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 95.5,
-      "score": 90.0,
+      "reputation": 95.484,
+      "score": 89.981,
       "authority": 0.95
     },
     {
@@ -319,16 +337,79 @@
     {
       "id": "SRC-000004",
       "name": "World Bank",
-      "reputation": 92.921,
-      "score": 86.966,
+      "reputation": 93.367,
+      "score": 87.491,
       "authority": 0.95
     },
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 89.188,
-      "score": 83.75,
+      "reputation": 89.825,
+      "score": 84.5,
       "authority": 0.9
+    },
+    {
+      "id": "SRC-DJP",
+      "name": "DJP Pajak",
+      "reputation": 77.488,
+      "score": 67.633,
+      "authority": 1.0
+    },
+    {
+      "id": "SRC-NIST",
+      "name": "NIST",
+      "reputation": 77.318,
+      "score": 67.433,
+      "authority": 1.0
+    },
+    {
+      "id": "SRC-JDIH",
+      "name": "JDIH / Peraturan.go.id",
+      "reputation": 77.318,
+      "score": 67.433,
+      "authority": 1.0
+    },
+    {
+      "id": "SRC-CISA",
+      "name": "CISA",
+      "reputation": 77.063,
+      "score": 67.133,
+      "authority": 1.0
+    },
+    {
+      "id": "SRC-BPK",
+      "name": "BPK",
+      "reputation": 76.808,
+      "score": 66.833,
+      "authority": 1.0
+    },
+    {
+      "id": "SRC-KLHK",
+      "name": "KLHK",
+      "reputation": 76.553,
+      "score": 66.533,
+      "authority": 1.0
+    },
+    {
+      "id": "SRC-UNEP",
+      "name": "UNEP",
+      "reputation": 75.723,
+      "score": 66.733,
+      "authority": 0.95
+    },
+    {
+      "id": "SRC-ISSB",
+      "name": "ISSB / IFRS Sustainability",
+      "reputation": 72.148,
+      "score": 67.233,
+      "authority": 0.75
+    },
+    {
+      "id": "SRC-GRI",
+      "name": "GRI",
+      "reputation": 71.808,
+      "score": 66.833,
+      "authority": 0.75
     }
   ],
   "accepted_urls": [
@@ -391,9 +472,9 @@
   ],
   "cache": {
     "hits": 0,
-    "misses": 6,
-    "stores": 6,
-    "cached_queries": 6,
+    "misses": 8,
+    "stores": 8,
+    "cached_queries": 8,
     "cached_urls": 0
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
