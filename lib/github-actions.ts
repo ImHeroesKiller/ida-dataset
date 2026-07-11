@@ -258,10 +258,18 @@ export async function listLearningRuns(limit = 10): Promise<{
 
 export async function getActionsLearningStatus(): Promise<ActionsStatus> {
   const repo = resolveRepository();
+  // Align with learn.yml continuous cadence (every 15 minutes)
   const next = (() => {
     const d = new Date();
-    d.setUTCMinutes(0, 0, 0);
-    d.setUTCHours(d.getUTCHours() + 1);
+    d.setUTCSeconds(0, 0);
+    const mins = d.getUTCMinutes();
+    const nextSlot = Math.floor(mins / 15) * 15 + 15;
+    if (nextSlot >= 60) {
+      d.setUTCHours(d.getUTCHours() + 1);
+      d.setUTCMinutes(0, 0, 0);
+    } else {
+      d.setUTCMinutes(nextSlot, 0, 0);
+    }
     return d.toISOString().replace(/\.\d{3}Z$/, "Z");
   })();
 

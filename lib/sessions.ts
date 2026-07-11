@@ -118,11 +118,18 @@ export function sessionsRoot(root = getRepoRoot()): string {
   return path.join(root, "automation", "sessions");
 }
 
-/** Next hourly boundary (UTC) — approximate for schedule cron "0 * * * *". */
+/** Next 15-minute boundary (UTC) — approximate for learn.yml continuous schedule. */
 export function nextScheduledRunIso(from = new Date()): string {
-  const d = new Date(from);
-  d.setUTCMinutes(0, 0, 0);
-  d.setUTCHours(d.getUTCHours() + 1);
+  const d = new Date(from.getTime());
+  d.setUTCSeconds(0, 0);
+  const mins = d.getUTCMinutes();
+  const nextSlot = Math.floor(mins / 15) * 15 + 15;
+  if (nextSlot >= 60) {
+    d.setUTCHours(d.getUTCHours() + 1);
+    d.setUTCMinutes(0, 0, 0);
+  } else {
+    d.setUTCMinutes(nextSlot, 0, 0);
+  }
   return d.toISOString().replace(/\.\d{3}Z$/, "Z");
 }
 
