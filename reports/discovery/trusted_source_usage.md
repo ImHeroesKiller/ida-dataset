@@ -6,10 +6,10 @@ Accepted discovery URLs attributed to trusted registry sources.
 |-----------|--------------:|
 | SRC-000001 | 52 |
 | SRC-000004 | 48 |
-| SRC-000006 | 38 |
-| SRC-000005 | 33 |
-| SRC-OWASP | 8 |
-| SRC-000007 | 5 |
+| SRC-000006 | 48 |
+| SRC-000005 | 35 |
+| SRC-OWASP | 5 |
+| SRC-000007 | 4 |
 | SRC-CROSSREF | 4 |
 | SRC-ISSB | 4 |
 
