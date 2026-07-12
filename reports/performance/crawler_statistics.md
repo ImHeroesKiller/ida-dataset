@@ -3,59 +3,60 @@
 ```json
 {
   "fingerprints": {
-    "skips": 67,
-    "adds": 150,
-    "unique_hashes": 150,
-    "unique_urls": 150
+    "skips": 91,
+    "adds": 236,
+    "unique_hashes": 236,
+    "unique_urls": 236
   },
   "downloads": {
-    "requested": 140,
-    "downloaded": 67,
+    "requested": 215,
+    "downloaded": 91,
     "not_modified": 0,
     "skipped_duplicate": 0,
-    "failed": 73,
-    "bytes": 706403104,
-    "elapsed_ms": 144971.50000000006,
-    "retries": 22,
-    "max_workers": 4,
-    "adaptive_workers": 4,
+    "failed": 124,
+    "bytes": 112199750,
+    "elapsed_ms": 126640.09999999995,
+    "retries": 8,
+    "max_workers": 2,
+    "adaptive_workers": 2,
     "connection_reuse": true,
     "accept_encoding": "gzip, deflate",
     "etag_conditional": true,
     "http_cache": {
       "hits": 0,
-      "misses": 67,
+      "misses": 91,
       "not_modified": 0,
-      "stores": 67,
+      "stores": 91,
       "bytes_saved_est": 0
     },
     "fingerprints": {
-      "skips": 67,
-      "adds": 150,
-      "unique_hashes": 150,
-      "unique_urls": 150
+      "skips": 91,
+      "adds": 236,
+      "unique_hashes": 236,
+      "unique_urls": 236
     }
   },
   "extraction": {
-    "fast": 2,
-    "medium": 1,
-    "deep": 1,
+    "fast": 5,
+    "medium": 0,
+    "deep": 0,
     "llm": 0,
     "llm_used": 0,
-    "skipped_llm": 83,
-    "llm_skipped": 83,
-    "documents_fast": 73,
-    "documents_medium": 5,
-    "documents_deep": 5,
-    "avg_ms": 0.61,
-    "average_extraction_ms": 0.61,
-    "total_ms": 50.94,
+    "skipped_llm": 145,
+    "llm_skipped": 145,
+    "documents_fast": 124,
+    "documents_medium": 7,
+    "documents_deep": 14,
+    "avg_ms": 0.66,
+    "average_extraction_ms": 0.66,
+    "total_ms": 95.34,
     "path_ms": {
-      "fast": 22.99,
-      "medium": 5.2,
-      "deep": 22.64
+      "fast": 25.61,
+      "medium": 16.34,
+      "deep": 48.17,
+      "signal_fallback": 4.99
     },
-    "target_dataset": "industry_library",
+    "target_dataset": "service_library",
     "llm_required_but_unavailable": false
   }
 }

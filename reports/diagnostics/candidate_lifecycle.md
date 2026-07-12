@@ -1,17 +1,18 @@
 # Candidate Lifecycle
 
-**Generated:** 2026-07-12T07:33:56+00:00
-**Session:** `SESSION-20260712-37CE0D`
-**Mission:** `MIS-20260712-62245F`
-**dry_run:** `True`
+**Generated:** 2026-07-12T08:46:37+00:00
+**Session:** `SESSION-20260712-4A4C95`
+**Mission:** `MIS-20260712-9E0CC4`
+**dry_run:** `False`
 
 Lifecycle: Document → Extraction → Candidate → Validation → Integrity Guard → Publisher → Dataset
 
 | candidate_id | document_id | mission_id | session_id | dataset | entity | confidence | integrity_ok | block_reason | publish |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-A9BDDA0A288F | DOC-873B79CA48AE | MIS-20260712-62245F | SES-20260712-CB8076 | industry_library | Green Industry | 0.8375 | True | ok | Skipped |
-| CAND-7032256FDB1F | DOC-895A2B2798DA | MIS-20260712-62245F | SES-20260712-CB8076 | industry_library | Nickel Downstream Industry | 0.92 | True | ok | Skipped |
-| CAND-D898D6A1DF9D | DOC-9C403F1BA3C2 | MIS-20260712-62245F | SES-20260712-CB8076 | industry_library | Shared Services Centers | 0.92 | True | ok | Skipped |
-| CAND-A4F2A2B3D784 | DOC-66CDFCAF91C7 | MIS-20260712-62245F | SES-20260712-CB8076 | industry_library | MSMEs / UMKM | 0.92 | True | ok | Skipped |
+| CAND-0DFF3DDBE9C1 | DOC-A99E56C64737 | MIS-20260712-9E0CC4 | SES-20260712-463D39 | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000086 | Rejected |
+| CAND-4F35253493A0 | DOC-7C7239075702 | MIS-20260712-9E0CC4 | SES-20260712-463D39 | business_signal_library | New normal and library services in Indonesia: a case study of university libraries | 0.88 | False | duplicate_id:SIG-000087 | Rejected |
+| CAND-1B24B98A32CB | DOC-50B3F3BC8DEB | MIS-20260712-9E0CC4 | SES-20260712-463D39 | business_signal_library | Development of the Siak Library and Archives Service (2004-2022) | 0.9 | False | duplicate_id:SIG-000088 | Rejected |
+| CAND-B24E90E98544 | DOC-5DFD7BF054D2 | MIS-20260712-9E0CC4 | SES-20260712-463D39 | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-000085 | Rejected |
+| CAND-5C2786315F1D | DOC-2430A598BF3B | MIS-20260712-9E0CC4 | SES-20260712-463D39 | business_signal_library | Indonesia - Library Development Project | 0.92 | False | duplicate_id:SIG-000089 | Rejected |
 
-Total candidates: **4**
+Total candidates: **5**

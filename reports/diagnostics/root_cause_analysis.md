@@ -1,46 +1,45 @@
 # Root Cause Analysis
 
-**Generated:** 2026-07-12T07:33:56+00:00
-**Session:** `SESSION-20260712-37CE0D`
-**Mission:** `MIS-20260712-62245F`
+**Generated:** 2026-07-12T08:46:37+00:00
+**Session:** `SESSION-20260712-4A4C95`
+**Mission:** `MIS-20260712-9E0CC4`
 
 > Diagnostics only. No fixes. Evidence only.
 
 ## Why no new rows?
 
-Production stopped or yielded zero published rows at stage `publish` due to condition `session_dry_run_true`.
+Latest evidence shows published=5; zero-row claim may refer to a later window.
 
 ## Exactly which stage stopped production?
 
-**`publish`**
+**`none (production produced rows)`**
 
 ## What condition caused it?
 
-**`session_dry_run_true`**
+**`rows_published`**
 
 ## What module decided it?
 
-**`automation/ci/learning_session.py (dry_run / publish flags)`**
+**`append path succeeded`**
 
 ## What evidence proves it?
 
-- session.dry_run=True
-- knowledge_added=0
-- extracted=4 rejected=4
-- summary=Session completed · published=0 extracted=4 validated=4 rejected=4 docs=83 entity=— · dry_run
+- published=5
+- extracted=5
+- discovered=31 downloaded=145 duplicates=91
 
 ## Metrics snapshot
 
 ```json
 {
-  "documents_discovered": 21,
-  "documents_downloaded": 83,
-  "documents_duplicates": 67,
-  "candidates_extracted": 4,
-  "candidates_rejected": 4,
-  "rows_published": 0,
-  "dry_run": true,
-  "fingerprint_urls_known": 150,
+  "documents_discovered": 31,
+  "documents_downloaded": 145,
+  "documents_duplicates": 91,
+  "candidates_extracted": 5,
+  "candidates_rejected": 0,
+  "rows_published": 5,
+  "dry_run": false,
+  "fingerprint_urls_known": 236,
   "selected_dataset": "service_library"
 }
 ```
@@ -48,12 +47,11 @@ Production stopped or yielded zero published rows at stage `publish` due to cond
 ## Findings
 ### Finding 1
 
-No rows published because session ran with dry_run.
+Session published rows; if overnight gap exists, examine later sessions.
 
-- `session.dry_run=True`
-- `knowledge_added=0`
-- `extracted=4 rejected=4`
-- `summary=Session completed · published=0 extracted=4 validated=4 rejected=4 docs=83 entity=— · dry_run`
+- `published=5`
+- `extracted=5`
+- `discovered=31 downloaded=145 duplicates=91`
 
 ### Finding 2
 

@@ -1,23 +1,25 @@
 # Publish Pipeline
 
-**Session:** `SES-20260712-CB8076`
+**Session:** `SES-20260712-463D39`
 
 ## Balance
 
 | Metric | Count |
 |--------|------:|
-| Extracted | 4 |
-| Validated | 4 |
-| Rejected | 4 |
-| Queued | 4 |
-| Published | 0 |
+| Extracted | 5 |
+| Validated | 5 |
+| Rejected | 0 |
+| Queued | 5 |
+| Published | 5 |
 | Duplicate | 0 |
-| Skipped | 4 |
+| Skipped | 0 |
 
-Balance OK: **False**
+Balance OK: **True**
 
 Identity: `extracted = validated + rejected`
 
 ## By dataset
 
-_No rows published._
+| Dataset | Rows |
+|---------|-----:|
+| business_signal_library | 5 |

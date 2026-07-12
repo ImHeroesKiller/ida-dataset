@@ -4,21 +4,21 @@ Accepted discovery URLs attributed to trusted registry sources.
 
 | Source ID | Accepted URLs |
 |-----------|--------------:|
-| SRC-000004 | 38 |
-| SRC-000005 | 28 |
-| SRC-000001 | 27 |
-| SRC-000006 | 18 |
-| SRC-000007 | 13 |
+| SRC-000001 | 56 |
+| SRC-000006 | 49 |
+| SRC-000004 | 48 |
+| SRC-000005 | 32 |
+| SRC-000007 | 4 |
 | SRC-CROSSREF | 4 |
 | SRC-ISSB | 4 |
-| SRC-OWASP | 4 |
+| SRC-OWASP | 3 |
 
 ## Knowledge gap
 
-- Dataset: `industry_library`
-- Current: 57
-- Target: 5000
-- Gap: 6543
-- Coverage: 1.14%
+- Dataset: `service_library`
+- Current: 0
+- Target: 50000
+- Gap: 50000
+- Coverage: 0.0%
 
 > Search engines are discovery tools only. Knowledge is extracted solely from trusted sources.
