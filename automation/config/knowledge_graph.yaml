@@ -100,5 +100,13 @@ relationships:
       - purchased_from
 
 manufacturing:
+  enabled: true
+  version: knowledge-manufacture-1.0.0
+  # Candidates only — never append domain CSVs from this layer
   write_dataset_rows: false
   graph_is_source_of_truth: true
+  reuse_ledger: automation/knowledge/store/manufacturing_ledger.json
+  queue_dir: automation/queue/manufacturing
+  # Never stop after first matching dataset
+  multi_dataset: true
+  apply_quality_engine: true

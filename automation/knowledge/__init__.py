@@ -3,10 +3,11 @@
 - Dataset Quality Engine
 - Knowledge Atoms
 - Canonical Entity Layer
-- Relationship Intelligence Layer (query only — no manufacturing yet)
+- Relationship Intelligence Layer
+- Knowledge Manufacturing Engine (graph → multi-dataset candidates)
 
 Does not redesign frozen pipeline, queue, mission, or CSV schemas.
-Does not write dataset rows in Milestone 2.
+Does not append domain CSVs or call the frozen publisher.
 """
 
 from automation.knowledge.atom_store import (
@@ -49,6 +50,13 @@ from automation.knowledge.mandatory_fields import (
     mandatory_fields_for,
     thresholds,
 )
+from automation.knowledge.manufacturing import (
+    manufacture,
+    manufacture_document,
+    manufacture_entity,
+    manufacture_relationship,
+)
+from automation.knowledge.manufacturing_queue import queue_stats
 from automation.knowledge.models import (
     AtomStatus,
     AtomType,
@@ -126,6 +134,10 @@ __all__ = [
     "load_indexes",
     "load_quality_config",
     "mandatory_fields_for",
+    "manufacture",
+    "manufacture_document",
+    "manufacture_entity",
+    "manufacture_relationship",
     "may_publish_directly",
     "neighbors",
     "normalize_atom_text",
@@ -133,6 +145,7 @@ __all__ = [
     "outgoing",
     "process_document_entities",
     "process_document_relationships",
+    "queue_stats",
     "relationship_stats",
     "resolve_mention",
     "save_atoms_for_document",
