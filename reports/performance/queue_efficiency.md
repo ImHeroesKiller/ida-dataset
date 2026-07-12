@@ -1,6 +1,6 @@
 # Queue Efficiency
 
-**Generated:** 2026-07-12T09:21:45+00:00
+**Generated:** 2026-07-12T11:30:03+00:00
 
 ## Depths
 
@@ -8,7 +8,7 @@
 |-------|--------|------:|
 | Document | incoming | 0 |
 | Document | processing | 0 |
-| Document | processed | 125 |
+| Document | processed | 165 |
 | Document | depth | 0 |
 | Candidate | pending | 0 |
 | Candidate | approved | 5 |
