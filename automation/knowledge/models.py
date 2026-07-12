@@ -350,21 +350,40 @@ class GraphEntity:
 CanonicalEntity = GraphEntity
 
 
+class RelationshipStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    MERGED = "MERGED"
+    SUPERSEDED = "SUPERSEDED"
+    ARCHIVED = "ARCHIVED"
+
+
 @dataclass
 class GraphRelationship:
-    """Edge in the internal knowledge graph."""
+    """First-class relationship (edge) in the internal knowledge graph.
+
+    Duplicate (source, type, target) edges merge — confidence grows, first_seen kept.
+    """
 
     relationship_id: str
     source_entity: str  # subject entity_id
     target_entity: str  # object entity_id
-    relationship_type: str  # predicate
+    relationship_type: str  # predicate (taxonomy)
     confidence: float = 0.0
+    knowledge_score: float = 0.0
     provenance: dict[str, Any] = field(default_factory=dict)
-    timestamp: str = field(default_factory=utc_now_iso)
+    atom_id: str = ""
+    atom_ids: list[str] = field(default_factory=list)
+    session_id: str = ""
+    first_seen: str = field(default_factory=utc_now_iso)
+    last_seen: str = field(default_factory=utc_now_iso)
+    status: str = RelationshipStatus.ACTIVE.value
+    evidence_count: int = 1
     sources: list[str] = field(default_factory=list)
+    document_ids: list[str] = field(default_factory=list)
     attributes: dict[str, Any] = field(default_factory=dict)
+    timestamp: str = field(default_factory=utc_now_iso)  # last update alias
+    merged_into: str = ""
 
-    # Back-compat aliases
     @property
     def subject_id(self) -> str:
         return self.source_entity
@@ -387,14 +406,29 @@ class GraphRelationship:
             "object_id": self.target_entity,
             "predicate": self.relationship_type,
             "confidence": self.confidence,
+            "knowledge_score": self.knowledge_score,
             "provenance": dict(self.provenance),
-            "timestamp": self.timestamp,
+            "atom_id": self.atom_id,
+            "atom_ids": list(self.atom_ids),
+            "session_id": self.session_id,
+            "first_seen": self.first_seen,
+            "last_seen": self.last_seen,
+            "status": self.status,
+            "evidence_count": self.evidence_count,
             "sources": list(self.sources),
+            "document_ids": list(self.document_ids),
             "attributes": dict(self.attributes),
+            "timestamp": self.timestamp or self.last_seen,
+            "merged_into": self.merged_into,
         }
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "GraphRelationship":
+        now = utc_now_iso()
+        atom_ids = list(data.get("atom_ids") or [])
+        atom_id = str(data.get("atom_id") or (atom_ids[0] if atom_ids else ""))
+        if atom_id and atom_id not in atom_ids:
+            atom_ids = [atom_id] + atom_ids
         return cls(
             relationship_id=str(data.get("relationship_id") or ""),
             source_entity=str(
@@ -407,8 +441,18 @@ class GraphRelationship:
                 data.get("relationship_type") or data.get("predicate") or ""
             ),
             confidence=float(data.get("confidence") or 0.0),
+            knowledge_score=float(data.get("knowledge_score") or 0.0),
             provenance=dict(data.get("provenance") or {}),
-            timestamp=str(data.get("timestamp") or utc_now_iso()),
+            atom_id=atom_id,
+            atom_ids=atom_ids,
+            session_id=str(data.get("session_id") or ""),
+            first_seen=str(data.get("first_seen") or data.get("timestamp") or now),
+            last_seen=str(data.get("last_seen") or data.get("timestamp") or now),
+            status=str(data.get("status") or RelationshipStatus.ACTIVE.value),
+            evidence_count=int(data.get("evidence_count") or 1),
             sources=list(data.get("sources") or []),
+            document_ids=list(data.get("document_ids") or []),
             attributes=dict(data.get("attributes") or {}),
+            timestamp=str(data.get("timestamp") or data.get("last_seen") or now),
+            merged_into=str(data.get("merged_into") or ""),
         )

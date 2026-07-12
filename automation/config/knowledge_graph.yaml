@@ -2,9 +2,9 @@
 # No external graph DB. Local store under automation/knowledge/store/
 # Does not alter frozen pipelines, schemas, or publishers.
 
-version: "1.1"
+version: "1.2"
 description: >
-  Knowledge Atoms → Canonical Entities → (later) Relationships → Graph.
+  Knowledge Atoms → Canonical Entities → Relationships → Graph.
   Dataset manufacturing consumes the graph in a later sprint.
 
 store:
@@ -20,7 +20,6 @@ atoms:
   version: knowledge-atom-1.1.0
   strategy: semantic
   stable_id: true
-  # Hash(document_id | section | paragraph_index | normalized_text)
   types:
     - heading
     - paragraph
@@ -49,17 +48,56 @@ entities:
     - SUPERSEDED
     - ARCHIVED
 
-# Configurable knowledge_score weights (must sum conceptually to 1; normalized in code)
 knowledge_score:
   confidence: 0.35
   richness: 0.25
   completeness: 0.20
   source_quality: 0.15
-  # Future-ready: edges not computed in Commit 2
   relationship_potential: 0.05
 
 relationships:
-  enabled: false  # Commit 3
+  enabled: true
+  extractor_version: relationship-extract-1.0.0
+  # No generic related_to
+  allow_related_to: false
+  status:
+    - ACTIVE
+    - MERGED
+    - SUPERSEDED
+    - ARCHIVED
+  taxonomy:
+    Business:
+      - provides
+      - offers
+      - manufactures
+      - distributes
+    Organization:
+      - owns
+      - managed_by
+      - subsidiary_of
+      - founded_by
+    Market:
+      - targets
+      - serves
+      - competes_with
+    Technology:
+      - uses
+      - depends_on
+      - integrates_with
+      - replaces
+      - implements
+    Governance:
+      - regulated_by
+      - certified_by
+      - audited_by
+    Geography:
+      - located_in
+      - operates_in
+      - headquartered_in
+    Supply_Chain:
+      - supplied_by
+      - partner_of
+      - purchased_from
 
 manufacturing:
   write_dataset_rows: false

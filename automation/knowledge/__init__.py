@@ -1,13 +1,12 @@
 """Knowledge manufacturing package (additive).
 
 - Dataset Quality Engine
-- Knowledge Atoms (persistent semantic units)
-- Canonical Entity Layer (resolve + aliases + indexes)
-- (next) Relationships / graph traversal
+- Knowledge Atoms
+- Canonical Entity Layer
+- Relationship Intelligence Layer (query only — no manufacturing yet)
 
 Does not redesign frozen pipeline, queue, mission, or CSV schemas.
 Does not write dataset rows in Milestone 2.
-Does not extract relationships in Commit 2.
 """
 
 from automation.knowledge.atom_store import (
@@ -63,6 +62,7 @@ from automation.knowledge.models import (
     PublishDisposition,
     QualityAssessment,
     QualityValidationStatus,
+    RelationshipStatus,
 )
 from automation.knowledge.quality import (
     assess_candidate,
@@ -71,6 +71,16 @@ from automation.knowledge.quality import (
     is_empty,
     may_publish_directly,
     score_completeness,
+)
+from automation.knowledge.relationships import (
+    extract_and_resolve_relationships,
+    find_relationship,
+    incoming,
+    neighbors,
+    outgoing,
+    process_document_relationships,
+    relationship_stats,
+    taxonomy_catalog,
 )
 
 __all__ = [
@@ -87,6 +97,7 @@ __all__ = [
     "PublishDisposition",
     "QualityAssessment",
     "QualityValidationStatus",
+    "RelationshipStatus",
     "all_mandatory_catalog",
     "assess_candidate",
     "assess_row",
@@ -100,10 +111,13 @@ __all__ = [
     "entities_for_document",
     "entity_stats",
     "extract_and_resolve_atoms",
+    "extract_and_resolve_relationships",
     "extract_mentions_from_atom",
     "find_by_alias",
     "find_by_canonical",
+    "find_relationship",
     "get_entity",
+    "incoming",
     "is_empty",
     "iter_all_atoms",
     "list_atomized_documents",
@@ -113,12 +127,17 @@ __all__ = [
     "load_quality_config",
     "mandatory_fields_for",
     "may_publish_directly",
+    "neighbors",
     "normalize_atom_text",
     "normalize_name",
+    "outgoing",
     "process_document_entities",
+    "process_document_relationships",
+    "relationship_stats",
     "resolve_mention",
     "save_atoms_for_document",
     "score_completeness",
+    "taxonomy_catalog",
     "thresholds",
     "upsert_entities_batch",
     "upsert_entity",
