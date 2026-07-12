@@ -99,3 +99,7 @@ automation/queue/candidates/**
 !reports/refactor/**
 !reports/ui/
 !reports/ui/**
+!reports/knowledge/
+!reports/knowledge/**
+!automation/queue/enrichment/
+!automation/queue/enrichment/**/.gitkeep

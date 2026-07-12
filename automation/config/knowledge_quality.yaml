@@ -1,0 +1,161 @@
+# Dataset Quality + Knowledge Manufacturing — additive policy
+# Does NOT alter CSV schemas or frozen pipeline stages.
+# Quality metadata is stored separately (sidecar / enrichment queue).
+
+version: "1.0"
+description: >
+  Completeness, confidence, enrichment routing, and mandatory field policy
+  for production knowledge manufacturing. Additive only.
+
+# Publish gate: rows below this completeness go to enrichment queue
+# (not direct publish). Confidence floor remains policies.confidence_threshold.
+thresholds:
+  min_completeness_to_publish: 0.70
+  min_confidence_to_publish: 0.80
+  # Auto-enrich when completeness is below this but above hard reject
+  enrichment_completeness_ceiling: 0.70
+  # Never overwrite a field when existing confidence is higher
+  never_overwrite_higher_confidence: true
+
+# Enrichment queue (additive path — parallel to publish queue)
+enrichment:
+  enabled: true
+  queue_dir: automation/queue/enrichment
+  max_attempts: 3
+  strategies:
+    - internal_datasets
+    - knowledge_graph
+    - trusted_sources
+
+# Mandatory fields per target dataset (CSV column names — exact)
+# Rows missing any mandatory field are incomplete for direct publish.
+mandatory_fields:
+  company_profile:
+    - Company Name
+    - Industry
+    - Country
+  product_catalog:
+    - Product Name
+    - Product Category
+  # Service rows live in product_catalog with Product Type = Service
+  service_library:
+    - Product Name
+    - Product Description
+  industry_library:
+    - Industry Name
+    - Industry Category
+  buyer_persona_library:
+    - Persona Name
+    - Industry
+  decision_maker_library:
+    - Title
+    - Industry
+  risk_library:
+    - Risk Name
+    - Description
+  regulation_library:
+    - Regulation Name
+    - Jurisdiction
+  trend_library:
+    - Trend Title
+    - Description
+  competitor_library:
+    - Competitor Name
+    - Industry Category
+  framework_library:
+    - Framework Name
+    - Description
+  case_study_library:
+    - Case Name
+    - Challenge
+  solution_library:
+    - Solution Name
+    - Solution Description
+  pain_point_library:
+    - Pain Point
+    - Description
+  opportunity_analysis:
+    - Opportunity Name
+    - Opportunity Description
+  business_signal_library:
+    - Signal Name
+    - Description
+
+# Tracked optional fields (counted when empty — operator completeness view)
+# Scored set = mandatory ∪ payload keys ∪ tracked_fields
+tracked_fields:
+  company_profile:
+    - Website
+    - LinkedIn
+    - Headquarters
+    - Company Size
+    - Business Description
+    - Main Products/Services
+  product_catalog:
+    - Product Description
+    - Target Industry
+    - Pricing Model
+    - Key Features
+  buyer_persona_library:
+    - Job Role
+    - Department
+    - Pain Points
+    - Goals
+  risk_library:
+    - Risk Type
+    - Probability
+    - Impact
+    - Mitigation
+    - Industry
+  regulation_library:
+    - Issuer
+    - Summary
+    - Industry
+    - Source URL
+  competitor_library:
+    - Headquarters
+    - Main Products/Services
+    - Strengths
+    - Weaknesses
+  trend_library:
+    - Direction
+    - Industry
+    - Time Horizon
+  industry_library:
+    - Industry Description
+    - Common Technologies
+    - Industry Trends
+
+# Completeness scoring
+completeness:
+  ignore_fields:
+    - Notes
+    - Last Updated
+    - Data Sources
+    - Data Source
+    - extraction_version
+    - validation_status
+    - reviewer
+    - published_at
+    - source_id
+    - source_url
+    - retrieved_at
+    - confidence
+  # Empty string, null, "-", "n/a", "unknown" count as missing
+  empty_tokens:
+    - ""
+    - "-"
+    - "n/a"
+    - "N/A"
+    - "unknown"
+    - "Unknown"
+    - "null"
+    - "None"
+
+# Knowledge manufacturing (phase roadmap — flags only in this commit)
+manufacturing:
+  knowledge_atoms_enabled: false
+  multi_entity_enabled: false
+  multi_dataset_from_atom: false
+  target_rows_per_document_min: 50
+  target_rows_per_document_max: 200
