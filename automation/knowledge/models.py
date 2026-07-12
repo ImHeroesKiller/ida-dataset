@@ -132,7 +132,7 @@ class QualityAssessment:
         )
 
 
-# --- Forward-compatible atom/graph stubs (used in later commits) ---
+# --- Knowledge Graph manufacturing models (additive) ---
 
 
 class AtomType(str, Enum):
@@ -148,34 +148,117 @@ class AtomType(str, Enum):
 
 @dataclass
 class KnowledgeAtom:
-    """Semantic unit derived from a document (many atoms per document)."""
+    """Persistent semantic unit — many atoms per document.
+
+    Atoms are the first stage of knowledge manufacturing.
+    Dataset rows are produced later from the entity graph, not from atoms alone.
+    """
 
     atom_id: str
     document_id: str
     atom_type: str
     text: str
+    source: str = ""
+    source_url: str = ""
+    section: str = ""
     heading_path: list[str] = field(default_factory=list)
     order: int = 0
+    timestamp: str = field(default_factory=utc_now_iso)
+    confidence: float = 0.0
+    provenance: dict[str, Any] = field(default_factory=dict)
     metadata: dict[str, Any] = field(default_factory=dict)
     created_at: str = field(default_factory=utc_now_iso)
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        return {
+            "atom_id": self.atom_id,
+            "document_id": self.document_id,
+            "atom_type": self.atom_type,
+            "text": self.text,
+            "source": self.source,
+            "source_url": self.source_url,
+            "section": self.section,
+            "heading_path": list(self.heading_path),
+            "order": self.order,
+            "timestamp": self.timestamp,
+            "confidence": self.confidence,
+            "provenance": dict(self.provenance),
+            "metadata": dict(self.metadata),
+            "created_at": self.created_at,
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "KnowledgeAtom":
+        return cls(
+            atom_id=str(data.get("atom_id") or ""),
+            document_id=str(data.get("document_id") or ""),
+            atom_type=str(data.get("atom_type") or AtomType.PARAGRAPH.value),
+            text=str(data.get("text") or ""),
+            source=str(data.get("source") or ""),
+            source_url=str(data.get("source_url") or ""),
+            section=str(data.get("section") or ""),
+            heading_path=list(data.get("heading_path") or []),
+            order=int(data.get("order") or 0),
+            timestamp=str(data.get("timestamp") or utc_now_iso()),
+            confidence=float(data.get("confidence") or 0.0),
+            provenance=dict(data.get("provenance") or {}),
+            metadata=dict(data.get("metadata") or {}),
+            created_at=str(data.get("created_at") or utc_now_iso()),
+        )
 
 
 @dataclass
 class GraphEntity:
-    """Node in the internal knowledge graph."""
+    """Node in the internal knowledge graph (canonical)."""
 
     entity_id: str
     entity_type: str
-    name: str
+    canonical_name: str
+    aliases: list[str] = field(default_factory=list)
     attributes: dict[str, Any] = field(default_factory=dict)
     confidence: float = 0.0
     sources: list[str] = field(default_factory=list)
+    provenance: dict[str, Any] = field(default_factory=dict)
+    created_at: str = field(default_factory=utc_now_iso)
+    updated_at: str = field(default_factory=utc_now_iso)
+
+    # Back-compat alias used in early stubs
+    @property
+    def name(self) -> str:
+        return self.canonical_name
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        return {
+            "entity_id": self.entity_id,
+            "entity_type": self.entity_type,
+            "canonical_name": self.canonical_name,
+            "name": self.canonical_name,
+            "aliases": list(self.aliases),
+            "attributes": dict(self.attributes),
+            "confidence": self.confidence,
+            "sources": list(self.sources),
+            "provenance": dict(self.provenance),
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "GraphEntity":
+        cname = str(
+            data.get("canonical_name") or data.get("name") or ""
+        ).strip()
+        return cls(
+            entity_id=str(data.get("entity_id") or ""),
+            entity_type=str(data.get("entity_type") or ""),
+            canonical_name=cname,
+            aliases=list(data.get("aliases") or []),
+            attributes=dict(data.get("attributes") or {}),
+            confidence=float(data.get("confidence") or 0.0),
+            sources=list(data.get("sources") or []),
+            provenance=dict(data.get("provenance") or {}),
+            created_at=str(data.get("created_at") or utc_now_iso()),
+            updated_at=str(data.get("updated_at") or utc_now_iso()),
+        )
 
 
 @dataclass
@@ -183,12 +266,60 @@ class GraphRelationship:
     """Edge in the internal knowledge graph."""
 
     relationship_id: str
-    subject_id: str
-    predicate: str
-    object_id: str
+    source_entity: str  # subject entity_id
+    target_entity: str  # object entity_id
+    relationship_type: str  # predicate
     confidence: float = 0.0
+    provenance: dict[str, Any] = field(default_factory=dict)
+    timestamp: str = field(default_factory=utc_now_iso)
     sources: list[str] = field(default_factory=list)
     attributes: dict[str, Any] = field(default_factory=dict)
 
+    # Back-compat aliases
+    @property
+    def subject_id(self) -> str:
+        return self.source_entity
+
+    @property
+    def object_id(self) -> str:
+        return self.target_entity
+
+    @property
+    def predicate(self) -> str:
+        return self.relationship_type
+
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        return {
+            "relationship_id": self.relationship_id,
+            "source_entity": self.source_entity,
+            "target_entity": self.target_entity,
+            "relationship_type": self.relationship_type,
+            "subject_id": self.source_entity,
+            "object_id": self.target_entity,
+            "predicate": self.relationship_type,
+            "confidence": self.confidence,
+            "provenance": dict(self.provenance),
+            "timestamp": self.timestamp,
+            "sources": list(self.sources),
+            "attributes": dict(self.attributes),
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "GraphRelationship":
+        return cls(
+            relationship_id=str(data.get("relationship_id") or ""),
+            source_entity=str(
+                data.get("source_entity") or data.get("subject_id") or ""
+            ),
+            target_entity=str(
+                data.get("target_entity") or data.get("object_id") or ""
+            ),
+            relationship_type=str(
+                data.get("relationship_type") or data.get("predicate") or ""
+            ),
+            confidence=float(data.get("confidence") or 0.0),
+            provenance=dict(data.get("provenance") or {}),
+            timestamp=str(data.get("timestamp") or utc_now_iso()),
+            sources=list(data.get("sources") or []),
+            attributes=dict(data.get("attributes") or {}),
+        )

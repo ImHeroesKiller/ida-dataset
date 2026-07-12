@@ -1,0 +1,45 @@
+# Internal Knowledge Graph — additive configuration
+# No external graph DB. Local store under automation/knowledge/store/
+# Does not alter frozen pipelines, schemas, or publishers.
+
+version: "1.0"
+description: >
+  Knowledge Atoms → Entities → Relationships → Graph store.
+  Dataset manufacturing consumes the graph in a later sprint.
+
+store:
+  root: automation/knowledge/store
+  atoms_dir: automation/knowledge/store/atoms
+  entities_file: automation/knowledge/store/entities.json
+  relationships_file: automation/knowledge/store/relationships.json
+  stats_file: automation/knowledge/store/stats.json
+
+atoms:
+  enabled: true
+  version: knowledge-atom-1.0.0
+  # Semantic chunking only — never token windows
+  strategy: semantic
+  types:
+    - heading
+    - paragraph
+    - table
+    - bullet
+    - faq
+    - caption
+    - metadata
+    - section
+  min_text_chars: 1
+  persist: true
+
+entities:
+  enabled: false  # enabled in next commit
+  resolve_aliases: true
+  reuse_existing: true
+
+relationships:
+  enabled: false  # enabled in next commit
+
+manufacturing:
+  # Explicit: this milestone does NOT write dataset rows
+  write_dataset_rows: false
+  graph_is_source_of_truth: true

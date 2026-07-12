@@ -103,3 +103,8 @@ automation/queue/candidates/**
 !reports/knowledge/**
 !automation/queue/enrichment/
 !automation/queue/enrichment/**/.gitkeep
+
+# Knowledge graph runtime store (atoms / entities / relationships)
+automation/knowledge/store/**
+!automation/knowledge/store/
+!automation/knowledge/store/**/.gitkeep
