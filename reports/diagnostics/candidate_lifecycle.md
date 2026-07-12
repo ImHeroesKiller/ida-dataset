@@ -1,18 +1,18 @@
 # Candidate Lifecycle
 
-**Generated:** 2026-07-12T19:37:50+00:00
-**Session:** `SESSION-20260712-9C1F13`
-**Mission:** `MIS-20260712-40A136`
+**Generated:** 2026-07-12T21:12:09+00:00
+**Session:** `SESSION-20260712-486C14`
+**Mission:** `MIS-20260712-2B223F`
 **dry_run:** `False`
 
 Lifecycle: Document → Extraction → Candidate → Validation → Integrity Guard → Publisher → Dataset
 
 | candidate_id | document_id | mission_id | session_id | dataset | entity | confidence | integrity_ok | block_reason | publish |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-2BFAA254F9FF | DOC-2430A598BF3B | MIS-20260712-40A136 | SES-20260712-547ACD | business_signal_library | Indonesia - Library Development Project | 0.92 | False | duplicate_id:SIG-000119 | Rejected |
-| CAND-75FE36D00C7C | DOC-5DFD7BF054D2 | MIS-20260712-40A136 | SES-20260712-547ACD | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-000115 | Rejected |
-| CAND-CB21E928D424 | DOC-A99E56C64737 | MIS-20260712-40A136 | SES-20260712-547ACD | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000116 | Rejected |
-| CAND-B1A8E8423E1C | DOC-7C7239075702 | MIS-20260712-40A136 | SES-20260712-547ACD | business_signal_library | New normal and library services in Indonesia: a case study of university libraries | 0.88 | False | duplicate_id:SIG-000117 | Rejected |
-| CAND-860D075C7BEB | DOC-50B3F3BC8DEB | MIS-20260712-40A136 | SES-20260712-547ACD | business_signal_library | Development of the Siak Library and Archives Service (2004-2022) | 0.9 | False | duplicate_id:SIG-000118 | Rejected |
+| CAND-D287F8CA1590 | DOC-D733F4309CB6 | MIS-20260712-2B223F | SES-20260712-4ADB19 | business_signal_library | Indonesia - Library Development Project | 0.92 | False | duplicate_id:SIG-000123 | Rejected |
+| CAND-90A95C9CFC01 | DOC-50B3F3BC8DEB | MIS-20260712-2B223F | SES-20260712-4ADB19 | business_signal_library | Development of the Siak Library and Archives Service (2004-2022) | 0.9 | False | duplicate_id:SIG-000122 | Rejected |
+| CAND-2D415744DAE8 | DOC-9DEEE6C56766 | MIS-20260712-2B223F | SES-20260712-4ADB19 | business_signal_library | [PDF] State-Owned Enterprise Reform Program II - Asian Development Bank | 0.85 | False | duplicate_id:SIG-000124 | Rejected |
+| CAND-A3843ADEFBA8 | DOC-5DFD7BF054D2 | MIS-20260712-2B223F | SES-20260712-4ADB19 | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-000120 | Rejected |
+| CAND-3954E52A3898 | DOC-A99E56C64737 | MIS-20260712-2B223F | SES-20260712-4ADB19 | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000121 | Rejected |
 
 Total candidates: **5**
