@@ -1,22 +1,22 @@
 # Provider Statistics
 
-**Generated:** 2026-07-12T08:39:21+00:00
-**Session:** `SES-20260712-463D39` · **Mission:** `MIS-20260712-9E0CC4`
+**Generated:** 2026-07-12T09:16:28+00:00
+**Session:** `SES-20260712-A7C03F` · **Mission:** `MIS-20260712-BDB527`
 
 Queries executed: **32**
-URLs discovered: **284**
-URLs accepted: **205**
-URLs rejected: **79**
+URLs discovered: **217**
+URLs accepted: **161**
+URLs rejected: **56**
 URLs remaining: **0**
 Stop reason: **runtime_budget_reached**
-URLs/hour: **1332.49** · Accepted/hour: **961.83**
+URLs/hour: **1021.61** · Accepted/hour: **757.97**
 
 | Provider | Type | Op status | Queries | URLs | Util | Exhausted | Cache | ms | Status |
 |----------|------|-----------|--------:|-----:|-----:|-----------|------:|---:|--------|
-| Tavily (primary) | tavily | ACTIVE | 10 | 160 | 0.3125 | False | 0 | 29969.5 | ready |
-| Common Crawl Index | commoncrawl | ACTIVE | 5 | 100 | 0.1562 | False | 0 | 8443.4 | ready |
-| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0312 | False | 0 | 450591.7 | ready |
-| RSS Discovery | rss | ACTIVE | 1 | 12 | 0.0312 | False | 0 | 278148.2 | ready |
+| Tavily (primary) | tavily | ACTIVE | 10 | 153 | 0.3125 | False | 0 | 27756.299999999996 | ready |
+| Common Crawl Index | commoncrawl | ACTIVE | 5 | 40 | 0.1562 | False | 0 | 4043.3999999999996 | ready |
+| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0312 | False | 0 | 448526.3 | ready |
+| RSS Discovery | rss | ACTIVE | 1 | 12 | 0.0312 | False | 0 | 284230.6 | ready |
 | Atom Discovery | atom | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
 | Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 10 | 0 | 0.3125 | False | 0 | 0.0 | ready |
 | OpenSearch Description | opensearch | ACTIVE | 5 | 0 | 0.1562 | True | 0 | 0.0 | ready |

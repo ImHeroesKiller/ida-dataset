@@ -1,6 +1,6 @@
 # Throughput Analysis
 
-**Generated:** 2026-07-12T08:39:22+00:00
+**Generated:** 2026-07-12T09:16:29+00:00
 
 ## Last discovery session
 
@@ -8,11 +8,11 @@
 |--------|------:|
 | Queries generated | 10 |
 | Queries executed | 32 |
-| URLs discovered | 284 |
-| URLs accepted | 205 |
-| URLs rejected | 79 |
+| URLs discovered | 217 |
+| URLs accepted | 161 |
+| URLs rejected | 56 |
 | URLs remaining (budget − accepted) | 0 |
-| Elapsed ms | 767286.0 |
+| Elapsed ms | 764677.9 |
 | Stop reason | runtime_budget_reached |
 
 ## Bottleneck diagnosis

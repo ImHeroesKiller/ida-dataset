@@ -4,12 +4,12 @@ Adaptive scores used for mission source selection.
 
 | Rank | Source | Score |
 |-----:|--------|------:|
-| 1 | World Bank | 97.475 |
-| 2 | BPS Indonesia | 93.641 |
-| 3 | Asian Development Bank | 93.581 |
+| 1 | World Bank | 97.477 |
+| 2 | BPS Indonesia | 95.291 |
+| 3 | Asian Development Bank | 95.023 |
 | 4 | Kemenperin | 89.194 |
 | 5 | OECD | 88.838 |
-| 6 | Crossref | 84.413 |
+| 6 | Crossref | 84.415 |
 | 7 | DJP Pajak | 73.45 |
 | 8 | NIST | 73.25 |
 | 9 | JDIH / Peraturan.go.id | 73.25 |
