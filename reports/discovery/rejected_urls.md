@@ -6,24 +6,23 @@ Rejected by trusted-source filter (blogs, social, non-registry domains, duplicat
 |-----|--------|------|----------|
 | https://documents1.worldbank.org/curated/en/641091468014937333/703380ESW0P0990n0 | duplicate_url | None | DISC-TAVILY |
 | https://thedocs.worldbank.org/en/doc/cd079f730c0f82f6b9c6763a606d7b4d-0570062025 | duplicate_url | None | DISC-TAVILY |
+| https://autoconfig.bps.go.id/PLAY/course/100726/974X0P3114/keeping_better_compan | duplicate_url | None | DISC-TAVILY |
 | https://autodiscover.bps.go.id/book/data/po/3896O6P/course-outline_code_mgt712_t | duplicate_url | None | DISC-TAVILY |
 | https://autoconfig.bps.go.id/PAGE/pdf/001918/56M52Z1/corporate__governance-of_li | duplicate_url | None | DISC-TAVILY |
-| https://autoconfig.bps.go.id/BOOK/doc/9455P4L570/5311P2L/corporate-finance-by__h | duplicate_url | None | DISC-TAVILY |
 | https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122008/property__in_sec | duplicate_url | None | DISC-TAVILY |
+| https://www.adb.org/sites/default/files/publication/549336/corporate-governance- | duplicate_url | None | DISC-TAVILY |
 | https://www.adb.org/sites/default/files/publication/42600/asean-corporate-govern | duplicate_url | None | DISC-TAVILY |
 | https://www.adb.org/sites/default/files/publication/667006/corporate-governance- | duplicate_url | None | DISC-TAVILY |
+| https://www.adb.org/sites/default/files/publication/159370/adbi-corp-gov-vol-1.p | duplicate_url | None | DISC-TAVILY |
 | http://www.adb.org/sites/default/files/publication/156768/adbi-dp3.pdf | duplicate_url | None | DISC-TAVILY |
 | https://www.adb.org/sites/default/files/publication/159371/adbi-corp-gov-vol-2.p | duplicate_url | None | DISC-TAVILY |
-| https://www.adb.org/sites/default/files/publication/375481/asean-cgscorecard-201 | duplicate_url | None | DISC-TAVILY |
 | https://www.adb.org/sites/default/files/project-documents//32051-vie-tcr.pdf | duplicate_url | None | DISC-TAVILY |
 | https://www.adb.org/sites/default/files/publication/156756/adbi-dp10.pdf | duplicate_url | None | DISC-TAVILY |
 | https://www.oecd.org/content/dam/oecd/en/publications/reports/1998/03/corporate- | duplicate_url | None | DISC-TAVILY |
 | https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/03/the-role-o | duplicate_url | None | DISC-TAVILY |
-| https://www.oecd.org/content/dam/oecd/en/publications/reports/2022/09/digitalisa | duplicate_url | None | DISC-TAVILY |
 | https://www.oecd.org/content/dam/oecd/en/publications/reports/2018/11/flexibilit | duplicate_url | None | DISC-TAVILY |
 | https://www.oecd.org/en/publications/oecd-review-of-the-corporate-governance-of- | duplicate_url | None | DISC-TAVILY |
 | https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f | duplicate_url | None | DISC-TAVILY |
-| https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/11/supervisio | duplicate_url | None | DISC-TAVILY |
 | https://www.oecd.org/en/publications/the-role-of-capital-market-service-provider | duplicate_url | None | DISC-TAVILY |
 | https://www.worldbank.org/ | duplicate_url | None | DISC-COMMONCRAWL |
 | https://www.worldbank.org/ | duplicate_url | None | DISC-COMMONCRAWL |

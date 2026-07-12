@@ -1,6 +1,6 @@
 # Pipeline Bottleneck Analysis
 
-**Generated:** 2026-07-12T00:15:00+00:00
+**Generated:** 2026-07-12T03:53:06+00:00
 **Primary bottleneck:** `document_download`
 
 Measured from real production sessions and acquisition traces only.
@@ -9,38 +9,38 @@ Measured from real production sessions and acquisition traces only.
 
 | Stage | Count | Avg ms | Max ms | Total ms |
 |-------|------:|-------:|-------:|---------:|
-| mission | 25 | 0.94 | 1.3 | 23.6 |
-| source_discovery | 25 | 2.6 | 3.3 | 65.0 |
-| connector | 25 | 37628.44 | 97806.1 | 940710.9 |
-| document_discovery | 25 | 37628.59 | 97806.2 | 940714.8 |
-| document_download | 25 | 202395.02 | 1509355.9 | 5059875.4 |
-| extraction | 25 | 48.51 | 109.5 | 1212.7 |
-| candidate_validation | 25 | 4.52 | 7.8 | 113.1 |
-| publish_queue | 25 | 4.62 | 8.8 | 115.5 |
-| append_dataset | 25 | 28.6 | 119.7 | 715.0 |
-| export | 25 | 0.32 | 0.6 | 8.0 |
-| git_commit | 25 | 0.3 | 0.4 | 7.4 |
-| push | 25 | 0.3 | 0.5 | 7.6 |
+| mission | 26 | 0.95 | 1.3 | 24.7 |
+| source_discovery | 26 | 2.61 | 3.3 | 67.8 |
+| connector | 26 | 39797.7 | 97806.1 | 1034740.1 |
+| document_discovery | 26 | 39797.85 | 97806.2 | 1034744.1 |
+| document_download | 26 | 201808.58 | 1509355.9 | 5247023.2 |
+| extraction | 26 | 50.55 | 109.5 | 1314.3 |
+| candidate_validation | 26 | 4.62 | 7.8 | 120.2 |
+| publish_queue | 26 | 4.71 | 8.8 | 122.5 |
+| append_dataset | 26 | 30.48 | 119.7 | 792.5 |
+| export | 26 | 0.32 | 0.6 | 8.3 |
+| git_commit | 26 | 0.3 | 0.4 | 7.7 |
+| push | 26 | 0.31 | 0.5 | 8.0 |
 
 ## End-to-end funnel
 
 | Metric | Value |
 |--------|------:|
-| Documents discovered | 456 |
-| Documents processed | 1401 |
-| Process ratio | 307.2% (target ≥90.0%) |
-| Rows published (traces) | 70 |
-| Sessions observed | 53 |
-| Avg session duration (s) | 391.208 |
+| Documents discovered | 487 |
+| Documents processed | 1544 |
+| Process ratio | 317.0% (target ≥90.0%) |
+| Rows published (traces) | 75 |
+| Sessions observed | 54 |
+| Avg session duration (s) | 403.463 |
 | Max session duration (s) | 2353.0 |
-| Rows / session (productive) | 3.632 |
-| Avg connector latency (ms) | 13740.0 |
+| Rows / session (productive) | 3.7 |
+| Avg connector latency (ms) | 13826.5 |
 | Worker utilization (est) | 1.0 |
 | Idle fraction (est) | 0.0 |
 | Queue wait (doc depth) | 0 |
 
 ## Bottleneck notes
 
-- Historical process ratio **307.2%** vs target **≥90%**.
+- Historical process ratio **317.0%** vs target **≥90%**.
 - Primary levers: per-session document budget, concurrent downloads, prioritization.
 - Scheduler remains non-overlapping (`factory-production` concurrency); density gains come from more work per idle hourly slot.
