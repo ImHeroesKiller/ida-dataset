@@ -1,6 +1,6 @@
 # Mission Trace
 
-**Generated:** 2026-07-12T16:25:29+00:00
+**Generated:** 2026-07-12T18:23:54+00:00
 **Selected:** `service_library` · score=2137.87
 **Reason:** mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · sources=13 · continuous=true
 **Instruction:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
@@ -23,7 +23,7 @@
 | opportunity_analysis | 25 | 0.1 | 77.176 | 1625.13 | True | False | eligible_but_not_selected; score=1625.13 < selected=service_library score=2137.87 |
 | case_study_library | 40 | 0.4 | 77.693 | 1607.93 | True | False | eligible_but_not_selected; score=1607.93 < selected=service_library score=2137.87 |
 | regulation_library | 5 | 0.1 | 80.401 | 928.75 | True | False | eligible_but_not_selected; score=928.75 < selected=service_library score=2137.87 |
-| industry_library | 57 | 1.1 | 79.53 | 904.3 | True | False | eligible_but_not_selected; score=904.3 < selected=service_library score=2137.87 |
+| industry_library | 58 | 1.2 | 79.524 | 904.2 | True | False | eligible_but_not_selected; score=904.2 < selected=service_library score=2137.87 |
 
 ## Evidence
 

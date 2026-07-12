@@ -1,6 +1,6 @@
 # Scheduler Trace
 
-**Generated:** 2026-07-12T16:25:29+00:00
+**Generated:** 2026-07-12T18:23:54+00:00
 
 ## Current mode
 
@@ -18,11 +18,11 @@
 | Field | Value |
 | --- | --- |
 | status | Idle |
-| last_heartbeat | 2026-07-12T16:24:07+00:00 |
-| last_success | 2026-07-12T16:24:07+00:00 |
+| last_heartbeat | 2026-07-12T18:23:01+00:00 |
+| last_success | 2026-07-12T18:23:01+00:00 |
 | last_failure | — |
 | current_job | — |
-| job_duration_seconds | 1111.0 |
+| job_duration_seconds | 1353.0 |
 | last_error | — |
 
 ## Missions not selected (eligible or not)
@@ -42,7 +42,7 @@
 | opportunity_analysis | True | 1625.13 | eligible_but_not_selected; score=1625.13 < selected=service_library score=2137.87 |
 | case_study_library | True | 1607.93 | eligible_but_not_selected; score=1607.93 < selected=service_library score=2137.87 |
 | regulation_library | True | 928.75 | eligible_but_not_selected; score=928.75 < selected=service_library score=2137.87 |
-| industry_library | True | 904.3 | eligible_but_not_selected; score=904.3 < selected=service_library score=2137.87 |
+| industry_library | True | 904.2 | eligible_but_not_selected; score=904.2 < selected=service_library score=2137.87 |
 
 ## Next mission (rank #2 if any)
 - `competitor_library` score=1921.5 cov=0.0

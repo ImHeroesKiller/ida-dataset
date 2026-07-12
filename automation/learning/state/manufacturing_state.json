@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-07-12T16:24:28+00:00",
+  "updated_at": "2026-07-12T18:23:14+00:00",
   "continuous_manufacturing": true,
   "never_stop_at_numeric_target": true,
   "mode": {
@@ -34,7 +34,7 @@
     "reason": "manufacturing_active"
   },
   "counts": {
-    "industry_library": 57,
+    "industry_library": 58,
     "company_profile": 86,
     "product_catalog": 58,
     "service_library": 65,
@@ -74,9 +74,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -122,9 +122,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 2000,
@@ -170,9 +170,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 1000,
@@ -218,9 +218,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
           "minimum_target": 1000,
@@ -266,9 +266,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 5000,
@@ -314,9 +314,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -362,9 +362,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -410,9 +410,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -458,9 +458,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -506,9 +506,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
           "minimum_target": 1000,
@@ -535,7 +535,7 @@
     },
     {
       "dataset": "industry_library",
-      "current_rows": 57,
+      "current_rows": 58,
       "profile": {
         "dataset": "industry_library",
         "minimum_target": 250,
@@ -548,35 +548,35 @@
       "universe": {
         "dataset": "industry_library",
         "estimated_universe": 6600,
-        "current_rows": 57,
-        "remaining_estimate": 6543,
-        "fill_pct": 0.86,
+        "current_rows": 58,
+        "remaining_estimate": 6542,
+        "fill_pct": 0.88,
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 250,
           "hard_limit": null
         }
       },
-      "coverage_stretch_pct": 1.14,
-      "coverage_minimum_pct": 22.8,
-      "knowledge_gap": 6736,
-      "minimum_gap": 193,
-      "stretch_gap": 4943,
-      "universe_gap": 6543,
-      "knowledge_opportunity": 6543,
+      "coverage_stretch_pct": 1.16,
+      "coverage_minimum_pct": 23.2,
+      "knowledge_gap": 6734,
+      "minimum_gap": 192,
+      "stretch_gap": 4942,
+      "universe_gap": 6542,
+      "knowledge_opportunity": 6542,
       "freshness_gap": 0.0,
-      "confidence_gap": 0.1402,
+      "confidence_gap": 0.1405,
       "relationship_gap": 0.2,
       "knowledge_density": 1.0,
-      "avg_confidence": 0.8598,
+      "avg_confidence": 0.8595,
       "freshness": 1.0,
-      "knowledge_gap_score": 79.53,
+      "knowledge_gap_score": 79.524,
       "below_minimum": true,
       "hard_limit": null,
       "should_continue": true
@@ -602,9 +602,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -650,9 +650,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
           "minimum_target": 3000,
@@ -698,9 +698,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
           "minimum_target": 1000,
@@ -746,9 +746,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 100000,
           "minimum_target": 10000,
@@ -794,9 +794,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
           "minimum_target": 3000,
@@ -842,9 +842,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 111.0,
-          "historical_docs": 1417.0,
-          "rows_per_attempt": 0.23,
+          "historical_rows_yielded": 112.0,
+          "historical_docs": 1481.0,
+          "rows_per_attempt": 0.225,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
           "minimum_target": 2000,
@@ -1080,56 +1080,56 @@
     "priority_reason": "mode=BOOTSTRAP; gap_score=125.25; opportunity=7100; enterprise_function=corporate_strategy"
   },
   "economics": {
-    "bandwidth_bytes": 145423852,
-    "bandwidth_gb": 0.135437,
-    "api_requests": 204,
+    "bandwidth_bytes": 97485093,
+    "bandwidth_gb": 0.09079,
+    "api_requests": 245,
     "cache_hits": 0,
-    "cache_misses": 88,
+    "cache_misses": 101,
     "cache_hit_rate": 0.0,
-    "rows_produced": 5,
+    "rows_produced": 1,
     "rows_rejected": 0,
-    "documents_processed": 1417,
+    "documents_processed": 1481,
     "rows_per_source": [
       {
         "source_id": "SRC-CROSSREF",
         "rows": 53,
-        "documents": 419,
+        "documents": 429,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000004",
         "rows": 35,
-        "documents": 290,
+        "documents": 312,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-OPENALEX",
         "rows": 21,
-        "documents": 321,
+        "documents": 331,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000006",
         "rows": 2,
-        "documents": 154,
+        "documents": 165,
+        "success_rate": 1.0
+      },
+      {
+        "source_id": "SRC-000007",
+        "rows": 1,
+        "documents": 74,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000005",
         "rows": 0,
-        "documents": 112,
+        "documents": 123,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000001",
         "rows": 0,
         "documents": 47,
-        "success_rate": 1.0
-      },
-      {
-        "source_id": "SRC-000007",
-        "rows": 0,
-        "documents": 74,
         "success_rate": 1.0
       }
     ],
@@ -1141,13 +1141,13 @@
         "source_name": "World Bank",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 440.4,
+        "elapsed_ms": 411.9,
         "documents_discovered": 11,
-        "documents_downloaded": 0,
+        "documents_downloaded": 11,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-12T16:18:21+00:00",
+        "last_successful_sync": "2026-07-12T18:13:23+00:00",
         "urls": [
           "http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-Development-Project",
           "http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-Development-LIL-Project",
@@ -1156,7 +1156,7 @@
           "http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C3526-Library-Development-Project-Development-Credit-Agreement"
         ],
         "error": null,
-        "rank_score": 97.484
+        "rank_score": 97.486
       },
       {
         "connector_id": "CONN-BPS-001",
@@ -1165,7 +1165,7 @@
         "source_name": "BPS Indonesia",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 181.7,
+        "elapsed_ms": 163.1,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -1183,7 +1183,7 @@
         "source_name": "Asian Development Bank",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 122.3,
+        "elapsed_ms": 80.8,
         "documents_discovered": 0,
         "documents_downloaded": 11,
         "skipped": 0,
@@ -1192,7 +1192,7 @@
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 95.065
+        "rank_score": 95.072
       },
       {
         "connector_id": "CONN-OECD-001",
@@ -1201,7 +1201,7 @@
         "source_name": "OECD",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 212.5,
+        "elapsed_ms": 259.8,
         "documents_discovered": 0,
         "documents_downloaded": 11,
         "skipped": 0,
@@ -1210,7 +1210,7 @@
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 94.639
+        "rank_score": 94.653
       },
       {
         "connector_id": "CONN-KEMENPERIN-001",
@@ -1219,16 +1219,16 @@
         "source_name": "Kemenperin",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 93646.2,
+        "elapsed_ms": 94106.9,
         "documents_discovered": 0,
-        "documents_downloaded": 11,
+        "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 92.74
+        "rank_score": 94.462
       },
       {
         "connector_id": "CONN-CROSSREF-001",
@@ -1237,13 +1237,13 @@
         "source_name": "Crossref",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 405.2,
+        "elapsed_ms": 535.2,
         "documents_discovered": 10,
-        "documents_downloaded": 11,
+        "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-12T16:18:21+00:00",
+        "last_successful_sync": "2026-07-12T18:13:23+00:00",
         "urls": [
           "https://api.crossref.org/works/10.14429/djlit.41.5.16406",
           "https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108",
@@ -1252,7 +1252,7 @@
           "https://api.crossref.org/works/10.59141/jiss.v4i07.855"
         ],
         "error": null,
-        "rank_score": 84.43
+        "rank_score": 84.434
       },
       {
         "connector_id": "CONN-OPENALEX-001",
@@ -1261,13 +1261,13 @@
         "source_name": "OpenAlex",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 615.1,
+        "elapsed_ms": 986.0,
         "documents_discovered": 10,
-        "documents_downloaded": 11,
+        "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-12T16:18:21+00:00",
+        "last_successful_sync": "2026-07-12T18:13:23+00:00",
         "urls": [
           "https://openalex.org/W3095315355",
           "https://openalex.org/W4312346959",
@@ -1279,51 +1279,51 @@
         "rank_score": 0
       }
     ],
-    "rows_per_gb": 36.92,
-    "rows_per_api_call": 0.0245,
-    "estimated_production_cost_usd": 0.204,
-    "knowledge_roi": 24.51,
-    "attempts": 483
+    "rows_per_gb": 11.01,
+    "rows_per_api_call": 0.0041,
+    "estimated_production_cost_usd": 0.245,
+    "knowledge_roi": 4.08,
+    "attempts": 497
   },
   "capacity": {
-    "rows_last_hour": 5,
-    "rows_today_approx": 72,
-    "rows_this_week": 114,
-    "rows_this_month": 114,
+    "rows_last_hour": 1,
+    "rows_today_approx": 66,
+    "rows_this_week": 115,
+    "rows_this_month": 115,
     "sessions_last_hour": 1,
-    "sessions_24h": 17,
-    "sessions_7d": 62,
-    "sessions_30d": 62,
-    "rows_per_hour": 16.2,
-    "rows_per_day": 388.8,
-    "rows_per_week": 2721.6,
-    "rows_per_month": 11664.0,
-    "documents_per_hour": 340.27,
-    "candidates_per_hour": 255.2,
+    "sessions_24h": 16,
+    "sessions_7d": 63,
+    "sessions_30d": 63,
+    "rows_per_hour": 2.66,
+    "rows_per_day": 63.84,
+    "rows_per_week": 446.88,
+    "rows_per_month": 1915.2,
+    "documents_per_hour": 354.15,
+    "candidates_per_hour": 265.61,
     "validation_throughput": "integrity_guard_inline",
     "publish_throughput": "append_only_csv",
     "connector_throughput": {
-      "documents": 105,
-      "rows": 5,
-      "documents_per_hour": 340.27,
-      "rows_per_hour": 16.2,
-      "documents_per_second": 0.095,
-      "rows_per_second": 0.005
+      "documents": 133,
+      "rows": 1,
+      "documents_per_hour": 354.15,
+      "rows_per_hour": 2.66,
+      "documents_per_second": 0.098,
+      "rows_per_second": 0.001
     },
-    "mission_throughput_sessions_24h": 17,
-    "growth_velocity_rows_per_day": 16.29
+    "mission_throughput_sessions_24h": 16,
+    "growth_velocity_rows_per_day": 16.43
   },
   "growth": {
-    "growth_velocity": 16.29,
-    "coverage_velocity": 388.8,
+    "growth_velocity": 16.43,
+    "coverage_velocity": 63.84,
     "freshness_velocity": null,
-    "knowledge_produced_total": 639
+    "knowledge_produced_total": 640
   },
   "top_dataset": "discovery_question_library",
   "knowledge_gap_summary": {
     "highest_gap_dataset": "discovery_question_library",
     "highest_gap_score": 125.25,
-    "total_universe_remaining": 415561
+    "total_universe_remaining": 415560
   },
   "governance": "IDA Dataset Factory has no predefined finish line. Success is knowledge growth, coverage, freshness, confidence, quality. Business Development is one enterprise function among the full taxonomy.",
   "enterprise_functions": {
@@ -1359,7 +1359,7 @@
       {
         "id": "manufacturing",
         "name": "Manufacturing",
-        "rows": 100,
+        "rows": 101,
         "priority": 90
       },
       {
@@ -1872,7 +1872,7 @@
         "id": "manufacturing",
         "name": "Manufacturing",
         "priority": 90,
-        "rows": 100,
+        "rows": 101,
         "datasets_at_floor": 11,
         "datasets_total": 15,
         "coverage_pct": 73.33
@@ -1901,14 +1901,14 @@
         "id": "operations",
         "name": "Operations",
         "rows": 233,
-        "share_pct": 13.77,
+        "share_pct": 13.76,
         "priority": 88
       },
       {
         "id": "information_technology",
         "name": "Information Technology",
         "rows": 202,
-        "share_pct": 11.94,
+        "share_pct": 11.93,
         "priority": 90
       },
       {
@@ -1928,15 +1928,15 @@
       {
         "id": "manufacturing",
         "name": "Manufacturing",
-        "rows": 100,
-        "share_pct": 5.91,
+        "rows": 101,
+        "share_pct": 5.97,
         "priority": 90
       },
       {
         "id": "procurement",
         "name": "Procurement",
         "rows": 94,
-        "share_pct": 5.56,
+        "share_pct": 5.55,
         "priority": 90
       },
       {
@@ -2640,6 +2640,6 @@
       "gap_score": 59.5
     },
     "unclassified_rows": 41,
-    "labeled_assignments": 1692
+    "labeled_assignments": 1693
   }
 }

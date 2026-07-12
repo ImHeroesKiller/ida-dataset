@@ -31,7 +31,7 @@
     {
       "id": "manufacturing",
       "name": "Manufacturing",
-      "rows": 100,
+      "rows": 101,
       "priority": 90
     },
     {
@@ -544,7 +544,7 @@
       "id": "manufacturing",
       "name": "Manufacturing",
       "priority": 90,
-      "rows": 100,
+      "rows": 101,
       "datasets_at_floor": 11,
       "datasets_total": 15,
       "coverage_pct": 73.33
@@ -573,14 +573,14 @@
       "id": "operations",
       "name": "Operations",
       "rows": 233,
-      "share_pct": 13.77,
+      "share_pct": 13.76,
       "priority": 88
     },
     {
       "id": "information_technology",
       "name": "Information Technology",
       "rows": 202,
-      "share_pct": 11.94,
+      "share_pct": 11.93,
       "priority": 90
     },
     {
@@ -600,15 +600,15 @@
     {
       "id": "manufacturing",
       "name": "Manufacturing",
-      "rows": 100,
-      "share_pct": 5.91,
+      "rows": 101,
+      "share_pct": 5.97,
       "priority": 90
     },
     {
       "id": "procurement",
       "name": "Procurement",
       "rows": 94,
-      "share_pct": 5.56,
+      "share_pct": 5.55,
       "priority": 90
     },
     {
@@ -1312,5 +1312,5 @@
     "gap_score": 59.5
   },
   "unclassified_rows": 41,
-  "labeled_assignments": 1692
+  "labeled_assignments": 1693
 }
