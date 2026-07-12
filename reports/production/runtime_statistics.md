@@ -1,24 +1,24 @@
 # Runtime Statistics
 
-**Session:** `SES-20260712-07DB6C`
-**Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
-**Total stage time (ms):** 431182.8
+**Session:** `SES-20260712-CB8076`
+**Mission:** Expand Industry Library — factory learn cycle
+**Total stage time (ms):** 142180.4
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 1.1 | completed |
-| source_discovery | 2.8 | completed |
-| connector | 93893.1 | completed |
-| document_discovery | 93893.2 | completed |
-| document_download | 243201.7 | completed |
-| extraction | 97.2 | completed |
-| candidate_validation | 7.3 | completed |
-| publish_queue | 7.3 | completed |
-| append_dataset | 78.1 | completed |
-| export | 0.4 | skipped |
-| git_commit | 0.3 | skipped |
+| mission | 0.8 | completed |
+| source_discovery | 2.4 | completed |
+| connector | 6154.6 | completed |
+| document_discovery | 6154.7 | completed |
+| document_download | 129777.6 | completed |
+| extraction | 54.7 | completed |
+| candidate_validation | 1.1 | completed |
+| publish_queue | 1.1 | completed |
+| append_dataset | 32.6 | completed |
+| export | 0.3 | skipped |
+| git_commit | 0.2 | skipped |
 | push | 0.3 | skipped |
 
 ## Counters
@@ -28,35 +28,33 @@
   "summary": {
     "connectors_ok": 7,
     "connectors_failed": 0,
-    "documents_discovered": 31,
-    "documents_downloaded": 148,
+    "documents_discovered": 21,
+    "documents_downloaded": 83,
     "documents_failed": 0,
-    "documents_duplicates": 85,
-    "candidates_extracted": 5,
-    "candidates_validated": 5,
-    "candidates_rejected": 0,
-    "rows_published": 5,
+    "documents_duplicates": 67,
+    "candidates_extracted": 4,
+    "candidates_validated": 4,
+    "candidates_rejected": 4,
+    "rows_published": 0,
     "rows_duplicate": 0
   },
   "publish": {
-    "extracted": 5,
-    "validated": 5,
-    "rejected": 0,
-    "queued": 5,
-    "published": 5,
-    "skipped": 0,
+    "extracted": 4,
+    "validated": 4,
+    "rejected": 4,
+    "queued": 4,
+    "published": 0,
+    "skipped": 4,
     "duplicate": 0,
-    "by_dataset": {
-      "business_signal_library": 5
-    },
-    "balance_ok": true
+    "by_dataset": {},
+    "balance_ok": false
   },
   "document_queue": {
     "queued": 0,
     "processing": 0,
-    "completed": 148,
+    "completed": 83,
     "failed": 0,
-    "duplicates": 85
+    "duplicates": 67
   },
   "exports": {
     "jsonl": false,

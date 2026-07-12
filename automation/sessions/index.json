@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-07-12T06:53:27+00:00",
+  "updated_at": "2026-07-12T07:32:52+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260712-37CE0D",
+      "path": "automation/sessions/2026-07-12/SESSION-20260712-37CE0D.json",
+      "start_time": "2026-07-12T07:22:22+00:00",
+      "end_time": "2026-07-12T07:32:52+00:00",
+      "duration_seconds": 630.0,
+      "status": "completed",
+      "mission": "Expand Industry Library — factory learn cycle",
+      "knowledge_added": 0,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 4,
+      "summary": "Session completed · published=0 extracted=4 validated=4 rejected=4 docs=83 entity=— · dry_run",
+      "trigger": "manual",
+      "dry_run": true,
+      "events": 438,
+      "github": {
+        "run_id": "29184128569",
+        "run_number": "44",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "workflow_dispatch",
+        "sha": "675066f2f74bcb0d0872a3437d191566aab7d0d7",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260712-878E73",
       "path": "automation/sessions/2026-07-12/SESSION-20260712-878E73.json",
@@ -782,34 +810,6 @@
         "sha": null,
         "ref": null,
         "repository": null,
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260710-2115D0",
-      "path": "automation/sessions/2026-07-10/SESSION-20260710-2115D0.json",
-      "start_time": "2026-07-10T16:51:47+00:00",
-      "end_time": "2026-07-10T16:51:48+00:00",
-      "duration_seconds": 1.0,
-      "status": "completed",
-      "mission": "Produce Buyer Persona Dataset — structured buyer personas (Batch-009)",
-      "knowledge_added": 0,
-      "knowledge_updated": 1,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · added=0 updated=1 entity=Manufacturing",
-      "trigger": "schedule",
-      "dry_run": false,
-      "events": 31,
-      "github": {
-        "run_id": "29108904895",
-        "run_number": "8",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "schedule",
-        "sha": "4f0d53b5e77fd83135452e3cc563a0e40a6943e3",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
       }
     },

@@ -1,6 +1,6 @@
 # Queue Efficiency
 
-**Generated:** 2026-07-12T06:53:27+00:00
+**Generated:** 2026-07-12T07:32:52+00:00
 
 ## Depths
 
@@ -8,10 +8,10 @@
 |-------|--------|------:|
 | Document | incoming | 0 |
 | Document | processing | 0 |
-| Document | processed | 169 |
+| Document | processed | 93 |
 | Document | depth | 0 |
-| Candidate | pending | 0 |
-| Candidate | approved | 5 |
+| Candidate | pending | 8 |
+| Candidate | approved | 0 |
 | Candidate | rejected | 0 |
 | Publish | depth | 7 |
 
@@ -25,9 +25,9 @@
 {
   "prefer_process_incoming": false,
   "prefer_drain_publish": true,
-  "prefer_review_pending": false,
+  "prefer_review_pending": true,
   "document_weight": 0.0,
-  "candidate_weight": 0.0,
-  "publish_weight": 0.5833333333333334
+  "candidate_weight": 0.5333333333333333,
+  "publish_weight": 0.4666666666666667
 }
 ```

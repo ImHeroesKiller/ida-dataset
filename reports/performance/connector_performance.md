@@ -1,13 +1,13 @@
 # Connector Performance
 
-**Session:** `SES-20260712-07DB6C`
+**Session:** `SES-20260712-CB8076`
 
 | Connector | Status | HTTP | ms | Discovered | Downloaded | Error |
 |-----------|--------|------|---:|-----------:|-----------:|-------|
-| World Bank | ok | 200 | 488.3 | 11 | 11 | — |
-| Asian Development Bank | no_updates | 200 | 98.7 | 0 | 11 | — |
-| BPS Indonesia | no_updates | 200 | 134.8 | 0 | 11 | — |
-| Kemenperin | no_updates | 200 | 93888.0 | 0 | 0 | — |
-| OECD | no_updates | 200 | 190.3 | 0 | 11 | — |
-| Crossref | ok | 200 | 263.0 | 10 | 0 | — |
-| OpenAlex | ok | 200 | 486.4 | 10 | 0 | — |
+| World Bank | ok | 200 | 596.2 | 1 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 3080.2 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 6150.7 | 0 | 1 | — |
+| Kemenperin | no_updates | 200 | 3080.0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 3109.6 | 0 | 0 | — |
+| OpenAlex | ok | 200 | 770.8 | 10 | 0 | — |
+| Crossref | ok | 200 | 591.2 | 10 | 1 | — |

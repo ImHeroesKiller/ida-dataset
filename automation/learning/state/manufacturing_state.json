@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-07-12T06:53:47+00:00",
+  "updated_at": "2026-07-12T07:33:08+00:00",
   "continuous_manufacturing": true,
   "never_stop_at_numeric_target": true,
   "mode": {
@@ -75,8 +75,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -123,8 +123,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 2000,
@@ -171,8 +171,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 1000,
@@ -219,8 +219,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
           "minimum_target": 1000,
@@ -267,8 +267,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 5000,
@@ -315,8 +315,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -363,8 +363,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -411,8 +411,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -459,8 +459,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -507,8 +507,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
           "minimum_target": 1000,
@@ -555,8 +555,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 250,
@@ -603,8 +603,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -651,8 +651,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
           "minimum_target": 3000,
@@ -699,8 +699,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
           "minimum_target": 1000,
@@ -747,8 +747,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 100000,
           "minimum_target": 10000,
@@ -795,8 +795,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
           "minimum_target": 3000,
@@ -843,8 +843,8 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 81.0,
-          "historical_docs": 944.0,
-          "rows_per_attempt": 0.21,
+          "historical_docs": 967.0,
+          "rows_per_attempt": 0.203,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
           "minimum_target": 2000,
@@ -1079,32 +1079,32 @@
     "priority_reason": "mode=BOOTSTRAP; gap_score=125.25; opportunity=7100; enterprise_function=corporate_strategy"
   },
   "economics": {
-    "bandwidth_bytes": 103921885,
-    "bandwidth_gb": 0.096785,
-    "api_requests": 244,
+    "bandwidth_bytes": 706403104,
+    "bandwidth_gb": 0.657889,
+    "api_requests": 171,
     "cache_hits": 0,
-    "cache_misses": 85,
+    "cache_misses": 67,
     "cache_hit_rate": 0.0,
-    "rows_produced": 5,
+    "rows_produced": 81,
     "rows_rejected": 0,
-    "documents_processed": 944,
+    "documents_processed": 967,
     "rows_per_source": [
       {
         "source_id": "SRC-CROSSREF",
         "rows": 41,
-        "documents": 304,
+        "documents": 315,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000004",
         "rows": 24,
-        "documents": 201,
+        "documents": 202,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-OPENALEX",
         "rows": 15,
-        "documents": 218,
+        "documents": 228,
         "success_rate": 1.0
       },
       {
@@ -1122,7 +1122,7 @@
       {
         "source_id": "SRC-000001",
         "rows": 0,
-        "documents": 35,
+        "documents": 36,
         "success_rate": 1.0
       },
       {
@@ -1140,22 +1140,18 @@
         "source_name": "World Bank",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 488.3,
-        "documents_discovered": 11,
-        "documents_downloaded": 11,
+        "elapsed_ms": 596.2,
+        "documents_discovered": 1,
+        "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-12T06:47:50+00:00",
+        "last_successful_sync": "2026-07-12T07:30:36+00:00",
         "urls": [
-          "http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-Development-Project",
-          "http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-Development-LIL-Project",
-          "http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-Development-Project",
-          "http://documents.worldbank.org/curated/en/865071474569449459/Indonesia-Library-Development-Project-Lil",
-          "http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C3526-Library-Development-Project-Development-Credit-Agreement"
+          "https://documents.worldbank.org/search?q=Expand+Industry+Library+—+factory+learn+cycle+Indonesia"
         ],
         "error": null,
-        "rank_score": 97.47
+        "rank_score": 103.474
       },
       {
         "connector_id": "CONN-ADB-001",
@@ -1164,16 +1160,16 @@
         "source_name": "Asian Development Bank",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 98.7,
+        "elapsed_ms": 3080.2,
         "documents_discovered": 0,
-        "documents_downloaded": 11,
+        "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 91.909
+        "rank_score": 99.581
       },
       {
         "connector_id": "CONN-BPS-001",
@@ -1182,16 +1178,16 @@
         "source_name": "BPS Indonesia",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 134.8,
+        "elapsed_ms": 6150.7,
         "documents_discovered": 0,
-        "documents_downloaded": 11,
+        "documents_downloaded": 1,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 91.841
+        "rank_score": 99.491
       },
       {
         "connector_id": "CONN-KEMENPERIN-001",
@@ -1200,7 +1196,7 @@
         "source_name": "Kemenperin",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 93888.0,
+        "elapsed_ms": 3080.0,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -1209,7 +1205,7 @@
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 89.194
+        "rank_score": 95.194
       },
       {
         "connector_id": "CONN-OECD-001",
@@ -1218,40 +1214,16 @@
         "source_name": "OECD",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 190.3,
+        "elapsed_ms": 3109.6,
         "documents_discovered": 0,
-        "documents_downloaded": 11,
+        "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 87.133
-      },
-      {
-        "connector_id": "CONN-CROSSREF-001",
-        "name": "Crossref",
-        "source_id": "SRC-CROSSREF",
-        "source_name": "Crossref",
-        "status": "ok",
-        "http_status": 200,
-        "elapsed_ms": 263.0,
-        "documents_discovered": 10,
-        "documents_downloaded": 0,
-        "skipped": 0,
-        "rejected": 0,
-        "retry_count": 0,
-        "last_successful_sync": "2026-07-12T06:47:49+00:00",
-        "urls": [
-          "https://api.crossref.org/works/10.14429/djlit.41.5.16406",
-          "https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108",
-          "https://api.crossref.org/works/10.47191/ijmei/v10i2.01",
-          "https://api.crossref.org/works/10.59141/jiss.v4i07.855",
-          "https://api.crossref.org/works/10.1109/icitsi.2015.7437704"
-        ],
-        "error": null,
-        "rank_score": 84.406
+        "rank_score": 94.838
       },
       {
         "connector_id": "CONN-OPENALEX-001",
@@ -1260,61 +1232,85 @@
         "source_name": "OpenAlex",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 486.4,
+        "elapsed_ms": 770.8,
         "documents_discovered": 10,
         "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-12T06:47:50+00:00",
+        "last_successful_sync": "2026-07-12T07:30:37+00:00",
         "urls": [
-          "https://openalex.org/W3095315355",
-          "https://openalex.org/W4312346959",
-          "https://openalex.org/W3132509763",
-          "https://openalex.org/W3004041197",
-          "https://openalex.org/W2974521388"
+          "https://openalex.org/W2897949470",
+          "https://openalex.org/W4382402849",
+          "https://openalex.org/W3091873165",
+          "https://openalex.org/W2959048647",
+          "https://openalex.org/W3113841118"
         ],
         "error": null,
-        "rank_score": 0
+        "rank_score": 90.443
+      },
+      {
+        "connector_id": "CONN-CROSSREF-001",
+        "name": "Crossref",
+        "source_id": "SRC-CROSSREF",
+        "source_name": "Crossref",
+        "status": "ok",
+        "http_status": 200,
+        "elapsed_ms": 591.2,
+        "documents_discovered": 10,
+        "documents_downloaded": 1,
+        "skipped": 0,
+        "rejected": 0,
+        "retry_count": 0,
+        "last_successful_sync": "2026-07-12T07:30:36+00:00",
+        "urls": [
+          "https://api.crossref.org/works/10.64628/aan.5k75n9srk",
+          "https://api.crossref.org/works/10.1007/978-3-030-67270-6_15",
+          "https://api.crossref.org/works/10.1016/s0034-3617(98)90431-3",
+          "https://api.crossref.org/works/10.5040/9781350596030.ch-002",
+          "https://api.crossref.org/works/10.1007/978-3-030-67270-6_3"
+        ],
+        "error": null,
+        "rank_score": 90.409
       }
     ],
-    "rows_per_gb": 51.66,
-    "rows_per_api_call": 0.0205,
-    "estimated_production_cost_usd": 0.244,
-    "knowledge_roi": 20.49,
-    "attempts": 385
+    "rows_per_gb": 123.12,
+    "rows_per_api_call": 0.4737,
+    "estimated_production_cost_usd": 0.171,
+    "knowledge_roi": 473.68,
+    "attempts": 399
   },
   "capacity": {
     "rows_last_hour": 5,
     "rows_today_approx": 64,
     "rows_this_week": 84,
     "rows_this_month": 84,
-    "sessions_last_hour": 1,
-    "sessions_24h": 20,
-    "sessions_7d": 55,
-    "sessions_30d": 55,
-    "rows_per_hour": 16.44,
-    "rows_per_day": 394.56,
-    "rows_per_week": 2761.92,
-    "rows_per_month": 11836.8,
-    "documents_per_hour": 486.55,
-    "candidates_per_hour": 364.91,
+    "sessions_last_hour": 2,
+    "sessions_24h": 21,
+    "sessions_7d": 56,
+    "sessions_30d": 56,
+    "rows_per_hour": 2.67,
+    "rows_per_day": 64.0,
+    "rows_per_week": 448.0,
+    "rows_per_month": 1920.0,
+    "documents_per_hour": 474.98,
+    "candidates_per_hour": 356.24,
     "validation_throughput": "integrity_guard_inline",
     "publish_throughput": "append_only_csv",
     "connector_throughput": {
-      "documents": 148,
-      "rows": 5,
-      "documents_per_hour": 486.55,
-      "rows_per_hour": 16.44,
-      "documents_per_second": 0.135,
-      "rows_per_second": 0.005
+      "documents": 83,
+      "rows": 0,
+      "documents_per_hour": 474.98,
+      "rows_per_hour": 0.0,
+      "documents_per_second": 0.132,
+      "rows_per_second": 0.0
     },
-    "mission_throughput_sessions_24h": 20,
+    "mission_throughput_sessions_24h": 21,
     "growth_velocity_rows_per_day": 12.0
   },
   "growth": {
     "growth_velocity": 12.0,
-    "coverage_velocity": 394.56,
+    "coverage_velocity": 64.0,
     "freshness_velocity": null,
     "knowledge_produced_total": 609
   },
