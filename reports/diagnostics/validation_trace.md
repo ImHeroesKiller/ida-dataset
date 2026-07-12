@@ -1,58 +1,10 @@
 # Validation Trace
 
-**Generated:** 2026-07-11T23:10:09+00:00
+**Generated:** 2026-07-12T00:16:22+00:00
 
 Every Integrity Guard rule evaluated (observe-only mirror).
 
-## CAND-A618E91F5D49 · World Bank document
-
-dataset=`business_signal_library` · confidence=`0.92` · threshold=`0.8` · document=`DOC-A99E56C64737`
-
-| Rule Name | PASS/FAIL | Input | Expected | Actual | Evidence |
-| --- | --- | --- | --- | --- | --- |
-| dataset_csv_exists | PASS | — | — | business_signal_library.csv | CSV present |
-| payload_present | PASS | — | — | — | payload fields=14 |
-| schema_indexed_dataset | PASS | business_signal_library | Signal ID | Signal ID | ID field mapped: Signal ID |
-| primary_id_present | PASS | SIG-000066 | non-empty Signal ID | SIG-000066 | Signal ID='SIG-000066' |
-| primary_id_pattern | N/A | SIG-000066 | no pattern for dataset | SIG-000066 | ID_PATTERNS has no entry |
-| duplicate_id_in_batch | PASS | SIG-000066 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
-| duplicate_id_existing_dataset | FAIL | SIG-000066 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
-| confidence_threshold | PASS | 0.92 | >= 0.8 | 0.92 | threshold=0.8; conf=0.92 |
-| confidence_present | PASS | 0.92 | optional numeric confidence in Notes/Data Sources/Confidence | 0.92 | integrity only fails when conf is present and < 0.80 |
-| relationship_fk | N/A | business_signal_library | no FK rules for this dataset | n/a | integrity_guard has no FK branch for this stem |
-| provenance_required | N/A | — | — | — | dataset business_signal_library not in provenance-required set |
-| provenance_present | PASS | provenance: source=SRC-000004; document=DOC-A99E56C64737; mission=MIS-20260711-6 | optional | present | provenance: source=SRC-000004; document=DOC-A99E56C64737; mission=MIS-20260711-6FB8F7; discovery_provider=connector; append_only=true; extra |
-| freshness | N/A | — | not enforced by integrity_guard | (none) | integrity_guard has no freshness rule |
-| completeness_primary | PASS | SIG-000066 | primary id present | SIG-000066 | primary id completeness |
-| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000066', 'confidence': 0.92} | validate_row ok | duplicate_id:SIG-000066 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000066 |
-
-**Integrity final:** `False` · reason=`duplicate_id:SIG-000066`
-
-## CAND-92DA63F53BBE · Development of the Siak Library and Archives Service (2004-2022)
-
-dataset=`business_signal_library` · confidence=`0.9` · threshold=`0.8` · document=`DOC-50B3F3BC8DEB`
-
-| Rule Name | PASS/FAIL | Input | Expected | Actual | Evidence |
-| --- | --- | --- | --- | --- | --- |
-| dataset_csv_exists | PASS | — | — | business_signal_library.csv | CSV present |
-| payload_present | PASS | — | — | — | payload fields=14 |
-| schema_indexed_dataset | PASS | business_signal_library | Signal ID | Signal ID | ID field mapped: Signal ID |
-| primary_id_present | PASS | SIG-000068 | non-empty Signal ID | SIG-000068 | Signal ID='SIG-000068' |
-| primary_id_pattern | N/A | SIG-000068 | no pattern for dataset | SIG-000068 | ID_PATTERNS has no entry |
-| duplicate_id_in_batch | PASS | SIG-000068 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
-| duplicate_id_existing_dataset | FAIL | SIG-000068 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
-| confidence_threshold | PASS | 0.9 | >= 0.8 | 0.9 | threshold=0.8; conf=0.9 |
-| confidence_present | PASS | 0.9 | optional numeric confidence in Notes/Data Sources/Confidence | 0.9 | integrity only fails when conf is present and < 0.80 |
-| relationship_fk | N/A | business_signal_library | no FK rules for this dataset | n/a | integrity_guard has no FK branch for this stem |
-| provenance_required | N/A | — | — | — | dataset business_signal_library not in provenance-required set |
-| provenance_present | PASS | provenance: source=SRC-CROSSREF; document=DOC-50B3F3BC8DEB; mission=MIS-20260711 | optional | present | provenance: source=SRC-CROSSREF; document=DOC-50B3F3BC8DEB; mission=MIS-20260711-6FB8F7; discovery_provider=connector; append_only=true; ext |
-| freshness | N/A | 2024 | not enforced by integrity_guard | 2024 | integrity_guard has no freshness rule |
-| completeness_primary | PASS | SIG-000068 | primary id present | SIG-000068 | primary id completeness |
-| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000068', 'confidence': 0.9} | validate_row ok | duplicate_id:SIG-000068 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000068 |
-
-**Integrity final:** `False` · reason=`duplicate_id:SIG-000068`
-
-## CAND-F7A5F8BFD413 · New normal and library services in Indonesia: a case study of university libraries
+## CAND-401A73410DF1 · New normal and library services in Indonesia: a case study of university libraries
 
 dataset=`business_signal_library` · confidence=`0.88` · threshold=`0.8` · document=`DOC-7C7239075702`
 
@@ -61,46 +13,46 @@ dataset=`business_signal_library` · confidence=`0.88` · threshold=`0.8` · doc
 | dataset_csv_exists | PASS | — | — | business_signal_library.csv | CSV present |
 | payload_present | PASS | — | — | — | payload fields=14 |
 | schema_indexed_dataset | PASS | business_signal_library | Signal ID | Signal ID | ID field mapped: Signal ID |
-| primary_id_present | PASS | SIG-000067 | non-empty Signal ID | SIG-000067 | Signal ID='SIG-000067' |
-| primary_id_pattern | N/A | SIG-000067 | no pattern for dataset | SIG-000067 | ID_PATTERNS has no entry |
-| duplicate_id_in_batch | PASS | SIG-000067 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
-| duplicate_id_existing_dataset | FAIL | SIG-000067 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
+| primary_id_present | PASS | SIG-000072 | non-empty Signal ID | SIG-000072 | Signal ID='SIG-000072' |
+| primary_id_pattern | N/A | SIG-000072 | no pattern for dataset | SIG-000072 | ID_PATTERNS has no entry |
+| duplicate_id_in_batch | PASS | SIG-000072 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
+| duplicate_id_existing_dataset | FAIL | SIG-000072 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
 | confidence_threshold | PASS | 0.88 | >= 0.8 | 0.88 | threshold=0.8; conf=0.88 |
 | confidence_present | PASS | 0.88 | optional numeric confidence in Notes/Data Sources/Confidence | 0.88 | integrity only fails when conf is present and < 0.80 |
 | relationship_fk | N/A | business_signal_library | no FK rules for this dataset | n/a | integrity_guard has no FK branch for this stem |
 | provenance_required | N/A | — | — | — | dataset business_signal_library not in provenance-required set |
-| provenance_present | PASS | provenance: source=SRC-OPENALEX; document=DOC-7C7239075702; mission=MIS-20260711 | optional | present | provenance: source=SRC-OPENALEX; document=DOC-7C7239075702; mission=MIS-20260711-6FB8F7; discovery_provider=connector; append_only=true; ext |
+| provenance_present | PASS | provenance: source=SRC-OPENALEX; document=DOC-7C7239075702; mission=MIS-20260711 | optional | present | provenance: source=SRC-OPENALEX; document=DOC-7C7239075702; mission=MIS-20260711-6109FC; discovery_provider=connector; append_only=true; ext |
 | freshness | N/A | 2020-10-28 | not enforced by integrity_guard | 2020-10-28 | integrity_guard has no freshness rule |
-| completeness_primary | PASS | SIG-000067 | primary id present | SIG-000067 | primary id completeness |
-| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000067', 'confidence': 0.88} | validate_row ok | duplicate_id:SIG-000067 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000067 |
+| completeness_primary | PASS | SIG-000072 | primary id present | SIG-000072 | primary id completeness |
+| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000072', 'confidence': 0.88} | validate_row ok | duplicate_id:SIG-000072 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000072 |
 
-**Integrity final:** `False` · reason=`duplicate_id:SIG-000067`
+**Integrity final:** `False` · reason=`duplicate_id:SIG-000072`
 
-## CAND-6876EA87EE0A · Indonesia - Library Development Project
+## CAND-FCD94172818A · Indonesia - Library Development Project
 
-dataset=`business_signal_library` · confidence=`0.92` · threshold=`0.8` · document=`DOC-2430A598BF3B`
+dataset=`business_signal_library` · confidence=`0.92` · threshold=`0.8` · document=`DOC-D733F4309CB6`
 
 | Rule Name | PASS/FAIL | Input | Expected | Actual | Evidence |
 | --- | --- | --- | --- | --- | --- |
 | dataset_csv_exists | PASS | — | — | business_signal_library.csv | CSV present |
 | payload_present | PASS | — | — | — | payload fields=14 |
 | schema_indexed_dataset | PASS | business_signal_library | Signal ID | Signal ID | ID field mapped: Signal ID |
-| primary_id_present | PASS | SIG-000069 | non-empty Signal ID | SIG-000069 | Signal ID='SIG-000069' |
-| primary_id_pattern | N/A | SIG-000069 | no pattern for dataset | SIG-000069 | ID_PATTERNS has no entry |
-| duplicate_id_in_batch | PASS | SIG-000069 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
-| duplicate_id_existing_dataset | FAIL | SIG-000069 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
+| primary_id_present | PASS | SIG-000074 | non-empty Signal ID | SIG-000074 | Signal ID='SIG-000074' |
+| primary_id_pattern | N/A | SIG-000074 | no pattern for dataset | SIG-000074 | ID_PATTERNS has no entry |
+| duplicate_id_in_batch | PASS | SIG-000074 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
+| duplicate_id_existing_dataset | FAIL | SIG-000074 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
 | confidence_threshold | PASS | 0.92 | >= 0.8 | 0.92 | threshold=0.8; conf=0.92 |
 | confidence_present | PASS | 0.92 | optional numeric confidence in Notes/Data Sources/Confidence | 0.92 | integrity only fails when conf is present and < 0.80 |
 | relationship_fk | N/A | business_signal_library | no FK rules for this dataset | n/a | integrity_guard has no FK branch for this stem |
 | provenance_required | N/A | — | — | — | dataset business_signal_library not in provenance-required set |
-| provenance_present | PASS | provenance: source=SRC-000004; document=DOC-2430A598BF3B; mission=MIS-20260711-6 | optional | present | provenance: source=SRC-000004; document=DOC-2430A598BF3B; mission=MIS-20260711-6FB8F7; discovery_provider=connector; append_only=true; extra |
+| provenance_present | PASS | provenance: source=SRC-000004; document=DOC-D733F4309CB6; mission=MIS-20260711-6 | optional | present | provenance: source=SRC-000004; document=DOC-D733F4309CB6; mission=MIS-20260711-6109FC; discovery_provider=connector; append_only=true; extra |
 | freshness | N/A | 2001-05-07T00:00:00Z | not enforced by integrity_guard | 2001-05-07T00:00:00Z | integrity_guard has no freshness rule |
-| completeness_primary | PASS | SIG-000069 | primary id present | SIG-000069 | primary id completeness |
-| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000069', 'confidence': 0.92} | validate_row ok | duplicate_id:SIG-000069 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000069 |
+| completeness_primary | PASS | SIG-000074 | primary id present | SIG-000074 | primary id completeness |
+| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000074', 'confidence': 0.92} | validate_row ok | duplicate_id:SIG-000074 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000074 |
 
-**Integrity final:** `False` · reason=`duplicate_id:SIG-000069`
+**Integrity final:** `False` · reason=`duplicate_id:SIG-000074`
 
-## CAND-5D3559EFA3AA · The Influence of Service Quality on Library Users at Padang State Polytechnic
+## CAND-81129CD87137 · The Influence of Service Quality on Library Users at Padang State Polytechnic
 
 dataset=`business_signal_library` · confidence=`0.9` · threshold=`0.8` · document=`DOC-5DFD7BF054D2`
 
@@ -109,17 +61,65 @@ dataset=`business_signal_library` · confidence=`0.9` · threshold=`0.8` · docu
 | dataset_csv_exists | PASS | — | — | business_signal_library.csv | CSV present |
 | payload_present | PASS | — | — | — | payload fields=14 |
 | schema_indexed_dataset | PASS | business_signal_library | Signal ID | Signal ID | ID field mapped: Signal ID |
-| primary_id_present | PASS | SIG-000065 | non-empty Signal ID | SIG-000065 | Signal ID='SIG-000065' |
-| primary_id_pattern | N/A | SIG-000065 | no pattern for dataset | SIG-000065 | ID_PATTERNS has no entry |
-| duplicate_id_in_batch | PASS | SIG-000065 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
-| duplicate_id_existing_dataset | FAIL | SIG-000065 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
+| primary_id_present | PASS | SIG-000070 | non-empty Signal ID | SIG-000070 | Signal ID='SIG-000070' |
+| primary_id_pattern | N/A | SIG-000070 | no pattern for dataset | SIG-000070 | ID_PATTERNS has no entry |
+| duplicate_id_in_batch | PASS | SIG-000070 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
+| duplicate_id_existing_dataset | FAIL | SIG-000070 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
 | confidence_threshold | PASS | 0.9 | >= 0.8 | 0.9 | threshold=0.8; conf=0.9 |
 | confidence_present | PASS | 0.9 | optional numeric confidence in Notes/Data Sources/Confidence | 0.9 | integrity only fails when conf is present and < 0.80 |
 | relationship_fk | N/A | business_signal_library | no FK rules for this dataset | n/a | integrity_guard has no FK branch for this stem |
 | provenance_required | N/A | — | — | — | dataset business_signal_library not in provenance-required set |
-| provenance_present | PASS | provenance: source=SRC-CROSSREF; document=DOC-5DFD7BF054D2; mission=MIS-20260711 | optional | present | provenance: source=SRC-CROSSREF; document=DOC-5DFD7BF054D2; mission=MIS-20260711-6FB8F7; discovery_provider=connector; append_only=true; ext |
+| provenance_present | PASS | provenance: source=SRC-CROSSREF; document=DOC-5DFD7BF054D2; mission=MIS-20260711 | optional | present | provenance: source=SRC-CROSSREF; document=DOC-5DFD7BF054D2; mission=MIS-20260711-6109FC; discovery_provider=connector; append_only=true; ext |
 | freshness | N/A | 2024 | not enforced by integrity_guard | 2024 | integrity_guard has no freshness rule |
-| completeness_primary | PASS | SIG-000065 | primary id present | SIG-000065 | primary id completeness |
-| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000065', 'confidence': 0.9} | validate_row ok | duplicate_id:SIG-000065 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000065 |
+| completeness_primary | PASS | SIG-000070 | primary id present | SIG-000070 | primary id completeness |
+| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000070', 'confidence': 0.9} | validate_row ok | duplicate_id:SIG-000070 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000070 |
 
-**Integrity final:** `False` · reason=`duplicate_id:SIG-000065`
+**Integrity final:** `False` · reason=`duplicate_id:SIG-000070`
+
+## CAND-80DE126FD04E · World Bank document
+
+dataset=`business_signal_library` · confidence=`0.92` · threshold=`0.8` · document=`DOC-A99E56C64737`
+
+| Rule Name | PASS/FAIL | Input | Expected | Actual | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| dataset_csv_exists | PASS | — | — | business_signal_library.csv | CSV present |
+| payload_present | PASS | — | — | — | payload fields=14 |
+| schema_indexed_dataset | PASS | business_signal_library | Signal ID | Signal ID | ID field mapped: Signal ID |
+| primary_id_present | PASS | SIG-000071 | non-empty Signal ID | SIG-000071 | Signal ID='SIG-000071' |
+| primary_id_pattern | N/A | SIG-000071 | no pattern for dataset | SIG-000071 | ID_PATTERNS has no entry |
+| duplicate_id_in_batch | PASS | SIG-000071 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
+| duplicate_id_existing_dataset | FAIL | SIG-000071 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
+| confidence_threshold | PASS | 0.92 | >= 0.8 | 0.92 | threshold=0.8; conf=0.92 |
+| confidence_present | PASS | 0.92 | optional numeric confidence in Notes/Data Sources/Confidence | 0.92 | integrity only fails when conf is present and < 0.80 |
+| relationship_fk | N/A | business_signal_library | no FK rules for this dataset | n/a | integrity_guard has no FK branch for this stem |
+| provenance_required | N/A | — | — | — | dataset business_signal_library not in provenance-required set |
+| provenance_present | PASS | provenance: source=SRC-000004; document=DOC-A99E56C64737; mission=MIS-20260711-6 | optional | present | provenance: source=SRC-000004; document=DOC-A99E56C64737; mission=MIS-20260711-6109FC; discovery_provider=connector; append_only=true; extra |
+| freshness | N/A | — | not enforced by integrity_guard | (none) | integrity_guard has no freshness rule |
+| completeness_primary | PASS | SIG-000071 | primary id present | SIG-000071 | primary id completeness |
+| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000071', 'confidence': 0.92} | validate_row ok | duplicate_id:SIG-000071 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000071 |
+
+**Integrity final:** `False` · reason=`duplicate_id:SIG-000071`
+
+## CAND-416BDE6E21C1 · Development of the Siak Library and Archives Service (2004-2022)
+
+dataset=`business_signal_library` · confidence=`0.9` · threshold=`0.8` · document=`DOC-50B3F3BC8DEB`
+
+| Rule Name | PASS/FAIL | Input | Expected | Actual | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| dataset_csv_exists | PASS | — | — | business_signal_library.csv | CSV present |
+| payload_present | PASS | — | — | — | payload fields=14 |
+| schema_indexed_dataset | PASS | business_signal_library | Signal ID | Signal ID | ID field mapped: Signal ID |
+| primary_id_present | PASS | SIG-000073 | non-empty Signal ID | SIG-000073 | Signal ID='SIG-000073' |
+| primary_id_pattern | N/A | SIG-000073 | no pattern for dataset | SIG-000073 | ID_PATTERNS has no entry |
+| duplicate_id_in_batch | PASS | SIG-000073 | id not already in this batch | unique_in_batch | batch_ids_contains=False |
+| duplicate_id_existing_dataset | FAIL | SIG-000073 | id not in existing CSV | exists_in_csv | existing_csv_contains=True; dataset_path=business_signal_library.csv |
+| confidence_threshold | PASS | 0.9 | >= 0.8 | 0.9 | threshold=0.8; conf=0.9 |
+| confidence_present | PASS | 0.9 | optional numeric confidence in Notes/Data Sources/Confidence | 0.9 | integrity only fails when conf is present and < 0.80 |
+| relationship_fk | N/A | business_signal_library | no FK rules for this dataset | n/a | integrity_guard has no FK branch for this stem |
+| provenance_required | N/A | — | — | — | dataset business_signal_library not in provenance-required set |
+| provenance_present | PASS | provenance: source=SRC-CROSSREF; document=DOC-50B3F3BC8DEB; mission=MIS-20260711 | optional | present | provenance: source=SRC-CROSSREF; document=DOC-50B3F3BC8DEB; mission=MIS-20260711-6109FC; discovery_provider=connector; append_only=true; ext |
+| freshness | N/A | 2024 | not enforced by integrity_guard | 2024 | integrity_guard has no freshness rule |
+| completeness_primary | PASS | SIG-000073 | primary id present | SIG-000073 | primary id completeness |
+| integrity_final_validate_row | FAIL | {'Signal ID': 'SIG-000073', 'confidence': 0.9} | validate_row ok | duplicate_id:SIG-000073 | automation.quality.integrity_guard.validate_row → duplicate_id:SIG-000073 |
+
+**Integrity final:** `False` · reason=`duplicate_id:SIG-000073`
