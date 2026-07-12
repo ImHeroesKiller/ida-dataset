@@ -146,12 +146,27 @@ class AtomType(str, Enum):
     SECTION = "section"
 
 
+class AtomStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    SUPERSEDED = "SUPERSEDED"
+    MERGED = "MERGED"
+    ARCHIVED = "ARCHIVED"
+
+
+class EntityStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    MERGED = "MERGED"
+    SUPERSEDED = "SUPERSEDED"
+    ARCHIVED = "ARCHIVED"
+
+
 @dataclass
 class KnowledgeAtom:
     """Persistent semantic unit — many atoms per document.
 
     Atoms are the first stage of knowledge manufacturing.
     Dataset rows are produced later from the entity graph, not from atoms alone.
+    API surface from Commit 1 remains valid; new fields are optional/defaulted.
     """
 
     atom_id: str
@@ -168,6 +183,20 @@ class KnowledgeAtom:
     provenance: dict[str, Any] = field(default_factory=dict)
     metadata: dict[str, Any] = field(default_factory=dict)
     created_at: str = field(default_factory=utc_now_iso)
+    # Commit 2 revisions (additive)
+    knowledge_score: float = 0.0
+    normalized_text: str = ""
+    original_text: str = ""
+    language: str = ""
+    document_type: str = ""
+    mime_type: str = ""
+    publisher: str = ""
+    published_date: str = ""
+    crawl_date: str = ""
+    parser_version: str = ""
+    extractor_version: str = ""
+    status: str = AtomStatus.ACTIVE.value
+    paragraph_index: int = 0
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -185,15 +214,29 @@ class KnowledgeAtom:
             "provenance": dict(self.provenance),
             "metadata": dict(self.metadata),
             "created_at": self.created_at,
+            "knowledge_score": self.knowledge_score,
+            "normalized_text": self.normalized_text,
+            "original_text": self.original_text or self.text,
+            "language": self.language,
+            "document_type": self.document_type,
+            "mime_type": self.mime_type,
+            "publisher": self.publisher,
+            "published_date": self.published_date,
+            "crawl_date": self.crawl_date,
+            "parser_version": self.parser_version,
+            "extractor_version": self.extractor_version,
+            "status": self.status,
+            "paragraph_index": self.paragraph_index,
         }
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "KnowledgeAtom":
+        text = str(data.get("text") or "")
         return cls(
             atom_id=str(data.get("atom_id") or ""),
             document_id=str(data.get("document_id") or ""),
             atom_type=str(data.get("atom_type") or AtomType.PARAGRAPH.value),
-            text=str(data.get("text") or ""),
+            text=text,
             source=str(data.get("source") or ""),
             source_url=str(data.get("source_url") or ""),
             section=str(data.get("section") or ""),
@@ -204,25 +247,50 @@ class KnowledgeAtom:
             provenance=dict(data.get("provenance") or {}),
             metadata=dict(data.get("metadata") or {}),
             created_at=str(data.get("created_at") or utc_now_iso()),
+            knowledge_score=float(data.get("knowledge_score") or 0.0),
+            normalized_text=str(data.get("normalized_text") or ""),
+            original_text=str(data.get("original_text") or text),
+            language=str(data.get("language") or ""),
+            document_type=str(data.get("document_type") or ""),
+            mime_type=str(data.get("mime_type") or ""),
+            publisher=str(data.get("publisher") or ""),
+            published_date=str(data.get("published_date") or ""),
+            crawl_date=str(data.get("crawl_date") or ""),
+            parser_version=str(data.get("parser_version") or ""),
+            extractor_version=str(data.get("extractor_version") or ""),
+            status=str(data.get("status") or AtomStatus.ACTIVE.value),
+            paragraph_index=int(data.get("paragraph_index") or data.get("order") or 0),
         )
 
 
 @dataclass
 class GraphEntity:
-    """Node in the internal knowledge graph (canonical)."""
+    """Canonical entity — permanent foundation of the Knowledge Graph.
+
+    Relationships are NOT attached in Commit 2.
+    """
 
     entity_id: str
     entity_type: str
     canonical_name: str
     aliases: list[str] = field(default_factory=list)
-    attributes: dict[str, Any] = field(default_factory=dict)
+    knowledge_score: float = 0.0
     confidence: float = 0.0
+    first_seen: str = field(default_factory=utc_now_iso)
+    last_seen: str = field(default_factory=utc_now_iso)
     sources: list[str] = field(default_factory=list)
+    atom_ids: list[str] = field(default_factory=list)
+    document_ids: list[str] = field(default_factory=list)
+    status: str = EntityStatus.ACTIVE.value
+    attributes: dict[str, Any] = field(default_factory=dict)
     provenance: dict[str, Any] = field(default_factory=dict)
+    created_session: str = ""
+    updated_session: str = ""
     created_at: str = field(default_factory=utc_now_iso)
     updated_at: str = field(default_factory=utc_now_iso)
+    # Soft-merge pointer when SUPERSEDED/MERGED
+    merged_into: str = ""
 
-    # Back-compat alias used in early stubs
     @property
     def name(self) -> str:
         return self.canonical_name
@@ -234,31 +302,52 @@ class GraphEntity:
             "canonical_name": self.canonical_name,
             "name": self.canonical_name,
             "aliases": list(self.aliases),
-            "attributes": dict(self.attributes),
+            "knowledge_score": self.knowledge_score,
             "confidence": self.confidence,
+            "first_seen": self.first_seen,
+            "last_seen": self.last_seen,
             "sources": list(self.sources),
+            "atom_ids": list(self.atom_ids),
+            "document_ids": list(self.document_ids),
+            "status": self.status,
+            "attributes": dict(self.attributes),
             "provenance": dict(self.provenance),
+            "created_session": self.created_session,
+            "updated_session": self.updated_session,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            "merged_into": self.merged_into,
         }
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "GraphEntity":
-        cname = str(
-            data.get("canonical_name") or data.get("name") or ""
-        ).strip()
+        cname = str(data.get("canonical_name") or data.get("name") or "").strip()
+        now = utc_now_iso()
         return cls(
             entity_id=str(data.get("entity_id") or ""),
             entity_type=str(data.get("entity_type") or ""),
             canonical_name=cname,
             aliases=list(data.get("aliases") or []),
-            attributes=dict(data.get("attributes") or {}),
+            knowledge_score=float(data.get("knowledge_score") or 0.0),
             confidence=float(data.get("confidence") or 0.0),
+            first_seen=str(data.get("first_seen") or data.get("created_at") or now),
+            last_seen=str(data.get("last_seen") or data.get("updated_at") or now),
             sources=list(data.get("sources") or []),
+            atom_ids=list(data.get("atom_ids") or []),
+            document_ids=list(data.get("document_ids") or []),
+            status=str(data.get("status") or EntityStatus.ACTIVE.value),
+            attributes=dict(data.get("attributes") or {}),
             provenance=dict(data.get("provenance") or {}),
-            created_at=str(data.get("created_at") or utc_now_iso()),
-            updated_at=str(data.get("updated_at") or utc_now_iso()),
+            created_session=str(data.get("created_session") or ""),
+            updated_session=str(data.get("updated_session") or ""),
+            created_at=str(data.get("created_at") or now),
+            updated_at=str(data.get("updated_at") or now),
+            merged_into=str(data.get("merged_into") or ""),
         )
+
+
+# Alias used in docs / public API
+CanonicalEntity = GraphEntity
 
 
 @dataclass

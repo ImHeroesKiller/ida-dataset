@@ -2,10 +2,12 @@
 
 - Dataset Quality Engine
 - Knowledge Atoms (persistent semantic units)
-- (next) Entity graph + relationships
+- Canonical Entity Layer (resolve + aliases + indexes)
+- (next) Relationships / graph traversal
 
 Does not redesign frozen pipeline, queue, mission, or CSV schemas.
 Does not write dataset rows in Milestone 2.
+Does not extract relationships in Commit 2.
 """
 
 from automation.knowledge.atom_store import (
@@ -21,6 +23,26 @@ from automation.knowledge.atoms import (
     atom_type_counts,
     atomize_document,
     atomize_text,
+    normalize_atom_text,
+)
+from automation.knowledge.entities import (
+    compute_knowledge_score,
+    extract_and_resolve_atoms,
+    extract_mentions_from_atom,
+    process_document_entities,
+    resolve_mention,
+)
+from automation.knowledge.entity_store import (
+    entities_for_document,
+    entity_stats,
+    find_by_alias,
+    find_by_canonical,
+    get_entity,
+    load_all_entities,
+    load_indexes,
+    normalize_name,
+    upsert_entities_batch,
+    upsert_entity,
 )
 from automation.knowledge.mandatory_fields import (
     all_mandatory_catalog,
@@ -29,8 +51,11 @@ from automation.knowledge.mandatory_fields import (
     thresholds,
 )
 from automation.knowledge.models import (
+    AtomStatus,
     AtomType,
+    CanonicalEntity,
     EnrichmentStatus,
+    EntityStatus,
     FieldPresence,
     GraphEntity,
     GraphRelationship,
@@ -50,8 +75,11 @@ from automation.knowledge.quality import (
 
 __all__ = [
     "ATOM_VERSION",
+    "AtomStatus",
     "AtomType",
+    "CanonicalEntity",
     "EnrichmentStatus",
+    "EntityStatus",
     "FieldPresence",
     "GraphEntity",
     "GraphRelationship",
@@ -67,15 +95,31 @@ __all__ = [
     "atomize_document",
     "atomize_text",
     "completeness_report_lines",
+    "compute_knowledge_score",
     "count_atoms",
+    "entities_for_document",
+    "entity_stats",
+    "extract_and_resolve_atoms",
+    "extract_mentions_from_atom",
+    "find_by_alias",
+    "find_by_canonical",
+    "get_entity",
     "is_empty",
     "iter_all_atoms",
     "list_atomized_documents",
+    "load_all_entities",
     "load_atoms_for_document",
+    "load_indexes",
     "load_quality_config",
     "mandatory_fields_for",
     "may_publish_directly",
+    "normalize_atom_text",
+    "normalize_name",
+    "process_document_entities",
+    "resolve_mention",
     "save_atoms_for_document",
     "score_completeness",
     "thresholds",
+    "upsert_entities_batch",
+    "upsert_entity",
 ]

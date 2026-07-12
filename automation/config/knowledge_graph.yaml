@@ -2,23 +2,25 @@
 # No external graph DB. Local store under automation/knowledge/store/
 # Does not alter frozen pipelines, schemas, or publishers.
 
-version: "1.0"
+version: "1.1"
 description: >
-  Knowledge Atoms → Entities → Relationships → Graph store.
+  Knowledge Atoms → Canonical Entities → (later) Relationships → Graph.
   Dataset manufacturing consumes the graph in a later sprint.
 
 store:
   root: automation/knowledge/store
   atoms_dir: automation/knowledge/store/atoms
   entities_file: automation/knowledge/store/entities.json
+  indexes_dir: automation/knowledge/store/indexes
   relationships_file: automation/knowledge/store/relationships.json
   stats_file: automation/knowledge/store/stats.json
 
 atoms:
   enabled: true
-  version: knowledge-atom-1.0.0
-  # Semantic chunking only — never token windows
+  version: knowledge-atom-1.1.0
   strategy: semantic
+  stable_id: true
+  # Hash(document_id | section | paragraph_index | normalized_text)
   types:
     - heading
     - paragraph
@@ -28,18 +30,37 @@ atoms:
     - caption
     - metadata
     - section
+  lifecycle:
+    - ACTIVE
+    - SUPERSEDED
+    - MERGED
+    - ARCHIVED
   min_text_chars: 1
   persist: true
 
 entities:
-  enabled: false  # enabled in next commit
+  enabled: true
   resolve_aliases: true
   reuse_existing: true
+  extractor_version: entity-extract-1.0.0
+  status:
+    - ACTIVE
+    - MERGED
+    - SUPERSEDED
+    - ARCHIVED
+
+# Configurable knowledge_score weights (must sum conceptually to 1; normalized in code)
+knowledge_score:
+  confidence: 0.35
+  richness: 0.25
+  completeness: 0.20
+  source_quality: 0.15
+  # Future-ready: edges not computed in Commit 2
+  relationship_potential: 0.05
 
 relationships:
-  enabled: false  # enabled in next commit
+  enabled: false  # Commit 3
 
 manufacturing:
-  # Explicit: this milestone does NOT write dataset rows
   write_dataset_rows: false
   graph_is_source_of_truth: true

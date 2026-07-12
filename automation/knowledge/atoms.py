@@ -3,19 +3,25 @@
 Chunk by meaning (heading, section, paragraph group, table, bullet, FAQ, caption).
 NOT by token/character windows.
 
+Stable atom IDs (Commit 2):
+  Hash(document_id | section | paragraph_index | normalized_text)
+
 Does not write dataset rows. Does not touch frozen pipelines.
+Public API: atomize_text, atomize_document, atom_type_counts (unchanged signatures).
 """
 
 from __future__ import annotations
 
 import hashlib
 import re
+import unicodedata
 from typing import Any, Mapping, Optional, Sequence
 
-from automation.knowledge.models import AtomType, KnowledgeAtom
+from automation.knowledge.models import AtomStatus, AtomType, KnowledgeAtom
 from automation.lib.models import utc_now_iso
 
-ATOM_VERSION = "knowledge-atom-1.0.0"
+ATOM_VERSION = "knowledge-atom-1.1.0"
+PARSER_VERSION = "semantic-chunker-1.1.0"
 
 _HEADING_MD = re.compile(r"^(#{1,6})\s+(.+)$")
 _HEADING_NUM = re.compile(
@@ -31,12 +37,52 @@ _CAPTION = re.compile(
 )
 _TABLE_LINE = re.compile(r"\|.+\|")
 _SECTION_RULE = re.compile(r"^[-=]{3,}\s*$")
+_WS = re.compile(r"\s+")
 
 
-def _atom_id(document_id: str, order: int, atom_type: str, text: str) -> str:
-    h = hashlib.sha1(
-        f"{document_id}|{order}|{atom_type}|{text[:200]}".encode("utf-8")
-    ).hexdigest()[:12].upper()
+def normalize_atom_text(text: str) -> str:
+    """Normalize text for stable hashing and comparison."""
+    s = unicodedata.normalize("NFKC", text or "")
+    s = s.replace("\r\n", "\n").replace("\r", "\n")
+    s = _WS.sub(" ", s).strip().lower()
+    return s
+
+
+def atom_knowledge_score(
+    *,
+    confidence: float,
+    text: str,
+    atom_type: str,
+    has_section: bool,
+) -> float:
+    """Configurable-style atom richness score (0–1). Not entity knowledge_score."""
+    conf = max(0.0, min(1.0, float(confidence or 0.0)))
+    length = len((text or "").strip())
+    richness = min(1.0, length / 400.0)
+    type_boost = {
+        AtomType.HEADING.value: 0.05,
+        AtomType.TABLE.value: 0.12,
+        AtomType.FAQ.value: 0.10,
+        AtomType.SECTION.value: 0.08,
+        AtomType.BULLET.value: 0.06,
+        AtomType.METADATA.value: 0.04,
+        AtomType.CAPTION.value: 0.03,
+        AtomType.PARAGRAPH.value: 0.05,
+    }.get(atom_type, 0.0)
+    section_boost = 0.05 if has_section else 0.0
+    score = 0.45 * conf + 0.35 * richness + type_boost + section_boost
+    return round(max(0.0, min(1.0, score)), 4)
+
+
+def _atom_id(
+    document_id: str,
+    section: str,
+    paragraph_index: int,
+    normalized_text: str,
+) -> str:
+    """Stable ID — small wording edits in original casing/spacing do not churn IDs."""
+    material = f"{document_id}|{section}|{paragraph_index}|{normalized_text}"
+    h = hashlib.sha1(material.encode("utf-8")).hexdigest()[:12].upper()
     return f"ATOM-{h}"
 
 
@@ -60,6 +106,25 @@ def _normalize_lines(text: str) -> list[str]:
     return text.split("\n")
 
 
+def _guess_language(text: str) -> str:
+    sample = (text or "")[:2000].lower()
+    id_hits = sum(
+        1
+        for w in ("dan", "yang", "dengan", "untuk", "pada", "adalah", "perusahaan")
+        if f" {w} " in f" {sample} "
+    )
+    en_hits = sum(
+        1
+        for w in ("the", "and", "with", "for", "from", "company", "industry")
+        if f" {w} " in f" {sample} "
+    )
+    if id_hits >= en_hits and id_hits >= 2:
+        return "id"
+    if en_hits >= 2:
+        return "en"
+    return ""
+
+
 def atomize_text(
     text: str,
     *,
@@ -69,6 +134,13 @@ def atomize_text(
     base_confidence: float = 0.75,
     provenance: Optional[Mapping[str, Any]] = None,
     include_metadata: Optional[Mapping[str, Any]] = None,
+    # Optional document context (Commit 2) — ignored by older callers
+    language: str = "",
+    document_type: str = "",
+    mime_type: str = "",
+    publisher: str = "",
+    published_date: str = "",
+    crawl_date: str = "",
 ) -> list[KnowledgeAtom]:
     """Split plain text into Knowledge Atoms by semantic structure."""
     lines = _normalize_lines(text)
@@ -78,6 +150,7 @@ def atomize_text(
     ts = utc_now_iso()
     prov = dict(provenance or {})
     prov.setdefault("atom_version", ATOM_VERSION)
+    lang = language or _guess_language(text)
 
     def emit(
         atom_type: str,
@@ -87,30 +160,50 @@ def atomize_text(
         extra: Optional[dict[str, Any]] = None,
     ) -> None:
         nonlocal order
-        body = (body or "").strip()
-        if not body:
+        original = (body or "").strip()
+        if not original:
             return
         section = heading_path[-1] if heading_path else ""
+        norm = normalize_atom_text(original)
+        conf_v = float(conf if conf is not None else base_confidence)
+        kscore = atom_knowledge_score(
+            confidence=conf_v,
+            text=original,
+            atom_type=atom_type,
+            has_section=bool(section),
+        )
         atom = KnowledgeAtom(
-            atom_id=_atom_id(document_id, order, atom_type, body),
+            atom_id=_atom_id(document_id, section, order, norm),
             document_id=document_id,
             atom_type=atom_type,
-            text=body,
+            text=original,
             source=source,
             source_url=source_url,
             section=section,
             heading_path=list(heading_path),
             order=order,
             timestamp=ts,
-            confidence=float(conf if conf is not None else base_confidence),
+            confidence=conf_v,
             provenance=dict(prov),
             metadata=dict(extra or {}),
             created_at=ts,
+            knowledge_score=kscore,
+            normalized_text=norm,
+            original_text=original,
+            language=lang,
+            document_type=document_type,
+            mime_type=mime_type,
+            publisher=publisher,
+            published_date=published_date,
+            crawl_date=crawl_date or ts,
+            parser_version=PARSER_VERSION,
+            extractor_version=ATOM_VERSION,
+            status=AtomStatus.ACTIVE.value,
+            paragraph_index=order,
         )
         atoms.append(atom)
         order += 1
 
-    # Metadata atoms first
     if include_metadata:
         for key in ("title", "abstract", "snippet", "text_excerpt"):
             val = include_metadata.get(key)
@@ -133,7 +226,6 @@ def atomize_text(
         if not para_buf:
             return
         text_block = " ".join(p.strip() for p in para_buf if p.strip())
-        # Paragraph group under a heading → section if multi-sentence and headed
         if heading_path and len(text_block) > 280:
             emit(AtomType.SECTION.value, text_block)
         else:
@@ -159,7 +251,6 @@ def atomize_text(
         line = raw.rstrip()
         stripped = line.strip()
 
-        # Horizontal rule / blank → paragraph boundary
         if not stripped or _SECTION_RULE.match(stripped):
             flush_table()
             flush_bullets()
@@ -167,7 +258,6 @@ def atomize_text(
             i += 1
             continue
 
-        # Table rows
         if _TABLE_LINE.search(stripped) or (
             stripped.count("\t") >= 2 and len(stripped) > 8
         ):
@@ -179,7 +269,6 @@ def atomize_text(
         else:
             flush_table()
 
-        # Caption
         cap = _CAPTION.match(stripped)
         if cap:
             flush_para()
@@ -188,7 +277,6 @@ def atomize_text(
             i += 1
             continue
 
-        # FAQ
         mq = _FAQ_Q.match(stripped)
         if mq:
             flush_para()
@@ -207,27 +295,20 @@ def atomize_text(
             i += 1
             continue
         if faq_q and not ma:
-            # lone question without immediate answer
             emit(AtomType.FAQ.value, f"Q: {faq_q}", conf=base_confidence * 0.9)
             faq_q = None
 
-        # Heading
         h = _is_heading(stripped)
         if h:
             flush_para()
             flush_bullets()
-            # Maintain shallow path (last heading is current section)
-            if heading_path and heading_path[-1] == h:
-                pass
-            else:
-                # Replace path depth simply: single-level trail + new
+            if not (heading_path and heading_path[-1] == h):
                 if len(h) < 80:
                     heading_path = (heading_path + [h])[-4:]
             emit(AtomType.HEADING.value, h, conf=min(0.95, base_confidence + 0.05))
             i += 1
             continue
 
-        # Bullet
         bm = _BULLET.match(line)
         if bm:
             flush_para()
@@ -237,7 +318,6 @@ def atomize_text(
         else:
             flush_bullets()
 
-        # Regular paragraph line
         para_buf.append(stripped)
         i += 1
 
@@ -293,6 +373,10 @@ def atomize_document(
         "text_excerpt": meta.get("text_excerpt"),
     }
 
+    content_type = str(doc.get("content_type") or meta.get("content_type") or "")
+    mime = content_type.split(";")[0].strip() if content_type else ""
+    doc_type = "pdf" if "pdf" in mime.lower() else ("html" if "html" in mime.lower() else "text")
+
     return atomize_text(
         body or "",
         document_id=document_id,
@@ -308,6 +392,11 @@ def atomize_document(
             "atom_version": ATOM_VERSION,
         },
         include_metadata=include_meta,
+        document_type=doc_type,
+        mime_type=mime or "text/plain",
+        publisher=str(meta.get("publisher") or meta.get("host") or ""),
+        published_date=str(meta.get("published_date") or meta.get("date") or ""),
+        crawl_date=str(doc.get("retrieved_at") or ""),
     )
 
 
