@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-07-12T03:53:06+00:00",
+  "updated_at": "2026-07-12T06:53:27+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260712-878E73",
+      "path": "automation/sessions/2026-07-12/SESSION-20260712-878E73.json",
+      "start_time": "2026-07-12T06:35:11+00:00",
+      "end_time": "2026-07-12T06:53:27+00:00",
+      "duration_seconds": 1096.0,
+      "status": "completed",
+      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=148 entity=The Influence of Service Quality on Library Users at Padang State Polytechnic",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 679,
+      "github": {
+        "run_id": "29182857547",
+        "run_number": "43",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "72dbd0d5462c6e8a167eb7b3be7f7f783435762d",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260712-A029B2",
       "path": "automation/sessions/2026-07-12/SESSION-20260712-A029B2.json",
@@ -1004,34 +1032,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "workflow_dispatch",
         "sha": "1f880b04f5def5bcafefdf719e20fc12175e3121",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260710-19B207",
-      "path": "automation/sessions/2026-07-10/SESSION-20260710-19B207.json",
-      "start_time": "2026-07-10T13:48:04+00:00",
-      "end_time": "2026-07-10T13:48:05+00:00",
-      "duration_seconds": 1.0,
-      "status": "completed",
-      "mission": "Continue continuous learning — expand knowledge coverage",
-      "knowledge_added": 0,
-      "knowledge_updated": 1,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · added=0 updated=1 entity=— · dry_run",
-      "trigger": "manual",
-      "dry_run": true,
-      "events": 27,
-      "github": {
-        "run_id": "29097399362",
-        "run_number": "14",
-        "workflow": "Learning",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learning.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "workflow_dispatch",
-        "sha": "6ba9376e9504a2c842cfc24b8dce6fc4cb0d3639",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
