@@ -3,20 +3,20 @@
 ```json
 {
   "fingerprints": {
-    "skips": 82,
-    "adds": 177,
-    "unique_hashes": 177,
-    "unique_urls": 177
+    "skips": 101,
+    "adds": 239,
+    "unique_hashes": 239,
+    "unique_urls": 239
   },
   "downloads": {
-    "requested": 156,
-    "downloaded": 82,
+    "requested": 218,
+    "downloaded": 101,
     "not_modified": 0,
     "skipped_duplicate": 0,
-    "failed": 74,
-    "bytes": 136018853,
-    "elapsed_ms": 181175.49999999994,
-    "retries": 5,
+    "failed": 117,
+    "bytes": 181907631,
+    "elapsed_ms": 311189.80000000005,
+    "retries": 45,
     "max_workers": 2,
     "adaptive_workers": 2,
     "connection_reuse": true,
@@ -24,36 +24,37 @@
     "etag_conditional": true,
     "http_cache": {
       "hits": 0,
-      "misses": 82,
+      "misses": 101,
       "not_modified": 0,
-      "stores": 82,
+      "stores": 101,
       "bytes_saved_est": 0
     },
     "fingerprints": {
-      "skips": 82,
-      "adds": 177,
-      "unique_hashes": 177,
-      "unique_urls": 177
+      "skips": 101,
+      "adds": 239,
+      "unique_hashes": 239,
+      "unique_urls": 239
     }
   },
   "extraction": {
-    "fast": 1,
+    "fast": 5,
     "medium": 0,
     "deep": 0,
     "llm": 0,
     "llm_used": 0,
-    "skipped_llm": 95,
-    "llm_skipped": 95,
-    "documents_fast": 74,
+    "skipped_llm": 138,
+    "llm_skipped": 138,
+    "documents_fast": 117,
     "documents_medium": 7,
     "documents_deep": 14,
-    "avg_ms": 0.92,
-    "average_extraction_ms": 0.92,
-    "total_ms": 87.66,
+    "avg_ms": 0.69,
+    "average_extraction_ms": 0.69,
+    "total_ms": 95.38,
     "path_ms": {
-      "fast": 25.99,
-      "medium": 15.89,
-      "deep": 45.66
+      "fast": 29.05,
+      "medium": 15.9,
+      "deep": 46.33,
+      "signal_fallback": 3.98
     },
     "target_dataset": "service_library",
     "llm_required_but_unavailable": false

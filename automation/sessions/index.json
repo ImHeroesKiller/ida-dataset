@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-07-13T16:54:29+00:00",
+  "updated_at": "2026-07-13T19:05:13+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260713-0D8DDD",
+      "path": "automation/sessions/2026-07-13/SESSION-20260713-0D8DDD.json",
+      "start_time": "2026-07-13T18:45:28+00:00",
+      "end_time": "2026-07-13T19:05:13+00:00",
+      "duration_seconds": 1185.0,
+      "status": "completed",
+      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=138 entity=The Influence of Service Quality on Library Users at Padang State Polytechnic",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 681,
+      "github": {
+        "run_id": "29275696446",
+        "run_number": "63",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "18338607fc65f93ffd78362f1ea8a08fd1c404a9",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260713-AA142C",
       "path": "automation/sessions/2026-07-13/SESSION-20260713-AA142C.json",
@@ -1256,34 +1284,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "workflow_dispatch",
         "sha": "af5fe0cecc0e87854a6c94256df8e52b8839ba98",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260710-CFA9A6",
-      "path": "automation/sessions/2026-07-10/SESSION-20260710-CFA9A6.json",
-      "start_time": "2026-07-10T12:47:08+00:00",
-      "end_time": "2026-07-10T12:47:09+00:00",
-      "duration_seconds": 1.0,
-      "status": "completed",
-      "mission": "Learn Industry Library knowledge for Banking",
-      "knowledge_added": 0,
-      "knowledge_updated": 1,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · added=0 updated=1 entity=— · dry_run",
-      "trigger": "manual",
-      "dry_run": true,
-      "events": 27,
-      "github": {
-        "run_id": "29093706958",
-        "run_number": "5",
-        "workflow": "Learning",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learning.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "workflow_dispatch",
-        "sha": "c6ee66975a3c3d16a4a2b9f5ad015af098971e2c",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
