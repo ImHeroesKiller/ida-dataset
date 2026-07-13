@@ -1,6 +1,6 @@
 # Provider Audit
 
-**Generated:** 2026-07-13T18:58:27+00:00
+**Generated:** 2026-07-13T20:30:06+00:00
 
 Search engines are **discovery tools only**. Knowledge is extracted solely from trusted sources.
 
@@ -10,10 +10,10 @@ Search engines are **discovery tools only**. Knowledge is extracted solely from 
 
 | Provider | Status | Enabled | Credential | Rate limit | Daily quota | Health | Latency ms | Avg URLs | Avg docs | Yield | Reason |
 |----------|--------|---------|------------|----------:|------------:|--------|-----------:|---------:|---------:|------:|--------|
-| Tavily (primary) | **ACTIVE** | True | True | 20 | 1000 | ACTIVE | 648.4 | 168.0 | 144.0 | 1.0 | ready |
+| Tavily (primary) | **ACTIVE** | True | True | 20 | 1000 | ACTIVE | 1877.1 | 119.0 | 89.0 | 1.0 | ready |
 | Trusted Site Search (connector-backed) | **ACTIVE** | True | True | 60 | 100000 | healthy | 0.0 | 0.0 | 0.0 | 0.0 | ready |
 | Sitemap Discovery | **ACTIVE** | True | True | 20 | 5000 | healthy | 0.0 | 12.0 | 12.0 | 1.0 | ready |
-| RSS Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 10.0 | 2.0 | 1.0 | ready |
+| RSS Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 12.0 | 4.0 | 1.0 | ready |
 | Atom Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 0.0 | 0.0 | 1.0 | ready |
 | Common Crawl Index | **ACTIVE** | True | True | 5 | 500 | healthy | 0.0 | 100.0 | 50.0 | 1.0 | ready |
 | OpenSearch Description | **ACTIVE** | True | True | 10 | 1000 | idle | 0.0 | 0.0 | 0.0 | 0.0 | ready |
@@ -58,6 +58,6 @@ These acquire documents via the connector framework after discovery.
 
 - Operational status: **ACTIVE**
 - Credential loaded: `True`
-- Probe: `{"probed": true, "ok": true, "status": "ACTIVE", "message": "http_200_results_1", "latency_ms": 648.4, "http_status": 200, "result_count": 1}`
+- Probe: `{"probed": true, "ok": true, "status": "ACTIVE", "message": "http_200_results_1", "latency_ms": 1877.1, "http_status": 200, "result_count": 1}`
 
 > Providers are never silently disabled. MISCONFIGURED means enabled but credentials missing.
