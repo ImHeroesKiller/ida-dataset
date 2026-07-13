@@ -1,10 +1,10 @@
 {
   "date": "2026-07-13",
-  "captured_at": "2026-07-13T13:43:47+00:00",
+  "captured_at": "2026-07-13T16:54:29+00:00",
   "datasets_total": 17,
   "datasets_populated": 16,
   "datasets_gaps": 1,
-  "rows_total": 939,
+  "rows_total": 940,
   "coverage_pct": 94.1,
   "by_dataset": [
     {
@@ -74,7 +74,7 @@
       "path": "domains/business_development/industry_library.csv",
       "name": "industry_library",
       "domain": "business_development",
-      "rows": 58,
+      "rows": 59,
       "is_gap": false
     },
     {

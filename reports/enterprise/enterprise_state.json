@@ -31,7 +31,7 @@
     {
       "id": "manufacturing",
       "name": "Manufacturing",
-      "rows": 101,
+      "rows": 102,
       "priority": 90
     },
     {
@@ -103,7 +103,7 @@
     {
       "id": "infrastructure",
       "name": "Infrastructure",
-      "rows": 30,
+      "rows": 31,
       "priority": 78
     },
     {
@@ -355,7 +355,7 @@
       "id": "infrastructure",
       "name": "Infrastructure",
       "priority": 78,
-      "rows": 30,
+      "rows": 31,
       "datasets_at_floor": 4,
       "datasets_total": 15,
       "coverage_pct": 26.67
@@ -544,7 +544,7 @@
       "id": "manufacturing",
       "name": "Manufacturing",
       "priority": 90,
-      "rows": 101,
+      "rows": 102,
       "datasets_at_floor": 11,
       "datasets_total": 15,
       "coverage_pct": 73.33
@@ -573,35 +573,35 @@
       "id": "operations",
       "name": "Operations",
       "rows": 233,
-      "share_pct": 13.76,
+      "share_pct": 13.75,
       "priority": 88
     },
     {
       "id": "information_technology",
       "name": "Information Technology",
       "rows": 202,
-      "share_pct": 11.93,
+      "share_pct": 11.92,
       "priority": 90
     },
     {
       "id": "sales",
       "name": "Sales",
       "rows": 120,
-      "share_pct": 7.09,
+      "share_pct": 7.08,
       "priority": 86
     },
     {
       "id": "finance",
       "name": "Finance",
       "rows": 112,
-      "share_pct": 6.62,
+      "share_pct": 6.61,
       "priority": 95
     },
     {
       "id": "manufacturing",
       "name": "Manufacturing",
-      "rows": 101,
-      "share_pct": 5.97,
+      "rows": 102,
+      "share_pct": 6.02,
       "priority": 90
     },
     {
@@ -615,35 +615,35 @@
       "id": "compliance",
       "name": "Compliance",
       "rows": 85,
-      "share_pct": 5.02,
+      "share_pct": 5.01,
       "priority": 90
     },
     {
       "id": "logistics",
       "name": "Logistics",
       "rows": 79,
-      "share_pct": 4.67,
+      "share_pct": 4.66,
       "priority": 80
     },
     {
       "id": "cloud",
       "name": "Cloud",
       "rows": 77,
-      "share_pct": 4.55,
+      "share_pct": 4.54,
       "priority": 80
     },
     {
       "id": "corporate_strategy",
       "name": "Corporate Strategy",
       "rows": 45,
-      "share_pct": 2.66,
+      "share_pct": 2.65,
       "priority": 92
     },
     {
       "id": "customer_success",
       "name": "Customer Success",
       "rows": 45,
-      "share_pct": 2.66,
+      "share_pct": 2.65,
       "priority": 80
     },
     {
@@ -657,7 +657,7 @@
       "id": "learning_development",
       "name": "Learning & Development",
       "rows": 37,
-      "share_pct": 2.19,
+      "share_pct": 2.18,
       "priority": 74
     },
     {
@@ -684,15 +684,15 @@
     {
       "id": "infrastructure",
       "name": "Infrastructure",
-      "rows": 30,
-      "share_pct": 1.77,
+      "rows": 31,
+      "share_pct": 1.83,
       "priority": 78
     },
     {
       "id": "cyber_security",
       "name": "Cyber Security",
       "rows": 26,
-      "share_pct": 1.54,
+      "share_pct": 1.53,
       "priority": 94
     },
     {
@@ -734,28 +734,28 @@
       "id": "accounting",
       "name": "Accounting",
       "rows": 16,
-      "share_pct": 0.95,
+      "share_pct": 0.94,
       "priority": 82
     },
     {
       "id": "human_resources",
       "name": "Human Resources",
       "rows": 15,
-      "share_pct": 0.89,
+      "share_pct": 0.88,
       "priority": 90
     },
     {
       "id": "treasury",
       "name": "Treasury",
       "rows": 15,
-      "share_pct": 0.89,
+      "share_pct": 0.88,
       "priority": 78
     },
     {
       "id": "customer_service",
       "name": "Customer Service",
       "rows": 15,
-      "share_pct": 0.89,
+      "share_pct": 0.88,
       "priority": 78
     },
     {
@@ -839,7 +839,7 @@
       "id": "quality_assurance",
       "name": "Quality Assurance",
       "rows": 5,
-      "share_pct": 0.3,
+      "share_pct": 0.29,
       "priority": 76
     },
     {
@@ -1312,5 +1312,5 @@
     "gap_score": 59.5
   },
   "unclassified_rows": 41,
-  "labeled_assignments": 1693
+  "labeled_assignments": 1695
 }

@@ -1,15 +1,15 @@
 # Candidate Pipeline
 
-**Session:** `SES-20260713-C2571A`
+**Session:** `SES-20260713-E49D0D`
 
-Extracted **5** · Validated **5** · Rejected **0**
+Extracted **1** · Validated **1** · Rejected **0**
 
 | Candidate | Entity | Dataset | Confidence | Validation | Publish | Document | Reject reason |
 |-----------|--------|---------|------------|------------|---------|----------|---------------|
-| `CAND-04C8722B440C` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
-| `CAND-F506A22E6A15` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
-| `CAND-CAC48C02E0C4` | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | approved | published | `DOC-7C7239075702` | — |
-| `CAND-DB5683E3C3C2` | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | approved | published | `DOC-50B3F3BC8DEB` | — |
-| `CAND-71206E4BDC33` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-D733F4309CB6` | — |
+| `CAND-DF3B643DC4FC` | Industrial Estates & SEZ | industry_library | 0.8375 | approved | published | `DOC-648623E72C93` | — |
 
 ## Evidence snippets
+
+### `CAND-DF3B643DC4FC`
+
+> **Terbaik III: Pemerintah Daerah Provinsi Maluku Utara .**. * Kategori Kriteria Teknis Kawasan Peruntukan Industri. * Kategori Pemanfaatan Kawasan Peruntukan Industri. * Kategori Kawasan Industri Baru Terbaik. + **Terbaik I: Kawasan Industri Kendal (PT Kawasan Industri Kendal)**. + **Terbaik II: Kawasan Industri Pulau Obi (PT Trimegah Ban + **Terbaik II: Pemerintah Daerah

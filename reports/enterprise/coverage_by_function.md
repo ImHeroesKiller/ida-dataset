@@ -27,7 +27,7 @@
 | Customer Service | 15 | 3/15 | 20.0% | 78 |
 | Accounting | 16 | 3/15 | 20.0% | 82 |
 | Health Safety Environment | 22 | 3/15 | 20.0% | 84 |
-| Infrastructure | 30 | 4/15 | 26.67% | 78 |
+| Infrastructure | 31 | 4/15 | 26.67% | 78 |
 | Marketing | 32 | 4/15 | 26.67% | 84 |
 | Legal | 18 | 5/15 | 33.33% | 88 |
 | Business Development | 22 | 5/15 | 33.33% | 88 |
@@ -48,4 +48,4 @@
 | Information Technology | 202 | 8/15 | 53.33% | 90 |
 | Finance | 112 | 9/15 | 60.0% | 95 |
 | Operations | 233 | 9/15 | 60.0% | 88 |
-| Manufacturing | 101 | 11/15 | 73.33% | 90 |
+| Manufacturing | 102 | 11/15 | 73.33% | 90 |

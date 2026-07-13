@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-07-13T13:45:09+00:00
+**Generated:** 2026-07-13T16:55:52+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260713-A895CA |
+| session_id | SESSION-20260713-AA142C |
 | status | completed |
 | mission | corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_libra |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 1083.0 |
-| knowledge_added | 5 |
+| duration_seconds | 1078.0 |
+| knowledge_added | 1 |
 | knowledge_rejected | 0 |
-| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=139 entity=The Influence of Service Quality on L |
-| start_time | 2026-07-13T13:25:43+00:00 |
-| end_time | 2026-07-13T13:43:46+00:00 |
+| summary | Session completed · published=1 extracted=1 validated=1 rejected=0 docs=95 entity=Industrial Estates & SEZ |
+| start_time | 2026-07-13T16:36:31+00:00 |
+| end_time | 2026-07-13T16:54:29+00:00 |
 
 ## Pipeline stages
 
@@ -26,27 +26,27 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · |
-| source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-OECD-001', 'name': 'OECD', 'source_id': 'SRC- |
+| source_discovery | completed | 2.8 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
 | connector_calls | completed | — | 31 | — | discovered=31 |
-| document_discovery | completed | 93875.4 | 229 | — |  |
-| documents_skipped | completed | — | 90 | — | duplicates_or_skips=90 |
-| document_download | completed | 214598.9 | 139 | — | downloaded=139 |
-| extraction | completed | 107.6 | — | 5 |  |
-| validation | completed | — | — | 5 |  |
-| publish | completed | — | — | 5 |  |
+| document_discovery | completed | 94016.8 | 177 | — |  |
+| documents_skipped | completed | — | 82 | — | duplicates_or_skips=82 |
+| document_download | completed | 214326.9 | 95 | — | downloaded=95 |
+| extraction | completed | 90.2 | — | 1 |  |
+| validation | completed | — | — | 1 |  |
+| publish | completed | — | — | 1 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
-| end_session | completed | — | — | — | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=139 enti |
+| end_session | completed | — | — | — | Session completed · published=1 extracted=1 validated=1 rejected=0 docs=95 entit |
 
 ## Funnel
 
 | Metric | Value |
 | --- | --- |
 | documents_discovered | 31 |
-| documents_downloaded | 139 |
-| documents_duplicates | 90 |
-| candidates_extracted | 5 |
-| candidates_validated | 5 |
+| documents_downloaded | 95 |
+| documents_duplicates | 82 |
+| candidates_extracted | 1 |
+| candidates_validated | 1 |
 | candidates_rejected | 0 |
-| rows_published | 5 |
+| rows_published | 1 |
 
 **Next mission (rank #2):** `competitor_library`
