@@ -1,6 +1,6 @@
 # Hard Limit Audit
 
-**Generated:** 2026-07-13T10:42:28+00:00
+**Generated:** 2026-07-13T13:38:37+00:00
 **Occurrences found:** 305
 
 Search covers acquisition, config, learning, search, and CI paths.
@@ -232,7 +232,7 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/learning/live_runtime.py` | 549 | `task=reason[:120],` |
 | `automation/learning/heartbeat.py` | 136 | `data["last_error"] = (error or "production_failed")[:500]` |
 | `automation/learning/heartbeat.py` | 139 | `data["last_error"] = str(error)[:500]` |
-| `automation/learning/state/acquisition_performance.json` | 650 | `"process_budget": 171,` |
+| `automation/learning/state/acquisition_performance.json` | 650 | `"process_budget": 197,` |
 | `automation/learning/state/manufacturing_state.json` | 64 | `"hard_limit": null,` |
 | `automation/learning/state/manufacturing_state.json` | 83 | `"hard_limit": null` |
 | `automation/learning/state/manufacturing_state.json` | 101 | `"hard_limit": null,` |
@@ -287,12 +287,12 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/learning/state/manufacturing_state.json` | 884 | `"hard_limit": null,` |
 | `automation/learning/state/manufacturing_state.json` | 907 | `"hard_limit": null,` |
 | `automation/learning/state/manufacturing_state.json` | 930 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 953 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 976 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 999 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 1022 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 1045 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 1069 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 952 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 975 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 998 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 1021 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 1044 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 1068 | `"hard_limit": null,` |
 | `automation/search/query_planner.py` | 54 | `limit=5,` |
 | `automation/search/query_planner.py` | 63 | `limit=max(1, min(limit, 50)),` |
 | `automation/search/orchestrator.py` | 52 | `connectors, preferred_types=preferred_types, limit=8` |
