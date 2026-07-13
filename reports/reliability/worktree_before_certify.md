@@ -1,6 +1,6 @@
 # worktree_before_certify.md
 
-- **time:** 2026-07-13T20:38:13Z
+- **time:** 2026-07-13T23:12:21Z
 
 ## git status --porcelain=v1
 
@@ -49,7 +49,6 @@
  M reports/discovery/provider_yield.md
  M reports/discovery/query_statistics.md
  M reports/discovery/rejected_urls.md
- M reports/discovery/reputation_scores.md
  M reports/discovery/throughput_analysis.md
  M reports/discovery/trusted_source_usage.md
  M reports/fulltext/acquisition_success.md
@@ -81,7 +80,6 @@
  M reports/performance/queue_efficiency.md
  M reports/performance/session_efficiency.md
  M reports/performance/source_efficiency.md
- M reports/performance/source_ranking.md
  M reports/performance/stage_timings.md
  M reports/performance/throughput.md
  M reports/performance/throughput_report.md
@@ -96,10 +94,10 @@
  M reports/reliability/git_worktree_trace.md
  M reports/reliability/worktree_before_sync.md
  M reports/reliability/writer_finalize.json
-?? automation/learning/state/sessions/SES-20260713-CDED72.jsonl
-?? automation/sessions/2026-07-13/SESSION-20260713-71E15C.json
-?? reports/production/production_trace_SES-20260713-CDED72.json
-?? reports/production/sessions/SES-20260713-CDED72/
+?? automation/learning/state/sessions/SES-20260713-1B1CC8.jsonl
+?? automation/sessions/2026-07-13/SESSION-20260713-740D9E.json
+?? reports/production/production_trace_SES-20260713-1B1CC8.json
+?? reports/production/sessions/SES-20260713-1B1CC8/
 ```
 
 ## git diff --name-only
@@ -149,7 +147,6 @@ reports/discovery/provider_statistics.md
 reports/discovery/provider_yield.md
 reports/discovery/query_statistics.md
 reports/discovery/rejected_urls.md
-reports/discovery/reputation_scores.md
 reports/discovery/throughput_analysis.md
 reports/discovery/trusted_source_usage.md
 reports/fulltext/acquisition_success.md
@@ -181,7 +178,6 @@ reports/performance/production_capacity.md
 reports/performance/queue_efficiency.md
 reports/performance/session_efficiency.md
 reports/performance/source_efficiency.md
-reports/performance/source_ranking.md
 reports/performance/stage_timings.md
 reports/performance/throughput.md
 reports/performance/throughput_report.md
@@ -201,54 +197,53 @@ reports/reliability/writer_finalize.json
 ## git diff --stat
 
 ```
- .../learning/state/acquisition_performance.json    |  206 +--
+ .../learning/state/acquisition_performance.json    |  208 ++--
  automation/learning/state/current_snapshot.json    |    6 +-
  automation/learning/state/daily_2026-07-13.json    |    4 +-
- automation/learning/state/discovery_analytics.json |  738 ++++------
- automation/learning/state/learning_journal.jsonl   |  550 ++++++++
+ automation/learning/state/discovery_analytics.json |  570 ++++++---
+ automation/learning/state/learning_journal.jsonl   |  637 ++++++++++
  automation/learning/state/live_activity.json       |    8 +-
- automation/learning/state/manufacturing_state.json |  252 ++--
- automation/learning/state/production_trace.json    | 1426 +++++++-------------
+ automation/learning/state/manufacturing_state.json |  269 +++--
+ automation/learning/state/production_trace.json    | 1238 ++++++++++++--------
  automation/learning/state/snapshot_2026-07-13.json |    6 +-
  automation/learning/state/source_health.json       |  100 +-
- automation/learning/state/source_performance.json  |   76 +-
+ automation/learning/state/source_performance.json  |   80 +-
  automation/sessions/index.json                     |   58 +-
  .../business_signal_library.csv                    |    5 +
  reports/diagnostics/candidate_lifecycle.md         |   16 +-
  reports/diagnostics/candidate_root_cause.md        |   32 +-
  reports/diagnostics/dataset_validation_summary.md  |    4 +-
- reports/diagnostics/document_trace.md              |   90 +-
+ reports/diagnostics/document_trace.md              |   67 +-
  reports/diagnostics/extraction_trace.md            |   12 +-
  reports/diagnostics/false_negative_analysis.md     |   12 +-
- reports/diagnostics/integrity_trace.md             |  116 +-
+ reports/diagnostics/integrity_trace.md             |   92 +-
  reports/diagnostics/knowledge_gap_trace.md         |    6 +-
  reports/diagnostics/mission_trace.md               |    2 +-
  reports/diagnostics/publish_trace.md               |   12 +-
  reports/diagnostics/publisher_trace.md             |   12 +-
  reports/diagnostics/root_cause_analysis.md         |   16 +-
- reports/diagnostics/rule_impact.md                 |    6 +-
+ reports/diagnostics/rule_impact.md                 |    2 +-
  reports/diagnostics/scheduler_trace.md             |    8 +-
  reports/diagnostics/session_trace.md               |   28 +-
  reports/diagnostics/source_trace.md                |   30 +-
  reports/diagnostics/validation_statistics.md       |    2 +-
- reports/diagnostics/validation_trace.md            |  126 +-
- reports/discovery/accepted_urls.md                 |  107 +-
+ reports/diagnostics/validation_trace.md            |  100 +-
+ reports/discovery/accepted_urls.md                 |   77 +-
  reports/discovery/adaptive_budget.md               |    2 +-
  reports/discovery/discovery_capacity.md            |    2 +-
  reports/discovery/environment_audit.md             |    2 +-
  reports/discovery/hard_limit_audit.md              |    4 +-
- reports/discovery/provider_audit.md                |    8 +-
- reports/discovery/provider_exhaustion.md           |    6 +-
+ reports/discovery/provider_audit.md                |    6 +-
+ reports/discovery/provider_exhaustion.md           |    4 +-
  reports/discovery/provider_health.md               |    4 +-
- reports/discovery/provider_ranking.md              |    8 +-
+ reports/discovery/provider_ranking.md              |    6 +-
  reports/discovery/provider_statistics.md           |   20 +-
- reports/discovery/provider_yield.md                |    6 +-
+ reports/discovery/provider_yield.md                |    4 +-
  reports/discovery/query_statistics.md              |   36 +-
- reports/discovery/rejected_urls.md                 |   32 +-
- reports/discovery/reputation_scores.md             |    2 +-
+ reports/discovery/rejected_urls.md                 |   28 +-
  reports/discovery/throughput_analysis.md           |   10 +-
- reports/discovery/trusted_source_usage.md          |   13 +-
- reports/fulltext/acquisition_success.md            |   48 +-
+ reports/discovery/trusted_source_usage.md          |    8 +-
+ reports/fulltext/acquisition_success.md            |   46 +-
  reports/fulltext/content_richness.md               |   10 +-
  reports/fulltext/doi_resolution.md                 |    4 +-
  reports/fulltext/fallback_chain.md                 |    2 +-
@@ -258,18 +253,18 @@ reports/reliability/writer_finalize.json
  reports/fulltext/repository_statistics.md          |    2 +-
  reports/fulltext/representation_quality.md         |    8 +-
  reports/fulltext/validation_before_after.md        |   12 +-
- reports/manufacturing/factory_economics.md         |   28 +-
- reports/manufacturing/growth_velocity.md           |   36 +-
+ reports/manufacturing/factory_economics.md         |   30 +-
+ reports/manufacturing/growth_velocity.md           |   42 +-
  reports/manufacturing/knowledge_gap.md             |    4 +-
  reports/manufacturing/knowledge_universe.md        |    2 +-
- reports/manufacturing/production_capacity.md       |   18 +-
+ reports/manufacturing/production_capacity.md       |   20 +-
  reports/manufacturing/scheduler_decisions.md       |    2 +-
  reports/performance/api_statistics.md              |   14 +-
  reports/performance/cache_statistics.md            |    4 +-
  reports/performance/connector_performance.md       |   16 +-
  reports/performance/connector_ranking.md           |   16 +-
- reports/performance/crawler_statistics.md          |   50 +-
- reports/performance/download_statistics.md         |   22 +-
+ reports/performance/crawler_statistics.md          |   52 +-
+ reports/performance/download_statistics.md         |   24 +-
  reports/performance/extraction_statistics.md       |   24 +-
  reports/performance/factory_capacity.md            |   16 +-
  reports/performance/pipeline_bottleneck.md         |   44 +-
@@ -277,22 +272,21 @@ reports/reliability/writer_finalize.json
  reports/performance/queue_efficiency.md            |    4 +-
  reports/performance/session_efficiency.md          |   12 +-
  reports/performance/source_efficiency.md           |   16 +-
- reports/performance/source_ranking.md              |    2 +-
  reports/performance/stage_timings.md               |   12 +-
  reports/performance/throughput.md                  |   14 +-
  reports/performance/throughput_report.md           |   18 +-
  reports/performance/worker_utilization.md          |    6 +-
  reports/production/candidate_pipeline.md           |   12 +-
- reports/production/connector_summary.md            |   22 +-
- reports/production/document_pipeline.md            |   86 +-
- reports/production/evidence_trace.md               |   38 +-
+ reports/production/connector_summary.md            |   44 +-
+ reports/production/document_pipeline.md            |   63 +-
+ reports/production/evidence_trace.md               |   22 +-
  reports/production/production_trace.md             |   32 +-
  reports/production/publish_pipeline.md             |    2 +-
  reports/production/runtime_statistics.md           |   32 +-
- reports/reliability/git_worktree_trace.md          |  318 +++++
- reports/reliability/worktree_before_sync.md        |  106 +-
+ reports/reliability/git_worktree_trace.md          |  312 +++++
+ reports/reliability/worktree_before_sync.md        |   80 +-
  reports/reliability/writer_finalize.json           |    2 +-
- 91 files changed, 2774 insertions(+), 2617 deletions(-)
+ 89 files changed, 3229 insertions(+), 1751 deletions(-)
 ```
 
 ## git diff --cached --name-only
