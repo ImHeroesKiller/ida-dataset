@@ -1,10 +1,10 @@
 # Rule Impact
 
-**Generated:** 2026-07-14T22:20:20+00:00
+**Generated:** 2026-07-14T23:26:23+00:00
 
 | Rule | Candidates affected | Rows blocked | % blocked | Avg confidence |
 | --- | --- | --- | --- | --- |
-| duplicate_id_existing_dataset | 5 | 5 | 100.0% | 0.884 |
-| integrity_final_validate_row | 5 | 5 | 100.0% | 0.884 |
+| duplicate_id_existing_dataset | 5 | 5 | 100.0% | 0.89 |
+| integrity_final_validate_row | 5 | 5 | 100.0% | 0.89 |
 
 Business impact (evidence): each blocked candidate is one prevented append to the target dataset CSV.

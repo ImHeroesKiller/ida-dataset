@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260714-39187E`
+**Session:** `SES-20260714-7DC18C`
 
 ## Queue counts
 
@@ -8,95 +8,95 @@
 |-------|------:|
 | queued | 0 |
 | processing | 0 |
-| completed | 123 |
+| completed | 102 |
 | failed | 0 |
-| duplicates | 105 |
+| duplicates | 87 |
 
 ## Documents
 
 | Document ID | Source | Connector | Type | Status | Size | URL |
 |-------------|--------|-----------|------|--------|-----:|-----|
-| `DOC-DA23EFA062CA` | SRC-000004 | DISC-LAYER | text/plain | completed | 475 | https://state-owned-enterprises.worldbank.org/report/corporate-governance-improv |
 | `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 71124 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
+| `DOC-C8336B1CF486` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 44339 | https://openalex.org/W4220952637 |
 | `DOC-A99E56C64737` | SRC-000004 | CONN-WB-001 | text/html | completed | 17390 | https://documents.worldbank.org/search?q=service+library+Indonesia |
 | `DOC-2B7A69D877EE` | SRC-000006 | DISC-LAYER | text/plain | completed | 258 | https://www.adb.org/sites/default/files/publication/157226/adbi-rp52.pdf |
 | `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 31872 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
-| `DOC-D733F4309CB6` | SRC-000004 | CONN-WB-001 | text/html | completed | 122740 | http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-D |
-| `DOC-E689A7156EBC` | SRC-000001 | DISC-LAYER | text/plain | completed | 220 | https://autoconfig.bps.go.id/DOC/journal/in122607/420681N64I140312/corporate-gov |
+| `DOC-7C7239075702` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 586 | https://openalex.org/W3095315355 |
+| `DOC-2430A598BF3B` | SRC-000004 | CONN-WB-001 | text/html | completed | 122488 | http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-D |
 | `DOC-05E7BC8EA754` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3554 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 |
+| `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 51521 | https://openalex.org/W4312346959 |
 | `DOC-E90601098FB1` | SRC-000004 | CONN-WB-001 | text/html | completed | 122761 | http://documents.worldbank.org/curated/en/865071474569449459/Indonesia-Library-D |
 | `DOC-6768188378B0` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 68959 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108 |
+| `DOC-62F50045E190` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 617 | https://openalex.org/W3132509763 |
 | `DOC-D6B3FE367419` | SRC-000004 | CONN-WB-001 | text/html | completed | 122976 | http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C352 |
-| `DOC-F825C3BB9600` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 9156 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 |
-| `DOC-36015274522E` | SRC-000004 | CONN-WB-001 | text/html | completed | 122929 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
 | `DOC-9D814DA54F80` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 1315824 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 |
+| `DOC-7F19EEE4229E` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 595 | https://openalex.org/W3004041197 |
+| `DOC-36015274522E` | SRC-000004 | CONN-WB-001 | text/html | completed | 122929 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
+| `DOC-F825C3BB9600` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 9156 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 |
+| `DOC-48F28F9C145F` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 700 | https://openalex.org/W2974521388 |
 | `DOC-FCFEA0A00264` | SRC-000004 | CONN-WB-001 | text/html | completed | 122488 | http://documents.worldbank.org/curated/en/170561538243538219/Indonesia-Higher-Ed |
 | `DOC-2AE2C7E68DAF` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 55140 | https://api.crossref.org/works/10.30574/wjarr.2021.12.3.0707 |
+| `DOC-0C15999FB55C` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 49867 | https://openalex.org/W2989135090 |
 | `DOC-F6CD6F9317D5` | SRC-000004 | CONN-WB-001 | text/html | completed | 122988 | http://documents.worldbank.org/curated/en/544241468260062256/Conformed-Copy-L464 |
 | `DOC-2AB16A333F59` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3620 | https://api.crossref.org/works/10.1109/icitsi.2015.7437704 |
+| `DOC-72B3224209C4` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 610 | https://openalex.org/W3031607294 |
 | `DOC-AB0089813306` | SRC-000004 | CONN-WB-001 | text/html | completed | 123028 | http://documents.worldbank.org/curated/en/117831468040604958/Conformed-Copy-L464 |
 | `DOC-FA192923E2E0` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 35991 | https://api.crossref.org/works/10.1108/lm-05-2012-0025 |
+| `DOC-C6A9648CAF13` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 111840 | https://openalex.org/W2106787323 |
 | `DOC-E474CD22020E` | SRC-000004 | CONN-WB-001 | text/html | completed | 123028 | http://documents.worldbank.org/curated/en/834491468052778400/Conformed-Copy-L464 |
 | `DOC-CEBB266D97BD` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2330 | https://api.crossref.org/works/10.1086/217180 |
+| `DOC-CA19FA59FBE9` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 587 | https://openalex.org/W2168492123 |
 | `DOC-35DE083B7664` | SRC-000004 | CONN-WB-001 | text/html | completed | 123258 | http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-D |
 | `DOC-10047D7FD7F8` | SRC-000004 | CONN-WB-001 | text/html | completed | 123270 | http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-D |
 | `DOC-C659FB1367D8` | SRC-000006 | DISC-LAYER | text/plain | completed | 161 | https://www.adb.org/sites/default/files/project-documents//tar-sam-37235.pdf |
 | `DOC-6A79D54B0904` | SRC-000006 | DISC-LAYER | text/plain | completed | 210 | https://www.adb.org/sites/default/files/publication/375481/asean-cgscorecard-201 |
 | `DOC-A5A39C633D7E` | SRC-000006 | DISC-LAYER | text/plain | completed | 455 | https://www.adb.org/sites/default/files/publication/29027/balanced-scorecard.pdf |
-| `DOC-1E1849116D47` | SRC-000006 | DISC-LAYER | text/plain | completed | 254 | https://www.adb.org/sites/default/files/publication/157231/adbi-rp56.pdf |
-| `DOC-466791736CF5` | SRC-000005 | DISC-LAYER | text/plain | completed | 463 | https://www.oecd.org/en/publications/the-role-of-capital-market-service-provider |
-| `DOC-3203CC5ABBEC` | SRC-000005 | DISC-LAYER | text/plain | completed | 564 | https://www.oecd.org/en/publications/oecd-review-of-the-corporate-governance-of- |
+| `DOC-1B61CF4380F2` | SRC-000006 | DISC-LAYER | text/plain | completed | 276 | https://www.adb.org/sites/default/files/publication/157231/adbi-rp56.pdf |
 | `DOC-90E1B49CDD99` | SRC-000005 | DISC-LAYER | text/plain | completed | 489 | https://www.oecd.org/en/publications/the-role-of-capital-market-service-provider |
-| `DOC-E4BD4083717F` | SRC-000001 | DISC-LAYER | text/plain | completed | 131 | https://autoconfig.bps.go.id/KINDLE/ref/pv/8585396P8V260712/corporate__governanc |
+| `DOC-3203CC5ABBEC` | SRC-000005 | DISC-LAYER | text/plain | completed | 564 | https://www.oecd.org/en/publications/oecd-review-of-the-corporate-governance-of- |
+| `DOC-64C4814BB931` | SRC-000005 | DISC-LAYER | text/plain | completed | 542 | https://www.oecd.org/en/publications/the-role-of-capital-market-service-provider |
+| `DOC-073265F3E86B` | SRC-000001 | DISC-LAYER | text/plain | completed | 185 | https://autoconfig.bps.go.id/KINDLE/ref/pv/8585396P8V260712/corporate__governanc |
 | `DOC-270498593C01` | SRC-000001 | DISC-LAYER | text/plain | completed | 216 | https://autoconfig.bps.go.id/PAGE/pdf/001918/56M52Z1/corporate__governance-of_li |
+| `DOC-8794E71A96D9` | SRC-000001 | DISC-LAYER | text/plain | completed | 216 | https://autoconfig.bps.go.id/TXT/journal/829W1346X7/803W16X/corporate_governance |
 | `DOC-070E61CB4F08` | SRC-000001 | DISC-LAYER | text/plain | completed | 206 | https://autoconfig.bps.go.id/CHAPTER/ppt/204316/5719Z3L/a_handbook-of__corporate |
 | `DOC-153A92815394` | SRC-000001 | DISC-LAYER | text/plain | completed | 191 | https://autoconfig.bps.go.id/MD/doc/041653/72193KY/risk-management_corporate-gov |
 | `DOC-53D7F11B2947` | SRC-000001 | DISC-LAYER | text/plain | completed | 208 | https://autodiscover.bps.go.id/book/data/po/3896O6P/course-outline_code_mgt712_t |
 | `DOC-E7C126E16F7A` | SRC-000001 | DISC-LAYER | text/plain | completed | 219 | https://autoconfig.bps.go.id/KINDLE/ref/be/738041E9B1260712/board_accountability |
 | `DOC-62D9AF6D4395` | SRC-000001 | DISC-LAYER | text/plain | completed | 199 | https://autoconfig.bps.go.id/PDF/ppt/892E92V/090726/internal__audit_summary-repo |
-| `DOC-9F9CA86D7F1C` | SRC-000001 | DISC-LAYER | text/plain | completed | 222 | https://autoconfig.bps.go.id/PDF/short/kb/714B2K3588260712/corporate-governance_ |
-| `DOC-04A7EE469AAC` | SRC-000001 | DISC-LAYER | text/plain | completed | 210 | https://autoconfig.bps.go.id/BOOK/lib/jf/6211F9J/a__handbook__of__corporate_gove |
-| `DOC-60D51C03FA3C` | SRC-000001 | DISC-LAYER | text/plain | completed | 226 | https://autoconfig.bps.go.id/PUB/ref/173947/81639CS/corporate__governance__and-f |
-| `DOC-8729F22B5CAD` | SRC-000001 | DISC-LAYER | text/plain | completed | 209 | https://autoconfig.bps.go.id/PDF/pdf/120726/4N171H2019/a-handbook_of_corporate_g |
-| `DOC-5BFE29F6A7D1` | SRC-000006 | DISC-LAYER | text/plain | completed | 436 | https://www.adb.org/sites/default/files/publication/667006/corporate-governance- |
-| `DOC-2C3F9F0FB8A6` | SRC-000006 | DISC-LAYER | text/plain | completed | 451 | https://www.adb.org/sites/default/files/project-documents//32051-vie-tcr.pdf |
-| `DOC-042867DBAE1B` | SRC-000006 | DISC-LAYER | text/plain | completed | 477 | https://www.adb.org/sites/default/files/publication/156756/adbi-dp10.pdf |
-| `DOC-D645218930F1` | SRC-000006 | DISC-LAYER | text/plain | completed | 443 | https://www.adb.org/sites/default/files/publication/159371/adbi-corp-gov-vol-2.p |
-| `DOC-29733E7604C1` | SRC-000006 | DISC-LAYER | text/plain | completed | 443 | https://www.adb.org/sites/default/files/publication/42600/asean-corporate-govern |
-| `DOC-D1CF5EEFC4A4` | SRC-000006 | DISC-LAYER | text/plain | completed | 444 | https://www.adb.org/sites/default/files/publication/159370/adbi-corp-gov-vol-1.p |
-| `DOC-A78649ED7809` | SRC-000006 | DISC-LAYER | text/plain | completed | 236 | https://www.adb.org/sites/default/files/institutional-document/32845/promoting-g |
-| `DOC-2C64F4AF5C44` | SRC-000006 | DISC-LAYER | text/plain | completed | 231 | http://www.adb.org/sites/default/files/publication/156768/adbi-dp3.pdf |
+| `DOC-EA14A9F64B1A` | SRC-000001 | DISC-LAYER | text/plain | completed | 206 | https://autoconfig.bps.go.id/PLAY/course/100726/974X0P3114/keeping_better_compan |
 | `DOC-C5935CA928A6` | SRC-000006 | DISC-LAYER | text/plain | completed | 460 | https://www.adb.org/sites/default/files/publication/549336/corporate-governance- |
+| `DOC-29733E7604C1` | SRC-000006 | DISC-LAYER | text/plain | completed | 443 | https://www.adb.org/sites/default/files/publication/42600/asean-corporate-govern |
+| `DOC-A78649ED7809` | SRC-000006 | DISC-LAYER | text/plain | completed | 236 | https://www.adb.org/sites/default/files/institutional-document/32845/promoting-g |
+| `DOC-5BFE29F6A7D1` | SRC-000006 | DISC-LAYER | text/plain | completed | 436 | https://www.adb.org/sites/default/files/publication/667006/corporate-governance- |
+| `DOC-D1CF5EEFC4A4` | SRC-000006 | DISC-LAYER | text/plain | completed | 444 | https://www.adb.org/sites/default/files/publication/159370/adbi-corp-gov-vol-1.p |
+| `DOC-D645218930F1` | SRC-000006 | DISC-LAYER | text/plain | completed | 443 | https://www.adb.org/sites/default/files/publication/159371/adbi-corp-gov-vol-2.p |
+| `DOC-2C64F4AF5C44` | SRC-000006 | DISC-LAYER | text/plain | completed | 231 | http://www.adb.org/sites/default/files/publication/156768/adbi-dp3.pdf |
+| `DOC-FEE03DB2F2CE` | SRC-000006 | DISC-LAYER | text/plain | completed | 458 | https://www.adb.org/sites/default/files/publication/156756/adbi-dp10.pdf |
 | `DOC-FEFDF46E13BB` | SRC-000006 | DISC-LAYER | text/plain | completed | 422 | https://www.adb.org/sites/default/files/project-documents//r141-00.pdf |
-| `DOC-4429AD30FD06` | SRC-000006 | DISC-LAYER | text/plain | completed | 224 | https://www.adb.org/sites/default/files/publication/159384/adbi-corp-gov-asia.pd |
-| `DOC-14C6CBB57898` | SRC-000006 | DISC-LAYER | text/plain | completed | 211 | https://www.adb.org/sites/default/files/project-documents/39538/39538-013-39538- |
-| `DOC-35CDF04583F6` | SRC-000006 | DISC-LAYER | text/plain | completed | 233 | https://www.adb.org/sites/default/files/project-documents//32132-prc-tacr.pdf |
+| `DOC-2C3F9F0FB8A6` | SRC-000006 | DISC-LAYER | text/plain | completed | 451 | https://www.adb.org/sites/default/files/project-documents//32051-vie-tcr.pdf |
+| `DOC-DF66855E1364` | SRC-000006 | DISC-LAYER | text/plain | completed | 238 | https://www.adb.org/sites/default/files/publication/159384/adbi-corp-gov-asia.pd |
+| `DOC-58E1C1E9E273` | SRC-000006 | DISC-LAYER | text/plain | completed | 461 | https://www.adb.org/publications/asean-corporate-governance-scorecard-country-re |
+| `DOC-D3B5789CE10E` | SRC-000006 | DISC-LAYER | text/plain | completed | 223 | https://www.adb.org/sites/default/files/publication/1155161/ewp-853-corporate-di |
 | `DOC-49B2FCBFCA88` | SRC-000006 | DISC-LAYER | text/plain | completed | 456 | https://www.adb.org/sites/default/files/publication/157194/adbi-rp19.pdf |
-| `DOC-56852A2A2942` | SRC-000006 | DISC-LAYER | text/plain | completed | 491 | https://www.adb.org/publications/asean-corporate-governance-scorecard-country-re |
-| `DOC-6759D6BCC34C` | SRC-000005 | DISC-LAYER | text/plain | completed | 521 | https://www.oecd.org/en/publications/shareholder-meetings-and-corporate-governan |
+| `DOC-5F3A484703FF` | SRC-000006 | DISC-LAYER | text/plain | completed | 225 | https://www.adb.org/sites/default/files/project-documents/39538/39538-013-39538- |
+| `DOC-35CDF04583F6` | SRC-000006 | DISC-LAYER | text/plain | completed | 233 | https://www.adb.org/sites/default/files/project-documents//32132-prc-tacr.pdf |
+| `DOC-4F94129FF133` | SRC-000006 | DISC-LAYER | text/plain | completed | 468 | https://www.adb.org/sites/default/files/project-documents/39538/39538-023-pcr-en |
 | `DOC-645C8C06FF24` | SRC-000005 | DISC-LAYER | text/plain | completed | 456 | https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_4d9 |
-| `DOC-8C55E5735C99` | SRC-000005 | DISC-LAYER | text/plain | completed | 441 | https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f |
-| `DOC-5AAAEEFF3CFF` | SRC-000005 | DISC-LAYER | text/plain | completed | 481 | https://www.oecd.org/en/publications/shareholder-meetings-and-corporate-governan |
+| `DOC-E746A78D3E9C` | SRC-000005 | DISC-LAYER | text/plain | completed | 447 | https://www.oecd.org/en/publications/shareholder-meetings-and-corporate-governan |
+| `DOC-408DE07C02C4` | SRC-000005 | DISC-LAYER | text/plain | completed | 495 | https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f |
+| `DOC-6AB09D6D2913` | SRC-000005 | DISC-LAYER | text/plain | completed | 447 | https://www.oecd.org/en/publications/shareholder-meetings-and-corporate-governan |
 | `DOC-0B81E5EF27AD` | SRC-000001 | DISC-LAYER | text/plain | completed | 214 | https://autoconfig.bps.go.id/EBOOK/pdf/175745/8H10P89490/api__driven_devops__str |
-| `DOC-93125D2A7316` | SRC-000001 | DISC-LAYER | text/plain | completed | 226 | https://autoconfig.bps.go.id/TXT/journal/829W1346X7/803W16X/corporate_governance |
 | `DOC-D1AA7E469E34` | SRC-000001 | DISC-LAYER | text/plain | completed | 191 | https://autoconfig.bps.go.id/TXT/ebook/188251BL63/77061BL/corporate__governance- |
-| `DOC-E94DC968845E` | SRC-000001 | DISC-LAYER | text/plain | completed | 188 | https://autoconfig.bps.go.id/PLAY/science/58Z38S9612/30Z23S0/corporate_governanc |
-| `DOC-231688635817` | SRC-000001 | DISC-LAYER | text/plain | completed | 196 | https://autoconfig.bps.go.id/EPDF/ref/nd102607/4123077DN1093957/corporate-govern |
-| `DOC-09E20AD89418` | SRC-000001 | DISC-LAYER | text/plain | completed | 217 | https://autoconfig.bps.go.id/EBOOK/book/pw/72488P2W10260711/corporate_communicat |
+| `DOC-C0524AB216BD` | SRC-000001 | DISC-LAYER | text/plain | completed | 213 | https://autoconfig.bps.go.id/EBOOK/ref/dd/897D3D5084260709/corporate-governance_ |
+| `DOC-B1EDF77B9423` | SRC-000001 | DISC-LAYER | text/plain | completed | 173 | https://autoconfig.bps.go.id/PLAY/science/58Z38S9612/30Z23S0/corporate_governanc |
 | `DOC-90CEE8D6E1E6` | SRC-000001 | DISC-LAYER | text/plain | completed | 197 | https://autoconfig.bps.go.id/EPDF/pdf/050726/5U416N5998/a_handbook-of-corporate_ |
-| `DOC-74706F1B0352` | SRC-000001 | DISC-LAYER | text/plain | completed | 201 | https://autoconfig.bps.go.id/TXT/ppt/103405/566Y13K075/a_handbook__of__corporate |
-| `DOC-7B9A2BD4DE76` | SRC-000001 | DISC-LAYER | text/plain | completed | 215 | https://autoconfig.bps.go.id/EBOOK/ref/dd/897D3D5084260709/corporate-governance_ |
-| `DOC-C1C8D7931100` | SRC-000004 | DISC-LAYER | text/plain | completed | 115 | https://www.worldbank.org/%20en/country/madagascar/overview |
-| `DOC-63E9EB2E5A2F` | SRC-000004 | DISC-LAYER | text/plain | completed | 132 | https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 |
-| `DOC-5FB511CEE340` | SRC-000004 | DISC-LAYER | text/plain | completed | 91 | https://www.worldbank.org/%E3%80%80 |
-| `DOC-88856779312B` | SRC-000006 | DISC-LAYER | text/plain | completed | 481 | https://www.adb.org/node/1136021 |
+| `DOC-AEC8D10E6ECB` | SRC-000001 | DISC-LAYER | text/plain | completed | 202 | https://autoconfig.bps.go.id/TXT/ppt/103405/566Y13K075/a_handbook__of__corporate |
 | `DOC-FF16E78DA4DE` | SRC-000006 | DISC-LAYER | text/plain | completed | 475 | https://www.adb.org/sites/default/files/publication/618761/reforms-opportunities |
-| `DOC-80F2831D86E3` | SRC-000006 | DISC-LAYER | text/plain | completed | 451 | https://www.adb.org/sites/default/files/publication/610771/adbi-environmental-so |
-| `DOC-E0CB43AA1F0B` | SRC-000006 | DISC-LAYER | text/plain | completed | 442 | https://www.adb.org/sites/default/files/project-documents/58211/58211-001-rrp-en |
 | `DOC-3FCD60E72897` | SRC-000006 | DISC-LAYER | text/plain | completed | 444 | https://www.adb.org/sites/default/files/project-documents//36550-ino-tcr.pdf |
+| `DOC-80F2831D86E3` | SRC-000006 | DISC-LAYER | text/plain | completed | 451 | https://www.adb.org/sites/default/files/publication/610771/adbi-environmental-so |
+| `DOC-88856779312B` | SRC-000006 | DISC-LAYER | text/plain | completed | 481 | https://www.adb.org/node/1136021 |
+| `DOC-E0CB43AA1F0B` | SRC-000006 | DISC-LAYER | text/plain | completed | 442 | https://www.adb.org/sites/default/files/project-documents/58211/58211-001-rrp-en |
 | `DOC-C248C694B25A` | SRC-000006 | DISC-LAYER | text/plain | completed | 486 | https://www.adb.org/publications/corporate-planning-public-sector-guide-pacific- |
-| `DOC-35092C6FACB5` | SRC-000006 | DISC-LAYER | text/plain | completed | 472 | https://www.adb.org/sites/default/files/project-documents/57076/57076-001-escar- |
-| `DOC-4DFD47F4F53F` | SRC-000001 | DISC-LAYER | text/plain | completed | 215 | https://autoconfig.bps.go.id/BOOK/doc/9455P4L570/5311P2L/corporate-finance-by__h |
 | `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
 | `DOC-859D2142FF21` | SRC-000001 | DISC-LAYER | text/plain | completed | 85 | https://www.bps.go.id/248-268 |
 | `DOC-086852F73EE0` | SRC-000001 | DISC-LAYER | text/plain | completed | 94 | https://www.bps.go.id/brs/view/id/1267 |
@@ -117,25 +117,4 @@
 | `DOC-4797FB998A54` | SRC-000001 | DISC-LAYER | text/plain | completed | 216 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-r |
 | `DOC-8903E78503B7` | SRC-000001 | DISC-LAYER | text/plain | completed | 237 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-ag |
 | `DOC-EEB66F14A504` | SRC-000001 | DISC-LAYER | text/plain | completed | 222 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-ag |
-| `DOC-748CA7F247E0` | SRC-000001 | DISC-LAYER | text/plain | completed | 222 | https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122008/property__in_sec |
-| `DOC-C82387BE3840` | SRC-000007 | DISC-LAYER | text/plain | completed | 88 | https://ammdes.kemenperin.go.id/ |
-| `DOC-35242ACBFC8C` | SRC-000007 | DISC-LAYER | text/plain | completed | 119 | http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project |
-| `DOC-A9BA1BC04A49` | SRC-000007 | DISC-LAYER | text/plain | completed | 120 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project |
-| `DOC-5AE418499878` | SRC-000007 | DISC-LAYER | text/plain | completed | 98 | https://ammdes.kemenperin.go.id/robots.txt |
-| `DOC-BD9EDDE8E2B7` | SRC-000007 | DISC-LAYER | text/plain | completed | 97 | http://ammdes.kemenperin.go.id/robots.txt |
-| `DOC-829247A9780D` | SRC-000007 | DISC-LAYER | text/plain | completed | 86 | https://bbkb.kemenperin.go.id/ |
-| `DOC-41728C78610E` | SRC-000007 | DISC-LAYER | text/plain | completed | 140 | https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_mi |
-| `DOC-3473D956AFB3` | SRC-000007 | DISC-LAYER | text/plain | completed | 118 | https://bbkb.kemenperin.go.id/index.php/post/category/berita/0 |
-| `DOC-54DE361C5BE2` | SRC-000007 | DISC-LAYER | text/plain | completed | 145 | https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_sni |
-| `DOC-CE6D99FF0CD9` | SRC-000007 | DISC-LAYER | text/plain | completed | 206 | https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hij |
-| `DOC-BDBFC501AA73` | SRC-000007 | DISC-LAYER | text/plain | completed | 151 | https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_nask |
-| `DOC-E465621B124E` | SRC-000007 | DISC-LAYER | text/plain | completed | 207 | https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajina |
-| `DOC-99700123A1EA` | SRC-000007 | DISC-LAYER | text/plain | completed | 126 | https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo |
-| `DOC-EB8E28CFE081` | SRC-000007 | DISC-LAYER | text/plain | completed | 99 | https://bbkb.kemenperin.go.id/perpus/index/ |
-| `DOC-0E785C552C2C` | SRC-000007 | DISC-LAYER | text/plain | completed | 101 | https://bbkb.kemenperin.go.id/perpus/index/70 |
-| `DOC-943B331D294D` | SRC-000007 | DISC-LAYER | text/plain | completed | 216 | https://bbkb.kemenperin.go.id/post/read/dukung_industri_halal_bbspjikb__kemenper |
-| `DOC-38D9F56DD14D` | SRC-000007 | DISC-LAYER | text/plain | completed | 124 | https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_teknis_0 |
-| `DOC-65B770C082E5` | SRC-000007 | DISC-LAYER | text/plain | completed | 224 | https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pl |
-| `DOC-B21F6D285FFD` | SRC-000007 | DISC-LAYER | text/plain | completed | 135 | https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0 |
-| `DOC-F727E9F5C52F` | SRC-000007 | DISC-LAYER | text/plain | completed | 196 | https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenpe |
 | `DOC-648623E72C93` | SRC-000007 | DISC-LAYER | text/plain | completed | 443 | https://arsi.kemenperin.go.id/pemenang.html |

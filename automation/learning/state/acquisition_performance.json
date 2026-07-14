@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-07-14T21:59:47+00:00",
+  "started_at": "2026-07-14T23:05:44+00:00",
   "connectors": [
     {
       "connector_id": "CONN-BPS-001",
@@ -8,9 +8,9 @@
       "source_name": "BPS Indonesia",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 212.7,
+      "elapsed_ms": 135.8,
       "documents_discovered": 0,
-      "documents_downloaded": 11,
+      "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
@@ -26,13 +26,13 @@
       "source_name": "World Bank",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 459.4,
+      "elapsed_ms": 573.7,
       "documents_discovered": 11,
-      "documents_downloaded": 0,
+      "documents_downloaded": 11,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-07-14T22:12:38+00:00",
+      "last_successful_sync": "2026-07-14T23:18:58+00:00",
       "urls": [
         "http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-Development-Project",
         "http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-Development-LIL-Project",
@@ -41,7 +41,7 @@
         "http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C3526-Library-Development-Project-Development-Credit-Agreement"
       ],
       "error": null,
-      "rank_score": 97.45
+      "rank_score": 97.451
     },
     {
       "connector_id": "CONN-ADB-001",
@@ -50,16 +50,16 @@
       "source_name": "Asian Development Bank",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 125.7,
+      "elapsed_ms": 97.8,
       "documents_discovered": 0,
-      "documents_downloaded": 11,
+      "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
       "last_successful_sync": "",
       "urls": [],
       "error": null,
-      "rank_score": 95.109
+      "rank_score": 95.111
     },
     {
       "connector_id": "CONN-KEMENPERIN-001",
@@ -68,7 +68,7 @@
       "source_name": "Kemenperin",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 94297.0,
+      "elapsed_ms": 94060.8,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -86,9 +86,9 @@
       "source_name": "OECD",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 117.4,
+      "elapsed_ms": 120.6,
       "documents_discovered": 0,
-      "documents_downloaded": 0,
+      "documents_downloaded": 11,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
@@ -104,19 +104,19 @@
       "source_name": "Crossref",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 339.6,
+      "elapsed_ms": 271.6,
       "documents_discovered": 10,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-07-14T22:12:38+00:00",
+      "last_successful_sync": "2026-07-14T23:18:57+00:00",
       "urls": [
         "https://api.crossref.org/works/10.14429/djlit.41.5.16406",
         "https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108",
         "https://api.crossref.org/works/10.47191/ijmei/v10i2.01",
-        "https://api.crossref.org/works/10.7454/jipk.v24i2.003",
-        "https://api.crossref.org/works/10.59141/jiss.v4i07.855"
+        "https://api.crossref.org/works/10.59141/jiss.v4i07.855",
+        "https://api.crossref.org/works/10.7454/jipk.v24i2.003"
       ],
       "error": null,
       "rank_score": 84.462
@@ -126,29 +126,35 @@
       "name": "OpenAlex",
       "source_id": "SRC-OPENALEX",
       "source_name": "OpenAlex",
-      "status": "no_updates",
+      "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 3347.7,
-      "documents_discovered": 0,
+      "elapsed_ms": 626.6,
+      "documents_discovered": 10,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "",
-      "urls": [],
+      "last_successful_sync": "2026-07-14T23:18:58+00:00",
+      "urls": [
+        "https://openalex.org/W3095315355",
+        "https://openalex.org/W4312346959",
+        "https://openalex.org/W3132509763",
+        "https://openalex.org/W3004041197",
+        "https://openalex.org/W2974521388"
+      ],
       "error": null,
       "rank_score": 0
     }
   ],
   "downloads": {
-    "requested": 207,
-    "downloaded": 103,
+    "requested": 168,
+    "downloaded": 87,
     "not_modified": 0,
-    "skipped_duplicate": 2,
-    "failed": 102,
-    "bytes": 172814522,
-    "elapsed_ms": 295738.6,
-    "retries": 90,
+    "skipped_duplicate": 0,
+    "failed": 81,
+    "bytes": 176065066,
+    "elapsed_ms": 184275.79999999993,
+    "retries": 32,
     "max_workers": 2,
     "adaptive_workers": 2,
     "connection_reuse": true,
@@ -156,30 +162,30 @@
     "etag_conditional": true,
     "http_cache": {
       "hits": 0,
-      "misses": 105,
+      "misses": 87,
       "not_modified": 0,
-      "stores": 105,
+      "stores": 87,
       "bytes_saved_est": 0
     },
     "fingerprints": {
-      "skips": 105,
-      "adds": 226,
-      "unique_hashes": 226,
-      "unique_urls": 226
+      "skips": 87,
+      "adds": 189,
+      "unique_hashes": 189,
+      "unique_urls": 189
     }
   },
   "cache": {
     "hits": 0,
-    "misses": 105,
+    "misses": 87,
     "not_modified": 0,
-    "stores": 105,
+    "stores": 87,
     "bytes_saved_est": 0
   },
   "fingerprints": {
-    "skips": 105,
-    "adds": 226,
-    "unique_hashes": 226,
-    "unique_urls": 226
+    "skips": 87,
+    "adds": 189,
+    "unique_hashes": 189,
+    "unique_urls": 189
   },
   "extraction": {
     "fast": 5,
@@ -187,19 +193,19 @@
     "deep": 0,
     "llm": 0,
     "llm_used": 0,
-    "skipped_llm": 123,
-    "llm_skipped": 123,
-    "documents_fast": 102,
+    "skipped_llm": 102,
+    "llm_skipped": 102,
+    "documents_fast": 81,
     "documents_medium": 7,
     "documents_deep": 14,
-    "avg_ms": 0.69,
-    "average_extraction_ms": 0.69,
-    "total_ms": 85.03,
+    "avg_ms": 0.91,
+    "average_extraction_ms": 0.91,
+    "total_ms": 93.32,
     "path_ms": {
-      "fast": 15.9,
-      "medium": 16.35,
-      "deep": 47.99,
-      "signal_fallback": 4.65
+      "fast": 26.3,
+      "medium": 15.78,
+      "deep": 46.28,
+      "signal_fallback": 4.85
     },
     "target_dataset": "service_library",
     "llm_required_but_unavailable": false
@@ -238,14 +244,14 @@
     {
       "id": "SRC-000004",
       "name": "World Bank",
-      "score": 97.45,
+      "score": 97.451,
       "breakdown": {
         "health": 1.0,
         "success_rate": 1.0,
         "latency_score": 0.0,
         "yield_score": 1.0,
         "confidence": 0.85,
-        "duplicate_score": 0.998,
+        "duplicate_score": 0.999,
         "freshness": 0.7,
         "coverage": 0.227,
         "priority": 0.88,
@@ -256,7 +262,7 @@
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "score": 95.109,
+      "score": 95.111,
       "breakdown": {
         "health": 1.0,
         "success_rate": 1.0,
@@ -525,75 +531,75 @@
     }
   ],
   "throughput": {
-    "documents": 123,
+    "documents": 102,
     "rows": 5,
-    "documents_per_hour": 385.49,
-    "rows_per_hour": 15.67,
-    "documents_per_second": 0.107,
+    "documents_per_hour": 317.9,
+    "rows_per_hour": 15.58,
+    "documents_per_second": 0.088,
     "rows_per_second": 0.004
   },
   "stage_timings": {
     "stages": {
       "mission_setup": {
         "count": 1,
-        "total_ms": 0.001491999995550941,
-        "max_ms": 0.001491999995550941,
-        "min_ms": 0.001491999995550941,
+        "total_ms": 0.0015429999962179863,
+        "max_ms": 0.0015429999962179863,
+        "min_ms": 0.0015429999962179863,
         "avg_ms": 0.0
       },
       "discovery": {
         "count": 1,
-        "total_ms": 94302.538142,
-        "max_ms": 94302.538142,
-        "min_ms": 94302.538142,
-        "avg_ms": 94302.54,
+        "total_ms": 94065.74367799988,
+        "max_ms": 94065.74367799988,
+        "min_ms": 94065.74367799988,
+        "avg_ms": 94065.74,
         "meta": {
-          "discovered": 228,
+          "discovered": 189,
           "connectors": 7
         }
       },
       "prioritize": {
         "count": 1,
-        "total_ms": 3.772232999949665,
-        "max_ms": 3.772232999949665,
-        "min_ms": 3.772232999949665,
-        "avg_ms": 3.77,
+        "total_ms": 3.3432929999435146,
+        "max_ms": 3.3432929999435146,
+        "min_ms": 3.3432929999435146,
+        "avg_ms": 3.34,
         "meta": {
-          "budget": 228,
-          "queued": 228,
+          "budget": 189,
+          "queued": 189,
           "pre_dup": 0
         }
       },
       "download": {
         "count": 1,
-        "total_ms": 283973.3882669999,
-        "max_ms": 283973.3882669999,
-        "min_ms": 283973.3882669999,
-        "avg_ms": 283973.39,
+        "total_ms": 267439.40870200004,
+        "max_ms": 267439.40870200004,
+        "min_ms": 267439.40870200004,
+        "avg_ms": 267439.41,
         "meta": {
-          "documents": 123,
+          "documents": 102,
           "workers": 2,
-          "duplicates": 105
+          "duplicates": 87
         }
       },
       "extraction": {
         "count": 1,
-        "total_ms": 85.54128000014316,
-        "max_ms": 85.54128000014316,
-        "min_ms": 85.54128000014316,
-        "avg_ms": 85.54,
+        "total_ms": 93.86587099993449,
+        "max_ms": 93.86587099993449,
+        "min_ms": 93.86587099993449,
+        "avg_ms": 93.87,
         "meta": {
           "candidates": 5,
-          "llm_skipped": 123,
-          "avg_ms": 0.69
+          "llm_skipped": 102,
+          "avg_ms": 0.91
         }
       },
       "validation": {
         "count": 1,
-        "total_ms": 9.977579999940644,
-        "max_ms": 9.977579999940644,
-        "min_ms": 9.977579999940644,
-        "avg_ms": 9.98,
+        "total_ms": 10.794361999842295,
+        "max_ms": 10.794361999842295,
+        "min_ms": 10.794361999842295,
+        "avg_ms": 10.79,
         "meta": {
           "published": 5,
           "rejected": 0,
@@ -612,48 +618,48 @@
     "threshold": 0.92,
     "decisions": [
       {
-        "candidate_id": "CAND-9F2FD6E9E5D6",
-        "confidence": 0.85,
-        "action": "manual_review"
-      },
-      {
-        "candidate_id": "CAND-213C11B13B85",
+        "candidate_id": "CAND-1872110112B6",
         "confidence": 0.9,
         "action": "manual_review"
       },
       {
-        "candidate_id": "CAND-574B2781AD02",
+        "candidate_id": "CAND-6013A6C1C6A0",
+        "confidence": 0.88,
+        "action": "manual_review"
+      },
+      {
+        "candidate_id": "CAND-83BDFEDF80B7",
         "confidence": 0.92,
         "action": "auto_publish"
       },
       {
-        "candidate_id": "CAND-6A86A762D174",
+        "candidate_id": "CAND-8689124EF376",
         "confidence": 0.85,
         "action": "manual_review"
       },
       {
-        "candidate_id": "CAND-2B893D76402E",
+        "candidate_id": "CAND-B8B97E93685B",
         "confidence": 0.9,
         "action": "manual_review"
       }
     ]
   },
   "throughput_detail": {
-    "discovered": 228,
-    "priority_queued": 228,
-    "process_budget": 228,
+    "discovered": 189,
+    "priority_queued": 189,
+    "process_budget": 189,
     "pre_download_duplicates": 0,
     "process_ratio": 1.0,
     "process_ratio_pct": 100.0,
-    "processed": 123,
-    "final_process_ratio": 0.5395,
-    "final_process_ratio_pct": 53.9,
+    "processed": 102,
+    "final_process_ratio": 0.5397,
+    "final_process_ratio_pct": 54.0,
     "workers": 2,
-    "avg_connector_latency_ms": 14128.5
+    "avg_connector_latency_ms": 13698.1
   },
   "workers": {
     "adaptive": 2,
-    "avg_connector_latency_ms": 14128.5
+    "avg_connector_latency_ms": 13698.1
   },
   "queues": {
     "baseline": {
@@ -681,23 +687,23 @@
         "candidate_weight": 0.0,
         "publish_weight": 1.0
       },
-      "measured_at": "2026-07-14T21:59:47+00:00"
+      "measured_at": "2026-07-14T23:05:44+00:00"
     },
     "documents": {
-      "incoming": 123,
+      "incoming": 102,
       "processing": 0,
       "processed": 0,
       "failed": 0
     },
-    "not_modified": 2,
-    "duplicates": 105,
+    "not_modified": 0,
+    "duplicates": 87,
     "workers": 2,
     "post": {
       "document_queue": {
-        "incoming": 144,
+        "incoming": 123,
         "processing": 0,
         "processed": 0,
-        "depth": 144
+        "depth": 123
       },
       "candidate_queue": {
         "pending": 0,
@@ -719,7 +725,7 @@
         "candidate_weight": 0.0,
         "publish_weight": 1.0
       },
-      "measured_at": "2026-07-14T22:18:56+00:00"
+      "measured_at": "2026-07-14T23:24:59+00:00"
     },
     "rebalance": {
       "prefer_process_incoming": true,
@@ -732,13 +738,13 @@
     "documents_final": {
       "incoming": 0,
       "processing": 0,
-      "processed": 123,
+      "processed": 102,
       "failed": 0
     },
     "publish_remaining": 7
   },
-  "finished_at": "2026-07-14T22:18:56+00:00",
-  "mission_id": "MIS-20260714-D70900",
-  "session_id": "SES-20260714-39187E",
-  "elapsed_seconds": 1148.656
+  "finished_at": "2026-07-14T23:24:59+00:00",
+  "mission_id": "MIS-20260714-E62FBF",
+  "session_id": "SES-20260714-7DC18C",
+  "elapsed_seconds": 1155.095
 }
