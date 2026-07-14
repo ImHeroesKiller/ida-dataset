@@ -1,25 +1,25 @@
 # Runtime Statistics
 
-**Session:** `SES-20260714-6EC51E`
+**Session:** `SES-20260714-077151`
 **Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
-**Total stage time (ms):** 493437.4
+**Total stage time (ms):** 826820.9
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 1.0 | completed |
-| source_discovery | 2.6 | completed |
-| connector | 93944.0 | completed |
-| document_discovery | 93944.2 | completed |
-| document_download | 305401.7 | completed |
-| extraction | 85.1 | completed |
-| candidate_validation | 6.2 | completed |
-| publish_queue | 6.1 | completed |
-| append_dataset | 45.9 | completed |
-| export | 0.2 | skipped |
-| git_commit | 0.2 | skipped |
-| push | 0.2 | skipped |
+| mission | 1.1 | completed |
+| source_discovery | 3.1 | completed |
+| connector | 93881.2 | completed |
+| document_discovery | 93881.4 | completed |
+| document_download | 638872.6 | completed |
+| extraction | 103.0 | completed |
+| candidate_validation | 8.2 | completed |
+| publish_queue | 8.3 | completed |
+| append_dataset | 61.1 | completed |
+| export | 0.3 | skipped |
+| git_commit | 0.3 | skipped |
+| push | 0.3 | skipped |
 
 ## Counters
 
@@ -28,10 +28,10 @@
   "summary": {
     "connectors_ok": 7,
     "connectors_failed": 0,
-    "documents_discovered": 21,
-    "documents_downloaded": 117,
+    "documents_discovered": 31,
+    "documents_downloaded": 119,
     "documents_failed": 0,
-    "documents_duplicates": 105,
+    "documents_duplicates": 96,
     "candidates_extracted": 5,
     "candidates_validated": 5,
     "candidates_rejected": 0,
@@ -54,9 +54,9 @@
   "document_queue": {
     "queued": 0,
     "processing": 0,
-    "completed": 117,
+    "completed": 119,
     "failed": 0,
-    "duplicates": 105
+    "duplicates": 96
   },
   "exports": {
     "jsonl": false,
