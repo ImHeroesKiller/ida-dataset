@@ -6,10 +6,10 @@ Trusted sources ranked for discovery targeting.
 |-----:|--------|-----------:|----------:|-----------:|
 | 1 | BPS Indonesia | 103.252 | 1.0 | 97.943 |
 | 2 | World Bank | 101.83 | 0.95 | 97.447 |
-| 3 | Kemenperin | 100.647 | 1.0 | 94.879 |
+| 3 | Kemenperin | 100.676 | 1.0 | 94.913 |
 | 4 | Asian Development Bank | 99.839 | 0.95 | 95.105 |
-| 5 | OECD | 99.488 | 0.95 | 94.692 |
-| 6 | Crossref | 89.787 | 0.9 | 84.455 |
+| 5 | OECD | 99.492 | 0.95 | 94.696 |
+| 6 | Crossref | 89.788 | 0.9 | 84.457 |
 | 7 | DJP Pajak | 82.433 | 1.0 | 73.45 |
 | 8 | NIST | 82.262 | 1.0 | 73.25 |
 | 9 | JDIH / Peraturan.go.id | 82.262 | 1.0 | 73.25 |
