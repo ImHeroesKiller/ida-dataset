@@ -8,8 +8,8 @@ Trusted sources ranked for discovery targeting.
 | 2 | World Bank | 101.832 | 0.95 | 97.45 |
 | 3 | Kemenperin | 100.676 | 1.0 | 94.913 |
 | 4 | Asian Development Bank | 99.843 | 0.95 | 95.109 |
-| 5 | OECD | 99.498 | 0.95 | 94.703 |
-| 6 | Crossref | 89.792 | 0.9 | 84.461 |
+| 5 | OECD | 99.501 | 0.95 | 94.707 |
+| 6 | Crossref | 89.793 | 0.9 | 84.462 |
 | 7 | DJP Pajak | 82.433 | 1.0 | 73.45 |
 | 8 | NIST | 82.262 | 1.0 | 73.25 |
 | 9 | JDIH / Peraturan.go.id | 82.262 | 1.0 | 73.25 |
