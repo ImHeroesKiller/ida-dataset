@@ -1,0 +1,15 @@
+# Candidate Pipeline
+
+**Session:** `SES-20260715-1ACD20`
+
+Extracted **5** · Validated **5** · Rejected **0**
+
+| Candidate | Entity | Dataset | Confidence | Validation | Publish | Document | Reject reason |
+|-----------|--------|---------|------------|------------|---------|----------|---------------|
+| `CAND-21FE4F267D77` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
+| `CAND-48E88C855434` | The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches | business_signal_library | 0.88 | approved | published | `DOC-C8336B1CF486` | — |
+| `CAND-889942AB4A28` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
+| `CAND-3701ED8B8DE9` | Corporate Governance In Middle East Family Businesses | business_signal_library | 0.85 | approved | published | `DOC-E689A7156EBC` | — |
+| `CAND-5DD7F6DF2E0D` | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | approved | published | `DOC-50B3F3BC8DEB` | — |
+
+## Evidence snippets
