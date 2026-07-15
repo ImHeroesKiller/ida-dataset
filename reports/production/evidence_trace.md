@@ -1,13 +1,13 @@
 # Evidence Trace
 
-**Session:** `SES-20260715-5DE4AC`
+**Session:** `SES-20260715-45AD80`
 
 Every published row → candidate → document → connector → source.
 
 ## The Influence of Service Quality on Library Users at Padang State Polytechnic
 
-- **Dataset row:** `SIG-000245` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
-- **Candidate:** `CAND-61DAF7743C34`
+- **Dataset row:** `SIG-000250` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
+- **Candidate:** `CAND-2D8A81CCB806`
 - **Document:** `DOC-5DFD7BF054D2` · The Influence of Service Quality on Library Users at Padang State Polytechnic
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -16,8 +16,8 @@ Every published row → candidate → document → connector → source.
 
 ## The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches
 
-- **Dataset row:** `SIG-000246` · The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches (business_signal_library)
-- **Candidate:** `CAND-C910394F4891`
+- **Dataset row:** `SIG-000251` · The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches (business_signal_library)
+- **Candidate:** `CAND-FF817076E24D`
 - **Document:** `DOC-C8336B1CF486` · The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches
 - **Connector:** OpenAlex (`CONN-OPENALEX-001`)
 - **Source:** OpenAlex (`SRC-OPENALEX`)
@@ -26,28 +26,28 @@ Every published row → candidate → document → connector → source.
 
 ## World Bank document
 
-- **Dataset row:** `SIG-000247` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-41373EEF499D`
+- **Dataset row:** `SIG-000252` · World Bank document (business_signal_library)
+- **Candidate:** `CAND-517F72A8C9B6`
 - **Document:** `DOC-A99E56C64737` · World Bank document
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
 - **URL:** https://documents.worldbank.org/search?q=service+library+Indonesia
 - **Confidence:** 0.92
 
-## Corporate Governance In Middle East Family Businesses
+## Corporate Governance of State-Owned Enterprises
 
-- **Dataset row:** `SIG-000248` · Corporate Governance In Middle East Family Businesses (business_signal_library)
-- **Candidate:** `CAND-CC090052C882`
-- **Document:** `DOC-27A2235900BA` · Corporate Governance In Middle East Family Businesses
+- **Dataset row:** `SIG-000253` · Corporate Governance of State-Owned Enterprises (business_signal_library)
+- **Candidate:** `CAND-511785536996`
+- **Document:** `DOC-39ED6A991AD1` · Corporate Governance of State-Owned Enterprises
 - **Connector:** DISC-LAYER (`DISC-LAYER`)
-- **Source:** BPS Indonesia (`SRC-000001`)
-- **URL:** https://autoconfig.bps.go.id/DOC/journal/in122607/420681N64I140312/corporate-governance__in__middle_east-family_businesses.pdf
+- **Source:** World Bank (`SRC-000004`)
+- **URL:** https://state-owned-enterprises.worldbank.org/sites/soe/files/tootkit/Corporate%20Governance%20of%20SOEs_WBG%20Toolkit_1.pdf
 - **Confidence:** 0.85
 
 ## Development of the Siak Library and Archives Service (2004-2022)
 
-- **Dataset row:** `SIG-000249` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
-- **Candidate:** `CAND-A14DAF94C302`
+- **Dataset row:** `SIG-000254` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
+- **Candidate:** `CAND-F3BB1542ED2A`
 - **Document:** `DOC-50B3F3BC8DEB` · Development of the Siak Library and Archives Service (2004-2022)
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
