@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-07-14T23:18:56+00:00",
-  "mission_id": "MIS-20260714-E62FBF",
-  "session_id": "SES-20260714-7DC18C",
+  "started_at": "2026-07-15T02:49:07+00:00",
+  "mission_id": "MIS-20260715-8CFDA1",
+  "session_id": "SES-20260715-1D2567",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -47,12 +47,12 @@
   },
   "queries_generated": 10,
   "queries_executed": 32,
-  "urls_discovered": 180,
-  "urls_accepted": 158,
-  "urls_rejected": 22,
+  "urls_discovered": 288,
+  "urls_accepted": 212,
+  "urls_rejected": 76,
   "urls_remaining": 0,
-  "duplicate_urls": 22,
-  "elapsed_ms": 792058.3,
+  "duplicate_urls": 76,
+  "elapsed_ms": 766314.3,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -73,10 +73,10 @@
     "DISC-YANDEX": 0.0
   },
   "rows_per_provider": {
-    "DISC-TAVILY": 142,
-    "DISC-COMMONCRAWL": 20,
+    "DISC-TAVILY": 164,
+    "DISC-COMMONCRAWL": 100,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 6,
+    "DISC-RSS": 12,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 818.12,
-  "accepted_per_hour": 718.13,
+  "urls_per_hour": 1352.97,
+  "accepted_per_hour": 995.94,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -99,16 +99,16 @@
         "message": "credentials"
       },
       "queries": 10,
-      "urls": 142,
+      "urls": 164,
       "cache_hits": 0,
-      "elapsed_ms": 18668.9,
+      "elapsed_ms": 27558.300000000003,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 104.916,
+      "rank_score": 107.566,
       "utilization": 0.3125
     },
     {
@@ -121,16 +121,16 @@
         "message": "toggle"
       },
       "queries": 5,
-      "urls": 20,
+      "urls": 100,
       "cache_hits": 0,
-      "elapsed_ms": 17361.800000000003,
+      "elapsed_ms": 2452.9,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 69.645,
+      "rank_score": 63.028,
       "utilization": 0.1562
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 467410.7,
+      "elapsed_ms": 454009.9,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -165,16 +165,16 @@
         "message": "feed_discovery"
       },
       "queries": 1,
-      "urls": 6,
+      "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 288510.0,
+      "elapsed_ms": 282189.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 51.52,
+      "rank_score": 49.96,
       "utilization": 0.0312
     },
     {
@@ -450,8 +450,8 @@
       "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 10,
-      "elapsed_ms": 1239.1,
+      "urls": 20,
+      "elapsed_ms": 2475.4,
       "cached": false,
       "live_search": true
     },
@@ -460,8 +460,8 @@
       "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 10,
-      "elapsed_ms": 991.8,
+      "urls": 20,
+      "elapsed_ms": 1820.8,
       "cached": false,
       "live_search": true
     },
@@ -470,8 +470,8 @@
       "query": "site:worldbank.org corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
-      "urls": 19,
-      "elapsed_ms": 2171.5,
+      "urls": 10,
+      "elapsed_ms": 1727.6,
       "cached": false,
       "live_search": true
     },
@@ -480,8 +480,8 @@
       "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
-      "urls": 10,
-      "elapsed_ms": 1135.3,
+      "urls": 20,
+      "elapsed_ms": 2109.6,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 4,
-      "elapsed_ms": 687.4,
+      "elapsed_ms": 1702.4,
       "cached": false,
       "live_search": true
     },
@@ -501,7 +501,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 20,
-      "elapsed_ms": 3485.4,
+      "elapsed_ms": 3760.9,
       "cached": false,
       "live_search": true
     },
@@ -511,7 +511,7 @@
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "urls": 20,
-      "elapsed_ms": 1470.0,
+      "elapsed_ms": 3482.4,
       "cached": false,
       "live_search": true
     },
@@ -520,8 +520,8 @@
       "query": "site:adb.org intitle:corporate corporate governance service continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
-      "urls": 19,
-      "elapsed_ms": 1442.8,
+      "urls": 20,
+      "elapsed_ms": 2975.7,
       "cached": false,
       "live_search": true
     },
@@ -530,8 +530,8 @@
       "query": "site:oecd.org corporate governance service continuous",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
-      "urls": 10,
-      "elapsed_ms": 4325.1,
+      "urls": 20,
+      "elapsed_ms": 5916.1,
       "cached": false,
       "live_search": true
     },
@@ -540,8 +540,8 @@
       "query": "site:oecd.org intitle:corporate corporate governance service continuous",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
-      "urls": 20,
-      "elapsed_ms": 1720.5,
+      "urls": 10,
+      "elapsed_ms": 1587.4,
       "cached": false,
       "live_search": true
     },
@@ -551,7 +551,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 3057.3,
+      "elapsed_ms": 538.6,
       "cached": false,
       "live_search": true
     },
@@ -560,8 +560,8 @@
       "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 0,
-      "elapsed_ms": 11075.9,
+      "urls": 20,
+      "elapsed_ms": 325.0,
       "cached": false,
       "live_search": true
     },
@@ -570,8 +570,8 @@
       "query": "site:worldbank.org corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
-      "urls": 0,
-      "elapsed_ms": 1081.1,
+      "urls": 20,
+      "elapsed_ms": 604.3,
       "cached": false,
       "live_search": true
     },
@@ -580,8 +580,8 @@
       "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
-      "urls": 0,
-      "elapsed_ms": 1068.5,
+      "urls": 20,
+      "elapsed_ms": 395.2,
       "cached": false,
       "live_search": true
     },
@@ -590,8 +590,8 @@
       "query": "site:kemenperin.go.id corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
-      "urls": 0,
-      "elapsed_ms": 1079.0,
+      "urls": 20,
+      "elapsed_ms": 589.8,
       "cached": false,
       "live_search": true
     },
@@ -649,13 +649,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 467410.7
+      "elapsed_ms": 454009.9
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
-      "urls": 6,
-      "elapsed_ms": 288510.0
+      "urls": 12,
+      "elapsed_ms": 282189.8
     }
   ],
   "reputation_top": [
@@ -690,15 +690,15 @@
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "reputation": 99.503,
-      "score": 94.71,
+      "reputation": 99.505,
+      "score": 94.712,
       "authority": 0.95
     },
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 89.793,
-      "score": 84.462,
+      "reputation": 89.794,
+      "score": 84.463,
       "authority": 0.9
     },
     {
@@ -783,12 +783,12 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 104.916,
+      "score": 107.566,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.468,
+        "latency": 0.689,
         "freshness": 0.7,
         "trust": 0.75,
         "coverage": 0.9,
@@ -799,12 +799,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 69.645,
+      "score": 63.028,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.35,
+        "yield": 0.2,
         "success_rate": 1.0,
-        "latency": 0.937,
+        "latency": 0.711,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -831,10 +831,10 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 51.52,
+      "score": 49.96,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.12,
+        "yield": 0.06,
         "success_rate": 1.0,
         "latency": 0.0,
         "freshness": 0.7,
@@ -981,16 +981,16 @@
       "title": "Corporate Governance"
     },
     {
+      "url": "https://autoconfig.bps.go.id/DOC/journal/in122607/420681N64I140312/corporate-governance__in__middle_east-family_businesses.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Governance In Middle East Family Businesses"
+    },
+    {
       "url": "https://autoconfig.bps.go.id/PAGE/pdf/001918/56M52Z1/corporate__governance-of_listed_companies-in_kuwait_a-comparative_study_with-united_kingdom-saudi_and__qatar_codes.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
       "title": "Corporate Governance Of Listed Companies In Kuwait A ..."
-    },
-    {
-      "url": "https://autoconfig.bps.go.id/TXT/journal/829W1346X7/803W16X/corporate_governance__and-financial__reform_in_chinas-transition-economy_hong-kong-university__press_law-series.pdf",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-TAVILY",
-      "title": "Corporate Governance And Financial Reform In Chinas ..."
     },
     {
       "url": "https://autoconfig.bps.go.id/CHAPTER/ppt/204316/5719Z3L/a_handbook-of__corporate_governance__and_social__responsibility_corporate__social_responsibility.pdf",
@@ -1017,10 +1017,46 @@
       "title": "Board Accountability In Corporate Governance Routledge ..."
     },
     {
+      "url": "https://autoconfig.bps.go.id/PDF/pdf/120726/4N171H2019/a-handbook_of_corporate_governance-and_social-responsibility_corporate-social_responsibility.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "A Handbook Of Corporate Governance And Social ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/PAGE/science/032835/72847UT/strategies__markets-and__governance__exploring__commercial_and__regulatory__agendas.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Strategies Markets And Governance Exploring Commercial ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/EPDF/ref/nd102607/4123077DN1093957/corporate-governance__matters-a_closer_look__at_organizational_choices-and__their__consequences-2nd_edition.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Governance Matters A Closer Look At ..."
+    },
+    {
       "url": "https://autoconfig.bps.go.id/EBOOK/pdf/175745/8H10P89490/api__driven_devops__strategies-for-continuous_deployment.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
       "title": "Api Driven Devops Strategies For Continuous Deployment"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/EBOOK/book/pw/72488P2W10260711/corporate_communication_6th__international_edition.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Communication 6th International Edition"
+    },
+    {
+      "url": "https://autodiscover.bps.go.id/pdf/url/dp/231P17D/the__national-health-service_service__committees-and-tribunal__amendment-regulations-1995_national__health__service.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "The National Health Service Service Committees And Tribunal ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TXT/journal/829W1346X7/803W16X/corporate_governance__and-financial__reform_in_chinas-transition-economy_hong-kong-university__press_law-series.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Governance And Financial Reform In Chinas ..."
     },
     {
       "url": "https://autoconfig.bps.go.id/TXT/ebook/188251BL63/77061BL/corporate__governance-3rd__edition-tformc.pdf",
@@ -1029,10 +1065,34 @@
       "title": "Corporate Governance 3rd Edition Tformc"
     },
     {
+      "url": "https://autoconfig.bps.go.id/BOOK/lib/jf/6211F9J/a__handbook__of__corporate_governance__and__social__responsibility__corporate__social-responsibility.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "A Handbook Of Corporate Governance And Social ..."
+    },
+    {
       "url": "https://autoconfig.bps.go.id/PDF/ppt/892E92V/090726/internal__audit_summary-report-2014__2015.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
       "title": "Internal Audit Summary Report 2014 2015"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/EBOOK/course/215220/97008TY/company_law-in__a-nutshell__nutshells.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Company Law In A Nutshell Nutshells"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/ITUNE/pdf/120726/7M67717I62/non__invasive-data_governance_the__path_of__least-resistance_and__greatest__success.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Non Invasive Data Governance The Path Of Least ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122008/property__in_securities__a__comparative__study_cambridge_studies-in_corporate_law.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Property In Securities A Comparative Study Cambridge ..."
     },
     {
       "url": "https://autoconfig.bps.go.id/PLAY/course/100726/974X0P3114/keeping_better_company-corporate-governance__ten-years_on.pdf",
@@ -1047,10 +1107,22 @@
       "title": "Corporate Governance And Financial Reform In Chinas ..."
     },
     {
+      "url": "https://autoconfig.bps.go.id/PDF/chap/170952/833C47S/corporate-governance-in-middle_east_family-businesses.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Governance In Middle East Family Businesses"
+    },
+    {
       "url": "https://autoconfig.bps.go.id/PLAY/science/58Z38S9612/30Z23S0/corporate_governance.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
       "title": "Corporate Governance"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/PPT/play/173703/2Z544O9/shareholder-primacy__and__corporate-governance_routledge-research__in_corporate-law.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Shareholder Primacy And Corporate Governance ..."
     },
     {
       "url": "https://autoconfig.bps.go.id/EPDF/pdf/050726/5U416N5998/a_handbook-of-corporate__governance__and__social-responsibility_corporate__social_responsibility.pdf",
@@ -1059,10 +1131,22 @@
       "title": "A Handbook Of Corporate Governance And Social ..."
     },
     {
+      "url": "https://autoconfig.bps.go.id/PLAY/book/N96482J/020114100726/corporate-governance_principles_policies_and__practices.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Governance Principles Policies And Practices"
+    },
+    {
       "url": "https://autoconfig.bps.go.id/TXT/ppt/103405/566Y13K075/a_handbook__of__corporate-governance__and__social__responsibility__corporate-social__responsibility.pdf",
       "source_id": "SRC-000001",
       "provider_id": "DISC-TAVILY",
       "title": "A Handbook Of Corporate Governance And Social ..."
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/BOOK/doc/9455P4L570/5311P2L/corporate-finance-by__hillier_european-edition.pdf",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Finance By Hillier European Edition"
     },
     {
       "url": "https://openknowledge.worldbank.org/entities/publication/a2fba7da-213d-5e62-a90f-317c0cee4d13",
@@ -1077,28 +1161,16 @@
       "title": "A CorporAte GovernAnCe Model - Open Knowledge Repository"
     },
     {
+      "url": "https://openknowledge.worldbank.org/entities/publication/abb02608-86ea-550f-8ffd-aa1ab758c1d1",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Publication: Practical Guide to Corporate Governance"
+    },
+    {
       "url": "https://openknowledge.worldbank.org/bitstreams/d68e9e7b-fea5-5ec9-97a8-46783f795190/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
       "title": "English Text (45.52 KB) - Open Knowledge Repository"
-    },
-    {
-      "url": "https://openknowledge.worldbank.org/bitstreams/06b17118-d64c-5e30-9a27-50eb3e8eb242/download",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "Promoting Networks for Institutes of Directors"
-    },
-    {
-      "url": "https://openknowledge.worldbank.org/bitstreams/2c1bd51c-2290-53ad-bdab-27265845953a/download",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "Corporate Governance - Open Knowledge Repository"
-    },
-    {
-      "url": "https://openknowledge.worldbank.org/bitstreams/040d4ae9-bee9-533a-a9d4-ffab9fdf4c16/download",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "Corporate Governance - Open Knowledge Repository"
     },
     {
       "url": "https://openknowledge.worldbank.org/entities/publication/83b1c40d-20f9-597e-8f67-74ee8ee97aae",
@@ -1107,40 +1179,16 @@
       "title": "Publication: A Corporate Governance Model"
     },
     {
+      "url": "https://documents.worldbank.org/curated/en/831651468781818619/pdf/30446.pdf",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Governance: A Framework for Implementation"
+    },
+    {
       "url": "https://documents1.worldbank.org/curated/en/228331468169750340/pdf/Corporate-governance-of-state-owned-enterprises-a-toolkit.pdf",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
       "title": "Corporate Governance of State-Owned Enterprises: A Toolkit"
-    },
-    {
-      "url": "https://documents1.worldbank.org/curated/en/548071468148485610/pdf/628930Vol040WP00Box0361495B0PUBLIC0.pdf",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "toolkit 4 - World Bank Document"
-    },
-    {
-      "url": "https://documents1.worldbank.org/curated/en/641091468014937333/703380ESW0P0990n0SOE0CG0Study0Final.doc",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "Macedonia Corporate Governance ROSC 2005"
-    },
-    {
-      "url": "https://openknowledge.worldbank.org/entities/publication/d0edd0e7-1553-57d2-a5d1-96548242dc31",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "Tips for Project Implementation at the Country Level"
-    },
-    {
-      "url": "https://accountability.worldbank.org/en/iamnet",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "Independent Accountability Mechanisms Network (IAMNet)"
-    },
-    {
-      "url": "https://documents1.worldbank.org/curated/en/301311468332448328/pdf/346690v10Corporate0governance0User0guide.pdf",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "TOOLKIT - Developing Corporate Governance Codes of Best ..."
     },
     {
       "url": "https://openknowledge.worldbank.org/entities/publication/88bdb9d7-6ed8-5ced-90f6-fb39a9cd96d4",
@@ -1161,24 +1209,6 @@
       "title": "A-Review-of-Thirty-Nine-Government-Selected-SEPs.txt"
     },
     {
-      "url": "https://documents1.worldbank.org/curated/en/627671627388782992/pdf/Indonesia-Corporate-Governance-Case-Studies.pdf",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "indonesia - World Bank Document"
-    },
-    {
-      "url": "https://ppp.worldbank.org/sites/default/files/2024-09/ADR_Toolkit_UserGuide_2011_EN.pdf",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "ADR_Toolkit_UserGuide_2011_EN.pdf"
-    },
-    {
-      "url": "https://thedocs.worldbank.org/en/doc/cd079f730c0f82f6b9c6763a606d7b4d-0570062025/original/250417-Korea-iSOEF-Report.pdf",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-TAVILY",
-      "title": "Corporate Governance and Fiscal Risk Assessment of State"
-    },
-    {
       "url": "https://www.worldbank.org/en/topic/financialsector/brief/corporate-governance",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
@@ -1191,10 +1221,16 @@
       "title": "Corporate Governance and Financial Reporting"
     },
     {
+      "url": "https://www.worldbank.org/en/olc/course/43565",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Integrated SOE Framework (iSOEF): Corporate Governance of State-owned Enterprises"
+    },
+    {
       "url": "https://www.worldbank.org/en/news/press-release/2016/05/24/world-bank-and-international-investment-bank-cooperation-on-corporate-governance",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "Cooperation on Corporate Governance"
+      "title": "World Bank and International Investment Bank: Cooperation on Corporate Governance"
     },
     {
       "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/337721468331261691",
@@ -1215,10 +1251,28 @@
       "title": "Corporate Governance and Small and Medium Enterprises"
     },
     {
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/641091468014937333",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Bhutan - State owned enterprises and corporate governance (SOE-CG) report"
+    },
+    {
       "url": "https://openknowledge.worldbank.org/bitstreams/64520fa7-e921-5556-8b1c-6d07e547b057/download",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
       "title": "Corporate Governance and Performance around the World"
+    },
+    {
+      "url": "https://documents.worldbank.org/pt/publication/documents-reports/documentdetail/123271468001143919",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate governance and bank performance : a joint analysis of the static, selection, and dynamic effects of domestic, foreign, and state ownership (Inglês)"
+    },
+    {
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/279161468062634544",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Nepal - Report on the Observance of Standards and Codes (ROSC) : corporate governance country assessment"
     },
     {
       "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/483401468350182244",
@@ -1227,10 +1281,52 @@
       "title": "Zambia - Report on the Observance of Standards and Codes (ROSC) : corporate governance country assessment"
     },
     {
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/104971532973837686",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate governance case studies in Cambodia"
+    },
+    {
+      "url": "https://documents1.worldbank.org/curated/en/641091468014937333/703380ESW0P0990n0SOE0CG0Study0Final.doc",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Macedonia Corporate Governance ROSC 2005"
+    },
+    {
       "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/755361468281373039",
       "source_id": "SRC-000004",
       "provider_id": "DISC-TAVILY",
-      "title": "Report on the Observance of Standards and Codes (ROSC)"
+      "title": "Mauritius - Report on the Observance of Standards and Codes (ROSC) - corporate governance country assessment"
+    },
+    {
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/310191468350113153",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Analyzing and managing banking risk : a framework for assessing corporate governance and financial risk management"
+    },
+    {
+      "url": "https://blogs.worldbank.org/en/psd/islamic-finance-strong-standards-corporate-governance-are-sine-qua-non",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Islamic finance: Strong standards of corporate governance are a 'sine qua non'"
+    },
+    {
+      "url": "https://cfrr.worldbank.org/news/roundtable-importance-good-corporate-governance-and-transparency-soes",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Roundtable on importance of good corporate governance ..."
+    },
+    {
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/782621468219307244",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "Guanxi, mianzi, and business : the impact of culture on corporate governance in China (English)"
+    },
+    {
+      "url": "https://thedocs.worldbank.org/en/doc/cd079f730c0f82f6b9c6763a606d7b4d-0570062025/original/250417-Korea-iSOEF-Report.pdf",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Corporate Governance and Fiscal Risk Assessment of State"
     },
     {
       "url": "https://bspjipekanbaru.kemenperin.go.id/wp-content/uploads/2022/07/Prosiding-ISCSTSI-2020.pdf",
@@ -1458,7 +1554,7 @@
       "url": "https://www.adb.org/sites/default/files/publication/156756/adbi-dp10.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Corporate Governance in the Republic of Korea and Its ..."
+      "title": "[PDF] Corporate Governance in the Republic of Korea and Its Implications ..."
     },
     {
       "url": "https://www.adb.org/sites/default/files/project-documents//r141-00.pdf",
@@ -1485,82 +1581,130 @@
       "title": "How Pakistan’s Public Service Obligations Framework Improves Service Delivery"
     },
     {
+      "url": "https://www.adb.org/news/features/improving-water-governance-asia-pacific-region-why-it-matters",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-TAVILY",
+      "title": "Improving Water Governance in the Asia-Pacific Region: Why It Matters"
+    },
+    {
       "url": "https://www.adb.org/sites/default/files/project-documents/58211/58211-001-rrp-en.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
       "title": "Owned Enterprises Transformation Program"
     },
     {
-      "url": "https://asianbondsonline.adb.org/documents/abmg/abmf_mya_bmg2018-chp9.pdf",
+      "url": "https://www.adb.org/documents/kyrgyz-republic-capacity-building-corporate-governance-and-insolvency-procedure",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Myanmar Bond Market Challenges and Opportunities"
+      "title": "Kyrgyz Republic: Capacity Building on Corporate Governance and Insolvency Procedure | Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/159384/adbi-corp-gov-asia.pdf",
+      "url": "https://www.adb.org/node/157871",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "CORPORATE GOVERNANCE IN ASIA"
+      "title": "ASEAN Corporate Governance Scorecard | Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/publications/asean-corporate-governance-scorecard-country-reports-and-assessments-2012-2013",
+      "url": "https://www.adb.org/sites/default/files/project-documents//32517-ino-pcr.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "ASEAN Corporate Governance Scorecard: Country ..."
+      "title": "[PDF] State-Owned Enterprise Governance and Privatization Program"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/1155161/ewp-853-corporate-digital-transformation-peoples-republic-china.pdf",
+      "url": "https://www.adb.org/publications/corporate-governance-profitability-share-valuation-philippines",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Corporate Digital Transformation and Environmental Performance"
+      "title": "Corporate Governance, Firm Profitability, and Share Valuation in the Philippines | Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/157194/adbi-rp19.pdf",
+      "url": "https://www.adb.org/news/speeches/corporate-governance-challenges-opportunities-asia-ingrid-van-wees",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Family Business Gone Wrong? Ownership Patterns and ..."
+      "title": "Corporate Governance: Challenges and Opportunities in Asia - Ingrid van Wees | Asian Development Bank"
     },
     {
-      "url": "https://lpr.adb.org/sites/default/files/resource/258/201711-gatekeeper-or-concierge-regulation-corporate-governance-and-auditing.pdf.pdf",
+      "url": "https://www.adb.org/publications/series/asean-corporate-governance-scorecard",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Gatekeeper or Concierge? The Regulation of Corporate ..."
+      "title": "ASEAN Corporate Governance Scorecard | Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/project-documents/39538/39538-013-39538-035-pcr-en.pdf",
+      "url": "https://www.adb.org/publications/asean-corporate-governance-scorecard-reports-assessments-2019",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "SOE Reform and Corporate Governance Facilitation Program"
+      "title": "ASEAN Corporate Governance Scorecard Country Reports and Assessments 2019 | Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/project-documents//32132-prc-tacr.pdf",
+      "url": "https://aric.adb.org/pdf/aem/external/governance/cover_intro.pdf",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Technical Assistance Consultant's Report People's Republic of ..."
+      "title": "CORPORATE GOVERNANCE AND FINANCE IN EAST ASIA"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/157231/adbi-rp56.pdf",
+      "url": "https://www.adb.org/publications/survey-corporate-governance-practices-indonesia-thailand-and-korea",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Relationship Banking and Its Role in Corporate Governance"
+      "title": "Survey of Corporate Governance Practices in Indonesia, Thailand and Korea | Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/project-documents/39538/39538-023-pcr-en.pdf",
+      "url": "https://www.adb.org/publications/reforming-public-and-private-sector-governance",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "[PDF] SOE Reform and Corporate Governance Facilitation Program"
+      "title": "Reforming Public and Private Sector Governance | Asian Development Bank"
     },
     {
-      "url": "https://www.adb.org/publications/corporate-planning-public-sector-guide-pacific-policy-makers",
+      "url": "https://www.adb.org/adbi/capacity-building-training/strengthening-governance-institutional-capacity?page=5",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Corporate Planning in the Public Sector: A Guide for Pacific Policy Makers"
+      "title": "Strengthening Governance and Institutional Capacity"
     },
     {
-      "url": "https://asianbondsonline.adb.org/events/2019/workshop-bond-market-development-emerging-east-asia/measures-develop-corporate-bond-market-akamatsu.pdf",
+      "url": "https://www.adb.org/publications/governance-developing-asia",
       "source_id": "SRC-000006",
       "provider_id": "DISC-TAVILY",
-      "title": "Measures to develop corporate bond market"
+      "title": "Governance in Developing Asia: Public Service Delivery and Empowerment | Asian Development Bank"
+    },
+    {
+      "url": "https://www.adb.org/sites/default/files/publication/157212/adbi-rp3.pdf",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Corporate Governance of Family Businesses in Asia I."
+    },
+    {
+      "url": "https://seads.adb.org/publication/environmental-social-and-governance-emphasis-leading-companies-east-asia-and-southeast",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-TAVILY",
+      "title": "The Environmental, Social, and Governance Emphasis of Leading Companies in East Asia and Southeast Asia Unveiled by Deep Learning | SEADS"
+    },
+    {
+      "url": "https://www.adb.org/publications/public-service-delivery-role-information-and-communication-technology-improving-governance",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-TAVILY",
+      "title": "Public Service Delivery: Role of Information and Communication Technology in Improving Governance and Development Impact"
+    },
+    {
+      "url": "https://blogs.adb.org/ne/blog/5-ways-technology-improving-governance-public-service-delivery-developing-asia",
+      "source_id": "SRC-000006",
+      "provider_id": "DISC-TAVILY",
+      "title": "5 Ways Technology is Improving Governance, Public Service ..."
+    },
+    {
+      "url": "https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f43735-en/full-report/the-board-of-directors_56efe758.html",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "OECD Corporate Governance Factbook 2025"
+    },
+    {
+      "url": "https://legalinstruments.oecd.org/public/doc/151/body-text.en.html",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "The Principles are intended to assist ..."
+    },
+    {
+      "url": "https://www.oecd.org/en/publications/flexibility-and-proportionality-in-corporate-governance_9789264307490-en/full-report/component-7.html",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "Flexibility and Proportionality in Corporate Governance"
     },
     {
       "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/1998/03/corporate-governance-improving-competitiveness-and-access-to-capital-in-global-markets_g1gh2432/9789264162709-en.pdf",
@@ -1581,6 +1725,18 @@
       "title": "OECD Corporate Governance Factbook 2025: United States"
     },
     {
+      "url": "https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f43735-en/full-report/the-corporate-governance-and-institutional-framework_88c5af18.html",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "The corporate governance and institutional framework"
+    },
+    {
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2004/04/corporate-governance_g1gh3ddd/9789264106079-en.pdf",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Corporate Governance | OECD"
+    },
+    {
       "url": "https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0413",
       "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
@@ -1593,10 +1749,40 @@
       "title": "The Role of Capital Market Service Providers in Corporate ..."
     },
     {
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2005/12/corporate-governance-of-state-owned-enterprises_g1gh57f4/9789264009431-en.pdf",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "Corporate Governance of State-Owned Enterprises"
+    },
+    {
       "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2018/11/flexibility-and-proportionality-in-corporate-governance_g1g98d91/9789264307490-en.pdf",
       "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
       "title": "Flexibility and Proportionality in Corporate Governance"
+    },
+    {
+      "url": "https://www.oecd.org/en/publications/oecd-guidelines-on-corporate-governance-of-state-owned-enterprises-2024_18a24f43-en/full-report/component-13.html",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "Annotations to Chapter II: The state’s role as an owner: OECD Guidelines on Corporate Governance of State-Owned Enterprises 2024"
+    },
+    {
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/04/who-cares-corporate-governance-in-today-s-equity-markets_g17a22ae/5k47zw5kdnmp-en.pdf",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "[PDF] Who Cares? Corporate Governance in Today's Equity Markets - OECD"
+    },
+    {
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2021/06/the-future-of-corporate-governance-in-capital-markets-following-the-covid-19-crisis_7b66933f/efb2013c-en.pdf",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "The Future of Corporate Governance in Capital Markets ..."
+    },
+    {
+      "url": "https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f43735-en/full-report/corporate-sustainability_5382e187.html",
+      "source_id": "SRC-000005",
+      "provider_id": "DISC-TAVILY",
+      "title": "OECD Corporate Governance Factbook 2025"
     },
     {
       "url": "https://www.oecd.org/en/publications/the-role-of-capital-market-service-providers-in-corporate-governance_d8681693-en/full-report/case-study-india_a22d04ae.html",
@@ -1617,34 +1803,10 @@
       "title": "Overview of regulatory frameworks for capital market service providers: The Role of Capital Market Service Providers in Corporate Governance"
     },
     {
-      "url": "https://www.oecd.org/en/publications/shareholder-meetings-and-corporate-governance_2d36fa5c-en/full-report/global-overview-policies-and-practices-for-general-shareholder-meetings_34c9ee45.html",
+      "url": "https://www.oecd.org/en/publications/shareholder-meetings-and-corporate-governance_2d36fa5c-en/full-report/singapore-case-study_f8f11aef.html",
       "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
-      "title": "Shareholder Meetings and Corporate Governance"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2006/10/corporate-governance-in-turkey_g1gh74f0/9789264028647-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "Corporate Governance in Turkey (EN)"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2020/10/corporate-governance-in-costa-rica_68078ec0/b313ec37-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "Corporate Governance in Costa Rica"
-    },
-    {
-      "url": "https://www.oecd.org/en/publications/oecd-corporate-governance-factbook-2025_f4f43735-en/full-report/the-corporate-governance-and-institutional-framework_88c5af18.html",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "The corporate governance and institutional framework: OECD Corporate Governance Factbook 2025"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2015/02/corporate-bonds-bondholders-and-corporate-governance_g17a25c5/5js69lj4hvnw-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "Corporate Bonds, Bondholders and Corporate Governance"
+      "title": "Singapore case study: Shareholder Meetings and Corporate Governance"
     },
     {
       "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2003/12/corporate-governance-in-development_g1gh4187/9789264106598-en.pdf",
@@ -1683,40 +1845,10 @@
       "title": "Corporate Governance, Value Creation and Growth"
     },
     {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2017/03/corporate-governance-in-latvia_g1g742b0/9789264268180-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Corporate Governance in Latvia (EN)"
-    },
-    {
       "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2022/09/digitalisation-and-corporate-governance_287234ff/296d219f-en.pdf",
       "source_id": "SRC-000005",
       "provider_id": "DISC-TAVILY",
       "title": "Digitalisation and corporate governance"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/11/supervision-and-enforcement-in-corporate-governance_g1g31c56/9789264203334-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "[PDF] Supervision and Enforcement in Corporate Governance | OECD"
-    },
-    {
-      "url": "https://www.oecd.org/en/publications/shareholder-meetings-and-corporate-governance_2d36fa5c-en/full-report/united-kingdom-case-study_2c426852.html",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "Shareholder Meetings and Corporate Governance"
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2019/06/the-potential-for-blockchain-technology-in-corporate-governance_3f26824e/ef4eba4c-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "The Potential for Blockchain Technology in Corporate ..."
-    },
-    {
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2019/01/due-diligence-for-responsible-corporate-lending-and-securities-underwriting_6d649290/71fd2895-en.pdf",
-      "source_id": "SRC-000005",
-      "provider_id": "DISC-TAVILY",
-      "title": "Due Diligence for Responsible Corporate Lending and ..."
     },
     {
       "url": "https://www.bps.go.id/",
@@ -1839,6 +1971,186 @@
       "title": ""
     },
     {
+      "url": "http://www5.worldbank.org/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org:443/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://worldbank.org",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.worldbank.org",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.worldbank.org:80/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%E3%80%80",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/robots.txt",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/robots.txt",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/dukung_industri_halal_bbspjikb__kemenperin_kolaborasi_dengan_dinas_koperasi__usaha_kecil_dan_menengah_kabupaten_sleman_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_teknis_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pln_nusantara_power_up_tanjung_awar_awar_menandatangani_nota_kesepahaman_dengan_bbspjikb_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-SITEMAP",
@@ -1861,71 +2173,23 @@
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-SITEMAP",
       "title": ""
-    },
-    {
-      "url": "https://www.ifrs.org/",
-      "source_id": "SRC-ISSB",
-      "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://www.ifrs.org/groups/managing-director/michel-madelain/",
-      "source_id": "SRC-ISSB",
-      "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://www.ifrs.org/groups/monitoring-board/",
-      "source_id": "SRC-ISSB",
-      "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitoring-board/",
-      "source_id": "SRC-ISSB",
-      "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://owasp.org/",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://owasp.org/blog/2025/03/06/owasp-education-and-training-committee-update.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://owasp.org/projects/",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://owasp.org/www-project-top-ten/",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2023-02-08-contract-software-development/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-RSS",
-      "title": ""
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2022-09-30-contract-technical-support/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-RSS",
-      "title": ""
     }
   ],
   "rejected_urls": [
     {
+      "url": "https://autoconfig.bps.go.id/KINDLE/ref/pv/8585396P8V260712/corporate__governance.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-TAVILY"
+    },
+    {
       "url": "https://autodiscover.bps.go.id/book/data/po/3896O6P/course-outline_code_mgt712_title_corporate_governance.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-TAVILY"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/PAGE/pdf/001918/56M52Z1/corporate__governance-of_listed_companies-in_kuwait_a-comparative_study_with-united_kingdom-saudi_and__qatar_codes.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
@@ -1943,7 +2207,19 @@
       "provider_id": "DISC-TAVILY"
     },
     {
+      "url": "https://autoconfig.bps.go.id/EBOOK/book/pw/72488P2W10260711/corporate_communication_6th__international_edition.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-TAVILY"
+    },
+    {
       "url": "https://autoconfig.bps.go.id/TXT/ebook/188251BL63/77061BL/corporate__governance-3rd__edition-tformc.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-TAVILY"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/BOOK/lib/jf/6211F9J/a__handbook__of__corporate_governance__and__social__responsibility__corporate__social-responsibility.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
@@ -1955,7 +2231,13 @@
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://documents1.worldbank.org/curated/en/641091468014937333/703380ESW0P0990n0SOE0CG0Study0Final.doc",
+      "url": "https://autoconfig.bps.go.id/PDF/pdf/120726/4N171H2019/a-handbook_of_corporate_governance-and_social-responsibility_corporate-social_responsibility.pdf",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-TAVILY"
+    },
+    {
+      "url": "https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122008/property__in_securities__a__comparative__study_cambridge_studies-in_corporate_law.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
@@ -1967,31 +2249,7 @@
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/publication/42600/asean-corporate-governance-scorecard.pdf",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-TAVILY"
-    },
-    {
-      "url": "https://www.adb.org/sites/default/files/publication/667006/corporate-governance-south-asia.pdf",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-TAVILY"
-    },
-    {
-      "url": "https://www.adb.org/sites/default/files/publication/159370/adbi-corp-gov-vol-1.pdf",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-TAVILY"
-    },
-    {
       "url": "https://www.adb.org/sites/default/files/publication/159371/adbi-corp-gov-vol-2.pdf",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-TAVILY"
-    },
-    {
-      "url": "http://www.adb.org/sites/default/files/publication/156768/adbi-dp3.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
@@ -2003,7 +2261,7 @@
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.adb.org/sites/default/files/project-documents//32051-vie-tcr.pdf",
+      "url": "https://www.adb.org/sites/default/files/publication/42600/asean-corporate-governance-scorecard.pdf",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-TAVILY"
@@ -2027,10 +2285,304 @@
       "provider_id": "DISC-TAVILY"
     },
     {
-      "url": "https://www.oecd.org/en/publications/oecd-review-of-the-corporate-governance-of-state-owned-enterprises-in-thailand_345f9e00-en/full-report/assessment-of-thailand-against-the-oecd-guidelines-on-corporate-governance-of-soes_b33f1654.html",
+      "url": "https://www.bps.go.id/",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-TAVILY"
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/248-268",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/brs/view/id/1267",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-pedaging-menurut-provinsi-2009-2018.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provinsi-2002-2014.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-provinsi-ton-1993-2015.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-berlaku-menurut-provinsi-2010-2016-ribu-rupiah-.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-konstan-2010-menurut-provinsi-2011-2017-persen-.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-2010-laju-pertumbuhan-y-on-y-produk-domestik-bruto-menurut-lapangan-usaha-persen-2014-2016.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2017/03/03/893/nikah-talak-dan-cerai-serta-rujuk-2012-2015",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2017/05/05/1253/-seri-2010-laju-pertumbuhan-kumulatif-produk-domestik-bruto-menurut-lapangan-usaha-persen-2017---2020.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1314/persentase-tenaga-kerja-informal-sektor-pertanian-2015---2018.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1319/upah-rata---rata-per-jam-pekerja-menurut-jenis-kelamin-2015---2018.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/06/05/1436/persentase-perempuan-pernah-kawin-berusia-15-49-tahun-yang-proses-kelahiran-terakhirnya-ditolong-oleh-tenaga-kesehatan-terlatih-menurut-provinsi-2015-2018.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2019/10/04/1655/persentase-perempuan-pernah-kawin-umur-15-49-tahun-yang-proses-kelahiran-terakhirnya-di-fasilitas-kesehatan-40-bawah-menurut-provinsi-2015-2016.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2020/02/18/1773/rata-rata-lama-sekolah-menurut-provinsi-metode-baru-2010-2019.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2020/02/19/1775/penduduk-berumur-15-tahun-ke-atas-menurut-jenis-kegiatan-tahun-1986---2019.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us-22-00-billion---imports-in-november-2023-reached-us-19-59-billion.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-media-location-of-access.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-age-group.html",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www5.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org:443/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://worldbank.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.worldbank.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.worldbank.org:80/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%E3%80%80",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
@@ -2055,6 +2607,30 @@
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.ifrs.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.ifrs.org/groups/managing-director/michel-madelain/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.ifrs.org/groups/monitoring-board/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitoring-board/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
     }
   ],
   "cache": {
@@ -2062,7 +2638,7 @@
     "misses": 20,
     "stores": 20,
     "cached_queries": 20,
-    "cached_urls": 144
+    "cached_urls": 196
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }
