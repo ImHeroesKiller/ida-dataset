@@ -1,18 +1,18 @@
 # Candidate Lifecycle
 
-**Generated:** 2026-07-15T18:31:21+00:00
-**Session:** `SESSION-20260715-A8C770`
-**Mission:** `MIS-20260715-E748E9`
+**Generated:** 2026-07-15T20:34:42+00:00
+**Session:** `SESSION-20260715-BBC621`
+**Mission:** `MIS-20260715-53057A`
 **dry_run:** `False`
 
 Lifecycle: Document → Extraction → Candidate → Validation → Integrity Guard → Publisher → Dataset
 
 | candidate_id | document_id | mission_id | session_id | dataset | entity | confidence | integrity_ok | block_reason | publish |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-64C18FF07A8C | DOC-50B3F3BC8DEB | MIS-20260715-E748E9 | SES-20260715-7C39A1 | business_signal_library | Development of the Siak Library and Archives Service (2004-2022) | 0.9 | False | duplicate_id:SIG-000274 | Rejected |
-| CAND-0861753BB225 | DOC-8E65A51B4E13 | MIS-20260715-E748E9 | SES-20260715-7C39A1 | business_signal_library | Their Potential Role in Corporate Governance | 0.85 | False | duplicate_id:SIG-000273 | Rejected |
-| CAND-EC98EFAD5D20 | DOC-C8336B1CF486 | MIS-20260715-E748E9 | SES-20260715-7C39A1 | business_signal_library | The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches | 0.88 | False | duplicate_id:SIG-000271 | Rejected |
-| CAND-9F631544185E | DOC-A99E56C64737 | MIS-20260715-E748E9 | SES-20260715-7C39A1 | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000272 | Rejected |
-| CAND-19F6DC628967 | DOC-5DFD7BF054D2 | MIS-20260715-E748E9 | SES-20260715-7C39A1 | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-000270 | Rejected |
+| CAND-73669B722259 | DOC-7C7239075702 | MIS-20260715-53057A | SES-20260715-748D19 | business_signal_library | New normal and library services in Indonesia: a case study of university libraries | 0.88 | False | duplicate_id:SIG-000277 | Rejected |
+| CAND-D70296C73563 | DOC-A99E56C64737 | MIS-20260715-53057A | SES-20260715-748D19 | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000276 | Rejected |
+| CAND-8B5C4E38E467 | DOC-50B3F3BC8DEB | MIS-20260715-53057A | SES-20260715-748D19 | business_signal_library | Development of the Siak Library and Archives Service (2004-2022) | 0.9 | False | duplicate_id:SIG-000279 | Rejected |
+| CAND-8F934284A5BD | DOC-E689A7156EBC | MIS-20260715-53057A | SES-20260715-748D19 | business_signal_library | Corporate Governance In Middle East Family Businesses | 0.85 | False | duplicate_id:SIG-000278 | Rejected |
+| CAND-3840D11A0592 | DOC-5DFD7BF054D2 | MIS-20260715-53057A | SES-20260715-748D19 | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-000275 | Rejected |
 
 Total candidates: **5**

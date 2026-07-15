@@ -1,53 +1,53 @@
 # Evidence Trace
 
-**Session:** `SES-20260715-7C39A1`
+**Session:** `SES-20260715-748D19`
 
 Every published row → candidate → document → connector → source.
 
 ## The Influence of Service Quality on Library Users at Padang State Polytechnic
 
-- **Dataset row:** `SIG-000270` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
-- **Candidate:** `CAND-19F6DC628967`
+- **Dataset row:** `SIG-000275` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
+- **Candidate:** `CAND-3840D11A0592`
 - **Document:** `DOC-5DFD7BF054D2` · The Influence of Service Quality on Library Users at Padang State Polytechnic
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
 - **URL:** https://api.crossref.org/works/10.47191/ijmei/v10i2.01
 - **Confidence:** 0.9
 
-## The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches
-
-- **Dataset row:** `SIG-000271` · The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches (business_signal_library)
-- **Candidate:** `CAND-EC98EFAD5D20`
-- **Document:** `DOC-C8336B1CF486` · The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches
-- **Connector:** OpenAlex (`CONN-OPENALEX-001`)
-- **Source:** OpenAlex (`SRC-OPENALEX`)
-- **URL:** https://openalex.org/W4220952637
-- **Confidence:** 0.88
-
 ## World Bank document
 
-- **Dataset row:** `SIG-000272` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-9F631544185E`
+- **Dataset row:** `SIG-000276` · World Bank document (business_signal_library)
+- **Candidate:** `CAND-D70296C73563`
 - **Document:** `DOC-A99E56C64737` · World Bank document
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
 - **URL:** https://documents.worldbank.org/search?q=service+library+Indonesia
 - **Confidence:** 0.92
 
-## Their Potential Role in Corporate Governance
+## New normal and library services in Indonesia: a case study of university libraries
 
-- **Dataset row:** `SIG-000273` · Their Potential Role in Corporate Governance (business_signal_library)
-- **Candidate:** `CAND-0861753BB225`
-- **Document:** `DOC-8E65A51B4E13` · Their Potential Role in Corporate Governance
+- **Dataset row:** `SIG-000277` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
+- **Candidate:** `CAND-73669B722259`
+- **Document:** `DOC-7C7239075702` · New normal and library services in Indonesia: a case study of university libraries
+- **Connector:** OpenAlex (`CONN-OPENALEX-001`)
+- **Source:** OpenAlex (`SRC-OPENALEX`)
+- **URL:** https://openalex.org/W3095315355
+- **Confidence:** 0.88
+
+## Corporate Governance In Middle East Family Businesses
+
+- **Dataset row:** `SIG-000278` · Corporate Governance In Middle East Family Businesses (business_signal_library)
+- **Candidate:** `CAND-8F934284A5BD`
+- **Document:** `DOC-E689A7156EBC` · Corporate Governance In Middle East Family Businesses
 - **Connector:** DISC-LAYER (`DISC-LAYER`)
-- **Source:** Asian Development Bank (`SRC-000006`)
-- **URL:** https://www.adb.org/sites/default/files/publication/157226/adbi-rp52.pdf
+- **Source:** BPS Indonesia (`SRC-000001`)
+- **URL:** https://autoconfig.bps.go.id/DOC/journal/in122607/420681N64I140312/corporate-governance__in__middle_east-family_businesses.pdf
 - **Confidence:** 0.85
 
 ## Development of the Siak Library and Archives Service (2004-2022)
 
-- **Dataset row:** `SIG-000274` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
-- **Candidate:** `CAND-64C18FF07A8C`
+- **Dataset row:** `SIG-000279` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
+- **Candidate:** `CAND-8B5C4E38E467`
 - **Document:** `DOC-50B3F3BC8DEB` · Development of the Siak Library and Archives Service (2004-2022)
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)

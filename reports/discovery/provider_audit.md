@@ -1,6 +1,6 @@
 # Provider Audit
 
-**Generated:** 2026-07-15T18:22:47+00:00
+**Generated:** 2026-07-15T20:24:23+00:00
 
 Search engines are **discovery tools only**. Knowledge is extracted solely from trusted sources.
 
@@ -10,7 +10,7 @@ Search engines are **discovery tools only**. Knowledge is extracted solely from 
 
 | Provider | Status | Enabled | Credential | Rate limit | Daily quota | Health | Latency ms | Avg URLs | Avg docs | Yield | Reason |
 |----------|--------|---------|------------|----------:|------------:|--------|-----------:|---------:|---------:|------:|--------|
-| Tavily (primary) | **ACTIVE** | True | True | 20 | 1000 | ACTIVE | 676.4 | 152.0 | 131.0 | 1.0 | ready |
+| Tavily (primary) | **ACTIVE** | True | True | 20 | 1000 | ACTIVE | 1334.2 | 160.0 | 133.0 | 1.0 | ready |
 | Trusted Site Search (connector-backed) | **ACTIVE** | True | True | 60 | 100000 | healthy | 0.0 | 0.0 | 0.0 | 0.0 | ready |
 | Sitemap Discovery | **ACTIVE** | True | True | 20 | 5000 | healthy | 0.0 | 12.0 | 12.0 | 1.0 | ready |
 | RSS Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 12.0 | 4.0 | 1.0 | ready |
@@ -58,6 +58,6 @@ These acquire documents via the connector framework after discovery.
 
 - Operational status: **ACTIVE**
 - Credential loaded: `True`
-- Probe: `{"probed": true, "ok": true, "status": "ACTIVE", "message": "http_200_results_1", "latency_ms": 676.4, "http_status": 200, "result_count": 1}`
+- Probe: `{"probed": true, "ok": true, "status": "ACTIVE", "message": "http_200_results_1", "latency_ms": 1334.2, "http_status": 200, "result_count": 1}`
 
 > Providers are never silently disabled. MISCONFIGURED means enabled but credentials missing.
