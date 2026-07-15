@@ -1,18 +1,18 @@
 # Document Trace
 
-**Generated:** 2026-07-15T20:34:42+00:00
+**Generated:** 2026-07-15T22:23:48+00:00
 
-- Fingerprint URLs known: **225**
-- Fingerprint hashes known: **225**
-- Fingerprint stats: `{'skips': 78, 'adds': 225}`
-- Trace summary: discovered=31 downloaded=131 duplicates=99
+- Fingerprint URLs known: **203**
+- Fingerprint hashes known: **203**
+- Fingerprint stats: `{'skips': 69, 'adds': 203}`
+- Trace summary: discovered=31 downloaded=113 duplicates=90
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | DOC-5DFD7BF054D2 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 | 5dfd7bf054d2c4cb | True | False | False | False | True | completed |
 | DOC-A99E56C64737 | https://documents.worldbank.org/search?q=service+library+Ind | a99e56c64737a010 | True | False | False | False | True | completed |
 | DOC-7C7239075702 | https://openalex.org/W3095315355 | 7c723907570202ba | True | False | False | False | True | completed |
-| DOC-E689A7156EBC | https://autoconfig.bps.go.id/DOC/journal/in122607/420681N64I | e689a7156ebca6a1 | True | False | False | False | True | completed |
+| DOC-27A2235900BA | https://autoconfig.bps.go.id/DOC/journal/in122607/420681N64I | 27a2235900ba1f03 | True | False | False | False | True | completed |
 | DOC-50B3F3BC8DEB | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 | 50b3f3bc8deb5503 | True | False | False | False | True | completed |
 | DOC-D733F4309CB6 | http://documents.worldbank.org/curated/en/726241468752365494 | d733f4309cb65d64 | True | False | False | False | True | completed |
 | DOC-362992E54B77 | https://openalex.org/W4312346959 | 362992e54b774e12 | True | False | False | False | True | completed |
@@ -26,10 +26,10 @@
 | DOC-36015274522E | http://documents.worldbank.org/curated/en/117431468041701262 | 36015274522e2e64 | True | False | False | False | True | completed |
 | DOC-48F28F9C145F | https://openalex.org/W2974521388 | 48f28f9c145f69eb | True | False | False | False | True | completed |
 | DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
-| DOC-FCFEA0A00264 | http://documents.worldbank.org/curated/en/170561538243538219 | fcfea0a002648fdb | True | False | False | False | True | completed |
+| DOC-FDFEB20D47AF | http://documents.worldbank.org/curated/en/170561538243538219 | fdfeb20d47af8ee5 | True | False | False | False | True | completed |
 | DOC-0C15999FB55C | https://openalex.org/W2989135090 | 0c15999fb55c4690 | True | False | False | False | True | completed |
 | DOC-2AE2C7E68DAF | https://api.crossref.org/works/10.30574/wjarr.2021.12.3.0707 | 2ae2c7e68daf016e | True | False | False | False | True | completed |
-| DOC-F6CD6F9317D5 | http://documents.worldbank.org/curated/en/544241468260062256 | f6cd6f9317d5719c | True | False | False | False | True | completed |
+| DOC-8784D263F809 | http://documents.worldbank.org/curated/en/544241468260062256 | 8784d263f809b690 | True | False | False | False | True | completed |
 | DOC-72B3224209C4 | https://openalex.org/W3031607294 | 72b3224209c4c890 | True | False | False | False | True | completed |
 | DOC-2AB16A333F59 | https://api.crossref.org/works/10.1109/icitsi.2015.7437704 | 2ab16a333f594004 | True | False | False | False | True | completed |
 | DOC-AB0089813306 | http://documents.worldbank.org/curated/en/117831468040604958 | ab00898133063558 | True | False | False | False | True | completed |
@@ -47,56 +47,58 @@
 | DOC-90E1B49CDD99 | https://www.oecd.org/en/publications/the-role-of-capital-mar | 90e1b49cdd99b6ee | True | False | False | False | True | completed |
 | DOC-3203CC5ABBEC | https://www.oecd.org/en/publications/oecd-review-of-the-corp | 3203cc5abbec9665 | True | False | False | False | True | completed |
 | DOC-64C4814BB931 | https://www.oecd.org/en/publications/the-role-of-capital-mar | 64c4814bb931b752 | True | False | False | False | True | completed |
-| DOC-E4BD4083717F | https://autoconfig.bps.go.id/KINDLE/ref/pv/8585396P8V260712/ | e4bd4083717f83db | True | False | False | False | True | completed |
+| DOC-28D2FB204F73 | https://autoconfig.bps.go.id/KINDLE/ref/pv/8585396P8V260712/ | 28d2fb204f73a047 | True | False | False | False | True | completed |
+| DOC-702FE2B57732 | https://autoconfig.bps.go.id/CHAPTER/ppt/204316/5719Z3L/a_ha | 702fe2b577322043 | True | False | False | False | True | completed |
 | DOC-270498593C01 | https://autoconfig.bps.go.id/PAGE/pdf/001918/56M52Z1/corpora | 270498593c018077 | True | False | False | False | True | completed |
-| DOC-3DFC2A2D9E1D | https://autoconfig.bps.go.id/CHAPTER/ppt/204316/5719Z3L/a_ha | 3dfc2a2d9e1da759 | True | False | False | False | True | completed |
-| DOC-0DA1BAC3736C | https://autoconfig.bps.go.id/MD/doc/041653/72193KY/risk-mana | 0da1bac3736c0579 | True | False | False | False | True | completed |
+| DOC-8794E71A96D9 | https://autoconfig.bps.go.id/TXT/journal/829W1346X7/803W16X/ | 8794e71a96d9fb62 | True | False | False | False | True | completed |
+| DOC-5F6CB22DB6AB | https://autoconfig.bps.go.id/MD/doc/041653/72193KY/risk-mana | 5f6cb22db6abd403 | True | False | False | False | True | completed |
 | DOC-53D7F11B2947 | https://autodiscover.bps.go.id/book/data/po/3896O6P/course-o | 53d7f11b29477fdb | True | False | False | False | True | completed |
 | DOC-E7C126E16F7A | https://autoconfig.bps.go.id/KINDLE/ref/be/738041E9B1260712/ | e7c126e16f7a7799 | True | False | False | False | True | completed |
-| DOC-BB2FAE71EDED | https://autoconfig.bps.go.id/PDF/pdf/120726/4N171H2019/a-han | bb2fae71eded8771 | True | False | False | False | True | completed |
-| DOC-6FC775999F27 | https://autodiscover.bps.go.id/pdf/url/dp/231P17D/the__natio | 6fc775999f278c71 | True | False | False | False | True | completed |
-| DOC-4F9E08F8CD8D | https://autoconfig.bps.go.id/PDF/ppt/892E92V/090726/internal | 4f9e08f8cd8d4b00 | True | False | False | False | True | completed |
+| DOC-CF0A300FF33E | https://autoconfig.bps.go.id/PAGE/science/032835/72847UT/str | cf0a300ff33e4ee6 | True | False | False | False | True | completed |
+| DOC-F0C0AA2419D8 | https://autoconfig.bps.go.id/PPT/play/173703/2Z544O9/shareho | f0c0aa2419d88721 | True | False | False | False | True | completed |
+| DOC-7A558244BFA6 | https://autoconfig.bps.go.id/TEXT/journal/rz/1Z2R42357526071 | 7a558244bfa6dfa0 | True | False | False | False | True | completed |
+| DOC-4CA1199B3F99 | https://autoconfig.bps.go.id/PDF/ppt/892E92V/090726/internal | 4ca1199b3f99a9a7 | True | False | False | False | True | completed |
+| DOC-0D047AA24CF8 | https://autoconfig.bps.go.id/BOOK/play/308QR22/120726/board- | 0d047aa24cf8b16c | True | False | False | False | True | completed |
+| DOC-EA14A9F64B1A | https://autoconfig.bps.go.id/PLAY/course/100726/974X0P3114/k | ea14a9f64b1a8c05 | True | False | False | False | True | completed |
+| DOC-AC5457D73D82 | https://autoconfig.bps.go.id/PDF/chap/170952/833C47S/corpora | ac5457d73d827bad | True | False | False | False | True | completed |
 | DOC-8E30D059D575 | https://autoconfig.bps.go.id/PUB/ref/173947/81639CS/corporat | 8e30d059d5758b56 | True | False | False | False | True | completed |
+| DOC-0209DE49AEED | https://documents.worldbank.org/curated/en/83165146878181861 | 0209de49aeed3075 | True | False | False | False | True | completed |
 | DOC-C5935CA928A6 | https://www.adb.org/sites/default/files/publication/549336/c | c5935ca928a6630a | True | False | False | False | True | completed |
 | DOC-29733E7604C1 | https://www.adb.org/sites/default/files/publication/42600/as | 29733e7604c15e4a | True | False | False | False | True | completed |
-| DOC-98CDE26F7981 | https://www.adb.org/sites/default/files/institutional-docume | 98cde26f79819d86 | True | False | False | False | True | completed |
+| DOC-36751F90C03D | https://www.adb.org/sites/default/files/institutional-docume | 36751f90c03d9d7f | True | False | False | False | True | completed |
 | DOC-5BFE29F6A7D1 | https://www.adb.org/sites/default/files/publication/667006/c | 5bfe29f6a7d19f14 | True | False | False | False | True | completed |
-| DOC-E0609BE40072 | https://www.adb.org/sites/default/files/publication/375481/a | e0609be400729dbe | True | False | False | False | True | completed |
 | DOC-D1CF5EEFC4A4 | https://www.adb.org/sites/default/files/publication/159370/a | d1cf5eefc4a4a750 | True | False | False | False | True | completed |
-| DOC-2C64F4AF5C44 | http://www.adb.org/sites/default/files/publication/156768/ad | 2c64f4af5c44b366 | True | False | False | False | True | completed |
+| DOC-D645218930F1 | https://www.adb.org/sites/default/files/publication/159371/a | d645218930f1716b | True | False | False | False | True | completed |
 | DOC-042867DBAE1B | https://www.adb.org/sites/default/files/publication/156756/a | 042867dbae1bb4f6 | True | False | False | False | True | completed |
 | DOC-2C3F9F0FB8A6 | https://www.adb.org/sites/default/files/project-documents//3 | 2c3f9f0fb8a6ef17 | True | False | False | False | True | completed |
+| DOC-E0609BE40072 | https://www.adb.org/sites/default/files/publication/375481/a | e0609be400729dbe | True | False | False | False | True | completed |
 | DOC-4429AD30FD06 | https://www.adb.org/sites/default/files/publication/159384/a | 4429ad30fd06a915 | True | False | False | False | True | completed |
-| DOC-D645218930F1 | https://www.adb.org/sites/default/files/publication/159371/a | d645218930f1716b | True | False | False | False | True | completed |
-| DOC-8FFDF3FE142F | https://www.adb.org/sites/default/files/publication/1155161/ | 8ffdf3fe142f08b5 | True | False | False | False | True | completed |
+| DOC-18BF85408195 | http://www.adb.org/sites/default/files/publication/156768/ad | 18bf85408195bf86 | True | False | False | False | True | completed |
 | DOC-56852A2A2942 | https://www.adb.org/publications/asean-corporate-governance- | 56852a2a294245ba | True | False | False | False | True | completed |
 | DOC-49B2FCBFCA88 | https://www.adb.org/sites/default/files/publication/157194/a | 49b2fcbfca885452 | True | False | False | False | True | completed |
-| DOC-35CDF04583F6 | https://www.adb.org/sites/default/files/project-documents//3 | 35cdf04583f671a7 | True | False | False | False | True | completed |
 | DOC-4237FA71534D | https://www.adb.org/sites/default/files/project-documents/39 | 4237fa71534d14fe | True | False | False | False | True | completed |
+| DOC-527583AD78D4 | https://www.adb.org/sites/default/files/project-documents//3 | 527583ad78d4b191 | True | False | False | False | True | completed |
 | DOC-4F94129FF133 | https://www.adb.org/sites/default/files/project-documents/39 | 4f94129ff1330285 | True | False | False | False | True | completed |
-| DOC-8C55E5735C99 | https://www.oecd.org/en/publications/oecd-corporate-governan | 8c55e5735c996b96 | True | False | False | False | True | completed |
 | DOC-408DE07C02C4 | https://www.oecd.org/en/publications/oecd-corporate-governan | 408de07c02c4afc6 | True | False | False | False | True | completed |
-| DOC-645C8C06FF24 | https://www.oecd.org/en/publications/oecd-corporate-governan | 645c8c06ff2402b4 | True | False | False | False | True | completed |
 | DOC-8D198AEC9144 | https://www.oecd.org/en/publications/oecd-corporate-governan | 8d198aec9144aef5 | True | False | False | False | True | completed |
 | DOC-F311FE04073E | https://www.oecd.org/en/publications/flexibility-and-proport | f311fe04073e47ff | True | False | False | False | True | completed |
-| DOC-6759D6BCC34C | https://www.oecd.org/en/publications/shareholder-meetings-an | 6759d6bcc34c1bdc | True | False | False | False | True | completed |
-| DOC-DE8E59F6D91B | https://autoconfig.bps.go.id/PAGE/science/032835/72847UT/str | de8e59f6d91b591b | True | False | False | False | True | completed |
-| DOC-231688635817 | https://autoconfig.bps.go.id/EPDF/ref/nd102607/4123077DN1093 | 2316886358178004 | True | False | False | False | True | completed |
-| DOC-89209B4532AE | https://autoconfig.bps.go.id/EBOOK/pdf/175745/8H10P89490/api | 89209b4532aeb6e5 | True | False | False | False | True | completed |
-| DOC-09E20AD89418 | https://autoconfig.bps.go.id/EBOOK/book/pw/72488P2W10260711/ | 09e20ad89418a290 | True | False | False | False | True | completed |
-| DOC-EE4F15200C09 | https://autoconfig.bps.go.id/TXT/journal/829W1346X7/803W16X/ | ee4f15200c093af5 | True | False | False | False | True | completed |
+| DOC-E746A78D3E9C | https://www.oecd.org/en/publications/shareholder-meetings-an | e746a78d3e9ca271 | True | False | False | False | True | completed |
+| DOC-F50FF5A8916D | https://www.oecd.org/en/publications/shareholder-meetings-an | f50ff5a8916d03aa | True | False | False | False | True | completed |
+| DOC-8C55E5735C99 | https://www.oecd.org/en/publications/oecd-corporate-governan | 8c55e5735c996b96 | True | False | False | False | True | completed |
+| DOC-5AAAEEFF3CFF | https://www.oecd.org/en/publications/shareholder-meetings-an | 5aaaeeff3cff9d6b | True | False | False | False | True | completed |
+| DOC-6823F97178A4 | https://autoconfig.bps.go.id/EBOOK/pdf/175745/8H10P89490/api | 6823f97178a4e7e7 | True | False | False | False | True | completed |
+| DOC-49E9B12FC942 | https://autoconfig.bps.go.id/EPDF/ref/nd102607/4123077DN1093 | 49e9b12fc942ac9c | True | False | False | False | True | completed |
+| DOC-E349DFD19B38 | https://autoconfig.bps.go.id/BOOK/lib/jf/6211F9J/a__handbook | e349dfd19b38cda5 | True | False | False | False | True | completed |
+| DOC-34CC99EEE0C8 | https://autoconfig.bps.go.id/PLAY/book/N96482J/020114100726/ | 34cc99eee0c8075a | True | False | False | False | True | completed |
 | DOC-D1AA7E469E34 | https://autoconfig.bps.go.id/TXT/ebook/188251BL63/77061BL/co | d1aa7e469e343787 | True | False | False | False | True | completed |
-| DOC-2D1EA00138F2 | https://autoconfig.bps.go.id/BOOK/lib/jf/6211F9J/a__handbook | 2d1ea00138f2cbdf | True | False | False | False | True | completed |
-| DOC-1B7C56A70EAA | https://autoconfig.bps.go.id/EBOOK/course/215220/97008TY/com | 1b7c56a70eaa8f7a | True | False | False | False | True | completed |
-| DOC-AF6D02D86A85 | https://autoconfig.bps.go.id/PLAY/science/58Z38S9612/30Z23S0 | af6d02d86a852827 | True | False | False | False | True | completed |
+| DOC-F77D195C7D09 | https://autoconfig.bps.go.id/PDF/pdf/120726/4N171H2019/a-han | f77d195c7d097589 | True | False | False | False | True | completed |
+| DOC-A3DC40A0C8E1 | https://autoconfig.bps.go.id/EBOOK/ref/dd/897D3D5084260709/c | a3dc40a0c8e1712c | True | False | False | False | True | completed |
+| DOC-72AED51C66CE | https://autoconfig.bps.go.id/PLAY/science/58Z38S9612/30Z23S0 | 72aed51c66ce5df4 | True | False | False | False | True | completed |
+| DOC-EAEBE165011E | https://autoconfig.bps.go.id/EBOOK/book/pw/72488P2W10260711/ | eaebe165011e777f | True | False | False | False | True | completed |
 | DOC-3D50458DF190 | https://autoconfig.bps.go.id/EPDF/pdf/050726/5U416N5998/a_ha | 3d50458df190b522 | True | False | False | False | True | completed |
-| DOC-CA53CC9AF18F | https://autoconfig.bps.go.id/TXT/ppt/103405/566Y13K075/a_han | ca53cc9af18f6690 | True | False | False | False | True | completed |
-| DOC-A572BF63FF5B | https://autoconfig.bps.go.id/EBOOK/ref/dd/897D3D5084260709/c | a572bf63ff5b4339 | True | False | False | False | True | completed |
-| DOC-C1C8D7931100 | https://www.worldbank.org/%20en/country/madagascar/overview | c1c8d793110074b6 | True | False | False | False | True | completed |
-| DOC-63E9EB2E5A2F | https://www.worldbank.org/%E2%80%A6/global-action-urgently-n | 63e9eb2e5a2fca92 | True | False | False | False | True | completed |
-| DOC-5FB511CEE340 | https://www.worldbank.org/%E3%80%80 | 5fb511cee340eddf | True | False | False | False | True | completed |
+| DOC-075A921D2EC7 | https://autoconfig.bps.go.id/TXT/ppt/103405/566Y13K075/a_han | 075a921d2ec7a1c7 | True | False | False | False | True | completed |
 | DOC-C248C694B25A | https://www.adb.org/publications/corporate-planning-public-s | c248c694b25aa0c7 | True | False | False | False | True | completed |
-| DOC-7F530327B2B6 | https://autoconfig.bps.go.id/ITUNE/pdf/120726/7M67717I62/non | 7f530327b2b6d269 | True | False | False | False | True | completed |
+| DOC-35092C6FACB5 | https://www.adb.org/sites/default/files/project-documents/57 | 35092c6facb5a99c | True | False | False | False | True | completed |
 | DOC-A571AE162383 | https://autoconfig.bps.go.id/BOOK/doc/9455P4L570/5311P2L/cor | a571ae1623832368 | True | False | False | False | True | completed |
 | DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
 | DOC-859D2142FF21 | https://www.bps.go.id/248-268 | 859d2142ff2174ae | True | False | False | False | True | completed |
@@ -118,25 +120,5 @@
 | DOC-4797FB998A54 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/export | 4797fb998a5492f2 | True | False | False | False | True | completed |
 | DOC-8903E78503B7 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percent | 8903e78503b77d7e | True | False | False | False | True | completed |
 | DOC-EEB66F14A504 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percent | eeb66f14a504784c | True | False | False | False | True | completed |
-| DOC-748CA7F247E0 | https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122 | 748ca7f247e06c4e | True | False | False | False | True | completed |
-| DOC-C82387BE3840 | https://ammdes.kemenperin.go.id/ | c82387be3840f7e5 | True | False | False | False | True | completed |
-| DOC-35242ACBFC8C | http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_proj | 35242acbfc8cf6d3 | True | False | False | False | True | completed |
-| DOC-A9BA1BC04A49 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_pro | a9ba1bc04a49b0e3 | True | False | False | False | True | completed |
-| DOC-5AE418499878 | https://ammdes.kemenperin.go.id/robots.txt | 5ae418499878ce29 | True | False | False | False | True | completed |
-| DOC-BD9EDDE8E2B7 | http://ammdes.kemenperin.go.id/robots.txt | bd9edde8e2b73c7f | True | False | False | False | True | completed |
-| DOC-829247A9780D | https://bbkb.kemenperin.go.id/ | 829247a9780d27f3 | True | False | False | False | True | completed |
-| DOC-41728C78610E | https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/p | 41728c78610e1787 | True | False | False | False | True | completed |
-| DOC-3473D956AFB3 | https://bbkb.kemenperin.go.id/index.php/post/category/berita | 3473d956afb32dc1 | True | False | False | False | True | completed |
-| DOC-54DE361C5BE2 | https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman | 54de361c5be2fc40 | True | False | False | False | True | completed |
-| DOC-CE6D99FF0CD9 | https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ek | ce6d99ff0cd958c2 | True | False | False | False | True | completed |
-| DOC-BDBFC501AA73 | https://bbkb.kemenperin.go.id/index.php/post/read/perpanjang | bdbfc501aa7378e4 | True | False | False | False | True | completed |
-| DOC-E465621B124E | https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_g | e465621b124e842a | True | False | False | False | True | completed |
-| DOC-99700123A1EA | https://bbkb.kemenperin.go.id/information/answer/response/19 | 99700123a1eaac43 | True | False | False | False | True | completed |
-| DOC-EB8E28CFE081 | https://bbkb.kemenperin.go.id/perpus/index/ | eb8e28cfe0817d36 | True | False | False | False | True | completed |
-| DOC-0E785C552C2C | https://bbkb.kemenperin.go.id/perpus/index/70 | 0e785c552c2c93de | True | False | False | False | True | completed |
-| DOC-943B331D294D | https://bbkb.kemenperin.go.id/post/read/dukung_industri_hala | 943b331d294d14f8 | True | False | False | False | True | completed |
-| DOC-38D9F56DD14D | https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_ | 38d9f56dd14dc5e7 | True | False | False | False | True | completed |
-| DOC-65B770C082E5 | https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ik | 65b770c082e5e95e | True | False | False | False | True | completed |
-| DOC-B21F6D285FFD | https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_di | b21f6d285ffd6dc8 | True | False | False | False | True | completed |
-| DOC-F727E9F5C52F | https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_pr | f727e9f5c52fcfa5 | True | False | False | False | True | completed |
+| DOC-3F1FE18CADA4 | https://autoconfig.bps.go.id/TXT/text/oq052607/Q15333045O122 | 3f1fe18cada4af9f | True | False | False | False | True | completed |
 | DOC-648623E72C93 | https://arsi.kemenperin.go.id/pemenang.html | 648623e72c935461 | True | False | False | False | True | completed |
