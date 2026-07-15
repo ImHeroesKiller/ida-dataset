@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-07-15T16:45:26+00:00",
+  "updated_at": "2026-07-15T18:29:58+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260715-A8C770",
+      "path": "automation/sessions/2026-07-15/SESSION-20260715-A8C770.json",
+      "start_time": "2026-07-15T18:10:03+00:00",
+      "end_time": "2026-07-15T18:29:58+00:00",
+      "duration_seconds": 1195.0,
+      "status": "completed",
+      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=129 entity=The Influence of Service Quality on Library Users at Padang State Polytechnic",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 650,
+      "github": {
+        "run_id": "29439383363",
+        "run_number": "87",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "b6f21e486dae27b40514816e5392939112e54995",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260715-A0146E",
       "path": "automation/sessions/2026-07-15/SESSION-20260715-A0146E.json",
@@ -1228,34 +1256,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "schedule",
         "sha": "3297640dde80e1e714a5320247e947d6e1604a1a",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260711-CA5D36",
-      "path": "automation/sessions/2026-07-11/SESSION-20260711-CA5D36.json",
-      "start_time": "2026-07-11T14:37:31+00:00",
-      "end_time": "2026-07-11T14:47:54+00:00",
-      "duration_seconds": 623.0,
-      "status": "completed",
-      "mission": "Expand Industry Library — factory learn cycle",
-      "knowledge_added": 0,
-      "knowledge_updated": 0,
-      "knowledge_rejected": 3,
-      "summary": "Session completed · published=0 extracted=3 validated=3 rejected=3 docs=82 entity=— · dry_run",
-      "trigger": "manual",
-      "dry_run": true,
-      "events": 436,
-      "github": {
-        "run_id": "29156446436",
-        "run_number": "30",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "workflow_dispatch",
-        "sha": "281b865ccd1a34048a343cac846590c3ab5bda5b",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"

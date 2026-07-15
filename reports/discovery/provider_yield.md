@@ -1,10 +1,10 @@
 # Provider Yield
 
-**Generated:** 2026-07-15T16:37:39+00:00
+**Generated:** 2026-07-15T18:22:47+00:00
 
 | Provider | Avg URLs/run | Avg accepted | Success yield | Runs (hist) |
 |----------|-------------:|-------------:|--------------:|------------:|
-| Tavily (primary) | 144.0 | 119.0 | 1.0 | 1 |
+| Tavily (primary) | 152.0 | 131.0 | 1.0 | 1 |
 | Trusted Site Search (connector-backed) | 0.0 | 0.0 | 0.0 | 1 |
 | Sitemap Discovery | 12.0 | 12.0 | 1.0 | 1 |
 | RSS Discovery | 12.0 | 4.0 | 1.0 | 1 |
