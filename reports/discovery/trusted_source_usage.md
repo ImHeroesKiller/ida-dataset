@@ -4,11 +4,9 @@ Accepted discovery URLs attributed to trusted registry sources.
 
 | Source ID | Accepted URLs |
 |-----------|--------------:|
-| SRC-000004 | 49 |
-| SRC-000001 | 48 |
-| SRC-000006 | 31 |
-| SRC-000005 | 26 |
-| SRC-000007 | 25 |
+| SRC-000001 | 20 |
+| SRC-000007 | 20 |
+| SRC-000004 | 10 |
 | SRC-OWASP | 8 |
 | SRC-CROSSREF | 4 |
 | SRC-ISSB | 4 |
