@@ -1,33 +1,33 @@
 # Production Trace
 
-**Generated:** 2026-07-15T22:22:43+00:00
+**Generated:** 2026-07-16T00:19:21+00:00
 **Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
-**Mission ID:** `MIS-20260715-926818`
-**Session ID:** `SES-20260715-383E46`
-**Started:** 2026-07-15T22:03:04+00:00
-**Finished:** 2026-07-15T22:22:43+00:00
+**Mission ID:** `MIS-20260716-4ADEE6`
+**Session ID:** `SES-20260716-EEE232`
+**Started:** 2026-07-16T00:00:24+00:00
+**Finished:** 2026-07-16T00:19:21+00:00
 
 ## Pipeline timeline
 
 | Stage | Status | Duration (ms) | Docs | Rows | Errors |
 |-------|--------|--------------:|-----:|-----:|--------|
-| mission | completed | 0.7 | 0 | 0 | — |
-| source_discovery | completed | 2.3 | 0 | 0 | — |
-| connector | completed | 93823.4 | 203 | 0 | — |
-| document_discovery | completed | 93823.5 | 203 | 0 | — |
-| document_download | completed | 309188.6 | 113 | 0 | — |
-| extraction | completed | 81.9 | 0 | 5 | — |
-| candidate_validation | completed | 18.7 | 0 | 5 | — |
-| publish_queue | completed | 34.7 | 0 | 5 | — |
-| append_dataset | completed | 46.0 | 0 | 5 | — |
-| export | skipped | 0.3 | 0 | 0 | — |
-| git_commit | skipped | 0.2 | 0 | 0 | — |
-| push | skipped | 0.2 | 0 | 0 | — |
+| mission | completed | 0.9 | 0 | 0 | — |
+| source_discovery | completed | 2.8 | 0 | 0 | — |
+| connector | completed | 93865.3 | 181 | 0 | — |
+| document_discovery | completed | 93865.4 | 181 | 0 | — |
+| document_download | completed | 265350.7 | 102 | 0 | — |
+| extraction | completed | 98.7 | 0 | 5 | — |
+| candidate_validation | completed | 9.1 | 0 | 5 | — |
+| publish_queue | completed | 9.1 | 0 | 5 | — |
+| append_dataset | completed | 57.9 | 0 | 5 | — |
+| export | skipped | 0.4 | 0 | 0 | — |
+| git_commit | skipped | 0.3 | 0 | 0 | — |
+| push | skipped | 0.3 | 0 | 0 | — |
 
 ## Summary
 
 - Documents discovered: **31**
-- Documents downloaded: **113**
+- Documents downloaded: **102**
 - Candidates extracted: **5**
 - Candidates validated: **5**
 - Candidates rejected: **0**
