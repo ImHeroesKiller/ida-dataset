@@ -1,36 +1,36 @@
 # Growth Velocity
 
-- Growth velocity: **41.57** rows/day
-- Coverage velocity: **380.4** rows/day capacity
-- Knowledge produced (all datasets): **816**
+- Growth velocity: **42.29** rows/day
+- Coverage velocity: **320.16** rows/day capacity
+- Knowledge produced (all datasets): **821**
 
 ```json
 {
   "rows_last_hour": 5,
   "rows_today_approx": 55,
-  "rows_this_week": 291,
-  "rows_this_month": 291,
+  "rows_this_week": 296,
+  "rows_this_month": 296,
   "sessions_last_hour": 1,
   "sessions_24h": 11,
-  "sessions_7d": 99,
-  "sessions_30d": 99,
-  "rows_per_hour": 15.85,
-  "rows_per_day": 380.4,
-  "rows_per_week": 2662.8,
-  "rows_per_month": 11412.0,
-  "documents_per_hour": 323.43,
-  "candidates_per_hour": 242.57,
+  "sessions_7d": 100,
+  "sessions_30d": 100,
+  "rows_per_hour": 13.34,
+  "rows_per_day": 320.16,
+  "rows_per_week": 2241.12,
+  "rows_per_month": 9604.8,
+  "documents_per_hour": 378.9,
+  "candidates_per_hour": 284.17,
   "validation_throughput": "integrity_guard_inline",
   "publish_throughput": "append_only_csv",
   "connector_throughput": {
-    "documents": 102,
+    "documents": 142,
     "rows": 5,
-    "documents_per_hour": 323.43,
-    "rows_per_hour": 15.85,
-    "documents_per_second": 0.09,
+    "documents_per_hour": 378.9,
+    "rows_per_hour": 13.34,
+    "documents_per_second": 0.105,
     "rows_per_second": 0.004
   },
   "mission_throughput_sessions_24h": 11,
-  "growth_velocity_rows_per_day": 41.57
+  "growth_velocity_rows_per_day": 42.29
 }
 ```
