@@ -1,13 +1,13 @@
 # Acquisition Success
 
-**Generated:** 2026-07-16T11:57:24+00:00
+**Generated:** 2026-07-16T14:13:45+00:00
 
 | Outcome | Count |
 |---------|------:|
-| Enriched with richer body | 9 |
+| Enriched with richer body | 8 |
 | Already rich | 27 |
-| Metadata fallback | 31 |
-| Failed chain | 28 |
+| Metadata fallback | 32 |
+| Failed chain | 29 |
 | Blocked | 62 |
 
 ## Recent records
@@ -15,7 +15,6 @@
 | Document | Result | Representation | Source | Chars |
 |----------|--------|----------------|--------|------:|
 | DOC-7C7239075702 | metadata_fallback | None | None | 584 |
-| DOC-5DFD7BF054D2 | enriched | html_fulltext | publisher_landing | 7837 |
 | DOC-50B3F3BC8DEB | enriched | html_fulltext | publisher_landing | 5517 |
 | DOC-362992E54B77 | enriched | html_fulltext | unpaywall_landing | 10430 |
 | DOC-62F50045E190 | metadata_fallback | None | None | 617 |
@@ -32,8 +31,9 @@
 | DOC-69EEA36D9AF8 | enriched | html_fulltext | openalex:openalex | 2622 |
 | DOC-8FDD77E53A4E | metadata_fallback | None | None | 175 |
 | DOC-FA192923E2E0 | metadata_fallback | None | None | 8000 |
-| DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
 | DOC-C6A9648CAF13 | enriched | html_fulltext | openalex:PubMed | 7547 |
+| DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
+| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-CA19FA59FBE9 | metadata_fallback | None | None | 579 |
 | DOC-708BA37EBD5C | metadata_fallback | None | None | 160 |
 | DOC-F2BF8FA340F8 | metadata_fallback | None | None | 228 |
@@ -41,7 +41,6 @@
 | DOC-65FC704A4D9D | metadata_fallback | None | None | 208 |
 | DOC-0DE6D8F8C910 | metadata_fallback | None | None | 149 |
 | DOC-2F7C49C3E453 | metadata_fallback | None | None | 213 |
-| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-7A131D726BF1 | metadata_fallback | None | None | 173 |
 | DOC-067282F2AF34 | metadata_fallback | None | None | 178 |
 | DOC-8D8AB77BAAB8 | metadata_fallback | None | None | 256 |
@@ -51,3 +50,4 @@
 | DOC-4797FB998A54 | metadata_fallback | None | None | 216 |
 | DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
 | DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
+| DOC-5DFD7BF054D2 | metadata_fallback | None | None | 2641 |

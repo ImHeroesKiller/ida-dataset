@@ -1,12 +1,12 @@
 # Repository / Open Access Statistics
 
-**Generated:** 2026-07-16T11:57:24+00:00
+**Generated:** 2026-07-16T14:13:45+00:00
 
 | Channel | Count |
 |---------|------:|
 | Open access enrichments | 4 |
 | Repository | 0 |
 | Mirror | 0 |
-| Publisher | 5 |
+| Publisher | 4 |
 
 Sources consulted: Unpaywall, OpenAlex locations, Europe PMC, arXiv, CORE, Zenodo, Semantic Scholar, Crossref links.
