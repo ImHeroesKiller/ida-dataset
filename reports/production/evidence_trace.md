@@ -1,13 +1,13 @@
 # Evidence Trace
 
-**Session:** `SES-20260716-36E101`
+**Session:** `SES-20260716-C26AE7`
 
 Every published row → candidate → document → connector → source.
 
 ## The Influence of Service Quality on Library Users at Padang State Polytechnic
 
-- **Dataset row:** `SIG-000325` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
-- **Candidate:** `CAND-E71EB8159183`
+- **Dataset row:** `SIG-000330` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
+- **Candidate:** `CAND-9FC2F7183EF8`
 - **Document:** `DOC-5DFD7BF054D2` · The Influence of Service Quality on Library Users at Padang State Polytechnic
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -16,8 +16,8 @@ Every published row → candidate → document → connector → source.
 
 ## The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches
 
-- **Dataset row:** `SIG-000326` · The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches (business_signal_library)
-- **Candidate:** `CAND-F9E630E7797D`
+- **Dataset row:** `SIG-000331` · The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches (business_signal_library)
+- **Candidate:** `CAND-521046BA38E1`
 - **Document:** `DOC-C8336B1CF486` · The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches
 - **Connector:** OpenAlex (`CONN-OPENALEX-001`)
 - **Source:** OpenAlex (`SRC-OPENALEX`)
@@ -26,8 +26,8 @@ Every published row → candidate → document → connector → source.
 
 ## World Bank document
 
-- **Dataset row:** `SIG-000327` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-1532953B3748`
+- **Dataset row:** `SIG-000332` · World Bank document (business_signal_library)
+- **Candidate:** `CAND-138A8AEA4DE4`
 - **Document:** `DOC-A99E56C64737` · World Bank document
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
@@ -36,8 +36,8 @@ Every published row → candidate → document → connector → source.
 
 ## Development of the Siak Library and Archives Service (2004-2022)
 
-- **Dataset row:** `SIG-000328` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
-- **Candidate:** `CAND-917892FD9116`
+- **Dataset row:** `SIG-000333` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
+- **Candidate:** `CAND-5A0BE092C477`
 - **Document:** `DOC-50B3F3BC8DEB` · Development of the Siak Library and Archives Service (2004-2022)
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -46,8 +46,8 @@ Every published row → candidate → document → connector → source.
 
 ## New normal and library services in Indonesia: a case study of university libraries
 
-- **Dataset row:** `SIG-000329` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
-- **Candidate:** `CAND-CA293BEE26A5`
+- **Dataset row:** `SIG-000334` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
+- **Candidate:** `CAND-C9B3911E5D0D`
 - **Document:** `DOC-7C7239075702` · New normal and library services in Indonesia: a case study of university libraries
 - **Connector:** OpenAlex (`CONN-OPENALEX-001`)
 - **Source:** OpenAlex (`SRC-OPENALEX`)

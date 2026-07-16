@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-07-16T17:28:50+00:00",
-  "mission_id": "MIS-20260716-8768F4",
-  "session_id": "SES-20260716-36E101",
+  "started_at": "2026-07-16T19:26:59+00:00",
+  "mission_id": "MIS-20260716-DF87EE",
+  "session_id": "SES-20260716-C26AE7",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -46,26 +46,26 @@
     "one_discovery_multi_dataset": true
   },
   "queries_generated": 10,
-  "queries_executed": 26,
-  "urls_discovered": 12,
-  "urls_accepted": 12,
-  "urls_rejected": 0,
+  "queries_executed": 27,
+  "urls_discovered": 44,
+  "urls_accepted": 36,
+  "urls_rejected": 8,
   "urls_remaining": 0,
-  "duplicate_urls": 0,
-  "elapsed_ms": 564416.7,
+  "duplicate_urls": 8,
+  "elapsed_ms": 747233.3,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
   "providers_disabled": 5,
-  "providers_exhausted": 3,
+  "providers_exhausted": 2,
   "provider_utilization": {
-    "DISC-TAVILY": 0.1923,
-    "DISC-COMMONCRAWL": 0.1923,
-    "DISC-SITEMAP": 0.0385,
-    "DISC-RSS": 0.0,
+    "DISC-TAVILY": 0.1852,
+    "DISC-SITEMAP": 0.037,
+    "DISC-RSS": 0.037,
     "DISC-ATOM": 0.0,
-    "DISC-TRUSTED-SITE": 0.3846,
-    "DISC-OPENSEARCH": 0.1923,
+    "DISC-TRUSTED-SITE": 0.3704,
+    "DISC-COMMONCRAWL": 0.1852,
+    "DISC-OPENSEARCH": 0.1852,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
     "DISC-BRAVE": 0.0,
@@ -74,11 +74,11 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 0,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 0,
+    "DISC-RSS": 12,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
+    "DISC-COMMONCRAWL": 20,
     "DISC-OPENSEARCH": 0,
     "DISC-GOOGLE-CSE": 0,
     "DISC-BING": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 76.54,
-  "accepted_per_hour": 76.54,
+  "urls_per_hour": 211.98,
+  "accepted_per_hour": 173.44,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -101,37 +101,15 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 648.9,
+      "elapsed_ms": 574.5,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.573,
-      "utilization": 0.1923
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "api_type": "commoncrawl",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "toggle"
-      },
-      "queries": 5,
-      "urls": 0,
-      "cache_hits": 0,
-      "elapsed_ms": 115169.09999999999,
-      "status": "ready",
-      "operational_status": "ACTIVE",
-      "credentials_available": true,
-      "disable_reason": "ready",
-      "exhausted": true,
-      "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 69.146,
-      "utilization": 0.1923
+      "rank_score": 85.67,
+      "utilization": 0.1852
     },
     {
       "provider_id": "DISC-SITEMAP",
@@ -145,7 +123,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 448562.4,
+      "elapsed_ms": 454210.1,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -153,7 +131,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 51.6,
-      "utilization": 0.0385
+      "utilization": 0.037
     },
     {
       "provider_id": "DISC-RSS",
@@ -164,18 +142,18 @@
         "status": "healthy",
         "message": "feed_discovery"
       },
-      "queries": 0,
-      "urls": 0,
+      "queries": 1,
+      "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 0.0,
+      "elapsed_ms": 279956.4,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 51.52,
-      "utilization": 0.0
+      "rank_score": 44.0,
+      "utilization": 0.037
     },
     {
       "provider_id": "DISC-ATOM",
@@ -219,7 +197,29 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 41.1,
-      "utilization": 0.3846
+      "utilization": 0.3704
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "api_type": "commoncrawl",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "toggle"
+      },
+      "queries": 5,
+      "urls": 20,
+      "cache_hits": 0,
+      "elapsed_ms": 12453.1,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 32.9,
+      "utilization": 0.1852
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -241,7 +241,7 @@
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
       "rank_score": 32.0,
-      "utilization": 0.1923
+      "utilization": 0.1852
     },
     {
       "provider_id": "DISC-GOOGLE-CSE",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 272.5,
+      "elapsed_ms": 73.8,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 92.5,
+      "elapsed_ms": 57.0,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 73.8,
+      "elapsed_ms": 168.9,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 92.6,
+      "elapsed_ms": 131.7,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 117.5,
+      "elapsed_ms": 143.1,
       "cached": false,
       "live_search": true
     },
@@ -500,8 +500,8 @@
       "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 0,
-      "elapsed_ms": 25399.6,
+      "urls": 20,
+      "elapsed_ms": 7968.3,
       "cached": false,
       "live_search": true
     },
@@ -511,7 +511,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 21196.9,
+      "elapsed_ms": 1076.7,
       "cached": false,
       "live_search": true
     },
@@ -521,7 +521,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 21111.4,
+      "elapsed_ms": 1162.0,
       "cached": false,
       "live_search": true
     },
@@ -531,7 +531,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 22244.2,
+      "elapsed_ms": 1093.2,
       "cached": false,
       "live_search": true
     },
@@ -541,7 +541,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 25217.0,
+      "elapsed_ms": 1152.9,
       "cached": false,
       "live_search": true
     },
@@ -599,7 +599,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 448562.4
+      "elapsed_ms": 454210.1
+    },
+    {
+      "provider_id": "DISC-RSS",
+      "query": "rss:trusted_feeds",
+      "urls": 12,
+      "elapsed_ms": 279956.4
     }
   ],
   "reputation_top": [
@@ -634,8 +640,8 @@
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "reputation": 99.498,
-      "score": 94.704,
+      "reputation": 99.5,
+      "score": 94.706,
       "authority": 0.95
     },
     {
@@ -727,33 +733,17 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.573,
+      "score": 85.67,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.981,
+        "latency": 0.989,
         "freshness": 0.5,
         "trust": 0.75,
         "coverage": 0.9,
         "relevance": 0.4,
         "config_priority": 1.0
-      }
-    },
-    {
-      "id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "score": 69.146,
-      "status": "ACTIVE",
-      "components": {
-        "yield": 0.35,
-        "success_rate": 1.0,
-        "latency": 0.895,
-        "freshness": 0.7,
-        "trust": 0.95,
-        "coverage": 0.75,
-        "relevance": 0.4,
-        "config_priority": 0.55
       }
     },
     {
@@ -775,13 +765,13 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 51.52,
+      "score": 44.0,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.12,
-        "success_rate": 1.0,
-        "latency": 0.0,
-        "freshness": 0.7,
+        "yield": 0.0,
+        "success_rate": 0.5,
+        "latency": 0.55,
+        "freshness": 0.5,
         "trust": 0.95,
         "coverage": 0.6,
         "relevance": 0.4,
@@ -818,6 +808,22 @@
         "coverage": 0.75,
         "relevance": 0.4,
         "config_priority": 0.95
+      }
+    },
+    {
+      "id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "score": 32.9,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 0.2,
+        "latency": 0.0,
+        "freshness": 0.5,
+        "trust": 0.95,
+        "coverage": 0.75,
+        "relevance": 0.4,
+        "config_priority": 0.55
       }
     },
     {
@@ -919,6 +925,126 @@
   ],
   "accepted_urls": [
     {
+      "url": "https://www.bps.go.id/",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/248-268",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/brs/view/id/1267",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-pedaging-menurut-provinsi-2009-2018.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provinsi-2002-2014.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-provinsi-ton-1993-2015.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-berlaku-menurut-provinsi-2010-2016-ribu-rupiah-.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-konstan-2010-menurut-provinsi-2011-2017-persen-.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-2010-laju-pertumbuhan-y-on-y-produk-domestik-bruto-menurut-lapangan-usaha-persen-2014-2016.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2017/03/03/893/nikah-talak-dan-cerai-serta-rujuk-2012-2015",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2017/05/05/1253/-seri-2010-laju-pertumbuhan-kumulatif-produk-domestik-bruto-menurut-lapangan-usaha-persen-2017---2020.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1314/persentase-tenaga-kerja-informal-sektor-pertanian-2015---2018.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1319/upah-rata---rata-per-jam-pekerja-menurut-jenis-kelamin-2015---2018.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2018/06/05/1436/persentase-perempuan-pernah-kawin-berusia-15-49-tahun-yang-proses-kelahiran-terakhirnya-ditolong-oleh-tenaga-kesehatan-terlatih-menurut-provinsi-2015-2018.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2019/10/04/1655/persentase-perempuan-pernah-kawin-umur-15-49-tahun-yang-proses-kelahiran-terakhirnya-di-fasilitas-kesehatan-40-bawah-menurut-provinsi-2015-2016.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2020/02/18/1773/rata-rata-lama-sekolah-menurut-provinsi-metode-baru-2010-2019.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/dynamictable/2020/02/19/1775/penduduk-berumur-15-tahun-ke-atas-menurut-jenis-kegiatan-tahun-1986---2019.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us-22-00-billion---imports-in-november-2023-reached-us-19-59-billion.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-media-location-of-access.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-age-group.html",
+      "source_id": "SRC-000001",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-SITEMAP",
@@ -989,15 +1115,88 @@
       "source_id": "SRC-OWASP",
       "provider_id": "DISC-SITEMAP",
       "title": ""
+    },
+    {
+      "url": "http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html",
+      "source_id": "SRC-OWASP",
+      "provider_id": "DISC-RSS",
+      "title": "OWASP CVE Lite CLI Graduates to Lab Project Status"
+    },
+    {
+      "url": "http://owasp.org/blog/2026/06/18/greenberg-statement.html",
+      "source_id": "SRC-OWASP",
+      "provider_id": "DISC-RSS",
+      "title": "Community update regarding Richard Greenberg"
+    },
+    {
+      "url": "http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html",
+      "source_id": "SRC-OWASP",
+      "provider_id": "DISC-RSS",
+      "title": "Aikido and OWASP bring agentic Code Audit to the global AppSec community"
+    },
+    {
+      "url": "http://owasp.org/blog/2026/06/09/dependency-track-v5.html",
+      "source_id": "SRC-OWASP",
+      "provider_id": "DISC-RSS",
+      "title": "OWASP Dependency-Track 5.0 Is Now Generally Available"
     }
   ],
-  "rejected_urls": [],
+  "rejected_urls": [
+    {
+      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.crossref.org/members-area/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2023-04-24-contract-member-support/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.ifrs.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.ifrs.org/groups/managing-director/michel-madelain/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.ifrs.org/groups/monitoring-board/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    },
+    {
+      "url": "https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitoring-board/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-RSS"
+    }
+  ],
   "cache": {
     "hits": 0,
     "misses": 15,
     "stores": 15,
     "cached_queries": 15,
-    "cached_urls": 0
+    "cached_urls": 20
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }
