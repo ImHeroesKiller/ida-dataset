@@ -1,28 +1,28 @@
 # Source Trace
 
-**Generated:** 2026-07-17T19:31:42+00:00
+**Generated:** 2026-07-17T21:17:01+00:00
 **Mission dataset:** `service_library`
 
 ## Connectors contacted (last production trace)
 
 | Connector | Source | Status | HTTP | Latency ms | Discovered | Downloaded | Skipped | Error |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Asian Development Bank | SRC-000006 | no_updates | 200 | 77.8 | 0 | 0 | 0 | — |
-| OECD | SRC-000005 | no_updates | 200 | 106.7 | 0 | 8 | 3 | — |
-| BPS Indonesia | SRC-000001 | no_updates | 200 | 140.7 | 0 | 0 | 0 | — |
-| World Bank | SRC-000004 | ok | 200 | 392.8 | 11 | 0 | 0 | — |
-| Crossref | SRC-CROSSREF | ok | 200 | 465.9 | 10 | 8 | 3 | — |
-| OpenAlex | SRC-OPENALEX | ok | 200 | 1073.3 | 10 | 8 | 3 | — |
-| Kemenperin | SRC-000007 | no_updates | 200 | 94164.5 | 0 | 8 | 3 | — |
+| Asian Development Bank | SRC-000006 | no_updates | 200 | 90.3 | 0 | 0 | 0 | — |
+| OECD | SRC-000005 | no_updates | 200 | 110.9 | 0 | 11 | 0 | — |
+| BPS Indonesia | SRC-000001 | no_updates | 200 | 138.9 | 0 | 0 | 0 | — |
+| World Bank | SRC-000004 | ok | 200 | 427.5 | 11 | 0 | 0 | — |
+| Crossref | SRC-CROSSREF | ok | 200 | 512.3 | 10 | 11 | 0 | — |
+| OpenAlex | SRC-OPENALEX | ok | 200 | 595.0 | 10 | 11 | 0 | — |
+| Kemenperin | SRC-000007 | no_updates | 200 | 93931.4 | 0 | 11 | 0 | — |
 
 ## Adaptive source performance history
 
 | Source | Attempts | Success rate | Avg latency | Docs | Rows | Dup rate | Backoff |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| SRC-CROSSREF | 185 | 1.0 | 814.9 | 1203 | 166 | 0.0066 | 0 |
-| SRC-000004 | 185 | 1.0 | 618.2 | 1082 | 121 | 0.0009 | 0 |
-| SRC-OPENALEX | 185 | 1.0 | 873.8 | 978 | 82 | 0.0101 | 0 |
-| SRC-000001 | 185 | 1.0 | 1086.3 | 397 | 5 | 0.005 | 0 |
-| SRC-000005 | 185 | 1.0 | 623.3 | 393 | 0 | 0.0175 | 0 |
-| SRC-000006 | 185 | 1.0 | 565.3 | 340 | 17 | 0.0087 | 0 |
-| SRC-000007 | 185 | 1.0 | 78285.6 | 201 | 2 | 0.0474 | 0 |
+| SRC-CROSSREF | 187 | 1.0 | 811.7 | 1224 | 168 | 0.0065 | 0 |
+| SRC-000004 | 187 | 1.0 | 616.2 | 1093 | 123 | 0.0009 | 0 |
+| SRC-OPENALEX | 187 | 1.0 | 870.8 | 999 | 83 | 0.0099 | 0 |
+| SRC-000005 | 187 | 1.0 | 617.8 | 404 | 0 | 0.017 | 0 |
+| SRC-000001 | 187 | 1.0 | 1076.1 | 397 | 5 | 0.005 | 0 |
+| SRC-000006 | 187 | 1.0 | 560.2 | 340 | 17 | 0.0087 | 0 |
+| SRC-000007 | 187 | 1.0 | 78453.0 | 212 | 2 | 0.045 | 0 |
