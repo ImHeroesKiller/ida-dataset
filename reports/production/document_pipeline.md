@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260717-94B61B`
+**Session:** `SES-20260717-66E734`
 
 ## Queue counts
 
@@ -16,8 +16,8 @@
 
 | Document ID | Source | Connector | Type | Status | Size | URL |
 |-------------|--------|-----------|------|--------|-----:|-----|
-| `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2641 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
-| `DOC-C8336B1CF486` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 44294 | https://openalex.org/W4220952637 |
+| `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 71288 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
+| `DOC-C8336B1CF486` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 44369 | https://openalex.org/W4220952637 |
 | `DOC-A99E56C64737` | SRC-000004 | CONN-WB-001 | text/html | completed | 17390 | https://documents.worldbank.org/search?q=service+library+Indonesia |
 | `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 31872 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
 | `DOC-7C7239075702` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 586 | https://openalex.org/W3095315355 |
@@ -34,7 +34,7 @@
 | `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
 | `DOC-F825C3BB9600` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 9156 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 |
 | `DOC-48F28F9C145F` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 700 | https://openalex.org/W2974521388 |
-| `DOC-FDFEB20D47AF` | SRC-000004 | CONN-WB-001 | text/html | completed | 122910 | http://documents.worldbank.org/curated/en/170561538243538219/Indonesia-Higher-Ed |
+| `DOC-FCFEA0A00264` | SRC-000004 | CONN-WB-001 | text/html | completed | 122488 | http://documents.worldbank.org/curated/en/170561538243538219/Indonesia-Higher-Ed |
 | `DOC-859D2142FF21` | SRC-000001 | DISC-LAYER | text/plain | completed | 85 | https://www.bps.go.id/248-268 |
 | `DOC-2AE2C7E68DAF` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 55140 | https://api.crossref.org/works/10.30574/wjarr.2021.12.3.0707 |
 | `DOC-0C15999FB55C` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 49867 | https://openalex.org/W2989135090 |

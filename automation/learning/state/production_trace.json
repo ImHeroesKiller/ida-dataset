@@ -1,11 +1,11 @@
 {
   "version": "1.0",
   "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
-  "mission_id": "MIS-20260717-7642A7",
-  "session_id": "SES-20260717-94B61B",
+  "mission_id": "MIS-20260717-87919D",
+  "session_id": "SES-20260717-66E734",
   "dataset": "service_library",
-  "started_at": "2026-07-17T04:08:29+00:00",
-  "finished_at": "2026-07-17T04:26:33+00:00",
+  "started_at": "2026-07-17T07:18:47+00:00",
+  "finished_at": "2026-07-17T07:35:31+00:00",
   "current_stage": "push",
   "current_connector": "Kemenperin",
   "current_document": "DOC-EEB66F14A504",
@@ -15,8 +15,8 @@
   "stages": [
     {
       "name": "mission",
-      "start_time": "2026-07-17T04:08:29+00:00",
-      "finish_time": "2026-07-17T04:08:29+00:00",
+      "start_time": "2026-07-17T07:18:47+00:00",
+      "finish_time": "2026-07-17T07:18:47+00:00",
       "duration_ms": 1.0,
       "status": "completed",
       "rows": 0,
@@ -31,9 +31,9 @@
     },
     {
       "name": "source_discovery",
-      "start_time": "2026-07-17T04:08:29+00:00",
-      "finish_time": "2026-07-17T04:08:29+00:00",
-      "duration_ms": 2.9,
+      "start_time": "2026-07-17T07:18:47+00:00",
+      "finish_time": "2026-07-17T07:18:47+00:00",
+      "duration_ms": 3.0,
       "status": "completed",
       "rows": 0,
       "documents": 0,
@@ -92,7 +92,7 @@
             },
             {
               "id": "SRC-CROSSREF",
-              "score": 84.467
+              "score": 84.468
             },
             {
               "id": "SRC-DJP",
@@ -124,9 +124,9 @@
     },
     {
       "name": "connector",
-      "start_time": "2026-07-17T04:20:49+00:00",
-      "finish_time": "2026-07-17T04:22:23+00:00",
-      "duration_ms": 94202.6,
+      "start_time": "2026-07-17T07:31:16+00:00",
+      "finish_time": "2026-07-17T07:32:50+00:00",
+      "duration_ms": 94000.6,
       "status": "completed",
       "rows": 0,
       "documents": 67,
@@ -148,9 +148,9 @@
     },
     {
       "name": "document_discovery",
-      "start_time": "2026-07-17T04:20:49+00:00",
-      "finish_time": "2026-07-17T04:22:23+00:00",
-      "duration_ms": 94202.7,
+      "start_time": "2026-07-17T07:31:16+00:00",
+      "finish_time": "2026-07-17T07:32:50+00:00",
+      "duration_ms": 94000.7,
       "status": "completed",
       "rows": 0,
       "documents": 67,
@@ -160,9 +160,9 @@
     },
     {
       "name": "document_download",
-      "start_time": "2026-07-17T04:22:23+00:00",
-      "finish_time": "2026-07-17T04:26:32+00:00",
-      "duration_ms": 249288.1,
+      "start_time": "2026-07-17T07:32:50+00:00",
+      "finish_time": "2026-07-17T07:35:30+00:00",
+      "duration_ms": 159997.1,
       "status": "completed",
       "rows": 0,
       "documents": 51,
@@ -176,9 +176,9 @@
     },
     {
       "name": "extraction",
-      "start_time": "2026-07-17T04:26:32+00:00",
-      "finish_time": "2026-07-17T04:26:32+00:00",
-      "duration_ms": 84.3,
+      "start_time": "2026-07-17T07:35:30+00:00",
+      "finish_time": "2026-07-17T07:35:30+00:00",
+      "duration_ms": 93.3,
       "status": "completed",
       "rows": 5,
       "documents": 0,
@@ -188,9 +188,9 @@
     },
     {
       "name": "candidate_validation",
-      "start_time": "2026-07-17T04:26:32+00:00",
-      "finish_time": "2026-07-17T04:26:32+00:00",
-      "duration_ms": 7.6,
+      "start_time": "2026-07-17T07:35:30+00:00",
+      "finish_time": "2026-07-17T07:35:30+00:00",
+      "duration_ms": 9.2,
       "status": "completed",
       "rows": 5,
       "documents": 0,
@@ -205,9 +205,9 @@
     },
     {
       "name": "publish_queue",
-      "start_time": "2026-07-17T04:26:32+00:00",
-      "finish_time": "2026-07-17T04:26:32+00:00",
-      "duration_ms": 7.6,
+      "start_time": "2026-07-17T07:35:30+00:00",
+      "finish_time": "2026-07-17T07:35:30+00:00",
+      "duration_ms": 9.2,
       "status": "completed",
       "rows": 5,
       "documents": 0,
@@ -217,9 +217,9 @@
     },
     {
       "name": "append_dataset",
-      "start_time": "2026-07-17T04:26:32+00:00",
-      "finish_time": "2026-07-17T04:26:32+00:00",
-      "duration_ms": 24.4,
+      "start_time": "2026-07-17T07:35:30+00:00",
+      "finish_time": "2026-07-17T07:35:30+00:00",
+      "duration_ms": 33.6,
       "status": "completed",
       "rows": 5,
       "documents": 0,
@@ -229,8 +229,8 @@
     },
     {
       "name": "export",
-      "start_time": "2026-07-17T04:26:32+00:00",
-      "finish_time": "2026-07-17T04:26:32+00:00",
+      "start_time": "2026-07-17T07:35:30+00:00",
+      "finish_time": "2026-07-17T07:35:30+00:00",
       "duration_ms": 0.3,
       "status": "skipped",
       "rows": 0,
@@ -243,9 +243,9 @@
     },
     {
       "name": "git_commit",
-      "start_time": "2026-07-17T04:26:32+00:00",
-      "finish_time": "2026-07-17T04:26:32+00:00",
-      "duration_ms": 0.2,
+      "start_time": "2026-07-17T07:35:30+00:00",
+      "finish_time": "2026-07-17T07:35:30+00:00",
+      "duration_ms": 0.3,
       "status": "skipped",
       "rows": 0,
       "documents": 0,
@@ -257,9 +257,9 @@
     },
     {
       "name": "push",
-      "start_time": "2026-07-17T04:26:32+00:00",
-      "finish_time": "2026-07-17T04:26:32+00:00",
-      "duration_ms": 0.2,
+      "start_time": "2026-07-17T07:35:30+00:00",
+      "finish_time": "2026-07-17T07:35:30+00:00",
+      "duration_ms": 0.3,
       "status": "skipped",
       "rows": 0,
       "documents": 0,
@@ -278,7 +278,7 @@
       "source_name": "Asian Development Bank",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 144.4,
+      "elapsed_ms": 112.0,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -290,33 +290,15 @@
       "rank_score": 95.114
     },
     {
-      "connector_id": "CONN-BPS-001",
-      "name": "BPS Indonesia",
-      "source_id": "SRC-000001",
-      "source_name": "BPS Indonesia",
-      "status": "no_updates",
-      "http_status": 200,
-      "elapsed_ms": 196.9,
-      "documents_discovered": 0,
-      "documents_downloaded": 11,
-      "skipped": 0,
-      "rejected": 0,
-      "retry_count": 0,
-      "last_successful_sync": "",
-      "urls": [],
-      "error": null,
-      "rank_score": 97.943
-    },
-    {
       "connector_id": "CONN-OECD-001",
       "name": "OECD",
       "source_id": "SRC-000005",
       "source_name": "OECD",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 224.3,
+      "elapsed_ms": 136.6,
       "documents_discovered": 0,
-      "documents_downloaded": 0,
+      "documents_downloaded": 11,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
@@ -326,28 +308,22 @@
       "rank_score": 94.691
     },
     {
-      "connector_id": "CONN-CROSSREF-001",
-      "name": "Crossref",
-      "source_id": "SRC-CROSSREF",
-      "source_name": "Crossref",
-      "status": "ok",
+      "connector_id": "CONN-BPS-001",
+      "name": "BPS Indonesia",
+      "source_id": "SRC-000001",
+      "source_name": "BPS Indonesia",
+      "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 511.2,
-      "documents_discovered": 10,
+      "elapsed_ms": 186.8,
+      "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-07-17T04:20:49+00:00",
-      "urls": [
-        "https://api.crossref.org/works/10.14429/djlit.41.5.16406",
-        "https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108",
-        "https://api.crossref.org/works/10.47191/ijmei/v10i2.01",
-        "https://api.crossref.org/works/10.59141/jiss.v4i07.855",
-        "https://api.crossref.org/works/10.7454/jipk.v24i2.003"
-      ],
+      "last_successful_sync": "",
+      "urls": [],
       "error": null,
-      "rank_score": 84.467
+      "rank_score": 97.943
     },
     {
       "connector_id": "CONN-WB-001",
@@ -356,13 +332,13 @@
       "source_name": "World Bank",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 572.8,
+      "elapsed_ms": 741.5,
       "documents_discovered": 11,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-07-17T04:20:49+00:00",
+      "last_successful_sync": "2026-07-17T07:31:16+00:00",
       "urls": [
         "http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-Development-Project",
         "http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-Development-LIL-Project",
@@ -380,13 +356,13 @@
       "source_name": "OpenAlex",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 811.7,
+      "elapsed_ms": 797.6,
       "documents_discovered": 10,
-      "documents_downloaded": 0,
+      "documents_downloaded": 11,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-07-17T04:20:50+00:00",
+      "last_successful_sync": "2026-07-17T07:31:16+00:00",
       "urls": [
         "https://openalex.org/W3095315355",
         "https://openalex.org/W4312346959",
@@ -398,15 +374,39 @@
       "rank_score": 0
     },
     {
+      "connector_id": "CONN-CROSSREF-001",
+      "name": "Crossref",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "status": "ok",
+      "http_status": 200,
+      "elapsed_ms": 1084.1,
+      "documents_discovered": 10,
+      "documents_downloaded": 10,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "2026-07-17T07:31:17+00:00",
+      "urls": [
+        "https://api.crossref.org/works/10.14429/djlit.41.5.16406",
+        "https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108",
+        "https://api.crossref.org/works/10.47191/ijmei/v10i2.01",
+        "https://api.crossref.org/works/10.59141/jiss.v4i07.855",
+        "https://api.crossref.org/works/10.7454/jipk.v24i2.003"
+      ],
+      "error": null,
+      "rank_score": 84.468
+    },
+    {
       "connector_id": "CONN-KEMENPERIN-001",
       "name": "Kemenperin",
       "source_id": "SRC-000007",
       "source_name": "Kemenperin",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 94197.8,
+      "elapsed_ms": 93995.7,
       "documents_discovered": 0,
-      "documents_downloaded": 0,
+      "documents_downloaded": 11,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
@@ -425,15 +425,15 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:22:23+00:00",
+      "retrieved_at": "2026-07-17T07:32:50+00:00",
       "checksum": "5dfd7bf054d2c4cbcb523b57eddd7983eb9fe7d2e0e8fb97319f6662043cdf2c",
-      "size": 2641,
-      "bytes": 2641,
-      "content_type": "application/json",
-      "document_type": "json",
+      "size": 71288,
+      "bytes": 71288,
+      "content_type": "text/html",
+      "document_type": "html",
       "status": "completed",
-      "fetch_mode": "download",
-      "priority_score": 73.881
+      "fetch_mode": "download+fulltext",
+      "priority_score": 73.691
     },
     {
       "document_id": "DOC-C8336B1CF486",
@@ -443,15 +443,15 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:22:30+00:00",
+      "retrieved_at": "2026-07-17T07:32:57+00:00",
       "checksum": "c8336b1cf486d134f9e23d5522dc987d6d0d8d657526f6e6d6a6287eeab0f587",
-      "size": 44294,
-      "bytes": 44294,
+      "size": 44369,
+      "bytes": 44369,
       "content_type": "text/html",
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "metadata_fallback+fulltext",
-      "priority_score": 70.721
+      "priority_score": 70.727
     },
     {
       "document_id": "DOC-A99E56C64737",
@@ -461,7 +461,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:23:47+00:00",
+      "retrieved_at": "2026-07-17T07:33:02+00:00",
       "checksum": "a99e56c64737a010e4fc0ef969d5822960c58ee251a8086a3decf71393fa8d25",
       "size": 17390,
       "bytes": 17390,
@@ -469,7 +469,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 69.505
+      "priority_score": 69.449
     },
     {
       "document_id": "DOC-50B3F3BC8DEB",
@@ -479,7 +479,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:23:48+00:00",
+      "retrieved_at": "2026-07-17T07:33:02+00:00",
       "checksum": "50b3f3bc8deb55036d30e3fe5b494a40b86d6d60054779d55e78eeef652823d3",
       "size": 31872,
       "bytes": 31872,
@@ -487,7 +487,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download+fulltext",
-      "priority_score": 73.881
+      "priority_score": 73.691
     },
     {
       "document_id": "DOC-7C7239075702",
@@ -497,7 +497,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:23:58+00:00",
+      "retrieved_at": "2026-07-17T07:33:13+00:00",
       "checksum": "7c723907570202bafd12cf011148ecdbd54ef2b605a507827ee77cc4af5e87e0",
       "size": 586,
       "bytes": 586,
@@ -505,7 +505,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 66.054
+      "priority_score": 66.06
     },
     {
       "document_id": "DOC-D733F4309CB6",
@@ -515,7 +515,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:24:00+00:00",
+      "retrieved_at": "2026-07-17T07:33:15+00:00",
       "checksum": "d733f4309cb65d64a17c2d4c5d0486e00294886cd6c73e358698124afdf3bf17",
       "size": 122740,
       "bytes": 122740,
@@ -523,7 +523,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 67.705
+      "priority_score": 67.649
     },
     {
       "document_id": "DOC-05E7BC8EA754",
@@ -533,7 +533,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:24:01+00:00",
+      "retrieved_at": "2026-07-17T07:33:15+00:00",
       "checksum": "05e7bc8ea754238437e5cb71251ed96f565843925ac0a1b8c29c096f3211abb3",
       "size": 3554,
       "bytes": 3554,
@@ -541,7 +541,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 71.481
+      "priority_score": 71.291
     },
     {
       "document_id": "DOC-362992E54B77",
@@ -551,7 +551,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:25:19+00:00",
+      "retrieved_at": "2026-07-17T07:34:14+00:00",
       "checksum": "362992e54b774e12645bb71c860020d843fbd102c305b884edf27deac4550760",
       "size": 51521,
       "bytes": 51521,
@@ -559,7 +559,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "metadata_fallback+fulltext",
-      "priority_score": 66.054
+      "priority_score": 66.06
     },
     {
       "document_id": "DOC-6C9F71B60D42",
@@ -569,7 +569,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:25:25+00:00",
+      "retrieved_at": "2026-07-17T07:34:21+00:00",
       "checksum": "6c9f71b60d4256edb8b38d187ca912fac95109c2e9558c600756834fcfd84842",
       "size": 122773,
       "bytes": 122773,
@@ -577,7 +577,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 67.705
+      "priority_score": 67.649
     },
     {
       "document_id": "DOC-6768188378B0",
@@ -587,7 +587,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:25:26+00:00",
+      "retrieved_at": "2026-07-17T07:34:21+00:00",
       "checksum": "6768188378b0dc5e638837848896edfa5b1f6548c6080aa826155d4fb7e798cc",
       "size": 68959,
       "bytes": 68959,
@@ -595,7 +595,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download+fulltext",
-      "priority_score": 71.481
+      "priority_score": 71.291
     },
     {
       "document_id": "DOC-62F50045E190",
@@ -605,7 +605,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:25:33+00:00",
+      "retrieved_at": "2026-07-17T07:34:28+00:00",
       "checksum": "62f50045e190b3a377f08313d606429b9c76323e931c97385068c6cc492b594c",
       "size": 617,
       "bytes": 617,
@@ -613,7 +613,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 66.054
+      "priority_score": 66.06
     },
     {
       "document_id": "DOC-D6B3FE367419",
@@ -623,7 +623,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:25:39+00:00",
+      "retrieved_at": "2026-07-17T07:34:35+00:00",
       "checksum": "d6b3fe36741968559eb87f25fd75d58a13ce4ef71fc02e95190a5be9d6a3e5d6",
       "size": 122976,
       "bytes": 122976,
@@ -631,7 +631,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 67.705
+      "priority_score": 67.649
     },
     {
       "document_id": "DOC-9D814DA54F80",
@@ -641,7 +641,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:25:39+00:00",
+      "retrieved_at": "2026-07-17T07:34:36+00:00",
       "checksum": "9d814da54f80374f81ab2a2d8993bc1806ff9e690cfb14b57e07bbce054cb1e6",
       "size": 1315824,
       "bytes": 1315824,
@@ -649,7 +649,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download+fulltext",
-      "priority_score": 71.481
+      "priority_score": 71.291
     },
     {
       "document_id": "DOC-7F19EEE4229E",
@@ -659,7 +659,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:25:47+00:00",
+      "retrieved_at": "2026-07-17T07:34:42+00:00",
       "checksum": "7f19eee4229ef1f08d35ef970d02f9a25f9b666bfc075a10d7aa2acd0d798753",
       "size": 595,
       "bytes": 595,
@@ -667,7 +667,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 66.054
+      "priority_score": 66.06
     },
     {
       "document_id": "DOC-36015274522E",
@@ -677,7 +677,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:25:49+00:00",
+      "retrieved_at": "2026-07-17T07:34:43+00:00",
       "checksum": "36015274522e2e6495e59a86d7e40f1afb53bedbbc2d7e83d953e31f9c6c9ed6",
       "size": 122929,
       "bytes": 122929,
@@ -685,7 +685,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 67.705
+      "priority_score": 67.649
     },
     {
       "document_id": "DOC-5FBA0F15E0B9",
@@ -695,7 +695,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:25:49+00:00",
+      "retrieved_at": "2026-07-17T07:34:43+00:00",
       "checksum": "5fba0f15e0b9cbb96eb5c52ef00a542c65fa24479d77a7d05799abc9d910bc02",
       "size": 78,
       "bytes": 78,
@@ -703,7 +703,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-F825C3BB9600",
@@ -713,7 +713,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:25:49+00:00",
+      "retrieved_at": "2026-07-17T07:34:43+00:00",
       "checksum": "f825c3bb9600400a38fbbc09e9432abca4da3bd0f8ce4200498be334346d73a3",
       "size": 9156,
       "bytes": 9156,
@@ -721,7 +721,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 71.481
+      "priority_score": 71.291
     },
     {
       "document_id": "DOC-48F28F9C145F",
@@ -731,7 +731,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:25:58+00:00",
+      "retrieved_at": "2026-07-17T07:34:47+00:00",
       "checksum": "48f28f9c145f69ebc73e6cd6eaa9427ea989a7019810b498397a42e0b14a750f",
       "size": 700,
       "bytes": 700,
@@ -739,25 +739,25 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 63.654
+      "priority_score": 63.66
     },
     {
-      "document_id": "DOC-FDFEB20D47AF",
+      "document_id": "DOC-FCFEA0A00264",
       "title": "Indonesia - Higher Education Support and Higher Education Reform Projects",
       "url": "http://documents.worldbank.org/curated/en/170561538243538219/Indonesia-Higher-Education-Support-and-Higher-Education-Reform-Projects",
       "source_id": "SRC-000004",
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:26:00+00:00",
-      "checksum": "fdfeb20d47af8ee59e78392ccf85e7798b70e53d0b33f0f86bfb9fb22e59b6cc",
-      "size": 122910,
-      "bytes": 122910,
+      "retrieved_at": "2026-07-17T07:34:50+00:00",
+      "checksum": "fcfea0a002648fdb319f0c16cf636934c148ce39b6c3bb22e49ff04191af5d5b",
+      "size": 122488,
+      "bytes": 122488,
       "content_type": "text/html",
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 67.705
+      "priority_score": 67.649
     },
     {
       "document_id": "DOC-859D2142FF21",
@@ -767,7 +767,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:00+00:00",
+      "retrieved_at": "2026-07-17T07:34:50+00:00",
       "checksum": "859d2142ff2174ae7554253cb8c5abc13d199362371d515b3ec5e216f7866c48",
       "size": 85,
       "bytes": 85,
@@ -775,7 +775,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-2AE2C7E68DAF",
@@ -785,7 +785,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:26:00+00:00",
+      "retrieved_at": "2026-07-17T07:34:50+00:00",
       "checksum": "2ae2c7e68daf016ee3cb28a041ad650bee6689519974c0648bdf3861fbf7c5b5",
       "size": 55140,
       "bytes": 55140,
@@ -793,7 +793,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download+fulltext",
-      "priority_score": 71.481
+      "priority_score": 71.291
     },
     {
       "document_id": "DOC-0C15999FB55C",
@@ -803,7 +803,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:26:01+00:00",
+      "retrieved_at": "2026-07-17T07:34:53+00:00",
       "checksum": "0c15999fb55c46902306e86cff634b11b7845bcf5f760c9fb275280ddd7e2997",
       "size": 49867,
       "bytes": 49867,
@@ -811,7 +811,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "metadata_fallback+fulltext",
-      "priority_score": 63.654
+      "priority_score": 63.66
     },
     {
       "document_id": "DOC-F6CD6F9317D5",
@@ -821,7 +821,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:26:07+00:00",
+      "retrieved_at": "2026-07-17T07:34:59+00:00",
       "checksum": "f6cd6f9317d5719c033a14d31c5ba44a53a53f08f2adc24fe405bb17546e6fd3",
       "size": 122988,
       "bytes": 122988,
@@ -829,7 +829,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 67.705
+      "priority_score": 67.649
     },
     {
       "document_id": "DOC-086852F73EE0",
@@ -839,7 +839,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:07+00:00",
+      "retrieved_at": "2026-07-17T07:34:59+00:00",
       "checksum": "086852f73ee06d6f1ab0ba528e7b81d6ca1e250a7a5c041cd5f4d4e93eba9dcd",
       "size": 94,
       "bytes": 94,
@@ -847,7 +847,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-2AB16A333F59",
@@ -857,7 +857,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:26:07+00:00",
+      "retrieved_at": "2026-07-17T07:34:59+00:00",
       "checksum": "2ab16a333f594004a6ce724ba288ec51bbf63911375ba207c0cadb812e78a4e6",
       "size": 3620,
       "bytes": 3620,
@@ -865,7 +865,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 69.081
+      "priority_score": 68.891
     },
     {
       "document_id": "DOC-72B3224209C4",
@@ -875,7 +875,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:26:10+00:00",
+      "retrieved_at": "2026-07-17T07:35:05+00:00",
       "checksum": "72b3224209c4c890e93f7ce82da1f2f1bcc5d68150599e76e10c0546d992fffa",
       "size": 610,
       "bytes": 610,
@@ -883,7 +883,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 61.387
+      "priority_score": 61.394
     },
     {
       "document_id": "DOC-AB0089813306",
@@ -893,7 +893,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:26:16+00:00",
+      "retrieved_at": "2026-07-17T07:35:10+00:00",
       "checksum": "ab0089813306355810abdaeed16a71c0aec6601f83f9f7960b8a687dc499572e",
       "size": 123028,
       "bytes": 123028,
@@ -901,7 +901,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 67.705
+      "priority_score": 67.649
     },
     {
       "document_id": "DOC-8FDD77E53A4E",
@@ -911,7 +911,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:16+00:00",
+      "retrieved_at": "2026-07-17T07:35:10+00:00",
       "checksum": "8fdd77e53a4eee537425d939b7412df2eda0aeebb42e7cc32e2be16969d0044b",
       "size": 175,
       "bytes": 175,
@@ -919,7 +919,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-FA192923E2E0",
@@ -929,7 +929,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:26:16+00:00",
+      "retrieved_at": "2026-07-17T07:35:10+00:00",
       "checksum": "fa192923e2e0267a4c346edfb1488252740352952416b77bb46ea175fa92e939",
       "size": 35991,
       "bytes": 35991,
@@ -937,7 +937,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 66.681
+      "priority_score": 66.491
     },
     {
       "document_id": "DOC-C6A9648CAF13",
@@ -947,7 +947,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:26:18+00:00",
+      "retrieved_at": "2026-07-17T07:35:11+00:00",
       "checksum": "c6a9648caf130ee65b89cddea0afac291bec7246c75697b6a13ded1a82b0e63a",
       "size": 111840,
       "bytes": 111840,
@@ -955,7 +955,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "metadata_fallback+fulltext",
-      "priority_score": 56.587
+      "priority_score": 56.594
     },
     {
       "document_id": "DOC-E474CD22020E",
@@ -965,7 +965,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:26:22+00:00",
+      "retrieved_at": "2026-07-17T07:35:17+00:00",
       "checksum": "e474cd22020efa9aec61c9f681fef16ed3422ae3408a2c45b68e9c4dcccdff9a",
       "size": 123028,
       "bytes": 123028,
@@ -973,7 +973,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 67.705
+      "priority_score": 67.649
     },
     {
       "document_id": "DOC-72A1DAB841AA",
@@ -983,7 +983,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:22+00:00",
+      "retrieved_at": "2026-07-17T07:35:17+00:00",
       "checksum": "72a1dab841aa1a5a06a3a45e32018995beb24e8e1d77dabd657ec376dd957b93",
       "size": 154,
       "bytes": 154,
@@ -991,7 +991,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-CEBB266D97BD",
@@ -1001,7 +1001,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-07-17T04:26:22+00:00",
+      "retrieved_at": "2026-07-17T07:35:17+00:00",
       "checksum": "cebb266d97bd4622a751584d4463b7ef5c6827a2c2af792794e3d949ed6f1395",
       "size": 2330,
       "bytes": 2330,
@@ -1009,7 +1009,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 66.681
+      "priority_score": 66.491
     },
     {
       "document_id": "DOC-CA19FA59FBE9",
@@ -1019,7 +1019,7 @@
       "source_name": "OpenAlex",
       "connector_id": "CONN-OPENALEX-001",
       "connector_name": "OpenAlex",
-      "retrieved_at": "2026-07-17T04:26:22+00:00",
+      "retrieved_at": "2026-07-17T07:35:19+00:00",
       "checksum": "ca19fa59fbe9e1dd8ad9455e4e88bb043375860e396ddf84d12db45edca858c2",
       "size": 587,
       "bytes": 587,
@@ -1027,7 +1027,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 56.587
+      "priority_score": 56.594
     },
     {
       "document_id": "DOC-35DE083B7664",
@@ -1037,7 +1037,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:26:24+00:00",
+      "retrieved_at": "2026-07-17T07:35:20+00:00",
       "checksum": "35de083b7664d3ce3dd7a413d62fddf17be8b068a5b7797d5bf22b51b4e9ef22",
       "size": 123258,
       "bytes": 123258,
@@ -1045,7 +1045,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 63.038
+      "priority_score": 62.982
     },
     {
       "document_id": "DOC-708BA37EBD5C",
@@ -1055,7 +1055,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:24+00:00",
+      "retrieved_at": "2026-07-17T07:35:21+00:00",
       "checksum": "708ba37ebd5c4cbfa1bc861f1ee24b5cd933447bfde66e3263f701fe5eefbcff",
       "size": 160,
       "bytes": 160,
@@ -1063,7 +1063,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-F5F19A5C99F1",
@@ -1073,7 +1073,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-07-17T04:26:32+00:00",
+      "retrieved_at": "2026-07-17T07:35:29+00:00",
       "checksum": "f5f19a5c99f13152226a6755f2b6844c9963c7a99fbfeebdaeac517bbd4e751d",
       "size": 446,
       "bytes": 446,
@@ -1081,7 +1081,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 63.038
+      "priority_score": 62.982
     },
     {
       "document_id": "DOC-F2BF8FA340F8",
@@ -1091,7 +1091,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:26+00:00",
+      "retrieved_at": "2026-07-17T07:35:23+00:00",
       "checksum": "f2bf8fa340f8aa4e4a5bc59c76bc196b742eccc7da58d4c2effa9b0c8d82f7f5",
       "size": 228,
       "bytes": 228,
@@ -1099,7 +1099,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-3E1CA71C0311",
@@ -1109,7 +1109,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:26+00:00",
+      "retrieved_at": "2026-07-17T07:35:23+00:00",
       "checksum": "3e1ca71c0311a1a12f0606a48c4b64d5123ee0d80b8df0d7a16d29c65bdf6bbf",
       "size": 245,
       "bytes": 245,
@@ -1117,7 +1117,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-65FC704A4D9D",
@@ -1127,7 +1127,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:26+00:00",
+      "retrieved_at": "2026-07-17T07:35:23+00:00",
       "checksum": "65fc704a4d9d302b2c1345b8e97715f44fb3bc6544e18edbe1bd964f13a9b434",
       "size": 208,
       "bytes": 208,
@@ -1135,7 +1135,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-0DE6D8F8C910",
@@ -1145,7 +1145,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:26+00:00",
+      "retrieved_at": "2026-07-17T07:35:24+00:00",
       "checksum": "0de6d8f8c910535099b54de2fd8d67f4bea879ea428f9a29c9e2833334eed13e",
       "size": 149,
       "bytes": 149,
@@ -1153,7 +1153,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-2F7C49C3E453",
@@ -1163,7 +1163,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:24+00:00",
       "checksum": "2f7c49c3e453c5e1703533d46aafc76a494eac395c98b63f5ea3f0fdabcff3fa",
       "size": 213,
       "bytes": 213,
@@ -1171,7 +1171,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-7A131D726BF1",
@@ -1181,7 +1181,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:24+00:00",
       "checksum": "7a131d726bf16db458fa5d7f0af097a2f5fe6795fc6882ba5320aa0b0ae0dd82",
       "size": 173,
       "bytes": 173,
@@ -1189,7 +1189,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-067282F2AF34",
@@ -1199,7 +1199,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:24+00:00",
       "checksum": "067282f2af34c0810a0d093236cae5f8676accef83e5f6637b1b5406d077298d",
       "size": 178,
       "bytes": 178,
@@ -1207,7 +1207,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-8D8AB77BAAB8",
@@ -1217,7 +1217,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:24+00:00",
       "checksum": "8d8ab77baab8e240db01b03e474cfa60fe13552ba0738a36646bc57ff14ab3ec",
       "size": 256,
       "bytes": 256,
@@ -1225,7 +1225,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-70D6699EC9BC",
@@ -1235,7 +1235,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:24+00:00",
       "checksum": "70d6699ec9bce1262836062082125e1b6b8418b77c0925f7a09354675586146d",
       "size": 255,
       "bytes": 255,
@@ -1243,7 +1243,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-C5495E6B0544",
@@ -1253,7 +1253,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:24+00:00",
       "checksum": "c5495e6b05442337620296218f60fab91b2ab5c3a81cde3a3f7aba2423cff24a",
       "size": 173,
       "bytes": 173,
@@ -1261,7 +1261,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-1C13E4110BCE",
@@ -1271,7 +1271,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:25+00:00",
       "checksum": "1c13e4110bcef8f5dd3f3e361d881d76bf0579571dabaed1e090b295dc47a546",
       "size": 186,
       "bytes": 186,
@@ -1279,7 +1279,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-4797FB998A54",
@@ -1289,7 +1289,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:25+00:00",
       "checksum": "4797fb998a5492f2df7bc5a9042757fd89309f1367289b5aba2e778f87513fb7",
       "size": 216,
       "bytes": 216,
@@ -1297,7 +1297,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-8903E78503B7",
@@ -1307,7 +1307,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:25+00:00",
       "checksum": "8903e78503b77d7e30e4a663f16950958165d259b6066167ea279d35d38eb7bd",
       "size": 237,
       "bytes": 237,
@@ -1315,7 +1315,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     },
     {
       "document_id": "DOC-EEB66F14A504",
@@ -1325,7 +1325,7 @@
       "source_name": "BPS Indonesia",
       "connector_id": "DISC-LAYER",
       "connector_name": "DISC-LAYER",
-      "retrieved_at": "2026-07-17T04:26:27+00:00",
+      "retrieved_at": "2026-07-17T07:35:25+00:00",
       "checksum": "eeb66f14a504784c2b0aa6628c00d44e47a80c7974a950550914cbde583817e1",
       "size": 222,
       "bytes": 222,
@@ -1333,15 +1333,15 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 62.774
+      "priority_score": 62.778
     }
   ],
   "candidates": [
     {
-      "candidate_id": "CAND-119F638DF0A7",
+      "candidate_id": "CAND-A5D0F2817B29",
       "entity": "The Influence of Service Quality on Library Users at Padang State Polytechnic",
       "name": "The Influence of Service Quality on Library Users at Padang State Polytechnic",
-      "entity_id": "SIG-000350",
+      "entity_id": "SIG-000355",
       "dataset": "business_signal_library",
       "confidence": 0.9,
       "validation_status": "approved",
@@ -1355,10 +1355,10 @@
       "connector_id": "CONN-CROSSREF-001"
     },
     {
-      "candidate_id": "CAND-E13B13782F7A",
+      "candidate_id": "CAND-565FC4A5889E",
       "entity": "The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches",
       "name": "The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches",
-      "entity_id": "SIG-000351",
+      "entity_id": "SIG-000356",
       "dataset": "business_signal_library",
       "confidence": 0.88,
       "validation_status": "approved",
@@ -1372,10 +1372,10 @@
       "connector_id": "CONN-OPENALEX-001"
     },
     {
-      "candidate_id": "CAND-2868F8C0DE7B",
+      "candidate_id": "CAND-E6010C04FE20",
       "entity": "World Bank document",
       "name": "World Bank document",
-      "entity_id": "SIG-000352",
+      "entity_id": "SIG-000357",
       "dataset": "business_signal_library",
       "confidence": 0.92,
       "validation_status": "approved",
@@ -1389,10 +1389,10 @@
       "connector_id": "CONN-WB-001"
     },
     {
-      "candidate_id": "CAND-D71DFF3E376A",
+      "candidate_id": "CAND-C86EE345CFF8",
       "entity": "Development of the Siak Library and Archives Service (2004-2022)",
       "name": "Development of the Siak Library and Archives Service (2004-2022)",
-      "entity_id": "SIG-000353",
+      "entity_id": "SIG-000358",
       "dataset": "business_signal_library",
       "confidence": 0.9,
       "validation_status": "approved",
@@ -1406,10 +1406,10 @@
       "connector_id": "CONN-CROSSREF-001"
     },
     {
-      "candidate_id": "CAND-A30DC3F2212D",
+      "candidate_id": "CAND-5234CCA1907C",
       "entity": "New normal and library services in Indonesia: a case study of university libraries",
       "name": "New normal and library services in Indonesia: a case study of university libraries",
-      "entity_id": "SIG-000354",
+      "entity_id": "SIG-000359",
       "dataset": "business_signal_library",
       "confidence": 0.88,
       "validation_status": "approved",
@@ -1447,8 +1447,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "The Influence of Service Quality on Library Users at Padang State Polytechnic",
-      "entity_id": "SIG-000350",
-      "candidate_id": "CAND-119F638DF0A7",
+      "entity_id": "SIG-000355",
+      "candidate_id": "CAND-A5D0F2817B29",
       "document_id": "DOC-5DFD7BF054D2",
       "document_title": "The Influence of Service Quality on Library Users at Padang State Polytechnic",
       "connector_id": "CONN-CROSSREF-001",
@@ -1462,8 +1462,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches",
-      "entity_id": "SIG-000351",
-      "candidate_id": "CAND-E13B13782F7A",
+      "entity_id": "SIG-000356",
+      "candidate_id": "CAND-565FC4A5889E",
       "document_id": "DOC-C8336B1CF486",
       "document_title": "The biodiversity and ecosystem service contributions and trade-offs of forest restoration approaches",
       "connector_id": "CONN-OPENALEX-001",
@@ -1477,8 +1477,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "World Bank document",
-      "entity_id": "SIG-000352",
-      "candidate_id": "CAND-2868F8C0DE7B",
+      "entity_id": "SIG-000357",
+      "candidate_id": "CAND-E6010C04FE20",
       "document_id": "DOC-A99E56C64737",
       "document_title": "World Bank document",
       "connector_id": "CONN-WB-001",
@@ -1492,8 +1492,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "Development of the Siak Library and Archives Service (2004-2022)",
-      "entity_id": "SIG-000353",
-      "candidate_id": "CAND-D71DFF3E376A",
+      "entity_id": "SIG-000358",
+      "candidate_id": "CAND-C86EE345CFF8",
       "document_id": "DOC-50B3F3BC8DEB",
       "document_title": "Development of the Siak Library and Archives Service (2004-2022)",
       "connector_id": "CONN-CROSSREF-001",
@@ -1507,8 +1507,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "New normal and library services in Indonesia: a case study of university libraries",
-      "entity_id": "SIG-000354",
-      "candidate_id": "CAND-A30DC3F2212D",
+      "entity_id": "SIG-000359",
+      "candidate_id": "CAND-5234CCA1907C",
       "document_id": "DOC-7C7239075702",
       "document_title": "New normal and library services in Indonesia: a case study of university libraries",
       "connector_id": "CONN-OPENALEX-001",
