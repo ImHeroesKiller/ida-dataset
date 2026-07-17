@@ -1,13 +1,13 @@
 # Evidence Trace
 
-**Session:** `SES-20260717-E94A80`
+**Session:** `SES-20260717-B4B824`
 
 Every published row → candidate → document → connector → source.
 
 ## The Influence of Service Quality on Library Users at Padang State Polytechnic
 
-- **Dataset row:** `SIG-000375` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
-- **Candidate:** `CAND-EBC9E971CA0E`
+- **Dataset row:** `SIG-000380` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
+- **Candidate:** `CAND-EE41532A5E80`
 - **Document:** `DOC-5DFD7BF054D2` · The Influence of Service Quality on Library Users at Padang State Polytechnic
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -16,28 +16,18 @@ Every published row → candidate → document → connector → source.
 
 ## World Bank document
 
-- **Dataset row:** `SIG-000376` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-9068E73AD72F`
+- **Dataset row:** `SIG-000381` · World Bank document (business_signal_library)
+- **Candidate:** `CAND-8CA6977D8E36`
 - **Document:** `DOC-A99E56C64737` · World Bank document
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
 - **URL:** https://documents.worldbank.org/search?q=service+library+Indonesia
 - **Confidence:** 0.92
 
-## New normal and library services in Indonesia: a case study of university libraries
-
-- **Dataset row:** `SIG-000377` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
-- **Candidate:** `CAND-6A3DE0C21A2A`
-- **Document:** `DOC-7C7239075702` · New normal and library services in Indonesia: a case study of university libraries
-- **Connector:** OpenAlex (`CONN-OPENALEX-001`)
-- **Source:** OpenAlex (`SRC-OPENALEX`)
-- **URL:** https://openalex.org/W3095315355
-- **Confidence:** 0.88
-
 ## Development of the Siak Library and Archives Service (2004-2022)
 
-- **Dataset row:** `SIG-000378` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
-- **Candidate:** `CAND-A4897B61D868`
+- **Dataset row:** `SIG-000382` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
+- **Candidate:** `CAND-20BF7B4CAADE`
 - **Document:** `DOC-50B3F3BC8DEB` · Development of the Siak Library and Archives Service (2004-2022)
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -46,10 +36,20 @@ Every published row → candidate → document → connector → source.
 
 ## Indonesia - Library Development Project
 
-- **Dataset row:** `SIG-000379` · Indonesia - Library Development Project (business_signal_library)
-- **Candidate:** `CAND-D8D8FADC99AF`
-- **Document:** `DOC-2430A598BF3B` · Indonesia - Library Development Project
+- **Dataset row:** `SIG-000383` · Indonesia - Library Development Project (business_signal_library)
+- **Candidate:** `CAND-FE6F4FFF3A05`
+- **Document:** `DOC-D733F4309CB6` · Indonesia - Library Development Project
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
 - **URL:** http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-Development-Project
 - **Confidence:** 0.92
+
+## Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia
+
+- **Dataset row:** `SIG-000384` · Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia (business_signal_library)
+- **Candidate:** `CAND-9330E3DAEA96`
+- **Document:** `DOC-05E7BC8EA754` · Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia
+- **Connector:** Crossref (`CONN-CROSSREF-001`)
+- **Source:** Crossref (`SRC-CROSSREF`)
+- **URL:** https://api.crossref.org/works/10.14429/djlit.41.5.16406
+- **Confidence:** 0.9

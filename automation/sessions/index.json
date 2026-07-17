@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-07-17T13:58:58+00:00",
+  "updated_at": "2026-07-17T15:32:17+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260717-211594",
+      "path": "automation/sessions/2026-07-17/SESSION-20260717-211594.json",
+      "start_time": "2026-07-17T15:15:42+00:00",
+      "end_time": "2026-07-17T15:32:17+00:00",
+      "duration_seconds": 995.0,
+      "status": "completed",
+      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=64 entity=The Influence of Service Quality on Library Users at Padang State Polytechnic",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 298,
+      "github": {
+        "run_id": "29591331790",
+        "run_number": "109",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "11fd6265089d75678eb6cfdf44d50af505f4ee36",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260717-36EF89",
       "path": "automation/sessions/2026-07-17/SESSION-20260717-36EF89.json",
@@ -1368,34 +1396,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "schedule",
         "sha": "0633edc1206f14386d4b0e5daf82e5ef0e5b65d0",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260712-EED5D2",
-      "path": "automation/sessions/2026-07-12/SESSION-20260712-EED5D2.json",
-      "start_time": "2026-07-12T16:05:36+00:00",
-      "end_time": "2026-07-12T16:24:07+00:00",
-      "duration_seconds": 1111.0,
-      "status": "completed",
-      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
-      "knowledge_added": 5,
-      "knowledge_updated": 0,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=105 entity=The Influence of Service Quality on Library Users at Padang State Polytechnic",
-      "trigger": "schedule",
-      "dry_run": false,
-      "events": 556,
-      "github": {
-        "run_id": "29199448337",
-        "run_number": "50",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "schedule",
-        "sha": "a5d9da2df73fa1276a065279ab241959633416e3",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
