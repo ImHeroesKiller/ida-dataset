@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260717-A6F9FB`
+**Session:** `SES-20260717-E94A80`
 
 ## Queue counts
 
@@ -8,9 +8,9 @@
 |-------|------:|
 | queued | 0 |
 | processing | 0 |
-| completed | 73 |
+| completed | 74 |
 | failed | 0 |
-| duplicates | 24 |
+| duplicates | 23 |
 
 ## Documents
 
@@ -46,6 +46,7 @@
 | `DOC-CEBB266D97BD` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2330 | https://api.crossref.org/works/10.1086/217180 |
 | `DOC-35DE083B7664` | SRC-000004 | CONN-WB-001 | text/html | completed | 123258 | http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-D |
 | `DOC-CA19FA59FBE9` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 587 | https://openalex.org/W2168492123 |
+| `DOC-9057190DB24B` | SRC-000004 | CONN-WB-001 | text/html | completed | 123282 | http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-D |
 | `DOC-C1C8D7931100` | SRC-000004 | DISC-LAYER | text/plain | completed | 115 | https://www.worldbank.org/%20en/country/madagascar/overview |
 | `DOC-63E9EB2E5A2F` | SRC-000004 | DISC-LAYER | text/plain | completed | 132 | https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 |
 | `DOC-5FB511CEE340` | SRC-000004 | DISC-LAYER | text/plain | completed | 91 | https://www.worldbank.org/%E3%80%80 |

@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-07-17T12:15:10+00:00
+**Generated:** 2026-07-17T14:00:23+00:00
 
 - Fingerprint URLs known: **92**
 - Fingerprint hashes known: **92**
-- Fingerprint stats: `{'skips': 12, 'adds': 92}`
-- Trace summary: discovered=31 downloaded=73 duplicates=24
+- Fingerprint stats: `{'skips': 11, 'adds': 92}`
+- Trace summary: discovered=31 downloaded=74 duplicates=23
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -39,6 +39,7 @@
 | DOC-CEBB266D97BD | https://api.crossref.org/works/10.1086/217180 | cebb266d97bd4622 | True | False | False | False | True | completed |
 | DOC-35DE083B7664 | http://documents.worldbank.org/curated/en/512221468041424443 | 35de083b7664d3ce | True | False | False | False | True | completed |
 | DOC-CA19FA59FBE9 | https://openalex.org/W2168492123 | ca19fa59fbe9e1dd | True | False | False | False | True | completed |
+| DOC-9057190DB24B | http://documents.worldbank.org/curated/en/627981468752778622 | 9057190db24b7d53 | True | False | False | False | True | completed |
 | DOC-C1C8D7931100 | https://www.worldbank.org/%20en/country/madagascar/overview | c1c8d793110074b6 | True | False | False | False | True | completed |
 | DOC-63E9EB2E5A2F | https://www.worldbank.org/%E2%80%A6/global-action-urgently-n | 63e9eb2e5a2fca92 | True | False | False | False | True | completed |
 | DOC-5FB511CEE340 | https://www.worldbank.org/%E3%80%80 | 5fb511cee340eddf | True | False | False | False | True | completed |
