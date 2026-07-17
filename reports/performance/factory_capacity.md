@@ -1,23 +1,23 @@
 # Factory Capacity
 
-**Generated:** 2026-07-17T08:37:28+00:00
+**Generated:** 2026-07-17T10:16:58+00:00
 
 | Dimension | Value |
 |-----------|------:|
-| Rows/hour | 17.42 |
-| Docs/hour | 257.85 |
-| Rows/session | 4.57 |
+| Rows/hour | 17.59 |
+| Docs/hour | 105.54 |
+| Rows/session | 4.575 |
 | Top connector | SRC-CROSSREF |
 | Top source | SRC-CROSSREF |
 | Top mission | corporate governance — service knowledge for Corporate Governance — continuous k |
-| Avg connector latency (ms) | 13792.9 |
+| Avg connector latency (ms) | 13954.0 |
 | Worker utilization | 1.0 |
 | Document queue depth | 0 |
 | Candidate queue depth | 0 |
 | Publish queue depth | 7 |
-| Process ratio | 349.6% |
-| Knowledge growth velocity | 4.57 rows/productive session |
-| Production efficiency | 0.068 rows/doc |
+| Process ratio | 348.2% |
+| Knowledge growth velocity | 4.575 rows/productive session |
+| Production efficiency | 0.167 rows/doc |
 | Auto-publish confidence gate | 0.92 |
 | Automatic publish (last) | 5 |
 | Manual review (last) | 0 |
