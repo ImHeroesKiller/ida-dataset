@@ -1,15 +1,15 @@
 # Provider Health
 
-**Generated:** 2026-07-18T05:41:02+00:00
+**Generated:** 2026-07-18T08:06:47+00:00
 
 | Provider | Operational | Health | Credentials | Latency ms | Message |
 |----------|-------------|--------|-------------|-----------:|---------|
-| Tavily (primary) | ACTIVE | ERROR | True | 294.6 | connectivity_failed:HTTPError |
+| Tavily (primary) | ACTIVE | ERROR | True | 145.3 | connectivity_failed:HTTPError |
 | Trusted Site Search (connector-backed) | ACTIVE | healthy | True | 0.0 | always_available |
 | Sitemap Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
 | RSS Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
 | Atom Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
-| Common Crawl Index | ACTIVE | healthy | True | 0.01 | toggle |
+| Common Crawl Index | ACTIVE | healthy | True | 0.0 | toggle |
 | OpenSearch Description | ACTIVE | idle | True | 0.0 | optional |
 | Google Programmable Search | DISABLED | offline | False | 0.0 | missing_credentials |
 | Bing Web Search API | DISABLED | offline | False | 0.0 | missing_credentials |
