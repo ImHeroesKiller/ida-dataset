@@ -2,13 +2,13 @@
 
 ```json
 {
-  "requested": 85,
+  "requested": 86,
   "downloaded": 21,
   "not_modified": 0,
   "skipped_duplicate": 5,
-  "failed": 59,
-  "bytes": 1464831,
-  "elapsed_ms": 108780.50000000001,
+  "failed": 60,
+  "bytes": 1464819,
+  "elapsed_ms": 97520.50000000001,
   "retries": 40,
   "max_workers": 2,
   "adaptive_workers": 2,

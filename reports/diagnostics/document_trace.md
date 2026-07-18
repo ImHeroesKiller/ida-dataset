@@ -1,6 +1,6 @@
 # Document Trace
 
-**Generated:** 2026-07-18T17:31:08+00:00
+**Generated:** 2026-07-18T19:29:50+00:00
 
 - Fingerprint URLs known: **92**
 - Fingerprint hashes known: **92**
@@ -16,7 +16,7 @@
 | DOC-C59E093AE6F0 | http://documents.worldbank.org/curated/en/726241468752365494 | c59e093ae6f0be11 | True | False | False | False | True | completed |
 | DOC-362992E54B77 | https://openalex.org/W4312346959 | 362992e54b774e12 | True | False | False | False | True | completed |
 | DOC-05E7BC8EA754 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 | 05e7bc8ea7542384 | True | False | False | False | True | completed |
-| DOC-6C9F71B60D42 | http://documents.worldbank.org/curated/en/865071474569449459 | 6c9f71b60d4256ed | True | False | False | False | True | completed |
+| DOC-3ADBF95F2F3A | http://documents.worldbank.org/curated/en/865071474569449459 | 3adbf95f2f3a8de6 | True | False | False | False | True | completed |
 | DOC-62F50045E190 | https://openalex.org/W3132509763 | 62f50045e190b3a3 | True | False | False | False | True | completed |
 | DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
 | DOC-55E9F597A339 | http://documents.worldbank.org/curated/en/146431468052778758 | 55e9f597a339bca9 | True | False | False | False | True | completed |
@@ -35,8 +35,8 @@
 | DOC-FA192923E2E0 | https://api.crossref.org/works/10.1108/lm-05-2012-0025 | fa192923e2e0267a | True | False | False | False | True | completed |
 | DOC-C6A9648CAF13 | https://openalex.org/W2106787323 | c6a9648caf130ee6 | True | False | False | False | True | completed |
 | DOC-CEBB266D97BD | https://api.crossref.org/works/10.1086/217180 | cebb266d97bd4622 | True | False | False | False | True | completed |
-| DOC-38EFBAA0AD6C | http://documents.worldbank.org/curated/en/512221468041424443 | 38efbaa0ad6ce21e | True | False | False | False | True | completed |
 | DOC-CA19FA59FBE9 | https://openalex.org/W2168492123 | ca19fa59fbe9e1dd | True | False | False | False | True | completed |
+| DOC-F5F19A5C99F1 | http://documents.worldbank.org/curated/en/627981468752778622 | f5f19a5c99f13152 | True | False | False | False | True | completed |
 | DOC-C1C8D7931100 | https://www.worldbank.org/%20en/country/madagascar/overview | c1c8d793110074b6 | True | False | False | False | True | completed |
 | DOC-63E9EB2E5A2F | https://www.worldbank.org/%E2%80%A6/global-action-urgently-n | 63e9eb2e5a2fca92 | True | False | False | False | True | completed |
 | DOC-5FB511CEE340 | https://www.worldbank.org/%E3%80%80 | 5fb511cee340eddf | True | False | False | False | True | completed |
