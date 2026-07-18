@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-07-18T11:22:57+00:00
+**Generated:** 2026-07-18T13:39:22+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260718-4407D8 |
+| session_id | SESSION-20260718-29377B |
 | status | completed |
 | mission | corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_libra |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 934.0 |
+| duration_seconds | 1097.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
-| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=51 entity=The Influence of Service Quality on Li |
-| start_time | 2026-07-18T11:06:00+00:00 |
-| end_time | 2026-07-18T11:21:34+00:00 |
+| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=74 entity=The Influence of Service Quality on Li |
+| start_time | 2026-07-18T13:19:42+00:00 |
+| end_time | 2026-07-18T13:37:59+00:00 |
 
 ## Pipeline stages
 
@@ -28,22 +28,22 @@
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · |
 | source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
 | connector_calls | completed | — | 31 | — | discovered=31 |
-| document_discovery | completed | 93995.1 | 67 | — |  |
-| documents_skipped | completed | — | 16 | — | duplicates_or_skips=16 |
-| document_download | completed | 103296.9 | 51 | — | downloaded=51 |
-| extraction | completed | 96.4 | — | 5 |  |
+| document_discovery | completed | 94188.9 | 97 | — |  |
+| documents_skipped | completed | — | 23 | — | duplicates_or_skips=23 |
+| document_download | completed | 266029.4 | 74 | — | downloaded=74 |
+| extraction | completed | 95.9 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
-| end_session | completed | — | — | — | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=51 entit |
+| end_session | completed | — | — | — | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=74 entit |
 
 ## Funnel
 
 | Metric | Value |
 | --- | --- |
 | documents_discovered | 31 |
-| documents_downloaded | 51 |
-| documents_duplicates | 16 |
+| documents_downloaded | 74 |
+| documents_duplicates | 23 |
 | candidates_extracted | 5 |
 | candidates_validated | 5 |
 | candidates_rejected | 0 |
