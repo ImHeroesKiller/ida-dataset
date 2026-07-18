@@ -1,6 +1,6 @@
 # Extraction Trace
 
-**Generated:** 2026-07-18T22:14:01+00:00
+**Generated:** 2026-07-18T23:10:22+00:00
 
 - Stage stats: `{}`
 - Fast: `None` · Medium: `None` · Deep: `None`
@@ -8,8 +8,8 @@
 
 | Candidate | Entity | Type/Dataset | Confidence | Stage | Validation | Publish |
 | --- | --- | --- | --- | --- | --- | --- |
-| CAND-9FAFF8D842A5 | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | — | approved | published |
-| CAND-8B96638C998B | World Bank document | business_signal_library | 0.92 | — | approved | published |
-| CAND-67D1020D67BA | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | — | approved | published |
-| CAND-29C8C08F7663 | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | — | approved | published |
-| CAND-F5A82C597F45 | Indonesia - Library Development Project | business_signal_library | 0.92 | — | approved | published |
+| CAND-0616C3422B01 | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | — | approved | published |
+| CAND-148A618804CB | World Bank document | business_signal_library | 0.92 | — | approved | published |
+| CAND-8EE68249F6AB | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | — | approved | published |
+| CAND-F18B12F4FAE7 | Indonesia - Library Development Project | business_signal_library | 0.92 | — | approved | published |
+| CAND-CE114C00B870 | Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia | business_signal_library | 0.9 | — | approved | published |
