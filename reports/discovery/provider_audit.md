@@ -1,6 +1,6 @@
 # Provider Audit
 
-**Generated:** 2026-07-18T15:08:05+00:00
+**Generated:** 2026-07-18T16:12:05+00:00
 
 Search engines are **discovery tools only**. Knowledge is extracted solely from trusted sources.
 
@@ -10,7 +10,7 @@ Search engines are **discovery tools only**. Knowledge is extracted solely from 
 
 | Provider | Status | Enabled | Credential | Rate limit | Daily quota | Health | Latency ms | Avg URLs | Avg docs | Yield | Reason |
 |----------|--------|---------|------------|----------:|------------:|--------|-----------:|---------:|---------:|------:|--------|
-| Tavily (primary) | **ACTIVE** | True | True | 20 | 1000 | ERROR | 232.4 | 0.0 | 0.0 | 0.0 | ready |
+| Tavily (primary) | **ACTIVE** | True | True | 20 | 1000 | ERROR | 211.6 | 0.0 | 0.0 | 0.0 | ready |
 | Trusted Site Search (connector-backed) | **ACTIVE** | True | True | 60 | 100000 | healthy | 0.0 | 0.0 | 0.0 | 0.0 | ready |
 | Sitemap Discovery | **ACTIVE** | True | True | 20 | 5000 | healthy | 0.0 | 12.0 | 12.0 | 1.0 | ready |
 | RSS Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 12.0 | 4.0 | 1.0 | ready |
@@ -58,6 +58,6 @@ These acquire documents via the connector framework after discovery.
 
 - Operational status: **ACTIVE**
 - Credential loaded: `True`
-- Probe: `{"probed": true, "ok": false, "status": "ERROR", "message": "connectivity_failed:HTTPError", "latency_ms": 232.4}`
+- Probe: `{"probed": true, "ok": false, "status": "ERROR", "message": "connectivity_failed:HTTPError", "latency_ms": 211.6}`
 
 > Providers are never silently disabled. MISCONFIGURED means enabled but credentials missing.
