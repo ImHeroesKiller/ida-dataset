@@ -1,22 +1,22 @@
 # Document Trace
 
-**Generated:** 2026-07-18T16:21:39+00:00
+**Generated:** 2026-07-18T17:31:08+00:00
 
 - Fingerprint URLs known: **92**
 - Fingerprint hashes known: **92**
-- Fingerprint stats: `{'skips': 13, 'adds': 92}`
-- Trace summary: discovered=31 downloaded=72 duplicates=25
+- Fingerprint stats: `{'skips': 14, 'adds': 92}`
+- Trace summary: discovered=31 downloaded=71 duplicates=26
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | DOC-5DFD7BF054D2 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 | 5dfd7bf054d2c4cb | True | False | False | False | True | completed |
-| DOC-3ED7FE5F0429 | https://documents.worldbank.org/search?q=service+library+Ind | 3ed7fe5f04293889 | True | False | False | False | True | completed |
+| DOC-A99E56C64737 | https://documents.worldbank.org/search?q=service+library+Ind | a99e56c64737a010 | True | False | False | False | True | completed |
 | DOC-7C7239075702 | https://openalex.org/W3095315355 | 7c723907570202ba | True | False | False | False | True | completed |
 | DOC-50B3F3BC8DEB | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 | 50b3f3bc8deb5503 | True | False | False | False | True | completed |
 | DOC-C59E093AE6F0 | http://documents.worldbank.org/curated/en/726241468752365494 | c59e093ae6f0be11 | True | False | False | False | True | completed |
 | DOC-362992E54B77 | https://openalex.org/W4312346959 | 362992e54b774e12 | True | False | False | False | True | completed |
 | DOC-05E7BC8EA754 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 | 05e7bc8ea7542384 | True | False | False | False | True | completed |
-| DOC-3ADBF95F2F3A | http://documents.worldbank.org/curated/en/865071474569449459 | 3adbf95f2f3a8de6 | True | False | False | False | True | completed |
+| DOC-6C9F71B60D42 | http://documents.worldbank.org/curated/en/865071474569449459 | 6c9f71b60d4256ed | True | False | False | False | True | completed |
 | DOC-62F50045E190 | https://openalex.org/W3132509763 | 62f50045e190b3a3 | True | False | False | False | True | completed |
 | DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
 | DOC-55E9F597A339 | http://documents.worldbank.org/curated/en/146431468052778758 | 55e9f597a339bca9 | True | False | False | False | True | completed |
@@ -25,7 +25,6 @@
 | DOC-3DAEC292C16F | http://documents.worldbank.org/curated/en/117431468041701262 | 3daec292c16f01c4 | True | False | False | False | True | completed |
 | DOC-48F28F9C145F | https://openalex.org/W2974521388 | 48f28f9c145f69eb | True | False | False | False | True | completed |
 | DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
-| DOC-1B19B9700432 | http://documents.worldbank.org/curated/en/170561538243538219 | 1b19b9700432d105 | True | False | False | False | True | completed |
 | DOC-0C15999FB55C | https://openalex.org/W2989135090 | 0c15999fb55c4690 | True | False | False | False | True | completed |
 | DOC-2AE2C7E68DAF | https://api.crossref.org/works/10.30574/wjarr.2021.12.3.0707 | 2ae2c7e68daf016e | True | False | False | False | True | completed |
 | DOC-D0A3D92E0435 | http://documents.worldbank.org/curated/en/544241468260062256 | d0a3d92e04352601 | True | False | False | False | True | completed |
@@ -36,8 +35,8 @@
 | DOC-FA192923E2E0 | https://api.crossref.org/works/10.1108/lm-05-2012-0025 | fa192923e2e0267a | True | False | False | False | True | completed |
 | DOC-C6A9648CAF13 | https://openalex.org/W2106787323 | c6a9648caf130ee6 | True | False | False | False | True | completed |
 | DOC-CEBB266D97BD | https://api.crossref.org/works/10.1086/217180 | cebb266d97bd4622 | True | False | False | False | True | completed |
+| DOC-38EFBAA0AD6C | http://documents.worldbank.org/curated/en/512221468041424443 | 38efbaa0ad6ce21e | True | False | False | False | True | completed |
 | DOC-CA19FA59FBE9 | https://openalex.org/W2168492123 | ca19fa59fbe9e1dd | True | False | False | False | True | completed |
-| DOC-F5F19A5C99F1 | http://documents.worldbank.org/curated/en/627981468752778622 | f5f19a5c99f13152 | True | False | False | False | True | completed |
 | DOC-C1C8D7931100 | https://www.worldbank.org/%20en/country/madagascar/overview | c1c8d793110074b6 | True | False | False | False | True | completed |
 | DOC-63E9EB2E5A2F | https://www.worldbank.org/%E2%80%A6/global-action-urgently-n | 63e9eb2e5a2fca92 | True | False | False | False | True | completed |
 | DOC-5FB511CEE340 | https://www.worldbank.org/%E3%80%80 | 5fb511cee340eddf | True | False | False | False | True | completed |
