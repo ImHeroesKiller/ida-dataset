@@ -6,7 +6,7 @@ Dynamic estimates — hard_limit is null (no artificial ceiling).
 |---------|--------:|-------------------:|----------:|-------:|--------|
 | discovery_question_library | 0 | 6600 | 6600 | 0.0 | sources_x_yield_x_publication_frequency |
 | service_library | 65 | 50000 | 49935 | 0.13 | sources_x_yield_x_publication_frequency |
-| business_signal_library | 524 | 50000 | 49476 | 1.05 | sources_x_yield_x_publication_frequency |
+| business_signal_library | 529 | 50000 | 49471 | 1.06 | sources_x_yield_x_publication_frequency |
 | competitor_library | 6 | 20000 | 19994 | 0.03 | sources_x_yield_x_publication_frequency |
 | product_catalog | 58 | 50000 | 49942 | 0.12 | sources_x_yield_x_publication_frequency |
 | buyer_persona_library | 4 | 6600 | 6596 | 0.06 | sources_x_yield_x_publication_frequency |
