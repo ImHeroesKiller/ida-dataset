@@ -9,13 +9,13 @@
     "unique_urls": 92
   },
   "downloads": {
-    "requested": 76,
+    "requested": 77,
     "downloaded": 18,
     "not_modified": 0,
     "skipped_duplicate": 5,
-    "failed": 53,
+    "failed": 54,
     "bytes": 1095587,
-    "elapsed_ms": 94184.59999999999,
+    "elapsed_ms": 96033.8,
     "retries": 40,
     "max_workers": 2,
     "adaptive_workers": 2,
@@ -44,17 +44,17 @@
     "llm_used": 0,
     "skipped_llm": 74,
     "llm_skipped": 74,
-    "documents_fast": 53,
+    "documents_fast": 54,
     "documents_medium": 7,
-    "documents_deep": 14,
-    "avg_ms": 1.19,
-    "average_extraction_ms": 1.19,
-    "total_ms": 88.03,
+    "documents_deep": 13,
+    "avg_ms": 1.14,
+    "average_extraction_ms": 1.14,
+    "total_ms": 84.61,
     "path_ms": {
-      "fast": 16.63,
-      "medium": 15.94,
-      "deep": 45.81,
-      "signal_fallback": 9.58
+      "fast": 20.18,
+      "medium": 13.76,
+      "deep": 43.42,
+      "signal_fallback": 7.2
     },
     "target_dataset": "service_library",
     "llm_required_but_unavailable": false
