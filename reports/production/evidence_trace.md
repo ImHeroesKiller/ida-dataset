@@ -1,13 +1,13 @@
 # Evidence Trace
 
-**Session:** `SES-20260719-F21AB3`
+**Session:** `SES-20260719-89E5CC`
 
 Every published row → candidate → document → connector → source.
 
 ## The Influence of Service Quality on Library Users at Padang State Polytechnic
 
-- **Dataset row:** `SIG-000515` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
-- **Candidate:** `CAND-237B156FF880`
+- **Dataset row:** `SIG-000520` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
+- **Candidate:** `CAND-12331F57BE8D`
 - **Document:** `DOC-5DFD7BF054D2` · The Influence of Service Quality on Library Users at Padang State Polytechnic
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -16,8 +16,8 @@ Every published row → candidate → document → connector → source.
 
 ## World Bank document
 
-- **Dataset row:** `SIG-000516` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-A578B5855651`
+- **Dataset row:** `SIG-000521` · World Bank document (business_signal_library)
+- **Candidate:** `CAND-1582951385A0`
 - **Document:** `DOC-A99E56C64737` · World Bank document
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
@@ -26,8 +26,8 @@ Every published row → candidate → document → connector → source.
 
 ## New normal and library services in Indonesia: a case study of university libraries
 
-- **Dataset row:** `SIG-000517` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
-- **Candidate:** `CAND-5B2097AFAC7F`
+- **Dataset row:** `SIG-000522` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
+- **Candidate:** `CAND-19F03DA96422`
 - **Document:** `DOC-7C7239075702` · New normal and library services in Indonesia: a case study of university libraries
 - **Connector:** OpenAlex (`CONN-OPENALEX-001`)
 - **Source:** OpenAlex (`SRC-OPENALEX`)
@@ -36,8 +36,8 @@ Every published row → candidate → document → connector → source.
 
 ## Development of the Siak Library and Archives Service (2004-2022)
 
-- **Dataset row:** `SIG-000518` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
-- **Candidate:** `CAND-D621061E1E12`
+- **Dataset row:** `SIG-000523` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
+- **Candidate:** `CAND-F050633DDA29`
 - **Document:** `DOC-50B3F3BC8DEB` · Development of the Siak Library and Archives Service (2004-2022)
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -46,9 +46,9 @@ Every published row → candidate → document → connector → source.
 
 ## Indonesia - Library Development Project
 
-- **Dataset row:** `SIG-000519` · Indonesia - Library Development Project (business_signal_library)
-- **Candidate:** `CAND-F2BAD55CB4B1`
-- **Document:** `DOC-D5443F5620D9` · Indonesia - Library Development Project
+- **Dataset row:** `SIG-000524` · Indonesia - Library Development Project (business_signal_library)
+- **Candidate:** `CAND-6F91A10D9186`
+- **Document:** `DOC-C59E093AE6F0` · Indonesia - Library Development Project
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
 - **URL:** http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-Development-Project
