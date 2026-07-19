@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-07-19T08:46:52+00:00",
+  "updated_at": "2026-07-19T10:55:57+00:00",
   "continuous_manufacturing": true,
   "never_stop_at_numeric_target": true,
   "mode": {
@@ -44,7 +44,7 @@
     "case_study_library": 40,
     "opportunity_analysis": 25,
     "competitor_library": 6,
-    "business_signal_library": 494,
+    "business_signal_library": 499,
     "buyer_persona_library": 4,
     "decision_maker_library": 3,
     "regulation_library": 5,
@@ -74,8 +74,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -122,8 +122,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
@@ -151,7 +151,7 @@
     },
     {
       "dataset": "business_signal_library",
-      "current_rows": 494,
+      "current_rows": 499,
       "profile": {
         "dataset": "business_signal_library",
         "minimum_target": 1000,
@@ -164,14 +164,14 @@
       "universe": {
         "dataset": "business_signal_library",
         "estimated_universe": 50000,
-        "current_rows": 494,
-        "remaining_estimate": 49506,
-        "fill_pct": 0.99,
+        "current_rows": 499,
+        "remaining_estimate": 49501,
+        "fill_pct": 1.0,
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
@@ -179,20 +179,20 @@
           "hard_limit": null
         }
       },
-      "coverage_stretch_pct": 0.99,
-      "coverage_minimum_pct": 49.4,
-      "knowledge_gap": 50012,
-      "minimum_gap": 506,
-      "stretch_gap": 49506,
-      "universe_gap": 49506,
-      "knowledge_opportunity": 49506,
+      "coverage_stretch_pct": 1.0,
+      "coverage_minimum_pct": 49.9,
+      "knowledge_gap": 50002,
+      "minimum_gap": 501,
+      "stretch_gap": 49501,
+      "universe_gap": 49501,
+      "knowledge_opportunity": 49501,
       "freshness_gap": 1.0,
       "confidence_gap": 0.15,
       "relationship_gap": 0.2,
       "knowledge_density": 0.6,
       "avg_confidence": 0.85,
       "freshness": 0.0,
-      "knowledge_gap_score": 93.657,
+      "knowledge_gap_score": 93.651,
       "below_minimum": true,
       "hard_limit": null,
       "should_continue": true
@@ -218,8 +218,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
@@ -266,8 +266,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
@@ -314,8 +314,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -362,8 +362,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -410,8 +410,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -458,8 +458,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -506,8 +506,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
@@ -554,8 +554,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -602,8 +602,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -650,8 +650,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
@@ -698,8 +698,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
@@ -746,8 +746,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 100000,
@@ -794,8 +794,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
@@ -842,8 +842,8 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 493.0,
-          "historical_docs": 5478.0,
+          "historical_rows_yielded": 498.0,
+          "historical_docs": 5520.0,
           "rows_per_attempt": 0.313,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
@@ -919,26 +919,26 @@
     },
     {
       "dataset": "business_signal_library",
-      "title": "corporate legal — business signal knowledge for Legal",
-      "instruction": "corporate legal — business signal knowledge for Legal — continuous knowledge manufacturing for business_signal_library across enterprise function Legal (function_gap=0; not BD-only); dataset_gap=93.657; mode=BOOTSTRAP",
+      "title": "IT infrastructure — business signal knowledge for Infrastructure",
+      "instruction": "IT infrastructure — business signal knowledge for Infrastructure — continuous knowledge manufacturing for business_signal_library across enterprise function Infrastructure (function_gap=0; not BD-only); dataset_gap=93.651; mode=BOOTSTRAP",
       "mode": "BOOTSTRAP",
-      "knowledge_gap_score": 93.657,
-      "universe_gap": 49506,
-      "current_rows": 494,
+      "knowledge_gap_score": 93.651,
+      "universe_gap": 49501,
+      "current_rows": 499,
       "stretch_target": 50000,
       "minimum_target": 1000,
       "hard_limit": null,
-      "enterprise_function": "legal",
-      "enterprise_function_name": "Legal",
+      "enterprise_function": "infrastructure",
+      "enterprise_function_name": "Infrastructure",
       "discovery_queries": [
-        "corporate legal — business signal knowledge for Legal",
-        "site:peraturan.go.id",
-        "site:bpk.go.id audit",
-        "site:jdih.kemenkumham.go.id corporate legal business signal",
-        "site:bpk.go.id corporate legal business signal"
+        "IT infrastructure — business signal knowledge for Infrastructure",
+        "site:cncf.io infrastructure",
+        "site:ieee.org network",
+        "site:itu.int IT infrastructure business signal",
+        "site:ieee.org IT infrastructure business signal"
       ],
       "function_gap_score": 0,
-      "priority_reason": "mode=BOOTSTRAP; gap_score=93.657; opportunity=49506; enterprise_function=legal"
+      "priority_reason": "mode=BOOTSTRAP; gap_score=93.651; opportunity=49501; enterprise_function=infrastructure"
     },
     {
       "dataset": "competitor_library",
@@ -1080,32 +1080,32 @@
     "priority_reason": "mode=BOOTSTRAP; gap_score=125.25; opportunity=7100; enterprise_function=corporate_strategy"
   },
   "economics": {
-    "bandwidth_bytes": 1155470,
-    "bandwidth_gb": 0.001076,
-    "api_requests": 75,
+    "bandwidth_bytes": 1095587,
+    "bandwidth_gb": 0.00102,
+    "api_requests": 105,
     "cache_hits": 0,
-    "cache_misses": 17,
+    "cache_misses": 23,
     "cache_hit_rate": 0.0,
     "rows_produced": 5,
     "rows_rejected": 0,
-    "documents_processed": 5478,
+    "documents_processed": 5520,
     "rows_per_source": [
       {
         "source_id": "SRC-CROSSREF",
-        "rows": 207,
-        "documents": 1414,
+        "rows": 209,
+        "documents": 1424,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000004",
-        "rows": 160,
-        "documents": 1328,
+        "rows": 162,
+        "documents": 1339,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-OPENALEX",
-        "rows": 102,
-        "documents": 1190,
+        "rows": 103,
+        "documents": 1200,
         "success_rate": 1.0
       },
       {
@@ -1117,7 +1117,7 @@
       {
         "source_id": "SRC-000001",
         "rows": 5,
-        "documents": 534,
+        "documents": 545,
         "success_rate": 1.0
       },
       {
@@ -1141,16 +1141,16 @@
         "source_name": "BPS Indonesia",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 202.6,
+        "elapsed_ms": 196.5,
         "documents_discovered": 0,
-        "documents_downloaded": 10,
-        "skipped": 1,
+        "documents_downloaded": 11,
+        "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 97.577
+        "rank_score": 97.571
       },
       {
         "connector_id": "CONN-WB-001",
@@ -1159,13 +1159,13 @@
         "source_name": "World Bank",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 623.7,
+        "elapsed_ms": 702.9,
         "documents_discovered": 11,
         "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-19T08:40:37+00:00",
+        "last_successful_sync": "2026-07-19T10:49:00+00:00",
         "urls": [
           "http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-Development-Project",
           "http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-Development-LIL-Project",
@@ -1183,7 +1183,7 @@
         "source_name": "Asian Development Bank",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 120.5,
+        "elapsed_ms": 93.2,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -1201,7 +1201,7 @@
         "source_name": "Kemenperin",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 93995.8,
+        "elapsed_ms": 94057.9,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -1219,7 +1219,7 @@
         "source_name": "OECD",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 308.5,
+        "elapsed_ms": 291.0,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -1237,13 +1237,13 @@
         "source_name": "Crossref",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 552.9,
+        "elapsed_ms": 609.8,
         "documents_discovered": 10,
         "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-19T08:40:37+00:00",
+        "last_successful_sync": "2026-07-19T10:49:00+00:00",
         "urls": [
           "https://api.crossref.org/works/10.14429/djlit.41.5.16406",
           "https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108",
@@ -1252,7 +1252,7 @@
           "https://api.crossref.org/works/10.7454/jipk.v24i2.003"
         ],
         "error": null,
-        "rank_score": 84.46
+        "rank_score": 84.461
       },
       {
         "connector_id": "CONN-OPENALEX-001",
@@ -1261,13 +1261,13 @@
         "source_name": "OpenAlex",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 840.8,
+        "elapsed_ms": 800.8,
         "documents_discovered": 10,
         "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-07-19T08:40:38+00:00",
+        "last_successful_sync": "2026-07-19T10:49:00+00:00",
         "urls": [
           "https://openalex.org/W3095315355",
           "https://openalex.org/W4312346959",
@@ -1279,51 +1279,51 @@
         "rank_score": 0
       }
     ],
-    "rows_per_gb": 4646.34,
-    "rows_per_api_call": 0.0667,
-    "estimated_production_cost_usd": 0.075,
-    "knowledge_roi": 66.67,
-    "attempts": 1575
+    "rows_per_gb": 4900.3,
+    "rows_per_api_call": 0.0476,
+    "estimated_production_cost_usd": 0.105,
+    "knowledge_roi": 47.62,
+    "attempts": 1589
   },
   "capacity": {
     "rows_last_hour": 5,
     "rows_today_approx": 70,
     "rows_this_week": 407,
-    "rows_this_month": 496,
+    "rows_this_month": 501,
     "sessions_last_hour": 1,
     "sessions_24h": 14,
     "sessions_7d": 83,
-    "sessions_30d": 140,
-    "rows_per_hour": 16.31,
-    "rows_per_day": 391.44,
-    "rows_per_week": 2740.08,
-    "rows_per_month": 11743.2,
-    "documents_per_hour": 163.1,
-    "candidates_per_hour": 122.32,
+    "sessions_30d": 141,
+    "rows_per_hour": 15.88,
+    "rows_per_day": 381.12,
+    "rows_per_week": 2667.84,
+    "rows_per_month": 11433.6,
+    "documents_per_hour": 235.04,
+    "candidates_per_hour": 176.28,
     "validation_throughput": "integrity_guard_inline",
     "publish_throughput": "append_only_csv",
     "connector_throughput": {
-      "documents": 50,
+      "documents": 74,
       "rows": 5,
-      "documents_per_hour": 163.1,
-      "rows_per_hour": 16.31,
-      "documents_per_second": 0.045,
-      "rows_per_second": 0.005
+      "documents_per_hour": 235.04,
+      "rows_per_hour": 15.88,
+      "documents_per_second": 0.065,
+      "rows_per_second": 0.004
     },
     "mission_throughput_sessions_24h": 14,
     "growth_velocity_rows_per_day": 58.14
   },
   "growth": {
     "growth_velocity": 58.14,
-    "coverage_velocity": 391.44,
+    "coverage_velocity": 381.12,
     "freshness_velocity": null,
-    "knowledge_produced_total": 1021
+    "knowledge_produced_total": 1026
   },
   "top_dataset": "discovery_question_library",
   "knowledge_gap_summary": {
     "highest_gap_dataset": "discovery_question_library",
     "highest_gap_score": 125.25,
-    "total_universe_remaining": 415179
+    "total_universe_remaining": 415174
   },
   "governance": "IDA Dataset Factory has no predefined finish line. Success is knowledge growth, coverage, freshness, confidence, quality. Business Development is one enterprise function among the full taxonomy.",
   "enterprise_functions": {

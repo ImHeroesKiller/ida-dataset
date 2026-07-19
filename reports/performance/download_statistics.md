@@ -2,14 +2,14 @@
 
 ```json
 {
-  "requested": 48,
-  "downloaded": 17,
+  "requested": 78,
+  "downloaded": 18,
   "not_modified": 0,
-  "skipped_duplicate": 0,
-  "failed": 31,
-  "bytes": 1155470,
-  "elapsed_ms": 7785.2,
-  "retries": 0,
+  "skipped_duplicate": 5,
+  "failed": 55,
+  "bytes": 1095587,
+  "elapsed_ms": 92775.6,
+  "retries": 40,
   "max_workers": 2,
   "adaptive_workers": 2,
   "connection_reuse": true,
@@ -17,16 +17,16 @@
   "etag_conditional": true,
   "http_cache": {
     "hits": 0,
-    "misses": 17,
+    "misses": 23,
     "not_modified": 0,
-    "stores": 17,
+    "stores": 23,
     "bytes_saved_est": 0
   },
   "fingerprints": {
-    "skips": 17,
-    "adds": 67,
-    "unique_hashes": 67,
-    "unique_urls": 67
+    "skips": 23,
+    "adds": 92,
+    "unique_hashes": 92,
+    "unique_urls": 92
   }
 }
 ```
