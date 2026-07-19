@@ -1,15 +1,15 @@
 # Candidate Pipeline
 
-**Session:** `SES-20260718-7CA1E2`
+**Session:** `SES-20260718-54B84C`
 
 Extracted **5** · Validated **5** · Rejected **0**
 
 | Candidate | Entity | Dataset | Confidence | Validation | Publish | Document | Reject reason |
 |-----------|--------|---------|------------|------------|---------|----------|---------------|
-| `CAND-0616C3422B01` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
-| `CAND-148A618804CB` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
-| `CAND-8EE68249F6AB` | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | approved | published | `DOC-50B3F3BC8DEB` | — |
-| `CAND-F18B12F4FAE7` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-C59E093AE6F0` | — |
-| `CAND-CE114C00B870` | Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia | business_signal_library | 0.9 | approved | published | `DOC-05E7BC8EA754` | — |
+| `CAND-193C5E63B0F0` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
+| `CAND-4DBE3AE87C34` | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | approved | published | `DOC-7C7239075702` | — |
+| `CAND-2F0DD0970F41` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
+| `CAND-40085C84C1E7` | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | approved | published | `DOC-50B3F3BC8DEB` | — |
+| `CAND-B3243225A342` | MEWUJUDKAN GOOD GOVERNANCE MELALUI PELAYANAN PUBLIK | business_signal_library | 0.88 | approved | published | `DOC-362992E54B77` | — |
 
 ## Evidence snippets

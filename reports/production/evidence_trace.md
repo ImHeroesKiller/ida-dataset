@@ -1,23 +1,33 @@
 # Evidence Trace
 
-**Session:** `SES-20260718-7CA1E2`
+**Session:** `SES-20260718-54B84C`
 
 Every published row → candidate → document → connector → source.
 
 ## The Influence of Service Quality on Library Users at Padang State Polytechnic
 
-- **Dataset row:** `SIG-000470` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
-- **Candidate:** `CAND-0616C3422B01`
+- **Dataset row:** `SIG-000475` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
+- **Candidate:** `CAND-193C5E63B0F0`
 - **Document:** `DOC-5DFD7BF054D2` · The Influence of Service Quality on Library Users at Padang State Polytechnic
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
 - **URL:** https://api.crossref.org/works/10.47191/ijmei/v10i2.01
 - **Confidence:** 0.9
 
+## New normal and library services in Indonesia: a case study of university libraries
+
+- **Dataset row:** `SIG-000476` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
+- **Candidate:** `CAND-4DBE3AE87C34`
+- **Document:** `DOC-7C7239075702` · New normal and library services in Indonesia: a case study of university libraries
+- **Connector:** OpenAlex (`CONN-OPENALEX-001`)
+- **Source:** OpenAlex (`SRC-OPENALEX`)
+- **URL:** https://openalex.org/W3095315355
+- **Confidence:** 0.88
+
 ## World Bank document
 
-- **Dataset row:** `SIG-000471` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-148A618804CB`
+- **Dataset row:** `SIG-000477` · World Bank document (business_signal_library)
+- **Candidate:** `CAND-2F0DD0970F41`
 - **Document:** `DOC-A99E56C64737` · World Bank document
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
@@ -26,30 +36,20 @@ Every published row → candidate → document → connector → source.
 
 ## Development of the Siak Library and Archives Service (2004-2022)
 
-- **Dataset row:** `SIG-000472` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
-- **Candidate:** `CAND-8EE68249F6AB`
+- **Dataset row:** `SIG-000478` · Development of the Siak Library and Archives Service (2004-2022) (business_signal_library)
+- **Candidate:** `CAND-40085C84C1E7`
 - **Document:** `DOC-50B3F3BC8DEB` · Development of the Siak Library and Archives Service (2004-2022)
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
 - **URL:** https://api.crossref.org/works/10.57235/aurelia.v3i2.2488
 - **Confidence:** 0.9
 
-## Indonesia - Library Development Project
+## MEWUJUDKAN GOOD GOVERNANCE MELALUI PELAYANAN PUBLIK
 
-- **Dataset row:** `SIG-000473` · Indonesia - Library Development Project (business_signal_library)
-- **Candidate:** `CAND-F18B12F4FAE7`
-- **Document:** `DOC-C59E093AE6F0` · Indonesia - Library Development Project
-- **Connector:** World Bank (`CONN-WB-001`)
-- **Source:** World Bank (`SRC-000004`)
-- **URL:** http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-Development-Project
-- **Confidence:** 0.92
-
-## Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia
-
-- **Dataset row:** `SIG-000474` · Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia (business_signal_library)
-- **Candidate:** `CAND-CE114C00B870`
-- **Document:** `DOC-05E7BC8EA754` · Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia
-- **Connector:** Crossref (`CONN-CROSSREF-001`)
-- **Source:** Crossref (`SRC-CROSSREF`)
-- **URL:** https://api.crossref.org/works/10.14429/djlit.41.5.16406
-- **Confidence:** 0.9
+- **Dataset row:** `SIG-000479` · MEWUJUDKAN GOOD GOVERNANCE MELALUI PELAYANAN PUBLIK (business_signal_library)
+- **Candidate:** `CAND-B3243225A342`
+- **Document:** `DOC-362992E54B77` · MEWUJUDKAN GOOD GOVERNANCE MELALUI PELAYANAN PUBLIK
+- **Connector:** OpenAlex (`CONN-OPENALEX-001`)
+- **Source:** OpenAlex (`SRC-OPENALEX`)
+- **URL:** https://openalex.org/W4312346959
+- **Confidence:** 0.88
