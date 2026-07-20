@@ -1,17 +1,17 @@
 {
   "date": "2026-07-20",
-  "captured_at": "2026-07-20T03:20:23+00:00",
+  "captured_at": "2026-07-20T04:11:15+00:00",
   "datasets_total": 17,
   "datasets_populated": 16,
   "datasets_gaps": 1,
-  "rows_total": 1325,
+  "rows_total": 1330,
   "coverage_pct": 94.1,
   "by_dataset": [
     {
       "path": "domains/business_development/business_signal_library.csv",
       "name": "business_signal_library",
       "domain": "business_development",
-      "rows": 549,
+      "rows": 554,
       "is_gap": false
     },
     {

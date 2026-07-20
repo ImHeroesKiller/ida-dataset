@@ -6,7 +6,7 @@ Manufacturing controller proposals (highest-value knowledge demand).
 |--:|------|---------|-------|----------:|--------------:|
 | 1 | BOOTSTRAP | discovery_question_library | corporate strategy — discovery question knowledge for Corporate Strategy | 125.25 | 6600 |
 | 2 | BOOTSTRAP | service_library | corporate governance — service knowledge for Corporate Governance | 112.922 | 49935 |
-| 3 | BOOTSTRAP | business_signal_library | cloud computing — business signal knowledge for Cloud | 93.591 | 49451 |
+| 3 | BOOTSTRAP | business_signal_library | quality control — business signal knowledge for Quality Control | 93.585 | 49446 |
 | 4 | BOOTSTRAP | competitor_library | business development — competitor knowledge for Business Development | 89.305 | 19994 |
 | 5 | BOOTSTRAP | product_catalog | tax compliance — product catalog knowledge for Tax | 88.606 | 49942 |
 | 6 | BOOTSTRAP | buyer_persona_library | Chief Compliance Officer — Compliance (buyer persona library) | 83.547 | 6596 |

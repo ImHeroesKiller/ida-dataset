@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260720-00FBE0`
+**Session:** `SES-20260720-C1B8BA`
 
 ## Queue counts
 
@@ -26,10 +26,10 @@
 | `DOC-6C9F71B60D42` | SRC-000004 | CONN-WB-001 | text/html | completed | 122773 | http://documents.worldbank.org/curated/en/865071474569449459/Indonesia-Library-D |
 | `DOC-62F50045E190` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 617 | https://openalex.org/W3132509763 |
 | `DOC-6768188378B0` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 68959 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108 |
-| `DOC-D6B3FE367419` | SRC-000004 | CONN-WB-001 | text/html | completed | 122976 | http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C352 |
+| `DOC-B0FB86CDF86A` | SRC-000004 | CONN-WB-001 | text/html | completed | 122988 | http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C352 |
 | `DOC-7F19EEE4229E` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 595 | https://openalex.org/W3004041197 |
 | `DOC-9D814DA54F80` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 1315824 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 |
-| `DOC-36015274522E` | SRC-000004 | CONN-WB-001 | text/html | completed | 122929 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
+| `DOC-9C02992AB0ED` | SRC-000004 | CONN-WB-001 | text/html | completed | 122941 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
 | `DOC-48F28F9C145F` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 700 | https://openalex.org/W2974521388 |
 | `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
 | `DOC-F825C3BB9600` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 9156 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 |
@@ -52,7 +52,7 @@
 | `DOC-F1D3F23E8CC4` | SRC-000004 | CONN-WB-001 | text/html | completed | 123270 | http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-D |
 | `DOC-CA19FA59FBE9` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 587 | https://openalex.org/W2168492123 |
 | `DOC-708BA37EBD5C` | SRC-000001 | DISC-LAYER | text/plain | completed | 160 | https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-pro |
-| `DOC-F5F19A5C99F1` | SRC-000004 | CONN-WB-001 | text/plain | completed | 446 | http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-D |
+| `DOC-9057190DB24B` | SRC-000004 | CONN-WB-001 | text/html | completed | 123282 | http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-D |
 | `DOC-F2BF8FA340F8` | SRC-000001 | DISC-LAYER | text/plain | completed | 228 | https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-reg |
 | `DOC-3E1CA71C0311` | SRC-000001 | DISC-LAYER | text/plain | completed | 245 | https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-pr |
 | `DOC-65FC704A4D9D` | SRC-000001 | DISC-LAYER | text/plain | completed | 208 | https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-2010-laju-pertumbuhan-y |
