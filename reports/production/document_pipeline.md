@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260720-E0345E`
+**Session:** `SES-20260720-3B134F`
 
 ## Queue counts
 
@@ -32,16 +32,16 @@
 | `DOC-9C02992AB0ED` | SRC-000004 | CONN-WB-001 | text/html | completed | 122941 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
 | `DOC-48F28F9C145F` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 700 | https://openalex.org/W2974521388 |
 | `DOC-F825C3BB9600` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 9156 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 |
-| `DOC-FDFEB20D47AF` | SRC-000004 | CONN-WB-001 | text/html | completed | 122910 | http://documents.worldbank.org/curated/en/170561538243538219/Indonesia-Higher-Ed |
+| `DOC-EE9AA102B487` | SRC-000004 | CONN-WB-001 | text/html | completed | 122922 | http://documents.worldbank.org/curated/en/170561538243538219/Indonesia-Higher-Ed |
 | `DOC-0C15999FB55C` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 49867 | https://openalex.org/W2989135090 |
 | `DOC-2AE2C7E68DAF` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 55140 | https://api.crossref.org/works/10.30574/wjarr.2021.12.3.0707 |
-| `DOC-F6CD6F9317D5` | SRC-000004 | CONN-WB-001 | text/html | completed | 122988 | http://documents.worldbank.org/curated/en/544241468260062256/Conformed-Copy-L464 |
+| `DOC-8F2F69488B1B` | SRC-000004 | CONN-WB-001 | text/html | completed | 123000 | http://documents.worldbank.org/curated/en/544241468260062256/Conformed-Copy-L464 |
 | `DOC-72B3224209C4` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 610 | https://openalex.org/W3031607294 |
 | `DOC-2AB16A333F59` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3620 | https://api.crossref.org/works/10.1109/icitsi.2015.7437704 |
-| `DOC-AB0089813306` | SRC-000004 | CONN-WB-001 | text/html | completed | 123028 | http://documents.worldbank.org/curated/en/117831468040604958/Conformed-Copy-L464 |
+| `DOC-3C3FF2F87248` | SRC-000004 | CONN-WB-001 | text/html | completed | 123040 | http://documents.worldbank.org/curated/en/117831468040604958/Conformed-Copy-L464 |
 | `DOC-69EEA36D9AF8` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 27091 | https://openalex.org/W1507665948 |
 | `DOC-FA192923E2E0` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 35991 | https://api.crossref.org/works/10.1108/lm-05-2012-0025 |
-| `DOC-E474CD22020E` | SRC-000004 | CONN-WB-001 | text/html | completed | 123028 | http://documents.worldbank.org/curated/en/834491468052778400/Conformed-Copy-L464 |
+| `DOC-E6E5E7D1C84F` | SRC-000004 | CONN-WB-001 | text/html | completed | 123040 | http://documents.worldbank.org/curated/en/834491468052778400/Conformed-Copy-L464 |
 | `DOC-C6A9648CAF13` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 111840 | https://openalex.org/W2106787323 |
 | `DOC-CEBB266D97BD` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2330 | https://api.crossref.org/works/10.1086/217180 |
 | `DOC-F1D3F23E8CC4` | SRC-000004 | CONN-WB-001 | text/html | completed | 123270 | http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-D |
