@@ -1,0 +1,130 @@
+{
+  "date": "2026-07-20",
+  "captured_at": "2026-07-20T03:20:23+00:00",
+  "datasets_total": 17,
+  "datasets_populated": 16,
+  "datasets_gaps": 1,
+  "rows_total": 1325,
+  "coverage_pct": 94.1,
+  "by_dataset": [
+    {
+      "path": "domains/business_development/business_signal_library.csv",
+      "name": "business_signal_library",
+      "domain": "business_development",
+      "rows": 549,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/buyer_persona_library.csv",
+      "name": "buyer_persona_library",
+      "domain": "business_development",
+      "rows": 4,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/case_study_library.csv",
+      "name": "case_study_library",
+      "domain": "business_development",
+      "rows": 40,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/company_profile.csv",
+      "name": "company_profile",
+      "domain": "business_development",
+      "rows": 86,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/competitor_library.csv",
+      "name": "competitor_library",
+      "domain": "business_development",
+      "rows": 6,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/decision_maker_library.csv",
+      "name": "decision_maker_library",
+      "domain": "business_development",
+      "rows": 3,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/discovery_question_library.csv",
+      "name": "discovery_question_library",
+      "domain": "business_development",
+      "rows": 0,
+      "is_gap": true
+    },
+    {
+      "path": "domains/business_development/framework_library.csv",
+      "name": "framework_library",
+      "domain": "business_development",
+      "rows": 40,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/guidance.csv",
+      "name": "guidance",
+      "domain": "business_development",
+      "rows": 249,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/industry_library.csv",
+      "name": "industry_library",
+      "domain": "business_development",
+      "rows": 59,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/opportunity_analysis.csv",
+      "name": "opportunity_analysis",
+      "domain": "business_development",
+      "rows": 25,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/pain_point_library.csv",
+      "name": "pain_point_library",
+      "domain": "business_development",
+      "rows": 58,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/product_catalog.csv",
+      "name": "product_catalog",
+      "domain": "business_development",
+      "rows": 123,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/regulation_library.csv",
+      "name": "regulation_library",
+      "domain": "business_development",
+      "rows": 5,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/risk_library.csv",
+      "name": "risk_library",
+      "domain": "business_development",
+      "rows": 10,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/solution_library.csv",
+      "name": "solution_library",
+      "domain": "business_development",
+      "rows": 58,
+      "is_gap": false
+    },
+    {
+      "path": "domains/business_development/trend_library.csv",
+      "name": "trend_library",
+      "domain": "business_development",
+      "rows": 10,
+      "is_gap": false
+    }
+  ]
+}

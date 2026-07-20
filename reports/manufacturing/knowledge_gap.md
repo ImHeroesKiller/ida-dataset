@@ -1,6 +1,6 @@
 # Knowledge Gap
 
-**Generated:** 2026-07-19T23:11:58+00:00
+**Generated:** 2026-07-20T03:20:47+00:00
 **Mode:** BOOTSTRAP — empty_or_below_minimum_datasets
 
 Multi-dimensional gaps (not coverage-only).
@@ -9,7 +9,7 @@ Multi-dimensional gaps (not coverage-only).
 |---------|-----:|--------:|------------:|--------------:|----------:|--------:|---------:|----------:|
 | discovery_question_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
 | service_library | 65 | 1935 | 49935 | 49935 | 112.922 | 0.0 | 1.0 | 1.0 |
-| business_signal_library | 544 | 456 | 49456 | 49456 | 93.597 | 0.6 | 0.15 | 1.0 |
+| business_signal_library | 549 | 451 | 49451 | 49451 | 93.591 | 0.6 | 0.15 | 1.0 |
 | competitor_library | 6 | 994 | 19994 | 19994 | 89.305 | 0.381 | 0.12 | 0.3333 |
 | product_catalog | 58 | 4942 | 49942 | 49942 | 88.606 | 0.9333 | 0.109 | 0.8374 |
 | buyer_persona_library | 4 | 496 | 4996 | 6596 | 83.547 | 0.625 | 0.1225 | 0.0 |
