@@ -1,13 +1,13 @@
 # Full Text Statistics
 
-**Generated:** 2026-07-20T10:31:35+00:00
+**Generated:** 2026-07-20T13:26:20+00:00
 
 | Metric | Value |
 |--------|------:|
 | Attempts | 92 |
 | Enriched | 9 |
 | Already rich (skipped) | 29 |
-| Failed / metadata fallback | 51 |
+| Failed / metadata fallback | 50 |
 | Metadata % | 58.7% |
 | Full-text % (HTML+PDF+XML+DOCX) | 9.78% |
 | PDF % | 0.0% |
