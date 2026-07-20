@@ -1,10 +1,10 @@
 # Repository / Open Access Statistics
 
-**Generated:** 2026-07-20T20:39:46+00:00
+**Generated:** 2026-07-20T22:18:19+00:00
 
 | Channel | Count |
 |---------|------:|
-| Open access enrichments | 4 |
+| Open access enrichments | 0 |
 | Repository | 0 |
 | Mirror | 0 |
 | Publisher | 5 |
