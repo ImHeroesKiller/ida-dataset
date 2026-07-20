@@ -1,15 +1,15 @@
 # Production Capacity
 
-**Generated:** 2026-07-20T04:11:14+00:00
+**Generated:** 2026-07-20T07:06:02+00:00
 
 | Metric | Value |
 |--------|------:|
-| Rows/hour (last acquisition) | 19.5 |
-| Docs/hour (last acquisition) | 198.94 |
-| Projected rows/night (12h × rph) | 234.0 |
-| Sessions observed | 152 |
-| Total rows (sessions) | 551 |
-| Rows/session | 4.709 |
-| Process ratio | 302.8% |
+| Rows/hour (last acquisition) | 17.72 |
+| Docs/hour (last acquisition) | 262.2 |
+| Projected rows/night (12h × rph) | 212.6 |
+| Sessions observed | 153 |
+| Total rows (sessions) | 556 |
+| Rows/session | 4.712 |
+| Process ratio | 301.5% |
 | Target process ratio | ≥90.0% |
 | Target rows/night | ≥50 |
