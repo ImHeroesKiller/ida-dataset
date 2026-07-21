@@ -1,13 +1,13 @@
 # Acquisition Success
 
-**Generated:** 2026-07-21T16:04:20+00:00
+**Generated:** 2026-07-21T17:40:41+00:00
 
 | Outcome | Count |
 |---------|------:|
-| Enriched with richer body | 8 |
+| Enriched with richer body | 7 |
 | Already rich | 27 |
-| Metadata fallback | 32 |
-| Failed chain | 28 |
+| Metadata fallback | 33 |
+| Failed chain | 30 |
 | Blocked | 62 |
 
 ## Recent records
@@ -24,7 +24,8 @@
 | DOC-9D814DA54F80 | enriched | html_fulltext | crossref_link | 25355 |
 | DOC-48F28F9C145F | metadata_fallback | None | None | 698 |
 | DOC-5FBA0F15E0B9 | metadata_fallback | None | None | 78 |
-| DOC-0C15999FB55C | enriched | html_fulltext | unpaywall_landing | 10417 |
+| DOC-F825C3BB9600 | metadata_fallback | None | None | 8000 |
+| DOC-0C15999FB55C | metadata_fallback | None | None | 581 |
 | DOC-859D2142FF21 | metadata_fallback | None | None | 85 |
 | DOC-2AE2C7E68DAF | enriched | html_fulltext | crossref_link | 4806 |
 | DOC-086852F73EE0 | metadata_fallback | None | None | 94 |
