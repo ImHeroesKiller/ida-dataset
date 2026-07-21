@@ -1,11 +1,11 @@
 # Publisher Resolution
 
-**Generated:** 2026-07-21T09:45:25+00:00
+**Generated:** 2026-07-21T12:04:11+00:00
 
 | Metric | Value |
 |--------|------:|
-| Publisher-sourced enrichments | 5 |
-| Blocked downloads | 63 |
+| Publisher-sourced enrichments | 4 |
+| Blocked downloads | 61 |
 | Redirect/failure class | 0 |
 
 Publisher landing pages and Crossref `link` assets are attempted after DOI resolution.
