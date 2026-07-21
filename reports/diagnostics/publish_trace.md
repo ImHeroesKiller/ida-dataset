@@ -1,6 +1,6 @@
 # Publish Trace
 
-**Generated:** 2026-07-20T22:19:43+00:00
+**Generated:** 2026-07-21T00:15:30+00:00
 
 - Balance: `{'extracted': 5, 'validated': 5, 'rejected': 0, 'queued': 5, 'published': 5, 'skipped': 0, 'duplicate': 0, 'by_dataset': {'business_signal_library': 5}, 'balance_ok': True}`
 - Session knowledge_added: `5`
@@ -9,8 +9,8 @@
 
 | Candidate ID | Dataset | Confidence | Duplicate | Relationships | Published | Queue | Manual review | Reject reason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-688028FB7544 | business_signal_library | 0.9 | False | True | True | False | False | — |
-| CAND-558E0CECD07B | business_signal_library | 0.92 | False | True | True | False | False | — |
-| CAND-9621CD684E8A | business_signal_library | 0.9 | False | True | True | False | False | — |
-| CAND-AF1AEB685C3E | business_signal_library | 0.92 | False | True | True | False | False | — |
-| CAND-FF309FD27CB4 | business_signal_library | 0.9 | False | True | True | False | False | — |
+| CAND-337276B07A53 | business_signal_library | 0.9 | False | True | True | False | False | — |
+| CAND-4C67DA4E0C0E | business_signal_library | 0.92 | False | True | True | False | False | — |
+| CAND-F8A9B91246F4 | business_signal_library | 0.88 | False | True | True | False | False | — |
+| CAND-E2FB5168FD64 | business_signal_library | 0.9 | False | True | True | False | False | — |
+| CAND-D7BE09E75E79 | business_signal_library | 0.92 | False | True | True | False | False | — |
