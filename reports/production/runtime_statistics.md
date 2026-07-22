@@ -1,23 +1,23 @@
 # Runtime Statistics
 
-**Session:** `SES-20260722-0FC8B8`
+**Session:** `SES-20260722-C66727`
 **Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
-**Total stage time (ms):** 369607.9
+**Total stage time (ms):** 363188.4
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 0.8 | completed |
-| source_discovery | 2.8 | completed |
-| connector | 93714.3 | completed |
-| document_discovery | 93714.4 | completed |
-| document_download | 182006.3 | completed |
-| extraction | 98.1 | completed |
-| candidate_validation | 12.5 | completed |
-| publish_queue | 12.5 | completed |
-| append_dataset | 45.1 | completed |
-| export | 0.5 | skipped |
+| mission | 1.0 | completed |
+| source_discovery | 2.9 | completed |
+| connector | 93995.4 | completed |
+| document_discovery | 93995.6 | completed |
+| document_download | 175021.6 | completed |
+| extraction | 102.1 | completed |
+| candidate_validation | 12.6 | completed |
+| publish_queue | 12.6 | completed |
+| append_dataset | 43.7 | completed |
+| export | 0.3 | skipped |
 | git_commit | 0.3 | skipped |
 | push | 0.3 | skipped |
 
