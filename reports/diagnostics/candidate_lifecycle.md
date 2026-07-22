@@ -1,18 +1,18 @@
 # Candidate Lifecycle
 
-**Generated:** 2026-07-22T19:42:25+00:00
-**Session:** `SESSION-20260722-3FA88D`
-**Mission:** `MIS-20260722-296991`
+**Generated:** 2026-07-22T21:31:00+00:00
+**Session:** `SESSION-20260722-12BA09`
+**Mission:** `MIS-20260722-C4521E`
 **dry_run:** `False`
 
 Lifecycle: Document → Extraction → Candidate → Validation → Integrity Guard → Publisher → Dataset
 
 | candidate_id | document_id | mission_id | session_id | dataset | entity | confidence | integrity_ok | block_reason | publish |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-CB49AB834D1F | DOC-A99E56C64737 | MIS-20260722-296991 | SES-20260722-D6166E | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000696 | Rejected |
-| CAND-3D1283D9D7F7 | DOC-D5443F5620D9 | MIS-20260722-296991 | SES-20260722-D6166E | business_signal_library | Indonesia - Library Development Project | 0.92 | False | duplicate_id:SIG-000698 | Rejected |
-| CAND-A67D5C7BA37C | DOC-05E7BC8EA754 | MIS-20260722-296991 | SES-20260722-D6166E | business_signal_library | Library Service Quality and Student Trust A Case Study of the University of Sumatera Utara Library, Indonesia | 0.9 | False | duplicate_id:SIG-000699 | Rejected |
-| CAND-EF90D1E6493C | DOC-50B3F3BC8DEB | MIS-20260722-296991 | SES-20260722-D6166E | business_signal_library | Development of the Siak Library and Archives Service (2004-2022) | 0.9 | False | duplicate_id:SIG-000697 | Rejected |
-| CAND-2C87EB53EBAD | DOC-5DFD7BF054D2 | MIS-20260722-296991 | SES-20260722-D6166E | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-000695 | Rejected |
+| CAND-6ED150D509D3 | DOC-D5443F5620D9 | MIS-20260722-C4521E | SES-20260722-91F110 | business_signal_library | Indonesia - Library Development Project | 0.92 | False | duplicate_id:SIG-000704 | Rejected |
+| CAND-FCE16279571C | DOC-5DFD7BF054D2 | MIS-20260722-C4521E | SES-20260722-91F110 | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-000700 | Rejected |
+| CAND-43A775E687D5 | DOC-7C7239075702 | MIS-20260722-C4521E | SES-20260722-91F110 | business_signal_library | New normal and library services in Indonesia: a case study of university libraries | 0.88 | False | duplicate_id:SIG-000702 | Rejected |
+| CAND-AD7FEC1E1C89 | DOC-50B3F3BC8DEB | MIS-20260722-C4521E | SES-20260722-91F110 | business_signal_library | Development of the Siak Library and Archives Service (2004-2022) | 0.9 | False | duplicate_id:SIG-000703 | Rejected |
+| CAND-F58A52D8E68D | DOC-A99E56C64737 | MIS-20260722-C4521E | SES-20260722-91F110 | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000701 | Rejected |
 
 Total candidates: **5**
