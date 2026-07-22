@@ -1,15 +1,15 @@
 # Validation — Before / After
 
-**Generated:** 2026-07-22T15:22:59+00:00
+**Generated:** 2026-07-22T17:43:34+00:00
 
 | Metric | Before (Audit 002) | After (framework session) |
 |--------|-------------------:|--------------------------:|
-| Metadata-only % | 98.1 | 58.7 |
-| Full-text % | ~1 | 9.78 |
+| Metadata-only % | 98.1 | 49.25 |
+| Full-text % | ~1 | 10.45 |
 | PDF % | 0 | 0.0 |
-| HTML % | ~6 | 9.78 |
-| DOI full-text rate | 0.0 | 44.44 |
-| Avg content size (chars) | ~1152 | 3779.9 |
-| Avg richness score | low | 57.2 |
+| HTML % | ~6 | 10.45 |
+| DOI full-text rate | 0.0 | 33.33 |
+| Avg content size (chars) | ~1152 | 4774.4 |
+| Avg richness score | low | 62.98 |
 
 Target: metadata-only **&lt;30%**, DOI full-text **&gt;60%** where legally available, rows/doc **&gt;5** (requires rich bodies + extract; bodies first).
