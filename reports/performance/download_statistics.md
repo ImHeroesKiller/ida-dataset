@@ -3,12 +3,12 @@
 ```json
 {
   "requested": 76,
-  "downloaded": 19,
+  "downloaded": 18,
   "not_modified": 0,
-  "skipped_duplicate": 4,
+  "skipped_duplicate": 5,
   "failed": 53,
-  "bytes": 1153777,
-  "elapsed_ms": 98646.5,
+  "bytes": 1096362,
+  "elapsed_ms": 90217.80000000002,
   "retries": 40,
   "max_workers": 2,
   "adaptive_workers": 2,
@@ -24,9 +24,9 @@
   },
   "fingerprints": {
     "skips": 23,
-    "adds": 93,
-    "unique_hashes": 93,
-    "unique_urls": 93
+    "adds": 92,
+    "unique_hashes": 92,
+    "unique_urls": 92
   }
 }
 ```
