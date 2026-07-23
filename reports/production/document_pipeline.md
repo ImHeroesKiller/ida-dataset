@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260722-E2314C`
+**Session:** `SES-20260723-B3EE51`
 
 ## Queue counts
 
@@ -28,7 +28,7 @@
 | `DOC-6768188378B0` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 68960 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108 |
 | `DOC-B0FB86CDF86A` | SRC-000004 | CONN-WB-001 | text/html | completed | 122988 | http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C352 |
 | `DOC-7F19EEE4229E` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 595 | https://openalex.org/W3004041197 |
-| `DOC-9D814DA54F80` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 1315679 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 |
+| `DOC-9D814DA54F80` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 1315832 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 |
 | `DOC-9C02992AB0ED` | SRC-000004 | CONN-WB-001 | text/html | completed | 122941 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
 | `DOC-48F28F9C145F` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 700 | https://openalex.org/W2974521388 |
 | `DOC-F825C3BB9600` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 9156 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 |
