@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-07-23T20:26:42+00:00",
-  "mission_id": "MIS-20260723-D1CF42",
-  "session_id": "SES-20260723-08EFBF",
+  "started_at": "2026-07-23T22:18:26+00:00",
+  "mission_id": "MIS-20260723-666283",
+  "session_id": "SES-20260723-2D737C",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 28,
   "urls_remaining": 0,
   "duplicate_urls": 28,
-  "elapsed_ms": 731897.5,
+  "elapsed_ms": 733501.4,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 314.8,
-  "accepted_per_hour": 177.07,
+  "urls_per_hour": 314.11,
+  "accepted_per_hour": 176.69,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -101,14 +101,14 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 516.3000000000001,
+      "elapsed_ms": 647.6,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.518,
+      "rank_score": 85.697,
       "utilization": 0.1852
     },
     {
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 40,
       "cache_hits": 0,
-      "elapsed_ms": 3792.5999999999995,
+      "elapsed_ms": 4136.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 67.743,
+      "rank_score": 69.641,
       "utilization": 0.1852
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 448352.3,
+      "elapsed_ms": 450106.2,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -167,7 +167,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 279194.6,
+      "elapsed_ms": 278569.6,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 147.9,
+      "elapsed_ms": 159.8,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 54.5,
+      "elapsed_ms": 82.9,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 106.7,
+      "elapsed_ms": 134.5,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 152.8,
+      "elapsed_ms": 147.6,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 54.4,
+      "elapsed_ms": 122.8,
       "cached": false,
       "live_search": true
     },
@@ -501,7 +501,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 287.2,
+      "elapsed_ms": 393.8,
       "cached": false,
       "live_search": true
     },
@@ -511,7 +511,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 153.6,
+      "elapsed_ms": 281.9,
       "cached": false,
       "live_search": true
     },
@@ -521,7 +521,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1078.1,
+      "elapsed_ms": 1196.3,
       "cached": false,
       "live_search": true
     },
@@ -531,7 +531,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1072.5,
+      "elapsed_ms": 1076.1,
       "cached": false,
       "live_search": true
     },
@@ -541,7 +541,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 1201.2,
+      "elapsed_ms": 1187.9,
       "cached": false,
       "live_search": true
     },
@@ -599,13 +599,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 448352.3
+      "elapsed_ms": 450106.2
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 279194.6
+      "elapsed_ms": 278569.6
     }
   ],
   "reputation_top": [
@@ -640,15 +640,15 @@
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "reputation": 99.435,
-      "score": 94.629,
+      "reputation": 99.436,
+      "score": 94.631,
       "authority": 0.95
     },
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 89.802,
-      "score": 84.473,
+      "reputation": 89.803,
+      "score": 84.474,
       "authority": 0.9
     },
     {
@@ -733,12 +733,12 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.518,
+      "score": 85.697,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.976,
+        "latency": 0.991,
         "freshness": 0.5,
         "trust": 0.75,
         "coverage": 0.9,
@@ -749,12 +749,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 67.743,
+      "score": 69.641,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.779,
+        "latency": 0.937,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
