@@ -4,7 +4,7 @@ Adaptive scores used for mission source selection.
 
 | Rank | Source | Score |
 |-----:|--------|------:|
-| 1 | BPS Indonesia | 97.684 |
+| 1 | BPS Indonesia | 97.686 |
 | 2 | World Bank | 97.435 |
 | 3 | Kemenperin | 95.055 |
 | 4 | Asian Development Bank | 95.054 |
