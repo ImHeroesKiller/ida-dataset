@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-07-25T20:28:32+00:00",
+  "updated_at": "2026-07-25T22:21:02+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260725-288E3B",
+      "path": "automation/sessions/2026-07-25/SESSION-20260725-288E3B.json",
+      "start_time": "2026-07-25T21:58:21+00:00",
+      "end_time": "2026-07-25T22:21:02+00:00",
+      "duration_seconds": 1361.0,
+      "status": "completed",
+      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entity=Exploring the influence of regional economic pillars on library service equity in Indonesia",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 314,
+      "github": {
+        "run_id": "30176630739",
+        "run_number": "209",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "2756089db4305abc55fcf72291b2e6315a4ad97c",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260725-A3694B",
       "path": "automation/sessions/2026-07-25/SESSION-20260725-A3694B.json",
@@ -1340,34 +1368,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "schedule",
         "sha": "5d9021d3fb69413089b70a76b6c5b7a1b47f3568",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260721-3CD3CE",
-      "path": "automation/sessions/2026-07-21/SESSION-20260721-3CD3CE.json",
-      "start_time": "2026-07-21T08:38:37+00:00",
-      "end_time": "2026-07-21T08:56:14+00:00",
-      "duration_seconds": 1057.0,
-      "status": "completed",
-      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
-      "knowledge_added": 5,
-      "knowledge_updated": 0,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=51 entity=The Influence of Service Quality on Library Users at Padang State Polytechnic",
-      "trigger": "schedule",
-      "dry_run": false,
-      "events": 250,
-      "github": {
-        "run_id": "29815034127",
-        "run_number": "157",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "schedule",
-        "sha": "1c4003da33c13606a5410ff2c2d481091944bfcb",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
