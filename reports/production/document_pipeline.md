@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260726-89B8CA`
+**Session:** `SES-20260726-FC68E8`
 
 ## Queue counts
 
@@ -19,7 +19,7 @@
 | `DOC-A0E1922823F9` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 81947 | https://api.crossref.org/works/10.22452/mjlis.vol29no2.4 |
 | `DOC-A99E56C64737` | SRC-000004 | CONN-WB-001 | text/html | completed | 17390 | https://documents.worldbank.org/search?q=service+library+Indonesia |
 | `DOC-7C7239075702` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 586 | https://openalex.org/W3095315355 |
-| `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2641 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
+| `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 71274 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
 | `DOC-D5443F5620D9` | SRC-000004 | CONN-WB-001 | text/html | completed | 122752 | http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-D |
 | `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 50711 | https://openalex.org/W4312346959 |
 | `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 31873 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
