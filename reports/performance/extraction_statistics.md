@@ -7,19 +7,19 @@
   "deep": 0,
   "llm": 0,
   "llm_used": 0,
-  "skipped_llm": 52,
-  "llm_skipped": 52,
-  "documents_fast": 31,
+  "skipped_llm": 51,
+  "llm_skipped": 51,
+  "documents_fast": 30,
   "documents_medium": 6,
   "documents_deep": 15,
-  "avg_ms": 1.67,
-  "average_extraction_ms": 1.67,
-  "total_ms": 87.03,
+  "avg_ms": 2.11,
+  "average_extraction_ms": 2.11,
+  "total_ms": 107.85,
   "path_ms": {
-    "fast": 5.78,
-    "medium": 14.15,
-    "deep": 51.72,
-    "signal_fallback": 15.29
+    "fast": 20.05,
+    "medium": 15.14,
+    "deep": 53.58,
+    "signal_fallback": 18.99
   },
   "target_dataset": "service_library",
   "llm_required_but_unavailable": false
@@ -32,5 +32,5 @@
 | Medium path candidates | 0 |
 | Deep path candidates | 0 |
 | LLM used | 0 |
-| LLM skipped | 52 |
-| Avg extraction ms | 1.67 |
+| LLM skipped | 51 |
+| Avg extraction ms | 2.11 |
