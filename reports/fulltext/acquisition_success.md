@@ -1,14 +1,14 @@
 # Acquisition Success
 
-**Generated:** 2026-07-26T22:25:22+00:00
+**Generated:** 2026-07-27T00:20:43+00:00
 
 | Outcome | Count |
 |---------|------:|
-| Enriched with richer body | 8 |
+| Enriched with richer body | 9 |
 | Already rich | 39 |
-| Metadata fallback | 43 |
+| Metadata fallback | 42 |
 | Failed chain | 39 |
-| Blocked | 61 |
+| Blocked | 62 |
 
 ## Recent records
 
@@ -18,6 +18,7 @@
 | DOC-A0E1922823F9 | enriched | html_fulltext | publisher_landing | 19230 |
 | DOC-5DFD7BF054D2 | enriched | html_fulltext | publisher_landing | 7837 |
 | DOC-50B3F3BC8DEB | enriched | html_fulltext | publisher_landing | 5517 |
+| DOC-362992E54B77 | enriched | html_fulltext | unpaywall_landing | 10416 |
 | DOC-62F50045E190 | metadata_fallback | None | None | 617 |
 | DOC-7F19EEE4229E | metadata_fallback | None | None | 595 |
 | DOC-6768188378B0 | enriched | html_fulltext | publisher_landing | 7961 |
@@ -52,5 +53,4 @@
 | DOC-4797FB998A54 | metadata_fallback | None | None | 216 |
 | DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
 | DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
-| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-C82387BE3840 | metadata_fallback | None | None | 88 |
