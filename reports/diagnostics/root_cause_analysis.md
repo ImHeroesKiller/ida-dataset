@@ -1,8 +1,8 @@
 # Root Cause Analysis
 
-**Generated:** 2026-07-27T05:02:00+00:00
-**Session:** `SESSION-20260727-A02275`
-**Mission:** `MIS-20260727-265883`
+**Generated:** 2026-07-27T08:49:50+00:00
+**Session:** `SESSION-20260727-2FE166`
+**Mission:** `MIS-20260727-3A1A26`
 
 > Diagnostics only. No fixes. Evidence only.
 
