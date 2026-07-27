@@ -1,14 +1,14 @@
 # Acquisition Success
 
-**Generated:** 2026-07-27T08:48:26+00:00
+**Generated:** 2026-07-27T10:18:57+00:00
 
 | Outcome | Count |
 |---------|------:|
-| Enriched with richer body | 8 |
+| Enriched with richer body | 9 |
 | Already rich | 39 |
-| Metadata fallback | 43 |
-| Failed chain | 40 |
-| Blocked | 64 |
+| Metadata fallback | 42 |
+| Failed chain | 39 |
+| Blocked | 62 |
 
 ## Recent records
 
@@ -28,7 +28,7 @@
 | DOC-F825C3BB9600 | metadata_fallback | None | None | 8000 |
 | DOC-69EEA36D9AF8 | enriched | html_fulltext | openalex:openalex | 2622 |
 | DOC-FA192923E2E0 | metadata_fallback | None | None | 8000 |
-| DOC-C6A9648CAF13 | metadata_fallback | None | None | 526 |
+| DOC-C6A9648CAF13 | enriched | html_fulltext | openalex:PubMed | 7547 |
 | DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-CA19FA59FBE9 | metadata_fallback | None | None | 579 |
 | DOC-C1C8D7931100 | metadata_fallback | None | None | 115 |
