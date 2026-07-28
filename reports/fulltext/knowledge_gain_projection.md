@@ -1,6 +1,6 @@
 # Knowledge Gain Projection
 
-**Generated:** 2026-07-28T18:32:20+00:00
+**Generated:** 2026-07-28T20:35:17+00:00
 
 ## Before (Forensic Audit 002)
 
@@ -20,7 +20,7 @@
 | Full-text % | 10.0 |
 | DOI full-text rate | 44.44 |
 | Avg content size (chars) | 4889.9 |
-| Avg richness | 63.0 |
+| Avg richness | 62.96 |
 
 ## Projected extraction yield (no extractor changes)
 
