@@ -1,12 +1,12 @@
 # Validation Statistics
 
-**Generated:** 2026-07-28T02:59:20+00:00
-**Total candidates:** 5
-**Integrity blocked:** 5
+**Generated:** 2026-07-28T06:07:45+00:00
+**Total candidates:** 2
+**Integrity blocked:** 2
 **Integrity passed:** 0
 
 Rule family frequency (descending):
 
 | Rule family | Count | Percentage |
 | --- | --- | --- |
-| Duplicate | 5 | 100.0% |
+| Duplicate | 2 | 100.0% |

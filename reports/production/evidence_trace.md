@@ -1,55 +1,29 @@
 # Evidence Trace
 
-**Session:** `SES-20260728-4E31D4`
+**Session:** `SES-20260728-AF397C`
 
 Every published row → candidate → document → connector → source.
 
-## Exploring the influence of regional economic pillars on library service equity in Indonesia
+## Export Processing
 
-- **Dataset row:** `SIG-000980` · Exploring the influence of regional economic pillars on library service equity in Indonesia (business_signal_library)
-- **Candidate:** `CAND-A0F43FB5B469`
-- **Document:** `DOC-A0E1922823F9` · Exploring the influence of regional economic pillars on library service equity in Indonesia
+- **Dataset row:** `IND-000060` · Export Processing (industry_library)
+- **Candidate:** `CAND-96D7F41016DC`
+- **Document:** `DOC-9D814DA54F80` · Hybrid Library Service Policy Implementation at Bina Mandiri University Gorontalo
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
-- **URL:** https://api.crossref.org/works/10.22452/mjlis.vol29no2.4
-- **Confidence:** 0.9
-
-## World Bank document
-
-- **Dataset row:** `SIG-000981` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-29E0C835FA8D`
-- **Document:** `DOC-A99E56C64737` · World Bank document
-- **Connector:** World Bank (`CONN-WB-001`)
-- **Source:** World Bank (`SRC-000004`)
-- **URL:** https://documents.worldbank.org/search?q=service+library+Indonesia
+- **URL:** https://api.crossref.org/works/10.59141/jiss.v4i07.855
 - **Confidence:** 0.92
 
-## New normal and library services in Indonesia: a case study of university libraries
+> 9/M9fB/nfc8952qHEzMyMjZt2nTixAlmIwAAnnsKH+4+8xIrFPlP7Gonlzf8+90o9vKCMp0HBQ3LRZX7rt7wL2v2/m9uNesuBgw/PDpeH9+idLPOlTu2zBb8HtLOnTu9vb3XrVvXq1evvHnz5pY3rqrq4MGDO3fuvGHDhg4dOlSoUIE5EwAAEPzYickNFig5pScfRBda9VIuOow26H8DBr/4NVvQ4zEajXv27KlWrdo9J7nliuwXGBjYqFEjJycn5kwAAPBI+Kon/iXmzBzUmbU+w+sMykXF42fcn4Sjo2PLli1zXerTEtFrr732fKc+AABA8MPz5eaRHNQZi6GXKT4XFe/AtSC2IAAAABD8kOP
 
-- **Dataset row:** `SIG-000982` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
-- **Candidate:** `CAND-DBA6EF2FBD52`
-- **Document:** `DOC-7C7239075702` · New normal and library services in Indonesia: a case study of university libraries
-- **Connector:** OpenAlex (`CONN-OPENALEX-001`)
-- **Source:** OpenAlex (`SRC-OPENALEX`)
-- **URL:** https://openalex.org/W3095315355
-- **Confidence:** 0.88
+## Shared Services Centers
 
-## The Influence of Service Quality on Library Users at Padang State Polytechnic
-
-- **Dataset row:** `SIG-000983` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
-- **Candidate:** `CAND-A8DC4938F56F`
-- **Document:** `DOC-5DFD7BF054D2` · The Influence of Service Quality on Library Users at Padang State Polytechnic
+- **Dataset row:** `IND-000061` · Shared Services Centers (industry_library)
+- **Candidate:** `CAND-3475745ED4B5`
+- **Document:** `DOC-9D814DA54F80` · Hybrid Library Service Policy Implementation at Bina Mandiri University Gorontalo
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
-- **URL:** https://api.crossref.org/works/10.47191/ijmei/v10i2.01
-- **Confidence:** 0.9
+- **URL:** https://api.crossref.org/works/10.59141/jiss.v4i07.855
+- **Confidence:** 0.855
 
-## Indonesia - Library Development Project
-
-- **Dataset row:** `SIG-000984` · Indonesia - Library Development Project (business_signal_library)
-- **Candidate:** `CAND-A57D11D39C45`
-- **Document:** `DOC-D5443F5620D9` · Indonesia - Library Development Project
-- **Connector:** World Bank (`CONN-WB-001`)
-- **Source:** World Bank (`SRC-000004`)
-- **URL:** http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-Development-Project
-- **Confidence:** 0.92
+> EOBAAABD92ev6rru+X3e9KVlJO6MtC37EDj8/8fdBFmdlk6oeVOjBKAHMgAAA5Aef4IXe6/ItsaZJDUp/Y57mUpc/+gCrqF/v6v7ulIwMFAACAnIAPYp99ifm0+6k72FMi5ueg/nyUWGJFHb1Zf/8zdYu+uKjp3JLuJRg0MAcCAIB/EUf8kNsscc9Zqc+t5PnMpAemPhE5Gh9abeX/wpIiGDcAAAAQ/ICHYDHK5iZiTs9ZvSr3/mvrWv51k847um6N2c4AAgAAgOAH/CVTmix2khv7c1q/zpktGeaMv24Tc+dypx1d110MYBgfUsrqOVENCtwY/BGlAAAAIPjhP8Nqlm0tc2bXNjsWf8iW/X/9Z
