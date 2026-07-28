@@ -2,23 +2,24 @@
 
 ```json
 {
-  "fast": 0,
+  "fast": 5,
   "medium": 0,
-  "deep": 2,
+  "deep": 0,
   "llm": 0,
   "llm_used": 0,
-  "skipped_llm": 51,
-  "llm_skipped": 51,
-  "documents_fast": 30,
+  "skipped_llm": 52,
+  "llm_skipped": 52,
+  "documents_fast": 31,
   "documents_medium": 6,
   "documents_deep": 15,
-  "avg_ms": 1.89,
-  "average_extraction_ms": 1.89,
-  "total_ms": 96.39,
+  "avg_ms": 1.73,
+  "average_extraction_ms": 1.73,
+  "total_ms": 89.92,
   "path_ms": {
-    "fast": 18.87,
-    "medium": 11.84,
-    "deep": 65.59
+    "fast": 5.78,
+    "medium": 14.23,
+    "deep": 53.52,
+    "signal_fallback": 16.31
   },
   "target_dataset": "service_library",
   "llm_required_but_unavailable": false
@@ -27,9 +28,9 @@
 
 | Metric | Value |
 |--------|------:|
-| Fast path candidates | 0 |
+| Fast path candidates | 5 |
 | Medium path candidates | 0 |
-| Deep path candidates | 2 |
+| Deep path candidates | 0 |
 | LLM used | 0 |
-| LLM skipped | 51 |
-| Avg extraction ms | 1.89 |
+| LLM skipped | 52 |
+| Avg extraction ms | 1.73 |

@@ -1,20 +1,15 @@
 # Candidate Pipeline
 
-**Session:** `SES-20260728-AF397C`
+**Session:** `SES-20260728-EB1025`
 
-Extracted **2** · Validated **2** · Rejected **0**
+Extracted **5** · Validated **5** · Rejected **0**
 
 | Candidate | Entity | Dataset | Confidence | Validation | Publish | Document | Reject reason |
 |-----------|--------|---------|------------|------------|---------|----------|---------------|
-| `CAND-96D7F41016DC` | Export Processing | industry_library | 0.92 | approved | published | `DOC-9D814DA54F80` | — |
-| `CAND-3475745ED4B5` | Shared Services Centers | industry_library | 0.855 | approved | published | `DOC-9D814DA54F80` | — |
+| `CAND-3C186A705BA5` | Exploring the influence of regional economic pillars on library service equity in Indonesia | business_signal_library | 0.9 | approved | published | `DOC-A0E1922823F9` | — |
+| `CAND-16C79C3441C4` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
+| `CAND-0A934A15B204` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
+| `CAND-1FCBC54D3AB4` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-D5443F5620D9` | — |
+| `CAND-D9513A2DF8F1` | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | approved | published | `DOC-50B3F3BC8DEB` | — |
 
 ## Evidence snippets
-
-### `CAND-96D7F41016DC`
-
-> 9/M9fB/nfc8952qHEzMyMjZt2nTixAlmIwAAnnsKH+4+8xIrFPlP7Gonlzf8+90o9vKCMp0HBQ3LRZX7rt7wL2v2/m9uNesuBgw/PDpeH9+idLPOlTu2zBb8HtLOnTu9vb3XrVvXq1evvHnz5pY3rqrq4MGDO3fuvGHDhg4dOlSoUIE5EwAAEPzYickNFig5pScfRBda9VIuOow26H8DBr/4NVvQ4zEajXv27KlWrdo9J7nliuwXGBjYqFEjJycn5kwAAPBI+Kon/iXmzBzUmbU+w+sMykXF42fcn4Sjo2PLli1zXerTEtFrr732fKc+AABA8MPz5eaRHNQZi6GXKT4XFe/AtSC2IAAAABD8kOP
-
-### `CAND-3475745ED4B5`
-
-> EOBAAABD92ev6rru+X3e9KVlJO6MtC37EDj8/8fdBFmdlk6oeVOjBKAHMgAAA5Aef4IXe6/ItsaZJDUp/Y57mUpc/+gCrqF/v6v7ulIwMFAACAnIAPYp99ifm0+6k72FMi5ueg/nyUWGJFHb1Zf/8zdYu+uKjp3JLuJRg0MAcCAIB/EUf8kNsscc9Zqc+t5PnMpAemPhE5Gh9abeX/wpIiGDcAAAAQ/ICHYDHK5iZiTs9ZvSr3/mvrWv51k847um6N2c4AAgAAgOAH/CVTmix2khv7c1q/zpktGeaMv24Tc+dypx1d110MYBgfUsrqOVENCtwY/BGlAAAAIPjhP8Nqlm0tc2bXNjsWf8iW/X/9Z
