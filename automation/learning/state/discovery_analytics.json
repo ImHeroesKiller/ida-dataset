@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-07-28T20:29:31+00:00",
-  "mission_id": "MIS-20260728-F1337C",
-  "session_id": "SES-20260728-6AF8BF",
+  "started_at": "2026-07-28T22:19:10+00:00",
+  "mission_id": "MIS-20260728-96BB15",
+  "session_id": "SES-20260728-55E0E4",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -47,12 +47,12 @@
   },
   "queries_generated": 10,
   "queries_executed": 27,
-  "urls_discovered": 124,
-  "urls_accepted": 66,
-  "urls_rejected": 58,
+  "urls_discovered": 80,
+  "urls_accepted": 46,
+  "urls_rejected": 34,
   "urls_remaining": 0,
-  "duplicate_urls": 58,
-  "elapsed_ms": 760713.3,
+  "duplicate_urls": 34,
+  "elapsed_ms": 777466.1,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -74,9 +74,9 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 100,
+    "DISC-COMMONCRAWL": 60,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 12,
+    "DISC-RSS": 8,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 586.82,
-  "accepted_per_hour": 312.34,
+  "urls_per_hour": 370.43,
+  "accepted_per_hour": 213.0,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -101,14 +101,14 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 1078.5,
+      "elapsed_ms": 1393.0000000000002,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.507,
+      "rank_score": 85.584,
       "utilization": 0.1852
     },
     {
@@ -121,16 +121,16 @@
         "message": "toggle"
       },
       "queries": 5,
-      "urls": 100,
+      "urls": 60,
       "cache_hits": 0,
-      "elapsed_ms": 23527.600000000002,
+      "elapsed_ms": 62906.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 65.799,
+      "rank_score": 65.694,
       "utilization": 0.1852
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 452271.1,
+      "elapsed_ms": 450859.4,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -165,9 +165,9 @@
         "message": "feed_discovery"
       },
       "queries": 1,
-      "urls": 12,
+      "urls": 8,
       "cache_hits": 0,
-      "elapsed_ms": 283757.8,
+      "elapsed_ms": 262263.5,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 215.1,
+      "elapsed_ms": 300.6,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 221.4,
+      "elapsed_ms": 282.1,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 201.0,
+      "elapsed_ms": 259.6,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 232.2,
+      "elapsed_ms": 301.5,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 208.8,
+      "elapsed_ms": 249.2,
       "cached": false,
       "live_search": true
     },
@@ -500,8 +500,8 @@
       "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 20,
-      "elapsed_ms": 7640.4,
+      "urls": 0,
+      "elapsed_ms": 21683.5,
       "cached": false,
       "live_search": true
     },
@@ -510,8 +510,8 @@
       "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 20,
-      "elapsed_ms": 556.2,
+      "urls": 0,
+      "elapsed_ms": 21575.5,
       "cached": false,
       "live_search": true
     },
@@ -521,7 +521,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 7926.0,
+      "elapsed_ms": 3682.6,
       "cached": false,
       "live_search": true
     },
@@ -531,7 +531,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 5432.8,
+      "elapsed_ms": 1191.8,
       "cached": false,
       "live_search": true
     },
@@ -541,7 +541,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 20,
-      "elapsed_ms": 1972.2,
+      "elapsed_ms": 14773.4,
       "cached": false,
       "live_search": true
     },
@@ -599,21 +599,21 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 452271.1
+      "elapsed_ms": 450859.4
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
-      "urls": 12,
-      "elapsed_ms": 283757.8
+      "urls": 8,
+      "elapsed_ms": 262263.5
     }
   ],
   "reputation_top": [
     {
       "id": "SRC-000001",
       "name": "BPS Indonesia",
-      "reputation": 103.054,
-      "score": 97.711,
+      "reputation": 103.055,
+      "score": 97.712,
       "authority": 1.0
     },
     {
@@ -733,12 +733,12 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.507,
+      "score": 85.584,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.976,
+        "latency": 0.982,
         "freshness": 0.5,
         "trust": 0.75,
         "coverage": 0.9,
@@ -749,12 +749,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 65.799,
+      "score": 65.694,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.617,
+        "latency": 0.608,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -924,126 +924,6 @@
     }
   ],
   "accepted_urls": [
-    {
-      "url": "https://www.bps.go.id/",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/248-268",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/brs/view/id/1267",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-pedaging-menurut-provinsi-2009-2018.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provinsi-2002-2014.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-provinsi-ton-1993-2015.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-berlaku-menurut-provinsi-2010-2016-ribu-rupiah-.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-konstan-2010-menurut-provinsi-2011-2017-persen-.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-2010-laju-pertumbuhan-y-on-y-produk-domestik-bruto-menurut-lapangan-usaha-persen-2014-2016.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2017/03/03/893/nikah-talak-dan-cerai-serta-rujuk-2012-2015",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2017/05/05/1253/-seri-2010-laju-pertumbuhan-kumulatif-produk-domestik-bruto-menurut-lapangan-usaha-persen-2017---2020.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1314/persentase-tenaga-kerja-informal-sektor-pertanian-2015---2018.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1319/upah-rata---rata-per-jam-pekerja-menurut-jenis-kelamin-2015---2018.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/06/05/1436/persentase-perempuan-pernah-kawin-berusia-15-49-tahun-yang-proses-kelahiran-terakhirnya-ditolong-oleh-tenaga-kesehatan-terlatih-menurut-provinsi-2015-2018.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2019/10/04/1655/persentase-perempuan-pernah-kawin-umur-15-49-tahun-yang-proses-kelahiran-terakhirnya-di-fasilitas-kesehatan-40-bawah-menurut-provinsi-2015-2016.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2020/02/18/1773/rata-rata-lama-sekolah-menurut-provinsi-metode-baru-2010-2019.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2020/02/19/1775/penduduk-berumur-15-tahun-ke-atas-menurut-jenis-kegiatan-tahun-1986---2019.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us-22-00-billion---imports-in-november-2023-reached-us-19-59-billion.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-media-location-of-access.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-age-group.html",
-      "source_id": "SRC-000001",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
     {
       "url": "http://www5.worldbank.org/",
       "source_id": "SRC-000004",
@@ -1297,151 +1177,31 @@
       "title": ""
     },
     {
-      "url": "http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html",
-      "source_id": "SRC-OWASP",
+      "url": "https://www.crossref.org/jobs/2023-02-08-contract-software-development/",
+      "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
-      "title": "OWASP CVE Lite CLI Graduates to Lab Project Status"
+      "title": ""
     },
     {
-      "url": "http://owasp.org/blog/2026/06/18/greenberg-statement.html",
-      "source_id": "SRC-OWASP",
+      "url": "https://www.crossref.org/jobs/2022-09-30-contract-technical-support/",
+      "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
-      "title": "Community update regarding Richard Greenberg"
+      "title": ""
     },
     {
-      "url": "http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html",
-      "source_id": "SRC-OWASP",
+      "url": "https://www.crossref.org/jobs/2022-11-21-community-engagement-manager/",
+      "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
-      "title": "Aikido and OWASP bring agentic Code Audit to the global AppSec community"
+      "title": ""
     },
     {
-      "url": "http://owasp.org/blog/2026/06/09/dependency-track-v5.html",
-      "source_id": "SRC-OWASP",
+      "url": "https://www.crossref.org/jobs/2022-12-22-contract-product-communications-support/",
+      "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
-      "title": "OWASP Dependency-Track 5.0 Is Now Generally Available"
+      "title": ""
     }
   ],
   "rejected_urls": [
-    {
-      "url": "https://www.bps.go.id/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/248-268",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/brs/view/id/1267",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-pedaging-menurut-provinsi-2009-2018.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provinsi-2002-2014.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-provinsi-ton-1993-2015.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-berlaku-menurut-provinsi-2010-2016-ribu-rupiah-.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-konstan-2010-menurut-provinsi-2011-2017-persen-.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-2010-laju-pertumbuhan-y-on-y-produk-domestik-bruto-menurut-lapangan-usaha-persen-2014-2016.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2017/03/03/893/nikah-talak-dan-cerai-serta-rujuk-2012-2015",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2017/05/05/1253/-seri-2010-laju-pertumbuhan-kumulatif-produk-domestik-bruto-menurut-lapangan-usaha-persen-2017---2020.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1314/persentase-tenaga-kerja-informal-sektor-pertanian-2015---2018.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1319/upah-rata---rata-per-jam-pekerja-menurut-jenis-kelamin-2015---2018.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/06/05/1436/persentase-perempuan-pernah-kawin-berusia-15-49-tahun-yang-proses-kelahiran-terakhirnya-ditolong-oleh-tenaga-kesehatan-terlatih-menurut-provinsi-2015-2018.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2019/10/04/1655/persentase-perempuan-pernah-kawin-umur-15-49-tahun-yang-proses-kelahiran-terakhirnya-di-fasilitas-kesehatan-40-bawah-menurut-provinsi-2015-2016.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2020/02/18/1773/rata-rata-lama-sekolah-menurut-provinsi-metode-baru-2010-2019.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2020/02/19/1775/penduduk-berumur-15-tahun-ke-atas-menurut-jenis-kegiatan-tahun-1986---2019.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us-22-00-billion---imports-in-november-2023-reached-us-19-59-billion.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-media-location-of-access.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-age-group.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
     {
       "url": "https://www.worldbank.org/",
       "reason": "duplicate_url",
@@ -1645,30 +1405,6 @@
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/managing-director/michel-madelain/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/monitoring-board/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitoring-board/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
     }
   ],
   "cache": {
@@ -1676,7 +1412,7 @@
     "misses": 15,
     "stores": 15,
     "cached_queries": 15,
-    "cached_urls": 50
+    "cached_urls": 30
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }
