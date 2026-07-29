@@ -4,7 +4,7 @@ Trusted sources ranked for discovery targeting.
 
 | Rank | Source | Reputation | Authority | Rank score |
 |-----:|--------|-----------:|----------:|-----------:|
-| 1 | BPS Indonesia | 103.058 | 1.0 | 97.715 |
+| 1 | BPS Indonesia | 103.059 | 1.0 | 97.717 |
 | 2 | World Bank | 101.787 | 0.95 | 97.396 |
 | 3 | Kemenperin | 100.793 | 1.0 | 95.051 |
 | 4 | Asian Development Bank | 99.803 | 0.95 | 95.062 |
