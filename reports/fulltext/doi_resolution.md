@@ -1,10 +1,10 @@
 # DOI Resolution
 
-**Generated:** 2026-07-29T00:15:59+00:00
+**Generated:** 2026-07-29T03:45:05+00:00
 
 | Metric | Value |
 |--------|------:|
-| Attempts | 90 |
+| Attempts | 47 |
 | DOI available | 18 |
 | DOI resolved | 10 |
 | DOI → full text | 8 |
