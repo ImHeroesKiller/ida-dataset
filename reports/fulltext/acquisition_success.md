@@ -1,6 +1,6 @@
 # Acquisition Success
 
-**Generated:** 2026-07-29T19:37:13+00:00
+**Generated:** 2026-07-29T21:14:03+00:00
 
 | Outcome | Count |
 |---------|------:|
@@ -23,6 +23,7 @@
 | DOC-7F19EEE4229E | metadata_fallback | None | None | 595 |
 | DOC-6768188378B0 | enriched | html_fulltext | publisher_landing | 7961 |
 | DOC-DE90DA00EB31 | metadata_fallback | None | None | 698 |
+| DOC-0C15999FB55C | enriched | html_fulltext | unpaywall_landing | 10417 |
 | DOC-9D814DA54F80 | enriched | html_fulltext | crossref_link | 25355 |
 | DOC-69EEA36D9AF8 | enriched | html_fulltext | openalex:openalex | 2622 |
 | DOC-FA192923E2E0 | metadata_fallback | None | None | 8000 |
@@ -53,4 +54,3 @@
 | DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
 | DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
 | DOC-C82387BE3840 | metadata_fallback | None | None | 88 |
-| DOC-35242ACBFC8C | metadata_fallback | None | None | 119 |
