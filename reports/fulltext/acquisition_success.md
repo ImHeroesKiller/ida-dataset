@@ -1,6 +1,6 @@
 # Acquisition Success
 
-**Generated:** 2026-07-29T09:55:45+00:00
+**Generated:** 2026-07-29T12:18:55+00:00
 
 | Outcome | Count |
 |---------|------:|
@@ -16,9 +16,9 @@
 |----------|--------|----------------|--------|------:|
 | DOC-7C7239075702 | metadata_fallback | None | None | 584 |
 | DOC-A0E1922823F9 | enriched | html_fulltext | publisher_landing | 19230 |
-| DOC-362992E54B77 | enriched | html_fulltext | unpaywall_landing | 10416 |
-| DOC-50B3F3BC8DEB | enriched | html_fulltext | publisher_landing | 5517 |
 | DOC-5DFD7BF054D2 | enriched | html_fulltext | publisher_landing | 7837 |
+| DOC-50B3F3BC8DEB | enriched | html_fulltext | publisher_landing | 5517 |
+| DOC-362992E54B77 | enriched | html_fulltext | unpaywall_landing | 10416 |
 | DOC-62F50045E190 | metadata_fallback | None | None | 617 |
 | DOC-7F19EEE4229E | metadata_fallback | None | None | 595 |
 | DOC-6768188378B0 | enriched | html_fulltext | publisher_landing | 7961 |
@@ -40,17 +40,17 @@
 | DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
 | DOC-708BA37EBD5C | metadata_fallback | None | None | 160 |
 | DOC-F2BF8FA340F8 | metadata_fallback | None | None | 228 |
+| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-3E1CA71C0311 | metadata_fallback | None | None | 245 |
-| DOC-65FC704A4D9D | metadata_fallback | None | None | 208 |
 | DOC-0DE6D8F8C910 | metadata_fallback | None | None | 149 |
-| DOC-2F7C49C3E453 | metadata_fallback | None | None | 213 |
+| DOC-65FC704A4D9D | metadata_fallback | None | None | 208 |
 | DOC-7A131D726BF1 | metadata_fallback | None | None | 173 |
+| DOC-2F7C49C3E453 | metadata_fallback | None | None | 213 |
 | DOC-067282F2AF34 | metadata_fallback | None | None | 178 |
 | DOC-8D8AB77BAAB8 | metadata_fallback | None | None | 256 |
-| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
-| DOC-C5495E6B0544 | metadata_fallback | None | None | 173 |
 | DOC-70D6699EC9BC | metadata_fallback | None | None | 255 |
+| DOC-C5495E6B0544 | metadata_fallback | None | None | 173 |
 | DOC-1C13E4110BCE | metadata_fallback | None | None | 186 |
 | DOC-4797FB998A54 | metadata_fallback | None | None | 216 |
-| DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
 | DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
+| DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
