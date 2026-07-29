@@ -1,6 +1,6 @@
 # Environment Audit
 
-**Generated:** 2026-07-28T22:19:10+00:00
+**Generated:** 2026-07-29T00:11:59+00:00
 
 Credentials are never logged. Status only: Loaded / Missing / Disabled.
 

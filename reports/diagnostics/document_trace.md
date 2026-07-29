@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-07-28T22:24:37+00:00
+**Generated:** 2026-07-29T00:17:24+00:00
 
-- Fingerprint URLs known: **70**
-- Fingerprint hashes known: **70**
-- Fingerprint stats: `{'skips': 24, 'adds': 70}`
-- Trace summary: discovered=31 downloaded=42 duplicates=35
+- Fingerprint URLs known: **90**
+- Fingerprint hashes known: **90**
+- Fingerprint stats: `{'skips': 20, 'adds': 90}`
+- Trace summary: discovered=31 downloaded=62 duplicates=35
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -24,10 +24,10 @@
 | DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
 | DOC-9C02992AB0ED | http://documents.worldbank.org/curated/en/117431468041701262 | 9c02992ab0ed8e9a | True | False | False | False | True | completed |
 | DOC-48F28F9C145F | https://openalex.org/W2974521388 | 48f28f9c145f69eb | True | False | False | False | True | completed |
-| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
+| DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
 | DOC-EE9AA102B487 | http://documents.worldbank.org/curated/en/170561538243538219 | ee9aa102b487f1db | True | False | False | False | True | completed |
 | DOC-0C15999FB55C | https://openalex.org/W2989135090 | 0c15999fb55c4690 | True | False | False | False | True | completed |
-| DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
+| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
 | DOC-8F2F69488B1B | http://documents.worldbank.org/curated/en/544241468260062256 | 8f2f69488b1bdf76 | True | False | False | False | True | completed |
 | DOC-72B3224209C4 | https://openalex.org/W3031607294 | 72b3224209c4c890 | True | False | False | False | True | completed |
 | DOC-2AB16A333F59 | https://api.crossref.org/works/10.1109/icitsi.2015.7437704 | 2ab16a333f594004 | True | False | False | False | True | completed |
@@ -43,6 +43,26 @@
 | DOC-C1C8D7931100 | https://www.worldbank.org/%20en/country/madagascar/overview | c1c8d793110074b6 | True | False | False | False | True | completed |
 | DOC-63E9EB2E5A2F | https://www.worldbank.org/%E2%80%A6/global-action-urgently-n | 63e9eb2e5a2fca92 | True | False | False | False | True | completed |
 | DOC-5FB511CEE340 | https://www.worldbank.org/%E3%80%80 | 5fb511cee340eddf | True | False | False | False | True | completed |
+| DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
+| DOC-859D2142FF21 | https://www.bps.go.id/248-268 | 859d2142ff2174ae | True | False | False | False | True | completed |
+| DOC-086852F73EE0 | https://www.bps.go.id/brs/view/id/1267 | 086852f73ee06d6f | True | False | False | False | True | completed |
+| DOC-8FDD77E53A4E | https://www.bps.go.id/dynamictable/%202015/12/22/1064/produk | 8fdd77e53a4eee53 | True | False | False | False | True | completed |
+| DOC-72A1DAB841AA | https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kab | 72a1dab841aa1a5a | True | False | False | False | True | completed |
+| DOC-708BA37EBD5C | https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-u | 708ba37ebd5c4cbf | True | False | False | False | True | completed |
+| DOC-F2BF8FA340F8 | https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010 | f2bf8fa340f8aa4e | True | False | False | False | True | completed |
+| DOC-3E1CA71C0311 | https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010 | 3e1ca71c0311a1a1 | True | False | False | False | True | completed |
+| DOC-65FC704A4D9D | https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-201 | 65fc704a4d9d302b | True | False | False | False | True | completed |
+| DOC-0DE6D8F8C910 | https://www.bps.go.id/dynamictable/2017/03/03/893/nikah-tala | 0de6d8f8c9105350 | True | False | False | False | True | completed |
+| DOC-2F7C49C3E453 | https://www.bps.go.id/dynamictable/2017/05/05/1253/-seri-201 | 2f7c49c3e453c5e1 | True | False | False | False | True | completed |
+| DOC-7A131D726BF1 | https://www.bps.go.id/dynamictable/2018/05/17/1314/persentas | 7a131d726bf16db4 | True | False | False | False | True | completed |
+| DOC-067282F2AF34 | https://www.bps.go.id/dynamictable/2018/05/17/1319/upah-rata | 067282f2af34c081 | True | False | False | False | True | completed |
+| DOC-8D8AB77BAAB8 | https://www.bps.go.id/dynamictable/2018/06/05/1436/persentas | 8d8ab77baab8e240 | True | False | False | False | True | completed |
+| DOC-70D6699EC9BC | https://www.bps.go.id/dynamictable/2019/10/04/1655/persentas | 70d6699ec9bce126 | True | False | False | False | True | completed |
+| DOC-C5495E6B0544 | https://www.bps.go.id/dynamictable/2020/02/18/1773/rata-rata | c5495e6b05442337 | True | False | False | False | True | completed |
+| DOC-1C13E4110BCE | https://www.bps.go.id/dynamictable/2020/02/19/1775/penduduk- | 1c13e4110bcef8f5 | True | False | False | False | True | completed |
+| DOC-4797FB998A54 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/export | 4797fb998a5492f2 | True | False | False | False | True | completed |
+| DOC-8903E78503B7 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percent | 8903e78503b77d7e | True | False | False | False | True | completed |
+| DOC-EEB66F14A504 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percent | eeb66f14a504784c | True | False | False | False | True | completed |
 | DOC-C82387BE3840 | https://ammdes.kemenperin.go.id/ | c82387be3840f7e5 | True | False | False | False | True | completed |
 | DOC-35242ACBFC8C | http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_proj | 35242acbfc8cf6d3 | True | False | False | False | True | completed |
 | DOC-A9BA1BC04A49 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_pro | a9ba1bc04a49b0e3 | True | False | False | False | True | completed |
