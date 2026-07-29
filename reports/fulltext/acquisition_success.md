@@ -1,6 +1,6 @@
 # Acquisition Success
 
-**Generated:** 2026-07-29T12:18:55+00:00
+**Generated:** 2026-07-29T15:27:13+00:00
 
 | Outcome | Count |
 |---------|------:|
@@ -8,7 +8,7 @@
 | Already rich | 39 |
 | Metadata fallback | 42 |
 | Failed chain | 39 |
-| Blocked | 62 |
+| Blocked | 61 |
 
 ## Recent records
 
@@ -23,12 +23,12 @@
 | DOC-7F19EEE4229E | metadata_fallback | None | None | 595 |
 | DOC-6768188378B0 | enriched | html_fulltext | publisher_landing | 7961 |
 | DOC-48F28F9C145F | metadata_fallback | None | None | 698 |
-| DOC-F825C3BB9600 | metadata_fallback | None | None | 8000 |
-| DOC-0C15999FB55C | enriched | html_fulltext | unpaywall_landing | 10417 |
 | DOC-9D814DA54F80 | enriched | html_fulltext | crossref_link | 25355 |
+| DOC-0C15999FB55C | enriched | html_fulltext | unpaywall_landing | 10417 |
+| DOC-F825C3BB9600 | metadata_fallback | None | None | 8000 |
 | DOC-69EEA36D9AF8 | enriched | html_fulltext | openalex:openalex | 2622 |
 | DOC-FA192923E2E0 | metadata_fallback | None | None | 8000 |
-| DOC-C6A9648CAF13 | enriched | html_fulltext | openalex:PubMed | 7547 |
+| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-CA19FA59FBE9 | metadata_fallback | None | None | 579 |
 | DOC-C1C8D7931100 | metadata_fallback | None | None | 115 |
 | DOC-63E9EB2E5A2F | metadata_fallback | None | None | 132 |
@@ -40,17 +40,17 @@
 | DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
 | DOC-708BA37EBD5C | metadata_fallback | None | None | 160 |
 | DOC-F2BF8FA340F8 | metadata_fallback | None | None | 228 |
-| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-3E1CA71C0311 | metadata_fallback | None | None | 245 |
-| DOC-0DE6D8F8C910 | metadata_fallback | None | None | 149 |
 | DOC-65FC704A4D9D | metadata_fallback | None | None | 208 |
-| DOC-7A131D726BF1 | metadata_fallback | None | None | 173 |
+| DOC-0DE6D8F8C910 | metadata_fallback | None | None | 149 |
 | DOC-2F7C49C3E453 | metadata_fallback | None | None | 213 |
+| DOC-7A131D726BF1 | metadata_fallback | None | None | 173 |
 | DOC-067282F2AF34 | metadata_fallback | None | None | 178 |
 | DOC-8D8AB77BAAB8 | metadata_fallback | None | None | 256 |
 | DOC-70D6699EC9BC | metadata_fallback | None | None | 255 |
 | DOC-C5495E6B0544 | metadata_fallback | None | None | 173 |
 | DOC-1C13E4110BCE | metadata_fallback | None | None | 186 |
 | DOC-4797FB998A54 | metadata_fallback | None | None | 216 |
-| DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
 | DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
+| DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
+| DOC-C6A9648CAF13 | enriched | html_fulltext | openalex:PubMed | 7547 |
