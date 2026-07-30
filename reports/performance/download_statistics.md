@@ -8,7 +8,7 @@
   "skipped_duplicate": 0,
   "failed": 30,
   "bytes": 1037300,
-  "elapsed_ms": 5648.2,
+  "elapsed_ms": 4472.2,
   "retries": 0,
   "max_workers": 2,
   "adaptive_workers": 2,

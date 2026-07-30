@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-07-30T12:15:43+00:00",
+  "updated_at": "2026-07-30T14:22:26+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260730-813756",
+      "path": "automation/sessions/2026-07-30/SESSION-20260730-813756.json",
+      "start_time": "2026-07-30T14:06:36+00:00",
+      "end_time": "2026-07-30T14:22:26+00:00",
+      "duration_seconds": 950.0,
+      "status": "completed",
+      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=51 entity=Exploring the influence of regional economic pillars on library service equity in Indonesia",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 250,
+      "github": {
+        "run_id": "30550024508",
+        "run_number": "259",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "4fe59cb7a780b6ed3c7916e07417cecfba3f2b8b",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260730-212361",
       "path": "automation/sessions/2026-07-30/SESSION-20260730-212361.json",
@@ -1340,34 +1368,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "schedule",
         "sha": "30988bff2c784d79b0b4e0ce847fcd753a5c9f14",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260725-C12F69",
-      "path": "automation/sessions/2026-07-25/SESSION-20260725-C12F69.json",
-      "start_time": "2026-07-25T15:05:00+00:00",
-      "end_time": "2026-07-25T15:21:40+00:00",
-      "duration_seconds": 1000.0,
-      "status": "completed",
-      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
-      "knowledge_added": 5,
-      "knowledge_updated": 0,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entity=Exploring the influence of regional economic pillars on library service equity in Indonesia",
-      "trigger": "schedule",
-      "dry_run": false,
-      "events": 314,
-      "github": {
-        "run_id": "30162887990",
-        "run_number": "205",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "schedule",
-        "sha": "0fae6ba5e09dbda2012556543efab0431260ba8f",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
