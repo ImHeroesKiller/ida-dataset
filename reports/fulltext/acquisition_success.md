@@ -1,6 +1,6 @@
 # Acquisition Success
 
-**Generated:** 2026-07-30T08:59:36+00:00
+**Generated:** 2026-07-30T09:48:56+00:00
 
 | Outcome | Count |
 |---------|------:|
@@ -8,7 +8,7 @@
 | Already rich | 39 |
 | Metadata fallback | 44 |
 | Failed chain | 41 |
-| Blocked | 63 |
+| Blocked | 62 |
 
 ## Recent records
 
@@ -17,7 +17,8 @@
 | DOC-7C7239075702 | metadata_fallback | None | None | 584 |
 | DOC-A0E1922823F9 | enriched | html_fulltext | publisher_landing | 19230 |
 | DOC-5DFD7BF054D2 | enriched | html_fulltext | publisher_landing | 7837 |
-| DOC-362992E54B77 | metadata_fallback | None | None | 553 |
+| DOC-362992E54B77 | enriched | html_fulltext | unpaywall_landing | 10416 |
+| DOC-50B3F3BC8DEB | metadata_fallback | None | None | 3919 |
 | DOC-62F50045E190 | metadata_fallback | None | None | 617 |
 | DOC-7F19EEE4229E | metadata_fallback | None | None | 595 |
 | DOC-6768188378B0 | enriched | html_fulltext | publisher_landing | 7961 |
@@ -27,7 +28,7 @@
 | DOC-9D814DA54F80 | enriched | html_fulltext | crossref_link | 25355 |
 | DOC-69EEA36D9AF8 | enriched | html_fulltext | openalex:openalex | 2622 |
 | DOC-FA192923E2E0 | metadata_fallback | None | None | 8000 |
-| DOC-C6A9648CAF13 | enriched | html_fulltext | openalex:PubMed | 7547 |
+| DOC-C6A9648CAF13 | metadata_fallback | None | None | 526 |
 | DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-CA19FA59FBE9 | metadata_fallback | None | None | 579 |
 | DOC-C1C8D7931100 | metadata_fallback | None | None | 115 |
@@ -53,4 +54,3 @@
 | DOC-4797FB998A54 | metadata_fallback | None | None | 216 |
 | DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
 | DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
-| DOC-C82387BE3840 | metadata_fallback | None | None | 88 |
