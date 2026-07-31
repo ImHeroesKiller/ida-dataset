@@ -1,15 +1,15 @@
 # Candidate Pipeline
 
-**Session:** `SES-20260731-48AF62`
+**Session:** `SES-20260731-6A7BF4`
 
 Extracted **5** · Validated **5** · Rejected **0**
 
 | Candidate | Entity | Dataset | Confidence | Validation | Publish | Document | Reject reason |
 |-----------|--------|---------|------------|------------|---------|----------|---------------|
-| `CAND-F6A5DBE68257` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
-| `CAND-66AB3604948E` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
-| `CAND-91344D95223D` | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | approved | published | `DOC-7C7239075702` | — |
-| `CAND-5122EDC6CFBC` | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | approved | published | `DOC-50B3F3BC8DEB` | — |
-| `CAND-1D5ADAC63028` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-D5443F5620D9` | — |
+| `CAND-379E070318F2` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
+| `CAND-160C910C7F83` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
+| `CAND-D44239221A05` | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | approved | published | `DOC-7C7239075702` | — |
+| `CAND-A540C6CC5762` | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | approved | published | `DOC-50B3F3BC8DEB` | — |
+| `CAND-5C3378884EF9` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-D5443F5620D9` | — |
 
 ## Evidence snippets
