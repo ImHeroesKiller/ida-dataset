@@ -7,8 +7,8 @@
   "not_modified": 0,
   "skipped_duplicate": 7,
   "failed": 41,
-  "bytes": 1729586,
-  "elapsed_ms": 42348.60000000001,
+  "bytes": 1729452,
+  "elapsed_ms": 39403.6,
   "retries": 10,
   "max_workers": 2,
   "adaptive_workers": 2,
@@ -24,9 +24,9 @@
   },
   "fingerprints": {
     "skips": 35,
-    "adds": 90,
-    "unique_hashes": 90,
-    "unique_urls": 90
+    "adds": 79,
+    "unique_hashes": 79,
+    "unique_urls": 79
   }
 }
 ```
