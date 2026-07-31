@@ -1,15 +1,15 @@
 # Candidate Pipeline
 
-**Session:** `SES-20260731-85C03E`
+**Session:** `SES-20260731-E4C27F`
 
 Extracted **5** · Validated **5** · Rejected **0**
 
 | Candidate | Entity | Dataset | Confidence | Validation | Publish | Document | Reject reason |
 |-----------|--------|---------|------------|------------|---------|----------|---------------|
-| `CAND-47A705C38662` | Exploring the influence of regional economic pillars on library service equity in Indonesia | business_signal_library | 0.9 | approved | published | `DOC-A0E1922823F9` | — |
-| `CAND-F018F5075066` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
-| `CAND-0CE65281BF0F` | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | approved | published | `DOC-7C7239075702` | — |
-| `CAND-80F6C2C61791` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
-| `CAND-A9AD7E375327` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-D5443F5620D9` | — |
+| `CAND-3798B5C941AE` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
+| `CAND-228F80A2D5DA` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
+| `CAND-D858D01B998A` | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | approved | published | `DOC-7C7239075702` | — |
+| `CAND-E4519FFF6C6B` | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | approved | published | `DOC-50B3F3BC8DEB` | — |
+| `CAND-6A6D095B64D6` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-D5443F5620D9` | — |
 
 ## Evidence snippets
