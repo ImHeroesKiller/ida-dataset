@@ -24,6 +24,16 @@ Only domains present in Trusted Source Registry.
 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us- | SRC-000001 | DISC-COMMONCRAWL |  |
 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years | SRC-000001 | DISC-COMMONCRAWL |  |
 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years | SRC-000001 | DISC-COMMONCRAWL |  |
+| http://www5.worldbank.org/ | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/ | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org:443/ | SRC-000004 | DISC-COMMONCRAWL |  |
+| http://worldbank.org | SRC-000004 | DISC-COMMONCRAWL |  |
+| http://www.worldbank.org | SRC-000004 | DISC-COMMONCRAWL |  |
+| http://www.worldbank.org:80/ | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/%20en/country/madagascar/overview | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/%E3%80%80 | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/404_response.htm | SRC-000004 | DISC-COMMONCRAWL |  |
 | https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/ | SRC-CROSSREF | DISC-SITEMAP |  |
 | https://www.crossref.org/jobs/2025-11-13-communications-manager/ | SRC-CROSSREF | DISC-SITEMAP |  |
 | https://www.crossref.org/members-area/ | SRC-CROSSREF | DISC-SITEMAP |  |
