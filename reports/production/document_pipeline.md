@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260801-B1E385`
+**Session:** `SES-20260801-B08C35`
 
 ## Queue counts
 
@@ -10,7 +10,7 @@
 | processing | 0 |
 | completed | 62 |
 | failed | 0 |
-| duplicates | 31 |
+| duplicates | 35 |
 
 ## Documents
 
@@ -19,9 +19,9 @@
 | `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 71274 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
 | `DOC-A99E56C64737` | SRC-000004 | CONN-WB-001 | text/html | completed | 17390 | https://documents.worldbank.org/search?q=service+library+Indonesia |
 | `DOC-7C7239075702` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 586 | https://openalex.org/W3095315355 |
-| `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 31873 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
+| `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3919 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
 | `DOC-D5443F5620D9` | SRC-000004 | CONN-WB-001 | text/html | completed | 122752 | http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-D |
-| `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 50711 | https://openalex.org/W4312346959 |
+| `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 553 | https://openalex.org/W4312346959 |
 | `DOC-A3E0FD768B53` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3554 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 |
 | `DOC-6C9F71B60D42` | SRC-000004 | CONN-WB-001 | text/html | completed | 122773 | http://documents.worldbank.org/curated/en/865071474569449459/Indonesia-Library-D |
 | `DOC-62F50045E190` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 617 | https://openalex.org/W3132509763 |
@@ -29,7 +29,7 @@
 | `DOC-B0FB86CDF86A` | SRC-000004 | CONN-WB-001 | text/html | completed | 122988 | http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C352 |
 | `DOC-7F19EEE4229E` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 595 | https://openalex.org/W3004041197 |
 | `DOC-9D814DA54F80` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 1315679 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 |
-| `DOC-19CE8CB09E10` | SRC-000004 | CONN-WB-001 | text/html | completed | 122500 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
+| `DOC-9C02992AB0ED` | SRC-000004 | CONN-WB-001 | text/html | completed | 122941 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
 | `DOC-DE90DA00EB31` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 700 | https://openalex.org/W2974521388 |
 | `DOC-F825C3BB9600` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 9156 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 |
 | `DOC-EE9AA102B487` | SRC-000004 | CONN-WB-001 | text/html | completed | 122922 | http://documents.worldbank.org/curated/en/170561538243538219/Indonesia-Higher-Ed |
