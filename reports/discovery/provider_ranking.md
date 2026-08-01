@@ -1,17 +1,17 @@
 # Provider Ranking
 
-**Generated:** 2026-08-01T22:11:14+00:00
+**Generated:** 2026-08-01T23:11:48+00:00
 
 Dynamic rank: yield · freshness · trust · latency · coverage · mission relevance · success rate.
 
 | Rank | Provider | Score | Status | Components |
 |-----:|----------|------:|--------|------------|
-| 1 | Common Crawl Index | 89.902 | ACTIVE | `{"yield": 1.0, "success_rate": 1.0, "latency": 0.9, "freshness": 1.0, "trust": 0` |
-| 2 | Tavily (primary) | 86.08 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.998, "freshness": 0.45, "trust"` |
-| 3 | Sitemap Discovery | 58.52 | ACTIVE | `{"yield": 0.24, "success_rate": 1.0, "latency": 0.0, "freshness": 1.0, "trust": ` |
-| 4 | Atom Discovery | 55.24 | ACTIVE | `{"yield": 0.12, "success_rate": 1.0, "latency": 0.0, "freshness": 1.0, "trust": ` |
-| 5 | RSS Discovery | 53.3 | ACTIVE | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
-| 6 | Trusted Site Search (connector-backed) | 41.4 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.55, "freshness": 0.45, "trust":` |
+| 1 | Tavily (primary) | 86.085 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.999, "freshness": 0.45, "trust"` |
+| 2 | Sitemap Discovery | 58.52 | ACTIVE | `{"yield": 0.24, "success_rate": 1.0, "latency": 0.0, "freshness": 1.0, "trust": ` |
+| 3 | RSS Discovery | 53.3 | ACTIVE | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
+| 4 | Atom Discovery | 53.22 | ACTIVE | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
+| 5 | Trusted Site Search (connector-backed) | 41.4 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.55, "freshness": 0.45, "trust":` |
+| 6 | Common Crawl Index | 40.943 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.645, "freshness": 0.45, "trust"` |
 | 7 | OpenSearch Description | 32.3 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.55, "freshness": 0.45, "trust":` |
 | 8 | Google Programmable Search | 2.185 | DISABLED | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
 | 9 | Bing Web Search API | 2.175 | DISABLED | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
