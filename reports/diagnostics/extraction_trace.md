@@ -1,6 +1,6 @@
 # Extraction Trace
 
-**Generated:** 2026-08-01T08:45:21+00:00
+**Generated:** 2026-08-01T11:00:20+00:00
 
 - Stage stats: `{}`
 - Fast: `None` · Medium: `None` · Deep: `None`
@@ -8,8 +8,8 @@
 
 | Candidate | Entity | Type/Dataset | Confidence | Stage | Validation | Publish |
 | --- | --- | --- | --- | --- | --- | --- |
-| CAND-DED0FE001A03 | Exploring the influence of regional economic pillars on library service equity in Indonesia | business_signal_library | 0.9 | — | approved | published |
-| CAND-96027DD7942F | World Bank document | business_signal_library | 0.92 | — | approved | published |
-| CAND-40F3CF6C7896 | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | — | approved | published |
-| CAND-7CF29B22DFDA | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | — | approved | published |
-| CAND-6CEB6CB399DE | Indonesia - Library Development Project | business_signal_library | 0.92 | — | approved | published |
+| CAND-48FE05C26152 | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | — | approved | published |
+| CAND-D4DDD4324148 | World Bank document | business_signal_library | 0.92 | — | approved | published |
+| CAND-630672ACDA47 | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | — | approved | published |
+| CAND-D7359B056922 | Development of the Siak Library and Archives Service (2004-2022) | business_signal_library | 0.9 | — | approved | published |
+| CAND-6BAC190E7CC1 | Indonesia - Library Development Project | business_signal_library | 0.92 | — | approved | published |
