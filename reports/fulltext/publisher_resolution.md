@@ -1,10 +1,10 @@
 # Publisher Resolution
 
-**Generated:** 2026-08-01T06:17:05+00:00
+**Generated:** 2026-08-01T08:43:56+00:00
 
 | Metric | Value |
 |--------|------:|
-| Publisher-sourced enrichments | 4 |
+| Publisher-sourced enrichments | 5 |
 | Blocked downloads | 62 |
 | Redirect/failure class | 0 |
 

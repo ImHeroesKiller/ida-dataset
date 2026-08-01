@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-01T06:10:57+00:00",
-  "mission_id": "MIS-20260801-DCEFE1",
-  "session_id": "SES-20260801-8E536F",
+  "started_at": "2026-08-01T08:38:29+00:00",
+  "mission_id": "MIS-20260801-6E3227",
+  "session_id": "SES-20260801-F2EE28",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -46,26 +46,26 @@
     "one_discovery_multi_dataset": true
   },
   "queries_generated": 10,
-  "queries_executed": 27,
-  "urls_discovered": 44,
-  "urls_accepted": 36,
-  "urls_rejected": 8,
+  "queries_executed": 26,
+  "urls_discovered": 52,
+  "urls_accepted": 42,
+  "urls_rejected": 10,
   "urls_remaining": 0,
-  "duplicate_urls": 8,
-  "elapsed_ms": 765637.1,
+  "duplicate_urls": 10,
+  "elapsed_ms": 540996.6,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
   "providers_disabled": 5,
   "providers_exhausted": 2,
   "provider_utilization": {
-    "DISC-TAVILY": 0.1852,
-    "DISC-COMMONCRAWL": 0.1852,
-    "DISC-SITEMAP": 0.037,
-    "DISC-RSS": 0.037,
+    "DISC-TAVILY": 0.1923,
+    "DISC-COMMONCRAWL": 0.1923,
+    "DISC-SITEMAP": 0.0385,
+    "DISC-RSS": 0.0,
     "DISC-ATOM": 0.0,
-    "DISC-TRUSTED-SITE": 0.3704,
-    "DISC-OPENSEARCH": 0.1852,
+    "DISC-TRUSTED-SITE": 0.3846,
+    "DISC-OPENSEARCH": 0.1923,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
     "DISC-BRAVE": 0.0,
@@ -74,9 +74,9 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 20,
+    "DISC-COMMONCRAWL": 40,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 12,
+    "DISC-RSS": 0,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 206.89,
-  "accepted_per_hour": 169.27,
+  "urls_per_hour": 346.03,
+  "accepted_per_hour": 279.48,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -101,15 +101,15 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 670.0999999999999,
+      "elapsed_ms": 1418.8999999999999,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.705,
-      "utilization": 0.1852
+      "rank_score": 85.666,
+      "utilization": 0.1923
     },
     {
       "provider_id": "DISC-COMMONCRAWL",
@@ -121,17 +121,17 @@
         "message": "toggle"
       },
       "queries": 5,
-      "urls": 20,
+      "urls": 40,
       "cache_hits": 0,
-      "elapsed_ms": 32882.5,
+      "elapsed_ms": 86277.1,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 66.72,
-      "utilization": 0.1852
+      "rank_score": 59.924,
+      "utilization": 0.1923
     },
     {
       "provider_id": "DISC-SITEMAP",
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 451266.9,
+      "elapsed_ms": 453260.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -153,7 +153,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 51.6,
-      "utilization": 0.037
+      "utilization": 0.0385
     },
     {
       "provider_id": "DISC-RSS",
@@ -164,10 +164,10 @@
         "status": "healthy",
         "message": "feed_discovery"
       },
-      "queries": 1,
-      "urls": 12,
+      "queries": 0,
+      "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 280779.1,
+      "elapsed_ms": 0.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -175,7 +175,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 51.52,
-      "utilization": 0.037
+      "utilization": 0.0
     },
     {
       "provider_id": "DISC-ATOM",
@@ -219,7 +219,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 41.1,
-      "utilization": 0.3704
+      "utilization": 0.3846
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -241,7 +241,7 @@
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
       "rank_score": 32.0,
-      "utilization": 0.1852
+      "utilization": 0.1923
     },
     {
       "provider_id": "DISC-GOOGLE-CSE",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 115.3,
+      "elapsed_ms": 302.6,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 138.3,
+      "elapsed_ms": 258.7,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 95.0,
+      "elapsed_ms": 275.3,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 250.2,
+      "elapsed_ms": 293.8,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 71.3,
+      "elapsed_ms": 288.5,
       "cached": false,
       "live_search": true
     },
@@ -500,8 +500,8 @@
       "query": "site:bps.go.id corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 0,
-      "elapsed_ms": 21289.3,
+      "urls": 20,
+      "elapsed_ms": 20357.5,
       "cached": false,
       "live_search": true
     },
@@ -510,8 +510,8 @@
       "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 20,
-      "elapsed_ms": 7992.6,
+      "urls": 0,
+      "elapsed_ms": 10770.9,
       "cached": false,
       "live_search": true
     },
@@ -520,8 +520,8 @@
       "query": "site:worldbank.org corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
-      "urls": 0,
-      "elapsed_ms": 1121.1,
+      "urls": 20,
+      "elapsed_ms": 11940.7,
       "cached": false,
       "live_search": true
     },
@@ -531,7 +531,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1219.4,
+      "elapsed_ms": 21605.0,
       "cached": false,
       "live_search": true
     },
@@ -541,7 +541,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 1260.1,
+      "elapsed_ms": 21603.0,
       "cached": false,
       "live_search": true
     },
@@ -599,13 +599,7 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 451266.9
-    },
-    {
-      "provider_id": "DISC-RSS",
-      "query": "rss:trusted_feeds",
-      "urls": 12,
-      "elapsed_ms": 280779.1
+      "elapsed_ms": 453260.8
     }
   ],
   "reputation_top": [
@@ -626,15 +620,15 @@
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 100.821,
-      "score": 95.083,
+      "reputation": 100.822,
+      "score": 95.085,
       "authority": 1.0
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 99.805,
-      "score": 95.065,
+      "reputation": 99.807,
+      "score": 95.067,
       "authority": 0.95
     },
     {
@@ -733,12 +727,12 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.705,
+      "score": 85.666,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.992,
+        "latency": 0.989,
         "freshness": 0.5,
         "trust": 0.75,
         "coverage": 0.9,
@@ -749,12 +743,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 66.72,
+      "score": 59.924,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.35,
+        "yield": 0.2,
         "success_rate": 1.0,
-        "latency": 0.693,
+        "latency": 0.452,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -1045,6 +1039,66 @@
       "title": ""
     },
     {
+      "url": "http://www5.worldbank.org/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org:443/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://worldbank.org",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.worldbank.org",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://www.worldbank.org:80/",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/%E3%80%80",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "source_id": "SRC-000004",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-SITEMAP",
@@ -1115,80 +1169,68 @@
       "source_id": "SRC-OWASP",
       "provider_id": "DISC-SITEMAP",
       "title": ""
-    },
-    {
-      "url": "http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-RSS",
-      "title": "OWASP CVE Lite CLI Graduates to Lab Project Status"
-    },
-    {
-      "url": "http://owasp.org/blog/2026/06/18/greenberg-statement.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-RSS",
-      "title": "Community update regarding Richard Greenberg"
-    },
-    {
-      "url": "http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-RSS",
-      "title": "Aikido and OWASP bring agentic Code Audit to the global AppSec community"
-    },
-    {
-      "url": "http://owasp.org/blog/2026/06/09/dependency-track-v5.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-RSS",
-      "title": "OWASP Dependency-Track 5.0 Is Now Generally Available"
     }
   ],
   "rejected_urls": [
     {
-      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
+      "url": "https://www.worldbank.org/",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
+      "url": "https://www.worldbank.org/",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.crossref.org/members-area/",
+      "url": "https://www.worldbank.org/",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.crossref.org/jobs/2023-04-24-contract-member-support/",
+      "url": "https://www.worldbank.org/",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.ifrs.org/",
+      "url": "https://www.worldbank.org/",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.ifrs.org/groups/managing-director/michel-madelain/",
+      "url": "https://www.worldbank.org/404_response.htm",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.ifrs.org/groups/monitoring-board/",
+      "url": "https://www.worldbank.org/404_response.htm",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitoring-board/",
+      "url": "https://www.worldbank.org/404_response.htm",
       "reason": "duplicate_url",
       "host": null,
-      "provider_id": "DISC-RSS"
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
     }
   ],
   "cache": {
@@ -1196,7 +1238,7 @@
     "misses": 15,
     "stores": 15,
     "cached_queries": 15,
-    "cached_urls": 20
+    "cached_urls": 30
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }
