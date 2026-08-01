@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-08-01T18:20:31+00:00
+**Generated:** 2026-08-01T20:27:42+00:00
 
-- Fingerprint URLs known: **90**
-- Fingerprint hashes known: **90**
-- Fingerprint stats: `{'skips': 20, 'adds': 90}`
-- Trace summary: discovered=31 downloaded=62 duplicates=35
+- Fingerprint URLs known: **86**
+- Fingerprint hashes known: **86**
+- Fingerprint stats: `{'skips': 20, 'adds': 86}`
+- Trace summary: discovered=31 downloaded=62 duplicates=31
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,7 @@
 | DOC-B0FB86CDF86A | http://documents.worldbank.org/curated/en/146431468052778758 | b0fb86cdf86a7ab4 | True | False | False | False | True | completed |
 | DOC-7F19EEE4229E | https://openalex.org/W3004041197 | 7f19eee4229ef1f0 | True | False | False | False | True | completed |
 | DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
-| DOC-9C02992AB0ED | http://documents.worldbank.org/curated/en/117431468041701262 | 9c02992ab0ed8e9a | True | False | False | False | True | completed |
+| DOC-19CE8CB09E10 | http://documents.worldbank.org/curated/en/117431468041701262 | 19ce8cb09e101a1b | True | False | False | False | True | completed |
 | DOC-DE90DA00EB31 | https://openalex.org/W2974521388 | de90da00eb316bac | True | False | False | False | True | completed |
 | DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
 | DOC-EE9AA102B487 | http://documents.worldbank.org/curated/en/170561538243538219 | ee9aa102b487f1db | True | False | False | False | True | completed |
