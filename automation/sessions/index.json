@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-08-02T06:23:11+00:00",
+  "updated_at": "2026-08-02T08:50:40+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260802-CA4712",
+      "path": "automation/sessions/2026-08-02/SESSION-20260802-CA4712.json",
+      "start_time": "2026-08-02T08:32:16+00:00",
+      "end_time": "2026-08-02T08:50:40+00:00",
+      "duration_seconds": 1104.0,
+      "status": "completed",
+      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entity=The Influence of Service Quality on Library Users at Padang State Polytechnic",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 314,
+      "github": {
+        "run_id": "30739935597",
+        "run_number": "289",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "9958e8b1021f6be7ae9a1f820a793d1441e8751e",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260802-C41AAA",
       "path": "automation/sessions/2026-08-02/SESSION-20260802-C41AAA.json",
@@ -1368,34 +1396,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "schedule",
         "sha": "cdb1660ab8bbbc2e40e6442ba30623d1760a7687",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260728-71899B",
-      "path": "automation/sessions/2026-07-28/SESSION-20260728-71899B.json",
-      "start_time": "2026-07-28T05:48:22+00:00",
-      "end_time": "2026-07-28T06:06:20+00:00",
-      "duration_seconds": 1078.0,
-      "status": "completed",
-      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
-      "knowledge_added": 2,
-      "knowledge_updated": 0,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · published=2 extracted=2 validated=2 rejected=0 docs=51 entity=Export Processing",
-      "trigger": "schedule",
-      "dry_run": false,
-      "events": 244,
-      "github": {
-        "run_id": "30332695467",
-        "run_number": "233",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "schedule",
-        "sha": "1f56afe004749b4417e316958dc7b7e0fc5ec193",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
