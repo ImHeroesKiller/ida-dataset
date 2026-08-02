@@ -6,7 +6,7 @@
 | API requests | 73 |
 | Cache hit rate | 0.0 |
 | Rows produced | 5 |
-| Documents processed | 13713 |
+| Documents processed | 13766 |
 | Rows per API call | 0.0685 |
 | Rows per GB | 5178.89 |
 | Est. production cost (USD proxy) | 0.073 |
@@ -18,20 +18,20 @@
 [
   {
     "source_id": "SRC-CROSSREF",
-    "rows": 521,
-    "documents": 3499,
+    "rows": 523,
+    "documents": 3509,
     "success_rate": 1.0
   },
   {
     "source_id": "SRC-000004",
-    "rows": 463,
-    "documents": 3275,
+    "rows": 465,
+    "documents": 3297,
     "success_rate": 1.0
   },
   {
     "source_id": "SRC-OPENALEX",
-    "rows": 252,
-    "documents": 3175,
+    "rows": 253,
+    "documents": 3185,
     "success_rate": 1.0
   },
   {
@@ -55,7 +55,7 @@
   {
     "source_id": "SRC-000005",
     "rows": 0,
-    "documents": 1112,
+    "documents": 1123,
     "success_rate": 1.0
   }
 ]
