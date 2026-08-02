@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-02T22:18:17+00:00
+**Generated:** 2026-08-02T23:21:14+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260802-334F21 |
+| session_id | SESSION-20260802-65E0DF |
 | status | completed |
 | mission | corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_libra |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 970.0 |
+| duration_seconds | 966.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
-| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=54 entity=The Influence of Service Quality on Li |
-| start_time | 2026-08-02T22:00:43+00:00 |
-| end_time | 2026-08-02T22:16:53+00:00 |
+| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entity=Exploring the influence of regional ec |
+| start_time | 2026-08-02T23:03:43+00:00 |
+| end_time | 2026-08-02T23:19:49+00:00 |
 
 ## Pipeline stages
 
@@ -26,24 +26,24 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · |
-| source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
+| source_discovery | completed | 3.1 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
 | connector_calls | completed | — | 31 | — | discovered=31 |
-| document_discovery | completed | 93879.5 | 77 | — |  |
-| documents_skipped | completed | — | 23 | — | duplicates_or_skips=23 |
-| document_download | completed | 100223.0 | 54 | — | downloaded=54 |
-| extraction | completed | 105.3 | — | 5 |  |
+| document_discovery | completed | 93988.6 | 97 | — |  |
+| documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
+| document_download | completed | 136162.4 | 62 | — | downloaded=62 |
+| extraction | completed | 112.1 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
-| end_session | completed | — | — | — | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=54 entit |
+| end_session | completed | — | — | — | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entit |
 
 ## Funnel
 
 | Metric | Value |
 | --- | --- |
 | documents_discovered | 31 |
-| documents_downloaded | 54 |
-| documents_duplicates | 23 |
+| documents_downloaded | 62 |
+| documents_duplicates | 35 |
 | candidates_extracted | 5 |
 | candidates_validated | 5 |
 | candidates_rejected | 0 |

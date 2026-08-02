@@ -1,13 +1,13 @@
 # Acquisition Success
 
-**Generated:** 2026-08-02T22:16:53+00:00
+**Generated:** 2026-08-02T23:19:49+00:00
 
 | Outcome | Count |
 |---------|------:|
 | Enriched with richer body | 9 |
-| Already rich | 29 |
-| Metadata fallback | 34 |
-| Failed chain | 30 |
+| Already rich | 39 |
+| Metadata fallback | 42 |
+| Failed chain | 38 |
 | Blocked | 62 |
 
 ## Recent records
@@ -15,19 +15,20 @@
 | Document | Result | Representation | Source | Chars |
 |----------|--------|----------------|--------|------:|
 | DOC-7C7239075702 | metadata_fallback | None | None | 584 |
+| DOC-A0E1922823F9 | enriched | html_fulltext | publisher_landing | 19230 |
 | DOC-5DFD7BF054D2 | enriched | html_fulltext | publisher_landing | 7837 |
 | DOC-50B3F3BC8DEB | enriched | html_fulltext | publisher_landing | 5517 |
-| DOC-362992E54B77 | enriched | html_fulltext | unpaywall_landing | 10416 |
 | DOC-62F50045E190 | metadata_fallback | None | None | 617 |
-| DOC-6768188378B0 | enriched | html_fulltext | publisher_landing | 7961 |
+| DOC-362992E54B77 | enriched | html_fulltext | unpaywall_landing | 10416 |
 | DOC-7F19EEE4229E | metadata_fallback | None | None | 595 |
-| DOC-9D814DA54F80 | enriched | html_fulltext | crossref_link | 25355 |
+| DOC-6768188378B0 | enriched | html_fulltext | publisher_landing | 7961 |
 | DOC-DE90DA00EB31 | metadata_fallback | None | None | 698 |
+| DOC-9D814DA54F80 | enriched | html_fulltext | crossref_link | 25355 |
 | DOC-0C15999FB55C | enriched | html_fulltext | unpaywall_landing | 10417 |
-| DOC-2AE2C7E68DAF | enriched | html_fulltext | crossref_link | 4806 |
 | DOC-69EEA36D9AF8 | enriched | html_fulltext | openalex:openalex | 2622 |
 | DOC-FA192923E2E0 | metadata_fallback | None | None | 8000 |
 | DOC-C6A9648CAF13 | enriched | html_fulltext | openalex:PubMed | 7547 |
+| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-CA19FA59FBE9 | metadata_fallback | None | None | 579 |
 | DOC-C1C8D7931100 | metadata_fallback | None | None | 115 |
 | DOC-63E9EB2E5A2F | metadata_fallback | None | None | 132 |
@@ -39,7 +40,6 @@
 | DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
 | DOC-708BA37EBD5C | metadata_fallback | None | None | 160 |
 | DOC-F2BF8FA340F8 | metadata_fallback | None | None | 228 |
-| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-3E1CA71C0311 | metadata_fallback | None | None | 245 |
 | DOC-65FC704A4D9D | metadata_fallback | None | None | 208 |
 | DOC-0DE6D8F8C910 | metadata_fallback | None | None | 149 |
@@ -53,3 +53,4 @@
 | DOC-4797FB998A54 | metadata_fallback | None | None | 216 |
 | DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
 | DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
+| DOC-C82387BE3840 | metadata_fallback | None | None | 88 |

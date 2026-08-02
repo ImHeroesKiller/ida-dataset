@@ -1,33 +1,33 @@
 # Document Trace
 
-**Generated:** 2026-08-02T22:18:17+00:00
+**Generated:** 2026-08-02T23:21:14+00:00
 
-- Fingerprint URLs known: **72**
-- Fingerprint hashes known: **72**
-- Fingerprint stats: `{'skips': 11, 'adds': 72}`
-- Trace summary: discovered=31 downloaded=54 duplicates=23
+- Fingerprint URLs known: **90**
+- Fingerprint hashes known: **90**
+- Fingerprint stats: `{'skips': 20, 'adds': 90}`
+- Trace summary: discovered=31 downloaded=62 duplicates=35
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DOC-5DFD7BF054D2 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 | 5dfd7bf054d2c4cb | True | False | False | False | True | completed |
+| DOC-A0E1922823F9 | https://api.crossref.org/works/10.22452/mjlis.vol29no2.4 | a0e1922823f9cbfd | True | False | False | False | True | completed |
 | DOC-A99E56C64737 | https://documents.worldbank.org/search?q=service+library+Ind | a99e56c64737a010 | True | False | False | False | True | completed |
 | DOC-7C7239075702 | https://openalex.org/W3095315355 | 7c723907570202ba | True | False | False | False | True | completed |
-| DOC-50B3F3BC8DEB | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 | 50b3f3bc8deb5503 | True | False | False | False | True | completed |
+| DOC-5DFD7BF054D2 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 | 5dfd7bf054d2c4cb | True | False | False | False | True | completed |
 | DOC-D5443F5620D9 | http://documents.worldbank.org/curated/en/726241468752365494 | d5443f5620d991b1 | True | False | False | False | True | completed |
 | DOC-362992E54B77 | https://openalex.org/W4312346959 | 362992e54b774e12 | True | False | False | False | True | completed |
-| DOC-A3E0FD768B53 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 | a3e0fd768b530c68 | True | False | False | False | True | completed |
+| DOC-50B3F3BC8DEB | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 | 50b3f3bc8deb5503 | True | False | False | False | True | completed |
 | DOC-6C9F71B60D42 | http://documents.worldbank.org/curated/en/865071474569449459 | 6c9f71b60d4256ed | True | False | False | False | True | completed |
 | DOC-62F50045E190 | https://openalex.org/W3132509763 | 62f50045e190b3a3 | True | False | False | False | True | completed |
-| DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
+| DOC-A3E0FD768B53 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 | a3e0fd768b530c68 | True | False | False | False | True | completed |
 | DOC-B0FB86CDF86A | http://documents.worldbank.org/curated/en/146431468052778758 | b0fb86cdf86a7ab4 | True | False | False | False | True | completed |
 | DOC-7F19EEE4229E | https://openalex.org/W3004041197 | 7f19eee4229ef1f0 | True | False | False | False | True | completed |
-| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
+| DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
 | DOC-9C02992AB0ED | http://documents.worldbank.org/curated/en/117431468041701262 | 9c02992ab0ed8e9a | True | False | False | False | True | completed |
 | DOC-DE90DA00EB31 | https://openalex.org/W2974521388 | de90da00eb316bac | True | False | False | False | True | completed |
-| DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
+| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
 | DOC-EE9AA102B487 | http://documents.worldbank.org/curated/en/170561538243538219 | ee9aa102b487f1db | True | False | False | False | True | completed |
 | DOC-0C15999FB55C | https://openalex.org/W2989135090 | 0c15999fb55c4690 | True | False | False | False | True | completed |
-| DOC-2AE2C7E68DAF | https://api.crossref.org/works/10.30574/wjarr.2021.12.3.0707 | 2ae2c7e68daf016e | True | False | False | False | True | completed |
+| DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
 | DOC-8F2F69488B1B | http://documents.worldbank.org/curated/en/544241468260062256 | 8f2f69488b1bdf76 | True | False | False | False | True | completed |
 | DOC-72B3224209C4 | https://openalex.org/W3031607294 | 72b3224209c4c890 | True | False | False | False | True | completed |
 | DOC-2AB16A333F59 | https://api.crossref.org/works/10.1109/icitsi.2015.7437704 | 2ab16a333f594004 | True | False | False | False | True | completed |
@@ -63,3 +63,11 @@
 | DOC-4797FB998A54 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/export | 4797fb998a5492f2 | True | False | False | False | True | completed |
 | DOC-8903E78503B7 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percent | 8903e78503b77d7e | True | False | False | False | True | completed |
 | DOC-EEB66F14A504 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percent | eeb66f14a504784c | True | False | False | False | True | completed |
+| DOC-C82387BE3840 | https://ammdes.kemenperin.go.id/ | c82387be3840f7e5 | True | False | False | False | True | completed |
+| DOC-35242ACBFC8C | http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_proj | 35242acbfc8cf6d3 | True | False | False | False | True | completed |
+| DOC-A9BA1BC04A49 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_pro | a9ba1bc04a49b0e3 | True | False | False | False | True | completed |
+| DOC-5AE418499878 | https://ammdes.kemenperin.go.id/robots.txt | 5ae418499878ce29 | True | False | False | False | True | completed |
+| DOC-BD9EDDE8E2B7 | http://ammdes.kemenperin.go.id/robots.txt | bd9edde8e2b73c7f | True | False | False | False | True | completed |
+| DOC-41728C78610E | https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/p | 41728c78610e1787 | True | False | False | False | True | completed |
+| DOC-EB8E28CFE081 | https://bbkb.kemenperin.go.id/perpus/index/ | eb8e28cfe0817d36 | True | False | False | False | True | completed |
+| DOC-0E785C552C2C | https://bbkb.kemenperin.go.id/perpus/index/70 | 0e785c552c2c93de | True | False | False | False | True | completed |
