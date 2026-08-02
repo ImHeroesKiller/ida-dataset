@@ -1,6 +1,6 @@
 # Worker Utilization
 
-**Generated:** 2026-08-02T13:41:30+00:00
+**Generated:** 2026-08-02T15:25:48+00:00
 
 | Metric | Value |
 |--------|------:|
@@ -12,4 +12,4 @@
 
 Adaptive ladder: 2 → 4 → 8 → 16 workers based on connector latency.
 
-Session workers: `{'adaptive': 2, 'avg_latency_ms': 13702.685714285715}`
+Session workers: `{'adaptive': 2, 'avg_latency_ms': 13702.671428571428}`

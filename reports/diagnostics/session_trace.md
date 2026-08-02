@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-02T13:42:55+00:00
+**Generated:** 2026-08-02T15:27:12+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260802-FB6DD6 |
+| session_id | SESSION-20260802-F0F0FF |
 | status | completed |
 | mission | corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_libra |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 989.0 |
+| duration_seconds | 1299.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
-| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entity=Exploring the influence of regional ec |
-| start_time | 2026-08-02T13:25:01+00:00 |
-| end_time | 2026-08-02T13:41:30+00:00 |
+| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entity=The Influence of Service Quality on Li |
+| start_time | 2026-08-02T15:04:09+00:00 |
+| end_time | 2026-08-02T15:25:48+00:00 |
 
 ## Pipeline stages
 
@@ -28,10 +28,10 @@
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · |
 | source_discovery | completed | 3.0 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
 | connector_calls | completed | — | 31 | — | discovered=31 |
-| document_discovery | completed | 93997.3 | 97 | — |  |
+| document_discovery | completed | 94117.7 | 97 | — |  |
 | documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
-| document_download | completed | 140130.7 | 62 | — | downloaded=62 |
-| extraction | completed | 111.8 | — | 5 |  |
+| document_download | completed | 434696.6 | 62 | — | downloaded=62 |
+| extraction | completed | 101.4 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
