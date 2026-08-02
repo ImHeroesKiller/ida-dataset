@@ -1,6 +1,6 @@
 # Query Statistics
 
-**Session:** `SES-20260802-F6CF8D`
+**Session:** `SES-20260802-820EAC`
 
 | Provider | Query | URLs | ms | Cached |
 |----------|-------|-----:|---:|--------|
@@ -14,20 +14,20 @@
 | DISC-TRUSTED-SITE | `site:adb.org intitle:corporate corporate governance service continuous` | 0 | 0 | False |
 | DISC-TRUSTED-SITE | `site:oecd.org corporate governance service continuous` | 0 | 0 | False |
 | DISC-TRUSTED-SITE | `site:oecd.org intitle:corporate corporate governance service continuous` | 0 | 0 | False |
-| DISC-TAVILY | `site:bps.go.id corporate governance service continuous` | 0 | 80.8 | False |
-| DISC-TAVILY | `site:bps.go.id intitle:corporate corporate governance service continuous` | 0 | 78.5 | False |
-| DISC-TAVILY | `site:worldbank.org corporate governance service continuous` | 0 | 94.8 | False |
-| DISC-TAVILY | `site:worldbank.org intitle:corporate corporate governance service continuous` | 0 | 126.7 | False |
-| DISC-TAVILY | `site:kemenperin.go.id corporate governance service continuous` | 0 | 68.2 | False |
-| DISC-COMMONCRAWL | `site:bps.go.id corporate governance service continuous` | 0 | 21416.8 | False |
-| DISC-COMMONCRAWL | `site:bps.go.id intitle:corporate corporate governance service continuous` | 20 | 5039.6 | False |
-| DISC-COMMONCRAWL | `site:worldbank.org corporate governance service continuous` | 0 | 1239.9 | False |
-| DISC-COMMONCRAWL | `site:worldbank.org intitle:corporate corporate governance service continuous` | 0 | 1230.4 | False |
-| DISC-COMMONCRAWL | `site:kemenperin.go.id corporate governance service continuous` | 0 | 1329.8 | False |
+| DISC-TAVILY | `site:bps.go.id corporate governance service continuous` | 0 | 259.6 | False |
+| DISC-TAVILY | `site:bps.go.id intitle:corporate corporate governance service continuous` | 0 | 226.1 | False |
+| DISC-TAVILY | `site:worldbank.org corporate governance service continuous` | 0 | 217.5 | False |
+| DISC-TAVILY | `site:worldbank.org intitle:corporate corporate governance service continuous` | 0 | 154.4 | False |
+| DISC-TAVILY | `site:kemenperin.go.id corporate governance service continuous` | 0 | 132.4 | False |
+| DISC-COMMONCRAWL | `site:bps.go.id corporate governance service continuous` | 20 | 914.1 | False |
+| DISC-COMMONCRAWL | `site:bps.go.id intitle:corporate corporate governance service continuous` | 20 | 16910.9 | False |
+| DISC-COMMONCRAWL | `site:worldbank.org corporate governance service continuous` | 20 | 392.7 | False |
+| DISC-COMMONCRAWL | `site:worldbank.org intitle:corporate corporate governance service continuous` | 20 | 605.5 | False |
+| DISC-COMMONCRAWL | `site:kemenperin.go.id corporate governance service continuous` | 20 | 2086.4 | False |
 | DISC-OPENSEARCH | `site:bps.go.id corporate governance service continuous` | 0 | 0.0 | False |
 | DISC-OPENSEARCH | `site:bps.go.id intitle:corporate corporate governance service continuous` | 0 | 0.0 | False |
 | DISC-OPENSEARCH | `site:worldbank.org corporate governance service continuous` | 0 | 0.0 | False |
 | DISC-OPENSEARCH | `site:worldbank.org intitle:corporate corporate governance service continuous` | 0 | 0.0 | False |
 | DISC-OPENSEARCH | `site:kemenperin.go.id corporate governance service continuous` | 0 | 0.0 | False |
-| DISC-SITEMAP | `sitemap:trusted_feeds` | 12 | 454099.6 | False |
-| DISC-RSS | `rss:trusted_feeds` | 12 | 279250.7 | False |
+| DISC-SITEMAP | `sitemap:trusted_feeds` | 12 | 449772.3 | False |
+| DISC-RSS | `rss:trusted_feeds` | 12 | 279211.9 | False |
