@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-03T10:53:50+00:00",
-  "mission_id": "MIS-20260803-34C5FE",
-  "session_id": "SES-20260803-7F28FC",
+  "started_at": "2026-08-03T13:52:29+00:00",
+  "mission_id": "MIS-20260803-3D7A2D",
+  "session_id": "SES-20260803-2FEC7C",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 0,
   "urls_remaining": 0,
   "duplicate_urls": 0,
-  "elapsed_ms": 559324.2,
+  "elapsed_ms": 559593.8,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -60,11 +60,11 @@
   "providers_exhausted": 3,
   "provider_utilization": {
     "DISC-TAVILY": 0.1923,
-    "DISC-COMMONCRAWL": 0.1923,
     "DISC-SITEMAP": 0.0385,
     "DISC-RSS": 0.0,
     "DISC-ATOM": 0.0,
     "DISC-TRUSTED-SITE": 0.3846,
+    "DISC-COMMONCRAWL": 0.1923,
     "DISC-OPENSEARCH": 0.1923,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
@@ -74,11 +74,11 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 0,
     "DISC-SITEMAP": 12,
     "DISC-RSS": 0,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
+    "DISC-COMMONCRAWL": 0,
     "DISC-OPENSEARCH": 0,
     "DISC-GOOGLE-CSE": 0,
     "DISC-BING": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 77.24,
-  "accepted_per_hour": 77.24,
+  "urls_per_hour": 77.2,
+  "accepted_per_hour": 77.2,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -101,36 +101,14 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 1046.0,
+      "elapsed_ms": 1477.6999999999998,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.513,
-      "utilization": 0.1923
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "api_type": "commoncrawl",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "toggle"
-      },
-      "queries": 5,
-      "urls": 0,
-      "cache_hits": 0,
-      "elapsed_ms": 104187.19999999998,
-      "status": "ready",
-      "operational_status": "ACTIVE",
-      "credentials_available": true,
-      "disable_reason": "ready",
-      "exhausted": true,
-      "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 67.678,
+      "rank_score": 85.591,
       "utilization": 0.1923
     },
     {
@@ -145,7 +123,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 454055.9,
+      "elapsed_ms": 449647.3,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -174,7 +152,7 @@
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 51.52,
+      "rank_score": 44.0,
       "utilization": 0.0
     },
     {
@@ -220,6 +198,28 @@
       "exhaustion_reason": "",
       "rank_score": 41.1,
       "utilization": 0.3846
+    },
+    {
+      "provider_id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "api_type": "commoncrawl",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "toggle"
+      },
+      "queries": 5,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 108433.6,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": true,
+      "exhaustion_reason": "provider_exhausted_empty_results",
+      "rank_score": 32.9,
+      "utilization": 0.1923
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 261.2,
+      "elapsed_ms": 304.2,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 202.6,
+      "elapsed_ms": 283.4,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 192.5,
+      "elapsed_ms": 290.9,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 241.3,
+      "elapsed_ms": 323.1,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 148.4,
+      "elapsed_ms": 276.1,
       "cached": false,
       "live_search": true
     },
@@ -501,7 +501,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 17404.6,
+      "elapsed_ms": 21656.8,
       "cached": false,
       "live_search": true
     },
@@ -511,7 +511,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 17615.1,
+      "elapsed_ms": 21803.1,
       "cached": false,
       "live_search": true
     },
@@ -521,7 +521,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 22359.5,
+      "elapsed_ms": 21735.5,
       "cached": false,
       "live_search": true
     },
@@ -531,7 +531,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 22336.1,
+      "elapsed_ms": 21753.3,
       "cached": false,
       "live_search": true
     },
@@ -541,7 +541,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 24471.9,
+      "elapsed_ms": 21484.9,
       "cached": false,
       "live_search": true
     },
@@ -599,7 +599,7 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 454055.9
+      "elapsed_ms": 449647.3
     }
   ],
   "reputation_top": [
@@ -620,8 +620,8 @@
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 100.83,
-      "score": 95.094,
+      "reputation": 100.832,
+      "score": 95.096,
       "authority": 1.0
     },
     {
@@ -727,33 +727,17 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.513,
+      "score": 85.591,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.976,
+        "latency": 0.983,
         "freshness": 0.5,
         "trust": 0.75,
         "coverage": 0.9,
         "relevance": 0.4,
         "config_priority": 1.0
-      }
-    },
-    {
-      "id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "score": 67.678,
-      "status": "ACTIVE",
-      "components": {
-        "yield": 0.35,
-        "success_rate": 1.0,
-        "latency": 0.773,
-        "freshness": 0.7,
-        "trust": 0.95,
-        "coverage": 0.75,
-        "relevance": 0.4,
-        "config_priority": 0.55
       }
     },
     {
@@ -775,13 +759,13 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 51.52,
+      "score": 44.0,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.12,
-        "success_rate": 1.0,
-        "latency": 0.0,
-        "freshness": 0.7,
+        "yield": 0.0,
+        "success_rate": 0.5,
+        "latency": 0.55,
+        "freshness": 0.5,
         "trust": 0.95,
         "coverage": 0.6,
         "relevance": 0.4,
@@ -818,6 +802,22 @@
         "coverage": 0.75,
         "relevance": 0.4,
         "config_priority": 0.95
+      }
+    },
+    {
+      "id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "score": 32.9,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 0.2,
+        "latency": 0.0,
+        "freshness": 0.5,
+        "trust": 0.95,
+        "coverage": 0.75,
+        "relevance": 0.4,
+        "config_priority": 0.55
       }
     },
     {
