@@ -1,6 +1,6 @@
 # Document Trace
 
-**Generated:** 2026-08-03T06:45:34+00:00
+**Generated:** 2026-08-03T10:15:23+00:00
 
 - Fingerprint URLs known: **67**
 - Fingerprint hashes known: **67**
@@ -9,19 +9,19 @@
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DOC-A0E1922823F9 | https://api.crossref.org/works/10.22452/mjlis.vol29no2.4 | a0e1922823f9cbfd | True | False | False | False | True | completed |
+| DOC-5DFD7BF054D2 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 | 5dfd7bf054d2c4cb | True | False | False | False | True | completed |
 | DOC-A99E56C64737 | https://documents.worldbank.org/search?q=service+library+Ind | a99e56c64737a010 | True | False | False | False | True | completed |
 | DOC-7C7239075702 | https://openalex.org/W3095315355 | 7c723907570202ba | True | False | False | False | True | completed |
-| DOC-5DFD7BF054D2 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 | 5dfd7bf054d2c4cb | True | False | False | False | True | completed |
+| DOC-50B3F3BC8DEB | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 | 50b3f3bc8deb5503 | True | False | False | False | True | completed |
 | DOC-D5443F5620D9 | http://documents.worldbank.org/curated/en/726241468752365494 | d5443f5620d991b1 | True | False | False | False | True | completed |
 | DOC-362992E54B77 | https://openalex.org/W4312346959 | 362992e54b774e12 | True | False | False | False | True | completed |
-| DOC-50B3F3BC8DEB | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 | 50b3f3bc8deb5503 | True | False | False | False | True | completed |
+| DOC-A3E0FD768B53 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 | a3e0fd768b530c68 | True | False | False | False | True | completed |
 | DOC-6C9F71B60D42 | http://documents.worldbank.org/curated/en/865071474569449459 | 6c9f71b60d4256ed | True | False | False | False | True | completed |
 | DOC-62F50045E190 | https://openalex.org/W3132509763 | 62f50045e190b3a3 | True | False | False | False | True | completed |
-| DOC-A3E0FD768B53 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 | a3e0fd768b530c68 | True | False | False | False | True | completed |
+| DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
 | DOC-B0FB86CDF86A | http://documents.worldbank.org/curated/en/146431468052778758 | b0fb86cdf86a7ab4 | True | False | False | False | True | completed |
 | DOC-7F19EEE4229E | https://openalex.org/W3004041197 | 7f19eee4229ef1f0 | True | False | False | False | True | completed |
-| DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
+| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
 | DOC-19CE8CB09E10 | http://documents.worldbank.org/curated/en/117431468041701262 | 19ce8cb09e101a1b | True | False | False | False | True | completed |
 | DOC-DE90DA00EB31 | https://openalex.org/W2974521388 | de90da00eb316bac | True | False | False | False | True | completed |
 | DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
@@ -29,7 +29,7 @@
 | DOC-EE9AA102B487 | http://documents.worldbank.org/curated/en/170561538243538219 | ee9aa102b487f1db | True | False | False | False | True | completed |
 | DOC-0C15999FB55C | https://openalex.org/W2989135090 | 0c15999fb55c4690 | True | False | False | False | True | completed |
 | DOC-859D2142FF21 | https://www.bps.go.id/248-268 | 859d2142ff2174ae | True | False | False | False | True | completed |
-| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
+| DOC-2AE2C7E68DAF | https://api.crossref.org/works/10.30574/wjarr.2021.12.3.0707 | 2ae2c7e68daf016e | True | False | False | False | True | completed |
 | DOC-8F2F69488B1B | http://documents.worldbank.org/curated/en/544241468260062256 | 8f2f69488b1bdf76 | True | False | False | False | True | completed |
 | DOC-72B3224209C4 | https://openalex.org/W3031607294 | 72b3224209c4c890 | True | False | False | False | True | completed |
 | DOC-086852F73EE0 | https://www.bps.go.id/brs/view/id/1267 | 086852f73ee06d6f | True | False | False | False | True | completed |
