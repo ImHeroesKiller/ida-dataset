@@ -1,15 +1,15 @@
 # Session Efficiency
 
-**Generated:** 2026-08-04T11:03:36+00:00
+**Generated:** 2026-08-04T13:18:59+00:00
 
 | Metric | Value |
 |--------|------:|
-| Sessions | 316 |
-| Sessions with rows | 281 |
-| Total rows | 1368 |
-| Avg duration (s) | 959.323 |
+| Sessions | 317 |
+| Sessions with rows | 282 |
+| Total rows | 1373 |
+| Avg duration (s) | 960.461 |
 | Max duration (s) | 2353.0 |
-| Rows/session | 4.868 |
+| Rows/session | 4.869 |
 | Top mission | corporate governance — service knowledge for Corporate Governance — continuous k |
 
 Mission density: hourly `learn.yml` + non-overlapping concurrency.
