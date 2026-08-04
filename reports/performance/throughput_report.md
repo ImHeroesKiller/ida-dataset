@@ -1,16 +1,16 @@
 # Throughput Report
 
-**Generated:** 2026-08-04T00:24:09+00:00
+**Generated:** 2026-08-04T04:32:08+00:00
 
 | Metric | Value |
 |--------|------:|
-| Documents (last run) | 42 |
+| Documents (last run) | 51 |
 | Rows (last run) | 5 |
-| Documents/hour | 198.31 |
-| Rows/hour | 23.61 |
-| Elapsed seconds | 762.425 |
-| Knowledge growth velocity (rows/session) | 4.866 |
-| Production efficiency (rows/doc) | 0.119 |
-| LLM skipped | 42 |
+| Documents/hour | 190.57 |
+| Rows/hour | 18.68 |
+| Elapsed seconds | 963.433 |
+| Knowledge growth velocity (rows/session) | 4.867 |
+| Production efficiency (rows/doc) | 0.098 |
+| LLM skipped | 51 |
 | LLM used | 0 |
-| Avg extraction time (ms) | 2.32 |
+| Avg extraction time (ms) | 2.05 |
