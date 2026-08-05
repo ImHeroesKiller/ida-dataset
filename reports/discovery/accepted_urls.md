@@ -4,6 +4,16 @@ Only domains present in Trusted Source Registry.
 
 | URL | Source | Provider | Title |
 |-----|--------|----------|-------|
+| http://www5.worldbank.org/ | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/ | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org:443/ | SRC-000004 | DISC-COMMONCRAWL |  |
+| http://worldbank.org | SRC-000004 | DISC-COMMONCRAWL |  |
+| http://www.worldbank.org | SRC-000004 | DISC-COMMONCRAWL |  |
+| http://www.worldbank.org:80/ | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/%20en/country/madagascar/overview | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/%E3%80%80 | SRC-000004 | DISC-COMMONCRAWL |  |
+| https://www.worldbank.org/404_response.htm | SRC-000004 | DISC-COMMONCRAWL |  |
 | https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/ | SRC-CROSSREF | DISC-SITEMAP |  |
 | https://www.crossref.org/jobs/2025-11-13-communications-manager/ | SRC-CROSSREF | DISC-SITEMAP |  |
 | https://www.crossref.org/members-area/ | SRC-CROSSREF | DISC-SITEMAP |  |
@@ -16,7 +26,3 @@ Only domains present in Trusted Source Registry.
 | https://owasp.org/blog/2025/03/06/owasp-education-and-training-committee-update.html | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/projects/ | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/www-project-top-ten/ | SRC-OWASP | DISC-SITEMAP |  |
-| http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html | SRC-OWASP | DISC-RSS | OWASP CVE Lite CLI Graduates to Lab Project Status |
-| http://owasp.org/blog/2026/06/18/greenberg-statement.html | SRC-OWASP | DISC-RSS | Community update regarding Richard Greenberg |
-| http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html | SRC-OWASP | DISC-RSS | Aikido and OWASP bring agentic Code Audit to the global AppS |
-| http://owasp.org/blog/2026/06/09/dependency-track-v5.html | SRC-OWASP | DISC-RSS | OWASP Dependency-Track 5.0 Is Now Generally Available |

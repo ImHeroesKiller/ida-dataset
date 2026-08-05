@@ -1,25 +1,25 @@
 # Provider Statistics
 
-**Generated:** 2026-08-05T17:53:30+00:00
-**Session:** `SES-20260805-F4BA71` · **Mission:** `MIS-20260805-C7D18D`
+**Generated:** 2026-08-05T19:47:20+00:00
+**Session:** `SES-20260805-BDFAEE` · **Mission:** `MIS-20260805-183199`
 
-Queries executed: **27**
-URLs discovered: **24**
-URLs accepted: **16**
-URLs rejected: **8**
+Queries executed: **26**
+URLs discovered: **32**
+URLs accepted: **22**
+URLs rejected: **10**
 URLs remaining: **0**
 Stop reason: **runtime_budget_reached**
-URLs/hour: **112.03** · Accepted/hour: **74.69**
+URLs/hour: **205.32** · Accepted/hour: **141.16**
 
 | Provider | Type | Op status | Queries | URLs | Util | Exhausted | Cache | ms | Status |
 |----------|------|-----------|--------:|-----:|-----:|-----------|------:|---:|--------|
-| Tavily (primary) | tavily | ACTIVE | 5 | 0 | 0.1852 | True | 0 | 1503.4 | ready |
-| Common Crawl Index | commoncrawl | ACTIVE | 5 | 0 | 0.1852 | True | 0 | 37638.59999999999 | ready |
-| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.037 | False | 0 | 453195.2 | ready |
-| RSS Discovery | rss | ACTIVE | 1 | 12 | 0.037 | False | 0 | 278849.1 | ready |
+| Tavily (primary) | tavily | ACTIVE | 5 | 0 | 0.1923 | True | 0 | 1376.3 | ready |
+| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0385 | False | 0 | 453772.2 | ready |
+| RSS Discovery | rss | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
 | Atom Discovery | atom | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
-| Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 10 | 0 | 0.3704 | False | 0 | 0.0 | ready |
-| OpenSearch Description | opensearch | ACTIVE | 5 | 0 | 0.1852 | True | 0 | 0.0 | ready |
+| Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 10 | 0 | 0.3846 | False | 0 | 0.0 | ready |
+| Common Crawl Index | commoncrawl | ACTIVE | 5 | 20 | 0.1923 | False | 0 | 105878.5 | ready |
+| OpenSearch Description | opensearch | ACTIVE | 5 | 0 | 0.1923 | True | 0 | 0.0 | ready |
 | Google Programmable Search | google_cse | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
 | Bing Web Search API | bing | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
 | Brave Search API | brave | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
