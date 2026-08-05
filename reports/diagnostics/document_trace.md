@@ -1,6 +1,6 @@
 # Document Trace
 
-**Generated:** 2026-08-05T04:30:31+00:00
+**Generated:** 2026-08-05T07:59:24+00:00
 
 - Fingerprint URLs known: **90**
 - Fingerprint hashes known: **90**
@@ -28,7 +28,7 @@
 | DOC-EE9AA102B487 | http://documents.worldbank.org/curated/en/170561538243538219 | ee9aa102b487f1db | True | False | False | False | True | completed |
 | DOC-0C15999FB55C | https://openalex.org/W2989135090 | 0c15999fb55c4690 | True | False | False | False | True | completed |
 | DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
-| DOC-8F2F69488B1B | http://documents.worldbank.org/curated/en/544241468260062256 | 8f2f69488b1bdf76 | True | False | False | False | True | completed |
+| DOC-D0A3D92E0435 | http://documents.worldbank.org/curated/en/544241468260062256 | d0a3d92e04352601 | True | False | False | False | True | completed |
 | DOC-72B3224209C4 | https://openalex.org/W3031607294 | 72b3224209c4c890 | True | False | False | False | True | completed |
 | DOC-2AB16A333F59 | https://api.crossref.org/works/10.1109/icitsi.2015.7437704 | 2ab16a333f594004 | True | False | False | False | True | completed |
 | DOC-3C3FF2F87248 | http://documents.worldbank.org/curated/en/117831468040604958 | 3c3ff2f8724814bf | True | False | False | False | True | completed |
