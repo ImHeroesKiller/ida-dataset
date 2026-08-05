@@ -1,18 +1,18 @@
 # Candidate Lifecycle
 
-**Generated:** 2026-08-05T09:01:42+00:00
-**Session:** `SESSION-20260805-64B07B`
-**Mission:** `MIS-20260805-2549BA`
+**Generated:** 2026-08-05T10:55:54+00:00
+**Session:** `SESSION-20260805-9C0C71`
+**Mission:** `MIS-20260805-50B7A2`
 **dry_run:** `False`
 
 Lifecycle: Document → Extraction → Candidate → Validation → Integrity Guard → Publisher → Dataset
 
 | candidate_id | document_id | mission_id | session_id | dataset | entity | confidence | integrity_ok | block_reason | publish |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-304EDF67B498 | DOC-A0E1922823F9 | MIS-20260805-2549BA | SES-20260805-0301A4 | business_signal_library | Exploring the influence of regional economic pillars on library service equity in Indonesia | 0.9 | False | duplicate_id:SIG-001410 | Rejected |
-| CAND-47CFCCB0A15E | DOC-5DFD7BF054D2 | MIS-20260805-2549BA | SES-20260805-0301A4 | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-001413 | Rejected |
-| CAND-499A54B429D9 | DOC-A99E56C64737 | MIS-20260805-2549BA | SES-20260805-0301A4 | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-001411 | Rejected |
-| CAND-899AF713A46F | DOC-D5443F5620D9 | MIS-20260805-2549BA | SES-20260805-0301A4 | business_signal_library | Indonesia - Library Development Project | 0.92 | False | duplicate_id:SIG-001414 | Rejected |
-| CAND-E4B100CD5C21 | DOC-7C7239075702 | MIS-20260805-2549BA | SES-20260805-0301A4 | business_signal_library | New normal and library services in Indonesia: a case study of university libraries | 0.88 | False | duplicate_id:SIG-001412 | Rejected |
+| CAND-33C91CA27A4F | DOC-7C7239075702 | MIS-20260805-50B7A2 | SES-20260805-A67B4D | business_signal_library | New normal and library services in Indonesia: a case study of university libraries | 0.88 | False | duplicate_id:SIG-001417 | Rejected |
+| CAND-B882DE150772 | DOC-D5443F5620D9 | MIS-20260805-50B7A2 | SES-20260805-A67B4D | business_signal_library | Indonesia - Library Development Project | 0.92 | False | duplicate_id:SIG-001419 | Rejected |
+| CAND-91F69B2F8A9E | DOC-A0E1922823F9 | MIS-20260805-50B7A2 | SES-20260805-A67B4D | business_signal_library | Exploring the influence of regional economic pillars on library service equity in Indonesia | 0.9 | False | duplicate_id:SIG-001415 | Rejected |
+| CAND-D6192A22C74E | DOC-5DFD7BF054D2 | MIS-20260805-50B7A2 | SES-20260805-A67B4D | business_signal_library | The Influence of Service Quality on Library Users at Padang State Polytechnic | 0.9 | False | duplicate_id:SIG-001418 | Rejected |
+| CAND-B4AE2A653A21 | DOC-A99E56C64737 | MIS-20260805-50B7A2 | SES-20260805-A67B4D | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-001416 | Rejected |
 
 Total candidates: **5**
