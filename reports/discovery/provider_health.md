@@ -1,11 +1,11 @@
 # Provider Health
 
-**Generated:** 2026-08-05T07:53:53+00:00
+**Generated:** 2026-08-05T08:56:51+00:00
 
 | Provider | Operational | Health | Credentials | Latency ms | Message |
 |----------|-------------|--------|-------------|-----------:|---------|
-| Tavily (primary) | ACTIVE | ERROR | True | 179.9 | connectivity_failed:HTTPError |
-| Trusted Site Search (connector-backed) | ACTIVE | healthy | True | 0.03 | always_available |
+| Tavily (primary) | ACTIVE | ERROR | True | 76.3 | connectivity_failed:HTTPError |
+| Trusted Site Search (connector-backed) | ACTIVE | healthy | True | 0.0 | always_available |
 | Sitemap Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
 | RSS Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
 | Atom Discovery | ACTIVE | healthy | True | 0.0 | feed_discovery |
