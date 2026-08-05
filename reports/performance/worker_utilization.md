@@ -1,15 +1,15 @@
 # Worker Utilization
 
-**Generated:** 2026-08-05T00:29:11+00:00
+**Generated:** 2026-08-05T04:29:07+00:00
 
 | Metric | Value |
 |--------|------:|
 | Configured workers (last) | 2 |
 | Adaptive recommended | 2 |
-| Avg connector latency (ms) | 13859.9 |
+| Avg connector latency (ms) | 13757.3 |
 | Utilization (est) | 1.0 |
 | Idle fraction (est) | 0.0 |
 
 Adaptive ladder: 2 → 4 → 8 → 16 workers based on connector latency.
 
-Session workers: `{'adaptive': 2, 'avg_latency_ms': 13859.914285714285}`
+Session workers: `{'adaptive': 2, 'avg_latency_ms': 13757.27142857143}`
