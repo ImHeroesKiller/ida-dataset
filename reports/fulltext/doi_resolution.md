@@ -1,15 +1,15 @@
 # DOI Resolution
 
-**Generated:** 2026-08-04T22:30:49+00:00
+**Generated:** 2026-08-05T00:29:11+00:00
 
 | Metric | Value |
 |--------|------:|
-| Attempts | 90 |
+| Attempts | 67 |
 | DOI available | 18 |
 | DOI resolved | 10 |
-| DOI → full text | 8 |
+| DOI → full text | 5 |
 | DOI resolution rate | 55.56% |
-| DOI full-text rate | 44.44% |
+| DOI full-text rate | 27.78% |
 
 ## Notes
 
