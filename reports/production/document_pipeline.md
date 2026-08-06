@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260806-C741AA`
+**Session:** `SES-20260806-2EAC07`
 
 ## Queue counts
 
@@ -8,9 +8,9 @@
 |-------|------:|
 | queued | 0 |
 | processing | 0 |
-| completed | 62 |
+| completed | 59 |
 | failed | 0 |
-| duplicates | 35 |
+| duplicates | 28 |
 
 ## Documents
 
@@ -39,19 +39,16 @@
 | `DOC-72B3224209C4` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 610 | https://openalex.org/W3031607294 |
 | `DOC-2AB16A333F59` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3620 | https://api.crossref.org/works/10.1109/icitsi.2015.7437704 |
 | `DOC-3C3FF2F87248` | SRC-000004 | CONN-WB-001 | text/html | completed | 123040 | http://documents.worldbank.org/curated/en/117831468040604958/Conformed-Copy-L464 |
-| `DOC-69EEA36D9AF8` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 27091 | https://openalex.org/W1507665948 |
+| `DOC-69EEA36D9AF8` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 27105 | https://openalex.org/W1507665948 |
 | `DOC-FA192923E2E0` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 35991 | https://api.crossref.org/works/10.1108/lm-05-2012-0025 |
 | `DOC-E6E5E7D1C84F` | SRC-000004 | CONN-WB-001 | text/html | completed | 123040 | http://documents.worldbank.org/curated/en/834491468052778400/Conformed-Copy-L464 |
 | `DOC-C6A9648CAF13` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 111840 | https://openalex.org/W2106787323 |
+| `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
 | `DOC-CEBB266D97BD` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2330 | https://api.crossref.org/works/10.1086/217180 |
 | `DOC-F1D3F23E8CC4` | SRC-000004 | CONN-WB-001 | text/html | completed | 123270 | http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-D |
 | `DOC-CA19FA59FBE9` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 587 | https://openalex.org/W2168492123 |
-| `DOC-9057190DB24B` | SRC-000004 | CONN-WB-001 | text/html | completed | 123282 | http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-D |
-| `DOC-C1C8D7931100` | SRC-000004 | DISC-LAYER | text/plain | completed | 115 | https://www.worldbank.org/%20en/country/madagascar/overview |
-| `DOC-63E9EB2E5A2F` | SRC-000004 | DISC-LAYER | text/plain | completed | 132 | https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 |
-| `DOC-5FB511CEE340` | SRC-000004 | DISC-LAYER | text/plain | completed | 91 | https://www.worldbank.org/%E3%80%80 |
-| `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
 | `DOC-859D2142FF21` | SRC-000001 | DISC-LAYER | text/plain | completed | 85 | https://www.bps.go.id/248-268 |
+| `DOC-9057190DB24B` | SRC-000004 | CONN-WB-001 | text/html | completed | 123282 | http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-D |
 | `DOC-086852F73EE0` | SRC-000001 | DISC-LAYER | text/plain | completed | 94 | https://www.bps.go.id/brs/view/id/1267 |
 | `DOC-8FDD77E53A4E` | SRC-000001 | DISC-LAYER | text/plain | completed | 175 | https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-p |
 | `DOC-72A1DAB841AA` | SRC-000001 | DISC-LAYER | text/plain | completed | 154 | https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provi |

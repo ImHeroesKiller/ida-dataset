@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-08-06T03:01:18+00:00
+**Generated:** 2026-08-06T06:11:12+00:00
 
-- Fingerprint URLs known: **90**
-- Fingerprint hashes known: **90**
-- Fingerprint stats: `{'skips': 20, 'adds': 90}`
-- Trace summary: discovered=31 downloaded=62 duplicates=35
+- Fingerprint URLs known: **85**
+- Fingerprint hashes known: **85**
+- Fingerprint stats: `{'skips': 17, 'adds': 85}`
+- Trace summary: discovered=31 downloaded=59 duplicates=28
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -36,15 +36,12 @@
 | DOC-FA192923E2E0 | https://api.crossref.org/works/10.1108/lm-05-2012-0025 | fa192923e2e0267a | True | False | False | False | True | completed |
 | DOC-E6E5E7D1C84F | http://documents.worldbank.org/curated/en/834491468052778400 | e6e5e7d1c84f6aac | True | False | False | False | True | completed |
 | DOC-C6A9648CAF13 | https://openalex.org/W2106787323 | c6a9648caf130ee6 | True | False | False | False | True | completed |
+| DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
 | DOC-CEBB266D97BD | https://api.crossref.org/works/10.1086/217180 | cebb266d97bd4622 | True | False | False | False | True | completed |
 | DOC-F1D3F23E8CC4 | http://documents.worldbank.org/curated/en/512221468041424443 | f1d3f23e8cc478fb | True | False | False | False | True | completed |
 | DOC-CA19FA59FBE9 | https://openalex.org/W2168492123 | ca19fa59fbe9e1dd | True | False | False | False | True | completed |
-| DOC-9057190DB24B | http://documents.worldbank.org/curated/en/627981468752778622 | 9057190db24b7d53 | True | False | False | False | True | completed |
-| DOC-C1C8D7931100 | https://www.worldbank.org/%20en/country/madagascar/overview | c1c8d793110074b6 | True | False | False | False | True | completed |
-| DOC-63E9EB2E5A2F | https://www.worldbank.org/%E2%80%A6/global-action-urgently-n | 63e9eb2e5a2fca92 | True | False | False | False | True | completed |
-| DOC-5FB511CEE340 | https://www.worldbank.org/%E3%80%80 | 5fb511cee340eddf | True | False | False | False | True | completed |
-| DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
 | DOC-859D2142FF21 | https://www.bps.go.id/248-268 | 859d2142ff2174ae | True | False | False | False | True | completed |
+| DOC-9057190DB24B | http://documents.worldbank.org/curated/en/627981468752778622 | 9057190db24b7d53 | True | False | False | False | True | completed |
 | DOC-086852F73EE0 | https://www.bps.go.id/brs/view/id/1267 | 086852f73ee06d6f | True | False | False | False | True | completed |
 | DOC-8FDD77E53A4E | https://www.bps.go.id/dynamictable/%202015/12/22/1064/produk | 8fdd77e53a4eee53 | True | False | False | False | True | completed |
 | DOC-72A1DAB841AA | https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kab | 72a1dab841aa1a5a | True | False | False | False | True | completed |

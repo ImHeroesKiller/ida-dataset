@@ -1,8 +1,8 @@
 # Root Cause Analysis
 
-**Generated:** 2026-08-06T03:01:18+00:00
-**Session:** `SESSION-20260806-3EA50A`
-**Mission:** `MIS-20260806-001B6C`
+**Generated:** 2026-08-06T06:11:12+00:00
+**Session:** `SESSION-20260806-0975DC`
+**Mission:** `MIS-20260806-0AD646`
 
 > Diagnostics only. No fixes. Evidence only.
 
@@ -26,20 +26,20 @@ Latest evidence shows published=5; zero-row claim may refer to a later window.
 
 - published=5
 - extracted=5
-- discovered=31 downloaded=62 duplicates=35
+- discovered=31 downloaded=59 duplicates=28
 
 ## Metrics snapshot
 
 ```json
 {
   "documents_discovered": 31,
-  "documents_downloaded": 62,
-  "documents_duplicates": 35,
+  "documents_downloaded": 59,
+  "documents_duplicates": 28,
   "candidates_extracted": 5,
   "candidates_rejected": 0,
   "rows_published": 5,
   "dry_run": false,
-  "fingerprint_urls_known": 90,
+  "fingerprint_urls_known": 85,
   "selected_dataset": "service_library"
 }
 ```
@@ -51,7 +51,7 @@ Session published rows; if overnight gap exists, examine later sessions.
 
 - `published=5`
 - `extracted=5`
-- `discovered=31 downloaded=62 duplicates=35`
+- `discovered=31 downloaded=59 duplicates=28`
 
 ### Finding 2
 
