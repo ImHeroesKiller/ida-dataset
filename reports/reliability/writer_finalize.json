@@ -1,10 +1,10 @@
 {
-  "ts": "2026-08-05T23:21:00Z",
+  "ts": "2026-08-06T03:01:25Z",
   "ok": true,
   "notes": [
     "gc.collect",
     "threadpool_barrier",
-    "state_fsync_files=71",
+    "state_fsync_files=73",
     "settle_150ms"
   ],
   "message": "writers finalized before git phase"
