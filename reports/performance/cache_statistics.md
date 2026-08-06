@@ -3,9 +3,9 @@
 ```json
 {
   "hits": 0,
-  "misses": 28,
+  "misses": 12,
   "not_modified": 0,
-  "stores": 28,
+  "stores": 12,
   "bytes_saved_est": 0
 }
 ```

@@ -24,7 +24,3 @@ Rejected by trusted-source filter (blogs, social, non-registry domains, duplicat
 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-r | duplicate_url | None | DISC-COMMONCRAWL |
 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-ag | duplicate_url | None | DISC-COMMONCRAWL |
 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-ag | duplicate_url | None | DISC-COMMONCRAWL |
-| https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/ | duplicate_url | None | DISC-RSS |
-| https://www.crossref.org/jobs/2025-11-13-communications-manager/ | duplicate_url | None | DISC-RSS |
-| https://www.crossref.org/members-area/ | duplicate_url | None | DISC-RSS |
-| https://www.crossref.org/jobs/2023-04-24-contract-member-support/ | duplicate_url | None | DISC-RSS |

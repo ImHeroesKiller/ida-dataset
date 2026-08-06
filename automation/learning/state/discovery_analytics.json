@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-06T06:03:58+00:00",
-  "mission_id": "MIS-20260806-0AD646",
-  "session_id": "SES-20260806-2EAC07",
+  "started_at": "2026-08-06T08:48:04+00:00",
+  "mission_id": "MIS-20260806-02E5B2",
+  "session_id": "SES-20260806-1E9A7A",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -46,26 +46,26 @@
     "one_discovery_multi_dataset": true
   },
   "queries_generated": 10,
-  "queries_executed": 27,
-  "urls_discovered": 80,
-  "urls_accepted": 56,
-  "urls_rejected": 24,
+  "queries_executed": 26,
+  "urls_discovered": 52,
+  "urls_accepted": 32,
+  "urls_rejected": 20,
   "urls_remaining": 0,
-  "duplicate_urls": 24,
-  "elapsed_ms": 780898.5,
+  "duplicate_urls": 20,
+  "elapsed_ms": 546515.3,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
   "providers_disabled": 5,
   "providers_exhausted": 2,
   "provider_utilization": {
-    "DISC-TAVILY": 0.1852,
-    "DISC-COMMONCRAWL": 0.1852,
-    "DISC-SITEMAP": 0.037,
-    "DISC-RSS": 0.037,
+    "DISC-TAVILY": 0.1923,
+    "DISC-COMMONCRAWL": 0.1923,
+    "DISC-SITEMAP": 0.0385,
+    "DISC-RSS": 0.0,
     "DISC-ATOM": 0.0,
-    "DISC-TRUSTED-SITE": 0.3704,
-    "DISC-OPENSEARCH": 0.1852,
+    "DISC-TRUSTED-SITE": 0.3846,
+    "DISC-OPENSEARCH": 0.1923,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
     "DISC-BRAVE": 0.0,
@@ -74,9 +74,9 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 60,
+    "DISC-COMMONCRAWL": 40,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 8,
+    "DISC-RSS": 0,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 368.81,
-  "accepted_per_hour": 258.16,
+  "urls_per_hour": 342.53,
+  "accepted_per_hour": 210.79,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -101,15 +101,15 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 607.6,
+      "elapsed_ms": 478.2,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.646,
-      "utilization": 0.1852
+      "rank_score": 85.678,
+      "utilization": 0.1923
     },
     {
       "provider_id": "DISC-COMMONCRAWL",
@@ -121,17 +121,17 @@
         "message": "toggle"
       },
       "queries": 5,
-      "urls": 60,
+      "urls": 40,
       "cache_hits": 0,
-      "elapsed_ms": 57866.4,
+      "elapsed_ms": 92037.4,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 63.819,
-      "utilization": 0.1852
+      "rank_score": 58.827,
+      "utilization": 0.1923
     },
     {
       "provider_id": "DISC-SITEMAP",
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 453379.4,
+      "elapsed_ms": 453960.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -153,7 +153,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 51.6,
-      "utilization": 0.037
+      "utilization": 0.0385
     },
     {
       "provider_id": "DISC-RSS",
@@ -164,18 +164,18 @@
         "status": "healthy",
         "message": "feed_discovery"
       },
-      "queries": 1,
-      "urls": 8,
+      "queries": 0,
+      "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 269002.2,
+      "elapsed_ms": 0.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 51.52,
-      "utilization": 0.037
+      "rank_score": 50.48,
+      "utilization": 0.0
     },
     {
       "provider_id": "DISC-ATOM",
@@ -219,7 +219,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 41.1,
-      "utilization": 0.3704
+      "utilization": 0.3846
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -241,7 +241,7 @@
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
       "rank_score": 32.0,
-      "utilization": 0.1852
+      "utilization": 0.1923
     },
     {
       "provider_id": "DISC-GOOGLE-CSE",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 179.1,
+      "elapsed_ms": 129.7,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 97.9,
+      "elapsed_ms": 65.1,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 143.9,
+      "elapsed_ms": 148.1,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 106.6,
+      "elapsed_ms": 77.7,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 80.1,
+      "elapsed_ms": 57.6,
       "cached": false,
       "live_search": true
     },
@@ -501,7 +501,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 25092.1,
+      "elapsed_ms": 19399.3,
       "cached": false,
       "live_search": true
     },
@@ -511,7 +511,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 361.3,
+      "elapsed_ms": 12884.4,
       "cached": false,
       "live_search": true
     },
@@ -521,7 +521,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 17427.2,
+      "elapsed_ms": 17249.7,
       "cached": false,
       "live_search": true
     },
@@ -531,7 +531,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 6090.9,
+      "elapsed_ms": 21082.1,
       "cached": false,
       "live_search": true
     },
@@ -540,8 +540,8 @@
       "query": "site:kemenperin.go.id corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
-      "urls": 20,
-      "elapsed_ms": 8894.9,
+      "urls": 0,
+      "elapsed_ms": 21421.9,
       "cached": false,
       "live_search": true
     },
@@ -599,13 +599,7 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 453379.4
-    },
-    {
-      "provider_id": "DISC-RSS",
-      "query": "rss:trusted_feeds",
-      "urls": 8,
-      "elapsed_ms": 269002.2
+      "elapsed_ms": 453960.0
     }
   ],
   "reputation_top": [
@@ -640,8 +634,8 @@
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "reputation": 99.485,
-      "score": 94.688,
+      "reputation": 99.486,
+      "score": 94.689,
       "authority": 0.95
     },
     {
@@ -733,12 +727,12 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.646,
+      "score": 85.678,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.987,
+        "latency": 0.99,
         "freshness": 0.5,
         "trust": 0.75,
         "coverage": 0.9,
@@ -749,12 +743,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 63.819,
+      "score": 58.827,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.452,
+        "latency": 0.036,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -781,10 +775,10 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 51.52,
+      "score": 50.48,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.12,
+        "yield": 0.08,
         "success_rate": 1.0,
         "latency": 0.0,
         "freshness": 0.7,
@@ -1045,126 +1039,6 @@
       "title": ""
     },
     {
-      "url": "https://ammdes.kemenperin.go.id/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://ammdes.kemenperin.go.id/robots.txt",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://ammdes.kemenperin.go.id/robots.txt",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/dukung_industri_halal_bbspjikb__kemenperin_kolaborasi_dengan_dinas_koperasi__usaha_kecil_dan_menengah_kabupaten_sleman_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_teknis_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pln_nusantara_power_up_tanjung_awar_awar_menandatangani_nota_kesepahaman_dengan_bbspjikb_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-SITEMAP",
@@ -1234,30 +1108,6 @@
       "url": "https://owasp.org/www-project-top-ten/",
       "source_id": "SRC-OWASP",
       "provider_id": "DISC-SITEMAP",
-      "title": ""
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2023-02-08-contract-software-development/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-RSS",
-      "title": ""
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2022-09-30-contract-technical-support/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-RSS",
-      "title": ""
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2022-11-21-community-engagement-manager/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-RSS",
-      "title": ""
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2022-12-22-contract-product-communications-support/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-RSS",
       "title": ""
     }
   ],
@@ -1381,30 +1231,6 @@
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.crossref.org/members-area/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2023-04-24-contract-member-support/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
     }
   ],
   "cache": {
@@ -1412,7 +1238,7 @@
     "misses": 15,
     "stores": 15,
     "cached_queries": 15,
-    "cached_urls": 40
+    "cached_urls": 20
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }
