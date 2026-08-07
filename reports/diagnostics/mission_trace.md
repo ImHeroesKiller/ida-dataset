@@ -1,6 +1,6 @@
 # Mission Trace
 
-**Generated:** 2026-08-07T12:04:59+00:00
+**Generated:** 2026-08-07T13:24:53+00:00
 **Selected:** `service_library` · score=2137.87
 **Reason:** mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · sources=13 · continuous=true
 **Instruction:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP

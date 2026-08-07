@@ -1,6 +1,6 @@
 # Acquisition Success
 
-**Generated:** 2026-08-07T12:03:34+00:00
+**Generated:** 2026-08-07T13:23:29+00:00
 
 | Outcome | Count |
 |---------|------:|
@@ -33,8 +33,8 @@
 | DOC-FA192923E2E0 | metadata_fallback | None | None | 8000 |
 | DOC-C6A9648CAF13 | enriched | html_fulltext | openalex:PubMed | 7547 |
 | DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
-| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-CA19FA59FBE9 | metadata_fallback | None | None | 579 |
+| DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
 | DOC-708BA37EBD5C | metadata_fallback | None | None | 160 |
 | DOC-F2BF8FA340F8 | metadata_fallback | None | None | 228 |
 | DOC-3E1CA71C0311 | metadata_fallback | None | None | 245 |

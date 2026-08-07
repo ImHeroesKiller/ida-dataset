@@ -1,6 +1,6 @@
 # Document Trace
 
-**Generated:** 2026-08-07T12:04:59+00:00
+**Generated:** 2026-08-07T13:24:53+00:00
 
 - Fingerprint URLs known: **67**
 - Fingerprint hashes known: **67**
@@ -22,7 +22,7 @@
 | DOC-B0FB86CDF86A | http://documents.worldbank.org/curated/en/146431468052778758 | b0fb86cdf86a7ab4 | True | False | False | False | True | completed |
 | DOC-7F19EEE4229E | https://openalex.org/W3004041197 | 7f19eee4229ef1f0 | True | False | False | False | True | completed |
 | DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
-| DOC-19CE8CB09E10 | http://documents.worldbank.org/curated/en/117431468041701262 | 19ce8cb09e101a1b | True | False | False | False | True | completed |
+| DOC-9C02992AB0ED | http://documents.worldbank.org/curated/en/117431468041701262 | 9c02992ab0ed8e9a | True | False | False | False | True | completed |
 | DOC-DE90DA00EB31 | https://openalex.org/W2974521388 | de90da00eb316bac | True | False | False | False | True | completed |
 | DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
 | DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
