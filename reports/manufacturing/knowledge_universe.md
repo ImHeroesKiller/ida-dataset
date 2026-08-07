@@ -19,5 +19,5 @@ Dynamic estimates — hard_limit is null (no artificial ceiling).
 | case_study_library | 40 | 10000 | 9960 | 0.4 | sources_x_yield_x_publication_frequency |
 | company_profile | 86 | 100000 | 99914 | 0.09 | sources_x_yield_x_publication_frequency |
 | pain_point_library | 58 | 30000 | 29942 | 0.19 | sources_x_yield_x_publication_frequency |
-| business_signal_library | 1534 | 50000 | 48466 | 3.07 | sources_x_yield_x_publication_frequency |
+| business_signal_library | 1539 | 50000 | 48461 | 3.08 | sources_x_yield_x_publication_frequency |
 | opportunity_analysis | 25 | 20000 | 19975 | 0.12 | sources_x_yield_x_publication_frequency |
