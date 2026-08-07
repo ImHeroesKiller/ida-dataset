@@ -1,15 +1,15 @@
 # Candidate Pipeline
 
-**Session:** `SES-20260807-6FF843`
+**Session:** `SES-20260807-B23090`
 
 Extracted **5** · Validated **5** · Rejected **0**
 
 | Candidate | Entity | Dataset | Confidence | Validation | Publish | Document | Reject reason |
 |-----------|--------|---------|------------|------------|---------|----------|---------------|
-| `CAND-A1BB6AD11B32` | Exploring the influence of regional economic pillars on library service equity in Indonesia | business_signal_library | 0.9 | approved | published | `DOC-A0E1922823F9` | — |
-| `CAND-BA250567348B` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
-| `CAND-099D9DF66EDC` | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | approved | published | `DOC-7C7239075702` | — |
-| `CAND-3BEFA05AFD89` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
-| `CAND-47AD6A9B5F03` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-C59E093AE6F0` | — |
+| `CAND-D28980DE51E9` | Exploring the influence of regional economic pillars on library service equity in Indonesia | business_signal_library | 0.9 | approved | published | `DOC-A0E1922823F9` | — |
+| `CAND-323C33E9E289` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-A99E56C64737` | — |
+| `CAND-C05120C55104` | New normal and library services in Indonesia: a case study of university libraries | business_signal_library | 0.88 | approved | published | `DOC-7C7239075702` | — |
+| `CAND-BC61B5F55483` | The Influence of Service Quality on Library Users at Padang State Polytechnic | business_signal_library | 0.9 | approved | published | `DOC-5DFD7BF054D2` | — |
+| `CAND-7C306AFC5ED4` | Indonesia - Library Development Project | business_signal_library | 0.92 | approved | published | `DOC-D5443F5620D9` | — |
 
 ## Evidence snippets
