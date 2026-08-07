@@ -1,30 +1,30 @@
 # Connector Summary
 
-**Session:** `SES-20260807-B1347A` · **Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
+**Session:** `SES-20260807-14029E` · **Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
 
 | Connector | Status | HTTP | Elapsed (ms) | Discovered | Downloaded | Skipped | Rejected | Retries | Error |
 |-----------|--------|------|-------------:|-----------:|-----------:|--------:|---------:|--------:|-------|
-| OECD | no_updates | 200 | 166.0 | 0 | 0 | 0 | 0 | 0 | — |
-| Asian Development Bank | no_updates | 200 | 176.8 | 0 | 11 | 0 | 0 | 0 | — |
-| BPS Indonesia | no_updates | 200 | 247.1 | 0 | 0 | 0 | 0 | 0 | — |
-| Crossref | ok | 200 | 394.1 | 10 | 11 | 0 | 0 | 0 | — |
-| World Bank | ok | 200 | 501.2 | 11 | 0 | 0 | 0 | 0 | — |
-| OpenAlex | ok | 200 | 696.7 | 10 | 11 | 0 | 0 | 0 | — |
-| Kemenperin | no_updates | 200 | 93909.6 | 0 | 11 | 0 | 0 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 124.6 | 0 | 0 | 0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 185.3 | 0 | 11 | 0 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 243.1 | 0 | 0 | 0 | 0 | 0 | — |
+| World Bank | ok | 200 | 470.7 | 11 | 0 | 0 | 0 | 0 | — |
+| Crossref | ok | 200 | 701.0 | 10 | 11 | 0 | 0 | 0 | — |
+| OpenAlex | ok | 200 | 960.6 | 10 | 11 | 0 | 0 | 0 | — |
+| Kemenperin | no_updates | 200 | 93996.9 | 0 | 11 | 0 | 0 | 0 | — |
 
 ## Details
-
-### OECD
-
-- connector_id: `CONN-OECD-001`
-- source_id: `SRC-000005`
-- last_successful_sync: —
-- urls_sample: —
 
 ### Asian Development Bank
 
 - connector_id: `CONN-ADB-001`
 - source_id: `SRC-000006`
+- last_successful_sync: —
+- urls_sample: —
+
+### OECD
+
+- connector_id: `CONN-OECD-001`
+- source_id: `SRC-000005`
 - last_successful_sync: —
 - urls_sample: —
 
@@ -35,25 +35,25 @@
 - last_successful_sync: —
 - urls_sample: —
 
-### Crossref
-
-- connector_id: `CONN-CROSSREF-001`
-- source_id: `SRC-CROSSREF`
-- last_successful_sync: 2026-08-07T17:13:01+00:00
-- urls_sample: https://api.crossref.org/works/10.14429/djlit.41.5.16406, https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108, https://api.crossref.org/works/10.47191/ijmei/v10i2.01
-
 ### World Bank
 
 - connector_id: `CONN-WB-001`
 - source_id: `SRC-000004`
-- last_successful_sync: 2026-08-07T17:13:01+00:00
+- last_successful_sync: 2026-08-07T18:08:01+00:00
 - urls_sample: http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-Development-Project, http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-Development-LIL-Project, http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-Development-Project
+
+### Crossref
+
+- connector_id: `CONN-CROSSREF-001`
+- source_id: `SRC-CROSSREF`
+- last_successful_sync: 2026-08-07T18:08:01+00:00
+- urls_sample: https://api.crossref.org/works/10.14429/djlit.41.5.16406, https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108, https://api.crossref.org/works/10.47191/ijmei/v10i2.01
 
 ### OpenAlex
 
 - connector_id: `CONN-OPENALEX-001`
 - source_id: `SRC-OPENALEX`
-- last_successful_sync: 2026-08-07T17:13:01+00:00
+- last_successful_sync: 2026-08-07T18:08:02+00:00
 - urls_sample: https://openalex.org/W3095315355, https://openalex.org/W4312346959, https://openalex.org/W3132509763
 
 ### Kemenperin
