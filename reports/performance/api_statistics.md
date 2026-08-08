@@ -6,10 +6,10 @@ Errors: **0**
 
 | Connector | Elapsed ms | Status |
 |-----------|-----------:|--------|
-| BPS Indonesia | 138.6 | no_updates |
-| World Bank | 411.1 | ok |
-| Kemenperin | 93953.1 | no_updates |
-| Asian Development Bank | 74.4 | no_updates |
-| OECD | 109.8 | no_updates |
-| Crossref | 466.9 | ok |
-| OpenAlex | 810.9 | ok |
+| BPS Indonesia | 263.7 | no_updates |
+| World Bank | 588.5 | ok |
+| Kemenperin | 93846.3 | no_updates |
+| Asian Development Bank | 168.2 | no_updates |
+| OECD | 161.9 | no_updates |
+| Crossref | 520.6 | ok |
+| OpenAlex | 995.7 | ok |
