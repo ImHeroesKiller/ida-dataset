@@ -1,6 +1,6 @@
 # Provider Audit
 
-**Generated:** 2026-08-08T06:02:12+00:00
+**Generated:** 2026-08-08T07:08:35+00:00
 
 Search engines are **discovery tools only**. Knowledge is extracted solely from trusted sources.
 
@@ -15,7 +15,7 @@ Search engines are **discovery tools only**. Knowledge is extracted solely from 
 | Sitemap Discovery | **ACTIVE** | True | True | 20 | 5000 | healthy | 0.0 | 12.0 | 12.0 | 1.0 | ready |
 | RSS Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 0.0 | 0.0 | 1.0 | ready |
 | Atom Discovery | **ACTIVE** | True | True | 30 | 10000 | healthy | 0.0 | 12.0 | 4.0 | 1.0 | ready |
-| Common Crawl Index | **ACTIVE** | True | True | 5 | 500 | healthy | 0.0 | 100.0 | 50.0 | 1.0 | ready |
+| Common Crawl Index | **ACTIVE** | True | True | 5 | 500 | healthy | 0.0 | 40.0 | 20.0 | 1.0 | ready |
 | OpenSearch Description | **ACTIVE** | True | True | 10 | 1000 | idle | 0.0 | 0.0 | 0.0 | 0.0 | ready |
 | Google Programmable Search | **DISABLED** | False | False | 10 | 100 | offline | 0.0 | 0.0 | 0.0 | 1.0 | enabled=false in discovery_registry.yaml |
 | Bing Web Search API | **DISABLED** | False | False | 30 | 1000 | offline | 0.0 | 0.0 | 0.0 | 1.0 | enabled=false in discovery_registry.yaml |
