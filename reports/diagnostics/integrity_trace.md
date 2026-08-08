@@ -1,13 +1,13 @@
 # Integrity Guard Trace
 
-**Generated:** 2026-08-08T16:57:59+00:00
+**Generated:** 2026-08-08T17:51:53+00:00
 
 Per-candidate decision chain (evidence only).
 
-## Candidate `CAND-C3139FC6A586`
+## Candidate `CAND-5612AC7149E7`
 
 ```text
-Candidate CAND-C3139FC6A586
+Candidate CAND-5612AC7149E7
   ↓
 dataset_csv_exists
   PASS
@@ -25,8 +25,8 @@ schema_indexed_dataset
   ↓
 primary_id_present
   PASS
-  actual=SIG-001635
-  evidence=Signal ID='SIG-001635'
+  actual=SIG-001640
+  evidence=Signal ID='SIG-001640'
   ↓
 duplicate_id_in_batch
   PASS
@@ -51,26 +51,26 @@ confidence_present
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-CROSSREF; document=DOC-A0E1922823F9; mission=MIS-20260808-7CFDC7; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-CROSSREF; urls=https://
+  evidence=provenance: source=SRC-CROSSREF; document=DOC-A0E1922823F9; mission=MIS-20260808-058C48; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-CROSSREF; urls=https://
   ↓
 completeness_primary
   PASS
-  actual=SIG-001635
+  actual=SIG-001640
   evidence=primary id completeness
   ↓
 integrity_final_validate_row
   FAIL
-  actual=duplicate_id:SIG-001635
-  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001635
+  actual=duplicate_id:SIG-001640
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001640
   ↓
 Publisher decision: Rejected
-  reason=integrity_guard:duplicate_id:SIG-001635
+  reason=integrity_guard:duplicate_id:SIG-001640
 ```
 
-## Candidate `CAND-FAFF5F22F25A`
+## Candidate `CAND-BC6D8BB3F4CF`
 
 ```text
-Candidate CAND-FAFF5F22F25A
+Candidate CAND-BC6D8BB3F4CF
   ↓
 dataset_csv_exists
   PASS
@@ -88,8 +88,8 @@ schema_indexed_dataset
   ↓
 primary_id_present
   PASS
-  actual=SIG-001637
-  evidence=Signal ID='SIG-001637'
+  actual=SIG-001642
+  evidence=Signal ID='SIG-001642'
   ↓
 duplicate_id_in_batch
   PASS
@@ -114,26 +114,26 @@ confidence_present
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-OPENALEX; document=DOC-7C7239075702; mission=MIS-20260808-7CFDC7; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-OPENALEX; urls=https://
+  evidence=provenance: source=SRC-OPENALEX; document=DOC-7C7239075702; mission=MIS-20260808-058C48; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-OPENALEX; urls=https://
   ↓
 completeness_primary
   PASS
-  actual=SIG-001637
+  actual=SIG-001642
   evidence=primary id completeness
   ↓
 integrity_final_validate_row
   FAIL
-  actual=duplicate_id:SIG-001637
-  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001637
+  actual=duplicate_id:SIG-001642
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001642
   ↓
 Publisher decision: Rejected
-  reason=integrity_guard:duplicate_id:SIG-001637
+  reason=integrity_guard:duplicate_id:SIG-001642
 ```
 
-## Candidate `CAND-46805EE46B79`
+## Candidate `CAND-CFDC56B70A7A`
 
 ```text
-Candidate CAND-46805EE46B79
+Candidate CAND-CFDC56B70A7A
   ↓
 dataset_csv_exists
   PASS
@@ -151,134 +151,8 @@ schema_indexed_dataset
   ↓
 primary_id_present
   PASS
-  actual=SIG-001636
-  evidence=Signal ID='SIG-001636'
-  ↓
-duplicate_id_in_batch
-  PASS
-  actual=unique_in_batch
-  evidence=batch_ids_contains=False
-  ↓
-duplicate_id_existing_dataset
-  FAIL
-  actual=exists_in_csv
-  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
-  ↓
-confidence_threshold
-  PASS
-  actual=0.92 threshold=0.8
-  evidence=threshold=0.8; conf=0.92
-  ↓
-confidence_present
-  PASS
-  actual=0.92
-  evidence=integrity only fails when conf is present and < 0.80
-  ↓
-provenance_present
-  PASS
-  actual=present
-  evidence=provenance: source=SRC-000004; document=DOC-A99E56C64737; mission=MIS-20260808-7CFDC7; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-000004; urls=https://docu
-  ↓
-completeness_primary
-  PASS
-  actual=SIG-001636
-  evidence=primary id completeness
-  ↓
-integrity_final_validate_row
-  FAIL
-  actual=duplicate_id:SIG-001636
-  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001636
-  ↓
-Publisher decision: Rejected
-  reason=integrity_guard:duplicate_id:SIG-001636
-```
-
-## Candidate `CAND-93AF67A46DFA`
-
-```text
-Candidate CAND-93AF67A46DFA
-  ↓
-dataset_csv_exists
-  PASS
-  actual=business_signal_library.csv
-  evidence=CSV present
-  ↓
-payload_present
-  PASS
-  evidence=payload fields=14
-  ↓
-schema_indexed_dataset
-  PASS
-  actual=Signal ID
-  evidence=ID field mapped: Signal ID
-  ↓
-primary_id_present
-  PASS
-  actual=SIG-001639
-  evidence=Signal ID='SIG-001639'
-  ↓
-duplicate_id_in_batch
-  PASS
-  actual=unique_in_batch
-  evidence=batch_ids_contains=False
-  ↓
-duplicate_id_existing_dataset
-  FAIL
-  actual=exists_in_csv
-  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
-  ↓
-confidence_threshold
-  PASS
-  actual=0.92 threshold=0.8
-  evidence=threshold=0.8; conf=0.92
-  ↓
-confidence_present
-  PASS
-  actual=0.92
-  evidence=integrity only fails when conf is present and < 0.80
-  ↓
-provenance_present
-  PASS
-  actual=present
-  evidence=provenance: source=SRC-000004; document=DOC-D5443F5620D9; mission=MIS-20260808-7CFDC7; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-000004; urls=http://docum
-  ↓
-completeness_primary
-  PASS
-  actual=SIG-001639
-  evidence=primary id completeness
-  ↓
-integrity_final_validate_row
-  FAIL
-  actual=duplicate_id:SIG-001639
-  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001639
-  ↓
-Publisher decision: Rejected
-  reason=integrity_guard:duplicate_id:SIG-001639
-```
-
-## Candidate `CAND-C6B12B5841C5`
-
-```text
-Candidate CAND-C6B12B5841C5
-  ↓
-dataset_csv_exists
-  PASS
-  actual=business_signal_library.csv
-  evidence=CSV present
-  ↓
-payload_present
-  PASS
-  evidence=payload fields=14
-  ↓
-schema_indexed_dataset
-  PASS
-  actual=Signal ID
-  evidence=ID field mapped: Signal ID
-  ↓
-primary_id_present
-  PASS
-  actual=SIG-001638
-  evidence=Signal ID='SIG-001638'
+  actual=SIG-001643
+  evidence=Signal ID='SIG-001643'
   ↓
 duplicate_id_in_batch
   PASS
@@ -303,18 +177,144 @@ confidence_present
 provenance_present
   PASS
   actual=present
-  evidence=provenance: source=SRC-CROSSREF; document=DOC-5DFD7BF054D2; mission=MIS-20260808-7CFDC7; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-CROSSREF; urls=https://
+  evidence=provenance: source=SRC-CROSSREF; document=DOC-5DFD7BF054D2; mission=MIS-20260808-058C48; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-CROSSREF; urls=https://
   ↓
 completeness_primary
   PASS
-  actual=SIG-001638
+  actual=SIG-001643
   evidence=primary id completeness
   ↓
 integrity_final_validate_row
   FAIL
-  actual=duplicate_id:SIG-001638
-  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001638
+  actual=duplicate_id:SIG-001643
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001643
   ↓
 Publisher decision: Rejected
-  reason=integrity_guard:duplicate_id:SIG-001638
+  reason=integrity_guard:duplicate_id:SIG-001643
+```
+
+## Candidate `CAND-A751D3F2AD33`
+
+```text
+Candidate CAND-A751D3F2AD33
+  ↓
+dataset_csv_exists
+  PASS
+  actual=business_signal_library.csv
+  evidence=CSV present
+  ↓
+payload_present
+  PASS
+  evidence=payload fields=14
+  ↓
+schema_indexed_dataset
+  PASS
+  actual=Signal ID
+  evidence=ID field mapped: Signal ID
+  ↓
+primary_id_present
+  PASS
+  actual=SIG-001641
+  evidence=Signal ID='SIG-001641'
+  ↓
+duplicate_id_in_batch
+  PASS
+  actual=unique_in_batch
+  evidence=batch_ids_contains=False
+  ↓
+duplicate_id_existing_dataset
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
+  ↓
+confidence_threshold
+  PASS
+  actual=0.92 threshold=0.8
+  evidence=threshold=0.8; conf=0.92
+  ↓
+confidence_present
+  PASS
+  actual=0.92
+  evidence=integrity only fails when conf is present and < 0.80
+  ↓
+provenance_present
+  PASS
+  actual=present
+  evidence=provenance: source=SRC-000004; document=DOC-A99E56C64737; mission=MIS-20260808-058C48; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-000004; urls=https://docu
+  ↓
+completeness_primary
+  PASS
+  actual=SIG-001641
+  evidence=primary id completeness
+  ↓
+integrity_final_validate_row
+  FAIL
+  actual=duplicate_id:SIG-001641
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001641
+  ↓
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:SIG-001641
+```
+
+## Candidate `CAND-A4F50BFF6519`
+
+```text
+Candidate CAND-A4F50BFF6519
+  ↓
+dataset_csv_exists
+  PASS
+  actual=business_signal_library.csv
+  evidence=CSV present
+  ↓
+payload_present
+  PASS
+  evidence=payload fields=14
+  ↓
+schema_indexed_dataset
+  PASS
+  actual=Signal ID
+  evidence=ID field mapped: Signal ID
+  ↓
+primary_id_present
+  PASS
+  actual=SIG-001644
+  evidence=Signal ID='SIG-001644'
+  ↓
+duplicate_id_in_batch
+  PASS
+  actual=unique_in_batch
+  evidence=batch_ids_contains=False
+  ↓
+duplicate_id_existing_dataset
+  FAIL
+  actual=exists_in_csv
+  evidence=existing_csv_contains=True; dataset_path=business_signal_library.csv
+  ↓
+confidence_threshold
+  PASS
+  actual=0.92 threshold=0.8
+  evidence=threshold=0.8; conf=0.92
+  ↓
+confidence_present
+  PASS
+  actual=0.92
+  evidence=integrity only fails when conf is present and < 0.80
+  ↓
+provenance_present
+  PASS
+  actual=present
+  evidence=provenance: source=SRC-000004; document=DOC-D5443F5620D9; mission=MIS-20260808-058C48; discovery_provider=connector; append_only=true; extraction=grounded_text source_ids=SRC-000004; urls=http://docum
+  ↓
+completeness_primary
+  PASS
+  actual=SIG-001644
+  evidence=primary id completeness
+  ↓
+integrity_final_validate_row
+  FAIL
+  actual=duplicate_id:SIG-001644
+  evidence=automation.quality.integrity_guard.validate_row → duplicate_id:SIG-001644
+  ↓
+Publisher decision: Rejected
+  reason=integrity_guard:duplicate_id:SIG-001644
 ```

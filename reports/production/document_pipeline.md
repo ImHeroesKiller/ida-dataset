@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260808-945BD6`
+**Session:** `SES-20260808-3840E8`
 
 ## Queue counts
 
@@ -8,9 +8,9 @@
 |-------|------:|
 | queued | 0 |
 | processing | 0 |
-| completed | 62 |
+| completed | 54 |
 | failed | 0 |
-| duplicates | 35 |
+| duplicates | 21 |
 
 ## Documents
 
@@ -19,7 +19,7 @@
 | `DOC-A0E1922823F9` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 81947 | https://api.crossref.org/works/10.22452/mjlis.vol29no2.4 |
 | `DOC-A99E56C64737` | SRC-000004 | CONN-WB-001 | text/html | completed | 17390 | https://documents.worldbank.org/search?q=service+library+Indonesia |
 | `DOC-7C7239075702` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 586 | https://openalex.org/W3095315355 |
-| `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2641 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
+| `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 71216 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
 | `DOC-D5443F5620D9` | SRC-000004 | CONN-WB-001 | text/html | completed | 122752 | http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-D |
 | `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 50711 | https://openalex.org/W4312346959 |
 | `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 31874 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
@@ -70,11 +70,3 @@
 | `DOC-4797FB998A54` | SRC-000001 | DISC-LAYER | text/plain | completed | 216 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-r |
 | `DOC-8903E78503B7` | SRC-000001 | DISC-LAYER | text/plain | completed | 237 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-ag |
 | `DOC-EEB66F14A504` | SRC-000001 | DISC-LAYER | text/plain | completed | 222 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-ag |
-| `DOC-C82387BE3840` | SRC-000007 | DISC-LAYER | text/plain | completed | 88 | https://ammdes.kemenperin.go.id/ |
-| `DOC-35242ACBFC8C` | SRC-000007 | DISC-LAYER | text/plain | completed | 119 | http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project |
-| `DOC-A9BA1BC04A49` | SRC-000007 | DISC-LAYER | text/plain | completed | 120 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project |
-| `DOC-5AE418499878` | SRC-000007 | DISC-LAYER | text/plain | completed | 98 | https://ammdes.kemenperin.go.id/robots.txt |
-| `DOC-BD9EDDE8E2B7` | SRC-000007 | DISC-LAYER | text/plain | completed | 97 | http://ammdes.kemenperin.go.id/robots.txt |
-| `DOC-41728C78610E` | SRC-000007 | DISC-LAYER | text/plain | completed | 140 | https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_mi |
-| `DOC-EB8E28CFE081` | SRC-000007 | DISC-LAYER | text/plain | completed | 99 | https://bbkb.kemenperin.go.id/perpus/index/ |
-| `DOC-0E785C552C2C` | SRC-000007 | DISC-LAYER | text/plain | completed | 101 | https://bbkb.kemenperin.go.id/perpus/index/70 |
