@@ -8,7 +8,7 @@ Adaptive scores used for mission source selection.
 | 2 | World Bank | 97.404 |
 | 3 | Kemenperin | 95.112 |
 | 4 | Asian Development Bank | 95.084 |
-| 5 | OECD | 94.695 |
+| 5 | OECD | 94.696 |
 | 6 | Crossref | 84.488 |
 | 7 | DJP Pajak | 73.45 |
 | 8 | NIST | 73.25 |
