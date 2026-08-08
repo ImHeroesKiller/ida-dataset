@@ -1,18 +1,18 @@
 # Representation Quality
 
-**Generated:** 2026-08-08T09:02:36+00:00
+**Generated:** 2026-08-08T09:59:23+00:00
 
 | Representation | Count |
 |----------------|------:|
-| Full HTML | 7 |
+| Full HTML | 8 |
 | PDF | 0 |
 | XML | 0 |
 | DOCX | 0 |
-| Metadata only (post-chain) | 44 |
+| Metadata only (post-chain) | 12 |
 
 | Quality | Value |
 |---------|------:|
-| Avg content size (usable chars) | 4757.6 |
-| Avg richness score | 61.72 |
+| Avg content size (usable chars) | 7280.9 |
+| Avg richness score | 75.16 |
 
 Ranking: HTML full text > PDF > XML > EPUB > DOCX > TXT > metadata JSON.
