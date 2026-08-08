@@ -54,19 +54,19 @@ Only domains present in Trusted Source Registry.
 | https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pln_nusantar | SRC-000007 | DISC-COMMONCRAWL |  |
 | https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0 | SRC-000007 | DISC-COMMONCRAWL |  |
 | https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahk | SRC-000007 | DISC-COMMONCRAWL |  |
-| https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/ | SRC-CROSSREF | DISC-ATOM |  |
-| https://www.crossref.org/jobs/2025-11-13-communications-manager/ | SRC-CROSSREF | DISC-ATOM |  |
-| https://www.crossref.org/members-area/ | SRC-CROSSREF | DISC-ATOM |  |
-| https://www.crossref.org/jobs/2023-04-24-contract-member-support/ | SRC-CROSSREF | DISC-ATOM |  |
-| https://www.ifrs.org/ | SRC-ISSB | DISC-ATOM |  |
-| https://www.ifrs.org/groups/managing-director/michel-madelain/ | SRC-ISSB | DISC-ATOM |  |
-| https://www.ifrs.org/groups/monitoring-board/ | SRC-ISSB | DISC-ATOM |  |
-| https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitorin | SRC-ISSB | DISC-ATOM |  |
-| http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html | SRC-OWASP | DISC-ATOM | OWASP CVE Lite CLI Graduates to Lab Project Status |
-| http://owasp.org/blog/2026/06/18/greenberg-statement.html | SRC-OWASP | DISC-ATOM | Community update regarding Richard Greenberg |
-| http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html | SRC-OWASP | DISC-ATOM | Aikido and OWASP bring agentic Code Audit to the global AppS |
-| http://owasp.org/blog/2026/06/09/dependency-track-v5.html | SRC-OWASP | DISC-ATOM | OWASP Dependency-Track 5.0 Is Now Generally Available |
+| https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/ | SRC-CROSSREF | DISC-SITEMAP |  |
+| https://www.crossref.org/jobs/2025-11-13-communications-manager/ | SRC-CROSSREF | DISC-SITEMAP |  |
+| https://www.crossref.org/members-area/ | SRC-CROSSREF | DISC-SITEMAP |  |
+| https://www.crossref.org/jobs/2023-04-24-contract-member-support/ | SRC-CROSSREF | DISC-SITEMAP |  |
+| https://www.ifrs.org/ | SRC-ISSB | DISC-SITEMAP |  |
+| https://www.ifrs.org/groups/managing-director/michel-madelain/ | SRC-ISSB | DISC-SITEMAP |  |
+| https://www.ifrs.org/groups/monitoring-board/ | SRC-ISSB | DISC-SITEMAP |  |
+| https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitorin | SRC-ISSB | DISC-SITEMAP |  |
 | https://owasp.org/ | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/blog/2025/03/06/owasp-education-and-training-committee-update.html | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/projects/ | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/www-project-top-ten/ | SRC-OWASP | DISC-SITEMAP |  |
+| http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html | SRC-OWASP | DISC-ATOM | OWASP CVE Lite CLI Graduates to Lab Project Status |
+| http://owasp.org/blog/2026/06/18/greenberg-statement.html | SRC-OWASP | DISC-ATOM | Community update regarding Richard Greenberg |
+| http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html | SRC-OWASP | DISC-ATOM | Aikido and OWASP bring agentic Code Audit to the global AppS |
+| http://owasp.org/blog/2026/06/09/dependency-track-v5.html | SRC-OWASP | DISC-ATOM | OWASP Dependency-Track 5.0 Is Now Generally Available |
