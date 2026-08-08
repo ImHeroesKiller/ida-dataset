@@ -47,5 +47,9 @@ Only domains present in Trusted Source Registry.
 | https://owasp.org/projects/ | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/www-project-top-ten/ | SRC-OWASP | DISC-SITEMAP |  |
 | https://www.crossref.org/jobs/2023-02-08-contract-software-development/ | SRC-CROSSREF | DISC-ATOM |  |
-| https://www.crossref.org/jobs/2022-09-30-contract-technical-support/ | SRC-CROSSREF | DISC-ATOM |  |
-| https://www.crossref.org/jobs/2022-11-21-community-engagement-manager/ | SRC-CROSSREF | DISC-ATOM |  |
+| https://www.ifrs.org/groups/trustees-of-the-ifrs-foundation/ | SRC-ISSB | DISC-ATOM |  |
+| http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html | SRC-OWASP | DISC-ATOM | OWASP CVE Lite CLI Graduates to Lab Project Status |
+| http://owasp.org/blog/2026/06/18/greenberg-statement.html | SRC-OWASP | DISC-ATOM | Community update regarding Richard Greenberg |
+| http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html | SRC-OWASP | DISC-ATOM | Aikido and OWASP bring agentic Code Audit to the global AppS |
+| http://owasp.org/blog/2026/06/09/dependency-track-v5.html | SRC-OWASP | DISC-ATOM | OWASP Dependency-Track 5.0 Is Now Generally Available |
+| http://owasp.org/blog/2026/05/13/juice-shop-v20.html | SRC-OWASP | DISC-ATOM | Juice Shop v20.0.0 — a fresh squeeze of features, now with A |
