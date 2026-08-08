@@ -1,12 +1,12 @@
 # Content Richness
 
-**Generated:** 2026-08-08T14:04:15+00:00
+**Generated:** 2026-08-08T14:51:44+00:00
 
 | Metric | Value |
 |--------|------:|
-| Average usable characters | 5109.7 |
-| Average representation score | 63.72 |
-| Full-text share | 12.0% |
-| Metadata share | 45.33% |
+| Average usable characters | 7167.8 |
+| Average representation score | 75.83 |
+| Full-text share | 17.02% |
+| Metadata share | 25.53% |
 
 Higher usable characters feed the existing extraction engine without extractor changes.
