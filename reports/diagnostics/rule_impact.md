@@ -1,6 +1,6 @@
 # Rule Impact
 
-**Generated:** 2026-08-09T21:59:33+00:00
+**Generated:** 2026-08-09T22:53:58+00:00
 
 | Rule | Candidates affected | Rows blocked | % blocked | Avg confidence |
 | --- | --- | --- | --- | --- |
