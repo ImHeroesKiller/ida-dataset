@@ -1,33 +1,33 @@
 # Production Trace
 
-**Generated:** 2026-08-09T14:14:07+00:00
+**Generated:** 2026-08-09T14:56:13+00:00
 **Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
-**Mission ID:** `MIS-20260809-2B3993`
-**Session ID:** `SES-20260809-3C2FAF`
-**Started:** 2026-08-09T13:51:31+00:00
-**Finished:** 2026-08-09T14:14:07+00:00
+**Mission ID:** `MIS-20260809-E217E3`
+**Session ID:** `SES-20260809-3B6337`
+**Started:** 2026-08-09T14:36:43+00:00
+**Finished:** 2026-08-09T14:56:13+00:00
 
 ## Pipeline timeline
 
 | Stage | Status | Duration (ms) | Docs | Rows | Errors |
 |-------|--------|--------------:|-----:|-----:|--------|
-| mission | completed | 0.7 | 0 | 0 | — |
-| source_discovery | completed | 2.3 | 0 | 0 | — |
-| connector | completed | 93613.3 | 97 | 0 | — |
-| document_discovery | completed | 93613.4 | 97 | 0 | — |
-| document_download | completed | 528507.5 | 62 | 0 | — |
-| extraction | completed | 81.6 | 0 | 5 | — |
-| candidate_validation | completed | 17.4 | 0 | 5 | — |
-| publish_queue | completed | 17.4 | 0 | 5 | — |
-| append_dataset | completed | 29.2 | 0 | 5 | — |
-| export | skipped | 0.2 | 0 | 0 | — |
+| mission | completed | 1.1 | 0 | 0 | — |
+| source_discovery | completed | 2.8 | 0 | 0 | — |
+| connector | completed | 94020.0 | 67 | 0 | — |
+| document_discovery | completed | 94020.2 | 67 | 0 | — |
+| document_download | completed | 338749.7 | 51 | 0 | — |
+| extraction | completed | 101.2 | 0 | 5 | — |
+| candidate_validation | completed | 22.5 | 0 | 5 | — |
+| publish_queue | completed | 22.5 | 0 | 5 | — |
+| append_dataset | completed | 35.1 | 0 | 5 | — |
+| export | skipped | 0.4 | 0 | 0 | — |
 | git_commit | skipped | 0.3 | 0 | 0 | — |
-| push | skipped | 0.2 | 0 | 0 | — |
+| push | skipped | 0.3 | 0 | 0 | — |
 
 ## Summary
 
 - Documents discovered: **31**
-- Documents downloaded: **62**
+- Documents downloaded: **51**
 - Candidates extracted: **5**
 - Candidates validated: **5**
 - Candidates rejected: **0**
