@@ -1,25 +1,25 @@
 # Runtime Statistics
 
-**Session:** `SES-20260809-3341B7`
+**Session:** `SES-20260809-CF3AE1`
 **Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
-**Total stage time (ms):** 312807.7
+**Total stage time (ms):** 422647.7
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 0.9 | completed |
-| source_discovery | 3.1 | completed |
-| connector | 94077.4 | completed |
-| document_discovery | 94077.5 | completed |
-| document_download | 124449.6 | completed |
-| extraction | 118.1 | completed |
-| candidate_validation | 22.8 | completed |
-| publish_queue | 22.9 | completed |
-| append_dataset | 34.4 | completed |
-| export | 0.3 | skipped |
-| git_commit | 0.3 | skipped |
-| push | 0.4 | skipped |
+| mission | 0.8 | completed |
+| source_discovery | 2.3 | completed |
+| connector | 93706.6 | completed |
+| document_discovery | 93706.7 | completed |
+| document_download | 235080.4 | completed |
+| extraction | 86.1 | completed |
+| candidate_validation | 17.4 | completed |
+| publish_queue | 17.4 | completed |
+| append_dataset | 29.4 | completed |
+| export | 0.2 | skipped |
+| git_commit | 0.2 | skipped |
+| push | 0.2 | skipped |
 
 ## Counters
 
@@ -29,9 +29,9 @@
     "connectors_ok": 7,
     "connectors_failed": 0,
     "documents_discovered": 31,
-    "documents_downloaded": 51,
+    "documents_downloaded": 62,
     "documents_failed": 0,
-    "documents_duplicates": 16,
+    "documents_duplicates": 35,
     "candidates_extracted": 5,
     "candidates_validated": 5,
     "candidates_rejected": 0,
@@ -54,9 +54,9 @@
   "document_queue": {
     "queued": 0,
     "processing": 0,
-    "completed": 51,
+    "completed": 62,
     "failed": 0,
-    "duplicates": 16
+    "duplicates": 35
   },
   "exports": {
     "jsonl": false,
