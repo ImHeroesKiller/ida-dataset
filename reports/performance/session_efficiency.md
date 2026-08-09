@@ -1,13 +1,13 @@
 # Session Efficiency
 
-**Generated:** 2026-08-09T13:11:42+00:00
+**Generated:** 2026-08-09T14:14:07+00:00
 
 | Metric | Value |
 |--------|------:|
-| Sessions | 310 |
-| Sessions with rows | 309 |
-| Total rows | 1542 |
-| Avg duration (s) | 1065.416 |
+| Sessions | 311 |
+| Sessions with rows | 310 |
+| Total rows | 1547 |
+| Avg duration (s) | 1065.424 |
 | Max duration (s) | 2265.0 |
 | Rows/session | 4.99 |
 | Top mission | corporate governance — service knowledge for Corporate Governance — continuous k |
