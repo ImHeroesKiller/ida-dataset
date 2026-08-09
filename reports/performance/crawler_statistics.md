@@ -15,7 +15,7 @@
     "skipped_duplicate": 7,
     "failed": 41,
     "bytes": 1730762,
-    "elapsed_ms": 40629.00000000001,
+    "elapsed_ms": 42234.99999999999,
     "retries": 10,
     "max_workers": 2,
     "adaptive_workers": 2,
@@ -49,12 +49,12 @@
     "documents_deep": 15,
     "avg_ms": 1.82,
     "average_extraction_ms": 1.82,
-    "total_ms": 113.08,
+    "total_ms": 112.89,
     "path_ms": {
-      "fast": 20.13,
-      "medium": 14.42,
-      "deep": 54.59,
-      "signal_fallback": 23.8
+      "fast": 19.96,
+      "medium": 14.26,
+      "deep": 54.55,
+      "signal_fallback": 24.04
     },
     "target_dataset": "service_library",
     "llm_required_but_unavailable": false
