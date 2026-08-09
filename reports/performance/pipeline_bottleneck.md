@@ -1,6 +1,6 @@
 # Pipeline Bottleneck Analysis
 
-**Generated:** 2026-08-09T15:51:53+00:00
+**Generated:** 2026-08-09T16:55:36+00:00
 **Primary bottleneck:** `document_download`
 
 Measured from real production sessions and acquisition traces only.
@@ -9,32 +9,32 @@ Measured from real production sessions and acquisition traces only.
 
 | Stage | Count | Avg ms | Max ms | Total ms |
 |-------|------:|-------:|-------:|---------:|
-| mission | 362 | 1.55 | 70.9 | 562.4 |
-| source_discovery | 362 | 4.51 | 186.3 | 1631.1 |
-| connector | 362 | 89869.38 | 97806.1 | 32532717.2 |
-| document_discovery | 362 | 89869.58 | 97806.2 | 32532786.5 |
-| document_download | 362 | 232506.7 | 1509355.9 | 84167425.2 |
-| extraction | 362 | 97.32 | 274.0 | 35229.5 |
-| candidate_validation | 362 | 14.39 | 136.9 | 5207.7 |
-| publish_queue | 362 | 14.45 | 136.9 | 5232.0 |
-| append_dataset | 362 | 39.01 | 119.7 | 14122.3 |
-| export | 362 | 0.35 | 2.1 | 125.3 |
-| git_commit | 362 | 0.35 | 15.1 | 127.4 |
-| push | 362 | 0.62 | 81.1 | 224.4 |
+| mission | 363 | 1.55 | 70.9 | 563.5 |
+| source_discovery | 363 | 4.5 | 186.3 | 1634.1 |
+| connector | 363 | 89880.13 | 97806.1 | 32626487.7 |
+| document_discovery | 363 | 89880.32 | 97806.2 | 32626557.7 |
+| document_download | 363 | 232555.99 | 1509355.9 | 84417824.9 |
+| extraction | 363 | 97.35 | 274.0 | 35336.7 |
+| candidate_validation | 363 | 14.41 | 136.9 | 5230.0 |
+| publish_queue | 363 | 14.47 | 136.9 | 5254.3 |
+| append_dataset | 363 | 39.01 | 119.7 | 14161.5 |
+| export | 363 | 0.35 | 2.1 | 125.6 |
+| git_commit | 363 | 0.35 | 15.1 | 127.7 |
+| push | 363 | 0.62 | 81.1 | 224.7 |
 
 ## End-to-end funnel
 
 | Metric | Value |
 |--------|------:|
-| Documents discovered | 10742 |
-| Documents processed | 24119 |
+| Documents discovered | 10773 |
+| Documents processed | 24181 |
 | Process ratio | 224.5% (target ≥90.0%) |
-| Rows published (traces) | 1739 |
-| Sessions observed | 302 |
-| Avg session duration (s) | 1061.526 |
+| Rows published (traces) | 1744 |
+| Sessions observed | 303 |
+| Avg session duration (s) | 1061.601 |
 | Max session duration (s) | 2265.0 |
 | Rows / session (productive) | 4.99 |
-| Avg connector latency (ms) | 13739.1 |
+| Avg connector latency (ms) | 13640.0 |
 | Worker utilization (est) | 1.0 |
 | Idle fraction (est) | 0.0 |
 | Queue wait (doc depth) | 0 |
