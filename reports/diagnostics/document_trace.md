@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-08-09T05:25:14+00:00
+**Generated:** 2026-08-09T07:18:34+00:00
 
-- Fingerprint URLs known: **72**
-- Fingerprint hashes known: **72**
-- Fingerprint stats: `{'skips': 11, 'adds': 72}`
-- Trace summary: discovered=31 downloaded=54 duplicates=23
+- Fingerprint URLs known: **67**
+- Fingerprint hashes known: **67**
+- Fingerprint stats: `{'skips': 4, 'adds': 67}`
+- Trace summary: discovered=31 downloaded=51 duplicates=16
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -24,31 +24,28 @@
 | DOC-6768188378B0 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-10 | 6768188378b0dc5e | True | False | False | False | True | completed |
 | DOC-9C02992AB0ED | http://documents.worldbank.org/curated/en/117431468041701262 | 9c02992ab0ed8e9a | True | False | False | False | True | completed |
 | DOC-DE90DA00EB31 | https://openalex.org/W2974521388 | de90da00eb316bac | True | False | False | False | True | completed |
-| DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
+| DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
+| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
 | DOC-EE9AA102B487 | http://documents.worldbank.org/curated/en/170561538243538219 | ee9aa102b487f1db | True | False | False | False | True | completed |
 | DOC-0C15999FB55C | https://openalex.org/W2989135090 | 0c15999fb55c4690 | True | False | False | False | True | completed |
-| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
+| DOC-859D2142FF21 | https://www.bps.go.id/248-268 | 859d2142ff2174ae | True | False | False | False | True | completed |
+| DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
 | DOC-8F2F69488B1B | http://documents.worldbank.org/curated/en/544241468260062256 | 8f2f69488b1bdf76 | True | False | False | False | True | completed |
 | DOC-72B3224209C4 | https://openalex.org/W3031607294 | 72b3224209c4c890 | True | False | False | False | True | completed |
+| DOC-086852F73EE0 | https://www.bps.go.id/brs/view/id/1267 | 086852f73ee06d6f | True | False | False | False | True | completed |
 | DOC-2AB16A333F59 | https://api.crossref.org/works/10.1109/icitsi.2015.7437704 | 2ab16a333f594004 | True | False | False | False | True | completed |
 | DOC-3C3FF2F87248 | http://documents.worldbank.org/curated/en/117831468040604958 | 3c3ff2f8724814bf | True | False | False | False | True | completed |
 | DOC-69EEA36D9AF8 | https://openalex.org/W1507665948 | 69eea36d9af877ab | True | False | False | False | True | completed |
+| DOC-8FDD77E53A4E | https://www.bps.go.id/dynamictable/%202015/12/22/1064/produk | 8fdd77e53a4eee53 | True | False | False | False | True | completed |
 | DOC-FA192923E2E0 | https://api.crossref.org/works/10.1108/lm-05-2012-0025 | fa192923e2e0267a | True | False | False | False | True | completed |
 | DOC-E6E5E7D1C84F | http://documents.worldbank.org/curated/en/834491468052778400 | e6e5e7d1c84f6aac | True | False | False | False | True | completed |
 | DOC-C6A9648CAF13 | https://openalex.org/W2106787323 | c6a9648caf130ee6 | True | False | False | False | True | completed |
+| DOC-72A1DAB841AA | https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kab | 72a1dab841aa1a5a | True | False | False | False | True | completed |
 | DOC-CEBB266D97BD | https://api.crossref.org/works/10.1086/217180 | cebb266d97bd4622 | True | False | False | False | True | completed |
 | DOC-F1D3F23E8CC4 | http://documents.worldbank.org/curated/en/512221468041424443 | f1d3f23e8cc478fb | True | False | False | False | True | completed |
 | DOC-CA19FA59FBE9 | https://openalex.org/W2168492123 | ca19fa59fbe9e1dd | True | False | False | False | True | completed |
-| DOC-9057190DB24B | http://documents.worldbank.org/curated/en/627981468752778622 | 9057190db24b7d53 | True | False | False | False | True | completed |
-| DOC-C1C8D7931100 | https://www.worldbank.org/%20en/country/madagascar/overview | c1c8d793110074b6 | True | False | False | False | True | completed |
-| DOC-63E9EB2E5A2F | https://www.worldbank.org/%E2%80%A6/global-action-urgently-n | 63e9eb2e5a2fca92 | True | False | False | False | True | completed |
-| DOC-5FB511CEE340 | https://www.worldbank.org/%E3%80%80 | 5fb511cee340eddf | True | False | False | False | True | completed |
-| DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
-| DOC-859D2142FF21 | https://www.bps.go.id/248-268 | 859d2142ff2174ae | True | False | False | False | True | completed |
-| DOC-086852F73EE0 | https://www.bps.go.id/brs/view/id/1267 | 086852f73ee06d6f | True | False | False | False | True | completed |
-| DOC-8FDD77E53A4E | https://www.bps.go.id/dynamictable/%202015/12/22/1064/produk | 8fdd77e53a4eee53 | True | False | False | False | True | completed |
-| DOC-72A1DAB841AA | https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kab | 72a1dab841aa1a5a | True | False | False | False | True | completed |
 | DOC-708BA37EBD5C | https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-u | 708ba37ebd5c4cbf | True | False | False | False | True | completed |
+| DOC-9057190DB24B | http://documents.worldbank.org/curated/en/627981468752778622 | 9057190db24b7d53 | True | False | False | False | True | completed |
 | DOC-F2BF8FA340F8 | https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010 | f2bf8fa340f8aa4e | True | False | False | False | True | completed |
 | DOC-3E1CA71C0311 | https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010 | 3e1ca71c0311a1a1 | True | False | False | False | True | completed |
 | DOC-65FC704A4D9D | https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-201 | 65fc704a4d9d302b | True | False | False | False | True | completed |
