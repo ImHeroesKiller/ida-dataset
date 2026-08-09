@@ -1,6 +1,6 @@
 # Document Trace
 
-**Generated:** 2026-08-09T19:01:24+00:00
+**Generated:** 2026-08-09T19:54:31+00:00
 
 - Fingerprint URLs known: **67**
 - Fingerprint hashes known: **67**
@@ -25,11 +25,11 @@
 | DOC-9C02992AB0ED | http://documents.worldbank.org/curated/en/117431468041701262 | 9c02992ab0ed8e9a | True | False | False | False | True | completed |
 | DOC-DE90DA00EB31 | https://openalex.org/W2974521388 | de90da00eb316bac | True | False | False | False | True | completed |
 | DOC-5FBA0F15E0B9 | https://www.bps.go.id/ | 5fba0f15e0b9cbb9 | True | False | False | False | True | completed |
-| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
+| DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
 | DOC-EE9AA102B487 | http://documents.worldbank.org/curated/en/170561538243538219 | ee9aa102b487f1db | True | False | False | False | True | completed |
 | DOC-0C15999FB55C | https://openalex.org/W2989135090 | 0c15999fb55c4690 | True | False | False | False | True | completed |
 | DOC-859D2142FF21 | https://www.bps.go.id/248-268 | 859d2142ff2174ae | True | False | False | False | True | completed |
-| DOC-F825C3BB9600 | https://api.crossref.org/works/10.7454/jipk.v24i2.003 | f825c3bb9600400a | True | False | False | False | True | completed |
+| DOC-9D814DA54F80 | https://api.crossref.org/works/10.59141/jiss.v4i07.855 | 9d814da54f80374f | True | False | False | False | True | completed |
 | DOC-8F2F69488B1B | http://documents.worldbank.org/curated/en/544241468260062256 | 8f2f69488b1bdf76 | True | False | False | False | True | completed |
 | DOC-72B3224209C4 | https://openalex.org/W3031607294 | 72b3224209c4c890 | True | False | False | False | True | completed |
 | DOC-086852F73EE0 | https://www.bps.go.id/brs/view/id/1267 | 086852f73ee06d6f | True | False | False | False | True | completed |

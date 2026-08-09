@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-09T19:01:24+00:00
+**Generated:** 2026-08-09T19:54:31+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260809-7E0F0C |
+| session_id | SESSION-20260809-E3E2B9 |
 | status | completed |
 | mission | corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_libra |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 1058.0 |
+| duration_seconds | 1111.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=51 entity=Exploring the influence of regional ec |
-| start_time | 2026-08-09T18:42:46+00:00 |
-| end_time | 2026-08-09T19:00:24+00:00 |
+| start_time | 2026-08-09T19:34:58+00:00 |
+| end_time | 2026-08-09T19:53:29+00:00 |
 
 ## Pipeline stages
 
@@ -26,12 +26,12 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · |
-| source_discovery | completed | 1.8 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
+| source_discovery | completed | 2.1 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
 | connector_calls | completed | — | 31 | — | discovered=31 |
-| document_discovery | completed | 94307.4 | 67 | — |  |
+| document_discovery | completed | 94186.0 | 67 | — |  |
 | documents_skipped | completed | — | 16 | — | duplicates_or_skips=16 |
-| document_download | completed | 217696.6 | 51 | — | downloaded=51 |
-| extraction | completed | 70.7 | — | 5 |  |
+| document_download | completed | 277093.6 | 51 | — | downloaded=51 |
+| extraction | completed | 168.3 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
