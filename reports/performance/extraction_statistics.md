@@ -14,12 +14,12 @@
   "documents_deep": 15,
   "avg_ms": 1.84,
   "average_extraction_ms": 1.84,
-  "total_ms": 113.97,
+  "total_ms": 113.98,
   "path_ms": {
-    "fast": 19.94,
-    "medium": 14.24,
-    "deep": 55.3,
-    "signal_fallback": 24.4
+    "fast": 19.87,
+    "medium": 14.34,
+    "deep": 55.0,
+    "signal_fallback": 24.67
   },
   "target_dataset": "service_library",
   "llm_required_but_unavailable": false

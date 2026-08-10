@@ -1,6 +1,6 @@
 # Hard Limit Audit
 
-**Generated:** 2026-08-10T16:19:35+00:00
+**Generated:** 2026-08-10T18:05:39+00:00
 **Occurrences found:** 305
 
 Search covers acquisition, config, learning, search, and CI paths.

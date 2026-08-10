@@ -1,27 +1,27 @@
 # Production Trace
 
-**Generated:** 2026-08-10T16:23:29+00:00
+**Generated:** 2026-08-10T18:09:31+00:00
 **Mission:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
-**Mission ID:** `MIS-20260810-E9BF36`
-**Session ID:** `SES-20260810-31FCBB`
-**Started:** 2026-08-10T16:07:03+00:00
-**Finished:** 2026-08-10T16:23:29+00:00
+**Mission ID:** `MIS-20260810-923C67`
+**Session ID:** `SES-20260810-13D7FE`
+**Started:** 2026-08-10T17:53:30+00:00
+**Finished:** 2026-08-10T18:09:31+00:00
 
 ## Pipeline timeline
 
 | Stage | Status | Duration (ms) | Docs | Rows | Errors |
 |-------|--------|--------------:|-----:|-----:|--------|
-| mission | completed | 1.1 | 0 | 0 | — |
-| source_discovery | completed | 3.0 | 0 | 0 | — |
-| connector | completed | 94207.5 | 97 | 0 | — |
-| document_discovery | completed | 94207.7 | 97 | 0 | — |
-| document_download | completed | 136370.0 | 62 | 0 | — |
-| extraction | completed | 119.9 | 0 | 5 | — |
-| candidate_validation | completed | 23.8 | 0 | 5 | — |
-| publish_queue | completed | 23.8 | 0 | 5 | — |
-| append_dataset | completed | 39.2 | 0 | 5 | — |
+| mission | completed | 0.9 | 0 | 0 | — |
+| source_discovery | completed | 2.9 | 0 | 0 | — |
+| connector | completed | 93753.5 | 97 | 0 | — |
+| document_discovery | completed | 93753.6 | 97 | 0 | — |
+| document_download | completed | 135658.0 | 62 | 0 | — |
+| extraction | completed | 119.7 | 0 | 5 | — |
+| candidate_validation | completed | 23.9 | 0 | 5 | — |
+| publish_queue | completed | 23.9 | 0 | 5 | — |
+| append_dataset | completed | 38.4 | 0 | 5 | — |
 | export | skipped | 0.3 | 0 | 0 | — |
-| git_commit | skipped | 0.6 | 0 | 0 | — |
+| git_commit | skipped | 0.3 | 0 | 0 | — |
 | push | skipped | 0.3 | 0 | 0 | — |
 
 ## Summary
