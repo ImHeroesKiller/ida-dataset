@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260810-13D7FE`
+**Session:** `SES-20260810-D35127`
 
 ## Queue counts
 
@@ -8,9 +8,9 @@
 |-------|------:|
 | queued | 0 |
 | processing | 0 |
-| completed | 62 |
+| completed | 69 |
 | failed | 0 |
-| duplicates | 35 |
+| duplicates | 28 |
 
 ## Documents
 
@@ -75,6 +75,13 @@
 | `DOC-A9BA1BC04A49` | SRC-000007 | DISC-LAYER | text/plain | completed | 120 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project |
 | `DOC-5AE418499878` | SRC-000007 | DISC-LAYER | text/plain | completed | 98 | https://ammdes.kemenperin.go.id/robots.txt |
 | `DOC-BD9EDDE8E2B7` | SRC-000007 | DISC-LAYER | text/plain | completed | 97 | http://ammdes.kemenperin.go.id/robots.txt |
+| `DOC-829247A9780D` | SRC-000007 | DISC-LAYER | text/plain | completed | 86 | https://bbkb.kemenperin.go.id/ |
 | `DOC-41728C78610E` | SRC-000007 | DISC-LAYER | text/plain | completed | 140 | https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_mi |
+| `DOC-3473D956AFB3` | SRC-000007 | DISC-LAYER | text/plain | completed | 118 | https://bbkb.kemenperin.go.id/index.php/post/category/berita/0 |
+| `DOC-54DE361C5BE2` | SRC-000007 | DISC-LAYER | text/plain | completed | 145 | https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_sni |
+| `DOC-CE6D99FF0CD9` | SRC-000007 | DISC-LAYER | text/plain | completed | 206 | https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hij |
+| `DOC-BDBFC501AA73` | SRC-000007 | DISC-LAYER | text/plain | completed | 151 | https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_nask |
+| `DOC-E465621B124E` | SRC-000007 | DISC-LAYER | text/html | completed | 67815 | https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajina |
+| `DOC-99700123A1EA` | SRC-000007 | DISC-LAYER | text/html | completed | 18733 | https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo |
 | `DOC-EB8E28CFE081` | SRC-000007 | DISC-LAYER | text/plain | completed | 99 | https://bbkb.kemenperin.go.id/perpus/index/ |
 | `DOC-0E785C552C2C` | SRC-000007 | DISC-LAYER | text/plain | completed | 101 | https://bbkb.kemenperin.go.id/perpus/index/70 |

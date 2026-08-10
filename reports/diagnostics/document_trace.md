@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-08-10T18:10:55+00:00
+**Generated:** 2026-08-10T19:27:50+00:00
 
-- Fingerprint URLs known: **90**
-- Fingerprint hashes known: **90**
-- Fingerprint stats: `{'skips': 20, 'adds': 90}`
-- Trace summary: discovered=31 downloaded=62 duplicates=35
+- Fingerprint URLs known: **92**
+- Fingerprint hashes known: **92**
+- Fingerprint stats: `{'skips': 11, 'adds': 92}`
+- Trace summary: discovered=31 downloaded=69 duplicates=28
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -68,6 +68,13 @@
 | DOC-A9BA1BC04A49 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_pro | a9ba1bc04a49b0e3 | True | False | False | False | True | completed |
 | DOC-5AE418499878 | https://ammdes.kemenperin.go.id/robots.txt | 5ae418499878ce29 | True | False | False | False | True | completed |
 | DOC-BD9EDDE8E2B7 | http://ammdes.kemenperin.go.id/robots.txt | bd9edde8e2b73c7f | True | False | False | False | True | completed |
+| DOC-829247A9780D | https://bbkb.kemenperin.go.id/ | 829247a9780d27f3 | True | False | False | False | True | completed |
 | DOC-41728C78610E | https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/p | 41728c78610e1787 | True | False | False | False | True | completed |
+| DOC-3473D956AFB3 | https://bbkb.kemenperin.go.id/index.php/post/category/berita | 3473d956afb32dc1 | True | False | False | False | True | completed |
+| DOC-54DE361C5BE2 | https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman | 54de361c5be2fc40 | True | False | False | False | True | completed |
+| DOC-CE6D99FF0CD9 | https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ek | ce6d99ff0cd958c2 | True | False | False | False | True | completed |
+| DOC-BDBFC501AA73 | https://bbkb.kemenperin.go.id/index.php/post/read/perpanjang | bdbfc501aa7378e4 | True | False | False | False | True | completed |
+| DOC-E465621B124E | https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_g | e465621b124e842a | True | False | False | False | True | completed |
+| DOC-99700123A1EA | https://bbkb.kemenperin.go.id/information/answer/response/19 | 99700123a1eaac43 | True | False | False | False | True | completed |
 | DOC-EB8E28CFE081 | https://bbkb.kemenperin.go.id/perpus/index/ | eb8e28cfe0817d36 | True | False | False | False | True | completed |
 | DOC-0E785C552C2C | https://bbkb.kemenperin.go.id/perpus/index/70 | 0e785c552c2c93de | True | False | False | False | True | completed |
