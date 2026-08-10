@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260810-1E0C8F`
+**Session:** `SES-20260810-31FCBB`
 
 ## Queue counts
 
@@ -19,10 +19,10 @@
 | `DOC-A0E1922823F9` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 81947 | https://api.crossref.org/works/10.22452/mjlis.vol29no2.4 |
 | `DOC-A99E56C64737` | SRC-000004 | CONN-WB-001 | text/html | completed | 17390 | https://documents.worldbank.org/search?q=service+library+Indonesia |
 | `DOC-7C7239075702` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 586 | https://openalex.org/W3095315355 |
-| `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2641 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
+| `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 71216 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
 | `DOC-D5443F5620D9` | SRC-000004 | CONN-WB-001 | text/html | completed | 122752 | http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-D |
-| `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 553 | https://openalex.org/W4312346959 |
-| `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3919 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
+| `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 50711 | https://openalex.org/W4312346959 |
+| `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 31875 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
 | `DOC-6C9F71B60D42` | SRC-000004 | CONN-WB-001 | text/html | completed | 122773 | http://documents.worldbank.org/curated/en/865071474569449459/Indonesia-Library-D |
 | `DOC-62F50045E190` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 617 | https://openalex.org/W3132509763 |
 | `DOC-A3E0FD768B53` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3554 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 |
