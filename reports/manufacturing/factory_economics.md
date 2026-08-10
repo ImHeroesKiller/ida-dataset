@@ -2,15 +2,15 @@
 
 | Metric | Value |
 |--------|------:|
-| Bandwidth (bytes) | 1492295 |
-| API requests | 103 |
+| Bandwidth (bytes) | 1037573 |
+| API requests | 73 |
 | Cache hit rate | 0.0 |
 | Rows produced | 5 |
-| Documents processed | 20025 |
-| Rows per API call | 0.0485 |
-| Rows per GB | 3597.62 |
-| Est. production cost (USD proxy) | 0.103 |
-| Knowledge ROI | 48.54 |
+| Documents processed | 20078 |
+| Rows per API call | 0.0685 |
+| Rows per GB | 5174.3 |
+| Est. production cost (USD proxy) | 0.073 |
+| Knowledge ROI | 68.49 |
 
 ## Top sources by rows
 
@@ -18,20 +18,20 @@
 [
   {
     "source_id": "SRC-CROSSREF",
-    "rows": 755,
-    "documents": 5085,
+    "rows": 757,
+    "documents": 5095,
     "success_rate": 1.0
   },
   {
     "source_id": "SRC-000004",
-    "rows": 693,
-    "documents": 4892,
+    "rows": 695,
+    "documents": 4914,
     "success_rate": 1.0
   },
   {
     "source_id": "SRC-OPENALEX",
-    "rows": 363,
-    "documents": 4647,
+    "rows": 364,
+    "documents": 4657,
     "success_rate": 1.0
   },
   {
@@ -55,7 +55,7 @@
   {
     "source_id": "SRC-000005",
     "rows": 0,
-    "documents": 1705,
+    "documents": 1716,
     "success_rate": 1.0
   }
 ]
