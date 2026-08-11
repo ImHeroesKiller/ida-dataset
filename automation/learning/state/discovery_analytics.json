@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-11T19:27:16+00:00",
-  "mission_id": "MIS-20260811-1F561B",
-  "session_id": "SES-20260811-5016E3",
+  "started_at": "2026-08-11T20:59:34+00:00",
+  "mission_id": "MIS-20260811-E5F32E",
+  "session_id": "SES-20260811-B0C160",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 58,
   "urls_remaining": 0,
   "duplicate_urls": 58,
-  "elapsed_ms": 812230.4,
+  "elapsed_ms": 781633.4,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 549.6,
-  "accepted_per_hour": 292.53,
+  "urls_per_hour": 571.11,
+  "accepted_per_hour": 303.98,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -101,14 +101,14 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 385.09999999999997,
+      "elapsed_ms": 652.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.698,
+      "rank_score": 85.723,
       "utilization": 0.1852
     },
     {
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 100,
       "cache_hits": 0,
-      "elapsed_ms": 1712.1,
+      "elapsed_ms": 4096.6,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 69.496,
+      "rank_score": 70.058,
       "utilization": 0.1852
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 467434.0,
+      "elapsed_ms": 476176.6,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -167,7 +167,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 342653.0,
+      "elapsed_ms": 300661.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 141.9,
+      "elapsed_ms": 218.7,
       "cached": false,
       "live_search": true
     },
@@ -461,23 +461,13 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 51.9,
+      "elapsed_ms": 166.6,
       "cached": false,
       "live_search": true
     },
     {
       "provider_id": "DISC-TAVILY",
       "query": "site:worldbank.org corporate governance service continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "urls": 0,
-      "elapsed_ms": 53.1,
-      "cached": false,
-      "live_search": true
-    },
-    {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
@@ -487,11 +477,21 @@
     },
     {
       "provider_id": "DISC-TAVILY",
+      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
+      "domain": "worldbank.org",
+      "source_id": "SRC-000004",
+      "urls": 0,
+      "elapsed_ms": 144.5,
+      "cached": false,
+      "live_search": true
+    },
+    {
+      "provider_id": "DISC-TAVILY",
       "query": "site:kemenperin.go.id corporate governance service continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 77.2,
+      "elapsed_ms": 62.0,
       "cached": false,
       "live_search": true
     },
@@ -501,7 +501,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 329.0,
+      "elapsed_ms": 987.5,
       "cached": false,
       "live_search": true
     },
@@ -511,7 +511,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 295.8,
+      "elapsed_ms": 173.6,
       "cached": false,
       "live_search": true
     },
@@ -521,7 +521,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 666.5,
+      "elapsed_ms": 358.9,
       "cached": false,
       "live_search": true
     },
@@ -531,7 +531,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 170.1,
+      "elapsed_ms": 2290.8,
       "cached": false,
       "live_search": true
     },
@@ -541,7 +541,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 20,
-      "elapsed_ms": 250.7,
+      "elapsed_ms": 285.8,
       "cached": false,
       "live_search": true
     },
@@ -599,13 +599,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 467434.0
+      "elapsed_ms": 476176.6
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 342653.0
+      "elapsed_ms": 300661.0
     }
   ],
   "reputation_top": [
@@ -733,12 +733,12 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.698,
+      "score": 85.723,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.991,
+        "latency": 0.994,
         "freshness": 0.5,
         "trust": 0.75,
         "coverage": 0.9,
@@ -749,12 +749,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 69.496,
+      "score": 70.058,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.925,
+        "latency": 0.971,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,

@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-11T19:33:04+00:00
+**Generated:** 2026-08-11T21:10:12+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260811-CF1167 |
+| session_id | SESSION-20260811-94AACE |
 | status | completed |
 | mission | corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_libra |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 1076.0 |
+| duration_seconds | 1336.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entity=Exploring the influence of regional ec |
-| start_time | 2026-08-11T19:13:43+00:00 |
-| end_time | 2026-08-11T19:31:39+00:00 |
+| start_time | 2026-08-11T20:46:32+00:00 |
+| end_time | 2026-08-11T21:08:48+00:00 |
 
 ## Pipeline stages
 
@@ -28,10 +28,10 @@
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · |
 | source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-ADB-001', 'name': 'Asian Development Bank', ' |
 | connector_calls | completed | — | 31 | — | discovered=31 |
-| document_discovery | completed | 94018.5 | 97 | — |  |
+| document_discovery | completed | 93982.9 | 97 | — |  |
 | documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
-| document_download | completed | 165405.0 | 62 | — | downloaded=62 |
-| extraction | completed | 111.6 | — | 5 |  |
+| document_download | completed | 455833.9 | 62 | — | downloaded=62 |
+| extraction | completed | 116.0 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
