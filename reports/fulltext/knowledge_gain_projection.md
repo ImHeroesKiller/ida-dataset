@@ -1,6 +1,6 @@
 # Knowledge Gain Projection
 
-**Generated:** 2026-08-11T18:17:07+00:00
+**Generated:** 2026-08-11T19:31:39+00:00
 
 ## Before (Forensic Audit 002)
 
@@ -16,18 +16,18 @@
 
 | Metric | Value |
 |--------|------:|
-| Metadata % | 49.25 |
-| Full-text % | 10.45 |
+| Metadata % | 48.89 |
+| Full-text % | 7.78 |
 | DOI full-text rate | 33.33 |
-| Avg content size (chars) | 4936.0 |
-| Avg richness | 63.03 |
+| Avg content size (chars) | 4722.5 |
+| Avg richness | 61.91 |
 
 ## Projected extraction yield (no extractor changes)
 
 | Model | Projected rows/doc |
 |-------|-------------------:|
-| Content-size uplift proxy | ~3.98 |
-| Full-text mix proxy (70% of potential on FT docs) | ~1.31 |
+| Content-size uplift proxy | ~3.81 |
+| Full-text mix proxy (70% of potential on FT docs) | ~1.21 |
 | Target success criteria | ≥5.0 |
 
 Actual rows still depend on mission-scoped extraction; richer bodies unlock higher potential for a later multi-dataset extract sprint.
