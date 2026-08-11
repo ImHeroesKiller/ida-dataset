@@ -1,13 +1,13 @@
 # Evidence Trace
 
-**Session:** `SES-20260811-9303F9`
+**Session:** `SES-20260811-77B402`
 
 Every published row → candidate → document → connector → source.
 
 ## Exploring the influence of regional economic pillars on library service equity in Indonesia
 
-- **Dataset row:** `SIG-001860` · Exploring the influence of regional economic pillars on library service equity in Indonesia (business_signal_library)
-- **Candidate:** `CAND-C556A19D07E7`
+- **Dataset row:** `SIG-001865` · Exploring the influence of regional economic pillars on library service equity in Indonesia (business_signal_library)
+- **Candidate:** `CAND-F09E0DF164D5`
 - **Document:** `DOC-A0E1922823F9` · Exploring the influence of regional economic pillars on library service equity in Indonesia
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -16,8 +16,8 @@ Every published row → candidate → document → connector → source.
 
 ## World Bank document
 
-- **Dataset row:** `SIG-001861` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-E9BF1B826645`
+- **Dataset row:** `SIG-001866` · World Bank document (business_signal_library)
+- **Candidate:** `CAND-DF4287F714EB`
 - **Document:** `DOC-A99E56C64737` · World Bank document
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
@@ -26,8 +26,8 @@ Every published row → candidate → document → connector → source.
 
 ## New normal and library services in Indonesia: a case study of university libraries
 
-- **Dataset row:** `SIG-001862` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
-- **Candidate:** `CAND-F164579474AF`
+- **Dataset row:** `SIG-001867` · New normal and library services in Indonesia: a case study of university libraries (business_signal_library)
+- **Candidate:** `CAND-6D39D1C14DC1`
 - **Document:** `DOC-7C7239075702` · New normal and library services in Indonesia: a case study of university libraries
 - **Connector:** OpenAlex (`CONN-OPENALEX-001`)
 - **Source:** OpenAlex (`SRC-OPENALEX`)
@@ -36,8 +36,8 @@ Every published row → candidate → document → connector → source.
 
 ## The Influence of Service Quality on Library Users at Padang State Polytechnic
 
-- **Dataset row:** `SIG-001863` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
-- **Candidate:** `CAND-87BDB91702DD`
+- **Dataset row:** `SIG-001868` · The Influence of Service Quality on Library Users at Padang State Polytechnic (business_signal_library)
+- **Candidate:** `CAND-644069F7A29A`
 - **Document:** `DOC-5DFD7BF054D2` · The Influence of Service Quality on Library Users at Padang State Polytechnic
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -46,8 +46,8 @@ Every published row → candidate → document → connector → source.
 
 ## Indonesia - Library Development Project
 
-- **Dataset row:** `SIG-001864` · Indonesia - Library Development Project (business_signal_library)
-- **Candidate:** `CAND-981125BCDEF4`
+- **Dataset row:** `SIG-001869` · Indonesia - Library Development Project (business_signal_library)
+- **Candidate:** `CAND-04076EA94FA9`
 - **Document:** `DOC-D5443F5620D9` · Indonesia - Library Development Project
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
