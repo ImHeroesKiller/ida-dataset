@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-11T21:08:48Z",
+  "updated_at": "2026-08-11T22:09:01Z",
   "sources": {
     "SRC-000004": {
       "source_id": "SRC-000004",
@@ -10,22 +10,22 @@
       "allowed": true,
       "health_status": "healthy",
       "coverage": 0.2195,
-      "last_successful_sync": "2026-08-11T21:08:48Z",
-      "last_attempt": "2026-08-11T21:08:48Z",
+      "last_successful_sync": "2026-08-11T22:09:01Z",
+      "last_attempt": "2026-08-11T22:09:01Z",
       "rows_produced": 14,
-      "documents_processed": 5421,
-      "attempts": 394,
-      "successes": 394,
+      "documents_processed": 5434,
+      "attempts": 395,
+      "successes": 395,
       "failure_count": 0,
       "success_rate": 1.0,
-      "total_processing_ms": 91374628.44261906,
-      "average_processing_time_ms": 231915.3,
+      "total_processing_ms": 91592176.02261905,
+      "average_processing_time_ms": 231878.9,
       "mission_usage": 2,
       "base_url": "https://www.worldbank.org",
       "notes": "Indonesia overview, IEP, open knowledge reports.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -88,22 +88,22 @@
       "allowed": true,
       "health_status": "healthy",
       "coverage": 0.2166,
-      "last_successful_sync": "2026-08-11T21:08:48Z",
-      "last_attempt": "2026-08-11T21:08:48Z",
+      "last_successful_sync": "2026-08-11T22:09:01Z",
+      "last_attempt": "2026-08-11T22:09:01Z",
       "rows_produced": 14,
-      "documents_processed": 4894,
-      "attempts": 364,
-      "successes": 364,
+      "documents_processed": 4906,
+      "attempts": 365,
+      "successes": 365,
       "failure_count": 0,
       "success_rate": 1.0,
-      "total_processing_ms": 81981428.39261907,
-      "average_processing_time_ms": 225223.7,
+      "total_processing_ms": 82198975.97261907,
+      "average_processing_time_ms": 225202.7,
       "mission_usage": 2,
       "base_url": "https://www.bps.go.id",
       "notes": "Official national statistics. High trust.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -141,22 +141,22 @@
       "allowed": true,
       "health_status": "healthy",
       "coverage": 0.1815,
-      "last_successful_sync": "2026-08-11T21:08:48Z",
-      "last_attempt": "2026-08-11T21:08:48Z",
+      "last_successful_sync": "2026-08-11T22:09:01Z",
+      "last_attempt": "2026-08-11T22:09:01Z",
       "rows_produced": 12,
-      "documents_processed": 3111,
-      "attempts": 236,
-      "successes": 236,
+      "documents_processed": 3123,
+      "attempts": 237,
+      "successes": 237,
       "failure_count": 0,
       "success_rate": 1.0,
-      "total_processing_ms": 50138279.09595235,
-      "average_processing_time_ms": 212450.3,
+      "total_processing_ms": 50355826.675952345,
+      "average_processing_time_ms": 212471.8,
       "mission_usage": 2,
       "base_url": "https://kemenperin.go.id",
       "notes": "Ministry of Industry public industrial data and policies.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -235,8 +235,8 @@
       "base_url": "https://ojk.go.id",
       "notes": "Financial services regulator — banking and digital finance rules.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -288,8 +288,8 @@
       "base_url": "https://www.adb.org",
       "notes": "ADB country and sector knowledge products.",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -343,8 +343,8 @@
       "base_url": "https://www.oecd.org",
       "notes": "OECD Economic Surveys Indonesia (digital transformation).",
       "missions_seen": [
-        "MIS-PRODUCE-INDUSTRY-DATASET",
-        "MIS-20260710-EXPAND-IND"
+        "MIS-20260710-EXPAND-IND",
+        "MIS-PRODUCE-INDUSTRY-DATASET"
       ],
       "updated_at": null
     },
@@ -434,16 +434,16 @@
       "allowed": false,
       "health_status": "inactive",
       "coverage": 0.0,
-      "last_successful_sync": "2026-08-11T21:08:48Z",
-      "last_attempt": "2026-08-11T21:08:48Z",
+      "last_successful_sync": "2026-08-11T22:09:01Z",
+      "last_attempt": "2026-08-11T22:09:01Z",
       "rows_produced": 0,
-      "documents_processed": 5445,
-      "attempts": 392,
-      "successes": 392,
+      "documents_processed": 5458,
+      "attempts": 393,
+      "successes": 393,
       "failure_count": 0,
       "success_rate": 1.0,
-      "total_processing_ms": 91374328.44261906,
-      "average_processing_time_ms": 233097.8,
+      "total_processing_ms": 91591876.02261905,
+      "average_processing_time_ms": 233058.2,
       "mission_usage": 0,
       "base_url": "",
       "notes": "",
@@ -459,16 +459,16 @@
       "allowed": false,
       "health_status": "inactive",
       "coverage": 0.0,
-      "last_successful_sync": "2026-08-11T21:08:48Z",
-      "last_attempt": "2026-08-11T21:08:48Z",
+      "last_successful_sync": "2026-08-11T22:09:01Z",
+      "last_attempt": "2026-08-11T22:09:01Z",
       "rows_produced": 0,
-      "documents_processed": 4979,
-      "attempts": 369,
-      "successes": 369,
+      "documents_processed": 4991,
+      "attempts": 370,
+      "successes": 370,
       "failure_count": 0,
       "success_rate": 1.0,
-      "total_processing_ms": 85195706.2209524,
-      "average_processing_time_ms": 230882.7,
+      "total_processing_ms": 85413253.8009524,
+      "average_processing_time_ms": 230846.6,
       "mission_usage": 0,
       "base_url": "",
       "notes": "",
