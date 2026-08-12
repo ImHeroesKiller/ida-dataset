@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-12T16:17:25+00:00",
-  "mission_id": "MIS-20260812-8BE23D",
-  "session_id": "SES-20260812-FFC40E",
+  "started_at": "2026-08-12T18:13:03+00:00",
+  "mission_id": "MIS-20260812-D73FEA",
+  "session_id": "SES-20260812-91391D",
   "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
   "dataset": "service_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 58,
   "urls_remaining": 0,
   "duplicate_urls": 58,
-  "elapsed_ms": 751405.9,
+  "elapsed_ms": 776166.0,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 594.09,
-  "accepted_per_hour": 316.21,
+  "urls_per_hour": 575.13,
+  "accepted_per_hour": 306.12,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -101,14 +101,14 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 1165.5,
+      "elapsed_ms": 1147.9,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.574,
+      "rank_score": 85.567,
       "utilization": 0.1852
     },
     {
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 100,
       "cache_hits": 0,
-      "elapsed_ms": 3635.9,
+      "elapsed_ms": 11264.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 70.024,
+      "rank_score": 69.673,
       "utilization": 0.1852
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 455730.8,
+      "elapsed_ms": 460627.9,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -167,7 +167,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 290828.7,
+      "elapsed_ms": 303079.1,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 238.1,
+      "elapsed_ms": 255.3,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 230.6,
+      "elapsed_ms": 202.5,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 250.3,
+      "elapsed_ms": 225.3,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 235.4,
+      "elapsed_ms": 221.1,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 211.1,
+      "elapsed_ms": 243.7,
       "cached": false,
       "live_search": true
     },
@@ -501,7 +501,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 464.2,
+      "elapsed_ms": 2313.6,
       "cached": false,
       "live_search": true
     },
@@ -511,7 +511,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 479.9,
+      "elapsed_ms": 2152.4,
       "cached": false,
       "live_search": true
     },
@@ -521,7 +521,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 466.4,
+      "elapsed_ms": 532.7,
       "cached": false,
       "live_search": true
     },
@@ -531,7 +531,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 1142.5,
+      "elapsed_ms": 3096.4,
       "cached": false,
       "live_search": true
     },
@@ -541,7 +541,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 20,
-      "elapsed_ms": 1082.9,
+      "elapsed_ms": 3169.7,
       "cached": false,
       "live_search": true
     },
@@ -599,21 +599,21 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 455730.8
+      "elapsed_ms": 460627.9
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 290828.7
+      "elapsed_ms": 303079.1
     }
   ],
   "reputation_top": [
     {
       "id": "SRC-000001",
       "name": "BPS Indonesia",
-      "reputation": 103.122,
-      "score": 97.791,
+      "reputation": 103.123,
+      "score": 97.792,
       "authority": 1.0
     },
     {
@@ -733,7 +733,7 @@
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.574,
+      "score": 85.567,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
@@ -749,12 +749,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 70.024,
+      "score": 69.673,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.969,
+        "latency": 0.939,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
