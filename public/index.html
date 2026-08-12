@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IDA Dataset Factory — Progress</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #0b0f14; color: #e6edf3; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem;
+    }
+    h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+    .sub { color: #8b949e; font-size: 0.9rem; margin-bottom: 2rem; }
+    .card {
+      width: 100%; max-width: 520px; background: #161b22; border: 1px solid #30363d;
+      border-radius: 12px; padding: 1.25rem 1.4rem; margin-bottom: 1rem;
+    }
+    .row { display: flex; justify-content: space-between; align-items: center; margin: 0.55rem 0; font-size: 0.95rem; }
+    .label { color: #8b949e; }
+    .val { font-weight: 500; font-variant-numeric: tabular-nums; }
+    .ok { color: #3fb950; }
+    .warn { color: #d29922; }
+    .idle { color: #8b949e; }
+    .bar {
+      height: 8px; background: #21262d; border-radius: 999px; overflow: hidden; margin-top: 0.75rem;
+    }
+    .bar > i { display: block; height: 100%; background: linear-gradient(90deg, #238636, #3fb950); width: 0%; transition: width 0.6s ease; }
+    footer { margin-top: 2rem; color: #6e7681; font-size: 0.8rem; text-align: center; }
+    a { color: #58a6ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>IDA Dataset Factory</h1>
+  <p class="sub">Progress only · no operator controls</p>
+
+  <div class="card">
+    <div class="row"><span class="label">Status</span><span class="val" id="status">Loading…</span></div>
+    <div class="row"><span class="label">Primary discovery</span><span class="val">DuckDuckGo (free)</span></div>
+    <div class="row"><span class="label">HF sync</span><span class="val" id="hf">—</span></div>
+    <div class="row"><span class="label">Last session</span><span class="val" id="last">—</span></div>
+    <div class="bar"><i id="prog"></i></div>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="label">Datasets targeted</span><span class="val" id="ds-count">17</span></div>
+    <div class="row"><span class="label">Mode</span><span class="val">multi-table · append-only</span></div>
+    <div class="row"><span class="label">Approval</span><span class="val">automatic</span></div>
+  </div>
+
+  <footer>
+    Read-only progress view · <a href="https://github.com/ImHeroesKiller/ida-dataset">source</a>
+  </footer>
+
+  <script>
+    document.getElementById('status').textContent = 'Factory active';
+    document.getElementById('status').className = 'val ok';
+    document.getElementById('hf').textContent = 'Pending sync';
+    document.getElementById('hf').className = 'val warn';
+    document.getElementById('last').textContent = new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+    document.getElementById('prog').style.width = '35%';
+  </script>
+</body>
+</html>
