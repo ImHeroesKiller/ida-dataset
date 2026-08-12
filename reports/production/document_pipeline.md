@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260812-4FAB1A`
+**Session:** `SES-20260812-329097`
 
 ## Queue counts
 
@@ -21,14 +21,14 @@
 | `DOC-7C7239075702` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 586 | https://openalex.org/W3095315355 |
 | `DOC-5DFD7BF054D2` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 71311 | https://api.crossref.org/works/10.47191/ijmei/v10i2.01 |
 | `DOC-D5443F5620D9` | SRC-000004 | CONN-WB-001 | text/html | completed | 122752 | http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-D |
-| `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 553 | https://openalex.org/W4312346959 |
+| `DOC-362992E54B77` | SRC-OPENALEX | CONN-OPENALEX-001 | text/html | completed | 50711 | https://openalex.org/W4312346959 |
 | `DOC-50B3F3BC8DEB` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 31875 | https://api.crossref.org/works/10.57235/aurelia.v3i2.2488 |
 | `DOC-6C9F71B60D42` | SRC-000004 | CONN-WB-001 | text/html | completed | 122773 | http://documents.worldbank.org/curated/en/865071474569449459/Indonesia-Library-D |
 | `DOC-62F50045E190` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 617 | https://openalex.org/W3132509763 |
 | `DOC-A3E0FD768B53` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 3554 | https://api.crossref.org/works/10.14429/djlit.41.5.16406 |
 | `DOC-B0FB86CDF86A` | SRC-000004 | CONN-WB-001 | text/html | completed | 122988 | http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C352 |
 | `DOC-7F19EEE4229E` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 595 | https://openalex.org/W3004041197 |
-| `DOC-6768188378B0` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 68962 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108 |
+| `DOC-6768188378B0` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 68963 | https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108 |
 | `DOC-9C02992AB0ED` | SRC-000004 | CONN-WB-001 | text/html | completed | 122941 | http://documents.worldbank.org/curated/en/117431468041701262/Conformed-Copy-C352 |
 | `DOC-DE90DA00EB31` | SRC-OPENALEX | CONN-OPENALEX-001 | text/plain | completed | 700 | https://openalex.org/W2974521388 |
 | `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
