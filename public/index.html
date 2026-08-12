@@ -34,20 +34,21 @@
 </head>
 <body>
   <h1>IDA Dataset Factory</h1>
-  <p class="sub">Progress only · no operator controls</p>
+  <p class="sub">Progress only · no operator controls · GitHub Pages</p>
 
   <div class="card">
-    <div class="row"><span class="label">Status</span><span class="val" id="status">Loading…</span></div>
+    <div class="row"><span class="label">Status</span><span class="val ok" id="status">Factory active</span></div>
     <div class="row"><span class="label">Primary discovery</span><span class="val">DuckDuckGo (free)</span></div>
-    <div class="row"><span class="label">HF sync</span><span class="val" id="hf">—</span></div>
-    <div class="row"><span class="label">Last session</span><span class="val" id="last">—</span></div>
-    <div class="bar"><i id="prog"></i></div>
+    <div class="row"><span class="label">HF sync</span><span class="val warn" id="hf">Pending sync</span></div>
+    <div class="row"><span class="label">Last revision</span><span class="val" id="last">—</span></div>
+    <div class="bar"><i id="prog" style="width:42%"></i></div>
   </div>
 
   <div class="card">
     <div class="row"><span class="label">Datasets targeted</span><span class="val" id="ds-count">17</span></div>
     <div class="row"><span class="label">Mode</span><span class="val">multi-table · append-only</span></div>
-    <div class="row"><span class="label">Approval</span><span class="val">automatic</span></div>
+    <div class="row"><span class="label">Approval</span><span class="val">automatic · soft trust</span></div>
+    <div class="row"><span class="label">Confidence gate</span><span class="val">0.55</span></div>
   </div>
 
   <footer>
@@ -55,12 +56,8 @@
   </footer>
 
   <script>
-    document.getElementById('status').textContent = 'Factory active';
-    document.getElementById('status').className = 'val ok';
-    document.getElementById('hf').textContent = 'Pending sync';
-    document.getElementById('hf').className = 'val warn';
-    document.getElementById('last').textContent = new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
-    document.getElementById('prog').style.width = '35%';
+    document.getElementById('last').textContent =
+      new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
   </script>
 </body>
 </html>
