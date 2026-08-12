@@ -43,7 +43,6 @@ _REJECT_HOST_SNIPPETS = (
 
 def host_of(url: str) -> str:
     host = (urlparse(url or "").hostname or "").lower()
-    # Do NOT use str.lstrip("www.") — that strips characters, not the "www." prefix
     if host.startswith("www."):
         host = host[4:]
     return host
@@ -65,7 +64,6 @@ def build_allowlist(sources: list[dict[str, Any]]) -> dict[str, dict[str, str]]:
             "category": str(s.get("category") or ""),
             "trust_score": str(s.get("trust_score") or ""),
         }
-        # also register parent-style aliases without subdomain variants
     return allow
 
 
@@ -87,9 +85,8 @@ def domain_matches_allowlist(host: str, allow: dict[str, dict[str, str]]) -> tup
         h = h[4:]
     if h in allow:
         return True, allow[h]
-    # suffix match: documents.worldbank.org → worldbank.org
     for domain, meta in allow.items():
-        if h == domain or h.endswith("." + domain):
+        if h.endswith("." + domain) or domain.endswith("." + h):
             return True, meta
     return False, None
 
@@ -131,6 +128,41 @@ def verify_url(
     }
 
 
+def verify_url_soft(
+    url: str,
+    *,
+    allowlist: dict[str, dict[str, str]],
+    allow_untrusted: bool = True,
+) -> dict[str, Any]:
+    """Soft verification for multi-table bootstrap.
+
+    Trusted registry domains still preferred. When allow_untrusted=True,
+    non-rejected public http(s) URLs are accepted with lower trust tag
+    so free DDG discovery can feed all datasheet tables.
+    """
+    hard = verify_url(url, allowlist=allowlist)
+    if hard.get("accepted"):
+        return hard
+    host = host_of(url)
+    if not host or not (url or "").startswith("http"):
+        return hard
+    rej, why = is_rejected_domain(host)
+    if rej:
+        return hard
+    if not allow_untrusted:
+        return hard
+    return {
+        "accepted": True,
+        "reason": "bootstrap_untrusted_ok",
+        "host": host,
+        "url": url,
+        "source_id": f"BOOTSTRAP-{host[:40]}",
+        "source_name": host,
+        "category": "bootstrap",
+        "trust_score": "0.50",
+    }
+
+
 def filter_discovered_urls(
     candidates: list[dict[str, Any]],
     *,
@@ -153,8 +185,13 @@ def filter_discovered_urls(
             rejected.append({**c, "reject_reason": "duplicate_url"})
             continue
         seen.add(key)
-        v = verify_url(url, allowlist=allow)
+        v = verify_url_soft(url, allowlist=allow, allow_untrusted=True)
         if v.get("accepted"):
+            verification = (
+                "trusted_registry"
+                if v.get("reason") == "trusted_domain"
+                else "bootstrap_untrusted"
+            )
             accepted.append(
                 {
                     **c,
@@ -162,7 +199,8 @@ def filter_discovered_urls(
                     "source_id": v.get("source_id"),
                     "source_name": v.get("source_name"),
                     "verified_host": v.get("host"),
-                    "verification": "trusted_registry",
+                    "verification": verification,
+                    "trust_score": v.get("trust_score") or "",
                 }
             )
         else:
