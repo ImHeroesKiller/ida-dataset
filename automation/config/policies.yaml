@@ -3,46 +3,41 @@
 
 version: "1.0"
 
-# Feature switches (human controller)
+# Feature switches (human controller) — opened for continuous manufacturing
 features:
-  crawling_enabled: false
-  extraction_enabled: false
-  publishing_enabled: false
+  crawling_enabled: true
+  extraction_enabled: true
+  publishing_enabled: true
 
 # Approval modes: automatic | semi_automatic | manual
-approval_mode: manual
+# automatic = fill all datasheet tables without human gate (still provenance + schema)
+approval_mode: automatic
 
 # Whether every candidate requires human review before publish
-review_required: true
+review_required: false
 
 # Confidence gate (0.0 – 1.0)
-# Rejection floor remains 0.80 (maintain 0 rejects on valid grounded rows).
-# Auto-publish preference is 0.92 (see acquisition/throughput_ops.AUTO_PUBLISH_CONFIDENCE).
-confidence_threshold: 0.80
+# Lowered so more grounded rows from free DDG sources can land.
+confidence_threshold: 0.70
 
-# Limits (human safety rails) — adaptive discovery may scale session work up to these ceilings.
-# These are optional safety rails, not discovery stop conditions. Discovery stops only on
-# provider exhaustion, knowledge-gap satisfied, runtime budget, or provider quota.
+# Limits (safety rails only) — raised so multi-table datasheets can fill.
 limits:
-  max_documents: 500
-  max_rows_per_day: 500
-  max_updates_per_day: 200
-  max_sources_per_run: 48
-  max_documents_per_session: 200
+  max_documents: 2000
+  max_rows_per_day: 2000
+  max_updates_per_day: 1000
+  max_sources_per_run: 120
+  max_documents_per_session: 500
 
-# Discovery strategy (simplification sprint — Tavily-first, lower API cost)
+# Discovery strategy — DuckDuckGo free REST/HTML primary
 # Search engines never become knowledge sources; trusted registry still gates domains.
 discovery:
-  primary_api: tavily
-  max_tavily_searches_per_session: 10
-  # When true, paid secondary APIs (Google/Bing/Brave/SerpAPI/Yandex) may run if enabled
-  # in discovery_registry.yaml AND Tavily is MISCONFIGURED or exhausted with zero URLs.
+  primary_api: duckduckgo
+  max_tavily_searches_per_session: 0
+  max_ddg_searches_per_session: 40
   secondary_paid_api_fallback: false
-  # Free feeds + trusted_site always allowed after primary search budget is spent
   free_feeds_enabled: true
-  # One discovery batch → route into multiple datasets via existing routing
+  # One discovery batch → route into ALL datasheet tables (not only one)
   one_discovery_multi_dataset: true
-  # Source selection preference order
   source_strategy:
     - operator_selected
     - knowledge_gap
@@ -103,7 +98,7 @@ entity_linking:
 # Publishing
 publishing:
   # schedule: immediate | daily | weekly | manual
-  schedule: manual
+  schedule: immediate
   target_root: domains
   mode: append_only
   preserve_ids: true
@@ -113,15 +108,27 @@ publishing:
 
 # Extraction
 extraction:
-  version: "0.1.0-phase1"
-  # backend placeholder: none | search_api | browser | llm
-  backend: none
+  version: "0.2.0-multi-dataset"
+  # backend: search_api uses discovery results; free DDG primary
+  backend: search_api
   target_datasets:
-    - company_profile
     - industry_library
+    - company_profile
     - product_catalog
+    - service_library
+    - pain_point_library
+    - solution_library
+    - framework_library
+    - case_study_library
+    - buyer_persona_library
+    - decision_maker_library
+    - regulation_library
+    - risk_library
+    - trend_library
     - competitor_library
+    - opportunity_analysis
     - business_signal_library
+    - discovery_question_library
 
 # Paths (relative to repository root)
 paths:
