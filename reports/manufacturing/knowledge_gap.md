@@ -1,6 +1,6 @@
 # Knowledge Gap
 
-**Generated:** 2026-08-12T18:17:21+00:00
+**Generated:** 2026-08-12T19:31:01+00:00
 **Mode:** BOOTSTRAP — empty_or_below_minimum_datasets
 
 Multi-dimensional gaps (not coverage-only).
@@ -23,4 +23,4 @@ Multi-dimensional gaps (not coverage-only).
 | company_profile | 86 | 9914 | 99914 | 99914 | 77.563 | 0.8939 | 0.1036 | 0.0 |
 | pain_point_library | 58 | 2942 | 29942 | 29942 | 77.531 | 0.9032 | 0.1119 | 0.0 |
 | opportunity_analysis | 25 | 1975 | 19975 | 19975 | 77.176 | 1.0 | 0.15 | 0.0 |
-| business_signal_library | 1994 | 0 | 48006 | 48006 | 76.857 | 0.6 | 0.15 | 1.0 |
+| business_signal_library | 1999 | 0 | 48001 | 48001 | 76.851 | 0.6 | 0.15 | 1.0 |
