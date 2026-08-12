@@ -1,14 +1,14 @@
 # Acquisition Success
 
-**Generated:** 2026-08-12T22:05:45+00:00
+**Generated:** 2026-08-12T22:59:15+00:00
 
 | Outcome | Count |
 |---------|------:|
 | Enriched with richer body | 8 |
 | Already rich | 39 |
 | Metadata fallback | 43 |
-| Failed chain | 39 |
-| Blocked | 62 |
+| Failed chain | 38 |
+| Blocked | 64 |
 
 ## Recent records
 
@@ -23,9 +23,8 @@
 | DOC-7F19EEE4229E | metadata_fallback | None | None | 595 |
 | DOC-6768188378B0 | enriched | html_fulltext | publisher_landing | 7961 |
 | DOC-DE90DA00EB31 | metadata_fallback | None | None | 698 |
-| DOC-9D814DA54F80 | enriched | html_fulltext | crossref_link | 25355 |
 | DOC-0C15999FB55C | enriched | html_fulltext | unpaywall_landing | 10417 |
-| DOC-F825C3BB9600 | metadata_fallback | None | None | 8000 |
+| DOC-9D814DA54F80 | enriched | html_fulltext | crossref_link | 25355 |
 | DOC-69EEA36D9AF8 | enriched | html_fulltext | openalex:openalex | 2622 |
 | DOC-FA192923E2E0 | metadata_fallback | None | None | 8000 |
 | DOC-CEBB266D97BD | metadata_fallback | None | None | 2330 |
@@ -54,3 +53,4 @@
 | DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
 | DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
 | DOC-35242ACBFC8C | metadata_fallback | None | None | 119 |
+| DOC-C82387BE3840 | metadata_fallback | None | None | 88 |
