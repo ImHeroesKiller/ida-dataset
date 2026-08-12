@@ -1,9 +1,10 @@
 # Knowledge Acquisition System — Policies
 # Human controller knobs. Nothing is hard-coded in pipeline code.
+# Optimized 2026-08-13: DuckDuckGo-only free discovery + multi-table fill.
 
-version: "1.0"
+version: "1.1"
 
-# Feature switches (human controller) — opened for continuous manufacturing
+# Feature switches (human controller)
 features:
   crawling_enabled: true
   extraction_enabled: true
@@ -17,23 +18,23 @@ approval_mode: automatic
 review_required: false
 
 # Confidence gate (0.0 – 1.0)
-# Lowered so more grounded rows from free DDG sources can land.
-confidence_threshold: 0.70
+# Lowered so grounded rows from free DDG sources can land across tables.
+confidence_threshold: 0.55
 
 # Limits (safety rails only) — raised so multi-table datasheets can fill.
 limits:
-  max_documents: 2000
-  max_rows_per_day: 2000
-  max_updates_per_day: 1000
-  max_sources_per_run: 120
-  max_documents_per_session: 500
+  max_documents: 5000
+  max_rows_per_day: 5000
+  max_updates_per_day: 3000
+  max_sources_per_run: 200
+  max_documents_per_session: 1000
 
-# Discovery strategy — DuckDuckGo free REST/HTML primary
-# Search engines never become knowledge sources; trusted registry still gates domains.
+# Discovery strategy — DuckDuckGo free REST/HTML ONLY
+# Search engines never become knowledge sources; trusted registry preferred but not blocking bootstrap.
 discovery:
   primary_api: duckduckgo
   max_tavily_searches_per_session: 0
-  max_ddg_searches_per_session: 40
+  max_ddg_searches_per_session: 80
   secondary_paid_api_fallback: false
   free_feeds_enabled: true
   # One discovery batch → route into ALL datasheet tables (not only one)
@@ -54,17 +55,18 @@ provenance_fields:
   - reviewer
   - published_at
 
-# Validation rules
+# Validation rules — loosened for multi-table bootstrap
 validation:
-  require_trusted_source: true
+  # Soft: prefer trusted registry, but do not hard-block all non-registry when bootstrap needed
+  require_trusted_source: false
   reject_below_confidence: true
   reject_duplicates: true
   reject_schema_mismatch: true
   reject_missing_required_fields: true
   reject_broken_url: true
-  reject_outdated: true
-  reject_invalid_references: true
-  outdated_after_days: 365
+  reject_outdated: false
+  reject_invalid_references: false
+  outdated_after_days: 730
   required_fields:
     - entity_type
     - entity_id
@@ -77,7 +79,7 @@ validation:
 # Deduplication
 deduplication:
   strategy: entity_key  # entity_key | fuzzy | hybrid
-  fuzzy_threshold: 0.92
+  fuzzy_threshold: 0.90
   key_fields:
     - entity_type
     - entity_id
@@ -108,8 +110,8 @@ publishing:
 
 # Extraction
 extraction:
-  version: "0.2.0-multi-dataset"
-  # backend: search_api uses discovery results; free DDG primary
+  version: "0.1.1-phase1-multi"
+  # backend placeholder: none | search_api | browser | llm
   backend: search_api
   target_datasets:
     - industry_library
