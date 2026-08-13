@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-08-13T20:57:51+00:00",
+  "updated_at": "2026-08-13T22:00:43+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260813-A94B2E",
+      "path": "automation/sessions/2026-08-13/SESSION-20260813-A94B2E.json",
+      "start_time": "2026-08-13T21:47:43+00:00",
+      "end_time": "2026-08-13T22:00:43+00:00",
+      "duration_seconds": 780.0,
+      "status": "completed",
+      "mission": "Produce Industry Dataset — expand industry_library toward product target",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 253,
+      "github": {
+        "run_id": "31747166036",
+        "run_number": "469",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "8837f547ab6e0f0c0e305031ad5f65893f22b155",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260813-A2A767",
       "path": "automation/sessions/2026-08-13/SESSION-20260813-A2A767.json",
@@ -1368,34 +1396,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "schedule",
         "sha": "71c3a19846bd18c2a187daefaefa48e88587a861",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260810-DCB37B",
-      "path": "automation/sessions/2026-08-10/SESSION-20260810-DCB37B.json",
-      "start_time": "2026-08-10T11:10:42+00:00",
-      "end_time": "2026-08-10T11:26:24+00:00",
-      "duration_seconds": 942.0,
-      "status": "completed",
-      "mission": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
-      "knowledge_added": 5,
-      "knowledge_updated": 0,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=62 entity=Exploring the influence of regional economic pillars on library service equity in Indonesia",
-      "trigger": "schedule",
-      "dry_run": false,
-      "events": 314,
-      "github": {
-        "run_id": "31382267204",
-        "run_number": "407",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "schedule",
-        "sha": "441bb4b152a411d493f3fa7db33a9d8dd810f42a",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"

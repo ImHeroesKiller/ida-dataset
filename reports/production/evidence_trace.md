@@ -1,13 +1,13 @@
 # Evidence Trace
 
-**Session:** `SES-20260813-772C79`
+**Session:** `SES-20260813-6B6A93`
 
 Every published row → candidate → document → connector → source.
 
 ## World Bank document
 
-- **Dataset row:** `SIG-000056` · World Bank document (business_signal_library)
-- **Candidate:** `CAND-127838E76E71`
+- **Dataset row:** `SIG-000061` · World Bank document (business_signal_library)
+- **Candidate:** `CAND-AE9AD9FFE8D9`
 - **Document:** `DOC-9C3FE7A510A0` · World Bank document
 - **Connector:** World Bank (`CONN-WB-001`)
 - **Source:** World Bank (`SRC-000004`)
@@ -16,8 +16,8 @@ Every published row → candidate → document → connector → source.
 
 ## Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target
 
-- **Dataset row:** `SIG-000057` · Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target (business_signal_library)
-- **Candidate:** `CAND-7B83442CAF6D`
+- **Dataset row:** `SIG-000062` · Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target (business_signal_library)
+- **Candidate:** `CAND-04E1F35159FA`
 - **Document:** `DOC-9CF2639B264C` · Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -26,8 +26,8 @@ Every published row → candidate → document → connector → source.
 
 ## Expand Target Market in Business
 
-- **Dataset row:** `SIG-000058` · Expand Target Market in Business (business_signal_library)
-- **Candidate:** `CAND-CDE9763E62E5`
+- **Dataset row:** `SIG-000063` · Expand Target Market in Business (business_signal_library)
+- **Candidate:** `CAND-C887AAEAD014`
 - **Document:** `DOC-AFB055C754E2` · Expand Target Market in Business
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -36,8 +36,8 @@ Every published row → candidate → document → connector → source.
 
 ## Product Innovation Toward MSME’s Market Performance On Creative Industry
 
-- **Dataset row:** `SIG-000059` · Product Innovation Toward MSME’s Market Performance On Creative Industry (business_signal_library)
-- **Candidate:** `CAND-A61EDC8E9477`
+- **Dataset row:** `SIG-000064` · Product Innovation Toward MSME’s Market Performance On Creative Industry (business_signal_library)
+- **Candidate:** `CAND-1F3F8BE0A9A0`
 - **Document:** `DOC-8DEAD915EF6F` · Product Innovation Toward MSME’s Market Performance On Creative Industry
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
@@ -46,8 +46,8 @@ Every published row → candidate → document → connector → source.
 
 ## Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi
 
-- **Dataset row:** `SIG-000060` · Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi (business_signal_library)
-- **Candidate:** `CAND-769FB255C888`
+- **Dataset row:** `SIG-000065` · Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi (business_signal_library)
+- **Candidate:** `CAND-5427B6E34134`
 - **Document:** `DOC-23B61DA3B184` · Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shaping Preferences
 - **Connector:** Crossref (`CONN-CROSSREF-001`)
 - **Source:** Crossref (`SRC-CROSSREF`)
