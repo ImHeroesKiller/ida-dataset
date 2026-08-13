@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-13T12:01:28+00:00",
-  "mission_id": "MIS-20260813-583473",
-  "session_id": "SES-20260813-1730EE",
+  "started_at": "2026-08-13T13:25:45+00:00",
+  "mission_id": "MIS-20260813-2C7D4F",
+  "session_id": "SES-20260813-45FE5B",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -47,12 +47,12 @@
   },
   "queries_generated": 10,
   "queries_executed": 22,
-  "urls_discovered": 117,
-  "urls_accepted": 63,
+  "urls_discovered": 120,
+  "urls_accepted": 66,
   "urls_rejected": 54,
   "urls_remaining": 0,
   "duplicate_urls": 54,
-  "elapsed_ms": 747900.8,
+  "elapsed_ms": 656029.1,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -76,7 +76,7 @@
     "DISC-TAVILY": 0,
     "DISC-COMMONCRAWL": 100,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 5,
+    "DISC-RSS": 8,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 563.18,
-  "accepted_per_hour": 303.25,
+  "urls_per_hour": 658.51,
+  "accepted_per_hour": 362.18,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 100,
       "cache_hits": 0,
-      "elapsed_ms": 4688.7,
+      "elapsed_ms": 1990.6999999999998,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 68.992,
+      "rank_score": 69.462,
       "utilization": 0.2273
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 464541.5,
+      "elapsed_ms": 481010.6,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -165,16 +165,16 @@
         "message": "feed_discovery"
       },
       "queries": 1,
-      "urls": 5,
+      "urls": 8,
       "cache_hits": 0,
-      "elapsed_ms": 278625.2,
+      "elapsed_ms": 172983.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 51.0,
+      "rank_score": 49.7,
       "utilization": 0.0455
     },
     {
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 1841.4,
+      "elapsed_ms": 435.2,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 369.0,
+      "elapsed_ms": 373.4,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 1293.8,
+      "elapsed_ms": 405.9,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 235.0,
+      "elapsed_ms": 359.1,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 20,
-      "elapsed_ms": 949.5,
+      "elapsed_ms": 417.1,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 464541.5
+      "elapsed_ms": 481010.6
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
-      "urls": 5,
-      "elapsed_ms": 278625.2
+      "urls": 8,
+      "elapsed_ms": 172983.0
     }
   ],
   "reputation_top": [
@@ -706,12 +706,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 68.992,
+      "score": 69.462,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.883,
+        "latency": 0.922,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -738,10 +738,10 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 51.0,
+      "score": 49.7,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.1,
+        "yield": 0.05,
         "success_rate": 1.0,
         "latency": 0.0,
         "freshness": 0.7,
@@ -1255,6 +1255,24 @@
     },
     {
       "url": "https://www.crossref.org/jobs/2023-02-08-contract-software-development/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-RSS",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2022-09-30-contract-technical-support/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-RSS",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2022-11-21-community-engagement-manager/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-RSS",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2022-12-22-contract-product-communications-support/",
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
       "title": ""
