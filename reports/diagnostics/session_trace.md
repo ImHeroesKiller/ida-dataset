@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-13T18:11:25+00:00
+**Generated:** 2026-08-13T19:27:27+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260813-65F6F8 |
+| session_id | SESSION-20260813-93D19B |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 780.0 |
+| duration_seconds | 791.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document |
-| start_time | 2026-08-13T17:58:17+00:00 |
-| end_time | 2026-08-13T18:11:17+00:00 |
+| start_time | 2026-08-13T19:14:08+00:00 |
+| end_time | 2026-08-13T19:27:19+00:00 |
 
 ## Pipeline stages
 
@@ -26,12 +26,12 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
-| source_discovery | completed | 3.0 | — | — | connectors=[{'connector_id': 'CONN-WB-001', 'name': 'World Bank', 'source_id': ' |
+| source_discovery | completed | 2.8 | — | — | connectors=[{'connector_id': 'CONN-OPENALEX-001', 'name': 'OpenAlex', 'source_id |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6152.5 | 77 | — |  |
-| documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
-| document_download | completed | 41044.3 | 42 | — | downloaded=42 |
-| extraction | completed | 23.9 | — | 5 |  |
+| document_discovery | completed | 6193.1 | 75 | — |  |
+| documents_skipped | completed | — | 33 | — | duplicates_or_skips=33 |
+| document_download | completed | 38818.2 | 42 | — | downloaded=42 |
+| extraction | completed | 23.8 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
@@ -43,7 +43,7 @@
 | --- | --- |
 | documents_discovered | 11 |
 | documents_downloaded | 42 |
-| documents_duplicates | 35 |
+| documents_duplicates | 33 |
 | candidates_extracted | 5 |
 | candidates_validated | 5 |
 | candidates_rejected | 0 |
