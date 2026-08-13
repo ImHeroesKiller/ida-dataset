@@ -1,6 +1,6 @@
 # Knowledge Gap
 
-**Generated:** 2026-08-13T02:17:54+00:00
+**Generated:** 2026-08-13T05:06:21+00:00
 **Mode:** BOOTSTRAP — empty_or_below_minimum_datasets
 
 Multi-dimensional gaps (not coverage-only).
@@ -17,10 +17,10 @@ Multi-dimensional gaps (not coverage-only).
 | product_catalog | 0 | 5000 | 50000 | 50000 | 125.25 | 0.0 | 0.15 | 1.0 |
 | service_library | 0 | 2000 | 50000 | 50000 | 125.25 | 0.0 | 0.15 | 1.0 |
 | framework_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
-| business_signal_library | 0 | 1000 | 50000 | 50000 | 125.25 | 0.0 | 0.15 | 1.0 |
 | decision_maker_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
 | regulation_library | 0 | 1000 | 10000 | 10000 | 125.25 | 0.0 | 0.15 | 1.0 |
 | risk_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
 | trend_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
 | discovery_question_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
 | industry_library | 19 | 231 | 4981 | 6581 | 87.568 | 0.2222 | 0.1321 | 0.0 |
+| business_signal_library | 5 | 995 | 49995 | 49995 | 83.72 | 0.5714 | 0.096 | 0.0 |

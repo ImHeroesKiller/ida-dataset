@@ -3,42 +3,42 @@
 ```json
 {
   "fingerprints": {
-    "skips": 38,
-    "adds": 73,
-    "unique_hashes": 73,
-    "unique_urls": 73
+    "skips": 35,
+    "adds": 70,
+    "unique_hashes": 70,
+    "unique_urls": 70
   },
   "downloads": {
-    "requested": 70,
-    "downloaded": 31,
+    "requested": 67,
+    "downloaded": 28,
     "not_modified": 0,
     "skipped_duplicate": 7,
     "failed": 32,
-    "bytes": 1859240,
-    "elapsed_ms": 44109.399999999994,
+    "bytes": 1728023,
+    "elapsed_ms": 49692.500000000015,
     "retries": 12,
-    "max_workers": 4,
-    "adaptive_workers": 4,
+    "max_workers": 2,
+    "adaptive_workers": 2,
     "connection_reuse": true,
     "accept_encoding": "gzip, deflate",
     "etag_conditional": true,
     "http_cache": {
       "hits": 0,
-      "misses": 38,
+      "misses": 35,
       "not_modified": 0,
-      "stores": 38,
+      "stores": 35,
       "bytes_saved_est": 0
     },
     "fingerprints": {
-      "skips": 38,
-      "adds": 73,
-      "unique_hashes": 73,
-      "unique_urls": 73
+      "skips": 35,
+      "adds": 70,
+      "unique_hashes": 70,
+      "unique_urls": 70
     }
   },
   "extraction": {
-    "fast": 0,
-    "medium": 1,
+    "fast": 5,
+    "medium": 0,
     "deep": 0,
     "llm": 0,
     "llm_used": 0,
@@ -47,13 +47,14 @@
     "documents_fast": 33,
     "documents_medium": 8,
     "documents_deep": 1,
-    "avg_ms": 0.29,
-    "average_extraction_ms": 0.29,
-    "total_ms": 12.04,
+    "avg_ms": 0.42,
+    "average_extraction_ms": 0.42,
+    "total_ms": 17.77,
     "path_ms": {
-      "fast": 3.28,
-      "medium": 4.82,
-      "deep": 3.9
+      "fast": 4.25,
+      "medium": 6.06,
+      "deep": 5.17,
+      "signal_fallback": 2.2
     },
     "target_dataset": "industry_library",
     "llm_required_but_unavailable": false

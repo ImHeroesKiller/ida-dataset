@@ -1,6 +1,6 @@
 # Hard Limit Audit
 
-**Generated:** 2026-08-13T02:16:24+00:00
+**Generated:** 2026-08-13T05:04:44+00:00
 **Occurrences found:** 303
 
 Search covers acquisition, config, learning, search, and CI paths.
@@ -290,7 +290,7 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/learning/state/manufacturing_state.json` | 1037 | `"hard_limit": null,` |
 | `automation/learning/state/manufacturing_state.json` | 1060 | `"hard_limit": null,` |
 | `automation/learning/state/manufacturing_state.json` | 1084 | `"hard_limit": null,` |
-| `automation/learning/state/acquisition_performance.json` | 668 | `"process_budget": 46,` |
+| `automation/learning/state/acquisition_performance.json` | 638 | `"process_budget": 80,` |
 | `automation/search/query_planner.py` | 54 | `limit=5,` |
 | `automation/search/query_planner.py` | 63 | `limit=max(1, min(limit, 50)),` |
 | `automation/search/orchestrator.py` | 52 | `connectors, preferred_types=preferred_types, limit=8` |

@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-13T02:17:58+00:00
+**Generated:** 2026-08-13T05:06:27+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260813-F331BD |
+| session_id | SESSION-20260813-B27E4D |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 705.0 |
-| knowledge_added | 1 |
+| duration_seconds | 838.0 |
+| knowledge_added | 5 |
 | knowledge_rejected | 0 |
-| summary | Session completed · published=1 extracted=1 validated=1 rejected=0 docs=42 entity=Information Technology Services |
-| start_time | 2026-08-13T02:06:07+00:00 |
-| end_time | 2026-08-13T02:17:52+00:00 |
+| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=Figure 1.18. Indonesia needs to expand |
+| start_time | 2026-08-13T04:52:21+00:00 |
+| end_time | 2026-08-13T05:06:19+00:00 |
 
 ## Pipeline stages
 
@@ -26,16 +26,16 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
-| source_discovery | completed | 2.3 | — | — | connectors=[{'connector_id': 'CONN-OPENALEX-001', 'name': 'OpenAlex', 'source_id |
+| source_discovery | completed | 3.0 | — | — | connectors=[{'connector_id': 'CONN-OPENALEX-001', 'name': 'OpenAlex', 'source_id |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6153.8 | 80 | — |  |
-| documents_skipped | completed | — | 38 | — | duplicates_or_skips=38 |
-| document_download | completed | 81842.4 | 42 | — | downloaded=42 |
-| extraction | completed | 13.7 | — | 1 |  |
-| validation | completed | — | — | 1 |  |
-| publish | completed | — | — | 1 |  |
+| document_discovery | completed | 15719.4 | 77 | — |  |
+| documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
+| document_download | completed | 78539.4 | 42 | — | downloaded=42 |
+| extraction | completed | 23.3 | — | 5 |  |
+| validation | completed | — | — | 5 |  |
+| publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
-| end_session | completed | — | — | — | Session completed · published=1 extracted=1 validated=1 rejected=0 docs=42 entit |
+| end_session | completed | — | — | — | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entit |
 
 ## Funnel
 
@@ -43,10 +43,10 @@
 | --- | --- |
 | documents_discovered | 11 |
 | documents_downloaded | 42 |
-| documents_duplicates | 38 |
-| candidates_extracted | 1 |
-| candidates_validated | 1 |
+| documents_duplicates | 35 |
+| candidates_extracted | 5 |
+| candidates_validated | 5 |
 | candidates_rejected | 0 |
-| rows_published | 1 |
+| rows_published | 5 |
 
 **Next mission (rank #2):** `—`

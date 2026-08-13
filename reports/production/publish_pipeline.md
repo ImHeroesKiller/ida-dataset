@@ -1,16 +1,16 @@
 # Publish Pipeline
 
-**Session:** `SES-20260813-620086`
+**Session:** `SES-20260813-82AD2B`
 
 ## Balance
 
 | Metric | Count |
 |--------|------:|
-| Extracted | 1 |
-| Validated | 1 |
+| Extracted | 5 |
+| Validated | 5 |
 | Rejected | 0 |
-| Queued | 1 |
-| Published | 1 |
+| Queued | 5 |
+| Published | 5 |
 | Duplicate | 0 |
 | Skipped | 0 |
 
@@ -22,4 +22,4 @@ Identity: `extracted = validated + rejected`
 
 | Dataset | Rows |
 |---------|-----:|
-| industry_library | 1 |
+| business_signal_library | 5 |
