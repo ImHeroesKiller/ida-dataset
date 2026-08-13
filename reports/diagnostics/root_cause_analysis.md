@@ -1,44 +1,45 @@
 # Root Cause Analysis
 
-**Generated:** 2026-08-13T00:38:59+00:00
-**Session:** `SESSION-20260813-EFF8A4`
-**Mission:** `Batch-001`
+**Generated:** 2026-08-13T01:08:35+00:00
+**Session:** `SESSION-20260813-D1D658`
+**Mission:** `MIS-20260813-E95C7C`
 
 > Diagnostics only. No fixes. Evidence only.
 
 ## Why no new rows?
 
-Production stopped or yielded zero published rows at stage `connector_calls / document_discovery` due to condition `no_documents_discovered`.
+Latest evidence shows published=4; zero-row claim may refer to a later window.
 
 ## Exactly which stage stopped production?
 
-**`connector_calls / document_discovery`**
+**`none (production produced rows)`**
 
 ## What condition caused it?
 
-**`no_documents_discovered`**
+**`rows_published`**
 
 ## What module decided it?
 
-**`automation/acquisition/pipeline.py connector search + discovery layer`**
+**`append path succeeded`**
 
 ## What evidence proves it?
 
-- documents_discovered=0
-- connectors=[('Crossref', 'ok', 10), ('OpenAlex', 'no_updates', 0), ('World Bank', 'ok', 1), ('OECD', 'no_updates', 0), ('Asian Development Bank', 'no_updates', 0), ('Kemenperin', 'no_updates', 0), ('BPS Indonesia', 'no_updates', 0)]
+- published=4
+- extracted=7
+- discovered=11 downloaded=31 duplicates=15
 
 ## Metrics snapshot
 
 ```json
 {
-  "documents_discovered": 0,
-  "documents_downloaded": 0,
-  "documents_duplicates": 0,
-  "candidates_extracted": 0,
-  "candidates_rejected": 0,
-  "rows_published": 0,
+  "documents_discovered": 11,
+  "documents_downloaded": 31,
+  "documents_duplicates": 15,
+  "candidates_extracted": 7,
+  "candidates_rejected": 3,
+  "rows_published": 4,
   "dry_run": false,
-  "fingerprint_urls_known": 0,
+  "fingerprint_urls_known": 46,
   "selected_dataset": "industry_library"
 }
 ```
@@ -46,36 +47,17 @@ Production stopped or yielded zero published rows at stage `connector_calls / do
 ## Findings
 ### Finding 1
 
-Discovery found zero documents.
+Session published rows; if overnight gap exists, examine later sessions.
 
-- `documents_discovered=0`
-- `connectors=[('Crossref', 'ok', 10), ('OpenAlex', 'no_updates', 0), ('World Bank', 'ok', 1), ('OECD', 'no_updates', 0), ('Asian Development Bank', 'no_updates', 0), ('Kemenperin', 'no_updates', 0), ('BPS Indonesia', 'no_updates', 0)]`
+- `published=4`
+- `extracted=7`
+- `discovered=11 downloaded=31 duplicates=15`
 
 ### Finding 2
 
 Mission selection outcome (context).
 
 - `selected_dataset=industry_library`
-- `score=908.6`
-- `reason=mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.3% · priority=100 · deps_met · sources=13 · continuous=true`
+- `score=908.2`
+- `reason=mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · sources=13 · continuous=true`
 - `instruction=Produce Industry Dataset — expand industry_library toward product target`
-
-## Failed stages (from execution trace)
-
-```json
-[
-  {
-    "stage": "end_session",
-    "status": "failed",
-    "duration_ms": null,
-    "documents": null,
-    "rows": null,
-    "meta": {
-      "duration_seconds": 518.0,
-      "dry_run": false
-    },
-    "errors": [],
-    "evidence": "prioritize_search_results() got an unexpected keyword argument 'dataset'"
-  }
-]
-```

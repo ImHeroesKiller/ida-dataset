@@ -4,16 +4,16 @@ Top function (volume): **ESG** (5 labeled rows)
 
 Weakest function (volume): **Finance** (0 labeled rows)
 
-Unclassified rows (no keyword hit): **8**
+Unclassified rows (no keyword hit): **11**
 
 | Function | Rows | Share % | Priority |
 |----------|------|---------|----------|
-| ESG | 5 | 45.45% | 88 |
-| Logistics | 2 | 18.18% | 80 |
-| Corporate Strategy | 1 | 9.09% | 92 |
-| Manufacturing | 1 | 9.09% | 90 |
-| Supply Chain | 1 | 9.09% | 88 |
-| Research & Development | 1 | 9.09% | 82 |
+| ESG | 5 | 41.67% | 88 |
+| Research & Development | 2 | 16.67% | 82 |
+| Logistics | 2 | 16.67% | 80 |
+| Corporate Strategy | 1 | 8.33% | 92 |
+| Manufacturing | 1 | 8.33% | 90 |
+| Supply Chain | 1 | 8.33% | 88 |
 | Finance | 0 | 0.0% | 95 |
 | Cyber Security | 0 | 0.0% | 94 |
 | Risk Management | 0 | 0.0% | 92 |

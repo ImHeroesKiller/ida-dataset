@@ -1,0 +1,164 @@
+{
+  "generated_at": "2026-08-13T01:08:27+00:00",
+  "queues": {
+    "pending": 0,
+    "approved": 7,
+    "rejected": 0,
+    "total": 7,
+    "measured_at": "2026-08-13T01:08:27+00:00"
+  },
+  "publish_policy": {
+    "auto_publish_confidence": 0.55,
+    "manual_review_floor": 0.4
+  },
+  "throughput": {},
+  "traces": {},
+  "sessions": {},
+  "workers": {},
+  "stages": {},
+  "connectors_ranked": [],
+  "bottleneck": "unknown",
+  "repo_root": "/home/runner/work/ida-dataset/ida-dataset",
+  "session_stage_timings": {
+    "mission_setup": {
+      "count": 1,
+      "total_ms": 0.0016629999990414035,
+      "max_ms": 0.0016629999990414035,
+      "min_ms": 0.0016629999990414035,
+      "avg_ms": 0.0
+    },
+    "discovery": {
+      "count": 1,
+      "total_ms": 6192.967443999919,
+      "max_ms": 6192.967443999919,
+      "min_ms": 6192.967443999919,
+      "meta": {
+        "discovered": 46,
+        "connectors": 7
+      },
+      "avg_ms": 6192.97
+    },
+    "prioritize": {
+      "count": 1,
+      "total_ms": 1.7080689999602328,
+      "max_ms": 1.7080689999602328,
+      "min_ms": 1.7080689999602328,
+      "meta": {
+        "budget": 46,
+        "queued": 46,
+        "pre_dup": 0
+      },
+      "avg_ms": 1.71
+    },
+    "download": {
+      "count": 1,
+      "total_ms": 79267.90093099998,
+      "max_ms": 79267.90093099998,
+      "min_ms": 79267.90093099998,
+      "meta": {
+        "documents": 31,
+        "workers": 4,
+        "duplicates": 15
+      },
+      "avg_ms": 79267.9
+    },
+    "extraction": {
+      "count": 1,
+      "total_ms": 17.229634000045735,
+      "max_ms": 17.229634000045735,
+      "min_ms": 17.229634000045735,
+      "meta": {
+        "candidates": 7,
+        "llm_skipped": 31,
+        "avg_ms": 0.54
+      },
+      "avg_ms": 17.23
+    },
+    "validation": {
+      "count": 1,
+      "total_ms": 12.005337999994481,
+      "max_ms": 12.005337999994481,
+      "min_ms": 12.005337999994481,
+      "meta": {
+        "published": 4,
+        "rejected": 3,
+        "manual_review": 0
+      },
+      "avg_ms": 12.01
+    }
+  },
+  "session_workers": {
+    "adaptive": 4,
+    "avg_latency_ms": 2617.2857142857147
+  },
+  "session_process_ratio": 67.4,
+  "session_extraction": {
+    "fast": 1,
+    "medium": 4,
+    "deep": 2,
+    "llm": 0,
+    "llm_used": 0,
+    "skipped_llm": 31,
+    "llm_skipped": 31,
+    "documents_fast": 22,
+    "documents_medium": 8,
+    "documents_deep": 1,
+    "avg_ms": 0.54,
+    "average_extraction_ms": 0.54,
+    "total_ms": 16.67,
+    "path_ms": {
+      "fast": 3.34,
+      "medium": 6.47,
+      "deep": 6.79
+    },
+    "target_dataset": "industry_library",
+    "llm_required_but_unavailable": false
+  },
+  "session_auto_publish": {
+    "auto_publish_count": 7,
+    "manual_review_count": 0,
+    "auto_publish_ratio": 1.0,
+    "manual_review_ratio": 0.0,
+    "threshold": 0.55,
+    "decisions": [
+      {
+        "candidate_id": "CAND-236285DF4A3F",
+        "confidence": 0.92,
+        "action": "publish"
+      },
+      {
+        "candidate_id": "CAND-FF822FF57AA1",
+        "confidence": 0.855,
+        "action": "publish"
+      },
+      {
+        "candidate_id": "CAND-87503D97E993",
+        "confidence": 0.92,
+        "action": "publish"
+      },
+      {
+        "candidate_id": "CAND-C47F843D31CF",
+        "confidence": 0.92,
+        "action": "publish"
+      },
+      {
+        "candidate_id": "CAND-E182B875B84B",
+        "confidence": 0.92,
+        "action": "publish"
+      },
+      {
+        "candidate_id": "CAND-7AA61C9E1321",
+        "confidence": 0.855,
+        "action": "publish"
+      },
+      {
+        "candidate_id": "CAND-930DF863CECD",
+        "confidence": 0.855,
+        "action": "publish"
+      }
+    ],
+    "last_published": 4,
+    "last_manual_or_skipped": 0,
+    "auto_publish_confidence": 0.55
+  }
+}

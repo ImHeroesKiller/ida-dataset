@@ -46,6 +46,6 @@
 | Corporate Strategy | 1 | 0/15 | 0.0% | 92 |
 | Manufacturing | 1 | 0/15 | 0.0% | 90 |
 | Supply Chain | 1 | 0/15 | 0.0% | 88 |
-| Research & Development | 1 | 0/15 | 0.0% | 82 |
+| Research & Development | 2 | 1/15 | 6.67% | 82 |
 | Logistics | 2 | 1/15 | 6.67% | 80 |
 | ESG | 5 | 1/15 | 6.67% | 88 |

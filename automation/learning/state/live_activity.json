@@ -1,28 +1,12 @@
 {
-  "status": "error",
-  "session_id": "SESSION-20260813-EFF8A4",
-  "mission_id": null,
-  "progress": 0,
-  "current_thought": "prioritize_search_results() got an unexpected keyword argument 'dataset'",
-  "current_task": "Failed",
-  "last_learned": null,
-  "updated_at": "2026-08-13T00:38:53+00:00",
+  "status": "idle",
+  "session_id": "SESSION-20260813-D1D658",
+  "mission_id": "MIS-20260813-E95C7C",
+  "progress": 100,
+  "current_thought": "Session completed · published=4 extracted=7 validated=4 rejected=3 docs=31 entity=Banking",
+  "current_task": "Idle",
+  "last_learned": "Banking",
+  "updated_at": "2026-08-13T01:08:27+00:00",
   "execution_model": "github_actions",
-  "last_error": {
-    "error": "TypeError",
-    "message": "prioritize_search_results() got an unexpected keyword argument 'dataset'",
-    "failure": {
-      "timestamp": "2026-08-13T00:38:53+00:00",
-      "component": "live_runtime",
-      "exception": "TypeError",
-      "message": "prioritize_search_results() got an unexpected keyword argument 'dataset'",
-      "stack_trace": "Traceback (most recent call last):\n  File \"/home/runner/work/ida-dataset/ida-dataset/automation/learning/live_runtime.py\", line 151, in run_live_session\n    return _run_live_session_body(\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/ida-dataset/ida-dataset/automation/learning/live_runtime.py\", line 445, in _run_live_session_body\n    acq = run_with_recovery(\n          ^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/ida-dataset/ida-dataset/automation/runtime/recovery.py\", line 37, in run_with_recovery\n    return fn()\n           ^^^^\n  File \"/home/runner/work/ida-dataset/ida-dataset/automation/learning/live_runtime.py\", line 432, in _acquire\n    return run_acquisition(\n           ^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/ida-dataset/ida-dataset/automation/acquisition/pipeline.py\", line 411, in run_acquisition\n    prioritized = prioritize_search_results(\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: prioritize_search_results() got an unexpected keyword argument 'dataset'\n",
-      "correlation_id": "GHA-31654594816",
-      "session_id": "SES-20260813-A45A75",
-      "recovery_action": "stop_and_notify",
-      "recoverable": false,
-      "recovery_suggestion": "Inspect /api/runtime/logs and automation/runtime/logs/, fix the root cause, then retry.",
-      "meta": {}
-    }
-  }
+  "last_error": null
 }

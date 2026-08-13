@@ -1,0 +1,79 @@
+{
+  "candidate_id": "CAND-7AA61C9E1321",
+  "entity_type": "industry_library",
+  "entity_id": "IND-000015",
+  "target_dataset": "industry_library",
+  "canonical_name": "Banking",
+  "payload": {
+    "Industry ID": "IND-000015",
+    "Industry Name": "Banking",
+    "Industry Category": "Services",
+    "Industry Description": "Industry sector identified in trusted source document. Evidence: (2023). Does corporate social responsibility always lead to positive effects? Chinese Management Studies, 18(4), 998–1020. https://doi.org/10.1108/cms-06-2022-0204 Sliburyte, L., Bankauskiene, G. (2017). An empirical study on the impact of country of origin effect on young Lithuanian consumers’ attitude towards products. Inžinerinė Ekonomika, 28(4), 455–466. ht",
+    "Business Characteristics": "",
+    "Typical Company Size": "",
+    "Average Employee Range": "",
+    "Typical Annual Revenue": "",
+    "Main Business Processes": "",
+    "Common Departments": "",
+    "Digital Maturity Level": "",
+    "Common Technologies": "",
+    "Common Business Challenges": "",
+    "Common Pain Points": "",
+    "Business Goals": "",
+    "Buying Triggers": "",
+    "Buying Criteria": "",
+    "Typical Decision Makers": "",
+    "Procurement Method": "",
+    "Average Sales Cycle": "",
+    "Budget Characteristics": "",
+    "Major Risks": "",
+    "Recommended Products": "",
+    "Cross Selling Opportunities": "",
+    "Upselling Opportunities": "",
+    "Main Competitors": "",
+    "Industry Regulations": "",
+    "Industry Trends": "",
+    "SWOT Summary": "",
+    "Data Sources": "source_ids=SRC-CROSSREF; urls=https://api.crossref.org/works/10.23917/benefit.v10i1.8214; published=2025; retrieved=2026-08-13T01:07:14+00:00; confidence=0.85; version=acquisition-grounded-2.0.0; country=Indonesia; matched_alias=bank; discovery_provider=connector",
+    "Last Updated": "2026-08-13",
+    "Notes": "provenance: source=SRC-CROSSREF; published_date=2025; retrieved_date=2026-08-13T01:07:14+00:00; confidence=0.85; version=acquisition-grounded-2.0.0; mission=MIS-20260813-E95C7C; document=DOC-23B61DA3B184; entity=Banking; discovery_provider=connector; append_only=true; extraction=grounded_text; evidence=(2023). Does corporate social responsibility always lead to positive effects? Chinese Management Studies, 18(4), 998–1020. https://doi.org/10.1108/cms-06-2022-0204 Sliburyte, L., Bankauskiene, G. (2017). An empirical study on the impact of country of origin effect on young Lithuanian consumers’ attitude towards products. Inžinerinė Ekonomika, 28(4), 455–466. ht"
+  },
+  "provenance": {
+    "source_id": "SRC-CROSSREF",
+    "source_url": "https://api.crossref.org/works/10.23917/benefit.v10i1.8214",
+    "retrieved_at": "2026-08-13T01:07:14+00:00",
+    "confidence": 0.855,
+    "extraction_version": "acquisition-grounded-2.0.0",
+    "validation_status": "approved",
+    "reviewer": "acquisition-engine-auto",
+    "published_at": "2025"
+  },
+  "links": {},
+  "rejection_reasons": [],
+  "duplicate_of": null,
+  "stage_history": [],
+  "created_at": "2026-08-13T01:08:27+00:00",
+  "updated_at": "2026-08-13T01:08:27+00:00",
+  "metadata": {
+    "mission_id": "MIS-20260813-E95C7C",
+    "session_id": "SES-20260813-C27354",
+    "document_id": "DOC-23B61DA3B184",
+    "connector_id": "CONN-CROSSREF-001",
+    "matched_alias": "bank",
+    "evidence": [
+      "(2023). Does corporate social responsibility always lead to positive effects? Chinese Management Studies, 18(4), 998–1020. https://doi.org/10.1108/cms-06-2022-0204 Sliburyte, L., Bankauskiene, G. (2017). An empirical study on the impact of country of origin effect on young Lithuanian consumers’ attitude towards products. Inžinerinė Ekonomika, 28(4), 455–466. ht"
+    ],
+    "extraction": "grounded_text",
+    "dataset": "industry_library",
+    "schema_version": "1.0",
+    "extraction_stage": "deep",
+    "auto_publish_decision": {
+      "action": "publish",
+      "auto_publish": true,
+      "reasons": [
+        "auto_publish"
+      ],
+      "confidence": 0.855
+    }
+  }
+}

@@ -11,6 +11,12 @@
       "priority": 88
     },
     {
+      "id": "research_development",
+      "name": "Research & Development",
+      "rows": 2,
+      "priority": 82
+    },
+    {
       "id": "logistics",
       "name": "Logistics",
       "rows": 2,
@@ -33,12 +39,6 @@
       "name": "Supply Chain",
       "rows": 1,
       "priority": 88
-    },
-    {
-      "id": "research_development",
-      "name": "Research & Development",
-      "rows": 1,
-      "priority": 82
     },
     {
       "id": "finance",
@@ -526,10 +526,10 @@
       "id": "research_development",
       "name": "Research & Development",
       "priority": 82,
-      "rows": 1,
-      "datasets_at_floor": 0,
+      "rows": 2,
+      "datasets_at_floor": 1,
       "datasets_total": 15,
-      "coverage_pct": 0.0
+      "coverage_pct": 6.67
     },
     {
       "id": "logistics",
@@ -573,43 +573,43 @@
       "id": "esg",
       "name": "ESG",
       "rows": 5,
-      "share_pct": 45.45,
+      "share_pct": 41.67,
       "priority": 88
+    },
+    {
+      "id": "research_development",
+      "name": "Research & Development",
+      "rows": 2,
+      "share_pct": 16.67,
+      "priority": 82
     },
     {
       "id": "logistics",
       "name": "Logistics",
       "rows": 2,
-      "share_pct": 18.18,
+      "share_pct": 16.67,
       "priority": 80
     },
     {
       "id": "corporate_strategy",
       "name": "Corporate Strategy",
       "rows": 1,
-      "share_pct": 9.09,
+      "share_pct": 8.33,
       "priority": 92
     },
     {
       "id": "manufacturing",
       "name": "Manufacturing",
       "rows": 1,
-      "share_pct": 9.09,
+      "share_pct": 8.33,
       "priority": 90
     },
     {
       "id": "supply_chain",
       "name": "Supply Chain",
       "rows": 1,
-      "share_pct": 9.09,
+      "share_pct": 8.33,
       "priority": 88
-    },
-    {
-      "id": "research_development",
-      "name": "Research & Development",
-      "rows": 1,
-      "share_pct": 9.09,
-      "priority": 82
     },
     {
       "id": "finance",
@@ -1311,6 +1311,6 @@
     "business_priority": 95,
     "gap_score": 59.5
   },
-  "unclassified_rows": 8,
-  "labeled_assignments": 11
+  "unclassified_rows": 11,
+  "labeled_assignments": 12
 }

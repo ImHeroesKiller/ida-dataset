@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-13T00:38:53Z",
+  "updated_at": "2026-08-13T01:08:27Z",
   "sources": {
     "SRC-000004": {
       "source_id": "SRC-000004",
@@ -9,23 +9,23 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0,
-      "last_successful_sync": "2026-08-13T00:03:57Z",
-      "last_attempt": "2026-08-13T00:03:57Z",
-      "rows_produced": 0,
-      "documents_processed": 5669,
-      "attempts": 413,
-      "successes": 413,
+      "coverage": 0.0556,
+      "last_successful_sync": "2026-08-13T01:08:27Z",
+      "last_attempt": "2026-08-13T01:08:27Z",
+      "rows_produced": 1,
+      "documents_processed": 5680,
+      "attempts": 414,
+      "successes": 414,
       "failure_count": 0,
       "success_rate": 1.0,
-      "total_processing_ms": 95881547.28761905,
-      "average_processing_time_ms": 232158.7,
+      "total_processing_ms": 96162665.98761906,
+      "average_processing_time_ms": 232277.0,
       "mission_usage": 2,
       "base_url": "https://www.worldbank.org",
       "notes": "Indonesia overview, IEP, open knowledge reports.",
       "missions_seen": [
-        "MIS-20260710-EXPAND-IND",
-        "MIS-PRODUCE-INDUSTRY-DATASET"
+        "MIS-PRODUCE-INDUSTRY-DATASET",
+        "MIS-20260710-EXPAND-IND"
       ],
       "updated_at": null
     },
@@ -87,23 +87,23 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.2857,
-      "last_successful_sync": "2026-08-13T00:03:57Z",
-      "last_attempt": "2026-08-13T00:03:57Z",
+      "coverage": 0.2222,
+      "last_successful_sync": "2026-08-13T01:08:27Z",
+      "last_attempt": "2026-08-13T01:08:27Z",
       "rows_produced": 4,
-      "documents_processed": 5123,
-      "attempts": 383,
-      "successes": 383,
+      "documents_processed": 5133,
+      "attempts": 384,
+      "successes": 384,
       "failure_count": 0,
       "success_rate": 1.0,
-      "total_processing_ms": 86488347.23761907,
-      "average_processing_time_ms": 225818.1,
+      "total_processing_ms": 86769465.93761908,
+      "average_processing_time_ms": 225962.2,
       "mission_usage": 2,
       "base_url": "https://www.bps.go.id",
       "notes": "Official national statistics. High trust.",
       "missions_seen": [
-        "MIS-20260710-EXPAND-IND",
-        "MIS-PRODUCE-INDUSTRY-DATASET"
+        "MIS-PRODUCE-INDUSTRY-DATASET",
+        "MIS-20260710-EXPAND-IND"
       ],
       "updated_at": null
     },
@@ -155,8 +155,8 @@
       "base_url": "https://kemenperin.go.id",
       "notes": "Ministry of Industry public industrial data and policies.",
       "missions_seen": [
-        "MIS-20260710-EXPAND-IND",
-        "MIS-PRODUCE-INDUSTRY-DATASET"
+        "MIS-PRODUCE-INDUSTRY-DATASET",
+        "MIS-20260710-EXPAND-IND"
       ],
       "updated_at": null
     },
@@ -235,8 +235,8 @@
       "base_url": "https://ojk.go.id",
       "notes": "Financial services regulator — banking and digital finance rules.",
       "missions_seen": [
-        "MIS-20260710-EXPAND-IND",
-        "MIS-PRODUCE-INDUSTRY-DATASET"
+        "MIS-PRODUCE-INDUSTRY-DATASET",
+        "MIS-20260710-EXPAND-IND"
       ],
       "updated_at": null
     },
@@ -288,8 +288,8 @@
       "base_url": "https://www.adb.org",
       "notes": "ADB country and sector knowledge products.",
       "missions_seen": [
-        "MIS-20260710-EXPAND-IND",
-        "MIS-PRODUCE-INDUSTRY-DATASET"
+        "MIS-PRODUCE-INDUSTRY-DATASET",
+        "MIS-20260710-EXPAND-IND"
       ],
       "updated_at": null
     },
@@ -343,8 +343,8 @@
       "base_url": "https://www.oecd.org",
       "notes": "OECD Economic Surveys Indonesia (digital transformation).",
       "missions_seen": [
-        "MIS-20260710-EXPAND-IND",
-        "MIS-PRODUCE-INDUSTRY-DATASET"
+        "MIS-PRODUCE-INDUSTRY-DATASET",
+        "MIS-20260710-EXPAND-IND"
       ],
       "updated_at": null
     },
@@ -381,10 +381,10 @@
       "status": "active",
       "allowed": true,
       "health_status": "healthy",
-      "coverage": 0.0714,
+      "coverage": 0.2222,
       "last_successful_sync": "2026-07-10T14:59:52Z",
       "last_attempt": "2026-07-10T14:59:52Z",
-      "rows_produced": 1,
+      "rows_produced": 4,
       "documents_processed": 4,
       "attempts": 1,
       "successes": 1,
@@ -434,16 +434,16 @@
       "allowed": false,
       "health_status": "inactive",
       "coverage": 0.0,
-      "last_successful_sync": "2026-08-13T00:03:57Z",
-      "last_attempt": "2026-08-13T00:03:57Z",
+      "last_successful_sync": "2026-08-13T01:08:27Z",
+      "last_attempt": "2026-08-13T01:08:27Z",
       "rows_produced": 0,
-      "documents_processed": 5693,
-      "attempts": 411,
-      "successes": 411,
+      "documents_processed": 5703,
+      "attempts": 412,
+      "successes": 412,
       "failure_count": 0,
       "success_rate": 1.0,
-      "total_processing_ms": 95881247.28761905,
-      "average_processing_time_ms": 233287.7,
+      "total_processing_ms": 96162365.98761906,
+      "average_processing_time_ms": 233403.8,
       "mission_usage": 0,
       "base_url": "",
       "notes": "",

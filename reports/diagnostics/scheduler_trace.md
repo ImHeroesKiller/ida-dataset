@@ -1,6 +1,6 @@
 # Scheduler Trace
 
-**Generated:** 2026-08-13T00:38:59+00:00
+**Generated:** 2026-08-13T01:08:35+00:00
 
 ## Current mode
 
@@ -11,38 +11,38 @@
 - Dataset: `industry_library`
 - Title: `Produce Industry Dataset`
 - Instruction: Produce Industry Dataset — expand industry_library toward product target
-- Reason: mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.3% · priority=100 · deps_met · sources=13 · continuous=true
+- Reason: mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · sources=13 · continuous=true
 
 ## Heartbeat
 
 | Field | Value |
 | --- | --- |
-| status | Failed |
-| last_heartbeat | 2026-08-13T00:38:53+00:00 |
-| last_success | — |
-| last_failure | 2026-08-13T00:38:53+00:00 |
-| current_job | Produce Industry Dataset — expand industry_library toward product target |
-| job_duration_seconds | 518.0 |
-| last_error | {'error': 'TypeError', 'message': "prioritize_search_results() got an unexpected keyword argument 'dataset'", 'failure': |
+| status | Idle |
+| last_heartbeat | 2026-08-13T01:08:27+00:00 |
+| last_success | 2026-08-13T01:08:27+00:00 |
+| last_failure | — |
+| current_job | — |
+| job_duration_seconds | 844.0 |
+| last_error | — |
 
 ## Missions not selected (eligible or not)
 
 | Dataset | Eligible | Score | Skip / not-selected reason |
 | --- | --- | --- | --- |
-| buyer_persona_library | False | — | dependency_not_met: industry_library<50 (have 14); company_profile<25 (have 0) |
+| buyer_persona_library | False | — | dependency_not_met: industry_library<50 (have 18); company_profile<25 (have 0) |
 | case_study_library | False | — | dependency_not_met: company_profile<25 (have 0); solution_library empty |
-| company_profile | False | — | dependency_not_met: industry_library<50 (have 14) |
-| competitor_library | False | — | dependency_not_met: industry_library<50 (have 14); company_profile<25 (have 0) |
-| decision_maker_library | False | — | dependency_not_met: industry_library<50 (have 14); company_profile<25 (have 0) |
+| company_profile | False | — | dependency_not_met: industry_library<50 (have 18) |
+| competitor_library | False | — | dependency_not_met: industry_library<50 (have 18); company_profile<25 (have 0) |
+| decision_maker_library | False | — | dependency_not_met: industry_library<50 (have 18); company_profile<25 (have 0) |
 | framework_library | False | — | dependency_not_met: solution_library empty |
 | opportunity_analysis | False | — | dependency_not_met: company_profile<25 (have 0); pain_point_library empty; solution_library empty |
-| pain_point_library | False | — | dependency_not_met: industry_library<50 (have 14); company_profile<25 (have 0) |
-| product_catalog | False | — | dependency_not_met: industry_library<50 (have 14) |
-| regulation_library | False | — | dependency_not_met: industry_library<50 (have 14) |
-| risk_library | False | — | dependency_not_met: industry_library<50 (have 14) |
-| service_library | False | — | dependency_not_met: industry_library<50 (have 14) |
+| pain_point_library | False | — | dependency_not_met: industry_library<50 (have 18); company_profile<25 (have 0) |
+| product_catalog | False | — | dependency_not_met: industry_library<50 (have 18) |
+| regulation_library | False | — | dependency_not_met: industry_library<50 (have 18) |
+| risk_library | False | — | dependency_not_met: industry_library<50 (have 18) |
+| service_library | False | — | dependency_not_met: industry_library<50 (have 18) |
 | solution_library | False | — | dependency_not_met: pain_point_library empty |
-| trend_library | False | — | dependency_not_met: industry_library<50 (have 14) |
+| trend_library | False | — | dependency_not_met: industry_library<50 (have 18) |
 
 ## Next mission (rank #2 if any)
 - —
