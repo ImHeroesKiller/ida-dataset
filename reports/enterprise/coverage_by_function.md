@@ -8,7 +8,6 @@
 | Procurement | 0 | 0/15 | 0.0% | 90 |
 | Human Resources | 0 | 0/15 | 0.0% | 90 |
 | Compliance | 0 | 0/15 | 0.0% | 90 |
-| Information Technology | 0 | 0/15 | 0.0% | 90 |
 | Business Development | 0 | 0/15 | 0.0% | 88 |
 | Operations | 0 | 0/15 | 0.0% | 88 |
 | Legal | 0 | 0/15 | 0.0% | 88 |
@@ -45,6 +44,7 @@
 | Administration | 0 | 0/15 | 0.0% | 60 |
 | Corporate Strategy | 1 | 0/15 | 0.0% | 92 |
 | Manufacturing | 1 | 0/15 | 0.0% | 90 |
+| Information Technology | 1 | 0/15 | 0.0% | 90 |
 | Supply Chain | 1 | 0/15 | 0.0% | 88 |
 | Research & Development | 2 | 1/15 | 6.67% | 82 |
 | Logistics | 2 | 1/15 | 6.67% | 80 |

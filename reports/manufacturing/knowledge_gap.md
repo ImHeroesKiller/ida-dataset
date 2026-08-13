@@ -1,6 +1,6 @@
 # Knowledge Gap
 
-**Generated:** 2026-08-13T01:08:29+00:00
+**Generated:** 2026-08-13T02:17:54+00:00
 **Mode:** BOOTSTRAP — empty_or_below_minimum_datasets
 
 Multi-dimensional gaps (not coverage-only).
@@ -23,4 +23,4 @@ Multi-dimensional gaps (not coverage-only).
 | risk_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
 | trend_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
 | discovery_question_library | 0 | 500 | 5000 | 6600 | 125.25 | 0.0 | 0.15 | 1.0 |
-| industry_library | 18 | 232 | 4982 | 6582 | 87.563 | 0.2222 | 0.1311 | 0.0 |
+| industry_library | 19 | 231 | 4981 | 6581 | 87.568 | 0.2222 | 0.1321 | 0.0 |

@@ -8,19 +8,19 @@ Unclassified rows (no keyword hit): **11**
 
 | Function | Rows | Share % | Priority |
 |----------|------|---------|----------|
-| ESG | 5 | 41.67% | 88 |
-| Research & Development | 2 | 16.67% | 82 |
-| Logistics | 2 | 16.67% | 80 |
-| Corporate Strategy | 1 | 8.33% | 92 |
-| Manufacturing | 1 | 8.33% | 90 |
-| Supply Chain | 1 | 8.33% | 88 |
+| ESG | 5 | 38.46% | 88 |
+| Research & Development | 2 | 15.38% | 82 |
+| Logistics | 2 | 15.38% | 80 |
+| Corporate Strategy | 1 | 7.69% | 92 |
+| Manufacturing | 1 | 7.69% | 90 |
+| Information Technology | 1 | 7.69% | 90 |
+| Supply Chain | 1 | 7.69% | 88 |
 | Finance | 0 | 0.0% | 95 |
 | Cyber Security | 0 | 0.0% | 94 |
 | Risk Management | 0 | 0.0% | 92 |
 | Procurement | 0 | 0.0% | 90 |
 | Human Resources | 0 | 0.0% | 90 |
 | Compliance | 0 | 0.0% | 90 |
-| Information Technology | 0 | 0.0% | 90 |
 | Business Development | 0 | 0.0% | 88 |
 | Operations | 0 | 0.0% | 88 |
 | Legal | 0 | 0.0% | 88 |

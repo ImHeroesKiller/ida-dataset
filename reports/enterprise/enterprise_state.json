@@ -35,6 +35,12 @@
       "priority": 90
     },
     {
+      "id": "information_technology",
+      "name": "Information Technology",
+      "rows": 1,
+      "priority": 90
+    },
+    {
       "id": "supply_chain",
       "name": "Supply Chain",
       "rows": 1,
@@ -73,12 +79,6 @@
     {
       "id": "compliance",
       "name": "Compliance",
-      "rows": 0,
-      "priority": 90
-    },
-    {
-      "id": "information_technology",
-      "name": "Information Technology",
       "rows": 0,
       "priority": 90
     },
@@ -174,15 +174,6 @@
     {
       "id": "compliance",
       "name": "Compliance",
-      "priority": 90,
-      "rows": 0,
-      "datasets_at_floor": 0,
-      "datasets_total": 15,
-      "coverage_pct": 0.0
-    },
-    {
-      "id": "information_technology",
-      "name": "Information Technology",
       "priority": 90,
       "rows": 0,
       "datasets_at_floor": 0,
@@ -514,6 +505,15 @@
       "coverage_pct": 0.0
     },
     {
+      "id": "information_technology",
+      "name": "Information Technology",
+      "priority": 90,
+      "rows": 1,
+      "datasets_at_floor": 0,
+      "datasets_total": 15,
+      "coverage_pct": 0.0
+    },
+    {
       "id": "supply_chain",
       "name": "Supply Chain",
       "priority": 88,
@@ -573,42 +573,49 @@
       "id": "esg",
       "name": "ESG",
       "rows": 5,
-      "share_pct": 41.67,
+      "share_pct": 38.46,
       "priority": 88
     },
     {
       "id": "research_development",
       "name": "Research & Development",
       "rows": 2,
-      "share_pct": 16.67,
+      "share_pct": 15.38,
       "priority": 82
     },
     {
       "id": "logistics",
       "name": "Logistics",
       "rows": 2,
-      "share_pct": 16.67,
+      "share_pct": 15.38,
       "priority": 80
     },
     {
       "id": "corporate_strategy",
       "name": "Corporate Strategy",
       "rows": 1,
-      "share_pct": 8.33,
+      "share_pct": 7.69,
       "priority": 92
     },
     {
       "id": "manufacturing",
       "name": "Manufacturing",
       "rows": 1,
-      "share_pct": 8.33,
+      "share_pct": 7.69,
+      "priority": 90
+    },
+    {
+      "id": "information_technology",
+      "name": "Information Technology",
+      "rows": 1,
+      "share_pct": 7.69,
       "priority": 90
     },
     {
       "id": "supply_chain",
       "name": "Supply Chain",
       "rows": 1,
-      "share_pct": 8.33,
+      "share_pct": 7.69,
       "priority": 88
     },
     {
@@ -649,13 +656,6 @@
     {
       "id": "compliance",
       "name": "Compliance",
-      "rows": 0,
-      "share_pct": 0.0,
-      "priority": 90
-    },
-    {
-      "id": "information_technology",
-      "name": "Information Technology",
       "rows": 0,
       "share_pct": 0.0,
       "priority": 90
@@ -1312,5 +1312,5 @@
     "gap_score": 59.5
   },
   "unclassified_rows": 11,
-  "labeled_assignments": 12
+  "labeled_assignments": 13
 }

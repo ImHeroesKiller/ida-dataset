@@ -1,25 +1,25 @@
 # Runtime Statistics
 
-**Session:** `SES-20260813-C27354`
+**Session:** `SES-20260813-620086`
 **Mission:** Produce Industry Dataset — expand industry_library toward product target
-**Total stage time (ms):** 91722.7
+**Total stage time (ms):** 94188.8
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 1.1 | completed |
-| source_discovery | 3.0 | completed |
-| connector | 6193.4 | completed |
-| document_discovery | 6193.6 | completed |
-| document_download | 79270.9 | completed |
-| extraction | 24.1 | completed |
-| candidate_validation | 8.0 | completed |
-| publish_queue | 8.0 | completed |
-| append_dataset | 19.6 | completed |
-| export | 0.4 | skipped |
-| git_commit | 0.3 | skipped |
-| push | 0.3 | skipped |
+| mission | 0.7 | completed |
+| source_discovery | 2.3 | completed |
+| connector | 6153.7 | completed |
+| document_discovery | 6153.8 | completed |
+| document_download | 81842.4 | completed |
+| extraction | 13.7 | completed |
+| candidate_validation | 2.3 | completed |
+| publish_queue | 2.3 | completed |
+| append_dataset | 17.0 | completed |
+| export | 0.2 | skipped |
+| git_commit | 0.2 | skipped |
+| push | 0.2 | skipped |
 
 ## Counters
 
@@ -29,34 +29,34 @@
     "connectors_ok": 7,
     "connectors_failed": 0,
     "documents_discovered": 11,
-    "documents_downloaded": 31,
+    "documents_downloaded": 42,
     "documents_failed": 0,
-    "documents_duplicates": 15,
-    "candidates_extracted": 7,
-    "candidates_validated": 4,
-    "candidates_rejected": 3,
-    "rows_published": 4,
+    "documents_duplicates": 38,
+    "candidates_extracted": 1,
+    "candidates_validated": 1,
+    "candidates_rejected": 0,
+    "rows_published": 1,
     "rows_duplicate": 0
   },
   "publish": {
-    "extracted": 7,
-    "validated": 4,
-    "rejected": 3,
-    "queued": 7,
-    "published": 4,
+    "extracted": 1,
+    "validated": 1,
+    "rejected": 0,
+    "queued": 1,
+    "published": 1,
     "skipped": 0,
     "duplicate": 0,
     "by_dataset": {
-      "industry_library": 4
+      "industry_library": 1
     },
     "balance_ok": true
   },
   "document_queue": {
     "queued": 0,
     "processing": 0,
-    "completed": 31,
+    "completed": 42,
     "failed": 0,
-    "duplicates": 15
+    "duplicates": 38
   },
   "exports": {
     "jsonl": false,

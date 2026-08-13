@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260813-D1D658",
-  "mission_id": "MIS-20260813-E95C7C",
+  "session_id": "SESSION-20260813-F331BD",
+  "mission_id": "MIS-20260813-3FFF19",
   "progress": 100,
-  "current_thought": "Session completed · published=4 extracted=7 validated=4 rejected=3 docs=31 entity=Banking",
+  "current_thought": "Session completed · published=1 extracted=1 validated=1 rejected=0 docs=42 entity=Information Technology Services",
   "current_task": "Idle",
-  "last_learned": "Banking",
-  "updated_at": "2026-08-13T01:08:27+00:00",
+  "last_learned": "Information Technology Services",
+  "updated_at": "2026-08-13T02:17:52+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }
