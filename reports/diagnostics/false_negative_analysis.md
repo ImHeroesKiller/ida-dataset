@@ -1,6 +1,6 @@
 # False Negative Analysis
 
-**Generated:** 2026-08-13T00:05:11+00:00
+**Generated:** 2026-08-13T00:38:59+00:00
 
 Candidates blocked by **exactly one** integrity rule family (potential false negative).
 Do **not** publish. Report only.
@@ -33,19 +33,5 @@ Do **not** publish. Report only.
 | CAND-9DFB1CD280F2 | 0.92 | duplicate_id_existing_dataset | duplicate_id:IND-000001 | YES |
 | CAND-933FD0411EAD | 0.855 | duplicate_id_existing_dataset | duplicate_id:IND-000009 | YES |
 | CAND-6A30FDEFF5EF | 0.92 | duplicate_id_existing_dataset | duplicate_id:IND-000012 | YES |
-| CAND-80C2AC135F36 | 0.836 | duplicate_id_existing_dataset | duplicate_id:IND-000009 | YES |
-| CAND-DB2E39200CB1 | 0.8075 | duplicate_id_existing_dataset | duplicate_id:IND-000013 | YES |
-| CAND-8FB7605FB916 | 0.836 | duplicate_id_existing_dataset | duplicate_id:IND-000010 | YES |
-| CAND-7AFBC514D015 | 0.8075 | duplicate_id_existing_dataset | duplicate_id:IND-000011 | YES |
-| CAND-4055AA2F2F4E | 0.836 | duplicate_id_existing_dataset | duplicate_id:IND-000005 | YES |
-| CAND-5D1B69EBA921 | 0.836 | duplicate_id_existing_dataset | duplicate_id:IND-000003 | YES |
-| CAND-02826646AA38 | 0.92 | duplicate_id_existing_dataset | duplicate_id:IND-000006 | YES |
-| CAND-6E7840687EAE | 0.92 | duplicate_id_existing_dataset | duplicate_id:IND-000001 | YES |
-| CAND-7E3C4B387591 | 0.836 | duplicate_id_existing_dataset | duplicate_id:IND-000007 | YES |
-| CAND-91FFA6E6591A | 0.8075 | duplicate_id_existing_dataset | duplicate_id:IND-000014 | YES |
-| CAND-DF3529FA1AA8 | 0.8075 | duplicate_id_existing_dataset | duplicate_id:IND-000012 | YES |
-| CAND-8270A7788088 | 0.92 | duplicate_id_existing_dataset | duplicate_id:IND-000002 | YES |
-| CAND-31BF7E48BB67 | 0.836 | duplicate_id_existing_dataset | duplicate_id:IND-000004 | YES |
-| CAND-2D17B6521F4F | 0.92 | duplicate_id_existing_dataset | duplicate_id:IND-000008 | YES |
 
-Count: **40**
+Count: **26**

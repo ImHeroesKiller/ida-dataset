@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-08-13T00:22:59+00:00",
+  "updated_at": "2026-08-13T00:38:55+00:00",
   "continuous_manufacturing": true,
   "never_stop_at_numeric_target": true,
   "mode": {
@@ -90,7 +90,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 100000,
@@ -138,7 +138,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
@@ -186,7 +186,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
@@ -234,7 +234,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
@@ -282,7 +282,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
@@ -330,7 +330,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
@@ -378,7 +378,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -426,7 +426,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
@@ -474,7 +474,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
@@ -522,7 +522,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -570,7 +570,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
@@ -618,7 +618,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -666,7 +666,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
@@ -714,7 +714,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -762,7 +762,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -810,7 +810,7 @@
         "signals": {
           "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -850,15 +850,15 @@
       },
       "universe": {
         "dataset": "industry_library",
-        "estimated_universe": 5000,
+        "estimated_universe": 6600,
         "current_rows": 14,
-        "remaining_estimate": 4986,
-        "fill_pct": 0.28,
+        "remaining_estimate": 6586,
+        "fill_pct": 0.21,
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
-          "trusted_sources": 10,
+          "trusted_sources": 55,
           "historical_rows_yielded": 2029.0,
-          "historical_docs": 22119.0,
+          "historical_docs": 22130.0,
           "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
@@ -868,18 +868,18 @@
       },
       "coverage_stretch_pct": 0.28,
       "coverage_minimum_pct": 5.6,
-      "knowledge_gap": 5222,
+      "knowledge_gap": 6822,
       "minimum_gap": 236,
       "stretch_gap": 4986,
-      "universe_gap": 4986,
-      "knowledge_opportunity": 4986,
+      "universe_gap": 6586,
+      "knowledge_opportunity": 6586,
       "freshness_gap": 0.0,
       "confidence_gap": 0.1457,
       "relationship_gap": 0.2,
       "knowledge_density": 0.2222,
       "avg_confidence": 0.8543,
       "freshness": 1.0,
-      "knowledge_gap_score": 87.795,
+      "knowledge_gap_score": 87.823,
       "below_minimum": true,
       "hard_limit": null,
       "should_continue": true
@@ -1097,24 +1097,24 @@
   "economics": {
     "bandwidth_bytes": 1035664,
     "bandwidth_gb": 0.000965,
-    "api_requests": 68,
+    "api_requests": 67,
     "cache_hits": 0,
     "cache_misses": 0,
     "cache_hit_rate": 0.0,
     "rows_produced": 14,
     "rows_rejected": 0,
-    "documents_processed": 22119,
+    "documents_processed": 22130,
     "rows_per_source": [
       {
         "source_id": "SRC-CROSSREF",
         "rows": 829,
-        "documents": 5653,
+        "documents": 5663,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000004",
         "rows": 765,
-        "documents": 5420,
+        "documents": 5421,
         "success_rate": 1.0
       },
       {
@@ -1295,20 +1295,20 @@
       }
     ],
     "rows_per_gb": 14514.73,
-    "rows_per_api_call": 0.2059,
-    "estimated_production_cost_usd": 0.068,
-    "knowledge_roi": 205.88,
-    "attempts": 5859
+    "rows_per_api_call": 0.209,
+    "estimated_production_cost_usd": 0.067,
+    "knowledge_roi": 208.96,
+    "attempts": 5866
   },
   "capacity": {
     "rows_last_hour": 14,
     "rows_today_approx": 89,
     "rows_this_week": 579,
-    "rows_this_month": 1051,
-    "sessions_last_hour": 2,
-    "sessions_24h": 17,
-    "sessions_7d": 115,
-    "sessions_30d": 210,
+    "rows_this_month": 1004,
+    "sessions_last_hour": 4,
+    "sessions_24h": 19,
+    "sessions_7d": 117,
+    "sessions_30d": 202,
     "rows_per_hour": 41.22,
     "rows_per_day": 989.28,
     "rows_per_week": 6924.96,
@@ -1325,7 +1325,7 @@
       "documents_per_second": 0.042,
       "rows_per_second": 0.011
     },
-    "mission_throughput_sessions_24h": 17,
+    "mission_throughput_sessions_24h": 19,
     "growth_velocity_rows_per_day": 82.71
   },
   "growth": {
@@ -1338,7 +1338,7 @@
   "knowledge_gap_summary": {
     "highest_gap_dataset": "company_profile",
     "highest_gap_score": 134.25,
-    "total_universe_remaining": 414586
+    "total_universe_remaining": 416186
   },
   "governance": "IDA Dataset Factory has no predefined finish line. Success is knowledge growth, coverage, freshness, confidence, quality. Business Development is one enterprise function among the full taxonomy.",
   "enterprise_functions": {
