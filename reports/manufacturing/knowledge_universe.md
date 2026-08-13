@@ -20,4 +20,4 @@ Dynamic estimates — hard_limit is null (no artificial ceiling).
 | trend_library | 0 | 6600 | 6600 | 0.0 | sources_x_yield_x_publication_frequency |
 | discovery_question_library | 0 | 6600 | 6600 | 0.0 | sources_x_yield_x_publication_frequency |
 | industry_library | 19 | 6600 | 6581 | 0.29 | sources_x_yield_x_publication_frequency |
-| business_signal_library | 55 | 50000 | 49945 | 0.11 | sources_x_yield_x_publication_frequency |
+| business_signal_library | 60 | 50000 | 49940 | 0.12 | sources_x_yield_x_publication_frequency |
