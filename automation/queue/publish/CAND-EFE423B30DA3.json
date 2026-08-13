@@ -1,0 +1,79 @@
+{
+  "candidate_id": "CAND-EFE423B30DA3",
+  "entity_type": "industry_library",
+  "entity_id": "IND-000004",
+  "target_dataset": "industry_library",
+  "canonical_name": "Ports & Terminals",
+  "payload": {
+    "Industry ID": "IND-000004",
+    "Industry Name": "Ports & Terminals",
+    "Industry Category": "Services",
+    "Industry Description": "Industry sector identified in trusted source document. Evidence: method used was panel data regression. The results of the Chow and Hausman tests indicate that the Random Effect model is more appropriate, whereas the Lagrange Multiplier test supports the Fixed Effect model. The test results show that DER has no significant effect on company value, as measured by Price-to-Book Value (PBV). Meanwhile, stock price and company siz",
+    "Business Characteristics": "",
+    "Typical Company Size": "",
+    "Average Employee Range": "",
+    "Typical Annual Revenue": "",
+    "Main Business Processes": "",
+    "Common Departments": "",
+    "Digital Maturity Level": "",
+    "Common Technologies": "",
+    "Common Business Challenges": "",
+    "Common Pain Points": "",
+    "Business Goals": "",
+    "Buying Triggers": "",
+    "Buying Criteria": "",
+    "Typical Decision Makers": "",
+    "Procurement Method": "",
+    "Average Sales Cycle": "",
+    "Budget Characteristics": "",
+    "Major Risks": "",
+    "Recommended Products": "",
+    "Cross Selling Opportunities": "",
+    "Upselling Opportunities": "",
+    "Main Competitors": "",
+    "Industry Regulations": "",
+    "Industry Trends": "",
+    "SWOT Summary": "",
+    "Data Sources": "source_ids=SRC-CROSSREF; urls=https://api.crossref.org/works/10.30651/blc.v23i1.29092; published=2026; retrieved=2026-08-12T23:58:04+00:00; confidence=0.85; version=acquisition-grounded-2.0.0; country=Indonesia; matched_alias=ports; discovery_provider=connector",
+    "Last Updated": "2026-08-13",
+    "Notes": "provenance: source=SRC-CROSSREF; published_date=2026; retrieved_date=2026-08-12T23:58:04+00:00; confidence=0.85; version=acquisition-grounded-2.0.0; mission=MIS-20260812-BB1FF2; document=DOC-738AC7BFF092; entity=Ports & Terminals; discovery_provider=connector; append_only=true; extraction=grounded_text; evidence=method used was panel data regression. The results of the Chow and Hausman tests indicate that the Random Effect model is more appropriate, whereas the Lagrange Multiplier test supports the Fixed Effect model. The test results show that DER has no significant effect on company value, as measured by Price-to-Book Value (PBV). Meanwhile, stock price and company siz"
+  },
+  "provenance": {
+    "source_id": "SRC-CROSSREF",
+    "source_url": "https://api.crossref.org/works/10.30651/blc.v23i1.29092",
+    "retrieved_at": "2026-08-12T23:58:04+00:00",
+    "confidence": 0.855,
+    "extraction_version": "acquisition-grounded-2.0.0",
+    "validation_status": "approved",
+    "reviewer": "acquisition-engine",
+    "published_at": "2026"
+  },
+  "links": {},
+  "rejection_reasons": [],
+  "duplicate_of": null,
+  "stage_history": [],
+  "created_at": "2026-08-13T00:03:54+00:00",
+  "updated_at": "2026-08-13T00:03:54+00:00",
+  "metadata": {
+    "mission_id": "MIS-20260812-BB1FF2",
+    "session_id": "SES-20260812-8BD385",
+    "document_id": "DOC-738AC7BFF092",
+    "connector_id": "CONN-CROSSREF-001",
+    "matched_alias": "ports",
+    "evidence": [
+      "method used was panel data regression. The results of the Chow and Hausman tests indicate that the Random Effect model is more appropriate, whereas the Lagrange Multiplier test supports the Fixed Effect model. The test results show that DER has no significant effect on company value, as measured by Price-to-Book Value (PBV). Meanwhile, stock price and company siz"
+    ],
+    "extraction": "grounded_text",
+    "dataset": "industry_library",
+    "schema_version": "1.0",
+    "extraction_stage": "deep",
+    "auto_publish_decision": {
+      "action": "manual_review",
+      "auto_publish": false,
+      "reasons": [
+        "confidence_below_auto_threshold"
+      ],
+      "confidence": 0.855
+    }
+  }
+}

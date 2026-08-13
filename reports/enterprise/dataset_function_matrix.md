@@ -7,12 +7,14 @@ Gap floor per cell: **2** (progress signal, not a stop).
 | Finance | `buyer_persona_library` | 0 | 2 | 59.5 |
 | Finance | `competitor_library` | 0 | 2 | 59.5 |
 | Finance | `decision_maker_library` | 0 | 2 | 59.5 |
+| Finance | `industry_library` | 0 | 2 | 59.5 |
 | Finance | `regulation_library` | 0 | 2 | 59.5 |
 | Finance | `trend_library` | 0 | 2 | 59.5 |
 | Cyber Security | `buyer_persona_library` | 0 | 2 | 59.4 |
 | Cyber Security | `case_study_library` | 0 | 2 | 59.4 |
 | Cyber Security | `competitor_library` | 0 | 2 | 59.4 |
 | Cyber Security | `decision_maker_library` | 0 | 2 | 59.4 |
+| Cyber Security | `industry_library` | 0 | 2 | 59.4 |
 | Cyber Security | `regulation_library` | 0 | 2 | 59.4 |
 | Cyber Security | `risk_library` | 0 | 2 | 59.4 |
 | Cyber Security | `trend_library` | 0 | 2 | 59.4 |
@@ -25,6 +27,7 @@ Gap floor per cell: **2** (progress signal, not a stop).
 | Risk Management | `case_study_library` | 0 | 2 | 59.2 |
 | Risk Management | `company_profile` | 0 | 2 | 59.2 |
 | Risk Management | `decision_maker_library` | 0 | 2 | 59.2 |
+| Risk Management | `industry_library` | 0 | 2 | 59.2 |
 | Risk Management | `product_catalog` | 0 | 2 | 59.2 |
 | Risk Management | `regulation_library` | 0 | 2 | 59.2 |
 | Risk Management | `risk_library` | 0 | 2 | 59.2 |
@@ -33,6 +36,7 @@ Gap floor per cell: **2** (progress signal, not a stop).
 | Compliance | `buyer_persona_library` | 0 | 2 | 59.0 |
 | Compliance | `competitor_library` | 0 | 2 | 59.0 |
 | Compliance | `decision_maker_library` | 0 | 2 | 59.0 |
+| Compliance | `industry_library` | 0 | 2 | 59.0 |
 | Compliance | `regulation_library` | 0 | 2 | 59.0 |
 | Compliance | `risk_library` | 0 | 2 | 59.0 |
 | Compliance | `trend_library` | 0 | 2 | 59.0 |
@@ -40,7 +44,3 @@ Gap floor per cell: **2** (progress signal, not a stop).
 | Human Resources | `company_profile` | 0 | 2 | 59.0 |
 | Human Resources | `competitor_library` | 0 | 2 | 59.0 |
 | Human Resources | `decision_maker_library` | 0 | 2 | 59.0 |
-| Human Resources | `framework_library` | 0 | 2 | 59.0 |
-| Human Resources | `regulation_library` | 0 | 2 | 59.0 |
-| Human Resources | `risk_library` | 0 | 2 | 59.0 |
-| Human Resources | `trend_library` | 0 | 2 | 59.0 |

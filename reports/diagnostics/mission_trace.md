@@ -1,29 +1,29 @@
 # Mission Trace
 
-**Generated:** 2026-08-12T23:00:21+00:00
-**Selected:** `service_library` · score=2137.87
-**Reason:** mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · sources=13 · continuous=true
-**Instruction:** corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP
+**Generated:** 2026-08-13T00:05:10+00:00
+**Selected:** `industry_library` · score=1904.83
+**Reason:** mode=BOOTSTRAP · gap_score=87.823 · stretch_cov=0.3% · priority=100 · deps_met · sources=13 · continuous=true
+**Instruction:** procurement — industry knowledge for Procurement — continuous knowledge manufacturing for industry_library across enterprise function Procurement (function_gap=59.0; not BD-only); dataset_gap=87.823; mode=BOOTSTRAP
 
 ## All datasets
 
 | Dataset | Rows | Coverage% | Gap score | Priority score | Eligible | Selected | Skip reason |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| service_library | 65 | 0.1 | 112.922 | 2137.87 | True | True | — |
-| competitor_library | 6 | 0.0 | 89.305 | 1921.5 | True | False | eligible_but_not_selected; score=1921.5 < selected=service_library score=2137.87 |
-| buyer_persona_library | 4 | 0.1 | 83.547 | 1895.57 | True | False | eligible_but_not_selected; score=1895.57 < selected=service_library score=2137.87 |
-| product_catalog | 123 | 0.2 | 88.606 | 1890.83 | True | False | eligible_but_not_selected; score=1890.83 < selected=service_library score=2137.87 |
-| decision_maker_library | 3 | 0.1 | 81.115 | 1875.45 | True | False | eligible_but_not_selected; score=1875.45 < selected=service_library score=2137.87 |
-| risk_library | 10 | 0.2 | 81.852 | 1829.92 | True | False | eligible_but_not_selected; score=1829.92 < selected=service_library score=2137.87 |
-| trend_library | 10 | 0.2 | 80.502 | 1807.82 | True | False | eligible_but_not_selected; score=1807.82 < selected=service_library score=2137.87 |
-| industry_library | 61 | 1.2 | 79.486 | 1698.76 | True | False | eligible_but_not_selected; score=1698.76 < selected=service_library score=2137.87 |
-| company_profile | 86 | 0.1 | 77.563 | 1660.7 | True | False | eligible_but_not_selected; score=1660.7 < selected=service_library score=2137.87 |
-| solution_library | 58 | 0.2 | 78.268 | 1660.21 | True | False | eligible_but_not_selected; score=1660.21 < selected=service_library score=2137.87 |
-| pain_point_library | 58 | 0.2 | 77.531 | 1656.34 | True | False | eligible_but_not_selected; score=1656.34 < selected=service_library score=2137.87 |
-| framework_library | 40 | 0.8 | 79.188 | 1627.88 | True | False | eligible_but_not_selected; score=1627.88 < selected=service_library score=2137.87 |
-| opportunity_analysis | 25 | 0.1 | 77.176 | 1625.13 | True | False | eligible_but_not_selected; score=1625.13 < selected=service_library score=2137.87 |
-| case_study_library | 40 | 0.4 | 77.693 | 1607.93 | True | False | eligible_but_not_selected; score=1607.93 < selected=service_library score=2137.87 |
-| regulation_library | 5 | 0.1 | 80.401 | 928.75 | True | False | eligible_but_not_selected; score=928.75 < selected=service_library score=2137.87 |
+| industry_library | 14 | 0.3 | 87.823 | 1904.83 | True | True | — |
+| solution_library | 58 | 0.2 | 78.268 | 877.53 | True | False | eligible_but_not_selected; score=877.53 < selected=industry_library score=1904.83 |
+| opportunity_analysis | 25 | 0.1 | 77.176 | 853.38 | True | False | eligible_but_not_selected; score=853.38 < selected=industry_library score=1904.83 |
+| framework_library | 40 | 0.8 | 79.188 | 836.0 | True | False | eligible_but_not_selected; score=836.0 < selected=industry_library score=1904.83 |
+| case_study_library | 40 | 0.4 | 77.693 | 831.0 | True | False | eligible_but_not_selected; score=831.0 < selected=industry_library score=1904.83 |
+| buyer_persona_library | 4 | 0.1 | 83.547 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| company_profile | 86 | 0.1 | 89.563 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| competitor_library | 6 | 0.0 | 89.305 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| decision_maker_library | 3 | 0.1 | 81.115 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| pain_point_library | 58 | 0.2 | 88.031 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| product_catalog | 123 | 0.2 | 88.606 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| regulation_library | 5 | 0.1 | 80.401 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| risk_library | 10 | 0.2 | 81.852 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| service_library | 65 | 0.1 | 112.922 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
+| trend_library | 10 | 0.2 | 80.502 | — | False | False | dependency_not_met: industry_library<50 (have 14) |
 
 ## Evidence
 

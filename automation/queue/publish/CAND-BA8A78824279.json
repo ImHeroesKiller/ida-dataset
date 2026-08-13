@@ -1,0 +1,79 @@
+{
+  "candidate_id": "CAND-BA8A78824279",
+  "entity_type": "industry_library",
+  "entity_id": "IND-000005",
+  "target_dataset": "industry_library",
+  "canonical_name": "Real Estate",
+  "payload": {
+    "Industry ID": "IND-000005",
+    "Industry Name": "Real Estate",
+    "Industry Category": "Services",
+    "Industry Description": "Industry sector identified in trusted source document. Evidence: ://doi.org/10.18028/2238-5320/rgfc.v7n1p48-59 Suardy, A. D., Syahyunan, Sunaryo. (2023). Pengaruh DER Dan TATO Terhadap PBV Dengan ROA Sebagai Intervening Pada Perusahaan Properti Real Estate. Jurnal Akutansi Manajemen Ekonomi Kewirausahaan (JAMEK), 3(1), 11–20. https://doi.org/10.47065/jamek.v3i1.355 Trisnawati, A., Ummah, I., Parlina, N. D. (2024). Financial ratio an",
+    "Business Characteristics": "",
+    "Typical Company Size": "",
+    "Average Employee Range": "",
+    "Typical Annual Revenue": "",
+    "Main Business Processes": "",
+    "Common Departments": "",
+    "Digital Maturity Level": "",
+    "Common Technologies": "",
+    "Common Business Challenges": "",
+    "Common Pain Points": "",
+    "Business Goals": "",
+    "Buying Triggers": "",
+    "Buying Criteria": "",
+    "Typical Decision Makers": "",
+    "Procurement Method": "",
+    "Average Sales Cycle": "",
+    "Budget Characteristics": "",
+    "Major Risks": "",
+    "Recommended Products": "",
+    "Cross Selling Opportunities": "",
+    "Upselling Opportunities": "",
+    "Main Competitors": "",
+    "Industry Regulations": "",
+    "Industry Trends": "",
+    "SWOT Summary": "",
+    "Data Sources": "source_ids=SRC-CROSSREF; urls=https://api.crossref.org/works/10.30651/blc.v23i1.29092; published=2026; retrieved=2026-08-12T23:58:04+00:00; confidence=0.85; version=acquisition-grounded-2.0.0; country=Indonesia; matched_alias=real estate; discovery_provider=connector",
+    "Last Updated": "2026-08-13",
+    "Notes": "provenance: source=SRC-CROSSREF; published_date=2026; retrieved_date=2026-08-12T23:58:04+00:00; confidence=0.85; version=acquisition-grounded-2.0.0; mission=MIS-20260812-BB1FF2; document=DOC-738AC7BFF092; entity=Real Estate; discovery_provider=connector; append_only=true; extraction=grounded_text; evidence=://doi.org/10.18028/2238-5320/rgfc.v7n1p48-59 Suardy, A. D., Syahyunan, Sunaryo. (2023). Pengaruh DER Dan TATO Terhadap PBV Dengan ROA Sebagai Intervening Pada Perusahaan Properti Real Estate. Jurnal Akutansi Manajemen Ekonomi Kewirausahaan (JAMEK), 3(1), 11–20. https://doi.org/10.47065/jamek.v3i1.355 Trisnawati, A., Ummah, I., Parlina, N. D. (2024). Financial ratio an"
+  },
+  "provenance": {
+    "source_id": "SRC-CROSSREF",
+    "source_url": "https://api.crossref.org/works/10.30651/blc.v23i1.29092",
+    "retrieved_at": "2026-08-12T23:58:04+00:00",
+    "confidence": 0.855,
+    "extraction_version": "acquisition-grounded-2.0.0",
+    "validation_status": "approved",
+    "reviewer": "acquisition-engine",
+    "published_at": "2026"
+  },
+  "links": {},
+  "rejection_reasons": [],
+  "duplicate_of": null,
+  "stage_history": [],
+  "created_at": "2026-08-13T00:03:54+00:00",
+  "updated_at": "2026-08-13T00:03:54+00:00",
+  "metadata": {
+    "mission_id": "MIS-20260812-BB1FF2",
+    "session_id": "SES-20260812-8BD385",
+    "document_id": "DOC-738AC7BFF092",
+    "connector_id": "CONN-CROSSREF-001",
+    "matched_alias": "real estate",
+    "evidence": [
+      "://doi.org/10.18028/2238-5320/rgfc.v7n1p48-59 Suardy, A. D., Syahyunan, Sunaryo. (2023). Pengaruh DER Dan TATO Terhadap PBV Dengan ROA Sebagai Intervening Pada Perusahaan Properti Real Estate. Jurnal Akutansi Manajemen Ekonomi Kewirausahaan (JAMEK), 3(1), 11–20. https://doi.org/10.47065/jamek.v3i1.355 Trisnawati, A., Ummah, I., Parlina, N. D. (2024). Financial ratio an"
+    ],
+    "extraction": "grounded_text",
+    "dataset": "industry_library",
+    "schema_version": "1.0",
+    "extraction_stage": "deep",
+    "auto_publish_decision": {
+      "action": "manual_review",
+      "auto_publish": false,
+      "reasons": [
+        "confidence_below_auto_threshold"
+      ],
+      "confidence": 0.855
+    }
+  }
+}

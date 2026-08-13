@@ -1,6 +1,6 @@
 # Queue Efficiency
 
-**Generated:** 2026-08-12T22:59:15+00:00
+**Generated:** 2026-08-13T00:03:57+00:00
 
 ## Depths
 
@@ -8,16 +8,16 @@
 |-------|--------|------:|
 | Document | incoming | 0 |
 | Document | processing | 0 |
-| Document | processed | 83 |
+| Document | processed | 72 |
 | Document | depth | 0 |
 | Candidate | pending | 0 |
-| Candidate | approved | 5 |
+| Candidate | approved | 40 |
 | Candidate | rejected | 0 |
-| Publish | depth | 7 |
+| Publish | depth | 33 |
 
 ## Starvation / imbalance
 
-- None detected
+- `publish_queue_backlog`
 
 ## Rebalance signals
 
@@ -28,6 +28,6 @@
   "prefer_review_pending": false,
   "document_weight": 0.0,
   "candidate_weight": 0.0,
-  "publish_weight": 0.5833333333333334
+  "publish_weight": 0.4520547945205479
 }
 ```

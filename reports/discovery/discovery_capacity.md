@@ -1,14 +1,14 @@
 # Discovery Capacity
 
-**Generated:** 2026-08-12T22:55:31+00:00
+**Generated:** 2026-08-12T23:56:30+00:00
 
 | Dimension | Value |
 |-----------|------:|
 | Active providers | 7 |
 | Misconfigured providers | 0 |
-| Query budget (adaptive) | 46 |
-| URL budget (adaptive) | 1506 |
-| Download budget | 500 |
+| Query budget (adaptive) | 49 |
+| URL budget (adaptive) | 712 |
+| Download budget | 178 |
 | Runtime budget (s) | 538.0 |
 | Per-provider results | 20 |
 

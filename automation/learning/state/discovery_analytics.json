@@ -1,36 +1,36 @@
 {
-  "started_at": "2026-08-12T22:55:30+00:00",
-  "mission_id": "MIS-20260812-5DD08C",
-  "session_id": "SES-20260812-DCFF5D",
-  "instruction": "corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP",
-  "dataset": "service_library",
+  "started_at": "2026-08-12T23:56:29+00:00",
+  "mission_id": "MIS-20260812-BB1FF2",
+  "session_id": "SES-20260812-8BD385",
+  "instruction": "corporate finance — industry knowledge for Finance — continuous knowledge manufacturing for industry_library across enterprise function Finance (function_gap=59.5; not BD-only); dataset_gap=125.25; mode=BOOTSTRAP",
+  "dataset": "industry_library",
   "knowledge_gap": {
-    "dataset": "service_library",
+    "dataset": "industry_library",
     "current_rows": 0,
-    "target_rows": 50000,
-    "minimum_target": 2000,
-    "gap_rows": 50000,
+    "target_rows": 5000,
+    "minimum_target": 250,
+    "gap_rows": 6600,
     "coverage_pct": 0.0,
-    "knowledge_gap_score": 138.0,
-    "estimated_universe": 50000,
+    "knowledge_gap_score": 125.25,
+    "estimated_universe": 6600,
     "priority": "high",
     "continuous": true
   },
   "budgets": {
-    "query_budget": 46,
-    "url_budget": 1506,
+    "query_budget": 49,
+    "url_budget": 712,
     "per_provider_results": 20,
-    "feed_source_budget": 17,
-    "domain_budget": 17,
+    "feed_source_budget": 18,
+    "domain_budget": 18,
     "max_provider_rounds": 3,
     "runtime_budget_s": 538.0,
-    "download_budget": 500,
-    "extraction_budget": 500,
-    "publish_budget": 500,
-    "source_select_budget": 17,
+    "download_budget": 178,
+    "extraction_budget": 178,
+    "publish_budget": 178,
+    "source_select_budget": 18,
     "worker_capacity": 4,
-    "gap_score": 138.0,
-    "gap_rows": 50000.0,
+    "gap_score": 125.25,
+    "gap_rows": 6600.0,
     "coverage_pct": 0.0,
     "mission_priority": "high",
     "queue_pressure": 0.035,
@@ -39,33 +39,33 @@
     "stop_policy": "provider_exhausted | knowledge_gap_satisfied | runtime_budget_reached | provider_quota_reached"
   },
   "discovery_policy": {
-    "primary_api": "tavily",
+    "primary_api": "duckduckgo",
     "max_primary_searches": 10,
-    "live_primary_searches": 5,
+    "live_primary_searches": 0,
     "secondary_paid_api_fallback": false,
     "one_discovery_multi_dataset": true
   },
   "queries_generated": 10,
-  "queries_executed": 27,
-  "urls_discovered": 124,
-  "urls_accepted": 66,
-  "urls_rejected": 58,
+  "queries_executed": 22,
+  "urls_discovered": 64,
+  "urls_accepted": 36,
+  "urls_rejected": 28,
   "urls_remaining": 0,
-  "duplicate_urls": 58,
-  "elapsed_ms": 762561.5,
+  "duplicate_urls": 28,
+  "elapsed_ms": 777256.3,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
   "providers_disabled": 5,
-  "providers_exhausted": 2,
+  "providers_exhausted": 1,
   "provider_utilization": {
-    "DISC-TAVILY": 0.1852,
-    "DISC-COMMONCRAWL": 0.1852,
-    "DISC-SITEMAP": 0.037,
-    "DISC-ATOM": 0.037,
+    "DISC-TAVILY": 0.0,
+    "DISC-COMMONCRAWL": 0.2273,
+    "DISC-SITEMAP": 0.0455,
+    "DISC-ATOM": 0.0455,
     "DISC-RSS": 0.0,
-    "DISC-TRUSTED-SITE": 0.3704,
-    "DISC-OPENSEARCH": 0.1852,
+    "DISC-TRUSTED-SITE": 0.4545,
+    "DISC-OPENSEARCH": 0.2273,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
     "DISC-BRAVE": 0.0,
@@ -74,7 +74,7 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 100,
+    "DISC-COMMONCRAWL": 40,
     "DISC-SITEMAP": 12,
     "DISC-ATOM": 12,
     "DISC-RSS": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 585.4,
-  "accepted_per_hour": 311.58,
+  "urls_per_hour": 296.43,
+  "accepted_per_hour": 166.74,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -98,18 +98,18 @@
         "status": "healthy",
         "message": "credentials"
       },
-      "queries": 5,
+      "queries": 0,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 1472.0,
+      "elapsed_ms": 0.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
-      "exhausted": true,
-      "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 85.499,
-      "utilization": 0.1852
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 85.506,
+      "utilization": 0.0
     },
     {
       "provider_id": "DISC-COMMONCRAWL",
@@ -121,17 +121,17 @@
         "message": "toggle"
       },
       "queries": 5,
-      "urls": 100,
+      "urls": 40,
       "cache_hits": 0,
-      "elapsed_ms": 2089.8,
+      "elapsed_ms": 5825.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 70.026,
-      "utilization": 0.1852
+      "rank_score": 69.982,
+      "utilization": 0.2273
     },
     {
       "provider_id": "DISC-SITEMAP",
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 464115.9,
+      "elapsed_ms": 477590.4,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -153,7 +153,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 51.6,
-      "utilization": 0.037
+      "utilization": 0.0455
     },
     {
       "provider_id": "DISC-ATOM",
@@ -167,7 +167,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 294759.9,
+      "elapsed_ms": 293804.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -175,7 +175,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 51.44,
-      "utilization": 0.037
+      "utilization": 0.0455
     },
     {
       "provider_id": "DISC-RSS",
@@ -219,7 +219,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 41.1,
-      "utilization": 0.3704
+      "utilization": 0.4545
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -241,7 +241,7 @@
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
       "rank_score": 32.0,
-      "utilization": 0.1852
+      "utilization": 0.2273
     },
     {
       "provider_id": "DISC-GOOGLE-CSE",
@@ -357,7 +357,7 @@
   "query_stats": [
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id corporate governance service continuous",
+      "query": "site:bps.go.id corporate finance industry continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "site",
@@ -366,7 +366,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
+      "query": "site:bps.go.id intitle:corporate corporate finance industry continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "kind": "intitle",
@@ -375,7 +375,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org corporate governance service continuous",
+      "query": "site:worldbank.org corporate finance industry continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "site",
@@ -384,7 +384,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
+      "query": "site:worldbank.org intitle:corporate corporate finance industry continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "kind": "intitle",
@@ -393,7 +393,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id corporate governance service continuous",
+      "query": "site:kemenperin.go.id corporate finance industry continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "site",
@@ -402,7 +402,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:kemenperin.go.id intitle:corporate corporate governance service continuous",
+      "query": "site:kemenperin.go.id intitle:corporate corporate finance industry continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "kind": "intitle",
@@ -411,7 +411,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org corporate governance service continuous",
+      "query": "site:adb.org corporate finance industry continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "site",
@@ -420,7 +420,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:adb.org intitle:corporate corporate governance service continuous",
+      "query": "site:adb.org intitle:corporate corporate finance industry continuous",
       "domain": "adb.org",
       "source_id": "SRC-000006",
       "kind": "intitle",
@@ -429,7 +429,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org corporate governance service continuous",
+      "query": "site:oecd.org corporate finance industry continuous",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "site",
@@ -438,7 +438,7 @@
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
-      "query": "site:oecd.org intitle:corporate corporate governance service continuous",
+      "query": "site:oecd.org intitle:corporate corporate finance industry continuous",
       "domain": "oecd.org",
       "source_id": "SRC-000005",
       "kind": "intitle",
@@ -446,108 +446,58 @@
       "cached": false
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:bps.go.id corporate governance service continuous",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bps.go.id corporate finance industry continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 0,
-      "elapsed_ms": 376.3,
+      "urls": 20,
+      "elapsed_ms": 489.1,
       "cached": false,
       "live_search": true
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:bps.go.id intitle:corporate corporate finance industry continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 0,
-      "elapsed_ms": 241.1,
+      "urls": 20,
+      "elapsed_ms": 831.1,
       "cached": false,
       "live_search": true
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:worldbank.org corporate governance service continuous",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:worldbank.org corporate finance industry continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 283.8,
+      "elapsed_ms": 1484.9,
       "cached": false,
       "live_search": true
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:worldbank.org intitle:corporate corporate finance industry continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 272.2,
+      "elapsed_ms": 1519.5,
       "cached": false,
       "live_search": true
     },
     {
-      "provider_id": "DISC-TAVILY",
-      "query": "site:kemenperin.go.id corporate governance service continuous",
+      "provider_id": "DISC-COMMONCRAWL",
+      "query": "site:kemenperin.go.id corporate finance industry continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 298.6,
-      "cached": false,
-      "live_search": true
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:bps.go.id corporate governance service continuous",
-      "domain": "bps.go.id",
-      "source_id": "SRC-000001",
-      "urls": 20,
-      "elapsed_ms": 337.5,
-      "cached": false,
-      "live_search": true
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
-      "domain": "bps.go.id",
-      "source_id": "SRC-000001",
-      "urls": 20,
-      "elapsed_ms": 298.8,
-      "cached": false,
-      "live_search": true
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:worldbank.org corporate governance service continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "urls": 20,
-      "elapsed_ms": 430.3,
-      "cached": false,
-      "live_search": true
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
-      "domain": "worldbank.org",
-      "source_id": "SRC-000004",
-      "urls": 20,
-      "elapsed_ms": 379.4,
-      "cached": false,
-      "live_search": true
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "query": "site:kemenperin.go.id corporate governance service continuous",
-      "domain": "kemenperin.go.id",
-      "source_id": "SRC-000007",
-      "urls": 20,
-      "elapsed_ms": 643.8,
+      "elapsed_ms": 1500.4,
       "cached": false,
       "live_search": true
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id corporate governance service continuous",
+      "query": "site:bps.go.id corporate finance industry continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
@@ -557,7 +507,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:bps.go.id intitle:corporate corporate governance service continuous",
+      "query": "site:bps.go.id intitle:corporate corporate finance industry continuous",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
@@ -567,7 +517,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org corporate governance service continuous",
+      "query": "site:worldbank.org corporate finance industry continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
@@ -577,7 +527,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:worldbank.org intitle:corporate corporate governance service continuous",
+      "query": "site:worldbank.org intitle:corporate corporate finance industry continuous",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
@@ -587,7 +537,7 @@
     },
     {
       "provider_id": "DISC-OPENSEARCH",
-      "query": "site:kemenperin.go.id corporate governance service continuous",
+      "query": "site:kemenperin.go.id corporate finance industry continuous",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
@@ -599,119 +549,133 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 464115.9
+      "elapsed_ms": 477590.4
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 294759.9
+      "elapsed_ms": 293804.0
     }
   ],
   "reputation_top": [
     {
       "id": "SRC-000001",
       "name": "BPS Indonesia",
-      "reputation": 103.123,
-      "score": 97.792,
+      "reputation": 108.223,
+      "score": 103.792,
       "authority": 1.0
     },
     {
       "id": "SRC-000004",
       "name": "World Bank",
-      "reputation": 101.795,
-      "score": 97.406,
+      "reputation": 106.895,
+      "score": 103.406,
       "authority": 0.95
     },
     {
       "id": "SRC-000007",
       "name": "Kemenperin",
-      "reputation": 100.856,
-      "score": 95.125,
+      "reputation": 105.956,
+      "score": 101.125,
       "authority": 1.0
     },
     {
       "id": "SRC-000006",
       "name": "Asian Development Bank",
-      "reputation": 99.832,
-      "score": 95.096,
+      "reputation": 104.932,
+      "score": 101.097,
       "authority": 0.95
     },
     {
       "id": "SRC-000005",
       "name": "OECD",
-      "reputation": 99.502,
-      "score": 94.708,
+      "reputation": 104.602,
+      "score": 100.708,
       "authority": 0.95
+    },
+    {
+      "id": "SRC-OPENALEX",
+      "name": "OpenAlex",
+      "reputation": 94.997,
+      "score": 90.585,
+      "authority": 0.9
     },
     {
       "id": "SRC-CROSSREF",
       "name": "Crossref",
-      "reputation": 89.816,
-      "score": 84.49,
+      "reputation": 94.916,
+      "score": 90.49,
       "authority": 0.9
     },
     {
       "id": "SRC-DJP",
       "name": "DJP Pajak",
-      "reputation": 82.433,
-      "score": 73.45,
+      "reputation": 87.532,
+      "score": 79.45,
       "authority": 1.0
     },
     {
       "id": "SRC-NIST",
       "name": "NIST",
-      "reputation": 82.262,
-      "score": 73.25,
+      "reputation": 87.362,
+      "score": 79.25,
       "authority": 1.0
     },
     {
       "id": "SRC-JDIH",
       "name": "JDIH / Peraturan.go.id",
-      "reputation": 82.262,
-      "score": 73.25,
+      "reputation": 87.362,
+      "score": 79.25,
       "authority": 1.0
     },
     {
       "id": "SRC-CISA",
       "name": "CISA",
-      "reputation": 82.007,
-      "score": 72.95,
+      "reputation": 87.108,
+      "score": 78.95,
       "authority": 1.0
     },
     {
       "id": "SRC-BPK",
       "name": "BPK",
-      "reputation": 81.752,
-      "score": 72.65,
+      "reputation": 86.853,
+      "score": 78.65,
       "authority": 1.0
     },
     {
       "id": "SRC-KLHK",
       "name": "KLHK",
-      "reputation": 81.498,
-      "score": 72.35,
+      "reputation": 86.597,
+      "score": 78.35,
       "authority": 1.0
     },
     {
       "id": "SRC-UNEP",
       "name": "UNEP",
-      "reputation": 80.667,
-      "score": 72.55,
+      "reputation": 85.767,
+      "score": 78.55,
       "authority": 0.95
     },
     {
       "id": "SRC-ISSB",
       "name": "ISSB / IFRS Sustainability",
-      "reputation": 77.093,
-      "score": 73.05,
+      "reputation": 82.192,
+      "score": 79.05,
       "authority": 0.75
     },
     {
       "id": "SRC-GRI",
       "name": "GRI",
-      "reputation": 76.752,
-      "score": 72.65,
+      "reputation": 81.853,
+      "score": 78.65,
+      "authority": 0.75
+    },
+    {
+      "id": "SRC-SASB",
+      "name": "SASB",
+      "reputation": 76.653,
+      "score": 72.533,
       "authority": 0.75
     },
     {
@@ -720,20 +684,13 @@
       "reputation": 76.242,
       "score": 72.05,
       "authority": 0.75
-    },
-    {
-      "id": "SRC-SASB",
-      "name": "SASB",
-      "reputation": 71.553,
-      "score": 66.533,
-      "authority": 0.75
     }
   ],
   "provider_ranking": [
     {
       "id": "DISC-TAVILY",
       "name": "Tavily (primary)",
-      "score": 85.499,
+      "score": 85.506,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
@@ -749,12 +706,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 70.026,
+      "score": 69.982,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.969,
+        "latency": 0.965,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -1045,186 +1002,6 @@
       "title": ""
     },
     {
-      "url": "http://www5.worldbank.org/",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org:443/",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://worldbank.org",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://www.worldbank.org",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://www.worldbank.org:80/",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/%E3%80%80",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://ammdes.kemenperin.go.id/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://ammdes.kemenperin.go.id/robots.txt",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://ammdes.kemenperin.go.id/robots.txt",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/dukung_industri_halal_bbspjikb__kemenperin_kolaborasi_dengan_dinas_koperasi__usaha_kecil_dan_menengah_kabupaten_sleman_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_teknis_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pln_nusantara_power_up_tanjung_awar_awar_menandatangani_nota_kesepahaman_dengan_bbspjikb_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-SITEMAP",
@@ -1443,186 +1220,6 @@
       "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "http://www5.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org:443/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "http://worldbank.org",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "http://www.worldbank.org",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "http://www.worldbank.org:80/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/%E3%80%80",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "reason": "duplicate_url",
       "host": null,
@@ -1673,10 +1270,10 @@
   ],
   "cache": {
     "hits": 0,
-    "misses": 15,
-    "stores": 15,
-    "cached_queries": 15,
-    "cached_urls": 50
+    "misses": 10,
+    "stores": 10,
+    "cached_queries": 10,
+    "cached_urls": 20
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }

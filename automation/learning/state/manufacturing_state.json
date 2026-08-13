@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-08-12T22:59:32+00:00",
+  "updated_at": "2026-08-13T00:04:15+00:00",
   "continuous_manufacturing": true,
   "never_stop_at_numeric_target": true,
   "mode": {
@@ -12,19 +12,19 @@
     "below_minimum": [
       "discovery_question_library",
       "service_library",
+      "company_profile",
       "competitor_library",
       "product_catalog",
+      "pain_point_library",
+      "industry_library",
       "buyer_persona_library",
       "risk_library",
       "decision_maker_library",
       "trend_library",
       "regulation_library",
-      "industry_library",
       "framework_library",
       "solution_library",
       "case_study_library",
-      "company_profile",
-      "pain_point_library",
       "opportunity_analysis"
     ]
   },
@@ -33,7 +33,7 @@
     "reason": "manufacturing_active"
   },
   "counts": {
-    "industry_library": 61,
+    "industry_library": 14,
     "company_profile": 86,
     "product_catalog": 58,
     "service_library": 65,
@@ -73,9 +73,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -121,9 +121,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 2000,
@@ -149,6 +149,54 @@
       "should_continue": true
     },
     {
+      "dataset": "company_profile",
+      "current_rows": 86,
+      "profile": {
+        "dataset": "company_profile",
+        "minimum_target": 10000,
+        "stretch_target": 100000,
+        "estimated_universe": "dynamic",
+        "hard_limit": null,
+        "continuous": true,
+        "never_stop": true
+      },
+      "universe": {
+        "dataset": "company_profile",
+        "estimated_universe": 100000,
+        "current_rows": 86,
+        "remaining_estimate": 99914,
+        "fill_pct": 0.09,
+        "method": "sources_x_yield_x_publication_frequency",
+        "signals": {
+          "trusted_sources": 55,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
+          "publication_frequency_factor": 6.0,
+          "stretch_target": 100000,
+          "minimum_target": 10000,
+          "hard_limit": null
+        }
+      },
+      "coverage_stretch_pct": 0.09,
+      "coverage_minimum_pct": 0.86,
+      "knowledge_gap": 109828,
+      "minimum_gap": 9914,
+      "stretch_gap": 99914,
+      "universe_gap": 99914,
+      "knowledge_opportunity": 99914,
+      "freshness_gap": 0.0,
+      "confidence_gap": 0.1036,
+      "relationship_gap": 0.8,
+      "knowledge_density": 0.8939,
+      "avg_confidence": 0.8964,
+      "freshness": 1.0,
+      "knowledge_gap_score": 89.563,
+      "below_minimum": true,
+      "hard_limit": null,
+      "should_continue": true
+    },
+    {
       "dataset": "competitor_library",
       "current_rows": 6,
       "profile": {
@@ -169,9 +217,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
           "minimum_target": 1000,
@@ -217,9 +265,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 5000,
@@ -245,6 +293,102 @@
       "should_continue": true
     },
     {
+      "dataset": "pain_point_library",
+      "current_rows": 58,
+      "profile": {
+        "dataset": "pain_point_library",
+        "minimum_target": 3000,
+        "stretch_target": 30000,
+        "estimated_universe": "dynamic",
+        "hard_limit": null,
+        "continuous": true,
+        "never_stop": true
+      },
+      "universe": {
+        "dataset": "pain_point_library",
+        "estimated_universe": 30000,
+        "current_rows": 58,
+        "remaining_estimate": 29942,
+        "fill_pct": 0.19,
+        "method": "sources_x_yield_x_publication_frequency",
+        "signals": {
+          "trusted_sources": 55,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
+          "publication_frequency_factor": 6.0,
+          "stretch_target": 30000,
+          "minimum_target": 3000,
+          "hard_limit": null
+        }
+      },
+      "coverage_stretch_pct": 0.19,
+      "coverage_minimum_pct": 1.93,
+      "knowledge_gap": 32884,
+      "minimum_gap": 2942,
+      "stretch_gap": 29942,
+      "universe_gap": 29942,
+      "knowledge_opportunity": 29942,
+      "freshness_gap": 0.0,
+      "confidence_gap": 0.1119,
+      "relationship_gap": 0.7,
+      "knowledge_density": 0.9032,
+      "avg_confidence": 0.8881,
+      "freshness": 1.0,
+      "knowledge_gap_score": 88.031,
+      "below_minimum": true,
+      "hard_limit": null,
+      "should_continue": true
+    },
+    {
+      "dataset": "industry_library",
+      "current_rows": 14,
+      "profile": {
+        "dataset": "industry_library",
+        "minimum_target": 250,
+        "stretch_target": 5000,
+        "estimated_universe": "dynamic",
+        "hard_limit": null,
+        "continuous": true,
+        "never_stop": true
+      },
+      "universe": {
+        "dataset": "industry_library",
+        "estimated_universe": 6600,
+        "current_rows": 14,
+        "remaining_estimate": 6586,
+        "fill_pct": 0.21,
+        "method": "sources_x_yield_x_publication_frequency",
+        "signals": {
+          "trusted_sources": 55,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
+          "publication_frequency_factor": 6.0,
+          "stretch_target": 5000,
+          "minimum_target": 250,
+          "hard_limit": null
+        }
+      },
+      "coverage_stretch_pct": 0.28,
+      "coverage_minimum_pct": 5.6,
+      "knowledge_gap": 6822,
+      "minimum_gap": 236,
+      "stretch_gap": 4986,
+      "universe_gap": 6586,
+      "knowledge_opportunity": 6586,
+      "freshness_gap": 0.0,
+      "confidence_gap": 0.1457,
+      "relationship_gap": 0.2,
+      "knowledge_density": 0.2222,
+      "avg_confidence": 0.8543,
+      "freshness": 1.0,
+      "knowledge_gap_score": 87.823,
+      "below_minimum": true,
+      "hard_limit": null,
+      "should_continue": true
+    },
+    {
       "dataset": "buyer_persona_library",
       "current_rows": 4,
       "profile": {
@@ -265,9 +409,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -313,9 +457,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -361,9 +505,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -409,9 +553,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -457,9 +601,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
           "minimum_target": 1000,
@@ -485,54 +629,6 @@
       "should_continue": true
     },
     {
-      "dataset": "industry_library",
-      "current_rows": 61,
-      "profile": {
-        "dataset": "industry_library",
-        "minimum_target": 250,
-        "stretch_target": 5000,
-        "estimated_universe": "dynamic",
-        "hard_limit": null,
-        "continuous": true,
-        "never_stop": true
-      },
-      "universe": {
-        "dataset": "industry_library",
-        "estimated_universe": 6600,
-        "current_rows": 61,
-        "remaining_estimate": 6539,
-        "fill_pct": 0.92,
-        "method": "sources_x_yield_x_publication_frequency",
-        "signals": {
-          "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
-          "publication_frequency_factor": 6.0,
-          "stretch_target": 5000,
-          "minimum_target": 250,
-          "hard_limit": null
-        }
-      },
-      "coverage_stretch_pct": 1.22,
-      "coverage_minimum_pct": 24.4,
-      "knowledge_gap": 6728,
-      "minimum_gap": 189,
-      "stretch_gap": 4939,
-      "universe_gap": 6539,
-      "knowledge_opportunity": 6539,
-      "freshness_gap": 0.0,
-      "confidence_gap": 0.14,
-      "relationship_gap": 0.2,
-      "knowledge_density": 1.0,
-      "avg_confidence": 0.86,
-      "freshness": 1.0,
-      "knowledge_gap_score": 79.486,
-      "below_minimum": true,
-      "hard_limit": null,
-      "should_continue": true
-    },
-    {
       "dataset": "framework_library",
       "current_rows": 40,
       "profile": {
@@ -553,9 +649,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 5000,
           "minimum_target": 500,
@@ -601,9 +697,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 30000,
           "minimum_target": 3000,
@@ -649,9 +745,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 10000,
           "minimum_target": 1000,
@@ -677,102 +773,6 @@
       "should_continue": true
     },
     {
-      "dataset": "company_profile",
-      "current_rows": 86,
-      "profile": {
-        "dataset": "company_profile",
-        "minimum_target": 10000,
-        "stretch_target": 100000,
-        "estimated_universe": "dynamic",
-        "hard_limit": null,
-        "continuous": true,
-        "never_stop": true
-      },
-      "universe": {
-        "dataset": "company_profile",
-        "estimated_universe": 100000,
-        "current_rows": 86,
-        "remaining_estimate": 99914,
-        "fill_pct": 0.09,
-        "method": "sources_x_yield_x_publication_frequency",
-        "signals": {
-          "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
-          "publication_frequency_factor": 6.0,
-          "stretch_target": 100000,
-          "minimum_target": 10000,
-          "hard_limit": null
-        }
-      },
-      "coverage_stretch_pct": 0.09,
-      "coverage_minimum_pct": 0.86,
-      "knowledge_gap": 109828,
-      "minimum_gap": 9914,
-      "stretch_gap": 99914,
-      "universe_gap": 99914,
-      "knowledge_opportunity": 99914,
-      "freshness_gap": 0.0,
-      "confidence_gap": 0.1036,
-      "relationship_gap": 0.0,
-      "knowledge_density": 0.8939,
-      "avg_confidence": 0.8964,
-      "freshness": 1.0,
-      "knowledge_gap_score": 77.563,
-      "below_minimum": true,
-      "hard_limit": null,
-      "should_continue": true
-    },
-    {
-      "dataset": "pain_point_library",
-      "current_rows": 58,
-      "profile": {
-        "dataset": "pain_point_library",
-        "minimum_target": 3000,
-        "stretch_target": 30000,
-        "estimated_universe": "dynamic",
-        "hard_limit": null,
-        "continuous": true,
-        "never_stop": true
-      },
-      "universe": {
-        "dataset": "pain_point_library",
-        "estimated_universe": 30000,
-        "current_rows": 58,
-        "remaining_estimate": 29942,
-        "fill_pct": 0.19,
-        "method": "sources_x_yield_x_publication_frequency",
-        "signals": {
-          "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
-          "publication_frequency_factor": 6.0,
-          "stretch_target": 30000,
-          "minimum_target": 3000,
-          "hard_limit": null
-        }
-      },
-      "coverage_stretch_pct": 0.19,
-      "coverage_minimum_pct": 1.93,
-      "knowledge_gap": 32884,
-      "minimum_gap": 2942,
-      "stretch_gap": 29942,
-      "universe_gap": 29942,
-      "knowledge_opportunity": 29942,
-      "freshness_gap": 0.0,
-      "confidence_gap": 0.1119,
-      "relationship_gap": 0.0,
-      "knowledge_density": 0.9032,
-      "avg_confidence": 0.8881,
-      "freshness": 1.0,
-      "knowledge_gap_score": 77.531,
-      "below_minimum": true,
-      "hard_limit": null,
-      "should_continue": true
-    },
-    {
       "dataset": "opportunity_analysis",
       "current_rows": 25,
       "profile": {
@@ -793,9 +793,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 20000,
           "minimum_target": 2000,
@@ -841,9 +841,9 @@
         "method": "sources_x_yield_x_publication_frequency",
         "signals": {
           "trusted_sources": 55,
-          "historical_rows_yielded": 2015.0,
-          "historical_docs": 22045.0,
-          "rows_per_attempt": 0.345,
+          "historical_rows_yielded": 2029.0,
+          "historical_docs": 22119.0,
+          "rows_per_attempt": 0.346,
           "publication_frequency_factor": 6.0,
           "stretch_target": 50000,
           "minimum_target": 1000,
@@ -917,6 +917,29 @@
       "priority_reason": "mode=BOOTSTRAP; gap_score=112.922; opportunity=49935; enterprise_function=corporate_governance"
     },
     {
+      "dataset": "company_profile",
+      "title": "health safety environment — company profile knowledge for Health Safety Environment",
+      "instruction": "health safety environment — company profile knowledge for Health Safety Environment — continuous knowledge manufacturing for company_profile across enterprise function Health Safety Environment (function_gap=58.4; not BD-only); dataset_gap=89.563; mode=BOOTSTRAP",
+      "mode": "BOOTSTRAP",
+      "knowledge_gap_score": 89.563,
+      "universe_gap": 99914,
+      "current_rows": 86,
+      "stretch_target": 100000,
+      "minimum_target": 10000,
+      "hard_limit": null,
+      "enterprise_function": "health_safety_environment",
+      "enterprise_function_name": "Health Safety Environment",
+      "discovery_queries": [
+        "health safety environment — company profile knowledge for Health Safety Environment",
+        "site:ilo.org occupational safety",
+        "site:who.int health",
+        "site:ilo.org health safety environment company profile",
+        "site:who.int health safety environment company profile"
+      ],
+      "function_gap_score": 58.4,
+      "priority_reason": "mode=BOOTSTRAP; gap_score=89.563; opportunity=99914; enterprise_function=health_safety_environment"
+    },
+    {
       "dataset": "competitor_library",
       "title": "business development — competitor knowledge for Business Development",
       "instruction": "business development — competitor knowledge for Business Development — continuous knowledge manufacturing for competitor_library across enterprise function Business Development (function_gap=58.8; not BD-only); dataset_gap=89.305; mode=BOOTSTRAP",
@@ -963,6 +986,52 @@
       "priority_reason": "mode=BOOTSTRAP; gap_score=88.606; opportunity=49942; enterprise_function=tax"
     },
     {
+      "dataset": "pain_point_library",
+      "title": "accounting standards — pain point knowledge for Accounting",
+      "instruction": "accounting standards — pain point knowledge for Accounting — continuous knowledge manufacturing for pain_point_library across enterprise function Accounting (function_gap=58.2; not BD-only); dataset_gap=88.031; mode=BOOTSTRAP",
+      "mode": "BOOTSTRAP",
+      "knowledge_gap_score": 88.031,
+      "universe_gap": 29942,
+      "current_rows": 58,
+      "stretch_target": 30000,
+      "minimum_target": 3000,
+      "hard_limit": null,
+      "enterprise_function": "accounting",
+      "enterprise_function_name": "Accounting",
+      "discovery_queries": [
+        "accounting standards — pain point knowledge for Accounting",
+        "site:ifrs.org financial reporting",
+        "site:ojk.go.id accounting",
+        "site:ifrs.org accounting standards pain point",
+        "site:ojk.go.id accounting standards pain point"
+      ],
+      "function_gap_score": 58.2,
+      "priority_reason": "mode=BOOTSTRAP; gap_score=88.031; opportunity=29942; enterprise_function=accounting"
+    },
+    {
+      "dataset": "industry_library",
+      "title": "procurement — industry knowledge for Procurement",
+      "instruction": "procurement — industry knowledge for Procurement — continuous knowledge manufacturing for industry_library across enterprise function Procurement (function_gap=59.0; not BD-only); dataset_gap=87.823; mode=BOOTSTRAP",
+      "mode": "BOOTSTRAP",
+      "knowledge_gap_score": 87.823,
+      "universe_gap": 6586,
+      "current_rows": 14,
+      "stretch_target": 5000,
+      "minimum_target": 250,
+      "hard_limit": null,
+      "enterprise_function": "procurement",
+      "enterprise_function_name": "Procurement",
+      "discovery_queries": [
+        "procurement — industry knowledge for Procurement",
+        "site:lkpp.go.id pengadaan",
+        "site:oecd.org procurement trends",
+        "site:lkpp.go.id procurement industry",
+        "site:worldbank.org procurement industry"
+      ],
+      "function_gap_score": 59.0,
+      "priority_reason": "mode=BOOTSTRAP; gap_score=87.823; opportunity=6586; enterprise_function=procurement"
+    },
+    {
       "dataset": "buyer_persona_library",
       "title": "Chief Compliance Officer — Compliance (buyer persona library)",
       "instruction": "Chief Compliance Officer — Compliance (buyer persona library) — continuous knowledge manufacturing for buyer_persona_library across enterprise function Compliance (function_gap=59.0; not BD-only); dataset_gap=83.547; mode=BOOTSTRAP",
@@ -984,75 +1053,6 @@
       ],
       "function_gap_score": 59.0,
       "priority_reason": "mode=BOOTSTRAP; gap_score=83.547; opportunity=6596; enterprise_function=compliance"
-    },
-    {
-      "dataset": "risk_library",
-      "title": "enterprise risk management — risk knowledge for Risk Management",
-      "instruction": "enterprise risk management — risk knowledge for Risk Management — continuous knowledge manufacturing for risk_library across enterprise function Risk Management (function_gap=59.2; not BD-only); dataset_gap=81.852; mode=BOOTSTRAP",
-      "mode": "BOOTSTRAP",
-      "knowledge_gap_score": 81.852,
-      "universe_gap": 6590,
-      "current_rows": 10,
-      "stretch_target": 5000,
-      "minimum_target": 500,
-      "hard_limit": null,
-      "enterprise_function": "risk_management",
-      "enterprise_function_name": "Risk Management",
-      "discovery_queries": [
-        "enterprise risk management — risk knowledge for Risk Management",
-        "site:ojk.go.id risk management",
-        "site:imf.org financial risk",
-        "site:ojk.go.id enterprise risk management risk",
-        "site:imf.org enterprise risk management risk"
-      ],
-      "function_gap_score": 59.2,
-      "priority_reason": "mode=BOOTSTRAP; gap_score=81.852; opportunity=6590; enterprise_function=risk_management"
-    },
-    {
-      "dataset": "decision_maker_library",
-      "title": "Chief Compliance Officer — Compliance (decision maker library)",
-      "instruction": "Chief Compliance Officer — Compliance (decision maker library) — continuous knowledge manufacturing for decision_maker_library across enterprise function Compliance (function_gap=59.0; not BD-only); dataset_gap=81.115; mode=BOOTSTRAP",
-      "mode": "BOOTSTRAP",
-      "knowledge_gap_score": 81.115,
-      "universe_gap": 6597,
-      "current_rows": 3,
-      "stretch_target": 5000,
-      "minimum_target": 500,
-      "hard_limit": null,
-      "enterprise_function": "compliance",
-      "enterprise_function_name": "Compliance",
-      "discovery_queries": [
-        "Chief Compliance Officer — Compliance (decision maker library)",
-        "site:ojk.go.id compliance",
-        "site:bpk.go.id",
-        "site:ojk.go.id regulatory compliance decision maker",
-        "site:bpk.go.id regulatory compliance decision maker"
-      ],
-      "function_gap_score": 59.0,
-      "priority_reason": "mode=BOOTSTRAP; gap_score=81.115; opportunity=6597; enterprise_function=compliance"
-    },
-    {
-      "dataset": "trend_library",
-      "title": "corporate strategy — trend knowledge for Corporate Strategy",
-      "instruction": "corporate strategy — trend knowledge for Corporate Strategy — continuous knowledge manufacturing for trend_library across enterprise function Corporate Strategy (function_gap=59.2; not BD-only); dataset_gap=80.502; mode=BOOTSTRAP",
-      "mode": "BOOTSTRAP",
-      "knowledge_gap_score": 80.502,
-      "universe_gap": 6590,
-      "current_rows": 10,
-      "stretch_target": 5000,
-      "minimum_target": 500,
-      "hard_limit": null,
-      "enterprise_function": "corporate_strategy",
-      "enterprise_function_name": "Corporate Strategy",
-      "discovery_queries": [
-        "corporate strategy — trend knowledge for Corporate Strategy",
-        "site:oecd.org industrial strategy",
-        "site:worldbank.org private sector strategy",
-        "site:oecd.org corporate strategy trend",
-        "site:worldbank.org corporate strategy trend"
-      ],
-      "function_gap_score": 59.2,
-      "priority_reason": "mode=BOOTSTRAP; gap_score=80.502; opportunity=6590; enterprise_function=corporate_strategy"
     }
   ],
   "selected_mission": {
@@ -1079,50 +1079,50 @@
     "priority_reason": "mode=BOOTSTRAP; gap_score=125.25; opportunity=7100; enterprise_function=corporate_strategy"
   },
   "economics": {
-    "bandwidth_bytes": 1728023,
-    "bandwidth_gb": 0.001609,
-    "api_requests": 103,
+    "bandwidth_bytes": 1035664,
+    "bandwidth_gb": 0.000965,
+    "api_requests": 68,
     "cache_hits": 0,
-    "cache_misses": 35,
+    "cache_misses": 16,
     "cache_hit_rate": 0.0,
-    "rows_produced": 5,
+    "rows_produced": 14,
     "rows_rejected": 0,
-    "documents_processed": 22045,
+    "documents_processed": 22119,
     "rows_per_source": [
       {
         "source_id": "SRC-CROSSREF",
         "rows": 829,
-        "documents": 5632,
+        "documents": 5653,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000004",
         "rows": 765,
-        "documents": 5409,
+        "documents": 5420,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-OPENALEX",
-        "rows": 397,
-        "documents": 5097,
+        "rows": 407,
+        "documents": 5117,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000006",
         "rows": 17,
-        "documents": 689,
+        "documents": 700,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000001",
-        "rows": 5,
+        "rows": 9,
         "documents": 2169,
         "success_rate": 1.0
       },
       {
         "source_id": "SRC-000007",
         "rows": 2,
-        "documents": 1190,
+        "documents": 1201,
         "success_rate": 1.0
       },
       {
@@ -1140,7 +1140,7 @@
         "source_name": "BPS Indonesia",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 121.6,
+        "elapsed_ms": 182.2,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -1149,7 +1149,7 @@
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 97.792
+        "rank_score": 103.792
       },
       {
         "connector_id": "CONN-WB-001",
@@ -1158,22 +1158,22 @@
         "source_name": "World Bank",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 522.5,
+        "elapsed_ms": 567.8,
         "documents_discovered": 11,
-        "documents_downloaded": 11,
+        "documents_downloaded": 0,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-08-12T22:55:31+00:00",
+        "last_successful_sync": "2026-08-12T23:56:30+00:00",
         "urls": [
-          "http://documents.worldbank.org/curated/en/512221468041424443/Indonesia-Library-Development-Project",
-          "http://documents.worldbank.org/curated/en/627981468752778622/Indonesia-Library-Development-LIL-Project",
-          "http://documents.worldbank.org/curated/en/726241468752365494/Indonesia-Library-Development-Project",
-          "http://documents.worldbank.org/curated/en/865071474569449459/Indonesia-Library-Development-Project-Lil",
-          "http://documents.worldbank.org/curated/en/146431468052778758/Conformed-Copy-C3526-Library-Development-Project-Development-Credit-Agreement"
+          "http://documents.worldbank.org/curated/en/280181688979008727/Indonesia-A-Private-Sector-Assessment",
+          "http://documents.worldbank.org/curated/en/160981468752386170/Indonesia-Oil-and-gas-sector-study",
+          "http://documents.worldbank.org/curated/en/207021468268185215/Indonesia-Industrial-Restructuring-Project",
+          "http://documents.worldbank.org/curated/en/154981619713190497/Announcement-of-Indonesia-Promotes-Export-Growth-of-Manufacturing-Industry-on-July-1-1988",
+          "http://documents.worldbank.org/curated/en/398891468044148555/Indonesia-Private-Sector-Development"
         ],
         "error": null,
-        "rank_score": 97.406
+        "rank_score": 103.406
       },
       {
         "connector_id": "CONN-KEMENPERIN-001",
@@ -1182,25 +1182,7 @@
         "source_name": "Kemenperin",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 93742.8,
-        "documents_discovered": 0,
-        "documents_downloaded": 0,
-        "skipped": 0,
-        "rejected": 0,
-        "retry_count": 0,
-        "last_successful_sync": "",
-        "urls": [],
-        "error": null,
-        "rank_score": 95.125
-      },
-      {
-        "connector_id": "CONN-ADB-001",
-        "name": "Asian Development Bank",
-        "source_id": "SRC-000006",
-        "source_name": "Asian Development Bank",
-        "status": "no_updates",
-        "http_status": 200,
-        "elapsed_ms": 74.2,
+        "elapsed_ms": 93828.4,
         "documents_discovered": 0,
         "documents_downloaded": 11,
         "skipped": 0,
@@ -1209,7 +1191,25 @@
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 95.096
+        "rank_score": 101.125
+      },
+      {
+        "connector_id": "CONN-ADB-001",
+        "name": "Asian Development Bank",
+        "source_id": "SRC-000006",
+        "source_name": "Asian Development Bank",
+        "status": "no_updates",
+        "http_status": 200,
+        "elapsed_ms": 127.4,
+        "documents_discovered": 0,
+        "documents_downloaded": 11,
+        "skipped": 0,
+        "rejected": 0,
+        "retry_count": 0,
+        "last_successful_sync": "",
+        "urls": [],
+        "error": null,
+        "rank_score": 101.097
       },
       {
         "connector_id": "CONN-OECD-001",
@@ -1218,7 +1218,7 @@
         "source_name": "OECD",
         "status": "no_updates",
         "http_status": 200,
-        "elapsed_ms": 67.2,
+        "elapsed_ms": 91.3,
         "documents_discovered": 0,
         "documents_downloaded": 0,
         "skipped": 0,
@@ -1227,31 +1227,7 @@
         "last_successful_sync": "",
         "urls": [],
         "error": null,
-        "rank_score": 94.708
-      },
-      {
-        "connector_id": "CONN-CROSSREF-001",
-        "name": "Crossref",
-        "source_id": "SRC-CROSSREF",
-        "source_name": "Crossref",
-        "status": "ok",
-        "http_status": 200,
-        "elapsed_ms": 635.4,
-        "documents_discovered": 10,
-        "documents_downloaded": 0,
-        "skipped": 0,
-        "rejected": 0,
-        "retry_count": 0,
-        "last_successful_sync": "2026-08-12T22:55:31+00:00",
-        "urls": [
-          "https://api.crossref.org/works/10.14429/djlit.41.5.16406",
-          "https://api.crossref.org/works/10.47191/ijmei/v10i2.01",
-          "https://api.crossref.org/works/10.20473/rlj.v8-i1.2022.99-108",
-          "https://api.crossref.org/works/10.7454/jipk.v24i2.003",
-          "https://api.crossref.org/works/10.59141/jiss.v4i07.855"
-        ],
-        "error": null,
-        "rank_score": 84.49
+        "rank_score": 100.708
       },
       {
         "connector_id": "CONN-OPENALEX-001",
@@ -1260,69 +1236,93 @@
         "source_name": "OpenAlex",
         "status": "ok",
         "http_status": 200,
-        "elapsed_ms": 1117.6,
+        "elapsed_ms": 1186.3,
         "documents_discovered": 10,
-        "documents_downloaded": 0,
+        "documents_downloaded": 10,
         "skipped": 0,
         "rejected": 0,
         "retry_count": 0,
-        "last_successful_sync": "2026-08-12T22:55:32+00:00",
+        "last_successful_sync": "2026-08-12T23:56:31+00:00",
         "urls": [
-          "https://openalex.org/W3095315355",
-          "https://openalex.org/W4312346959",
-          "https://openalex.org/W3132509763",
-          "https://openalex.org/W3004041197",
-          "https://openalex.org/W2106787323"
+          "https://openalex.org/W2966384141",
+          "https://openalex.org/W1520375636",
+          "https://openalex.org/W2162294528",
+          "https://openalex.org/W2989866429",
+          "https://openalex.org/W2090289962"
         ],
         "error": null,
-        "rank_score": 0
+        "rank_score": 90.585
+      },
+      {
+        "connector_id": "CONN-CROSSREF-001",
+        "name": "Crossref",
+        "source_id": "SRC-CROSSREF",
+        "source_name": "Crossref",
+        "status": "ok",
+        "http_status": 200,
+        "elapsed_ms": 465.4,
+        "documents_discovered": 10,
+        "documents_downloaded": 11,
+        "skipped": 0,
+        "rejected": 0,
+        "retry_count": 0,
+        "last_successful_sync": "2026-08-12T23:56:30+00:00",
+        "urls": [
+          "https://api.crossref.org/works/10.47191/jefms/v5-i8-40",
+          "https://api.crossref.org/works/10.30651/blc.v23i1.29092",
+          "https://api.crossref.org/works/10.47191/ijcsrr/v8-i11-06",
+          "https://api.crossref.org/works/10.18502/kss.v3i10.3356",
+          "https://api.crossref.org/works/10.17549/gbfr.2024.29.6.86"
+        ],
+        "error": null,
+        "rank_score": 90.49
       }
     ],
-    "rows_per_gb": 3106.85,
-    "rows_per_api_call": 0.0485,
-    "estimated_production_cost_usd": 0.103,
-    "knowledge_roi": 48.54,
-    "attempts": 5845
+    "rows_per_gb": 14514.73,
+    "rows_per_api_call": 0.2059,
+    "estimated_production_cost_usd": 0.068,
+    "knowledge_roi": 205.88,
+    "attempts": 5859
   },
   "capacity": {
-    "rows_last_hour": 10,
-    "rows_today_approx": 85,
-    "rows_this_week": 570,
-    "rows_this_month": 1037,
-    "sessions_last_hour": 2,
-    "sessions_24h": 17,
+    "rows_last_hour": 14,
+    "rows_today_approx": 89,
+    "rows_this_week": 579,
+    "rows_this_month": 1051,
+    "sessions_last_hour": 1,
+    "sessions_24h": 16,
     "sessions_7d": 114,
-    "sessions_30d": 208,
-    "rows_per_hour": 18.25,
-    "rows_per_day": 438.0,
-    "rows_per_week": 3066.0,
-    "rows_per_month": 13140.0,
-    "documents_per_hour": 226.33,
-    "candidates_per_hour": 169.75,
+    "sessions_30d": 209,
+    "rows_per_hour": 41.22,
+    "rows_per_day": 989.28,
+    "rows_per_week": 6924.96,
+    "rows_per_month": 29678.4,
+    "documents_per_hour": 150.16,
+    "candidates_per_hour": 112.62,
     "validation_throughput": "integrity_guard_inline",
     "publish_throughput": "append_only_csv",
     "connector_throughput": {
-      "documents": 62,
-      "rows": 5,
-      "documents_per_hour": 226.33,
-      "rows_per_hour": 18.25,
-      "documents_per_second": 0.063,
-      "rows_per_second": 0.005
+      "documents": 51,
+      "rows": 14,
+      "documents_per_hour": 150.16,
+      "rows_per_hour": 41.22,
+      "documents_per_second": 0.042,
+      "rows_per_second": 0.011
     },
-    "mission_throughput_sessions_24h": 17,
-    "growth_velocity_rows_per_day": 81.43
+    "mission_throughput_sessions_24h": 16,
+    "growth_velocity_rows_per_day": 82.71
   },
   "growth": {
-    "growth_velocity": 81.43,
-    "coverage_velocity": 438.0,
+    "growth_velocity": 82.71,
+    "coverage_velocity": 989.28,
     "freshness_velocity": null,
-    "knowledge_produced_total": 2543
+    "knowledge_produced_total": 2496
   },
   "top_dataset": "discovery_question_library",
   "knowledge_gap_summary": {
     "highest_gap_dataset": "discovery_question_library",
     "highest_gap_score": 125.25,
-    "total_universe_remaining": 413657
+    "total_universe_remaining": 413704
   },
   "governance": "IDA Dataset Factory has no predefined finish line. Success is knowledge growth, coverage, freshness, confidence, quality. Business Development is one enterprise function among the full taxonomy.",
   "enterprise_functions": {
@@ -1334,122 +1334,122 @@
       {
         "id": "operations",
         "name": "Operations",
-        "rows": 233,
+        "rows": 202,
         "priority": 88
       },
       {
         "id": "information_technology",
         "name": "Information Technology",
-        "rows": 202,
+        "rows": 169,
         "priority": 90
       },
       {
         "id": "sales",
         "name": "Sales",
-        "rows": 120,
+        "rows": 95,
         "priority": 86
-      },
-      {
-        "id": "finance",
-        "name": "Finance",
-        "rows": 112,
-        "priority": 95
       },
       {
         "id": "manufacturing",
         "name": "Manufacturing",
-        "rows": 102,
+        "rows": 84,
         "priority": 90
-      },
-      {
-        "id": "procurement",
-        "name": "Procurement",
-        "rows": 94,
-        "priority": 90
-      },
-      {
-        "id": "compliance",
-        "name": "Compliance",
-        "rows": 85,
-        "priority": 90
-      },
-      {
-        "id": "logistics",
-        "name": "Logistics",
-        "rows": 79,
-        "priority": 80
       },
       {
         "id": "cloud",
         "name": "Cloud",
-        "rows": 77,
+        "rows": 66,
         "priority": 80
+      },
+      {
+        "id": "compliance",
+        "name": "Compliance",
+        "rows": 65,
+        "priority": 90
+      },
+      {
+        "id": "finance",
+        "name": "Finance",
+        "rows": 62,
+        "priority": 95
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics",
+        "rows": 57,
+        "priority": 80
+      },
+      {
+        "id": "procurement",
+        "name": "Procurement",
+        "rows": 44,
+        "priority": 90
       },
       {
         "id": "corporate_strategy",
         "name": "Corporate Strategy",
-        "rows": 45,
+        "rows": 43,
         "priority": 92
-      },
-      {
-        "id": "customer_success",
-        "name": "Customer Success",
-        "rows": 45,
-        "priority": 80
       },
       {
         "id": "esg",
         "name": "ESG",
-        "rows": 44,
+        "rows": 39,
         "priority": 88
+      },
+      {
+        "id": "customer_success",
+        "name": "Customer Success",
+        "rows": 32,
+        "priority": 80
       },
       {
         "id": "learning_development",
         "name": "Learning & Development",
-        "rows": 37,
+        "rows": 32,
         "priority": 74
       },
       {
         "id": "production",
         "name": "Production",
-        "rows": 34,
+        "rows": 23,
         "priority": 82
       },
       {
         "id": "supply_chain",
         "name": "Supply Chain",
-        "rows": 32,
+        "rows": 22,
         "priority": 88
       },
       {
         "id": "marketing",
         "name": "Marketing",
-        "rows": 32,
+        "rows": 22,
         "priority": 84
-      },
-      {
-        "id": "infrastructure",
-        "name": "Infrastructure",
-        "rows": 31,
-        "priority": 78
       },
       {
         "id": "cyber_security",
         "name": "Cyber Security",
-        "rows": 26,
+        "rows": 21,
         "priority": 94
       },
       {
-        "id": "business_development",
-        "name": "Business Development",
-        "rows": 22,
-        "priority": 88
+        "id": "infrastructure",
+        "name": "Infrastructure",
+        "rows": 19,
+        "priority": 78
       },
       {
-        "id": "health_safety_environment",
-        "name": "Health Safety Environment",
-        "rows": 22,
-        "priority": 84
+        "id": "administration",
+        "name": "Administration",
+        "rows": 18,
+        "priority": 60
+      },
+      {
+        "id": "accounting",
+        "name": "Accounting",
+        "rows": 15,
+        "priority": 82
       }
     ],
     "coverage_by_function": [
@@ -1493,6 +1493,24 @@
         "id": "investor_relations",
         "name": "Investor Relations",
         "priority": 80,
+        "rows": 1,
+        "datasets_at_floor": 0,
+        "datasets_total": 15,
+        "coverage_pct": 0.0
+      },
+      {
+        "id": "ai",
+        "name": "AI",
+        "priority": 86,
+        "rows": 2,
+        "datasets_at_floor": 0,
+        "datasets_total": 15,
+        "coverage_pct": 0.0
+      },
+      {
+        "id": "research_development",
+        "name": "Research & Development",
+        "priority": 82,
         "rows": 2,
         "datasets_at_floor": 0,
         "datasets_total": 15,
@@ -1508,13 +1526,13 @@
         "coverage_pct": 0.0
       },
       {
-        "id": "ai",
-        "name": "AI",
-        "priority": 86,
+        "id": "quality_control",
+        "name": "Quality Control",
+        "priority": 74,
         "rows": 3,
-        "datasets_at_floor": 0,
+        "datasets_at_floor": 1,
         "datasets_total": 15,
-        "coverage_pct": 0.0
+        "coverage_pct": 6.67
       },
       {
         "id": "business_intelligence",
@@ -1529,6 +1547,15 @@
         "id": "quality_assurance",
         "name": "Quality Assurance",
         "priority": 76,
+        "rows": 4,
+        "datasets_at_floor": 1,
+        "datasets_total": 15,
+        "coverage_pct": 6.67
+      },
+      {
+        "id": "tax",
+        "name": "Tax",
+        "priority": 85,
         "rows": 5,
         "datasets_at_floor": 1,
         "datasets_total": 15,
@@ -1538,7 +1565,7 @@
         "id": "risk_management",
         "name": "Risk Management",
         "priority": 92,
-        "rows": 7,
+        "rows": 6,
         "datasets_at_floor": 1,
         "datasets_total": 15,
         "coverage_pct": 6.67
@@ -1547,16 +1574,7 @@
         "id": "software_engineering",
         "name": "Software Engineering",
         "priority": 82,
-        "rows": 7,
-        "datasets_at_floor": 1,
-        "datasets_total": 15,
-        "coverage_pct": 6.67
-      },
-      {
-        "id": "research_development",
-        "name": "Research & Development",
-        "priority": 82,
-        "rows": 7,
+        "rows": 6,
         "datasets_at_floor": 1,
         "datasets_total": 15,
         "coverage_pct": 6.67
@@ -1565,7 +1583,7 @@
         "id": "recruitment",
         "name": "Recruitment",
         "priority": 80,
-        "rows": 7,
+        "rows": 6,
         "datasets_at_floor": 1,
         "datasets_total": 15,
         "coverage_pct": 6.67
@@ -1574,25 +1592,16 @@
         "id": "data_engineering",
         "name": "Data Engineering",
         "priority": 80,
-        "rows": 8,
+        "rows": 7,
         "datasets_at_floor": 1,
         "datasets_total": 15,
         "coverage_pct": 6.67
       },
       {
-        "id": "quality_control",
-        "name": "Quality Control",
-        "priority": 74,
+        "id": "treasury",
+        "name": "Treasury",
+        "priority": 78,
         "rows": 6,
-        "datasets_at_floor": 2,
-        "datasets_total": 15,
-        "coverage_pct": 13.33
-      },
-      {
-        "id": "tax",
-        "name": "Tax",
-        "priority": 85,
-        "rows": 7,
         "datasets_at_floor": 2,
         "datasets_total": 15,
         "coverage_pct": 13.33
@@ -1601,7 +1610,7 @@
         "id": "project_management",
         "name": "Project Management",
         "priority": 78,
-        "rows": 8,
+        "rows": 7,
         "datasets_at_floor": 2,
         "datasets_total": 15,
         "coverage_pct": 13.33
@@ -1610,7 +1619,16 @@
         "id": "general_affairs",
         "name": "General Affairs",
         "priority": 62,
-        "rows": 8,
+        "rows": 7,
+        "datasets_at_floor": 2,
+        "datasets_total": 15,
+        "coverage_pct": 13.33
+      },
+      {
+        "id": "health_safety_environment",
+        "name": "Health Safety Environment",
+        "priority": 84,
+        "rows": 9,
         "datasets_at_floor": 2,
         "datasets_total": 15,
         "coverage_pct": 13.33
@@ -1628,6 +1646,15 @@
         "id": "payroll",
         "name": "Payroll",
         "priority": 70,
+        "rows": 10,
+        "datasets_at_floor": 2,
+        "datasets_total": 15,
+        "coverage_pct": 13.33
+      },
+      {
+        "id": "customer_service",
+        "name": "Customer Service",
+        "priority": 78,
         "rows": 11,
         "datasets_at_floor": 2,
         "datasets_total": 15,
@@ -1637,25 +1664,7 @@
         "id": "human_resources",
         "name": "Human Resources",
         "priority": 90,
-        "rows": 15,
-        "datasets_at_floor": 3,
-        "datasets_total": 15,
-        "coverage_pct": 20.0
-      },
-      {
-        "id": "treasury",
-        "name": "Treasury",
-        "priority": 78,
-        "rows": 15,
-        "datasets_at_floor": 3,
-        "datasets_total": 15,
-        "coverage_pct": 20.0
-      },
-      {
-        "id": "customer_service",
-        "name": "Customer Service",
-        "priority": 78,
-        "rows": 15,
+        "rows": 14,
         "datasets_at_floor": 3,
         "datasets_total": 15,
         "coverage_pct": 20.0
@@ -1664,16 +1673,7 @@
         "id": "accounting",
         "name": "Accounting",
         "priority": 82,
-        "rows": 16,
-        "datasets_at_floor": 3,
-        "datasets_total": 15,
-        "coverage_pct": 20.0
-      },
-      {
-        "id": "health_safety_environment",
-        "name": "Health Safety Environment",
-        "priority": 84,
-        "rows": 22,
+        "rows": 15,
         "datasets_at_floor": 3,
         "datasets_total": 15,
         "coverage_pct": 20.0
@@ -1682,16 +1682,25 @@
         "id": "infrastructure",
         "name": "Infrastructure",
         "priority": 78,
-        "rows": 31,
-        "datasets_at_floor": 4,
+        "rows": 19,
+        "datasets_at_floor": 3,
         "datasets_total": 15,
-        "coverage_pct": 26.67
+        "coverage_pct": 20.0
       },
       {
         "id": "marketing",
         "name": "Marketing",
         "priority": 84,
-        "rows": 32,
+        "rows": 22,
+        "datasets_at_floor": 3,
+        "datasets_total": 15,
+        "coverage_pct": 20.0
+      },
+      {
+        "id": "business_development",
+        "name": "Business Development",
+        "priority": 88,
+        "rows": 12,
         "datasets_at_floor": 4,
         "datasets_total": 15,
         "coverage_pct": 26.67
@@ -1700,88 +1709,88 @@
         "id": "legal",
         "name": "Legal",
         "priority": 88,
+        "rows": 12,
+        "datasets_at_floor": 4,
+        "datasets_total": 15,
+        "coverage_pct": 26.67
+      },
+      {
+        "id": "production",
+        "name": "Production",
+        "priority": 82,
+        "rows": 23,
+        "datasets_at_floor": 4,
+        "datasets_total": 15,
+        "coverage_pct": 26.67
+      },
+      {
+        "id": "administration",
+        "name": "Administration",
+        "priority": 60,
         "rows": 18,
         "datasets_at_floor": 5,
         "datasets_total": 15,
         "coverage_pct": 33.33
       },
       {
-        "id": "business_development",
-        "name": "Business Development",
-        "priority": 88,
-        "rows": 22,
-        "datasets_at_floor": 5,
-        "datasets_total": 15,
-        "coverage_pct": 33.33
-      },
-      {
-        "id": "production",
-        "name": "Production",
-        "priority": 82,
-        "rows": 34,
-        "datasets_at_floor": 5,
-        "datasets_total": 15,
-        "coverage_pct": 33.33
-      },
-      {
-        "id": "administration",
-        "name": "Administration",
-        "priority": 60,
-        "rows": 20,
-        "datasets_at_floor": 6,
-        "datasets_total": 15,
-        "coverage_pct": 40.0
-      },
-      {
         "id": "cyber_security",
         "name": "Cyber Security",
         "priority": 94,
-        "rows": 26,
-        "datasets_at_floor": 6,
+        "rows": 21,
+        "datasets_at_floor": 5,
         "datasets_total": 15,
-        "coverage_pct": 40.0
-      },
-      {
-        "id": "learning_development",
-        "name": "Learning & Development",
-        "priority": 74,
-        "rows": 37,
-        "datasets_at_floor": 6,
-        "datasets_total": 15,
-        "coverage_pct": 40.0
+        "coverage_pct": 33.33
       },
       {
         "id": "customer_success",
         "name": "Customer Success",
         "priority": 80,
-        "rows": 45,
-        "datasets_at_floor": 6,
+        "rows": 32,
+        "datasets_at_floor": 5,
         "datasets_total": 15,
-        "coverage_pct": 40.0
+        "coverage_pct": 33.33
+      },
+      {
+        "id": "learning_development",
+        "name": "Learning & Development",
+        "priority": 74,
+        "rows": 32,
+        "datasets_at_floor": 5,
+        "datasets_total": 15,
+        "coverage_pct": 33.33
       },
       {
         "id": "warehouse",
         "name": "Warehouse",
         "priority": 70,
-        "rows": 19,
-        "datasets_at_floor": 7,
+        "rows": 15,
+        "datasets_at_floor": 6,
         "datasets_total": 15,
-        "coverage_pct": 46.67
+        "coverage_pct": 40.0
       },
       {
         "id": "supply_chain",
         "name": "Supply Chain",
         "priority": 88,
-        "rows": 32,
-        "datasets_at_floor": 7,
+        "rows": 22,
+        "datasets_at_floor": 6,
         "datasets_total": 15,
-        "coverage_pct": 46.67
+        "coverage_pct": 40.0
       },
       {
         "id": "corporate_strategy",
         "name": "Corporate Strategy",
         "priority": 92,
-        "rows": 45,
+        "rows": 43,
+        "datasets_at_floor": 6,
+        "datasets_total": 15,
+        "coverage_pct": 40.0
+      },
+      {
+        "id": "procurement",
+        "name": "Procurement",
+        "priority": 90,
+        "rows": 44,
         "datasets_at_floor": 7,
         "datasets_total": 15,
         "coverage_pct": 46.67
@@ -1790,7 +1799,43 @@
         "id": "logistics",
         "name": "Logistics",
         "priority": 80,
-        "rows": 79,
+        "rows": 57,
+        "datasets_at_floor": 7,
+        "datasets_total": 15,
+        "coverage_pct": 46.67
+      },
+      {
+        "id": "compliance",
+        "name": "Compliance",
+        "priority": 90,
+        "rows": 65,
+        "datasets_at_floor": 7,
+        "datasets_total": 15,
+        "coverage_pct": 46.67
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud",
+        "priority": 80,
+        "rows": 66,
+        "datasets_at_floor": 7,
+        "datasets_total": 15,
+        "coverage_pct": 46.67
+      },
+      {
+        "id": "sales",
+        "name": "Sales",
+        "priority": 86,
+        "rows": 95,
+        "datasets_at_floor": 7,
+        "datasets_total": 15,
+        "coverage_pct": 46.67
+      },
+      {
+        "id": "information_technology",
+        "name": "Information Technology",
+        "priority": 90,
+        "rows": 169,
         "datasets_at_floor": 7,
         "datasets_total": 15,
         "coverage_pct": 46.67
@@ -1799,52 +1844,7 @@
         "id": "esg",
         "name": "ESG",
         "priority": 88,
-        "rows": 44,
-        "datasets_at_floor": 8,
-        "datasets_total": 15,
-        "coverage_pct": 53.33
-      },
-      {
-        "id": "cloud",
-        "name": "Cloud",
-        "priority": 80,
-        "rows": 77,
-        "datasets_at_floor": 8,
-        "datasets_total": 15,
-        "coverage_pct": 53.33
-      },
-      {
-        "id": "compliance",
-        "name": "Compliance",
-        "priority": 90,
-        "rows": 85,
-        "datasets_at_floor": 8,
-        "datasets_total": 15,
-        "coverage_pct": 53.33
-      },
-      {
-        "id": "procurement",
-        "name": "Procurement",
-        "priority": 90,
-        "rows": 94,
-        "datasets_at_floor": 8,
-        "datasets_total": 15,
-        "coverage_pct": 53.33
-      },
-      {
-        "id": "sales",
-        "name": "Sales",
-        "priority": 86,
-        "rows": 120,
-        "datasets_at_floor": 8,
-        "datasets_total": 15,
-        "coverage_pct": 53.33
-      },
-      {
-        "id": "information_technology",
-        "name": "Information Technology",
-        "priority": 90,
-        "rows": 202,
+        "rows": 39,
         "datasets_at_floor": 8,
         "datasets_total": 15,
         "coverage_pct": 53.33
@@ -1853,38 +1853,38 @@
         "id": "finance",
         "name": "Finance",
         "priority": 95,
-        "rows": 112,
-        "datasets_at_floor": 9,
+        "rows": 62,
+        "datasets_at_floor": 8,
         "datasets_total": 15,
-        "coverage_pct": 60.0
+        "coverage_pct": 53.33
       },
       {
         "id": "operations",
         "name": "Operations",
         "priority": 88,
-        "rows": 233,
-        "datasets_at_floor": 9,
+        "rows": 202,
+        "datasets_at_floor": 8,
         "datasets_total": 15,
-        "coverage_pct": 60.0
+        "coverage_pct": 53.33
       },
       {
         "id": "manufacturing",
         "name": "Manufacturing",
         "priority": 90,
-        "rows": 102,
-        "datasets_at_floor": 11,
+        "rows": 84,
+        "datasets_at_floor": 10,
         "datasets_total": 15,
-        "coverage_pct": 73.33
+        "coverage_pct": 66.67
       }
     ],
     "top_growing_function": {
       "id": "operations",
       "name": "Operations",
       "priority": 88,
-      "rows": 233,
-      "datasets_at_floor": 9,
+      "rows": 202,
+      "datasets_at_floor": 8,
       "datasets_total": 15,
-      "coverage_pct": 60.0
+      "coverage_pct": 53.33
     },
     "weakest_function": {
       "id": "pmo",
@@ -1899,310 +1899,310 @@
       {
         "id": "operations",
         "name": "Operations",
-        "rows": 233,
-        "share_pct": 13.75,
+        "rows": 202,
+        "share_pct": 15.63,
         "priority": 88
       },
       {
         "id": "information_technology",
         "name": "Information Technology",
-        "rows": 202,
-        "share_pct": 11.92,
+        "rows": 169,
+        "share_pct": 13.08,
         "priority": 90
       },
       {
         "id": "sales",
         "name": "Sales",
-        "rows": 120,
-        "share_pct": 7.08,
+        "rows": 95,
+        "share_pct": 7.35,
         "priority": 86
-      },
-      {
-        "id": "finance",
-        "name": "Finance",
-        "rows": 112,
-        "share_pct": 6.61,
-        "priority": 95
       },
       {
         "id": "manufacturing",
         "name": "Manufacturing",
-        "rows": 102,
-        "share_pct": 6.02,
+        "rows": 84,
+        "share_pct": 6.5,
         "priority": 90
-      },
-      {
-        "id": "procurement",
-        "name": "Procurement",
-        "rows": 94,
-        "share_pct": 5.55,
-        "priority": 90
-      },
-      {
-        "id": "compliance",
-        "name": "Compliance",
-        "rows": 85,
-        "share_pct": 5.01,
-        "priority": 90
-      },
-      {
-        "id": "logistics",
-        "name": "Logistics",
-        "rows": 79,
-        "share_pct": 4.66,
-        "priority": 80
       },
       {
         "id": "cloud",
         "name": "Cloud",
-        "rows": 77,
-        "share_pct": 4.54,
+        "rows": 66,
+        "share_pct": 5.11,
         "priority": 80
+      },
+      {
+        "id": "compliance",
+        "name": "Compliance",
+        "rows": 65,
+        "share_pct": 5.03,
+        "priority": 90
+      },
+      {
+        "id": "finance",
+        "name": "Finance",
+        "rows": 62,
+        "share_pct": 4.8,
+        "priority": 95
+      },
+      {
+        "id": "logistics",
+        "name": "Logistics",
+        "rows": 57,
+        "share_pct": 4.41,
+        "priority": 80
+      },
+      {
+        "id": "procurement",
+        "name": "Procurement",
+        "rows": 44,
+        "share_pct": 3.41,
+        "priority": 90
       },
       {
         "id": "corporate_strategy",
         "name": "Corporate Strategy",
-        "rows": 45,
-        "share_pct": 2.65,
+        "rows": 43,
+        "share_pct": 3.33,
         "priority": 92
-      },
-      {
-        "id": "customer_success",
-        "name": "Customer Success",
-        "rows": 45,
-        "share_pct": 2.65,
-        "priority": 80
       },
       {
         "id": "esg",
         "name": "ESG",
-        "rows": 44,
-        "share_pct": 2.6,
+        "rows": 39,
+        "share_pct": 3.02,
         "priority": 88
+      },
+      {
+        "id": "customer_success",
+        "name": "Customer Success",
+        "rows": 32,
+        "share_pct": 2.48,
+        "priority": 80
       },
       {
         "id": "learning_development",
         "name": "Learning & Development",
-        "rows": 37,
-        "share_pct": 2.18,
+        "rows": 32,
+        "share_pct": 2.48,
         "priority": 74
       },
       {
         "id": "production",
         "name": "Production",
-        "rows": 34,
-        "share_pct": 2.01,
+        "rows": 23,
+        "share_pct": 1.78,
         "priority": 82
       },
       {
         "id": "supply_chain",
         "name": "Supply Chain",
-        "rows": 32,
-        "share_pct": 1.89,
+        "rows": 22,
+        "share_pct": 1.7,
         "priority": 88
       },
       {
         "id": "marketing",
         "name": "Marketing",
-        "rows": 32,
-        "share_pct": 1.89,
+        "rows": 22,
+        "share_pct": 1.7,
         "priority": 84
-      },
-      {
-        "id": "infrastructure",
-        "name": "Infrastructure",
-        "rows": 31,
-        "share_pct": 1.83,
-        "priority": 78
       },
       {
         "id": "cyber_security",
         "name": "Cyber Security",
-        "rows": 26,
-        "share_pct": 1.53,
+        "rows": 21,
+        "share_pct": 1.63,
         "priority": 94
       },
       {
-        "id": "business_development",
-        "name": "Business Development",
-        "rows": 22,
-        "share_pct": 1.3,
-        "priority": 88
-      },
-      {
-        "id": "health_safety_environment",
-        "name": "Health Safety Environment",
-        "rows": 22,
-        "share_pct": 1.3,
-        "priority": 84
+        "id": "infrastructure",
+        "name": "Infrastructure",
+        "rows": 19,
+        "share_pct": 1.47,
+        "priority": 78
       },
       {
         "id": "administration",
         "name": "Administration",
-        "rows": 20,
-        "share_pct": 1.18,
-        "priority": 60
-      },
-      {
-        "id": "warehouse",
-        "name": "Warehouse",
-        "rows": 19,
-        "share_pct": 1.12,
-        "priority": 70
-      },
-      {
-        "id": "legal",
-        "name": "Legal",
         "rows": 18,
-        "share_pct": 1.06,
-        "priority": 88
+        "share_pct": 1.39,
+        "priority": 60
       },
       {
         "id": "accounting",
         "name": "Accounting",
-        "rows": 16,
-        "share_pct": 0.94,
+        "rows": 15,
+        "share_pct": 1.16,
         "priority": 82
+      },
+      {
+        "id": "warehouse",
+        "name": "Warehouse",
+        "rows": 15,
+        "share_pct": 1.16,
+        "priority": 70
       },
       {
         "id": "human_resources",
         "name": "Human Resources",
-        "rows": 15,
-        "share_pct": 0.88,
+        "rows": 14,
+        "share_pct": 1.08,
         "priority": 90
       },
       {
-        "id": "treasury",
-        "name": "Treasury",
-        "rows": 15,
-        "share_pct": 0.88,
-        "priority": 78
+        "id": "business_development",
+        "name": "Business Development",
+        "rows": 12,
+        "share_pct": 0.93,
+        "priority": 88
+      },
+      {
+        "id": "legal",
+        "name": "Legal",
+        "rows": 12,
+        "share_pct": 0.93,
+        "priority": 88
       },
       {
         "id": "customer_service",
         "name": "Customer Service",
-        "rows": 15,
-        "share_pct": 0.88,
-        "priority": 78
-      },
-      {
-        "id": "payroll",
-        "name": "Payroll",
         "rows": 11,
-        "share_pct": 0.65,
-        "priority": 70
+        "share_pct": 0.85,
+        "priority": 78
       },
       {
         "id": "internal_audit",
         "name": "Internal Audit",
         "rows": 10,
-        "share_pct": 0.59,
+        "share_pct": 0.77,
         "priority": 76
+      },
+      {
+        "id": "payroll",
+        "name": "Payroll",
+        "rows": 10,
+        "share_pct": 0.77,
+        "priority": 70
+      },
+      {
+        "id": "health_safety_environment",
+        "name": "Health Safety Environment",
+        "rows": 9,
+        "share_pct": 0.7,
+        "priority": 84
       },
       {
         "id": "data_engineering",
         "name": "Data Engineering",
-        "rows": 8,
-        "share_pct": 0.47,
+        "rows": 7,
+        "share_pct": 0.54,
         "priority": 80
       },
       {
         "id": "project_management",
         "name": "Project Management",
-        "rows": 8,
-        "share_pct": 0.47,
+        "rows": 7,
+        "share_pct": 0.54,
         "priority": 78
       },
       {
         "id": "general_affairs",
         "name": "General Affairs",
-        "rows": 8,
-        "share_pct": 0.47,
+        "rows": 7,
+        "share_pct": 0.54,
         "priority": 62
       },
       {
         "id": "risk_management",
         "name": "Risk Management",
-        "rows": 7,
-        "share_pct": 0.41,
+        "rows": 6,
+        "share_pct": 0.46,
         "priority": 92
-      },
-      {
-        "id": "tax",
-        "name": "Tax",
-        "rows": 7,
-        "share_pct": 0.41,
-        "priority": 85
       },
       {
         "id": "software_engineering",
         "name": "Software Engineering",
-        "rows": 7,
-        "share_pct": 0.41,
-        "priority": 82
-      },
-      {
-        "id": "research_development",
-        "name": "Research & Development",
-        "rows": 7,
-        "share_pct": 0.41,
+        "rows": 6,
+        "share_pct": 0.46,
         "priority": 82
       },
       {
         "id": "recruitment",
         "name": "Recruitment",
-        "rows": 7,
-        "share_pct": 0.41,
+        "rows": 6,
+        "share_pct": 0.46,
         "priority": 80
       },
       {
-        "id": "quality_control",
-        "name": "Quality Control",
+        "id": "treasury",
+        "name": "Treasury",
         "rows": 6,
-        "share_pct": 0.35,
-        "priority": 74
+        "share_pct": 0.46,
+        "priority": 78
       },
       {
-        "id": "quality_assurance",
-        "name": "Quality Assurance",
+        "id": "tax",
+        "name": "Tax",
         "rows": 5,
-        "share_pct": 0.29,
-        "priority": 76
+        "share_pct": 0.39,
+        "priority": 85
       },
       {
         "id": "business_intelligence",
         "name": "Business Intelligence",
         "rows": 4,
-        "share_pct": 0.24,
+        "share_pct": 0.31,
         "priority": 78
+      },
+      {
+        "id": "quality_assurance",
+        "name": "Quality Assurance",
+        "rows": 4,
+        "share_pct": 0.31,
+        "priority": 76
+      },
+      {
+        "id": "quality_control",
+        "name": "Quality Control",
+        "rows": 3,
+        "share_pct": 0.23,
+        "priority": 74
       },
       {
         "id": "ai",
         "name": "AI",
-        "rows": 3,
-        "share_pct": 0.18,
+        "rows": 2,
+        "share_pct": 0.15,
         "priority": 86
       },
       {
-        "id": "investor_relations",
-        "name": "Investor Relations",
+        "id": "research_development",
+        "name": "Research & Development",
         "rows": 2,
-        "share_pct": 0.12,
-        "priority": 80
+        "share_pct": 0.15,
+        "priority": 82
       },
       {
         "id": "industrial_relations",
         "name": "Industrial Relations",
         "rows": 2,
-        "share_pct": 0.12,
+        "share_pct": 0.15,
         "priority": 76
       },
       {
         "id": "corporate_governance",
         "name": "Corporate Governance",
         "rows": 1,
-        "share_pct": 0.06,
+        "share_pct": 0.08,
         "priority": 84
+      },
+      {
+        "id": "investor_relations",
+        "name": "Investor Relations",
+        "rows": 1,
+        "share_pct": 0.08,
+        "priority": 80
       },
       {
         "id": "pmo",
@@ -2251,6 +2251,16 @@
         "enterprise_function": "finance",
         "function_name": "Finance",
         "dataset": "decision_maker_library",
+        "current_rows": 0,
+        "gap_floor": 2,
+        "gap": 2,
+        "business_priority": 95,
+        "gap_score": 59.5
+      },
+      {
+        "enterprise_function": "finance",
+        "function_name": "Finance",
+        "dataset": "industry_library",
         "current_rows": 0,
         "gap_floor": 2,
         "gap": 2,
@@ -2311,6 +2321,16 @@
         "enterprise_function": "cyber_security",
         "function_name": "Cyber Security",
         "dataset": "decision_maker_library",
+        "current_rows": 0,
+        "gap_floor": 2,
+        "gap": 2,
+        "business_priority": 94,
+        "gap_score": 59.4
+      },
+      {
+        "enterprise_function": "cyber_security",
+        "function_name": "Cyber Security",
+        "dataset": "industry_library",
         "current_rows": 0,
         "gap_floor": 2,
         "gap": 2,
@@ -2431,6 +2451,16 @@
         "enterprise_function": "risk_management",
         "function_name": "Risk Management",
         "dataset": "decision_maker_library",
+        "current_rows": 0,
+        "gap_floor": 2,
+        "gap": 2,
+        "business_priority": 92,
+        "gap_score": 59.2
+      },
+      {
+        "enterprise_function": "risk_management",
+        "function_name": "Risk Management",
+        "dataset": "industry_library",
         "current_rows": 0,
         "gap_floor": 2,
         "gap": 2,
@@ -2520,6 +2550,16 @@
       {
         "enterprise_function": "compliance",
         "function_name": "Compliance",
+        "dataset": "industry_library",
+        "current_rows": 0,
+        "gap_floor": 2,
+        "gap": 2,
+        "business_priority": 90,
+        "gap_score": 59.0
+      },
+      {
+        "enterprise_function": "compliance",
+        "function_name": "Compliance",
         "dataset": "regulation_library",
         "current_rows": 0,
         "gap_floor": 2,
@@ -2586,46 +2626,6 @@
         "gap": 2,
         "business_priority": 90,
         "gap_score": 59.0
-      },
-      {
-        "enterprise_function": "human_resources",
-        "function_name": "Human Resources",
-        "dataset": "framework_library",
-        "current_rows": 0,
-        "gap_floor": 2,
-        "gap": 2,
-        "business_priority": 90,
-        "gap_score": 59.0
-      },
-      {
-        "enterprise_function": "human_resources",
-        "function_name": "Human Resources",
-        "dataset": "regulation_library",
-        "current_rows": 0,
-        "gap_floor": 2,
-        "gap": 2,
-        "business_priority": 90,
-        "gap_score": 59.0
-      },
-      {
-        "enterprise_function": "human_resources",
-        "function_name": "Human Resources",
-        "dataset": "risk_library",
-        "current_rows": 0,
-        "gap_floor": 2,
-        "gap": 2,
-        "business_priority": 90,
-        "gap_score": 59.0
-      },
-      {
-        "enterprise_function": "human_resources",
-        "function_name": "Human Resources",
-        "dataset": "trend_library",
-        "current_rows": 0,
-        "gap_floor": 2,
-        "gap": 2,
-        "business_priority": 90,
-        "gap_score": 59.0
       }
     ],
     "weakest_cell": {
@@ -2638,7 +2638,7 @@
       "business_priority": 95,
       "gap_score": 59.5
     },
-    "unclassified_rows": 43,
-    "labeled_assignments": 1695
+    "unclassified_rows": 45,
+    "labeled_assignments": 1292
   }
 }

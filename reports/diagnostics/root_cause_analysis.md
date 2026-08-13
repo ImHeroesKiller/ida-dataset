@@ -1,14 +1,14 @@
 # Root Cause Analysis
 
-**Generated:** 2026-08-12T23:00:21+00:00
-**Session:** `SESSION-20260812-9086C4`
-**Mission:** `MIS-20260812-5DD08C`
+**Generated:** 2026-08-13T00:05:10+00:00
+**Session:** `SESSION-20260812-299AA2`
+**Mission:** `MIS-20260812-BB1FF2`
 
 > Diagnostics only. No fixes. Evidence only.
 
 ## Why no new rows?
 
-Latest evidence shows published=5; zero-row claim may refer to a later window.
+Latest evidence shows published=14; zero-row claim may refer to a later window.
 
 ## Exactly which stage stopped production?
 
@@ -24,23 +24,23 @@ Latest evidence shows published=5; zero-row claim may refer to a later window.
 
 ## What evidence proves it?
 
-- published=5
-- extracted=5
-- discovered=31 downloaded=62 duplicates=35
+- published=14
+- extracted=40
+- discovered=31 downloaded=51 duplicates=16
 
 ## Metrics snapshot
 
 ```json
 {
   "documents_discovered": 31,
-  "documents_downloaded": 62,
-  "documents_duplicates": 35,
-  "candidates_extracted": 5,
-  "candidates_rejected": 0,
-  "rows_published": 5,
+  "documents_downloaded": 51,
+  "documents_duplicates": 16,
+  "candidates_extracted": 40,
+  "candidates_rejected": 26,
+  "rows_published": 14,
   "dry_run": false,
-  "fingerprint_urls_known": 90,
-  "selected_dataset": "service_library"
+  "fingerprint_urls_known": 67,
+  "selected_dataset": "industry_library"
 }
 ```
 
@@ -49,15 +49,15 @@ Latest evidence shows published=5; zero-row claim may refer to a later window.
 
 Session published rows; if overnight gap exists, examine later sessions.
 
-- `published=5`
-- `extracted=5`
-- `discovered=31 downloaded=62 duplicates=35`
+- `published=14`
+- `extracted=40`
+- `discovered=31 downloaded=51 duplicates=16`
 
 ### Finding 2
 
 Mission selection outcome (context).
 
-- `selected_dataset=service_library`
-- `score=2137.87`
-- `reason=mode=BOOTSTRAP · gap_score=112.922 · stretch_cov=0.1% · priority=95 · deps_met · sources=13 · continuous=true`
-- `instruction=corporate governance — service knowledge for Corporate Governance — continuous knowledge manufacturing for service_library across enterprise function Corporate Governance (function_gap=58.4; not BD-only); dataset_gap=112.922; mode=BOOTSTRAP`
+- `selected_dataset=industry_library`
+- `score=1904.83`
+- `reason=mode=BOOTSTRAP · gap_score=87.823 · stretch_cov=0.3% · priority=100 · deps_met · sources=13 · continuous=true`
+- `instruction=procurement — industry knowledge for Procurement — continuous knowledge manufacturing for industry_library across enterprise function Procurement (function_gap=59.0; not BD-only); dataset_gap=87.823; mode=BOOTSTRAP`
