@@ -9,6 +9,6 @@
 | Documents/hour | 150.16 |
 | Candidates/hour | 112.62 |
 | Growth velocity (rows/day) | 82.71 |
-| Sessions 24h | 16 |
+| Sessions 24h | 17 |
 | Rows this week | 579 |
 | Rows this month | 1051 |

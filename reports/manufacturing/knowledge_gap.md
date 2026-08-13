@@ -1,6 +1,6 @@
 # Knowledge Gap
 
-**Generated:** 2026-08-13T00:15:51+00:00
+**Generated:** 2026-08-13T00:22:59+00:00
 **Mode:** BOOTSTRAP — empty_or_below_minimum_datasets
 
 Multi-dimensional gaps (not coverage-only).

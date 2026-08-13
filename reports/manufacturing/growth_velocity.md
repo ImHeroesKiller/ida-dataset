@@ -10,10 +10,10 @@
   "rows_today_approx": 89,
   "rows_this_week": 579,
   "rows_this_month": 1051,
-  "sessions_last_hour": 1,
-  "sessions_24h": 16,
-  "sessions_7d": 114,
-  "sessions_30d": 209,
+  "sessions_last_hour": 2,
+  "sessions_24h": 17,
+  "sessions_7d": 115,
+  "sessions_30d": 210,
   "rows_per_hour": 41.22,
   "rows_per_day": 989.28,
   "rows_per_week": 6924.96,
@@ -30,7 +30,7 @@
     "documents_per_second": 0.042,
     "rows_per_second": 0.011
   },
-  "mission_throughput_sessions_24h": 16,
+  "mission_throughput_sessions_24h": 17,
   "growth_velocity_rows_per_day": 82.71
 }
 ```
