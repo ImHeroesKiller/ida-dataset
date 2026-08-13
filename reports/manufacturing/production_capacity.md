@@ -2,13 +2,13 @@
 
 | Metric | Value |
 |--------|------:|
-| Rows/hour | 22.93 |
-| Rows/day | 550.32 |
-| Rows/week | 3852.24 |
-| Rows/month | 16509.6 |
-| Documents/hour | 142.14 |
-| Candidates/hour | 106.6 |
-| Growth velocity (rows/day) | 89.86 |
+| Rows/hour | 23.22 |
+| Rows/day | 557.28 |
+| Rows/week | 3900.96 |
+| Rows/month | 16718.4 |
+| Documents/hour | 195.01 |
+| Candidates/hour | 146.26 |
+| Growth velocity (rows/day) | 90.57 |
 | Sessions 24h | 21 |
-| Rows this week | 629 |
-| Rows this month | 1029 |
+| Rows this week | 634 |
+| Rows this month | 1034 |
