@@ -2,50 +2,50 @@
 
 | Function | Rows | Datasets at floor | Coverage % | Priority |
 |----------|------|-------------------|------------|----------|
+| Finance | 0 | 0/15 | 0.0% | 95 |
+| Cyber Security | 0 | 0/15 | 0.0% | 94 |
+| Risk Management | 0 | 0/15 | 0.0% | 92 |
+| Procurement | 0 | 0/15 | 0.0% | 90 |
+| Human Resources | 0 | 0/15 | 0.0% | 90 |
+| Compliance | 0 | 0/15 | 0.0% | 90 |
+| Information Technology | 0 | 0/15 | 0.0% | 90 |
+| Business Development | 0 | 0/15 | 0.0% | 88 |
+| Operations | 0 | 0/15 | 0.0% | 88 |
+| Legal | 0 | 0/15 | 0.0% | 88 |
+| Sales | 0 | 0/15 | 0.0% | 86 |
+| AI | 0 | 0/15 | 0.0% | 86 |
+| Tax | 0 | 0/15 | 0.0% | 85 |
+| Marketing | 0 | 0/15 | 0.0% | 84 |
+| Corporate Governance | 0 | 0/15 | 0.0% | 84 |
+| Health Safety Environment | 0 | 0/15 | 0.0% | 84 |
+| Accounting | 0 | 0/15 | 0.0% | 82 |
+| Production | 0 | 0/15 | 0.0% | 82 |
+| Software Engineering | 0 | 0/15 | 0.0% | 82 |
+| Customer Success | 0 | 0/15 | 0.0% | 80 |
+| Recruitment | 0 | 0/15 | 0.0% | 80 |
+| Cloud | 0 | 0/15 | 0.0% | 80 |
+| Data Engineering | 0 | 0/15 | 0.0% | 80 |
+| Investor Relations | 0 | 0/15 | 0.0% | 80 |
+| Treasury | 0 | 0/15 | 0.0% | 78 |
+| Project Management | 0 | 0/15 | 0.0% | 78 |
+| Infrastructure | 0 | 0/15 | 0.0% | 78 |
+| Business Intelligence | 0 | 0/15 | 0.0% | 78 |
+| Customer Service | 0 | 0/15 | 0.0% | 78 |
+| Internal Audit | 0 | 0/15 | 0.0% | 76 |
+| Industrial Relations | 0 | 0/15 | 0.0% | 76 |
+| Quality Assurance | 0 | 0/15 | 0.0% | 76 |
+| Learning & Development | 0 | 0/15 | 0.0% | 74 |
+| Quality Control | 0 | 0/15 | 0.0% | 74 |
 | PMO | 0 | 0/15 | 0.0% | 72 |
 | Public Relations | 0 | 0/15 | 0.0% | 72 |
+| Warehouse | 0 | 0/15 | 0.0% | 70 |
+| Payroll | 0 | 0/15 | 0.0% | 70 |
 | Field Service | 0 | 0/15 | 0.0% | 70 |
-| Corporate Governance | 1 | 0/15 | 0.0% | 84 |
-| Investor Relations | 1 | 0/15 | 0.0% | 80 |
-| AI | 2 | 0/15 | 0.0% | 86 |
-| Research & Development | 2 | 0/15 | 0.0% | 82 |
-| Industrial Relations | 2 | 0/15 | 0.0% | 76 |
-| Quality Control | 3 | 1/15 | 6.67% | 74 |
-| Business Intelligence | 4 | 1/15 | 6.67% | 78 |
-| Quality Assurance | 4 | 1/15 | 6.67% | 76 |
-| Tax | 5 | 1/15 | 6.67% | 85 |
-| Risk Management | 6 | 1/15 | 6.67% | 92 |
-| Software Engineering | 6 | 1/15 | 6.67% | 82 |
-| Recruitment | 6 | 1/15 | 6.67% | 80 |
-| Data Engineering | 7 | 1/15 | 6.67% | 80 |
-| Treasury | 6 | 2/15 | 13.33% | 78 |
-| Project Management | 7 | 2/15 | 13.33% | 78 |
-| General Affairs | 7 | 2/15 | 13.33% | 62 |
-| Health Safety Environment | 9 | 2/15 | 13.33% | 84 |
-| Internal Audit | 10 | 2/15 | 13.33% | 76 |
-| Payroll | 10 | 2/15 | 13.33% | 70 |
-| Customer Service | 11 | 2/15 | 13.33% | 78 |
-| Human Resources | 14 | 3/15 | 20.0% | 90 |
-| Accounting | 15 | 3/15 | 20.0% | 82 |
-| Infrastructure | 19 | 3/15 | 20.0% | 78 |
-| Marketing | 22 | 3/15 | 20.0% | 84 |
-| Business Development | 12 | 4/15 | 26.67% | 88 |
-| Legal | 12 | 4/15 | 26.67% | 88 |
-| Production | 23 | 4/15 | 26.67% | 82 |
-| Administration | 18 | 5/15 | 33.33% | 60 |
-| Cyber Security | 21 | 5/15 | 33.33% | 94 |
-| Customer Success | 32 | 5/15 | 33.33% | 80 |
-| Learning & Development | 32 | 5/15 | 33.33% | 74 |
-| Warehouse | 15 | 6/15 | 40.0% | 70 |
-| Supply Chain | 22 | 6/15 | 40.0% | 88 |
-| Corporate Strategy | 43 | 6/15 | 40.0% | 92 |
-| Procurement | 44 | 7/15 | 46.67% | 90 |
-| Logistics | 57 | 7/15 | 46.67% | 80 |
-| Compliance | 65 | 7/15 | 46.67% | 90 |
-| Cloud | 66 | 7/15 | 46.67% | 80 |
-| Sales | 95 | 7/15 | 46.67% | 86 |
-| Information Technology | 169 | 7/15 | 46.67% | 90 |
-| ESG | 39 | 8/15 | 53.33% | 88 |
-| Finance | 62 | 8/15 | 53.33% | 95 |
-| Operations | 202 | 8/15 | 53.33% | 88 |
-| Manufacturing | 84 | 10/15 | 66.67% | 90 |
+| General Affairs | 0 | 0/15 | 0.0% | 62 |
+| Administration | 0 | 0/15 | 0.0% | 60 |
+| Corporate Strategy | 1 | 0/15 | 0.0% | 92 |
+| Manufacturing | 1 | 0/15 | 0.0% | 90 |
+| Supply Chain | 1 | 0/15 | 0.0% | 88 |
+| Research & Development | 1 | 0/15 | 0.0% | 82 |
+| Logistics | 2 | 1/15 | 6.67% | 80 |
+| ESG | 5 | 1/15 | 6.67% | 88 |

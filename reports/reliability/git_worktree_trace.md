@@ -128419,3 +128419,106 @@ reports/reliability/writer_finalize.json
  94 files changed, 8647 insertions(+), 4064 deletions(-)
 ```
 
+## pre_acquire
+
+- **time:** 2026-08-13T00:15:49Z
+- **dirty_count:** 0
+
+### status --porcelain=v1
+
+```
+(empty)
+```
+
+### diff --name-only
+
+```
+(empty)
+```
+
+### diff --stat
+
+```
+(empty)
+```
+
+## post_session_pre_commit
+
+- **time:** 2026-08-13T00:15:53Z
+- **dirty_count:** 21
+
+### status --porcelain=v1
+
+```
+ M automation/learning/state/current_snapshot.json
+ M automation/learning/state/learning_journal.jsonl
+ M automation/learning/state/live_activity.json
+ M automation/learning/state/manufacturing_state.json
+ M automation/learning/state/snapshot_2026-08-13.json
+ M automation/learning/state/source_health.json
+ M automation/sessions/index.json
+ M reports/enterprise/coverage_by_function.md
+ M reports/enterprise/dataset_function_matrix.md
+ M reports/enterprise/enterprise_state.json
+ M reports/enterprise/knowledge_gap_by_function.md
+ M reports/enterprise/production_distribution.md
+ M reports/manufacturing/continuous_production.md
+ M reports/manufacturing/growth_velocity.md
+ M reports/manufacturing/knowledge_gap.md
+ M reports/manufacturing/knowledge_universe.md
+ M reports/manufacturing/scheduler_decisions.md
+ M reports/reliability/git_worktree_trace.md
+ M reports/reliability/writer_finalize.json
+?? automation/learning/state/sessions/SES-20260813-0BD3E5.jsonl
+?? automation/sessions/2026-08-13/
+```
+
+### diff --name-only
+
+```
+automation/learning/state/current_snapshot.json
+automation/learning/state/learning_journal.jsonl
+automation/learning/state/live_activity.json
+automation/learning/state/manufacturing_state.json
+automation/learning/state/snapshot_2026-08-13.json
+automation/learning/state/source_health.json
+automation/sessions/index.json
+reports/enterprise/coverage_by_function.md
+reports/enterprise/dataset_function_matrix.md
+reports/enterprise/enterprise_state.json
+reports/enterprise/knowledge_gap_by_function.md
+reports/enterprise/production_distribution.md
+reports/manufacturing/continuous_production.md
+reports/manufacturing/growth_velocity.md
+reports/manufacturing/knowledge_gap.md
+reports/manufacturing/knowledge_universe.md
+reports/manufacturing/scheduler_decisions.md
+reports/reliability/git_worktree_trace.md
+reports/reliability/writer_finalize.json
+```
+
+### diff --stat
+
+```
+ automation/learning/state/current_snapshot.json    |   75 +-
+ automation/learning/state/learning_journal.jsonl   |   10 +
+ automation/learning/state/live_activity.json       |   34 +-
+ automation/learning/state/manufacturing_state.json | 2666 ++++++++++----------
+ automation/learning/state/snapshot_2026-08-13.json |   75 +-
+ automation/learning/state/source_health.json       |    2 +-
+ automation/sessions/index.json                     |   58 +-
+ reports/enterprise/coverage_by_function.md         |   88 +-
+ reports/enterprise/dataset_function_matrix.md      |   46 +-
+ reports/enterprise/enterprise_state.json           | 1450 +++++------
+ reports/enterprise/knowledge_gap_by_function.md    |   78 +-
+ reports/enterprise/production_distribution.md      |   94 +-
+ reports/manufacturing/continuous_production.md     |    4 +-
+ reports/manufacturing/growth_velocity.md           |    2 +-
+ reports/manufacturing/knowledge_gap.md             |   34 +-
+ reports/manufacturing/knowledge_universe.md        |   32 +-
+ reports/manufacturing/scheduler_decisions.md       |   16 +-
+ reports/reliability/git_worktree_trace.md          |   23 +
+ reports/reliability/writer_finalize.json           |    4 +-
+ 19 files changed, 2435 insertions(+), 2356 deletions(-)
+```
+

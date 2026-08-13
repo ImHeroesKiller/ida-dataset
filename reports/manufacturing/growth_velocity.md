@@ -2,7 +2,7 @@
 
 - Growth velocity: **82.71** rows/day
 - Coverage velocity: **989.28** rows/day capacity
-- Knowledge produced (all datasets): **2496**
+- Knowledge produced (all datasets): **14**
 
 ```json
 {

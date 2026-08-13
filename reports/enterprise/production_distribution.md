@@ -1,60 +1,60 @@
 # Production Distribution by Enterprise Function
 
-Top function (volume): **Operations** (202 labeled rows)
+Top function (volume): **ESG** (5 labeled rows)
 
-Weakest function (volume): **PMO** (0 labeled rows)
+Weakest function (volume): **Finance** (0 labeled rows)
 
-Unclassified rows (no keyword hit): **45**
+Unclassified rows (no keyword hit): **8**
 
 | Function | Rows | Share % | Priority |
 |----------|------|---------|----------|
-| Operations | 202 | 15.63% | 88 |
-| Information Technology | 169 | 13.08% | 90 |
-| Sales | 95 | 7.35% | 86 |
-| Manufacturing | 84 | 6.5% | 90 |
-| Cloud | 66 | 5.11% | 80 |
-| Compliance | 65 | 5.03% | 90 |
-| Finance | 62 | 4.8% | 95 |
-| Logistics | 57 | 4.41% | 80 |
-| Procurement | 44 | 3.41% | 90 |
-| Corporate Strategy | 43 | 3.33% | 92 |
-| ESG | 39 | 3.02% | 88 |
-| Customer Success | 32 | 2.48% | 80 |
-| Learning & Development | 32 | 2.48% | 74 |
-| Production | 23 | 1.78% | 82 |
-| Supply Chain | 22 | 1.7% | 88 |
-| Marketing | 22 | 1.7% | 84 |
-| Cyber Security | 21 | 1.63% | 94 |
-| Infrastructure | 19 | 1.47% | 78 |
-| Administration | 18 | 1.39% | 60 |
-| Accounting | 15 | 1.16% | 82 |
-| Warehouse | 15 | 1.16% | 70 |
-| Human Resources | 14 | 1.08% | 90 |
-| Business Development | 12 | 0.93% | 88 |
-| Legal | 12 | 0.93% | 88 |
-| Customer Service | 11 | 0.85% | 78 |
-| Internal Audit | 10 | 0.77% | 76 |
-| Payroll | 10 | 0.77% | 70 |
-| Health Safety Environment | 9 | 0.7% | 84 |
-| Data Engineering | 7 | 0.54% | 80 |
-| Project Management | 7 | 0.54% | 78 |
-| General Affairs | 7 | 0.54% | 62 |
-| Risk Management | 6 | 0.46% | 92 |
-| Software Engineering | 6 | 0.46% | 82 |
-| Recruitment | 6 | 0.46% | 80 |
-| Treasury | 6 | 0.46% | 78 |
-| Tax | 5 | 0.39% | 85 |
-| Business Intelligence | 4 | 0.31% | 78 |
-| Quality Assurance | 4 | 0.31% | 76 |
-| Quality Control | 3 | 0.23% | 74 |
-| AI | 2 | 0.15% | 86 |
-| Research & Development | 2 | 0.15% | 82 |
-| Industrial Relations | 2 | 0.15% | 76 |
-| Corporate Governance | 1 | 0.08% | 84 |
-| Investor Relations | 1 | 0.08% | 80 |
+| ESG | 5 | 45.45% | 88 |
+| Logistics | 2 | 18.18% | 80 |
+| Corporate Strategy | 1 | 9.09% | 92 |
+| Manufacturing | 1 | 9.09% | 90 |
+| Supply Chain | 1 | 9.09% | 88 |
+| Research & Development | 1 | 9.09% | 82 |
+| Finance | 0 | 0.0% | 95 |
+| Cyber Security | 0 | 0.0% | 94 |
+| Risk Management | 0 | 0.0% | 92 |
+| Procurement | 0 | 0.0% | 90 |
+| Human Resources | 0 | 0.0% | 90 |
+| Compliance | 0 | 0.0% | 90 |
+| Information Technology | 0 | 0.0% | 90 |
+| Business Development | 0 | 0.0% | 88 |
+| Operations | 0 | 0.0% | 88 |
+| Legal | 0 | 0.0% | 88 |
+| Sales | 0 | 0.0% | 86 |
+| AI | 0 | 0.0% | 86 |
+| Tax | 0 | 0.0% | 85 |
+| Marketing | 0 | 0.0% | 84 |
+| Corporate Governance | 0 | 0.0% | 84 |
+| Health Safety Environment | 0 | 0.0% | 84 |
+| Accounting | 0 | 0.0% | 82 |
+| Production | 0 | 0.0% | 82 |
+| Software Engineering | 0 | 0.0% | 82 |
+| Customer Success | 0 | 0.0% | 80 |
+| Recruitment | 0 | 0.0% | 80 |
+| Cloud | 0 | 0.0% | 80 |
+| Data Engineering | 0 | 0.0% | 80 |
+| Investor Relations | 0 | 0.0% | 80 |
+| Treasury | 0 | 0.0% | 78 |
+| Project Management | 0 | 0.0% | 78 |
+| Infrastructure | 0 | 0.0% | 78 |
+| Business Intelligence | 0 | 0.0% | 78 |
+| Customer Service | 0 | 0.0% | 78 |
+| Internal Audit | 0 | 0.0% | 76 |
+| Industrial Relations | 0 | 0.0% | 76 |
+| Quality Assurance | 0 | 0.0% | 76 |
+| Learning & Development | 0 | 0.0% | 74 |
+| Quality Control | 0 | 0.0% | 74 |
 | PMO | 0 | 0.0% | 72 |
 | Public Relations | 0 | 0.0% | 72 |
+| Warehouse | 0 | 0.0% | 70 |
+| Payroll | 0 | 0.0% | 70 |
 | Field Service | 0 | 0.0% | 70 |
+| General Affairs | 0 | 0.0% | 62 |
+| Administration | 0 | 0.0% | 60 |
 
 ## Manufacturing policy
 

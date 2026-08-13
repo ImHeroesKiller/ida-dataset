@@ -4,14 +4,14 @@ Manufacturing controller proposals (highest-value knowledge demand).
 
 | # | Mode | Dataset | Title | Gap score | Universe rem. |
 |--:|------|---------|-------|----------:|--------------:|
-| 1 | BOOTSTRAP | discovery_question_library | corporate strategy — discovery question knowledge for Corporate Strategy | 125.25 | 6600 |
-| 2 | BOOTSTRAP | service_library | corporate governance — service knowledge for Corporate Governance | 112.922 | 49935 |
-| 3 | BOOTSTRAP | company_profile | health safety environment — company profile knowledge for Health Safety Environment | 89.563 | 99914 |
-| 4 | BOOTSTRAP | competitor_library | business development — competitor knowledge for Business Development | 89.305 | 19994 |
-| 5 | BOOTSTRAP | product_catalog | tax compliance — product catalog knowledge for Tax | 88.606 | 49942 |
-| 6 | BOOTSTRAP | pain_point_library | accounting standards — pain point knowledge for Accounting | 88.031 | 29942 |
-| 7 | BOOTSTRAP | industry_library | procurement — industry knowledge for Procurement | 87.823 | 6586 |
-| 8 | BOOTSTRAP | buyer_persona_library | Chief Compliance Officer — Compliance (buyer persona library) | 83.547 | 6596 |
+| 1 | BOOTSTRAP | company_profile | corporate finance — company profile knowledge for Finance | 134.25 | 100000 |
+| 2 | BOOTSTRAP | solution_library | corporate finance — solution knowledge for Finance | 133.5 | 30000 |
+| 3 | BOOTSTRAP | pain_point_library | corporate finance — pain point knowledge for Finance | 132.75 | 30000 |
+| 4 | BOOTSTRAP | case_study_library | corporate finance — case study knowledge for Finance | 132.75 | 10000 |
+| 5 | BOOTSTRAP | opportunity_analysis | corporate finance — opportunity analysis knowledge for Finance | 131.25 | 20000 |
+| 6 | BOOTSTRAP | competitor_library | corporate finance — competitor knowledge for Finance | 129.75 | 20000 |
+| 7 | BOOTSTRAP | buyer_persona_library | CFO — Finance (buyer persona library) | 129.75 | 6600 |
+| 8 | BOOTSTRAP | product_catalog | corporate finance — product catalog knowledge for Finance | 125.25 | 50000 |
 
 ## Decision chain
 
