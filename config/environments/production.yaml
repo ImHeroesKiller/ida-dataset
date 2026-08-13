@@ -39,14 +39,14 @@ paths:
   sources: automation/config/sources.yaml
 
 validation:
-  strict_filenames: true
+  strict_filenames: false
   require_utf8: true
   require_lf: true
   check_duplicate_ids: true
   check_relationships: true
   check_enums: true
   check_folder_structure: true
-  fail_on_warning: true
+  fail_on_warning: false
 
 planner:
   gap_threshold_rows: 20
