@@ -29,9 +29,9 @@ Nothing else.
 
 ## 2. Permanent production sequence
 
-Authoritative graph: [DATASET_DEPENDENCY_MATRIX.md](./DATASET_DEPENDENCY_MATRIX.md)  
-Batch catalog: [PRODUCTION_BATCH_LIBRARY.md](./PRODUCTION_BATCH_LIBRARY.md)  
-Operating procedure: [DATASET_PRODUCTION_STANDARD.md](./DATASET_PRODUCTION_STANDARD.md)
+Authoritative graph: [dataset_dependency_matrix.md](./dataset_dependency_matrix.md)
+Batch catalog: [production_batch_library.md](./production_batch_library.md)
+Operating procedure: [dataset_production_standard.md](./dataset_production_standard.md)
 
 ```text
 Batch-001 Industry          ✅ baseline (continuous → product target)
@@ -177,9 +177,9 @@ The factory now has:
 
 | Document | Role |
 |----------|------|
-| [DATASET_DEPENDENCY_MATRIX.md](./DATASET_DEPENDENCY_MATRIX.md) | Why datasets depend on each other |
-| [PRODUCTION_BATCH_LIBRARY.md](./PRODUCTION_BATCH_LIBRARY.md) | Batch-001…017 catalog |
-| [DATASET_PRODUCTION_STANDARD.md](./DATASET_PRODUCTION_STANDARD.md) | How to produce (DPS) |
+| [dataset_dependency_matrix.md](./dataset_dependency_matrix.md) | Why datasets depend on each other |
+| [production_batch_library.md](./production_batch_library.md) | Batch-001…017 catalog |
+| [dataset_production_standard.md](./dataset_production_standard.md) | How to produce (DPS) |
 | [KPI.md](../KPI.md) | How to measure |
 | [MISSION_LIBRARY.md](../MISSION_LIBRARY.md) | Mission definitions |
 | [BACKLOG.md](../BACKLOG.md) | Epic backlog (execution backlog only) |

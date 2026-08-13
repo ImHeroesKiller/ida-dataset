@@ -114,7 +114,7 @@ No engine modification required.
 
 **Status: FROZEN**
 
-[Dataset Production Standard](./docs/DATASET_PRODUCTION_STANDARD.md) is the canonical validation policy.
+[Dataset Production Standard](./docs/dataset_production_standard.md) is the canonical validation policy.
 
 ---
 
@@ -322,7 +322,7 @@ must be treated as a **new major version proposal**.
 
 - [VISION.md](./VISION.md) — product vision  
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — frozen architecture  
-- [docs/DATASET_PRODUCTION_STANDARD.md](./docs/DATASET_PRODUCTION_STANDARD.md) — DPS  
+- [docs/dataset_production_standard.md](./docs/dataset_production_standard.md) — DPS
 - [SOURCE_POLICY.md](./SOURCE_POLICY.md) — trusted sources  
 - [KPI.md](./KPI.md) — factory KPIs  
 - [CONTRIBUTING.md](./CONTRIBUTING.md) — contribution rules  

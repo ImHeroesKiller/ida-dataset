@@ -3,8 +3,8 @@
 **Status:** Official catalog  
 **Version:** 1.0  
 **Mode:** Permanent production (not software sprints)  
-**Standard:** [DATASET_PRODUCTION_STANDARD.md](./DATASET_PRODUCTION_STANDARD.md) (DPS v1.0)  
-**Sequence authority:** [DATASET_DEPENDENCY_MATRIX.md](./DATASET_DEPENDENCY_MATRIX.md)  
+**Standard:** [dataset_production_standard.md](./dataset_production_standard.md) (DPS v1.0)
+**Sequence authority:** [dataset_dependency_matrix.md](./dataset_dependency_matrix.md)
 
 ---
 
@@ -388,8 +388,8 @@ Copy into every production report:
 
 ## 6. Related documents
 
-- [PRODUCTION_ORDER.md](./PRODUCTION_ORDER.md) — targets, ETA, readiness, dashboard field map  
-- [DATASET_DEPENDENCY_MATRIX.md](./DATASET_DEPENDENCY_MATRIX.md) — why this order  
+- [production_order.md](./production_order.md) — targets, ETA, readiness, dashboard field map
+- [dataset_dependency_matrix.md](./dataset_dependency_matrix.md) — why this order
 - [MISSION_LIBRARY.md](../MISSION_LIBRARY.md) — missions that execute batches  
 - [KPI.md](../KPI.md) — product KPI rules  
 

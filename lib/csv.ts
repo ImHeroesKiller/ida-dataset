@@ -11,7 +11,7 @@ export type CsvTable = {
 
 /** Minimal RFC4180-ish CSV parser (handles quotes). */
 export function parseCsv(text: string): { headers: string[]; rows: Record<string, string>[] } {
-  const lines = text.replace(/^\uFEFF/, "").split(/\n/);
+  const raw = text.replace(/^\uFEFF/, "");
   const records: string[][] = [];
   let current: string[] = [];
   let field = "";
@@ -31,7 +31,6 @@ export function parseCsv(text: string): { headers: string[]; rows: Record<string
     current = [];
   };
 
-  const raw = lines.join("\n");
   for (let i = 0; i < raw.length; i++) {
     const ch = raw[i];
     const next = raw[i + 1];

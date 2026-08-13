@@ -23,10 +23,10 @@ Every backlog item must improve at least one KPI:
 
 | Document | Role |
 |----------|------|
-| [docs/DATASET_PRODUCTION_STANDARD.md](./docs/DATASET_PRODUCTION_STANDARD.md) | DPS v1.0 — how to produce |
-| [docs/DATASET_DEPENDENCY_MATRIX.md](./docs/DATASET_DEPENDENCY_MATRIX.md) | What must exist before what |
-| [docs/PRODUCTION_BATCH_LIBRARY.md](./docs/PRODUCTION_BATCH_LIBRARY.md) | Batch-001… catalog |
-| [docs/PRODUCTION_ORDER.md](./docs/PRODUCTION_ORDER.md) | Manufacturing plan + targets |
+| [docs/dataset_production_standard.md](./docs/dataset_production_standard.md) | DPS v1.0 — how to produce |
+| [docs/dataset_dependency_matrix.md](./docs/dataset_dependency_matrix.md) | What must exist before what |
+| [docs/production_batch_library.md](./docs/production_batch_library.md) | Batch-001… catalog |
+| [docs/production_order.md](./docs/production_order.md) | Manufacturing plan + targets |
 
 **Next primary batch:** Batch-002 Service Dataset (Industry Batch-001 baseline complete).
 
@@ -162,7 +162,7 @@ E1 sources; E3 extraction; E8 QA gates
 
 ### Priority dataset order (production batch sequence)
 
-Authoritative: [docs/DATASET_DEPENDENCY_MATRIX.md](./docs/DATASET_DEPENDENCY_MATRIX.md) · [docs/PRODUCTION_BATCH_LIBRARY.md](./docs/PRODUCTION_BATCH_LIBRARY.md)
+Authoritative: [docs/dataset_dependency_matrix.md](./docs/dataset_dependency_matrix.md) · [docs/production_batch_library.md](./docs/production_batch_library.md)
 
 1. Industry (Batch-001 — baseline complete, continuous)  
 2. Service (Batch-002 — **next**)  
