@@ -1,16 +1,16 @@
 # Connector Summary
 
-**Session:** `SES-20260814-3CC70B` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
+**Session:** `SES-20260814-E72B23` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
 
 | Connector | Status | HTTP | Elapsed (ms) | Discovered | Downloaded | Skipped | Rejected | Retries | Error |
 |-----------|--------|------|-------------:|-----------:|-----------:|--------:|---------:|--------:|-------|
-| OpenAlex | no_updates | 200 | 368.6 | 0 | 0 | 0 | 0 | 0 | — |
-| Crossref | ok | 200 | 521.8 | 10 | 1 | 0 | 0 | 0 | — |
-| World Bank | ok | 200 | 910.4 | 1 | 0 | 0 | 0 | 0 | — |
-| Kemenperin | no_updates | 200 | 3166.9 | 0 | 0 | 0 | 0 | 0 | — |
-| Asian Development Bank | no_updates | 200 | 3168.5 | 0 | 0 | 0 | 0 | 0 | — |
-| OECD | no_updates | 200 | 3169.5 | 0 | 0 | 0 | 0 | 0 | — |
-| BPS Indonesia | no_updates | 200 | 6224.2 | 0 | 1 | 0 | 0 | 0 | — |
+| OpenAlex | no_updates | 200 | 457.7 | 0 | 0 | 0 | 0 | 0 | — |
+| Crossref | ok | 200 | 478.8 | 10 | 1 | 0 | 0 | 0 | — |
+| World Bank | ok | 200 | 684.8 | 1 | 0 | 0 | 0 | 0 | — |
+| Kemenperin | no_updates | 200 | 3091.1 | 0 | 0 | 0 | 0 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 3129.0 | 0 | 0 | 0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 3156.9 | 0 | 0 | 0 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 6213.1 | 0 | 1 | 0 | 0 | 0 | — |
 
 ## Details
 
@@ -25,14 +25,14 @@
 
 - connector_id: `CONN-CROSSREF-001`
 - source_id: `SRC-CROSSREF`
-- last_successful_sync: 2026-08-14T18:07:00+00:00
+- last_successful_sync: 2026-08-14T19:08:31+00:00
 - urls_sample: https://api.crossref.org/works/10.1787/888933931335, https://api.crossref.org/works/10.23917/benefit.v10i1.8214, https://api.crossref.org/works/10.34010/icobest.v1i.49
 
 ### World Bank
 
 - connector_id: `CONN-WB-001`
 - source_id: `SRC-000004`
-- last_successful_sync: 2026-08-14T18:07:00+00:00
+- last_successful_sync: 2026-08-14T19:08:32+00:00
 - urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
 
 ### Kemenperin

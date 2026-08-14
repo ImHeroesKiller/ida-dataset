@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-14T18:08:00+00:00
+**Generated:** 2026-08-14T19:09:29+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260814-587960 |
+| session_id | SESSION-20260814-E4F6B6 |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 792.0 |
+| duration_seconds | 785.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document |
-| start_time | 2026-08-14T17:54:40+00:00 |
-| end_time | 2026-08-14T18:07:52+00:00 |
+| start_time | 2026-08-14T18:56:16+00:00 |
+| end_time | 2026-08-14T19:09:21+00:00 |
 
 ## Pipeline stages
 
@@ -26,12 +26,12 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
-| source_discovery | completed | 3.0 | — | — | connectors=[{'connector_id': 'CONN-OPENALEX-001', 'name': 'OpenAlex', 'source_id |
+| source_discovery | completed | 3.1 | — | — | connectors=[{'connector_id': 'CONN-OPENALEX-001', 'name': 'OpenAlex', 'source_id |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6227.9 | 77 | — |  |
+| document_discovery | completed | 6217.5 | 77 | — |  |
 | documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
-| document_download | completed | 46822.0 | 42 | — | downloaded=42 |
-| extraction | completed | 25.2 | — | 5 |  |
+| document_download | completed | 43611.6 | 42 | — | downloaded=42 |
+| extraction | completed | 25.8 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
