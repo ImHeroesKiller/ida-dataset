@@ -1,16 +1,16 @@
 # Connector Summary
 
-**Session:** `SES-20260814-7D7795` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
+**Session:** `SES-20260814-6E5BBC` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
 
 | Connector | Status | HTTP | Elapsed (ms) | Discovered | Downloaded | Skipped | Rejected | Retries | Error |
 |-----------|--------|------|-------------:|-----------:|-----------:|--------:|---------:|--------:|-------|
-| OpenAlex | no_updates | 200 | 540.2 | 0 | 0 | 0 | 0 | 0 | — |
-| World Bank | ok | 200 | 714.1 | 1 | 1 | 0 | 0 | 0 | — |
-| Crossref | ok | 200 | 2004.2 | 10 | 0 | 0 | 0 | 0 | — |
-| Asian Development Bank | no_updates | 200 | 3089.4 | 0 | 0 | 0 | 0 | 0 | — |
-| Kemenperin | no_updates | 200 | 3100.1 | 0 | 0 | 0 | 0 | 0 | — |
-| OECD | no_updates | 200 | 3133.3 | 0 | 0 | 0 | 0 | 0 | — |
-| BPS Indonesia | no_updates | 200 | 6187.0 | 0 | 0 | 0 | 0 | 0 | — |
+| OpenAlex | no_updates | 200 | 424.9 | 0 | 0 | 0 | 0 | 0 | — |
+| World Bank | ok | 200 | 627.8 | 1 | 1 | 0 | 0 | 0 | — |
+| Crossref | ok | 200 | 1027.1 | 10 | 0 | 0 | 0 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 3144.5 | 0 | 0 | 0 | 0 | 0 | — |
+| Kemenperin | no_updates | 200 | 3175.9 | 0 | 0 | 0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 3191.9 | 0 | 0 | 0 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 6236.4 | 0 | 0 | 0 | 0 | 0 | — |
 
 ## Details
 
@@ -25,14 +25,14 @@
 
 - connector_id: `CONN-WB-001`
 - source_id: `SRC-000004`
-- last_successful_sync: 2026-08-14T06:27:37+00:00
+- last_successful_sync: 2026-08-14T07:53:13+00:00
 - urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
 
 ### Crossref
 
 - connector_id: `CONN-CROSSREF-001`
 - source_id: `SRC-CROSSREF`
-- last_successful_sync: 2026-08-14T06:27:39+00:00
+- last_successful_sync: 2026-08-14T07:53:14+00:00
 - urls_sample: https://api.crossref.org/works/10.1787/888933931335, https://api.crossref.org/works/10.23917/benefit.v10i1.8214, https://api.crossref.org/works/10.34010/icobest.v1i.49
 
 ### Asian Development Bank
