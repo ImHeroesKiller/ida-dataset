@@ -1,25 +1,25 @@
 # Connector Summary
 
-**Session:** `SES-20260814-2B6C51` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
+**Session:** `SES-20260814-A64572` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
 
 | Connector | Status | HTTP | Elapsed (ms) | Discovered | Downloaded | Skipped | Rejected | Retries | Error |
 |-----------|--------|------|-------------:|-----------:|-----------:|--------:|---------:|--------:|-------|
-| Crossref | ok | 200 | 355.1 | 10 | 0 | 0 | 0 | 0 | — |
-| OpenAlex | no_updates | 200 | 600.1 | 0 | 1 | 0 | 0 | 0 | — |
-| World Bank | ok | 200 | 823.0 | 1 | 0 | 0 | 0 | 0 | — |
-| Kemenperin | no_updates | 200 | 3088.4 | 0 | 0 | 0 | 0 | 0 | — |
-| Asian Development Bank | no_updates | 200 | 3110.8 | 0 | 0 | 0 | 0 | 0 | — |
-| OECD | no_updates | 200 | 3137.2 | 0 | 1 | 0 | 0 | 0 | — |
-| BPS Indonesia | no_updates | 200 | 6194.7 | 0 | 0 | 0 | 0 | 0 | — |
+| World Bank | ok | 200 | 628.1 | 1 | 0 | 0 | 0 | 0 | — |
+| OpenAlex | no_updates | 200 | 929.7 | 0 | 0 | 0 | 0 | 0 | — |
+| Crossref | ok | 200 | 1107.4 | 10 | 0 | 0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 3091.4 | 0 | 0 | 0 | 0 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 3108.9 | 0 | 0 | 0 | 0 | 0 | — |
+| Kemenperin | no_updates | 200 | 3137.1 | 0 | 0 | 0 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 6198.6 | 0 | 0 | 0 | 0 | 0 | — |
 
 ## Details
 
-### Crossref
+### World Bank
 
-- connector_id: `CONN-CROSSREF-001`
-- source_id: `SRC-CROSSREF`
-- last_successful_sync: 2026-08-14T13:19:52+00:00
-- urls_sample: https://api.crossref.org/works/10.1787/888933931335, https://api.crossref.org/works/10.23917/benefit.v10i1.8214, https://api.crossref.org/works/10.34010/icobest.v1i.49
+- connector_id: `CONN-WB-001`
+- source_id: `SRC-000004`
+- last_successful_sync: 2026-08-14T15:06:07+00:00
+- urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
 
 ### OpenAlex
 
@@ -28,17 +28,17 @@
 - last_successful_sync: —
 - urls_sample: —
 
-### World Bank
+### Crossref
 
-- connector_id: `CONN-WB-001`
-- source_id: `SRC-000004`
-- last_successful_sync: 2026-08-14T13:19:52+00:00
-- urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
+- connector_id: `CONN-CROSSREF-001`
+- source_id: `SRC-CROSSREF`
+- last_successful_sync: 2026-08-14T15:06:07+00:00
+- urls_sample: https://api.crossref.org/works/10.1787/888933931335, https://api.crossref.org/works/10.23917/benefit.v10i1.8214, https://api.crossref.org/works/10.34010/icobest.v1i.49
 
-### Kemenperin
+### OECD
 
-- connector_id: `CONN-KEMENPERIN-001`
-- source_id: `SRC-000007`
+- connector_id: `CONN-OECD-001`
+- source_id: `SRC-000005`
 - last_successful_sync: —
 - urls_sample: —
 
@@ -49,10 +49,10 @@
 - last_successful_sync: —
 - urls_sample: —
 
-### OECD
+### Kemenperin
 
-- connector_id: `CONN-OECD-001`
-- source_id: `SRC-000005`
+- connector_id: `CONN-KEMENPERIN-001`
+- source_id: `SRC-000007`
 - last_successful_sync: —
 - urls_sample: —
 

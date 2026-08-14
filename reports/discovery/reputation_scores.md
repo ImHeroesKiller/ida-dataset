@@ -10,7 +10,7 @@ Trusted sources ranked for discovery targeting.
 | 4 | Asian Development Bank | 104.884 | 0.95 | 101.04 |
 | 5 | OECD | 104.462 | 0.95 | 100.544 |
 | 6 | OpenAlex | 94.997 | 0.9 | 90.585 |
-| 7 | Crossref | 94.916 | 0.9 | 90.49 |
+| 7 | Crossref | 94.917 | 0.9 | 90.491 |
 | 8 | DJP Pajak | 87.532 | 1.0 | 79.45 |
 | 9 | NIST | 87.362 | 1.0 | 79.25 |
 | 10 | JDIH / Peraturan.go.id | 87.362 | 1.0 | 79.25 |
