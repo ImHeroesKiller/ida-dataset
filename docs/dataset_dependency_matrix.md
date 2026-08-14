@@ -15,8 +15,8 @@ It is the permanent **production order** for every future production batch.
 
 | Rule | Statement |
 |------|-----------|
-| Authority | Dependency matrix + [PRODUCTION_ORDER.md](./PRODUCTION_ORDER.md) govern sequencing |
-| Execution | Every batch follows [DATASET_PRODUCTION_STANDARD.md](./DATASET_PRODUCTION_STANDARD.md) (DPS v1.0) |
+| Authority | Dependency matrix + [production_order.md](./production_order.md) govern sequencing |
+| Execution | Every batch follows [dataset_production_standard.md](./dataset_production_standard.md) (DPS v1.0) |
 | Targets | Row targets from `automation/config/product_targets.yaml` — **never hardcoded** |
 | Non-goals | No architecture, UI, schema, or automation redesign |
 
@@ -254,9 +254,9 @@ Schema freeze: do **not** invent new columns without versioned migration ([DATAS
 
 | Document | Role |
 |----------|------|
-| [PRODUCTION_ORDER.md](./PRODUCTION_ORDER.md) | Manufacturing plan, targets, ETAs, dashboard fields |
-| [PRODUCTION_BATCH_LIBRARY.md](./PRODUCTION_BATCH_LIBRARY.md) | Batch catalog Batch-001… |
-| [DATASET_PRODUCTION_STANDARD.md](./DATASET_PRODUCTION_STANDARD.md) | DPS operating procedure |
+| [production_order.md](./production_order.md) | Manufacturing plan, targets, ETAs, dashboard fields |
+| [production_batch_library.md](./production_batch_library.md) | Batch catalog Batch-001… |
+| [dataset_production_standard.md](./dataset_production_standard.md) | DPS operating procedure |
 | [KPI.md](../KPI.md) | Product vs sprint KPIs |
 | [MISSION_LIBRARY.md](../MISSION_LIBRARY.md) | Mission definitions |
 

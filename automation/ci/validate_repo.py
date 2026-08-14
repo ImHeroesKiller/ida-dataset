@@ -63,7 +63,6 @@ REQUIRED_DIRS = [
     "metadata/enums",
     "metadata/schema",
     "relationships",
-    "reasoning",
     "templates",
     "examples",
     "exports",

@@ -85,10 +85,10 @@ python3 -m automation.export.packager
 
 ### Production standard & manufacturing plan (mandatory)
 
-- [docs/DATASET_PRODUCTION_STANDARD.md](./docs/DATASET_PRODUCTION_STANDARD.md) — DPS v1.0 operating procedure
-- [docs/DATASET_DEPENDENCY_MATRIX.md](./docs/DATASET_DEPENDENCY_MATRIX.md) — permanent dataset dependency matrix
-- [docs/PRODUCTION_BATCH_LIBRARY.md](./docs/PRODUCTION_BATCH_LIBRARY.md) — production batch catalog (Batch-001…)
-- [docs/PRODUCTION_ORDER.md](./docs/PRODUCTION_ORDER.md) — long-term manufacturing plan
+- [docs/dataset_production_standard.md](./docs/dataset_production_standard.md) — DPS v1.0 operating procedure
+- [docs/dataset_dependency_matrix.md](./docs/dataset_dependency_matrix.md) — permanent dataset dependency matrix
+- [docs/production_batch_library.md](./docs/production_batch_library.md) — production batch catalog (Batch-001…)
+- [docs/production_order.md](./docs/production_order.md) — long-term manufacturing plan
 
 ### Charter & engineering
 

@@ -7,10 +7,10 @@ Missions **execute production batches**. Sequence authority:
 
 | Document | Role |
 |----------|------|
-| [docs/PRODUCTION_BATCH_LIBRARY.md](./docs/PRODUCTION_BATCH_LIBRARY.md) | Batch catalog |
-| [docs/DATASET_DEPENDENCY_MATRIX.md](./docs/DATASET_DEPENDENCY_MATRIX.md) | Dependencies |
-| [docs/PRODUCTION_ORDER.md](./docs/PRODUCTION_ORDER.md) | Manufacturing plan |
-| [docs/DATASET_PRODUCTION_STANDARD.md](./docs/DATASET_PRODUCTION_STANDARD.md) | DPS v1.0 |
+| [docs/production_batch_library.md](./docs/production_batch_library.md) | Batch catalog |
+| [docs/dataset_dependency_matrix.md](./docs/dataset_dependency_matrix.md) | Dependencies |
+| [docs/production_order.md](./docs/production_order.md) | Manufacturing plan |
+| [docs/dataset_production_standard.md](./docs/dataset_production_standard.md) | DPS v1.0 |
 
 ---
 

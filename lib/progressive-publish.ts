@@ -183,7 +183,7 @@ function resolveDatasetCsv(targetDataset: string): string | null {
 function entityAlreadyInCsv(csvPath: string, entityId: string): boolean {
   if (!fs.existsSync(csvPath) || !entityId) return false;
   const text = fs.readFileSync(csvPath, "utf8");
-  return text.split(/\r?\n/).some((line) => line.includes(entityId));
+  return text.includes(entityId);
 }
 
 function csvEscape(value: string): string {
@@ -198,7 +198,9 @@ function appendPayloadToCsv(
   fs.mkdirSync(path.dirname(csvPath), { recursive: true });
   let headers: string[] = [];
   if (fs.existsSync(csvPath)) {
-    const first = fs.readFileSync(csvPath, "utf8").split(/\r?\n/)[0] || "";
+    const text = fs.readFileSync(csvPath, "utf8");
+    const firstEnd = text.indexOf("\n");
+    const first = firstEnd !== -1 ? text.substring(0, firstEnd) : text;
     headers = first
       .split(",")
       .map((h) => h.replace(/^\uFEFF/, "").trim())

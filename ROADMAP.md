@@ -6,10 +6,10 @@
 
 | Document | Role |
 |----------|------|
-| [docs/PRODUCTION_ORDER.md](./docs/PRODUCTION_ORDER.md) | Long-term manufacturing plan |
-| [docs/DATASET_DEPENDENCY_MATRIX.md](./docs/DATASET_DEPENDENCY_MATRIX.md) | Permanent production sequence |
-| [docs/PRODUCTION_BATCH_LIBRARY.md](./docs/PRODUCTION_BATCH_LIBRARY.md) | Batch-001… catalog |
-| [docs/DATASET_PRODUCTION_STANDARD.md](./docs/DATASET_PRODUCTION_STANDARD.md) | DPS v1.0 operating standard |
+| [docs/production_order.md](./docs/production_order.md) | Long-term manufacturing plan |
+| [docs/dataset_dependency_matrix.md](./docs/dataset_dependency_matrix.md) | Permanent production sequence |
+| [docs/production_batch_library.md](./docs/production_batch_library.md) | Batch-001… catalog |
+| [docs/dataset_production_standard.md](./docs/dataset_production_standard.md) | DPS v1.0 operating standard |
 | [ROADMAP_2026_2027.md](./ROADMAP_2026_2027.md) | Calendar horizons (coverage goals) |
 | [BACKLOG.md](./BACKLOG.md) | Epics (execution only — no platform redesign) |
 | [RELEASE_PLAN.md](./RELEASE_PLAN.md) | Release trains |

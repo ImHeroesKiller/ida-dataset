@@ -6,6 +6,9 @@ import {
   Radio,
   Settings,
   Target,
+  Database,
+  ShieldCheck,
+  FileText,
 } from "lucide-react";
 
 export type NavItem = {
@@ -21,9 +24,12 @@ export type NavItem = {
  */
 export const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/missions", label: "Mission", icon: Target },
+  { href: "/datasets", label: "Datasets", icon: Database },
+  { href: "/missions", label: "Missions", icon: Target },
   { href: "/sources", label: "Sources", icon: Radio },
-  { href: "/exports", label: "Export", icon: Download },
+  { href: "/quality", label: "Quality", icon: ShieldCheck },
+  { href: "/exports", label: "Exports", icon: Download },
+  { href: "/logs", label: "Logs", icon: FileText },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
