@@ -1,6 +1,6 @@
 # Scheduler Trace
 
-**Generated:** 2026-08-14T15:07:01+00:00
+**Generated:** 2026-08-14T16:07:54+00:00
 
 ## Current mode
 
@@ -18,11 +18,11 @@
 | Field | Value |
 | --- | --- |
 | status | Idle |
-| last_heartbeat | 2026-08-14T15:06:53+00:00 |
-| last_success | 2026-08-14T15:06:53+00:00 |
+| last_heartbeat | 2026-08-14T16:07:46+00:00 |
+| last_success | 2026-08-14T16:07:46+00:00 |
 | last_failure | — |
 | current_job | — |
-| job_duration_seconds | 791.0 |
+| job_duration_seconds | 826.0 |
 | last_error | — |
 
 ## Missions not selected (eligible or not)
