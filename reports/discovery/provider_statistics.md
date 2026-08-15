@@ -1,25 +1,25 @@
 # Provider Statistics
 
-**Generated:** 2026-08-15T16:36:53+00:00
-**Session:** `SES-20260815-F84088` · **Mission:** `MIS-20260815-D7B9B5`
+**Generated:** 2026-08-15T17:30:30+00:00
+**Session:** `SES-20260815-73329C` · **Mission:** `MIS-20260815-709A2D`
 
-Queries executed: **22**
+Queries executed: **21**
 URLs discovered: **112**
 URLs accepted: **62**
 URLs rejected: **50**
 URLs remaining: **0**
 Stop reason: **runtime_budget_reached**
-URLs/hour: **648.26** · Accepted/hour: **358.86**
+URLs/hour: **760.8** · Accepted/hour: **421.16**
 
 | Provider | Type | Op status | Queries | URLs | Util | Exhausted | Cache | ms | Status |
 |----------|------|-----------|--------:|-----:|-----:|-----------|------:|---:|--------|
 | Tavily (primary) | tavily | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
-| Common Crawl Index | commoncrawl | ACTIVE | 5 | 100 | 0.2273 | False | 0 | 42063.600000000006 | ready |
-| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0455 | False | 0 | 453599.7 | ready |
-| RSS Discovery | rss | ACTIVE | 1 | 0 | 0.0455 | True | 0 | 126265.0 | ready |
+| Common Crawl Index | commoncrawl | ACTIVE | 5 | 100 | 0.2381 | False | 0 | 81422.19999999998 | ready |
+| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0476 | False | 0 | 448504.2 | ready |
 | Atom Discovery | atom | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
-| Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 10 | 0 | 0.4545 | False | 0 | 0.0 | ready |
-| OpenSearch Description | opensearch | ACTIVE | 5 | 0 | 0.2273 | True | 0 | 0.0 | ready |
+| Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 10 | 0 | 0.4762 | False | 0 | 0.0 | ready |
+| RSS Discovery | rss | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
+| OpenSearch Description | opensearch | ACTIVE | 5 | 0 | 0.2381 | True | 0 | 0.0 | ready |
 | Google Programmable Search | google_cse | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
 | Bing Web Search API | bing | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
 | Brave Search API | brave | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
