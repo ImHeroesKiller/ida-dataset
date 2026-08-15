@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-08-15T09:41:51+00:00
+**Generated:** 2026-08-15T10:37:01+00:00
 
-- Fingerprint URLs known: **43**
-- Fingerprint hashes known: **43**
-- Fingerprint stats: `{'skips': 4, 'adds': 43}`
-- Trace summary: discovered=11 downloaded=31 duplicates=12
+- Fingerprint URLs known: **47**
+- Fingerprint hashes known: **47**
+- Fingerprint stats: `{'skips': 4, 'adds': 47}`
+- Trace summary: discovered=11 downloaded=31 duplicates=16
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
