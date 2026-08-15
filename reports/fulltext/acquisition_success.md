@@ -1,6 +1,6 @@
 # Acquisition Success
 
-**Generated:** 2026-08-15T01:32:19+00:00
+**Generated:** 2026-08-15T03:06:33+00:00
 
 | Outcome | Count |
 |---------|------:|
@@ -16,20 +16,21 @@
 |----------|--------|----------------|--------|------:|
 | DOC-8DEAD915EF6F | enriched | html_fulltext | publisher_landing | 2637 |
 | DOC-AFB055C754E2 | enriched | html_fulltext | publisher_landing | 2502 |
-| DOC-6E3DCB9EEFA9 | metadata_fallback | None | None | 1400 |
 | DOC-23B61DA3B184 | enriched | html_fulltext | publisher_landing | 11953 |
 | DOC-8C9B8E14F2A2 | metadata_fallback | None | None | 1581 |
+| DOC-6E3DCB9EEFA9 | metadata_fallback | None | None | 1400 |
 | DOC-350EA11C1DC8 | metadata_fallback | None | None | 1570 |
-| DOC-9C3FE7A510A0 | metadata_fallback | None | None | 135 |
+| DOC-74F7181F3D6C | metadata_fallback | None | None | 1558 |
 | DOC-C1C8D7931100 | metadata_fallback | None | None | 115 |
+| DOC-E96B9B477A4B | metadata_fallback | None | None | 1600 |
 | DOC-63E9EB2E5A2F | metadata_fallback | None | None | 132 |
 | DOC-5FB511CEE340 | metadata_fallback | None | None | 91 |
 | DOC-5FBA0F15E0B9 | metadata_fallback | None | None | 78 |
 | DOC-859D2142FF21 | metadata_fallback | None | None | 85 |
 | DOC-086852F73EE0 | metadata_fallback | None | None | 94 |
 | DOC-8FDD77E53A4E | metadata_fallback | None | None | 175 |
-| DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
 | DOC-708BA37EBD5C | metadata_fallback | None | None | 160 |
+| DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
 | DOC-F2BF8FA340F8 | metadata_fallback | None | None | 228 |
 | DOC-3E1CA71C0311 | metadata_fallback | None | None | 245 |
 | DOC-65FC704A4D9D | metadata_fallback | None | None | 208 |
@@ -39,7 +40,6 @@
 | DOC-067282F2AF34 | metadata_fallback | None | None | 178 |
 | DOC-8D8AB77BAAB8 | metadata_fallback | None | None | 256 |
 | DOC-70D6699EC9BC | metadata_fallback | None | None | 255 |
-| DOC-74F7181F3D6C | metadata_fallback | None | None | 1558 |
 | DOC-C5495E6B0544 | metadata_fallback | None | None | 173 |
 | DOC-1C13E4110BCE | metadata_fallback | None | None | 186 |
 | DOC-4797FB998A54 | metadata_fallback | None | None | 216 |
@@ -48,9 +48,9 @@
 | DOC-35242ACBFC8C | metadata_fallback | None | None | 119 |
 | DOC-C82387BE3840 | metadata_fallback | None | None | 88 |
 | DOC-A9BA1BC04A49 | metadata_fallback | None | None | 120 |
-| DOC-E96B9B477A4B | metadata_fallback | None | None | 1600 |
+| DOC-41728C78610E | metadata_fallback | None | None | 140 |
 | DOC-BD9EDDE8E2B7 | metadata_fallback | None | None | 97 |
 | DOC-5AE418499878 | metadata_fallback | None | None | 98 |
-| DOC-41728C78610E | metadata_fallback | None | None | 140 |
+| DOC-9C3FE7A510A0 | metadata_fallback | None | None | 135 |
 | DOC-EB8E28CFE081 | metadata_fallback | None | None | 99 |
 | DOC-0E785C552C2C | metadata_fallback | None | None | 101 |
