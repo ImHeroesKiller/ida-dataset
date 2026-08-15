@@ -1,13 +1,13 @@
 # Provider Exhaustion
 
-**Generated:** 2026-08-15T11:31:02+00:00
+**Generated:** 2026-08-15T12:48:50+00:00
 
 **Stop reason (last run):** `runtime_budget_reached`
 
 | Provider | Queries | URLs | Exhausted | Reason |
 |----------|--------:|-----:|-----------|--------|
 | Tavily (primary) | 0 | 0 | False | ready |
-| Common Crawl Index | 5 | 40 | False | ready |
+| Common Crawl Index | 5 | 80 | False | ready |
 | Sitemap Discovery | 1 | 12 | False | ready |
 | RSS Discovery | 0 | 0 | False | ready |
 | Atom Discovery | 0 | 0 | False | ready |
