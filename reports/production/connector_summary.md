@@ -1,16 +1,16 @@
 # Connector Summary
 
-**Session:** `SES-20260815-7AAC66` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
+**Session:** `SES-20260815-BBC2CE` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
 
 | Connector | Status | HTTP | Elapsed (ms) | Discovered | Downloaded | Skipped | Rejected | Retries | Error |
 |-----------|--------|------|-------------:|-----------:|-----------:|--------:|---------:|--------:|-------|
-| Crossref | ok | 200 | 416.5 | 10 | 0 | 0 | 0 | 0 | — |
-| OpenAlex | no_updates | 200 | 715.0 | 0 | 1 | 0 | 0 | 0 | — |
-| World Bank | ok | 200 | 815.4 | 1 | 0 | 0 | 0 | 0 | — |
-| OECD | no_updates | 200 | 3107.8 | 0 | 0 | 0 | 0 | 0 | — |
-| Asian Development Bank | no_updates | 200 | 3205.9 | 0 | 0 | 0 | 0 | 0 | — |
-| Kemenperin | no_updates | 200 | 3204.7 | 0 | 1 | 0 | 0 | 0 | — |
-| BPS Indonesia | no_updates | 200 | 6239.6 | 0 | 0 | 0 | 0 | 0 | — |
+| Crossref | ok | 200 | 435.5 | 10 | 0 | 0 | 0 | 0 | — |
+| OpenAlex | no_updates | 200 | 443.8 | 0 | 1 | 0 | 0 | 0 | — |
+| World Bank | ok | 200 | 850.7 | 1 | 0 | 0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 3132.2 | 0 | 0 | 0 | 0 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 3150.0 | 0 | 0 | 0 | 0 | 0 | — |
+| Kemenperin | no_updates | 200 | 3152.3 | 0 | 1 | 0 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 6142.7 | 0 | 0 | 0 | 0 | 0 | — |
 
 ## Details
 
@@ -18,7 +18,7 @@
 
 - connector_id: `CONN-CROSSREF-001`
 - source_id: `SRC-CROSSREF`
-- last_successful_sync: 2026-08-15T10:36:14+00:00
+- last_successful_sync: 2026-08-15T11:31:02+00:00
 - urls_sample: https://api.crossref.org/works/10.1787/888933931335, https://api.crossref.org/works/10.23917/benefit.v10i1.8214, https://api.crossref.org/works/10.34010/icobest.v1i.49
 
 ### OpenAlex
@@ -32,7 +32,7 @@
 
 - connector_id: `CONN-WB-001`
 - source_id: `SRC-000004`
-- last_successful_sync: 2026-08-15T10:36:15+00:00
+- last_successful_sync: 2026-08-15T11:31:03+00:00
 - urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
 
 ### OECD
