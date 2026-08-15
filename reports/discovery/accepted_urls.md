@@ -66,9 +66,7 @@ Only domains present in Trusted Source Registry.
 | https://owasp.org/blog/2025/03/06/owasp-education-and-training-committee-update.html | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/projects/ | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/www-project-top-ten/ | SRC-OWASP | DISC-SITEMAP |  |
-| https://www.crossref.org/jobs/2023-02-08-contract-software-development/ | SRC-CROSSREF | DISC-RSS |  |
-| https://www.crossref.org/jobs/2022-09-30-contract-technical-support/ | SRC-CROSSREF | DISC-RSS |  |
-| https://www.crossref.org/jobs/2022-11-21-community-engagement-manager/ | SRC-CROSSREF | DISC-RSS |  |
-| https://www.crossref.org/jobs/2022-12-22-contract-product-communications-support/ | SRC-CROSSREF | DISC-RSS |  |
-| https://www.crossref.org/jobs/2022-08-02-site-reliability-engineer/ | SRC-CROSSREF | DISC-RSS |  |
-| https://www.crossref.org/jobs/2022-07-29-human-resources-manager/ | SRC-CROSSREF | DISC-RSS |  |
+| http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html | SRC-OWASP | DISC-RSS | OWASP CVE Lite CLI Graduates to Lab Project Status |
+| http://owasp.org/blog/2026/06/18/greenberg-statement.html | SRC-OWASP | DISC-RSS | Community update regarding Richard Greenberg |
+| http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html | SRC-OWASP | DISC-RSS | Aikido and OWASP bring agentic Code Audit to the global AppS |
+| http://owasp.org/blog/2026/06/09/dependency-track-v5.html | SRC-OWASP | DISC-RSS | OWASP Dependency-Track 5.0 Is Now Generally Available |
