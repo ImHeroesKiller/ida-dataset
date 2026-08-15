@@ -1,8 +1,8 @@
 # Runtime Statistics
 
-**Session:** `SES-20260815-9780AD`
+**Session:** `SES-20260815-D5C99B`
 **Mission:** Produce Industry Dataset — expand industry_library toward product target
-**Total stage time (ms):** 50670.7
+**Total stage time (ms):** 55734.0
 
 ## Stage durations
 
@@ -10,13 +10,13 @@
 |-------|---:|--------|
 | mission | 0.6 | completed |
 | source_discovery | 2.2 | completed |
-| connector | 6205.4 | completed |
-| document_discovery | 6205.5 | completed |
-| document_download | 38199.6 | completed |
-| extraction | 25.5 | completed |
-| candidate_validation | 9.3 | completed |
-| publish_queue | 9.3 | completed |
-| append_dataset | 12.6 | completed |
+| connector | 6157.6 | completed |
+| document_discovery | 6157.7 | completed |
+| document_download | 43373.2 | completed |
+| extraction | 19.7 | completed |
+| candidate_validation | 5.7 | completed |
+| publish_queue | 5.7 | completed |
+| append_dataset | 10.9 | completed |
 | export | 0.3 | skipped |
 | git_commit | 0.2 | skipped |
 | push | 0.2 | skipped |
@@ -29,9 +29,9 @@
     "connectors_ok": 7,
     "connectors_failed": 0,
     "documents_discovered": 11,
-    "documents_downloaded": 42,
+    "documents_downloaded": 34,
     "documents_failed": 0,
-    "documents_duplicates": 31,
+    "documents_duplicates": 19,
     "candidates_extracted": 5,
     "candidates_validated": 5,
     "candidates_rejected": 0,
@@ -54,9 +54,9 @@
   "document_queue": {
     "queued": 0,
     "processing": 0,
-    "completed": 42,
+    "completed": 34,
     "failed": 0,
-    "duplicates": 31
+    "duplicates": 19
   },
   "exports": {
     "jsonl": false,
