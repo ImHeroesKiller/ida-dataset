@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-15T14:33:07+00:00",
-  "mission_id": "MIS-20260815-0E8B10",
-  "session_id": "SES-20260815-D5C99B",
+  "started_at": "2026-08-15T15:31:01+00:00",
+  "mission_id": "MIS-20260815-36C9CE",
+  "session_id": "SES-20260815-8EBD2A",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -47,12 +47,12 @@
   },
   "queries_generated": 10,
   "queries_executed": 21,
-  "urls_discovered": 72,
-  "urls_accepted": 42,
+  "urls_discovered": 92,
+  "urls_accepted": 62,
   "urls_rejected": 30,
   "urls_remaining": 0,
   "duplicate_urls": 30,
-  "elapsed_ms": 521162.1,
+  "elapsed_ms": 513586.7,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -74,7 +74,7 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 60,
+    "DISC-COMMONCRAWL": 80,
     "DISC-SITEMAP": 12,
     "DISC-RSS": 0,
     "DISC-ATOM": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 497.35,
-  "accepted_per_hour": 290.12,
+  "urls_per_hour": 644.88,
+  "accepted_per_hour": 434.59,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -121,16 +121,16 @@
         "message": "toggle"
       },
       "queries": 5,
-      "urls": 60,
+      "urls": 80,
       "cache_hits": 0,
-      "elapsed_ms": 67192.6,
+      "elapsed_ms": 64264.700000000004,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 60.256,
+      "rank_score": 58.4,
       "utilization": 0.2381
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 453940.0,
+      "elapsed_ms": 449280.6,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -450,8 +450,8 @@
       "query": "site:bps.go.id industry",
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
-      "urls": 20,
-      "elapsed_ms": 9403.2,
+      "urls": 0,
+      "elapsed_ms": 21501.7,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 7860.8,
+      "elapsed_ms": 8724.6,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 7305.4,
+      "elapsed_ms": 19232.5,
       "cached": false,
       "live_search": true
     },
@@ -480,8 +480,8 @@
       "query": "site:worldbank.org intitle:industry industry",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
-      "urls": 0,
-      "elapsed_ms": 21349.9,
+      "urls": 20,
+      "elapsed_ms": 7696.4,
       "cached": false,
       "live_search": true
     },
@@ -490,8 +490,8 @@
       "query": "site:kemenperin.go.id industry",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
-      "urls": 0,
-      "elapsed_ms": 21273.3,
+      "urls": 20,
+      "elapsed_ms": 7109.5,
       "cached": false,
       "live_search": true
     },
@@ -549,7 +549,7 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 453940.0
+      "elapsed_ms": 449280.6
     }
   ],
   "reputation_top": [
@@ -700,12 +700,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 60.256,
+      "score": 58.4,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.155,
+        "latency": 0.0,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -1056,6 +1056,126 @@
       "title": ""
     },
     {
+      "url": "https://ammdes.kemenperin.go.id/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://ammdes.kemenperin.go.id/robots.txt",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "http://ammdes.kemenperin.go.id/robots.txt",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/dukung_industri_halal_bbspjikb__kemenperin_kolaborasi_dengan_dinas_koperasi__usaha_kecil_dan_menengah_kabupaten_sleman_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_teknis_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pln_nusantara_power_up_tanjung_awar_awar_menandatangani_nota_kesepahaman_dengan_bbspjikb_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
+      "url": "https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
+      "source_id": "SRC-000007",
+      "provider_id": "DISC-COMMONCRAWL",
+      "title": ""
+    },
+    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-SITEMAP",
@@ -1130,126 +1250,6 @@
   ],
   "rejected_urls": [
     {
-      "url": "https://www.bps.go.id/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/248-268",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/brs/view/id/1267",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-pedaging-menurut-provinsi-2009-2018.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provinsi-2002-2014.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-provinsi-ton-1993-2015.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-berlaku-menurut-provinsi-2010-2016-ribu-rupiah-.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-produk-domestik-regional-bruto-per-kapita-atas-dasar-harga-konstan-2010-menurut-provinsi-2011-2017-persen-.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2016/08/05/1216/-seri-2010-laju-pertumbuhan-y-on-y-produk-domestik-bruto-menurut-lapangan-usaha-persen-2014-2016.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2017/03/03/893/nikah-talak-dan-cerai-serta-rujuk-2012-2015",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2017/05/05/1253/-seri-2010-laju-pertumbuhan-kumulatif-produk-domestik-bruto-menurut-lapangan-usaha-persen-2017---2020.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1314/persentase-tenaga-kerja-informal-sektor-pertanian-2015---2018.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/05/17/1319/upah-rata---rata-per-jam-pekerja-menurut-jenis-kelamin-2015---2018.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2018/06/05/1436/persentase-perempuan-pernah-kawin-berusia-15-49-tahun-yang-proses-kelahiran-terakhirnya-ditolong-oleh-tenaga-kesehatan-terlatih-menurut-provinsi-2015-2018.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2019/10/04/1655/persentase-perempuan-pernah-kawin-umur-15-49-tahun-yang-proses-kelahiran-terakhirnya-di-fasilitas-kesehatan-40-bawah-menurut-provinsi-2015-2016.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2020/02/18/1773/rata-rata-lama-sekolah-menurut-provinsi-metode-baru-2010-2019.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/dynamictable/2020/02/19/1775/penduduk-berumur-15-tahun-ke-atas-menurut-jenis-kegiatan-tahun-1986---2019.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-reached-us-22-00-billion---imports-in-november-2023-reached-us-19-59-billion.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-media-location-of-access.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-aged-5-years-and-over-who-ever-accessing-internet-in-the-last-3-months-by-age-group.html",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
       "url": "https://www.worldbank.org/",
       "reason": "duplicate_url",
       "host": null,
@@ -1275,6 +1275,126 @@
     },
     {
       "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www5.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org:443/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://worldbank.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.worldbank.org",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "http://www.worldbank.org:80/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/%E3%80%80",
+      "reason": "duplicate_url",
+      "host": null,
+      "provider_id": "DISC-COMMONCRAWL"
+    },
+    {
+      "url": "https://www.worldbank.org/404_response.htm",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-COMMONCRAWL"
@@ -1315,7 +1435,7 @@
     "misses": 10,
     "stores": 10,
     "cached_queries": 10,
-    "cached_urls": 30
+    "cached_urls": 50
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }
