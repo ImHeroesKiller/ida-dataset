@@ -1,16 +1,16 @@
 # Document Trace
 
-**Generated:** 2026-08-16T13:47:09+00:00
+**Generated:** 2026-08-16T14:38:47+00:00
 
 - Fingerprint URLs known: **70**
 - Fingerprint hashes known: **70**
-- Fingerprint stats: `{'skips': 24, 'adds': 70}`
+- Fingerprint stats: `{'skips': 20, 'adds': 70}`
 - Trace summary: discovered=11 downloaded=42 duplicates=35
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DOC-9CF2639B264C | https://api.crossref.org/works/10.1787/888933931335 | 9cf2639b264cd760 | True | False | False | False | True | completed |
 | DOC-9C3FE7A510A0 | https://documents.worldbank.org/search?q=Produce+Industry+Da | 9c3fe7a510a03320 | True | False | False | False | True | completed |
+| DOC-9CF2639B264C | https://api.crossref.org/works/10.1787/888933931335 | 9cf2639b264cd760 | True | False | False | False | True | completed |
 | DOC-AFB055C754E2 | https://api.crossref.org/works/10.34010/icobest.v1i.49 | afb055c754e21275 | True | False | False | False | True | completed |
 | DOC-8DEAD915EF6F | https://api.crossref.org/works/10.4108/eai.13-9-2023.2341395 | 8dead915ef6fb227 | True | False | False | False | True | completed |
 | DOC-23B61DA3B184 | https://api.crossref.org/works/10.23917/benefit.v10i1.8214 | 23b61da3b184345c | True | False | False | False | True | completed |
