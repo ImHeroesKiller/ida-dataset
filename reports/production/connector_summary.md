@@ -1,16 +1,16 @@
 # Connector Summary
 
-**Session:** `SES-20260815-2D9E15` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
+**Session:** `SES-20260816-279E7B` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
 
 | Connector | Status | HTTP | Elapsed (ms) | Discovered | Downloaded | Skipped | Rejected | Retries | Error |
 |-----------|--------|------|-------------:|-----------:|-----------:|--------:|---------:|--------:|-------|
-| Crossref | ok | 200 | 446.9 | 10 | 0 | 0 | 0 | 0 | — |
-| World Bank | ok | 200 | 580.1 | 1 | 1 | 0 | 0 | 0 | — |
-| Kemenperin | no_updates | 200 | 3122.1 | 0 | 0 | 0 | 0 | 0 | — |
-| OECD | no_updates | 200 | 3145.4 | 0 | 0 | 0 | 0 | 0 | — |
-| Asian Development Bank | no_updates | 200 | 3154.9 | 0 | 0 | 0 | 0 | 0 | — |
-| OpenAlex | no_updates | 200 | 3468.1 | 0 | 0 | 0 | 0 | 0 | — |
-| BPS Indonesia | no_updates | 200 | 6189.6 | 0 | 0 | 0 | 0 | 0 | — |
+| Crossref | ok | 200 | 420.3 | 10 | 0 | 0 | 0 | 0 | — |
+| OpenAlex | no_updates | 200 | 470.2 | 0 | 1 | 0 | 0 | 0 | — |
+| World Bank | ok | 200 | 509.8 | 1 | 0 | 0 | 0 | 0 | — |
+| Kemenperin | no_updates | 200 | 3087.9 | 0 | 0 | 0 | 0 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 3140.3 | 0 | 0 | 0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 3144.8 | 0 | 1 | 0 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 6169.6 | 0 | 0 | 0 | 0 | 0 | — |
 
 ## Details
 
@@ -18,27 +18,27 @@
 
 - connector_id: `CONN-CROSSREF-001`
 - source_id: `SRC-CROSSREF`
-- last_successful_sync: 2026-08-15T23:34:14+00:00
+- last_successful_sync: 2026-08-16T01:35:52+00:00
 - urls_sample: https://api.crossref.org/works/10.1787/888933931335, https://api.crossref.org/works/10.23917/benefit.v10i1.8214, https://api.crossref.org/works/10.34010/icobest.v1i.49
+
+### OpenAlex
+
+- connector_id: `CONN-OPENALEX-001`
+- source_id: `SRC-OPENALEX`
+- last_successful_sync: —
+- urls_sample: —
 
 ### World Bank
 
 - connector_id: `CONN-WB-001`
 - source_id: `SRC-000004`
-- last_successful_sync: 2026-08-15T23:34:15+00:00
+- last_successful_sync: 2026-08-16T01:35:52+00:00
 - urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
 
 ### Kemenperin
 
 - connector_id: `CONN-KEMENPERIN-001`
 - source_id: `SRC-000007`
-- last_successful_sync: —
-- urls_sample: —
-
-### OECD
-
-- connector_id: `CONN-OECD-001`
-- source_id: `SRC-000005`
 - last_successful_sync: —
 - urls_sample: —
 
@@ -49,10 +49,10 @@
 - last_successful_sync: —
 - urls_sample: —
 
-### OpenAlex
+### OECD
 
-- connector_id: `CONN-OPENALEX-001`
-- source_id: `SRC-OPENALEX`
+- connector_id: `CONN-OECD-001`
+- source_id: `SRC-000005`
 - last_successful_sync: —
 - urls_sample: —
 

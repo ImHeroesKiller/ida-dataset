@@ -1,0 +1,824 @@
+{
+  "version": "1.0",
+  "mission": "Produce Industry Dataset — expand industry_library toward product target",
+  "mission_id": "MIS-20260816-53996B",
+  "session_id": "SES-20260816-279E7B",
+  "dataset": "industry_library",
+  "started_at": "2026-08-16T01:23:32+00:00",
+  "finished_at": "2026-08-16T01:38:16+00:00",
+  "current_stage": "push",
+  "current_connector": "BPS Indonesia",
+  "current_document": "DOC-42435589D8A0",
+  "last_connector": "BPS Indonesia",
+  "last_document": "DOC-42435589D8A0",
+  "last_published_entity": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi",
+  "stages": [
+    {
+      "name": "mission",
+      "start_time": "2026-08-16T01:23:32+00:00",
+      "finish_time": "2026-08-16T01:23:32+00:00",
+      "duration_ms": 1.0,
+      "status": "completed",
+      "rows": 0,
+      "documents": 0,
+      "errors": [],
+      "warnings": [],
+      "meta": {
+        "meta": {
+          "instruction": "Produce Industry Dataset — expand industry_library toward product target"
+        }
+      }
+    },
+    {
+      "name": "source_discovery",
+      "start_time": "2026-08-16T01:23:32+00:00",
+      "finish_time": "2026-08-16T01:23:32+00:00",
+      "duration_ms": 2.8,
+      "status": "completed",
+      "rows": 0,
+      "documents": 0,
+      "errors": [],
+      "warnings": [],
+      "meta": {
+        "meta": {
+          "connectors": [
+            "CONN-BPS-001",
+            "CONN-WB-001",
+            "CONN-ADB-001",
+            "CONN-OECD-001",
+            "CONN-KEMENPERIN-001",
+            "CONN-OPENALEX-001",
+            "CONN-CROSSREF-001"
+          ],
+          "sources": [
+            "SRC-000001",
+            "SRC-000004",
+            "SRC-000006",
+            "SRC-000005",
+            "SRC-000007",
+            "SRC-OPENALEX",
+            "SRC-CROSSREF",
+            "SRC-DJP",
+            "SRC-NIST",
+            "SRC-JDIH",
+            "SRC-ISSB",
+            "SRC-CISA",
+            "SRC-GRI",
+            "SRC-BPK",
+            "SRC-UNEP",
+            "SRC-KLHK",
+            "SRC-SASB",
+            "SRC-OWASP"
+          ],
+          "ranking": [
+            {
+              "id": "SRC-000001",
+              "score": 103.756
+            },
+            {
+              "id": "SRC-000004",
+              "score": 102.405
+            },
+            {
+              "id": "SRC-000006",
+              "score": 101.041
+            },
+            {
+              "id": "SRC-000005",
+              "score": 100.544
+            },
+            {
+              "id": "SRC-000007",
+              "score": 100.037
+            },
+            {
+              "id": "SRC-OPENALEX",
+              "score": 90.585
+            },
+            {
+              "id": "SRC-CROSSREF",
+              "score": 90.491
+            },
+            {
+              "id": "SRC-DJP",
+              "score": 79.45
+            },
+            {
+              "id": "SRC-NIST",
+              "score": 79.25
+            },
+            {
+              "id": "SRC-JDIH",
+              "score": 79.25
+            },
+            {
+              "id": "SRC-ISSB",
+              "score": 79.05
+            },
+            {
+              "id": "SRC-CISA",
+              "score": 78.95
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "connector",
+      "start_time": "2026-08-16T01:35:52+00:00",
+      "finish_time": "2026-08-16T01:35:58+00:00",
+      "duration_ms": 6173.3,
+      "status": "completed",
+      "rows": 0,
+      "documents": 27,
+      "errors": [],
+      "warnings": [],
+      "meta": {
+        "meta": {
+          "connectors_selected": [
+            "CONN-BPS-001",
+            "CONN-WB-001",
+            "CONN-ADB-001",
+            "CONN-OECD-001",
+            "CONN-KEMENPERIN-001",
+            "CONN-OPENALEX-001",
+            "CONN-CROSSREF-001"
+          ]
+        }
+      }
+    },
+    {
+      "name": "document_discovery",
+      "start_time": "2026-08-16T01:35:52+00:00",
+      "finish_time": "2026-08-16T01:35:58+00:00",
+      "duration_ms": 6173.4,
+      "status": "completed",
+      "rows": 0,
+      "documents": 27,
+      "errors": [],
+      "warnings": [],
+      "meta": {}
+    },
+    {
+      "name": "document_download",
+      "start_time": "2026-08-16T01:35:58+00:00",
+      "finish_time": "2026-08-16T01:38:16+00:00",
+      "duration_ms": 137779.3,
+      "status": "completed",
+      "rows": 0,
+      "documents": 11,
+      "errors": [],
+      "warnings": [],
+      "meta": {
+        "meta": {
+          "duplicates": 16
+        }
+      }
+    },
+    {
+      "name": "extraction",
+      "start_time": "2026-08-16T01:38:16+00:00",
+      "finish_time": "2026-08-16T01:38:16+00:00",
+      "duration_ms": 24.7,
+      "status": "completed",
+      "rows": 5,
+      "documents": 0,
+      "errors": [],
+      "warnings": [],
+      "meta": {}
+    },
+    {
+      "name": "candidate_validation",
+      "start_time": "2026-08-16T01:38:16+00:00",
+      "finish_time": "2026-08-16T01:38:16+00:00",
+      "duration_ms": 9.8,
+      "status": "completed",
+      "rows": 5,
+      "documents": 0,
+      "errors": [],
+      "warnings": [],
+      "meta": {
+        "meta": {
+          "rejected": 0,
+          "duplicate": 0
+        }
+      }
+    },
+    {
+      "name": "publish_queue",
+      "start_time": "2026-08-16T01:38:16+00:00",
+      "finish_time": "2026-08-16T01:38:16+00:00",
+      "duration_ms": 9.8,
+      "status": "completed",
+      "rows": 5,
+      "documents": 0,
+      "errors": [],
+      "warnings": [],
+      "meta": {}
+    },
+    {
+      "name": "append_dataset",
+      "start_time": "2026-08-16T01:38:16+00:00",
+      "finish_time": "2026-08-16T01:38:16+00:00",
+      "duration_ms": 10.4,
+      "status": "completed",
+      "rows": 5,
+      "documents": 0,
+      "errors": [],
+      "warnings": [],
+      "meta": {}
+    },
+    {
+      "name": "export",
+      "start_time": "2026-08-16T01:38:16+00:00",
+      "finish_time": "2026-08-16T01:38:16+00:00",
+      "duration_ms": 0.5,
+      "status": "skipped",
+      "rows": 0,
+      "documents": 0,
+      "errors": [],
+      "warnings": [
+        "Deferred to export CI job"
+      ],
+      "meta": {}
+    },
+    {
+      "name": "git_commit",
+      "start_time": "2026-08-16T01:38:16+00:00",
+      "finish_time": "2026-08-16T01:38:16+00:00",
+      "duration_ms": 0.3,
+      "status": "skipped",
+      "rows": 0,
+      "documents": 0,
+      "errors": [],
+      "warnings": [
+        "Deferred to CI"
+      ],
+      "meta": {}
+    },
+    {
+      "name": "push",
+      "start_time": "2026-08-16T01:38:16+00:00",
+      "finish_time": "2026-08-16T01:38:16+00:00",
+      "duration_ms": 0.3,
+      "status": "skipped",
+      "rows": 0,
+      "documents": 0,
+      "errors": [],
+      "warnings": [
+        "Deferred to CI"
+      ],
+      "meta": {}
+    }
+  ],
+  "connectors": [
+    {
+      "connector_id": "CONN-CROSSREF-001",
+      "name": "Crossref",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "status": "ok",
+      "http_status": 200,
+      "elapsed_ms": 420.3,
+      "documents_discovered": 10,
+      "documents_downloaded": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "2026-08-16T01:35:52+00:00",
+      "urls": [
+        "https://api.crossref.org/works/10.1787/888933931335",
+        "https://api.crossref.org/works/10.23917/benefit.v10i1.8214",
+        "https://api.crossref.org/works/10.34010/icobest.v1i.49",
+        "https://api.crossref.org/works/10.1037/t51808-000",
+        "https://api.crossref.org/works/10.4108/eai.13-9-2023.2341395"
+      ],
+      "error": null,
+      "rank_score": 90.491
+    },
+    {
+      "connector_id": "CONN-OPENALEX-001",
+      "name": "OpenAlex",
+      "source_id": "SRC-OPENALEX",
+      "source_name": "OpenAlex",
+      "status": "no_updates",
+      "http_status": 200,
+      "elapsed_ms": 470.2,
+      "documents_discovered": 0,
+      "documents_downloaded": 1,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "",
+      "urls": [],
+      "error": null,
+      "rank_score": 90.585
+    },
+    {
+      "connector_id": "CONN-WB-001",
+      "name": "World Bank",
+      "source_id": "SRC-000004",
+      "source_name": "World Bank",
+      "status": "ok",
+      "http_status": 200,
+      "elapsed_ms": 509.8,
+      "documents_discovered": 1,
+      "documents_downloaded": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "2026-08-16T01:35:52+00:00",
+      "urls": [
+        "https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia"
+      ],
+      "error": null,
+      "rank_score": 102.405
+    },
+    {
+      "connector_id": "CONN-KEMENPERIN-001",
+      "name": "Kemenperin",
+      "source_id": "SRC-000007",
+      "source_name": "Kemenperin",
+      "status": "no_updates",
+      "http_status": 200,
+      "elapsed_ms": 3087.9,
+      "documents_discovered": 0,
+      "documents_downloaded": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "",
+      "urls": [],
+      "error": null,
+      "rank_score": 100.037
+    },
+    {
+      "connector_id": "CONN-ADB-001",
+      "name": "Asian Development Bank",
+      "source_id": "SRC-000006",
+      "source_name": "Asian Development Bank",
+      "status": "no_updates",
+      "http_status": 200,
+      "elapsed_ms": 3140.3,
+      "documents_discovered": 0,
+      "documents_downloaded": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "",
+      "urls": [],
+      "error": null,
+      "rank_score": 101.041
+    },
+    {
+      "connector_id": "CONN-OECD-001",
+      "name": "OECD",
+      "source_id": "SRC-000005",
+      "source_name": "OECD",
+      "status": "no_updates",
+      "http_status": 200,
+      "elapsed_ms": 3144.8,
+      "documents_discovered": 0,
+      "documents_downloaded": 1,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "",
+      "urls": [],
+      "error": null,
+      "rank_score": 100.544
+    },
+    {
+      "connector_id": "CONN-BPS-001",
+      "name": "BPS Indonesia",
+      "source_id": "SRC-000001",
+      "source_name": "BPS Indonesia",
+      "status": "no_updates",
+      "http_status": 200,
+      "elapsed_ms": 6169.6,
+      "documents_discovered": 0,
+      "documents_downloaded": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "retry_count": 0,
+      "last_successful_sync": "",
+      "urls": [],
+      "error": null,
+      "rank_score": 103.756
+    }
+  ],
+  "documents": [
+    {
+      "document_id": "DOC-9C3FE7A510A0",
+      "title": "World Bank document",
+      "url": "https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia",
+      "source_id": "SRC-000004",
+      "source_name": "World Bank",
+      "connector_id": "CONN-WB-001",
+      "connector_name": "World Bank",
+      "retrieved_at": "2026-08-16T01:36:32+00:00",
+      "checksum": "9c3fe7a510a03320c9352cf7e64cef229cbbec35ec527b21026ff1c6c9fdaadf",
+      "size": 137,
+      "bytes": 137,
+      "content_type": "text/plain",
+      "document_type": "plain",
+      "status": "completed",
+      "fetch_mode": "metadata_fallback",
+      "priority_score": 93.003
+    },
+    {
+      "document_id": "DOC-9CF2639B264C",
+      "title": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
+      "url": "https://api.crossref.org/works/10.1787/888933931335",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:35:58+00:00",
+      "checksum": "9cf2639b264cd760d918007f4829899b0d0816017be9ee9b876490b5d39b38cb",
+      "size": 1099,
+      "bytes": 1099,
+      "content_type": "application/json",
+      "document_type": "json",
+      "status": "completed",
+      "fetch_mode": "download",
+      "priority_score": 92.266
+    },
+    {
+      "document_id": "DOC-AFB055C754E2",
+      "title": "Expand Target Market in Business",
+      "url": "https://api.crossref.org/works/10.34010/icobest.v1i.49",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:35:58+00:00",
+      "checksum": "afb055c754e212751209c2806a409e2a2fe38b4fea2f030db045395939c32b1b",
+      "size": 25992,
+      "bytes": 25992,
+      "content_type": "text/html",
+      "document_type": "html",
+      "status": "completed",
+      "fetch_mode": "download+fulltext",
+      "priority_score": 81.266
+    },
+    {
+      "document_id": "DOC-8DEAD915EF6F",
+      "title": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
+      "url": "https://api.crossref.org/works/10.4108/eai.13-9-2023.2341395",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:35:58+00:00",
+      "checksum": "8dead915ef6fb2275672ad4a057a938ec09be12434717f5abf6860b18642aa34",
+      "size": 11143,
+      "bytes": 11143,
+      "content_type": "text/html",
+      "document_type": "html",
+      "status": "completed",
+      "fetch_mode": "download+fulltext",
+      "priority_score": 81.266
+    },
+    {
+      "document_id": "DOC-23B61DA3B184",
+      "title": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shaping Preferences",
+      "url": "https://api.crossref.org/works/10.23917/benefit.v10i1.8214",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:36:05+00:00",
+      "checksum": "23b61da3b184345c2761869eb7740d7a5a52c4dd8b810b6ef0a0d7f10eddb017",
+      "size": 53526,
+      "bytes": 53526,
+      "content_type": "text/html",
+      "document_type": "html",
+      "status": "completed",
+      "fetch_mode": "download+fulltext",
+      "priority_score": 78.999
+    },
+    {
+      "document_id": "DOC-6E3DCB9EEFA9",
+      "title": "Attitude Toward the Product Scale",
+      "url": "https://api.crossref.org/works/10.1037/t51808-000",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:36:05+00:00",
+      "checksum": "6e3dcb9eefa9833cd6bdd6105775a94e7174f29e840f96f258e5a0a7a561443c",
+      "size": 1400,
+      "bytes": 1400,
+      "content_type": "application/json",
+      "document_type": "json",
+      "status": "completed",
+      "fetch_mode": "download",
+      "priority_score": 78.866
+    },
+    {
+      "document_id": "DOC-8C9B8E14F2A2",
+      "title": "Feelings Toward the Target Measure",
+      "url": "https://api.crossref.org/works/10.1037/t52448-000",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:36:12+00:00",
+      "checksum": "8c9b8e14f2a22b7d8442ca4323c0b191e1283c7f40d8ddc004cf93ff0707a8e3",
+      "size": 1581,
+      "bytes": 1581,
+      "content_type": "application/json",
+      "document_type": "json",
+      "status": "completed",
+      "fetch_mode": "download",
+      "priority_score": 78.866
+    },
+    {
+      "document_id": "DOC-350EA11C1DC8",
+      "title": "Attitudes toward Product Measure",
+      "url": "https://api.crossref.org/works/10.1037/t34363-000",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:36:34+00:00",
+      "checksum": "350ea11c1dc837f7d56d82713c8082f9b476f681dbbaf03e9bd1e586e55522a5",
+      "size": 1570,
+      "bytes": 1570,
+      "content_type": "application/json",
+      "document_type": "json",
+      "status": "completed",
+      "fetch_mode": "download",
+      "priority_score": 76.466
+    },
+    {
+      "document_id": "DOC-74F7181F3D6C",
+      "title": "Consumer Attitudes Toward Product Obsolescence and Perceptions of Product Quality and Sales Promotion",
+      "url": "https://api.crossref.org/works/10.1037/e651502012-001",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:36:51+00:00",
+      "checksum": "74f7181f3d6c0d7f660371390c726dfcfd83406e281c0329129d6da94f043570",
+      "size": 1558,
+      "bytes": 1558,
+      "content_type": "application/json",
+      "document_type": "json",
+      "status": "completed",
+      "fetch_mode": "download",
+      "priority_score": 76.466
+    },
+    {
+      "document_id": "DOC-E96B9B477A4B",
+      "title": "Attitude toward Product Placement in General Scale",
+      "url": "https://api.crossref.org/works/10.1037/t34495-000",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:36:57+00:00",
+      "checksum": "e96b9b477a4b9861c3d209e9f48522fdf61171deddc0e5756a806769024d3ee1",
+      "size": 1600,
+      "bytes": 1600,
+      "content_type": "application/json",
+      "document_type": "json",
+      "status": "completed",
+      "fetch_mode": "download",
+      "priority_score": 76.466
+    },
+    {
+      "document_id": "DOC-42435589D8A0",
+      "title": "Total Quality Management (TQM) Practices toward Product Quality Performance: Case at Food and Beverage Industry in Makassar, Indonesia",
+      "url": "https://api.crossref.org/works/10.9790/487x-0925561",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "retrieved_at": "2026-08-16T01:37:14+00:00",
+      "checksum": "42435589d8a08efcb598a242bfaf7921d2efa58ea4eb9f923eecf37c8b7f7e14",
+      "size": 1653,
+      "bytes": 1653,
+      "content_type": "application/json",
+      "document_type": "json",
+      "status": "completed",
+      "fetch_mode": "download",
+      "priority_score": 76.466
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "CAND-1041BC8F363F",
+      "entity": "World Bank document",
+      "name": "World Bank document",
+      "entity_id": "SIG-000281",
+      "dataset": "business_signal_library",
+      "confidence": 0.92,
+      "validation_status": "approved",
+      "publish_status": "published",
+      "reject_reason": null,
+      "document_id": "DOC-9C3FE7A510A0",
+      "source_document": "DOC-9C3FE7A510A0",
+      "evidence_snippet": "",
+      "source_id": "SRC-000004",
+      "source_url": "https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia",
+      "connector_id": "CONN-WB-001"
+    },
+    {
+      "candidate_id": "CAND-50A094A611B6",
+      "entity": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
+      "name": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
+      "entity_id": "SIG-000282",
+      "dataset": "business_signal_library",
+      "confidence": 0.9,
+      "validation_status": "approved",
+      "publish_status": "published",
+      "reject_reason": null,
+      "document_id": "DOC-9CF2639B264C",
+      "source_document": "DOC-9CF2639B264C",
+      "evidence_snippet": "",
+      "source_id": "SRC-CROSSREF",
+      "source_url": "https://api.crossref.org/works/10.1787/888933931335",
+      "connector_id": "CONN-CROSSREF-001"
+    },
+    {
+      "candidate_id": "CAND-5C0B9D8D3787",
+      "entity": "Expand Target Market in Business",
+      "name": "Expand Target Market in Business",
+      "entity_id": "SIG-000283",
+      "dataset": "business_signal_library",
+      "confidence": 0.9,
+      "validation_status": "approved",
+      "publish_status": "published",
+      "reject_reason": null,
+      "document_id": "DOC-AFB055C754E2",
+      "source_document": "DOC-AFB055C754E2",
+      "evidence_snippet": "",
+      "source_id": "SRC-CROSSREF",
+      "source_url": "https://api.crossref.org/works/10.34010/icobest.v1i.49",
+      "connector_id": "CONN-CROSSREF-001"
+    },
+    {
+      "candidate_id": "CAND-05DB78FE030E",
+      "entity": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
+      "name": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
+      "entity_id": "SIG-000284",
+      "dataset": "business_signal_library",
+      "confidence": 0.9,
+      "validation_status": "approved",
+      "publish_status": "published",
+      "reject_reason": null,
+      "document_id": "DOC-8DEAD915EF6F",
+      "source_document": "DOC-8DEAD915EF6F",
+      "evidence_snippet": "",
+      "source_id": "SRC-CROSSREF",
+      "source_url": "https://api.crossref.org/works/10.4108/eai.13-9-2023.2341395",
+      "connector_id": "CONN-CROSSREF-001"
+    },
+    {
+      "candidate_id": "CAND-76AD47CD240B",
+      "entity": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi",
+      "name": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi",
+      "entity_id": "SIG-000285",
+      "dataset": "business_signal_library",
+      "confidence": 0.9,
+      "validation_status": "approved",
+      "publish_status": "published",
+      "reject_reason": null,
+      "document_id": "DOC-23B61DA3B184",
+      "source_document": "DOC-23B61DA3B184",
+      "evidence_snippet": "",
+      "source_id": "SRC-CROSSREF",
+      "source_url": "https://api.crossref.org/works/10.23917/benefit.v10i1.8214",
+      "connector_id": "CONN-CROSSREF-001"
+    }
+  ],
+  "document_queue": {
+    "queued": 0,
+    "processing": 0,
+    "completed": 11,
+    "failed": 0,
+    "duplicates": 16
+  },
+  "publish": {
+    "extracted": 5,
+    "validated": 5,
+    "rejected": 0,
+    "queued": 5,
+    "published": 5,
+    "skipped": 0,
+    "duplicate": 0,
+    "by_dataset": {
+      "business_signal_library": 5
+    },
+    "balance_ok": true
+  },
+  "evidence_chains": [
+    {
+      "dataset": "business_signal_library",
+      "entity": "World Bank document",
+      "entity_id": "SIG-000281",
+      "candidate_id": "CAND-1041BC8F363F",
+      "document_id": "DOC-9C3FE7A510A0",
+      "document_title": "World Bank document",
+      "connector_id": "CONN-WB-001",
+      "connector_name": "World Bank",
+      "source_id": "SRC-000004",
+      "source_name": "World Bank",
+      "url": "https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia",
+      "confidence": 0.92,
+      "evidence_snippet": ""
+    },
+    {
+      "dataset": "business_signal_library",
+      "entity": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
+      "entity_id": "SIG-000282",
+      "candidate_id": "CAND-50A094A611B6",
+      "document_id": "DOC-9CF2639B264C",
+      "document_title": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "url": "https://api.crossref.org/works/10.1787/888933931335",
+      "confidence": 0.9,
+      "evidence_snippet": ""
+    },
+    {
+      "dataset": "business_signal_library",
+      "entity": "Expand Target Market in Business",
+      "entity_id": "SIG-000283",
+      "candidate_id": "CAND-5C0B9D8D3787",
+      "document_id": "DOC-AFB055C754E2",
+      "document_title": "Expand Target Market in Business",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "url": "https://api.crossref.org/works/10.34010/icobest.v1i.49",
+      "confidence": 0.9,
+      "evidence_snippet": ""
+    },
+    {
+      "dataset": "business_signal_library",
+      "entity": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
+      "entity_id": "SIG-000284",
+      "candidate_id": "CAND-05DB78FE030E",
+      "document_id": "DOC-8DEAD915EF6F",
+      "document_title": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "url": "https://api.crossref.org/works/10.4108/eai.13-9-2023.2341395",
+      "confidence": 0.9,
+      "evidence_snippet": ""
+    },
+    {
+      "dataset": "business_signal_library",
+      "entity": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi",
+      "entity_id": "SIG-000285",
+      "candidate_id": "CAND-76AD47CD240B",
+      "document_id": "DOC-23B61DA3B184",
+      "document_title": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shaping Preferences",
+      "connector_id": "CONN-CROSSREF-001",
+      "connector_name": "Crossref",
+      "source_id": "SRC-CROSSREF",
+      "source_name": "Crossref",
+      "url": "https://api.crossref.org/works/10.23917/benefit.v10i1.8214",
+      "confidence": 0.9,
+      "evidence_snippet": ""
+    }
+  ],
+  "exports": {
+    "jsonl": false,
+    "openai": false,
+    "huggingface": false,
+    "notes": [
+      "Export packaging runs in dedicated export CI job"
+    ]
+  },
+  "git": {
+    "commit": false,
+    "push": false,
+    "notes": [
+      "Git commit/push performed by learning CI after session"
+    ]
+  },
+  "errors": [],
+  "warnings": [],
+  "summary": {
+    "connectors_ok": 7,
+    "connectors_failed": 0,
+    "documents_discovered": 11,
+    "documents_downloaded": 11,
+    "documents_failed": 0,
+    "documents_duplicates": 16,
+    "candidates_extracted": 5,
+    "candidates_validated": 5,
+    "candidates_rejected": 0,
+    "rows_published": 5,
+    "rows_duplicate": 0
+  }
+}
