@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260816-477717`
+**Session:** `SES-20260816-871C8D`
 
 ## Queue counts
 
@@ -10,7 +10,7 @@
 | processing | 0 |
 | completed | 11 |
 | failed | 0 |
-| duplicates | 16 |
+| duplicates | 12 |
 
 ## Documents
 

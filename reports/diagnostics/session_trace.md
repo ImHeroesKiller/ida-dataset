@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-16T19:36:20+00:00
+**Generated:** 2026-08-16T20:35:32+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260816-230B66 |
+| session_id | SESSION-20260816-BE2107 |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 843.0 |
+| duration_seconds | 668.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=11 entity=World Bank document |
-| start_time | 2026-08-16T19:22:09+00:00 |
-| end_time | 2026-08-16T19:36:12+00:00 |
+| start_time | 2026-08-16T20:24:16+00:00 |
+| end_time | 2026-08-16T20:35:24+00:00 |
 
 ## Pipeline stages
 
@@ -28,10 +28,10 @@
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
 | source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-CROSSREF-001', 'name': 'Crossref', 'source_id |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6197.9 | 27 | — |  |
-| documents_skipped | completed | — | 16 | — | duplicates_or_skips=16 |
-| document_download | completed | 99562.5 | 11 | — | downloaded=11 |
-| extraction | completed | 25.9 | — | 5 |  |
+| document_discovery | completed | 6214.2 | 23 | — |  |
+| documents_skipped | completed | — | 12 | — | duplicates_or_skips=12 |
+| document_download | completed | 98845.9 | 11 | — | downloaded=11 |
+| extraction | completed | 25.7 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
@@ -43,7 +43,7 @@
 | --- | --- |
 | documents_discovered | 11 |
 | documents_downloaded | 11 |
-| documents_duplicates | 16 |
+| documents_duplicates | 12 |
 | candidates_extracted | 5 |
 | candidates_validated | 5 |
 | candidates_rejected | 0 |
