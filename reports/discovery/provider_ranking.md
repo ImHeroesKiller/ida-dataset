@@ -1,6 +1,6 @@
 # Provider Ranking
 
-**Generated:** 2026-08-16T09:41:19+00:00
+**Generated:** 2026-08-16T10:36:47+00:00
 
 Dynamic rank: yield · freshness · trust · latency · coverage · mission relevance · success rate.
 
@@ -10,7 +10,7 @@ Dynamic rank: yield · freshness · trust · latency · coverage · mission rele
 | 2 | Sitemap Discovery | 58.52 | ACTIVE | `{"yield": 0.24, "success_rate": 1.0, "latency": 0.0, "freshness": 1.0, "trust": ` |
 | 3 | RSS Discovery | 55.32 | ACTIVE | `{"yield": 0.12, "success_rate": 1.0, "latency": 0.0, "freshness": 1.0, "trust": ` |
 | 4 | Atom Discovery | 53.22 | ACTIVE | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
-| 5 | Common Crawl Index | 44.949 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.979, "freshness": 0.45, "trust"` |
+| 5 | Common Crawl Index | 44.953 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.979, "freshness": 0.45, "trust"` |
 | 6 | Trusted Site Search (connector-backed) | 41.4 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.55, "freshness": 0.45, "trust":` |
 | 7 | OpenSearch Description | 32.3 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.55, "freshness": 0.45, "trust":` |
 | 8 | Google Programmable Search | 2.185 | DISABLED | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
