@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-08-16T03:15:51+00:00",
+  "updated_at": "2026-08-16T04:51:27+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260816-627EB1",
+      "path": "automation/sessions/2026-08-16/SESSION-20260816-627EB1.json",
+      "start_time": "2026-08-16T04:37:22+00:00",
+      "end_time": "2026-08-16T04:51:27+00:00",
+      "duration_seconds": 845.0,
+      "status": "completed",
+      "mission": "Produce Industry Dataset — expand industry_library toward product target",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=11 entity=World Bank document",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 129,
+      "github": {
+        "run_id": "31927037152",
+        "run_number": "516",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "f8975abea8939a1f3107006fe407679450bffb5e",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260816-ED8FDD",
       "path": "automation/sessions/2026-08-16/SESSION-20260816-ED8FDD.json",
@@ -1256,34 +1284,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "schedule",
         "sha": "ca0ef5e93ff70e36c6d5d7afc1bd995b3b7df155",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260813-B27E4D",
-      "path": "automation/sessions/2026-08-13/SESSION-20260813-B27E4D.json",
-      "start_time": "2026-08-13T04:52:21+00:00",
-      "end_time": "2026-08-13T05:06:19+00:00",
-      "duration_seconds": 838.0,
-      "status": "completed",
-      "mission": "Produce Industry Dataset — expand industry_library toward product target",
-      "knowledge_added": 5,
-      "knowledge_updated": 0,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
-      "trigger": "schedule",
-      "dry_run": false,
-      "events": 253,
-      "github": {
-        "run_id": "31668351094",
-        "run_number": "457",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "schedule",
-        "sha": "44f0cbeb542ccec997bec5a36f01ac3c60dfc57a",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
