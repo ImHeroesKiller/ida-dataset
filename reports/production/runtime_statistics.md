@@ -1,22 +1,22 @@
 # Runtime Statistics
 
-**Session:** `SES-20260816-51D3B9`
+**Session:** `SES-20260816-6C7249`
 **Mission:** Produce Industry Dataset — expand industry_library toward product target
-**Total stage time (ms):** 113263.4
+**Total stage time (ms):** 107964.5
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 0.9 | completed |
+| mission | 1.0 | completed |
 | source_discovery | 2.9 | completed |
-| connector | 6241.4 | completed |
-| document_discovery | 6241.5 | completed |
-| document_download | 100703.7 | completed |
+| connector | 6156.0 | completed |
+| document_discovery | 6156.1 | completed |
+| document_download | 95576.4 | completed |
 | extraction | 27.7 | completed |
 | candidate_validation | 10.7 | completed |
 | publish_queue | 10.7 | completed |
-| append_dataset | 22.9 | completed |
+| append_dataset | 22.0 | completed |
 | export | 0.4 | skipped |
 | git_commit | 0.3 | skipped |
 | push | 0.3 | skipped |
@@ -31,7 +31,7 @@
     "documents_discovered": 11,
     "documents_downloaded": 42,
     "documents_failed": 0,
-    "documents_duplicates": 35,
+    "documents_duplicates": 31,
     "candidates_extracted": 5,
     "candidates_validated": 5,
     "candidates_rejected": 0,
@@ -56,7 +56,7 @@
     "processing": 0,
     "completed": 42,
     "failed": 0,
-    "duplicates": 35
+    "duplicates": 31
   },
   "exports": {
     "jsonl": false,

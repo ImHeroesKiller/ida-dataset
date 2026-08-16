@@ -1,11 +1,11 @@
 # Acquisition Success
 
-**Generated:** 2026-08-16T16:41:21+00:00
+**Generated:** 2026-08-16T17:31:07+00:00
 
 | Outcome | Count |
 |---------|------:|
 | Enriched with richer body | 3 |
-| Already rich | 28 |
+| Already rich | 24 |
 | Metadata fallback | 39 |
 | Failed chain | 37 |
 | Blocked | 34 |
@@ -44,13 +44,13 @@
 | DOC-8903E78503B7 | metadata_fallback | None | None | 237 |
 | DOC-EEB66F14A504 | metadata_fallback | None | None | 222 |
 | DOC-C82387BE3840 | metadata_fallback | None | None | 88 |
-| DOC-350EA11C1DC8 | metadata_fallback | None | None | 1570 |
 | DOC-35242ACBFC8C | metadata_fallback | None | None | 119 |
+| DOC-350EA11C1DC8 | metadata_fallback | None | None | 1570 |
 | DOC-A9BA1BC04A49 | metadata_fallback | None | None | 120 |
 | DOC-5AE418499878 | metadata_fallback | None | None | 98 |
-| DOC-41728C78610E | metadata_fallback | None | None | 140 |
 | DOC-BD9EDDE8E2B7 | metadata_fallback | None | None | 97 |
+| DOC-41728C78610E | metadata_fallback | None | None | 140 |
 | DOC-74F7181F3D6C | metadata_fallback | None | None | 1558 |
-| DOC-EB8E28CFE081 | metadata_fallback | None | None | 99 |
 | DOC-0E785C552C2C | metadata_fallback | None | None | 101 |
+| DOC-EB8E28CFE081 | metadata_fallback | None | None | 99 |
 | DOC-E96B9B477A4B | metadata_fallback | None | None | 1600 |
