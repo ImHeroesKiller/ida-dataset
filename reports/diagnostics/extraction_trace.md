@@ -1,6 +1,6 @@
 # Extraction Trace
 
-**Generated:** 2026-08-16T21:32:16+00:00
+**Generated:** 2026-08-16T22:36:14+00:00
 
 - Stage stats: `{}`
 - Fast: `None` · Medium: `None` · Deep: `None`
@@ -8,8 +8,8 @@
 
 | Candidate | Entity | Type/Dataset | Confidence | Stage | Validation | Publish |
 | --- | --- | --- | --- | --- | --- | --- |
-| CAND-1A7643E1F3D1 | World Bank document | business_signal_library | 0.92 | — | approved | published |
-| CAND-F02E302B5EC9 | Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target | business_signal_library | 0.9 | — | approved | published |
-| CAND-DF7E5A75D23C | Expand Target Market in Business | business_signal_library | 0.9 | — | approved | published |
-| CAND-44BED1CBE4EB | Product Innovation Toward MSME’s Market Performance On Creative Industry | business_signal_library | 0.9 | — | approved | published |
-| CAND-358E363D512F | Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi | business_signal_library | 0.9 | — | approved | published |
+| CAND-88A9F4771393 | World Bank document | business_signal_library | 0.92 | — | approved | published |
+| CAND-8950A674C6DF | Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target | business_signal_library | 0.9 | — | approved | published |
+| CAND-1EC736B2B5AA | Expand Target Market in Business | business_signal_library | 0.9 | — | approved | published |
+| CAND-86465011B29D | Product Innovation Toward MSME’s Market Performance On Creative Industry | business_signal_library | 0.9 | — | approved | published |
+| CAND-88652BA65875 | Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi | business_signal_library | 0.9 | — | approved | published |
