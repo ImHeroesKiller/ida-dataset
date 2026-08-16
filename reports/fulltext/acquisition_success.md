@@ -1,6 +1,6 @@
 # Acquisition Success
 
-**Generated:** 2026-08-16T10:38:30+00:00
+**Generated:** 2026-08-16T11:36:18+00:00
 
 | Outcome | Count |
 |---------|------:|
@@ -19,7 +19,7 @@
 | DOC-23B61DA3B184 | enriched | html_fulltext | publisher_landing | 11953 |
 | DOC-9C3FE7A510A0 | metadata_fallback | None | None | 135 |
 | DOC-6E3DCB9EEFA9 | metadata_fallback | None | None | 1400 |
-| DOC-8C9B8E14F2A2 | metadata_fallback | None | None | 1581 |
-| DOC-350EA11C1DC8 | metadata_fallback | None | None | 1570 |
 | DOC-74F7181F3D6C | metadata_fallback | None | None | 1558 |
+| DOC-350EA11C1DC8 | metadata_fallback | None | None | 1570 |
+| DOC-8C9B8E14F2A2 | metadata_fallback | None | None | 1581 |
 | DOC-E96B9B477A4B | metadata_fallback | None | None | 1600 |

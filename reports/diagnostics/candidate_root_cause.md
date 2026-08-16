@@ -1,13 +1,13 @@
 # Candidate Root Cause
 
-**Generated:** 2026-08-16T10:38:38+00:00
-**Session:** `SESSION-20260816-AC7559`
+**Generated:** 2026-08-16T11:36:26+00:00
+**Session:** `SESSION-20260816-A22948`
 
 > Diagnostics only. No recommendations. Evidence only.
 
 ## Exactly which rule blocked production?
 
-**Primary integrity block reason:** `duplicate_id (primary entity id already exists in target CSV) — e.g. duplicate_id:SIG-000321`
+**Primary integrity block reason:** `duplicate_id (primary entity id already exists in target CSV) — e.g. duplicate_id:SIG-000329`
 
 **dry_run publisher gate:** `False`
 
@@ -19,31 +19,31 @@
 
 ## What evidence proves it?
 
-- `session_id=SESSION-20260816-AC7559`
+- `session_id=SESSION-20260816-A22948`
 - `dry_run=False`
 - `candidates_analyzed=5`
 - `integrity_blocked=5`
 - `top_family=duplicate_id count=5`
 - `family_histogram={'duplicate_id': 5}`
-- `reason_histogram={'duplicate_id:SIG-000321': 1, 'duplicate_id:SIG-000323': 1, 'duplicate_id:SIG-000325': 1, 'duplicate_id:SIG-000324': 1, 'duplicate_id:SIG-000322': 1}`
-- `candidate CAND-DC60562D95A0 entity_id=SIG-000321 reason=duplicate_id:SIG-000321 conf=0.92`
-- `candidate CAND-DBF642B0045E entity_id=SIG-000323 reason=duplicate_id:SIG-000323 conf=0.9`
-- `candidate CAND-D964366CD4C1 entity_id=SIG-000325 reason=duplicate_id:SIG-000325 conf=0.9`
-- `candidate CAND-3A2EAF25D081 entity_id=SIG-000324 reason=duplicate_id:SIG-000324 conf=0.9`
-- `candidate CAND-ADC3D1FF8B32 entity_id=SIG-000322 reason=duplicate_id:SIG-000322 conf=0.9`
+- `reason_histogram={'duplicate_id:SIG-000329': 1, 'duplicate_id:SIG-000330': 1, 'duplicate_id:SIG-000327': 1, 'duplicate_id:SIG-000326': 1, 'duplicate_id:SIG-000328': 1}`
+- `candidate CAND-D1D2A8D3603C entity_id=SIG-000329 reason=duplicate_id:SIG-000329 conf=0.9`
+- `candidate CAND-F149D068BDAC entity_id=SIG-000330 reason=duplicate_id:SIG-000330 conf=0.9`
+- `candidate CAND-DF8C98EC1479 entity_id=SIG-000327 reason=duplicate_id:SIG-000327 conf=0.9`
+- `candidate CAND-E4CB3C9DA54F entity_id=SIG-000326 reason=duplicate_id:SIG-000326 conf=0.92`
+- `candidate CAND-DF0586184C7F entity_id=SIG-000328 reason=duplicate_id:SIG-000328 conf=0.9`
 
 ## Per-candidate integrity reasons
 
 | candidate_id | dataset | confidence | integrity_ok | reason | publish |
 | --- | --- | --- | --- | --- | --- |
-| CAND-DC60562D95A0 | business_signal_library | 0.92 | False | duplicate_id:SIG-000321 | Rejected |
-| CAND-DBF642B0045E | business_signal_library | 0.9 | False | duplicate_id:SIG-000323 | Rejected |
-| CAND-D964366CD4C1 | business_signal_library | 0.9 | False | duplicate_id:SIG-000325 | Rejected |
-| CAND-3A2EAF25D081 | business_signal_library | 0.9 | False | duplicate_id:SIG-000324 | Rejected |
-| CAND-ADC3D1FF8B32 | business_signal_library | 0.9 | False | duplicate_id:SIG-000322 | Rejected |
+| CAND-D1D2A8D3603C | business_signal_library | 0.9 | False | duplicate_id:SIG-000329 | Rejected |
+| CAND-F149D068BDAC | business_signal_library | 0.9 | False | duplicate_id:SIG-000330 | Rejected |
+| CAND-DF8C98EC1479 | business_signal_library | 0.9 | False | duplicate_id:SIG-000327 | Rejected |
+| CAND-E4CB3C9DA54F | business_signal_library | 0.92 | False | duplicate_id:SIG-000326 | Rejected |
+| CAND-DF0586184C7F | business_signal_library | 0.9 | False | duplicate_id:SIG-000328 | Rejected |
 
 ## Could production continue if that rule were satisfied?
 
-If rule/condition `duplicate_id (primary entity id already exists in target CSV) — e.g. duplicate_id:SIG-000321` were satisfied for 5/5 candidate(s), integrity_guard.validate_row would return ok for those candidates (publisher append still gated by session dry_run=False).
+If rule/condition `duplicate_id (primary entity id already exists in target CSV) — e.g. duplicate_id:SIG-000329` were satisfied for 5/5 candidate(s), integrity_guard.validate_row would return ok for those candidates (publisher append still gated by session dry_run=False).
 
 No recommendation is made. Statement is conditional evidence only.
