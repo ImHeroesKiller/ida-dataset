@@ -1,11 +1,11 @@
 {
   "version": "1.0",
   "mission": "Produce Industry Dataset — expand industry_library toward product target",
-  "mission_id": "MIS-20260816-CD4093",
-  "session_id": "SES-20260816-719EF6",
+  "mission_id": "MIS-20260816-EF2E16",
+  "session_id": "SES-20260816-967761",
   "dataset": "industry_library",
-  "started_at": "2026-08-16T08:31:47+00:00",
-  "finished_at": "2026-08-16T08:45:51+00:00",
+  "started_at": "2026-08-16T09:29:02+00:00",
+  "finished_at": "2026-08-16T09:43:05+00:00",
   "current_stage": "push",
   "current_connector": "BPS Indonesia",
   "current_document": "DOC-42435589D8A0",
@@ -15,9 +15,9 @@
   "stages": [
     {
       "name": "mission",
-      "start_time": "2026-08-16T08:31:47+00:00",
-      "finish_time": "2026-08-16T08:31:47+00:00",
-      "duration_ms": 0.9,
+      "start_time": "2026-08-16T09:29:02+00:00",
+      "finish_time": "2026-08-16T09:29:02+00:00",
+      "duration_ms": 1.1,
       "status": "completed",
       "rows": 0,
       "documents": 0,
@@ -31,9 +31,9 @@
     },
     {
       "name": "source_discovery",
-      "start_time": "2026-08-16T08:31:47+00:00",
-      "finish_time": "2026-08-16T08:31:47+00:00",
-      "duration_ms": 2.5,
+      "start_time": "2026-08-16T09:29:02+00:00",
+      "finish_time": "2026-08-16T09:29:02+00:00",
+      "duration_ms": 3.1,
       "status": "completed",
       "rows": 0,
       "documents": 0,
@@ -125,9 +125,9 @@
     },
     {
       "name": "connector",
-      "start_time": "2026-08-16T08:44:05+00:00",
-      "finish_time": "2026-08-16T08:44:12+00:00",
-      "duration_ms": 6177.3,
+      "start_time": "2026-08-16T09:41:19+00:00",
+      "finish_time": "2026-08-16T09:41:26+00:00",
+      "duration_ms": 6207.0,
       "status": "completed",
       "rows": 0,
       "documents": 27,
@@ -149,9 +149,9 @@
     },
     {
       "name": "document_discovery",
-      "start_time": "2026-08-16T08:44:05+00:00",
-      "finish_time": "2026-08-16T08:44:12+00:00",
-      "duration_ms": 6177.5,
+      "start_time": "2026-08-16T09:41:19+00:00",
+      "finish_time": "2026-08-16T09:41:26+00:00",
+      "duration_ms": 6207.1,
       "status": "completed",
       "rows": 0,
       "documents": 27,
@@ -161,9 +161,9 @@
     },
     {
       "name": "document_download",
-      "start_time": "2026-08-16T08:44:12+00:00",
-      "finish_time": "2026-08-16T08:45:51+00:00",
-      "duration_ms": 99693.5,
+      "start_time": "2026-08-16T09:41:26+00:00",
+      "finish_time": "2026-08-16T09:43:05+00:00",
+      "duration_ms": 99525.1,
       "status": "completed",
       "rows": 0,
       "documents": 11,
@@ -177,9 +177,9 @@
     },
     {
       "name": "extraction",
-      "start_time": "2026-08-16T08:45:51+00:00",
-      "finish_time": "2026-08-16T08:45:51+00:00",
-      "duration_ms": 22.6,
+      "start_time": "2026-08-16T09:43:05+00:00",
+      "finish_time": "2026-08-16T09:43:05+00:00",
+      "duration_ms": 25.3,
       "status": "completed",
       "rows": 5,
       "documents": 0,
@@ -189,9 +189,9 @@
     },
     {
       "name": "candidate_validation",
-      "start_time": "2026-08-16T08:45:51+00:00",
-      "finish_time": "2026-08-16T08:45:51+00:00",
-      "duration_ms": 7.7,
+      "start_time": "2026-08-16T09:43:05+00:00",
+      "finish_time": "2026-08-16T09:43:05+00:00",
+      "duration_ms": 10.1,
       "status": "completed",
       "rows": 5,
       "documents": 0,
@@ -206,9 +206,9 @@
     },
     {
       "name": "publish_queue",
-      "start_time": "2026-08-16T08:45:51+00:00",
-      "finish_time": "2026-08-16T08:45:51+00:00",
-      "duration_ms": 7.8,
+      "start_time": "2026-08-16T09:43:05+00:00",
+      "finish_time": "2026-08-16T09:43:05+00:00",
+      "duration_ms": 10.1,
       "status": "completed",
       "rows": 5,
       "documents": 0,
@@ -218,9 +218,9 @@
     },
     {
       "name": "append_dataset",
-      "start_time": "2026-08-16T08:45:51+00:00",
-      "finish_time": "2026-08-16T08:45:51+00:00",
-      "duration_ms": 8.0,
+      "start_time": "2026-08-16T09:43:05+00:00",
+      "finish_time": "2026-08-16T09:43:05+00:00",
+      "duration_ms": 10.3,
       "status": "completed",
       "rows": 5,
       "documents": 0,
@@ -230,8 +230,8 @@
     },
     {
       "name": "export",
-      "start_time": "2026-08-16T08:45:51+00:00",
-      "finish_time": "2026-08-16T08:45:51+00:00",
+      "start_time": "2026-08-16T09:43:05+00:00",
+      "finish_time": "2026-08-16T09:43:05+00:00",
       "duration_ms": 0.3,
       "status": "skipped",
       "rows": 0,
@@ -244,8 +244,8 @@
     },
     {
       "name": "git_commit",
-      "start_time": "2026-08-16T08:45:51+00:00",
-      "finish_time": "2026-08-16T08:45:51+00:00",
+      "start_time": "2026-08-16T09:43:05+00:00",
+      "finish_time": "2026-08-16T09:43:05+00:00",
       "duration_ms": 0.3,
       "status": "skipped",
       "rows": 0,
@@ -258,9 +258,9 @@
     },
     {
       "name": "push",
-      "start_time": "2026-08-16T08:45:51+00:00",
-      "finish_time": "2026-08-16T08:45:51+00:00",
-      "duration_ms": 0.2,
+      "start_time": "2026-08-16T09:43:05+00:00",
+      "finish_time": "2026-08-16T09:43:05+00:00",
+      "duration_ms": 0.3,
       "status": "skipped",
       "rows": 0,
       "documents": 0,
@@ -279,13 +279,13 @@
       "source_name": "Crossref",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 552.5,
+      "elapsed_ms": 270.8,
       "documents_discovered": 10,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-08-16T08:44:06+00:00",
+      "last_successful_sync": "2026-08-16T09:41:20+00:00",
       "urls": [
         "https://api.crossref.org/works/10.1787/888933931335",
         "https://api.crossref.org/works/10.23917/benefit.v10i1.8214",
@@ -303,7 +303,7 @@
       "source_name": "OpenAlex",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 629.6,
+      "elapsed_ms": 387.1,
       "documents_discovered": 0,
       "documents_downloaded": 1,
       "skipped": 0,
@@ -321,13 +321,13 @@
       "source_name": "World Bank",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 1254.1,
+      "elapsed_ms": 525.0,
       "documents_discovered": 1,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-08-16T08:44:07+00:00",
+      "last_successful_sync": "2026-08-16T09:41:20+00:00",
       "urls": [
         "https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia"
       ],
@@ -335,13 +335,13 @@
       "rank_score": 102.405
     },
     {
-      "connector_id": "CONN-OECD-001",
-      "name": "OECD",
-      "source_id": "SRC-000005",
-      "source_name": "OECD",
+      "connector_id": "CONN-KEMENPERIN-001",
+      "name": "Kemenperin",
+      "source_id": "SRC-000007",
+      "source_name": "Kemenperin",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3141.5,
+      "elapsed_ms": 3091.2,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -350,7 +350,7 @@
       "last_successful_sync": "",
       "urls": [],
       "error": null,
-      "rank_score": 100.544
+      "rank_score": 100.037
     },
     {
       "connector_id": "CONN-ADB-001",
@@ -359,7 +359,7 @@
       "source_name": "Asian Development Bank",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3185.4,
+      "elapsed_ms": 3109.6,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -371,13 +371,13 @@
       "rank_score": 101.041
     },
     {
-      "connector_id": "CONN-KEMENPERIN-001",
-      "name": "Kemenperin",
-      "source_id": "SRC-000007",
-      "source_name": "Kemenperin",
+      "connector_id": "CONN-OECD-001",
+      "name": "OECD",
+      "source_id": "SRC-000005",
+      "source_name": "OECD",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3185.1,
+      "elapsed_ms": 3142.3,
       "documents_discovered": 0,
       "documents_downloaded": 1,
       "skipped": 0,
@@ -386,7 +386,7 @@
       "last_successful_sync": "",
       "urls": [],
       "error": null,
-      "rank_score": 100.037
+      "rank_score": 100.544
     },
     {
       "connector_id": "CONN-BPS-001",
@@ -395,7 +395,7 @@
       "source_name": "BPS Indonesia",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 6174.1,
+      "elapsed_ms": 6203.4,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -416,7 +416,7 @@
       "source_name": "World Bank",
       "connector_id": "CONN-WB-001",
       "connector_name": "World Bank",
-      "retrieved_at": "2026-08-16T08:44:46+00:00",
+      "retrieved_at": "2026-08-16T09:42:00+00:00",
       "checksum": "9c3fe7a510a03320c9352cf7e64cef229cbbec35ec527b21026ff1c6c9fdaadf",
       "size": 137,
       "bytes": 137,
@@ -424,7 +424,7 @@
       "document_type": "plain",
       "status": "completed",
       "fetch_mode": "metadata_fallback",
-      "priority_score": 92.755
+      "priority_score": 93.0
     },
     {
       "document_id": "DOC-9CF2639B264C",
@@ -434,7 +434,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:44:12+00:00",
+      "retrieved_at": "2026-08-16T09:41:26+00:00",
       "checksum": "9cf2639b264cd760d918007f4829899b0d0816017be9ee9b876490b5d39b38cb",
       "size": 1099,
       "bytes": 1099,
@@ -442,7 +442,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 92.222
+      "priority_score": 92.316
     },
     {
       "document_id": "DOC-AFB055C754E2",
@@ -452,7 +452,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:44:12+00:00",
+      "retrieved_at": "2026-08-16T09:41:26+00:00",
       "checksum": "afb055c754e212751209c2806a409e2a2fe38b4fea2f030db045395939c32b1b",
       "size": 25992,
       "bytes": 25992,
@@ -460,7 +460,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download+fulltext",
-      "priority_score": 81.222
+      "priority_score": 81.316
     },
     {
       "document_id": "DOC-8DEAD915EF6F",
@@ -470,7 +470,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:44:13+00:00",
+      "retrieved_at": "2026-08-16T09:41:26+00:00",
       "checksum": "8dead915ef6fb2275672ad4a057a938ec09be12434717f5abf6860b18642aa34",
       "size": 11143,
       "bytes": 11143,
@@ -478,7 +478,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download+fulltext",
-      "priority_score": 81.222
+      "priority_score": 81.316
     },
     {
       "document_id": "DOC-23B61DA3B184",
@@ -488,7 +488,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:44:19+00:00",
+      "retrieved_at": "2026-08-16T09:41:33+00:00",
       "checksum": "23b61da3b184345c2761869eb7740d7a5a52c4dd8b810b6ef0a0d7f10eddb017",
       "size": 53526,
       "bytes": 53526,
@@ -496,7 +496,7 @@
       "document_type": "html",
       "status": "completed",
       "fetch_mode": "download+fulltext",
-      "priority_score": 78.955
+      "priority_score": 79.049
     },
     {
       "document_id": "DOC-6E3DCB9EEFA9",
@@ -506,7 +506,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:44:21+00:00",
+      "retrieved_at": "2026-08-16T09:41:37+00:00",
       "checksum": "6e3dcb9eefa9833cd6bdd6105775a94e7174f29e840f96f258e5a0a7a561443c",
       "size": 1400,
       "bytes": 1400,
@@ -514,7 +514,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 78.822
+      "priority_score": 78.916
     },
     {
       "document_id": "DOC-8C9B8E14F2A2",
@@ -524,7 +524,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:44:26+00:00",
+      "retrieved_at": "2026-08-16T09:41:40+00:00",
       "checksum": "8c9b8e14f2a22b7d8442ca4323c0b191e1283c7f40d8ddc004cf93ff0707a8e3",
       "size": 1581,
       "bytes": 1581,
@@ -532,7 +532,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 78.822
+      "priority_score": 78.916
     },
     {
       "document_id": "DOC-350EA11C1DC8",
@@ -542,7 +542,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:44:47+00:00",
+      "retrieved_at": "2026-08-16T09:42:01+00:00",
       "checksum": "350ea11c1dc837f7d56d82713c8082f9b476f681dbbaf03e9bd1e586e55522a5",
       "size": 1570,
       "bytes": 1570,
@@ -550,7 +550,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 76.422
+      "priority_score": 76.516
     },
     {
       "document_id": "DOC-74F7181F3D6C",
@@ -560,7 +560,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:44:57+00:00",
+      "retrieved_at": "2026-08-16T09:42:11+00:00",
       "checksum": "74f7181f3d6c0d7f660371390c726dfcfd83406e281c0329129d6da94f043570",
       "size": 1558,
       "bytes": 1558,
@@ -568,7 +568,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 76.422
+      "priority_score": 76.516
     },
     {
       "document_id": "DOC-E96B9B477A4B",
@@ -578,7 +578,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:45:07+00:00",
+      "retrieved_at": "2026-08-16T09:42:22+00:00",
       "checksum": "e96b9b477a4b9861c3d209e9f48522fdf61171deddc0e5756a806769024d3ee1",
       "size": 1600,
       "bytes": 1600,
@@ -586,7 +586,7 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 76.422
+      "priority_score": 76.516
     },
     {
       "document_id": "DOC-42435589D8A0",
@@ -596,7 +596,7 @@
       "source_name": "Crossref",
       "connector_id": "CONN-CROSSREF-001",
       "connector_name": "Crossref",
-      "retrieved_at": "2026-08-16T08:45:12+00:00",
+      "retrieved_at": "2026-08-16T09:42:24+00:00",
       "checksum": "42435589d8a08efcb598a242bfaf7921d2efa58ea4eb9f923eecf37c8b7f7e14",
       "size": 1653,
       "bytes": 1653,
@@ -604,15 +604,15 @@
       "document_type": "json",
       "status": "completed",
       "fetch_mode": "download",
-      "priority_score": 76.422
+      "priority_score": 76.516
     }
   ],
   "candidates": [
     {
-      "candidate_id": "CAND-BEC436BA5226",
+      "candidate_id": "CAND-085ECE295149",
       "entity": "World Bank document",
       "name": "World Bank document",
-      "entity_id": "SIG-000311",
+      "entity_id": "SIG-000316",
       "dataset": "business_signal_library",
       "confidence": 0.92,
       "validation_status": "approved",
@@ -626,10 +626,10 @@
       "connector_id": "CONN-WB-001"
     },
     {
-      "candidate_id": "CAND-11BFC43CFB55",
+      "candidate_id": "CAND-2684E4B37004",
       "entity": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
       "name": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
-      "entity_id": "SIG-000312",
+      "entity_id": "SIG-000317",
       "dataset": "business_signal_library",
       "confidence": 0.9,
       "validation_status": "approved",
@@ -643,10 +643,10 @@
       "connector_id": "CONN-CROSSREF-001"
     },
     {
-      "candidate_id": "CAND-6D629AA09A93",
+      "candidate_id": "CAND-5AE0C4702EC2",
       "entity": "Expand Target Market in Business",
       "name": "Expand Target Market in Business",
-      "entity_id": "SIG-000313",
+      "entity_id": "SIG-000318",
       "dataset": "business_signal_library",
       "confidence": 0.9,
       "validation_status": "approved",
@@ -660,10 +660,10 @@
       "connector_id": "CONN-CROSSREF-001"
     },
     {
-      "candidate_id": "CAND-F3C993DACD58",
+      "candidate_id": "CAND-482A2D9EA693",
       "entity": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
       "name": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
-      "entity_id": "SIG-000314",
+      "entity_id": "SIG-000319",
       "dataset": "business_signal_library",
       "confidence": 0.9,
       "validation_status": "approved",
@@ -677,10 +677,10 @@
       "connector_id": "CONN-CROSSREF-001"
     },
     {
-      "candidate_id": "CAND-FBE29B825B38",
+      "candidate_id": "CAND-A43F4AAE025C",
       "entity": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi",
       "name": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi",
-      "entity_id": "SIG-000315",
+      "entity_id": "SIG-000320",
       "dataset": "business_signal_library",
       "confidence": 0.9,
       "validation_status": "approved",
@@ -718,8 +718,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "World Bank document",
-      "entity_id": "SIG-000311",
-      "candidate_id": "CAND-BEC436BA5226",
+      "entity_id": "SIG-000316",
+      "candidate_id": "CAND-085ECE295149",
       "document_id": "DOC-9C3FE7A510A0",
       "document_title": "World Bank document",
       "connector_id": "CONN-WB-001",
@@ -733,8 +733,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
-      "entity_id": "SIG-000312",
-      "candidate_id": "CAND-11BFC43CFB55",
+      "entity_id": "SIG-000317",
+      "candidate_id": "CAND-2684E4B37004",
       "document_id": "DOC-9CF2639B264C",
       "document_title": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
       "connector_id": "CONN-CROSSREF-001",
@@ -748,8 +748,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "Expand Target Market in Business",
-      "entity_id": "SIG-000313",
-      "candidate_id": "CAND-6D629AA09A93",
+      "entity_id": "SIG-000318",
+      "candidate_id": "CAND-5AE0C4702EC2",
       "document_id": "DOC-AFB055C754E2",
       "document_title": "Expand Target Market in Business",
       "connector_id": "CONN-CROSSREF-001",
@@ -763,8 +763,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
-      "entity_id": "SIG-000314",
-      "candidate_id": "CAND-F3C993DACD58",
+      "entity_id": "SIG-000319",
+      "candidate_id": "CAND-482A2D9EA693",
       "document_id": "DOC-8DEAD915EF6F",
       "document_title": "Product Innovation Toward MSME’s Market Performance On Creative Industry",
       "connector_id": "CONN-CROSSREF-001",
@@ -778,8 +778,8 @@
     {
       "dataset": "business_signal_library",
       "entity": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi",
-      "entity_id": "SIG-000315",
-      "candidate_id": "CAND-FBE29B825B38",
+      "entity_id": "SIG-000320",
+      "candidate_id": "CAND-A43F4AAE025C",
       "document_id": "DOC-23B61DA3B184",
       "document_title": "Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shaping Preferences",
       "connector_id": "CONN-CROSSREF-001",
