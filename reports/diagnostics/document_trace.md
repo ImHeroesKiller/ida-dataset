@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-08-17T22:40:11+00:00
+**Generated:** 2026-08-17T23:37:58+00:00
 
-- Fingerprint URLs known: **68**
-- Fingerprint hashes known: **68**
-- Fingerprint stats: `{'skips': 22, 'adds': 68}`
-- Trace summary: discovered=11 downloaded=42 duplicates=33
+- Fingerprint URLs known: **70**
+- Fingerprint hashes known: **70**
+- Fingerprint stats: `{'skips': 20, 'adds': 70}`
+- Trace summary: discovered=11 downloaded=42 duplicates=35
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,8 +18,8 @@
 | DOC-8C9B8E14F2A2 | https://api.crossref.org/works/10.1037/t52448-000 | 8c9b8e14f2a22b7d | True | False | False | False | True | completed |
 | DOC-350EA11C1DC8 | https://api.crossref.org/works/10.1037/t34363-000 | 350ea11c1dc837f7 | True | False | False | False | True | completed |
 | DOC-74F7181F3D6C | https://api.crossref.org/works/10.1037/e651502012-001 | 74f7181f3d6c0d7f | True | False | False | False | True | completed |
-| DOC-42435589D8A0 | https://api.crossref.org/works/10.9790/487x-0925561 | 42435589d8a08efc | True | False | False | False | True | completed |
 | DOC-E96B9B477A4B | https://api.crossref.org/works/10.1037/t34495-000 | e96b9b477a4b9861 | True | False | False | False | True | completed |
+| DOC-42435589D8A0 | https://api.crossref.org/works/10.9790/487x-0925561 | 42435589d8a08efc | True | False | False | False | True | completed |
 | DOC-C1C8D7931100 | https://www.worldbank.org/%20en/country/madagascar/overview | c1c8d793110074b6 | True | False | False | False | True | completed |
 | DOC-63E9EB2E5A2F | https://www.worldbank.org/%E2%80%A6/global-action-urgently-n | 63e9eb2e5a2fca92 | True | False | False | False | True | completed |
 | DOC-5FB511CEE340 | https://www.worldbank.org/%E3%80%80 | 5fb511cee340eddf | True | False | False | False | True | completed |

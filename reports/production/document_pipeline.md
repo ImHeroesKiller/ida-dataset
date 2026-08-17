@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260817-F5D0E0`
+**Session:** `SES-20260817-F52D30`
 
 ## Queue counts
 
@@ -10,7 +10,7 @@
 | processing | 0 |
 | completed | 42 |
 | failed | 0 |
-| duplicates | 33 |
+| duplicates | 35 |
 
 ## Documents
 
@@ -25,8 +25,8 @@
 | `DOC-8C9B8E14F2A2` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1581 | https://api.crossref.org/works/10.1037/t52448-000 |
 | `DOC-350EA11C1DC8` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1570 | https://api.crossref.org/works/10.1037/t34363-000 |
 | `DOC-74F7181F3D6C` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1558 | https://api.crossref.org/works/10.1037/e651502012-001 |
-| `DOC-42435589D8A0` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1653 | https://api.crossref.org/works/10.9790/487x-0925561 |
 | `DOC-E96B9B477A4B` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1600 | https://api.crossref.org/works/10.1037/t34495-000 |
+| `DOC-42435589D8A0` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1653 | https://api.crossref.org/works/10.9790/487x-0925561 |
 | `DOC-C1C8D7931100` | SRC-000004 | DISC-LAYER | text/plain | completed | 115 | https://www.worldbank.org/%20en/country/madagascar/overview |
 | `DOC-63E9EB2E5A2F` | SRC-000004 | DISC-LAYER | text/plain | completed | 132 | https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 |
 | `DOC-5FB511CEE340` | SRC-000004 | DISC-LAYER | text/plain | completed | 91 | https://www.worldbank.org/%E3%80%80 |
