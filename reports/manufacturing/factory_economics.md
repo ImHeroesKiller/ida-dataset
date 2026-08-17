@@ -2,13 +2,13 @@
 
 | Metric | Value |
 |--------|------:|
-| Bandwidth (bytes) | 1728643 |
+| Bandwidth (bytes) | 1728623 |
 | API requests | 89 |
 | Cache hit rate | 0.0 |
 | Rows produced | 5 |
-| Documents processed | 23261 |
+| Documents processed | 23273 |
 | Rows per API call | 0.0562 |
-| Rows per GB | 3105.74 |
+| Rows per GB | 3105.77 |
 | Est. production cost (USD proxy) | 0.089 |
 | Knowledge ROI | 56.18 |
 
@@ -18,14 +18,14 @@
 [
   {
     "source_id": "SRC-CROSSREF",
-    "rows": 1185,
-    "documents": 6597,
+    "rows": 1189,
+    "documents": 6607,
     "success_rate": 1.0
   },
   {
     "source_id": "SRC-000004",
-    "rows": 854,
-    "documents": 5543,
+    "rows": 855,
+    "documents": 5545,
     "success_rate": 1.0
   },
   {
