@@ -1,6 +1,6 @@
 # Acquisition Success
 
-**Generated:** 2026-08-17T19:42:54+00:00
+**Generated:** 2026-08-17T20:42:12+00:00
 
 | Outcome | Count |
 |---------|------:|
@@ -17,12 +17,11 @@
 | DOC-AFB055C754E2 | enriched | html_fulltext | publisher_landing | 2502 |
 | DOC-8DEAD915EF6F | enriched | html_fulltext | publisher_landing | 2637 |
 | DOC-6E3DCB9EEFA9 | metadata_fallback | None | None | 1400 |
-| DOC-23B61DA3B184 | enriched | html_fulltext | publisher_landing | 11953 |
 | DOC-8C9B8E14F2A2 | metadata_fallback | None | None | 1581 |
-| DOC-350EA11C1DC8 | metadata_fallback | None | None | 1570 |
-| DOC-E96B9B477A4B | metadata_fallback | None | None | 1600 |
-| DOC-C1C8D7931100 | metadata_fallback | None | None | 115 |
+| DOC-23B61DA3B184 | enriched | html_fulltext | publisher_landing | 11953 |
 | DOC-74F7181F3D6C | metadata_fallback | None | None | 1558 |
+| DOC-350EA11C1DC8 | metadata_fallback | None | None | 1570 |
+| DOC-C1C8D7931100 | metadata_fallback | None | None | 115 |
 | DOC-63E9EB2E5A2F | metadata_fallback | None | None | 132 |
 | DOC-5FB511CEE340 | metadata_fallback | None | None | 91 |
 | DOC-5FBA0F15E0B9 | metadata_fallback | None | None | 78 |
@@ -35,6 +34,7 @@
 | DOC-3E1CA71C0311 | metadata_fallback | None | None | 245 |
 | DOC-65FC704A4D9D | metadata_fallback | None | None | 208 |
 | DOC-0DE6D8F8C910 | metadata_fallback | None | None | 149 |
+| DOC-E96B9B477A4B | metadata_fallback | None | None | 1600 |
 | DOC-2F7C49C3E453 | metadata_fallback | None | None | 213 |
 | DOC-7A131D726BF1 | metadata_fallback | None | None | 173 |
 | DOC-067282F2AF34 | metadata_fallback | None | None | 178 |
@@ -51,6 +51,6 @@
 | DOC-5AE418499878 | metadata_fallback | None | None | 98 |
 | DOC-BD9EDDE8E2B7 | metadata_fallback | None | None | 97 |
 | DOC-41728C78610E | metadata_fallback | None | None | 140 |
+| DOC-9C3FE7A510A0 | metadata_fallback | None | None | 135 |
 | DOC-0E785C552C2C | metadata_fallback | None | None | 101 |
 | DOC-EB8E28CFE081 | metadata_fallback | None | None | 99 |
-| DOC-9C3FE7A510A0 | metadata_fallback | None | None | 135 |

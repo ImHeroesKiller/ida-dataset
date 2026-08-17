@@ -1,25 +1,25 @@
 # Runtime Statistics
 
-**Session:** `SES-20260817-5C955E`
+**Session:** `SES-20260817-7A5800`
 **Mission:** Produce Industry Dataset — expand industry_library toward product target
-**Total stage time (ms):** 49326.4
+**Total stage time (ms):** 52418.0
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 1.2 | completed |
-| source_discovery | 2.9 | completed |
-| connector | 6227.6 | completed |
-| document_discovery | 6227.7 | completed |
-| document_download | 36788.3 | completed |
-| extraction | 30.1 | completed |
-| candidate_validation | 12.1 | completed |
-| publish_queue | 12.1 | completed |
-| append_dataset | 23.3 | completed |
-| export | 0.4 | skipped |
-| git_commit | 0.4 | skipped |
-| push | 0.3 | skipped |
+| mission | 0.7 | completed |
+| source_discovery | 2.5 | completed |
+| connector | 6240.5 | completed |
+| document_discovery | 6240.6 | completed |
+| document_download | 39739.9 | completed |
+| extraction | 157.8 | completed |
+| candidate_validation | 8.1 | completed |
+| publish_queue | 8.1 | completed |
+| append_dataset | 15.5 | completed |
+| export | 3.9 | skipped |
+| git_commit | 0.2 | skipped |
+| push | 0.2 | skipped |
 
 ## Counters
 
