@@ -1,15 +1,15 @@
 # Candidate Pipeline
 
-**Session:** `SES-20260817-D36273`
+**Session:** `SES-20260817-10A0F5`
 
 Extracted **5** · Validated **5** · Rejected **0**
 
 | Candidate | Entity | Dataset | Confidence | Validation | Publish | Document | Reject reason |
 |-----------|--------|---------|------------|------------|---------|----------|---------------|
-| `CAND-D05540678A59` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-9C3FE7A510A0` | — |
-| `CAND-6B936E0FFAED` | Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target | business_signal_library | 0.9 | approved | published | `DOC-9CF2639B264C` | — |
-| `CAND-F3FBC553FB66` | Expand Target Market in Business | business_signal_library | 0.9 | approved | published | `DOC-AFB055C754E2` | — |
-| `CAND-EB11F5B07543` | Product Innovation Toward MSME’s Market Performance On Creative Industry | business_signal_library | 0.9 | approved | published | `DOC-8DEAD915EF6F` | — |
-| `CAND-A0D7DB64B158` | Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi | business_signal_library | 0.9 | approved | published | `DOC-23B61DA3B184` | — |
+| `CAND-90E8B4C03187` | World Bank document | business_signal_library | 0.92 | approved | published | `DOC-9C3FE7A510A0` | — |
+| `CAND-553805CCF843` | Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target | business_signal_library | 0.9 | approved | published | `DOC-9CF2639B264C` | — |
+| `CAND-073CC628103F` | Expand Target Market in Business | business_signal_library | 0.9 | approved | published | `DOC-AFB055C754E2` | — |
+| `CAND-110B12140330` | Product Innovation Toward MSME’s Market Performance On Creative Industry | business_signal_library | 0.9 | approved | published | `DOC-8DEAD915EF6F` | — |
+| `CAND-244553DC2B67` | Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi | business_signal_library | 0.9 | approved | published | `DOC-23B61DA3B184` | — |
 
 ## Evidence snippets
