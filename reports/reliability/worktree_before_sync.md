@@ -83,10 +83,10 @@
  M reports/production/runtime_statistics.md
  M reports/reliability/git_worktree_trace.md
  M reports/reliability/writer_finalize.json
-?? automation/learning/state/sessions/SES-20260817-B8AC03.jsonl
-?? automation/sessions/2026-08-17/SESSION-20260817-C64414.json
-?? reports/production/production_trace_SES-20260817-B8AC03.json
-?? reports/production/sessions/SES-20260817-B8AC03/
+?? automation/learning/state/sessions/SES-20260817-AD1FB5.jsonl
+?? automation/sessions/2026-08-17/SESSION-20260817-17694F.json
+?? reports/production/production_trace_SES-20260817-AD1FB5.json
+?? reports/production/sessions/SES-20260817-AD1FB5/
 ```
 
 ## git diff --name-only
@@ -177,17 +177,17 @@ reports/reliability/writer_finalize.json
 ## git diff --stat
 
 ```
- .../learning/state/acquisition_performance.json    | 212 +++---
+ .../learning/state/acquisition_performance.json    | 220 +++---
  automation/learning/state/current_snapshot.json    |   6 +-
  automation/learning/state/daily_2026-08-17.json    |   4 +-
- automation/learning/state/discovery_analytics.json | 418 +----------
- automation/learning/state/learning_journal.jsonl   | 186 +++++
+ automation/learning/state/discovery_analytics.json | 422 ++++++-----
+ automation/learning/state/learning_journal.jsonl   | 241 ++++++
  automation/learning/state/live_activity.json       |  10 +-
- automation/learning/state/manufacturing_state.json | 178 ++---
- automation/learning/state/production_trace.json    | 782 ++++++++-------------
+ automation/learning/state/manufacturing_state.json | 198 ++---
+ automation/learning/state/production_trace.json    | 826 +++++++++++++--------
  automation/learning/state/snapshot_2026-08-17.json |   6 +-
- automation/learning/state/source_health.json       |  44 +-
- automation/learning/state/source_performance.json  |  64 +-
+ automation/learning/state/source_health.json       |  58 +-
+ automation/learning/state/source_performance.json  |  66 +-
  automation/sessions/index.json                     |  58 +-
  .../business_signal_library.csv                    |   5 +
  reports/diagnostics/candidate_lifecycle.md         |  16 +-
@@ -204,26 +204,26 @@ reports/reliability/writer_finalize.json
  reports/diagnostics/root_cause_analysis.md         |  16 +-
  reports/diagnostics/rule_impact.md                 |   2 +-
  reports/diagnostics/scheduler_trace.md             |   8 +-
- reports/diagnostics/session_trace.md               |  24 +-
+ reports/diagnostics/session_trace.md               |  28 +-
  reports/diagnostics/source_trace.md                |  30 +-
  reports/diagnostics/validation_statistics.md       |   2 +-
- reports/diagnostics/validation_trace.md            | 120 ++--
- reports/discovery/accepted_urls.md                 |  30 -
+ reports/diagnostics/validation_trace.md            | 118 +--
+ reports/discovery/accepted_urls.md                 |  34 +-
  reports/discovery/adaptive_budget.md               |   2 +-
  reports/discovery/discovery_capacity.md            |   2 +-
  reports/discovery/environment_audit.md             |   2 +-
- reports/discovery/hard_limit_audit.md              |   2 +-
- reports/discovery/provider_audit.md                |   8 +-
- reports/discovery/provider_exhaustion.md           |   4 +-
+ reports/discovery/hard_limit_audit.md              |   4 +-
+ reports/discovery/provider_audit.md                |  10 +-
+ reports/discovery/provider_exhaustion.md           |   6 +-
  reports/discovery/provider_health.md               |   4 +-
- reports/discovery/provider_ranking.md              |   4 +-
- reports/discovery/provider_statistics.md           |  18 +-
- reports/discovery/provider_yield.md                |   4 +-
- reports/discovery/query_statistics.md              |  16 +-
- reports/discovery/rejected_urls.md                 |  30 -
- reports/discovery/throughput_analysis.md           |  10 +-
- reports/discovery/trusted_source_usage.md          |   2 -
- reports/fulltext/acquisition_success.md            |  35 +-
+ reports/discovery/provider_ranking.md              |   6 +-
+ reports/discovery/provider_statistics.md           |  24 +-
+ reports/discovery/provider_yield.md                |   6 +-
+ reports/discovery/query_statistics.md              |  15 +-
+ reports/discovery/rejected_urls.md                 |  38 +-
+ reports/discovery/throughput_analysis.md           |  12 +-
+ reports/discovery/trusted_source_usage.md          |   4 +-
+ reports/fulltext/acquisition_success.md            |  33 +-
  reports/fulltext/content_richness.md               |  10 +-
  reports/fulltext/doi_resolution.md                 |   4 +-
  reports/fulltext/fallback_chain.md                 |   2 +-
@@ -233,11 +233,11 @@ reports/reliability/writer_finalize.json
  reports/fulltext/repository_statistics.md          |   2 +-
  reports/fulltext/representation_quality.md         |   8 +-
  reports/fulltext/validation_before_after.md        |  12 +-
- reports/manufacturing/factory_economics.md         |  22 +-
- reports/manufacturing/growth_velocity.md           |  32 +-
+ reports/manufacturing/factory_economics.md         |  26 +-
+ reports/manufacturing/growth_velocity.md           |  42 +-
  reports/manufacturing/knowledge_gap.md             |   4 +-
  reports/manufacturing/knowledge_universe.md        |   2 +-
- reports/manufacturing/production_capacity.md       |  14 +-
+ reports/manufacturing/production_capacity.md       |  18 +-
  reports/performance/api_statistics.md              |  14 +-
  reports/performance/cache_statistics.md            |   4 +-
  reports/performance/connector_performance.md       |  16 +-
@@ -245,19 +245,19 @@ reports/reliability/writer_finalize.json
  reports/performance/download_statistics.md         |  30 +-
  reports/performance/extraction_statistics.md       |  24 +-
  reports/performance/stage_timings.md               |  12 +-
- reports/performance/throughput.md                  |  14 +-
+ reports/performance/throughput.md                  |  16 +-
  reports/performance/throughput_stats.json          | 106 +--
  reports/performance/throughput_summary.md          |   4 +-
  reports/production/candidate_pipeline.md           |  12 +-
- reports/production/connector_summary.md            |  44 +-
+ reports/production/connector_summary.md            |  54 +-
  reports/production/document_pipeline.md            |  29 +-
  reports/production/evidence_trace.md               |  38 +-
- reports/production/production_trace.md             |  28 +-
+ reports/production/production_trace.md             |  36 +-
  reports/production/publish_pipeline.md             |   2 +-
- reports/production/runtime_statistics.md           |  28 +-
- reports/reliability/git_worktree_trace.md          | 288 ++++++++
+ reports/production/runtime_statistics.md           |  36 +-
+ reports/reliability/git_worktree_trace.md          | 288 +++++++
  reports/reliability/writer_finalize.json           |   2 +-
- 80 files changed, 1657 insertions(+), 1831 deletions(-)
+ 80 files changed, 2264 insertions(+), 1448 deletions(-)
 ```
 
 ## git status
@@ -352,10 +352,10 @@ Changes not staged for commit:
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	automation/learning/state/sessions/SES-20260817-B8AC03.jsonl
-	automation/sessions/2026-08-17/SESSION-20260817-C64414.json
-	reports/production/production_trace_SES-20260817-B8AC03.json
-	reports/production/sessions/SES-20260817-B8AC03/
+	automation/learning/state/sessions/SES-20260817-AD1FB5.jsonl
+	automation/sessions/2026-08-17/SESSION-20260817-17694F.json
+	reports/production/production_trace_SES-20260817-AD1FB5.json
+	reports/production/sessions/SES-20260817-AD1FB5/
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
