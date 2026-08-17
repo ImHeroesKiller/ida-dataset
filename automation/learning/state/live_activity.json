@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260817-096534",
-  "mission_id": "MIS-20260817-452B2C",
+  "session_id": "SESSION-20260817-C64414",
+  "mission_id": "MIS-20260817-DFE859",
   "progress": 100,
-  "current_thought": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document",
+  "current_thought": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=31 entity=Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
   "current_task": "Idle",
-  "last_learned": "World Bank document",
-  "updated_at": "2026-08-17T15:39:53+00:00",
+  "last_learned": "Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target",
+  "updated_at": "2026-08-17T16:43:02+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }
