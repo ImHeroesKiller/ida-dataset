@@ -1,6 +1,6 @@
 # Throughput summary
 
-- Generated: 2026-08-17T04:57:02+00:00
+- Generated: 2026-08-17T05:50:29+00:00
 - Auto-publish confidence gate: 0.55
 - Manual review floor: 0.4
-- Session process ratio: 54.5
+- Session process ratio: 66.0
