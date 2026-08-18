@@ -1,25 +1,25 @@
 # Provider Statistics
 
-**Generated:** 2026-08-18T14:45:10+00:00
-**Session:** `SES-20260818-205FD5` · **Mission:** `MIS-20260818-B1A1BA`
+**Generated:** 2026-08-18T15:46:15+00:00
+**Session:** `SES-20260818-F0FFDF` · **Mission:** `MIS-20260818-A863C0`
 
-Queries executed: **21**
-URLs discovered: **72**
-URLs accepted: **42**
-URLs rejected: **30**
+Queries executed: **22**
+URLs discovered: **124**
+URLs accepted: **66**
+URLs rejected: **58**
 URLs remaining: **0**
 Stop reason: **runtime_budget_reached**
-URLs/hour: **475.94** · Accepted/hour: **277.63**
+URLs/hour: **604.05** · Accepted/hour: **321.51**
 
 | Provider | Type | Op status | Queries | URLs | Util | Exhausted | Cache | ms | Status |
 |----------|------|-----------|--------:|-----:|-----:|-----------|------:|---:|--------|
 | Tavily (primary) | tavily | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
-| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0476 | False | 0 | 458965.1 | ready |
-| RSS Discovery | rss | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
+| Common Crawl Index | commoncrawl | ACTIVE | 5 | 100 | 0.2273 | False | 0 | 1811.1999999999998 | ready |
+| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0455 | False | 0 | 455060.0 | ready |
+| RSS Discovery | rss | ACTIVE | 1 | 12 | 0.0455 | False | 0 | 282093.2 | ready |
 | Atom Discovery | atom | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
-| Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 10 | 0 | 0.4762 | False | 0 | 0.0 | ready |
-| Common Crawl Index | commoncrawl | ACTIVE | 5 | 60 | 0.2381 | False | 0 | 85600.59999999999 | ready |
-| OpenSearch Description | opensearch | ACTIVE | 5 | 0 | 0.2381 | True | 0 | 0.0 | ready |
+| Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 10 | 0 | 0.4545 | False | 0 | 0.0 | ready |
+| OpenSearch Description | opensearch | ACTIVE | 5 | 0 | 0.2273 | True | 0 | 0.0 | ready |
 | Google Programmable Search | google_cse | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
 | Bing Web Search API | bing | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
 | Brave Search API | brave | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
