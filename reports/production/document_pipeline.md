@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260818-942272`
+**Session:** `SES-20260818-E6EAAC`
 
 ## Queue counts
 
@@ -8,9 +8,9 @@
 |-------|------:|
 | queued | 0 |
 | processing | 0 |
-| completed | 34 |
+| completed | 31 |
 | failed | 0 |
-| duplicates | 19 |
+| duplicates | 16 |
 
 ## Documents
 
@@ -22,19 +22,16 @@
 | `DOC-8DEAD915EF6F` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 11143 | https://api.crossref.org/works/10.4108/eai.13-9-2023.2341395 |
 | `DOC-23B61DA3B184` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 53526 | https://api.crossref.org/works/10.23917/benefit.v10i1.8214 |
 | `DOC-6E3DCB9EEFA9` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1400 | https://api.crossref.org/works/10.1037/t51808-000 |
-| `DOC-8C9B8E14F2A2` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1581 | https://api.crossref.org/works/10.1037/t52448-000 |
-| `DOC-350EA11C1DC8` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1570 | https://api.crossref.org/works/10.1037/t34363-000 |
-| `DOC-74F7181F3D6C` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1558 | https://api.crossref.org/works/10.1037/e651502012-001 |
-| `DOC-42435589D8A0` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1653 | https://api.crossref.org/works/10.9790/487x-0925561 |
-| `DOC-E96B9B477A4B` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1600 | https://api.crossref.org/works/10.1037/t34495-000 |
-| `DOC-C1C8D7931100` | SRC-000004 | DISC-LAYER | text/plain | completed | 115 | https://www.worldbank.org/%20en/country/madagascar/overview |
-| `DOC-63E9EB2E5A2F` | SRC-000004 | DISC-LAYER | text/plain | completed | 132 | https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 |
-| `DOC-5FB511CEE340` | SRC-000004 | DISC-LAYER | text/plain | completed | 91 | https://www.worldbank.org/%E3%80%80 |
 | `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
+| `DOC-8C9B8E14F2A2` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1581 | https://api.crossref.org/works/10.1037/t52448-000 |
 | `DOC-859D2142FF21` | SRC-000001 | DISC-LAYER | text/plain | completed | 85 | https://www.bps.go.id/248-268 |
+| `DOC-350EA11C1DC8` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1570 | https://api.crossref.org/works/10.1037/t34363-000 |
 | `DOC-086852F73EE0` | SRC-000001 | DISC-LAYER | text/plain | completed | 94 | https://www.bps.go.id/brs/view/id/1267 |
+| `DOC-74F7181F3D6C` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1558 | https://api.crossref.org/works/10.1037/e651502012-001 |
 | `DOC-8FDD77E53A4E` | SRC-000001 | DISC-LAYER | text/plain | completed | 175 | https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-p |
+| `DOC-42435589D8A0` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1653 | https://api.crossref.org/works/10.9790/487x-0925561 |
 | `DOC-72A1DAB841AA` | SRC-000001 | DISC-LAYER | text/plain | completed | 154 | https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provi |
+| `DOC-E96B9B477A4B` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1600 | https://api.crossref.org/works/10.1037/t34495-000 |
 | `DOC-708BA37EBD5C` | SRC-000001 | DISC-LAYER | text/plain | completed | 160 | https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-pro |
 | `DOC-F2BF8FA340F8` | SRC-000001 | DISC-LAYER | text/plain | completed | 228 | https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-reg |
 | `DOC-3E1CA71C0311` | SRC-000001 | DISC-LAYER | text/plain | completed | 245 | https://www.bps.go.id/dynamictable/2015/10/26/964/-seri-2010-laju-pertumbuhan-pr |
