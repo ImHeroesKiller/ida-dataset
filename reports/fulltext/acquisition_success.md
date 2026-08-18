@@ -1,31 +1,31 @@
 # Acquisition Success
 
-**Generated:** 2026-08-18T07:52:31+00:00
+**Generated:** 2026-08-18T09:02:59+00:00
 
 | Outcome | Count |
 |---------|------:|
 | Enriched with richer body | 3 |
-| Already rich | 28 |
-| Metadata fallback | 39 |
-| Failed chain | 37 |
+| Already rich | 18 |
+| Metadata fallback | 51 |
+| Failed chain | 49 |
 | Blocked | 34 |
 
 ## Recent records
 
 | Document | Result | Representation | Source | Chars |
 |----------|--------|----------------|--------|------:|
-| DOC-AFB055C754E2 | enriched | html_fulltext | publisher_landing | 2502 |
 | DOC-8DEAD915EF6F | enriched | html_fulltext | publisher_landing | 2637 |
+| DOC-AFB055C754E2 | enriched | html_fulltext | publisher_landing | 2502 |
 | DOC-23B61DA3B184 | enriched | html_fulltext | publisher_landing | 11953 |
-| DOC-8C9B8E14F2A2 | metadata_fallback | None | None | 1581 |
 | DOC-6E3DCB9EEFA9 | metadata_fallback | None | None | 1400 |
+| DOC-8C9B8E14F2A2 | metadata_fallback | None | None | 1581 |
 | DOC-74F7181F3D6C | metadata_fallback | None | None | 1558 |
 | DOC-350EA11C1DC8 | metadata_fallback | None | None | 1570 |
 | DOC-C1C8D7931100 | metadata_fallback | None | None | 115 |
 | DOC-63E9EB2E5A2F | metadata_fallback | None | None | 132 |
+| DOC-5FB511CEE340 | metadata_fallback | None | None | 91 |
 | DOC-5FBA0F15E0B9 | metadata_fallback | None | None | 78 |
 | DOC-859D2142FF21 | metadata_fallback | None | None | 85 |
-| DOC-5FB511CEE340 | metadata_fallback | None | None | 91 |
 | DOC-086852F73EE0 | metadata_fallback | None | None | 94 |
 | DOC-8FDD77E53A4E | metadata_fallback | None | None | 175 |
 | DOC-72A1DAB841AA | metadata_fallback | None | None | 154 |
@@ -50,7 +50,7 @@
 | DOC-A9BA1BC04A49 | metadata_fallback | None | None | 120 |
 | DOC-BD9EDDE8E2B7 | metadata_fallback | None | None | 97 |
 | DOC-5AE418499878 | metadata_fallback | None | None | 98 |
-| DOC-41728C78610E | metadata_fallback | None | None | 140 |
-| DOC-0E785C552C2C | metadata_fallback | None | None | 101 |
-| DOC-EB8E28CFE081 | metadata_fallback | None | None | 99 |
 | DOC-9C3FE7A510A0 | metadata_fallback | None | None | 135 |
+| DOC-829247A9780D | metadata_fallback | None | None | 86 |
+| DOC-3473D956AFB3 | metadata_fallback | None | None | 118 |
+| DOC-41728C78610E | metadata_fallback | None | None | 140 |
