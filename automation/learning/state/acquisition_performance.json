@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-08-18T03:49:41+00:00",
+  "started_at": "2026-08-18T04:37:25+00:00",
   "connectors": [
     {
       "connector_id": "CONN-BPS-001",
@@ -8,7 +8,7 @@
       "source_name": "BPS Indonesia",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 6133.3,
+      "elapsed_ms": 6236.7,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -26,13 +26,13 @@
       "source_name": "World Bank",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 582.5,
+      "elapsed_ms": 782.1,
       "documents_discovered": 1,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-08-18T04:02:04+00:00",
+      "last_successful_sync": "2026-08-18T04:46:06+00:00",
       "urls": [
         "https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia"
       ],
@@ -46,7 +46,7 @@
       "source_name": "Asian Development Bank",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3112.1,
+      "elapsed_ms": 3157.2,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -64,7 +64,7 @@
       "source_name": "OECD",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3107.5,
+      "elapsed_ms": 3139.0,
       "documents_discovered": 0,
       "documents_downloaded": 0,
       "skipped": 0,
@@ -82,9 +82,9 @@
       "source_name": "Kemenperin",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 3079.4,
+      "elapsed_ms": 3176.7,
       "documents_discovered": 0,
-      "documents_downloaded": 0,
+      "documents_downloaded": 1,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
@@ -100,9 +100,9 @@
       "source_name": "OpenAlex",
       "status": "no_updates",
       "http_status": 200,
-      "elapsed_ms": 786.8,
+      "elapsed_ms": 595.8,
       "documents_discovered": 0,
-      "documents_downloaded": 0,
+      "documents_downloaded": 1,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
@@ -118,13 +118,13 @@
       "source_name": "Crossref",
       "status": "ok",
       "http_status": 200,
-      "elapsed_ms": 2441.8,
+      "elapsed_ms": 539.7,
       "documents_discovered": 10,
       "documents_downloaded": 0,
       "skipped": 0,
       "rejected": 0,
       "retry_count": 0,
-      "last_successful_sync": "2026-08-18T04:02:06+00:00",
+      "last_successful_sync": "2026-08-18T04:46:06+00:00",
       "urls": [
         "https://api.crossref.org/works/10.1787/888933931335",
         "https://api.crossref.org/works/10.23917/benefit.v10i1.8214",
@@ -137,13 +137,13 @@
     }
   ],
   "downloads": {
-    "requested": 65,
-    "downloaded": 26,
+    "requested": 63,
+    "downloaded": 24,
     "not_modified": 0,
     "skipped_duplicate": 7,
     "failed": 32,
-    "bytes": 1664120,
-    "elapsed_ms": 42421.599999999984,
+    "bytes": 1590893,
+    "elapsed_ms": 47134.49999999999,
     "retries": 12,
     "max_workers": 4,
     "adaptive_workers": 4,
@@ -152,30 +152,30 @@
     "etag_conditional": true,
     "http_cache": {
       "hits": 0,
-      "misses": 33,
+      "misses": 31,
       "not_modified": 0,
-      "stores": 33,
+      "stores": 31,
       "bytes_saved_est": 0
     },
     "fingerprints": {
-      "skips": 33,
-      "adds": 68,
-      "unique_hashes": 68,
-      "unique_urls": 68
+      "skips": 31,
+      "adds": 66,
+      "unique_hashes": 66,
+      "unique_urls": 66
     }
   },
   "cache": {
     "hits": 0,
-    "misses": 33,
+    "misses": 31,
     "not_modified": 0,
-    "stores": 33,
+    "stores": 31,
     "bytes_saved_est": 0
   },
   "fingerprints": {
-    "skips": 33,
-    "adds": 68,
-    "unique_hashes": 68,
-    "unique_urls": 68
+    "skips": 31,
+    "adds": 66,
+    "unique_hashes": 66,
+    "unique_urls": 66
   },
   "extraction": {
     "fast": 5,
@@ -188,14 +188,14 @@
     "documents_fast": 33,
     "documents_medium": 8,
     "documents_deep": 1,
-    "avg_ms": 0.35,
-    "average_extraction_ms": 0.35,
-    "total_ms": 14.62,
+    "avg_ms": 0.55,
+    "average_extraction_ms": 0.55,
+    "total_ms": 23.13,
     "path_ms": {
-      "fast": 2.74,
-      "medium": 3.8,
-      "deep": 3.27,
-      "signal_fallback": 4.74
+      "fast": 3.93,
+      "medium": 5.89,
+      "deep": 5.5,
+      "signal_fallback": 7.73
     },
     "target_dataset": "industry_library",
     "llm_required_but_unavailable": false
@@ -541,83 +541,83 @@
   "throughput": {
     "documents": 42,
     "rows": 5,
-    "documents_per_hour": 192.08,
-    "rows_per_hour": 22.87,
-    "documents_per_second": 0.053,
-    "rows_per_second": 0.006
+    "documents_per_hour": 267.01,
+    "rows_per_hour": 31.79,
+    "documents_per_second": 0.074,
+    "rows_per_second": 0.009
   },
   "stage_timings": {
     "stages": {
       "mission_setup": {
         "count": 1,
-        "total_ms": 0.0020430000091664624,
-        "max_ms": 0.0020430000091664624,
-        "min_ms": 0.0020430000091664624,
+        "total_ms": 0.0017149999962384754,
+        "max_ms": 0.0017149999962384754,
+        "min_ms": 0.0017149999962384754,
         "avg_ms": 0.0
       },
       "discovery": {
         "count": 1,
-        "total_ms": 6135.574626999983,
-        "max_ms": 6135.574626999983,
-        "min_ms": 6135.574626999983,
+        "total_ms": 6239.58887699996,
+        "max_ms": 6239.58887699996,
+        "min_ms": 6239.58887699996,
         "meta": {
-          "discovered": 75,
+          "discovered": 73,
           "connectors": 7
         },
-        "avg_ms": 6135.57
+        "avg_ms": 6239.59
       },
       "prioritize": {
         "count": 1,
-        "total_ms": 1.2540200000330515,
-        "max_ms": 1.2540200000330515,
-        "min_ms": 1.2540200000330515,
+        "total_ms": 1.6532299999880706,
+        "max_ms": 1.6532299999880706,
+        "min_ms": 1.6532299999880706,
         "meta": {
-          "budget": 75,
-          "queued": 75,
+          "budget": 73,
+          "queued": 73,
           "pre_dup": 0
         },
-        "avg_ms": 1.25
+        "avg_ms": 1.65
       },
       "download": {
         "count": 1,
-        "total_ms": 38383.289913,
-        "max_ms": 38383.289913,
-        "min_ms": 38383.289913,
+        "total_ms": 39982.78966700002,
+        "max_ms": 39982.78966700002,
+        "min_ms": 39982.78966700002,
         "meta": {
           "documents": 42,
           "workers": 4,
-          "duplicates": 33
+          "duplicates": 31
         },
-        "avg_ms": 38383.29
+        "avg_ms": 39982.79
       },
       "extraction": {
         "count": 1,
-        "total_ms": 14.929301999927702,
-        "max_ms": 14.929301999927702,
-        "min_ms": 14.929301999927702,
+        "total_ms": 23.529211999971267,
+        "max_ms": 23.529211999971267,
+        "min_ms": 23.529211999971267,
         "meta": {
           "candidates": 5,
           "llm_skipped": 42,
-          "avg_ms": 0.35
+          "avg_ms": 0.55
         },
-        "avg_ms": 14.93
+        "avg_ms": 23.53
       },
       "validation": {
         "count": 1,
-        "total_ms": 8.154751999995824,
-        "max_ms": 8.154751999995824,
-        "min_ms": 8.154751999995824,
+        "total_ms": 11.330936000035763,
+        "max_ms": 11.330936000035763,
+        "min_ms": 11.330936000035763,
         "meta": {
           "published": 5,
           "rejected": 0,
           "manual_review": 0
         },
-        "avg_ms": 8.15
+        "avg_ms": 11.33
       }
     },
     "idle_ms": 0.0,
     "queue_wait_ms": {},
-    "captured_at": "2026-08-18T04:02:48+00:00"
+    "captured_at": "2026-08-18T04:46:52+00:00"
   },
   "auto_publish": {
     "auto_publish_count": 5,
@@ -627,48 +627,48 @@
     "threshold": 0.55,
     "decisions": [
       {
-        "candidate_id": "CAND-643BE9E80E19",
+        "candidate_id": "CAND-D7879C4BE78D",
         "confidence": 0.92,
         "action": "publish"
       },
       {
-        "candidate_id": "CAND-2510B3B49A9F",
+        "candidate_id": "CAND-8BF3274214D4",
         "confidence": 0.9,
         "action": "publish"
       },
       {
-        "candidate_id": "CAND-F92E5A2358F6",
+        "candidate_id": "CAND-12C2F8F0AF94",
         "confidence": 0.9,
         "action": "publish"
       },
       {
-        "candidate_id": "CAND-63ACB5538A13",
+        "candidate_id": "CAND-48685C4FDC9C",
         "confidence": 0.9,
         "action": "publish"
       },
       {
-        "candidate_id": "CAND-90698FC86CF6",
+        "candidate_id": "CAND-2FCB87764635",
         "confidence": 0.9,
         "action": "publish"
       }
     ]
   },
   "throughput_detail": {
-    "discovered": 75,
-    "priority_queued": 75,
-    "process_budget": 75,
+    "discovered": 73,
+    "priority_queued": 73,
+    "process_budget": 73,
     "pre_download_duplicates": 0,
     "process_ratio": 1.0,
     "process_ratio_pct": 100.0,
     "processed": 42,
-    "final_process_ratio": 0.56,
-    "final_process_ratio_pct": 56.0,
+    "final_process_ratio": 0.5753,
+    "final_process_ratio_pct": 57.5,
     "workers": 4,
-    "avg_connector_latency_ms": 2749.1
+    "avg_connector_latency_ms": 2518.2
   },
   "workers": {
     "adaptive": 4,
-    "avg_connector_latency_ms": 2749.1
+    "avg_connector_latency_ms": 2518.2
   },
   "queues": {
     "baseline": {
@@ -676,7 +676,7 @@
       "approved": 0,
       "rejected": 0,
       "total": 0,
-      "measured_at": "2026-08-18T03:49:41+00:00"
+      "measured_at": "2026-08-18T04:37:25+00:00"
     },
     "documents": {
       "incoming": 42,
@@ -685,14 +685,14 @@
       "failed": 0
     },
     "not_modified": 7,
-    "duplicates": 33,
+    "duplicates": 31,
     "workers": 4,
     "post": {
       "pending": 0,
       "approved": 0,
       "rejected": 0,
       "total": 0,
-      "measured_at": "2026-08-18T04:02:48+00:00"
+      "measured_at": "2026-08-18T04:46:52+00:00"
     },
     "rebalance": {},
     "documents_final": {
@@ -703,8 +703,8 @@
     },
     "publish_remaining": 36
   },
-  "finished_at": "2026-08-18T04:02:48+00:00",
-  "mission_id": "MIS-20260818-D693DF",
-  "session_id": "SES-20260818-E7E992",
-  "elapsed_seconds": 787.185
+  "finished_at": "2026-08-18T04:46:52+00:00",
+  "mission_id": "MIS-20260818-93B68C",
+  "session_id": "SES-20260818-1747B6",
+  "elapsed_seconds": 566.274
 }

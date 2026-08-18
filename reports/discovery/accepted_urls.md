@@ -66,5 +66,3 @@ Only domains present in Trusted Source Registry.
 | https://owasp.org/blog/2025/03/06/owasp-education-and-training-committee-update.html | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/projects/ | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/www-project-top-ten/ | SRC-OWASP | DISC-SITEMAP |  |
-| https://www.crossref.org/jobs/2023-02-08-contract-software-development/ | SRC-CROSSREF | DISC-ATOM |  |
-| https://www.crossref.org/jobs/2022-09-30-contract-technical-support/ | SRC-CROSSREF | DISC-ATOM |  |
