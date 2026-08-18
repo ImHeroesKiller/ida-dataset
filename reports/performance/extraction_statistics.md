@@ -14,11 +14,11 @@
   "documents_deep": 1,
   "avg_ms": 0.57,
   "average_extraction_ms": 0.57,
-  "total_ms": 24.0,
+  "total_ms": 23.94,
   "path_ms": {
-    "fast": 4.05,
-    "medium": 5.93,
-    "deep": 5.25,
+    "fast": 4.13,
+    "medium": 5.91,
+    "deep": 5.11,
     "signal_fallback": 8.72
   },
   "target_dataset": "industry_library",

@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-18T01:30:27+00:00
+**Generated:** 2026-08-18T03:10:36+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260818-15E21E |
+| session_id | SESSION-20260818-401D06 |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 708.0 |
+| duration_seconds | 787.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document |
-| start_time | 2026-08-18T01:18:31+00:00 |
-| end_time | 2026-08-18T01:30:19+00:00 |
+| start_time | 2026-08-18T02:57:21+00:00 |
+| end_time | 2026-08-18T03:10:28+00:00 |
 
 ## Pipeline stages
 
@@ -26,11 +26,11 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
-| source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-WB-001', 'name': 'World Bank', 'source_id': ' |
+| source_discovery | completed | 3.0 | — | — | connectors=[{'connector_id': 'CONN-OPENALEX-001', 'name': 'OpenAlex', 'source_id |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6194.9 | 73 | — |  |
-| documents_skipped | completed | — | 31 | — | duplicates_or_skips=31 |
-| document_download | completed | 81754.6 | 42 | — | downloaded=42 |
+| document_discovery | completed | 6187.5 | 77 | — |  |
+| documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
+| document_download | completed | 42825.8 | 42 | — | downloaded=42 |
 | extraction | completed | 29.6 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
@@ -43,7 +43,7 @@
 | --- | --- |
 | documents_discovered | 11 |
 | documents_downloaded | 42 |
-| documents_duplicates | 31 |
+| documents_duplicates | 35 |
 | candidates_extracted | 5 |
 | candidates_validated | 5 |
 | candidates_rejected | 0 |
