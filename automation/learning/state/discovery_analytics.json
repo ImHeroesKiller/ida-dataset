@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-18T19:40:23+00:00",
-  "mission_id": "MIS-20260818-82C798",
-  "session_id": "SES-20260818-917655",
+  "started_at": "2026-08-18T20:37:10+00:00",
+  "mission_id": "MIS-20260818-A96426",
+  "session_id": "SES-20260818-82D07C",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -46,26 +46,26 @@
     "one_discovery_multi_dataset": true
   },
   "queries_generated": 10,
-  "queries_executed": 22,
+  "queries_executed": 21,
   "urls_discovered": 12,
   "urls_accepted": 12,
   "urls_rejected": 0,
   "urls_remaining": 0,
   "duplicate_urls": 0,
-  "elapsed_ms": 620872.6,
+  "elapsed_ms": 636493.5,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
   "providers_disabled": 5,
-  "providers_exhausted": 3,
+  "providers_exhausted": 2,
   "provider_utilization": {
     "DISC-TAVILY": 0.0,
-    "DISC-COMMONCRAWL": 0.2273,
-    "DISC-SITEMAP": 0.0455,
-    "DISC-ATOM": 0.0455,
-    "DISC-TRUSTED-SITE": 0.4545,
+    "DISC-SITEMAP": 0.0476,
     "DISC-RSS": 0.0,
-    "DISC-OPENSEARCH": 0.2273,
+    "DISC-TRUSTED-SITE": 0.4762,
+    "DISC-COMMONCRAWL": 0.2381,
+    "DISC-OPENSEARCH": 0.2381,
+    "DISC-ATOM": 0.0,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
     "DISC-BRAVE": 0.0,
@@ -74,20 +74,20 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 0,
     "DISC-SITEMAP": 12,
-    "DISC-ATOM": 0,
-    "DISC-TRUSTED-SITE": 0,
     "DISC-RSS": 0,
+    "DISC-TRUSTED-SITE": 0,
+    "DISC-COMMONCRAWL": 0,
     "DISC-OPENSEARCH": 0,
+    "DISC-ATOM": 0,
     "DISC-GOOGLE-CSE": 0,
     "DISC-BING": 0,
     "DISC-BRAVE": 0,
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 69.58,
-  "accepted_per_hour": 69.58,
+  "urls_per_hour": 67.87,
+  "accepted_per_hour": 67.87,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -112,28 +112,6 @@
       "utilization": 0.0
     },
     {
-      "provider_id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "api_type": "commoncrawl",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "toggle"
-      },
-      "queries": 5,
-      "urls": 0,
-      "cache_hits": 0,
-      "elapsed_ms": 36610.1,
-      "status": "ready",
-      "operational_status": "ACTIVE",
-      "credentials_available": true,
-      "disable_reason": "ready",
-      "exhausted": true,
-      "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 61.192,
-      "utilization": 0.2273
-    },
-    {
       "provider_id": "DISC-SITEMAP",
       "name": "Sitemap Discovery",
       "api_type": "sitemap",
@@ -145,7 +123,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 455462.7,
+      "elapsed_ms": 450698.9,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -153,29 +131,29 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 51.6,
-      "utilization": 0.0455
+      "utilization": 0.0476
     },
     {
-      "provider_id": "DISC-ATOM",
-      "name": "Atom Discovery",
-      "api_type": "atom",
+      "provider_id": "DISC-RSS",
+      "name": "RSS Discovery",
+      "api_type": "rss",
       "health": {
         "ok": true,
         "status": "healthy",
         "message": "feed_discovery"
       },
-      "queries": 1,
+      "queries": 0,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 128766.5,
+      "elapsed_ms": 0.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
-      "exhausted": true,
-      "exhaustion_reason": "empty_feed_results",
-      "rank_score": 43.92,
-      "utilization": 0.0455
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 44.0,
+      "utilization": 0.0
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -197,29 +175,29 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 41.1,
-      "utilization": 0.4545
+      "utilization": 0.4762
     },
     {
-      "provider_id": "DISC-RSS",
-      "name": "RSS Discovery",
-      "api_type": "rss",
+      "provider_id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "api_type": "commoncrawl",
       "health": {
         "ok": true,
         "status": "healthy",
-        "message": "feed_discovery"
+        "message": "toggle"
       },
-      "queries": 0,
+      "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 0.0,
+      "elapsed_ms": 185763.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
-      "exhausted": false,
-      "exhaustion_reason": "",
-      "rank_score": 32.0,
-      "utilization": 0.0
+      "exhausted": true,
+      "exhaustion_reason": "provider_exhausted_empty_results",
+      "rank_score": 37.578,
+      "utilization": 0.2381
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -241,7 +219,29 @@
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
       "rank_score": 32.0,
-      "utilization": 0.2273
+      "utilization": 0.2381
+    },
+    {
+      "provider_id": "DISC-ATOM",
+      "name": "Atom Discovery",
+      "api_type": "atom",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "feed_discovery"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 31.92,
+      "utilization": 0.0
     },
     {
       "provider_id": "DISC-GOOGLE-CSE",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 21429.8,
+      "elapsed_ms": 21076.0,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 11327.4,
+      "elapsed_ms": 11266.8,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1269.3,
+      "elapsed_ms": 31231.1,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1240.2,
+      "elapsed_ms": 61098.2,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 1343.4,
+      "elapsed_ms": 61091.7,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,7 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 455462.7
-    },
-    {
-      "provider_id": "DISC-ATOM",
-      "query": "atom:trusted_feeds",
-      "urls": 0,
-      "elapsed_ms": 128766.5
+      "elapsed_ms": 450698.9
     }
   ],
   "reputation_top": [
@@ -704,22 +698,6 @@
       }
     },
     {
-      "id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "score": 61.192,
-      "status": "ACTIVE",
-      "components": {
-        "yield": 0.35,
-        "success_rate": 1.0,
-        "latency": 0.233,
-        "freshness": 0.7,
-        "trust": 0.95,
-        "coverage": 0.75,
-        "relevance": 0.4,
-        "config_priority": 0.55
-      }
-    },
-    {
       "id": "DISC-SITEMAP",
       "name": "Sitemap Discovery",
       "score": 51.6,
@@ -736,9 +714,9 @@
       }
     },
     {
-      "id": "DISC-ATOM",
-      "name": "Atom Discovery",
-      "score": 43.92,
+      "id": "DISC-RSS",
+      "name": "RSS Discovery",
+      "score": 44.0,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
@@ -748,7 +726,7 @@
         "trust": 0.95,
         "coverage": 0.6,
         "relevance": 0.4,
-        "config_priority": 0.68
+        "config_priority": 0.7
       }
     },
     {
@@ -768,19 +746,19 @@
       }
     },
     {
-      "id": "DISC-RSS",
-      "name": "RSS Discovery",
-      "score": 32.0,
+      "id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "score": 37.578,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.0,
+        "latency": 0.39,
         "freshness": 0.5,
         "trust": 0.95,
-        "coverage": 0.6,
+        "coverage": 0.75,
         "relevance": 0.4,
-        "config_priority": 0.7
+        "config_priority": 0.55
       }
     },
     {
@@ -797,6 +775,22 @@
         "coverage": 0.5,
         "relevance": 0.4,
         "config_priority": 0.5
+      }
+    },
+    {
+      "id": "DISC-ATOM",
+      "name": "Atom Discovery",
+      "score": 31.92,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 0.2,
+        "latency": 0.0,
+        "freshness": 0.5,
+        "trust": 0.95,
+        "coverage": 0.6,
+        "relevance": 0.4,
+        "config_priority": 0.68
       }
     },
     {
