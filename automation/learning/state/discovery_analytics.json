@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-18T10:43:37+00:00",
-  "mission_id": "MIS-20260818-95FAA1",
-  "session_id": "SES-20260818-256193",
+  "started_at": "2026-08-18T11:37:55+00:00",
+  "mission_id": "MIS-20260818-AE4E6B",
+  "session_id": "SES-20260818-D7253D",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -47,12 +47,12 @@
   },
   "queries_generated": 10,
   "queries_executed": 22,
-  "urls_discovered": 124,
-  "urls_accepted": 66,
-  "urls_rejected": 58,
+  "urls_discovered": 122,
+  "urls_accepted": 68,
+  "urls_rejected": 54,
   "urls_remaining": 0,
-  "duplicate_urls": 58,
-  "elapsed_ms": 736964.9,
+  "duplicate_urls": 54,
+  "elapsed_ms": 620863.7,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -76,7 +76,7 @@
     "DISC-TAVILY": 0,
     "DISC-COMMONCRAWL": 100,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 12,
+    "DISC-RSS": 10,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 605.73,
-  "accepted_per_hour": 322.4,
+  "urls_per_hour": 707.4,
+  "accepted_per_hour": 394.29,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 100,
       "cache_hits": 0,
-      "elapsed_ms": 3622.2000000000007,
+      "elapsed_ms": 34376.2,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 58.839,
+      "rank_score": 69.676,
       "utilization": 0.2273
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 451905.6,
+      "elapsed_ms": 450891.7,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -165,16 +165,16 @@
         "message": "feed_discovery"
       },
       "queries": 1,
-      "urls": 12,
+      "urls": 10,
       "cache_hits": 0,
-      "elapsed_ms": 281394.8,
+      "elapsed_ms": 135548.4,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 44.0,
+      "rank_score": 51.52,
       "utilization": 0.0455
     },
     {
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 1350.9,
+      "elapsed_ms": 490.0,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 856.2,
+      "elapsed_ms": 6527.4,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 543.9,
+      "elapsed_ms": 9452.9,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 337.3,
+      "elapsed_ms": 6624.3,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 20,
-      "elapsed_ms": 533.9,
+      "elapsed_ms": 11281.6,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 451905.6
+      "elapsed_ms": 450891.7
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
-      "urls": 12,
-      "elapsed_ms": 281394.8
+      "urls": 10,
+      "elapsed_ms": 135548.4
     }
   ],
   "reputation_top": [
@@ -706,12 +706,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 58.839,
+      "score": 69.676,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.037,
+        "latency": 0.94,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -738,13 +738,13 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 44.0,
+      "score": 51.52,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.0,
-        "success_rate": 0.5,
-        "latency": 0.55,
-        "freshness": 0.5,
+        "yield": 0.12,
+        "success_rate": 1.0,
+        "latency": 0.0,
+        "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.6,
         "relevance": 0.4,
@@ -1254,28 +1254,40 @@
       "title": ""
     },
     {
-      "url": "http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html",
-      "source_id": "SRC-OWASP",
+      "url": "https://www.crossref.org/jobs/2023-02-08-contract-software-development/",
+      "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
-      "title": "OWASP CVE Lite CLI Graduates to Lab Project Status"
+      "title": ""
     },
     {
-      "url": "http://owasp.org/blog/2026/06/18/greenberg-statement.html",
-      "source_id": "SRC-OWASP",
+      "url": "https://www.crossref.org/jobs/2022-09-30-contract-technical-support/",
+      "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
-      "title": "Community update regarding Richard Greenberg"
+      "title": ""
     },
     {
-      "url": "http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html",
-      "source_id": "SRC-OWASP",
+      "url": "https://www.crossref.org/jobs/2022-11-21-community-engagement-manager/",
+      "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
-      "title": "Aikido and OWASP bring agentic Code Audit to the global AppSec community"
+      "title": ""
     },
     {
-      "url": "http://owasp.org/blog/2026/06/09/dependency-track-v5.html",
-      "source_id": "SRC-OWASP",
+      "url": "https://www.crossref.org/jobs/2022-12-22-contract-product-communications-support/",
+      "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-RSS",
-      "title": "OWASP Dependency-Track 5.0 Is Now Generally Available"
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2022-08-02-site-reliability-engineer/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-RSS",
+      "title": ""
+    },
+    {
+      "url": "https://www.crossref.org/jobs/2022-07-29-human-resources-manager/",
+      "source_id": "SRC-CROSSREF",
+      "provider_id": "DISC-RSS",
+      "title": ""
     }
   ],
   "rejected_urls": [
@@ -1599,30 +1611,6 @@
     },
     {
       "url": "https://www.crossref.org/jobs/2023-04-24-contract-member-support/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/managing-director/michel-madelain/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/monitoring-board/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitoring-board/",
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-RSS"
