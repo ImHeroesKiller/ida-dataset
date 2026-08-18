@@ -7,7 +7,7 @@ Trusted sources ranked for discovery targeting.
 | 1 | BPS Indonesia | 108.193 | 1.0 | 103.757 |
 | 2 | World Bank | 106.045 | 0.95 | 102.406 |
 | 3 | Kemenperin | 105.031 | 1.0 | 100.037 |
-| 4 | Asian Development Bank | 104.885 | 0.95 | 101.041 |
+| 4 | Asian Development Bank | 104.886 | 0.95 | 101.042 |
 | 5 | OECD | 104.462 | 0.95 | 100.544 |
 | 6 | OpenAlex | 94.997 | 0.9 | 90.585 |
 | 7 | Crossref | 94.918 | 0.9 | 90.492 |
