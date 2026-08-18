@@ -1,16 +1,16 @@
 # False Negative Analysis
 
-**Generated:** 2026-08-18T17:42:44+00:00
+**Generated:** 2026-08-18T18:51:56+00:00
 
 Candidates blocked by **exactly one** integrity rule family (potential false negative).
 Do **not** publish. Report only.
 
 | candidate_id | confidence | single_block_rule | integrity_reason | Potential FN |
 | --- | --- | --- | --- | --- |
-| CAND-12546D9A7B6A | 0.9 | duplicate_id_existing_dataset | duplicate_id:SIG-000585 | YES |
-| CAND-416AE5782CFB | 0.9 | duplicate_id_existing_dataset | duplicate_id:SIG-000582 | YES |
-| CAND-47AC16E6F5B7 | 0.9 | duplicate_id_existing_dataset | duplicate_id:SIG-000583 | YES |
-| CAND-21C33A19BBE1 | 0.9 | duplicate_id_existing_dataset | duplicate_id:SIG-000584 | YES |
-| CAND-96C198C008BF | 0.92 | duplicate_id_existing_dataset | duplicate_id:SIG-000581 | YES |
+| CAND-B45129AD650E | 0.9 | duplicate_id_existing_dataset | duplicate_id:SIG-000587 | YES |
+| CAND-07190E4E5702 | 0.9 | duplicate_id_existing_dataset | duplicate_id:SIG-000588 | YES |
+| CAND-C5D708703993 | 0.9 | duplicate_id_existing_dataset | duplicate_id:SIG-000589 | YES |
+| CAND-3CA0D2239532 | 0.92 | duplicate_id_existing_dataset | duplicate_id:SIG-000586 | YES |
+| CAND-694FD3C7B5F9 | 0.9 | duplicate_id_existing_dataset | duplicate_id:SIG-000590 | YES |
 
 Count: **5**
