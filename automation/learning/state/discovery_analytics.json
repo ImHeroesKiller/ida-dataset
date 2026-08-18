@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-18T20:37:10+00:00",
-  "mission_id": "MIS-20260818-A96426",
-  "session_id": "SES-20260818-82D07C",
+  "started_at": "2026-08-18T21:36:29+00:00",
+  "mission_id": "MIS-20260818-4C4B89",
+  "session_id": "SES-20260818-84B78C",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 0,
   "urls_remaining": 0,
   "duplicate_urls": 0,
-  "elapsed_ms": 636493.5,
+  "elapsed_ms": 555721.4,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -62,10 +62,10 @@
     "DISC-TAVILY": 0.0,
     "DISC-SITEMAP": 0.0476,
     "DISC-RSS": 0.0,
+    "DISC-ATOM": 0.0,
     "DISC-TRUSTED-SITE": 0.4762,
     "DISC-COMMONCRAWL": 0.2381,
     "DISC-OPENSEARCH": 0.2381,
-    "DISC-ATOM": 0.0,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
     "DISC-BRAVE": 0.0,
@@ -76,18 +76,18 @@
     "DISC-TAVILY": 0,
     "DISC-SITEMAP": 12,
     "DISC-RSS": 0,
+    "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-COMMONCRAWL": 0,
     "DISC-OPENSEARCH": 0,
-    "DISC-ATOM": 0,
     "DISC-GOOGLE-CSE": 0,
     "DISC-BING": 0,
     "DISC-BRAVE": 0,
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 67.87,
-  "accepted_per_hour": 67.87,
+  "urls_per_hour": 77.74,
+  "accepted_per_hour": 77.74,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -123,7 +123,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 450698.9,
+      "elapsed_ms": 449218.5,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -153,6 +153,28 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 44.0,
+      "utilization": 0.0
+    },
+    {
+      "provider_id": "DISC-ATOM",
+      "name": "Atom Discovery",
+      "api_type": "atom",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "feed_discovery"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 43.92,
       "utilization": 0.0
     },
     {
@@ -189,14 +211,14 @@
       "queries": 5,
       "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 185763.8,
+      "elapsed_ms": 106471.2,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
-      "rank_score": 37.578,
+      "rank_score": 32.9,
       "utilization": 0.2381
     },
     {
@@ -220,28 +242,6 @@
       "exhaustion_reason": "provider_exhausted_empty_results",
       "rank_score": 32.0,
       "utilization": 0.2381
-    },
-    {
-      "provider_id": "DISC-ATOM",
-      "name": "Atom Discovery",
-      "api_type": "atom",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "feed_discovery"
-      },
-      "queries": 0,
-      "urls": 0,
-      "cache_hits": 0,
-      "elapsed_ms": 0.0,
-      "status": "ready",
-      "operational_status": "ACTIVE",
-      "credentials_available": true,
-      "disable_reason": "ready",
-      "exhausted": false,
-      "exhaustion_reason": "",
-      "rank_score": 31.92,
-      "utilization": 0.0
     },
     {
       "provider_id": "DISC-GOOGLE-CSE",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 21076.0,
+      "elapsed_ms": 21321.4,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 0,
-      "elapsed_ms": 11266.8,
+      "elapsed_ms": 21274.0,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 31231.1,
+      "elapsed_ms": 21299.9,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 61098.2,
+      "elapsed_ms": 21299.6,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 61091.7,
+      "elapsed_ms": 21276.3,
       "cached": false,
       "live_search": true
     },
@@ -549,7 +549,7 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 450698.9
+      "elapsed_ms": 449218.5
     }
   ],
   "reputation_top": [
@@ -730,6 +730,22 @@
       }
     },
     {
+      "id": "DISC-ATOM",
+      "name": "Atom Discovery",
+      "score": 43.92,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.0,
+        "success_rate": 0.5,
+        "latency": 0.55,
+        "freshness": 0.5,
+        "trust": 0.95,
+        "coverage": 0.6,
+        "relevance": 0.4,
+        "config_priority": 0.68
+      }
+    },
+    {
       "id": "DISC-TRUSTED-SITE",
       "name": "Trusted Site Search (connector-backed)",
       "score": 41.1,
@@ -748,12 +764,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 37.578,
+      "score": 32.9,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
         "success_rate": 0.2,
-        "latency": 0.39,
+        "latency": 0.0,
         "freshness": 0.5,
         "trust": 0.95,
         "coverage": 0.75,
@@ -775,22 +791,6 @@
         "coverage": 0.5,
         "relevance": 0.4,
         "config_priority": 0.5
-      }
-    },
-    {
-      "id": "DISC-ATOM",
-      "name": "Atom Discovery",
-      "score": 31.92,
-      "status": "ACTIVE",
-      "components": {
-        "yield": 0.0,
-        "success_rate": 0.2,
-        "latency": 0.0,
-        "freshness": 0.5,
-        "trust": 0.95,
-        "coverage": 0.6,
-        "relevance": 0.4,
-        "config_priority": 0.68
       }
     },
     {
