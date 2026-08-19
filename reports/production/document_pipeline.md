@@ -1,6 +1,6 @@
 # Document Pipeline
 
-**Session:** `SES-20260819-4EDB2F`
+**Session:** `SES-20260819-EFE915`
 
 ## Queue counts
 
@@ -8,9 +8,9 @@
 |-------|------:|
 | queued | 0 |
 | processing | 0 |
-| completed | 31 |
+| completed | 54 |
 | failed | 0 |
-| duplicates | 9 |
+| duplicates | 21 |
 
 ## Documents
 
@@ -23,14 +23,17 @@
 | `DOC-23B61DA3B184` | SRC-CROSSREF | CONN-CROSSREF-001 | text/html | completed | 53526 | https://api.crossref.org/works/10.23917/benefit.v10i1.8214 |
 | `DOC-6E3DCB9EEFA9` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1400 | https://api.crossref.org/works/10.1037/t51808-000 |
 | `DOC-8C9B8E14F2A2` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1581 | https://api.crossref.org/works/10.1037/t52448-000 |
-| `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
 | `DOC-350EA11C1DC8` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1570 | https://api.crossref.org/works/10.1037/t34363-000 |
-| `DOC-859D2142FF21` | SRC-000001 | DISC-LAYER | text/plain | completed | 85 | https://www.bps.go.id/248-268 |
 | `DOC-74F7181F3D6C` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1558 | https://api.crossref.org/works/10.1037/e651502012-001 |
-| `DOC-086852F73EE0` | SRC-000001 | DISC-LAYER | text/plain | completed | 94 | https://www.bps.go.id/brs/view/id/1267 |
 | `DOC-E96B9B477A4B` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 1600 | https://api.crossref.org/works/10.1037/t34495-000 |
-| `DOC-8FDD77E53A4E` | SRC-000001 | DISC-LAYER | text/plain | completed | 175 | https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-p |
 | `DOC-78214FD87922` | SRC-CROSSREF | CONN-CROSSREF-001 | application/json | completed | 2763 | https://api.crossref.org/works/10.32832/jm-uika.v8i2.748 |
+| `DOC-C1C8D7931100` | SRC-000004 | DISC-LAYER | text/plain | completed | 115 | https://www.worldbank.org/%20en/country/madagascar/overview |
+| `DOC-63E9EB2E5A2F` | SRC-000004 | DISC-LAYER | text/plain | completed | 132 | https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6 |
+| `DOC-5FB511CEE340` | SRC-000004 | DISC-LAYER | text/plain | completed | 91 | https://www.worldbank.org/%E3%80%80 |
+| `DOC-5FBA0F15E0B9` | SRC-000001 | DISC-LAYER | text/plain | completed | 78 | https://www.bps.go.id/ |
+| `DOC-859D2142FF21` | SRC-000001 | DISC-LAYER | text/plain | completed | 85 | https://www.bps.go.id/248-268 |
+| `DOC-086852F73EE0` | SRC-000001 | DISC-LAYER | text/plain | completed | 94 | https://www.bps.go.id/brs/view/id/1267 |
+| `DOC-8FDD77E53A4E` | SRC-000001 | DISC-LAYER | text/plain | completed | 175 | https://www.bps.go.id/dynamictable/%202015/12/22/1064/produksi-daging-ayam-ras-p |
 | `DOC-72A1DAB841AA` | SRC-000001 | DISC-LAYER | text/plain | completed | 154 | https://www.bps.go.id/dynamictable/2015/09/07/853/jumlah-kabupaten-menurut-provi |
 | `DOC-708BA37EBD5C` | SRC-000001 | DISC-LAYER | text/plain | completed | 160 | https://www.bps.go.id/dynamictable/2015/09/09/883/produksi-ubi-jalar-menurut-pro |
 | `DOC-F2BF8FA340F8` | SRC-000001 | DISC-LAYER | text/plain | completed | 228 | https://www.bps.go.id/dynamictable/2015/10/07/957/-seri-2010-produk-domestik-reg |
@@ -47,3 +50,23 @@
 | `DOC-4797FB998A54` | SRC-000001 | DISC-LAYER | text/plain | completed | 216 | https://www.bps.go.id/en/pressrelease/2023/12/15/1972/exports-in-november-2023-r |
 | `DOC-8903E78503B7` | SRC-000001 | DISC-LAYER | text/plain | completed | 237 | https://www.bps.go.id/en/statistics-table/2/ODcxIzI=/percentage-of-population-ag |
 | `DOC-EEB66F14A504` | SRC-000001 | DISC-LAYER | text/plain | completed | 222 | https://www.bps.go.id/en/statistics-table/2/ODQwIzI=/percentage-of-population-ag |
+| `DOC-C82387BE3840` | SRC-000007 | DISC-LAYER | text/plain | completed | 88 | https://ammdes.kemenperin.go.id/ |
+| `DOC-35242ACBFC8C` | SRC-000007 | DISC-LAYER | text/plain | completed | 119 | http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project |
+| `DOC-A9BA1BC04A49` | SRC-000007 | DISC-LAYER | text/plain | completed | 120 | https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project |
+| `DOC-5AE418499878` | SRC-000007 | DISC-LAYER | text/plain | completed | 98 | https://ammdes.kemenperin.go.id/robots.txt |
+| `DOC-BD9EDDE8E2B7` | SRC-000007 | DISC-LAYER | text/plain | completed | 97 | http://ammdes.kemenperin.go.id/robots.txt |
+| `DOC-829247A9780D` | SRC-000007 | DISC-LAYER | text/plain | completed | 86 | https://bbkb.kemenperin.go.id/ |
+| `DOC-41728C78610E` | SRC-000007 | DISC-LAYER | text/plain | completed | 140 | https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_mi |
+| `DOC-3473D956AFB3` | SRC-000007 | DISC-LAYER | text/plain | completed | 118 | https://bbkb.kemenperin.go.id/index.php/post/category/berita/0 |
+| `DOC-54DE361C5BE2` | SRC-000007 | DISC-LAYER | text/plain | completed | 145 | https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_sni |
+| `DOC-CE6D99FF0CD9` | SRC-000007 | DISC-LAYER | text/plain | completed | 206 | https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hij |
+| `DOC-BDBFC501AA73` | SRC-000007 | DISC-LAYER | text/plain | completed | 151 | https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_nask |
+| `DOC-E465621B124E` | SRC-000007 | DISC-LAYER | text/plain | completed | 207 | https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajina |
+| `DOC-99700123A1EA` | SRC-000007 | DISC-LAYER | text/plain | completed | 126 | https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo |
+| `DOC-EB8E28CFE081` | SRC-000007 | DISC-LAYER | text/plain | completed | 99 | https://bbkb.kemenperin.go.id/perpus/index/ |
+| `DOC-0E785C552C2C` | SRC-000007 | DISC-LAYER | text/plain | completed | 101 | https://bbkb.kemenperin.go.id/perpus/index/70 |
+| `DOC-943B331D294D` | SRC-000007 | DISC-LAYER | text/plain | completed | 216 | https://bbkb.kemenperin.go.id/post/read/dukung_industri_halal_bbspjikb__kemenper |
+| `DOC-38D9F56DD14D` | SRC-000007 | DISC-LAYER | text/plain | completed | 124 | https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_teknis_0 |
+| `DOC-65B770C082E5` | SRC-000007 | DISC-LAYER | text/plain | completed | 224 | https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pl |
+| `DOC-B21F6D285FFD` | SRC-000007 | DISC-LAYER | text/plain | completed | 135 | https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0 |
+| `DOC-F727E9F5C52F` | SRC-000007 | DISC-LAYER | text/plain | completed | 196 | https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenpe |
