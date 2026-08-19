@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-19T19:40:48+00:00",
-  "mission_id": "MIS-20260819-65B060",
-  "session_id": "SES-20260819-1529F1",
+  "started_at": "2026-08-19T20:43:45+00:00",
+  "mission_id": "MIS-20260819-8DB403",
+  "session_id": "SES-20260819-4F7B3D",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 24,
   "urls_remaining": 0,
   "duplicate_urls": 24,
-  "elapsed_ms": 747932.6,
+  "elapsed_ms": 747171.7,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 255.1,
-  "accepted_per_hour": 139.58,
+  "urls_per_hour": 255.36,
+  "accepted_per_hour": 139.73,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 40,
       "cache_hits": 0,
-      "elapsed_ms": 4873.0,
+      "elapsed_ms": 4593.6,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 69.936,
+      "rank_score": 69.425,
       "utilization": 0.2273
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 8,
       "cache_hits": 0,
-      "elapsed_ms": 462734.1,
+      "elapsed_ms": 461767.5,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -167,14 +167,14 @@
       "queries": 1,
       "urls": 5,
       "cache_hits": 0,
-      "elapsed_ms": 280286.5,
+      "elapsed_ms": 280770.1,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 50.48,
+      "rank_score": 49.7,
       "utilization": 0.0455
     },
     {
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 482.0,
+      "elapsed_ms": 407.8,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 324.7,
+      "elapsed_ms": 453.8,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1387.3,
+      "elapsed_ms": 1411.8,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1437.0,
+      "elapsed_ms": 1086.3,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 1242.0,
+      "elapsed_ms": 1233.9,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 8,
-      "elapsed_ms": 462734.1
+      "elapsed_ms": 461767.5
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 5,
-      "elapsed_ms": 280286.5
+      "elapsed_ms": 280770.1
     }
   ],
   "reputation_top": [
@@ -706,12 +706,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 69.936,
+      "score": 69.425,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.961,
+        "latency": 0.919,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -738,10 +738,10 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 50.48,
+      "score": 49.7,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.08,
+        "yield": 0.05,
         "success_rate": 1.0,
         "latency": 0.0,
         "freshness": 0.7,
