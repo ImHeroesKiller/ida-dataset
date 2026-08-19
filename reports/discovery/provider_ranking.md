@@ -1,15 +1,15 @@
 # Provider Ranking
 
-**Generated:** 2026-08-19T17:41:59+00:00
+**Generated:** 2026-08-19T18:51:22+00:00
 
 Dynamic rank: yield · freshness · trust · latency · coverage · mission relevance · success rate.
 
 | Rank | Provider | Score | Status | Components |
 |-----:|----------|------:|--------|------------|
 | 1 | Tavily (primary) | 95.1 | ACTIVE | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
-| 2 | Common Crawl Index | 77.93 | ACTIVE | `{"yield": 0.5, "success_rate": 1.0, "latency": 0.986, "freshness": 1.0, "trust":` |
+| 2 | Common Crawl Index | 91.007 | ACTIVE | `{"yield": 1.0, "success_rate": 1.0, "latency": 0.992, "freshness": 1.0, "trust":` |
 | 3 | Sitemap Discovery | 56.44 | ACTIVE | `{"yield": 0.16, "success_rate": 1.0, "latency": 0.0, "freshness": 1.0, "trust": ` |
-| 4 | RSS Discovery | 53.24 | ACTIVE | `{"yield": 0.04, "success_rate": 1.0, "latency": 0.0, "freshness": 1.0, "trust": ` |
+| 4 | RSS Discovery | 54.8 | ACTIVE | `{"yield": 0.1, "success_rate": 1.0, "latency": 0.0, "freshness": 1.0, "trust": 0` |
 | 5 | Atom Discovery | 53.22 | ACTIVE | `{"yield": 0.0, "success_rate": 1.0, "latency": 0.55, "freshness": 0.45, "trust":` |
 | 6 | Trusted Site Search (connector-backed) | 41.4 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.55, "freshness": 0.45, "trust":` |
 | 7 | OpenSearch Description | 32.3 | ACTIVE | `{"yield": 0.0, "success_rate": 0.2, "latency": 0.55, "freshness": 0.45, "trust":` |
