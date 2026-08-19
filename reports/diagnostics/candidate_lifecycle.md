@@ -1,18 +1,18 @@
 # Candidate Lifecycle
 
-**Generated:** 2026-08-19T04:53:31+00:00
-**Session:** `SESSION-20260819-7D4F4E`
-**Mission:** `MIS-20260819-735EE9`
+**Generated:** 2026-08-19T05:46:50+00:00
+**Session:** `SESSION-20260819-53B3C6`
+**Mission:** `MIS-20260819-6D2307`
 **dry_run:** `False`
 
 Lifecycle: Document → Extraction → Candidate → Validation → Integrity Guard → Publisher → Dataset
 
 | candidate_id | document_id | mission_id | session_id | dataset | entity | confidence | integrity_ok | block_reason | publish |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CAND-6B23F4B80639 | DOC-9CF2639B264C | MIS-20260819-735EE9 | SES-20260819-AA7C45 | business_signal_library | Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target | 0.9 | False | duplicate_id:SIG-000632 | Rejected |
-| CAND-14FC812912B9 | DOC-9C3FE7A510A0 | MIS-20260819-735EE9 | SES-20260819-AA7C45 | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000631 | Rejected |
-| CAND-5764B652E14E | DOC-8DEAD915EF6F | MIS-20260819-735EE9 | SES-20260819-AA7C45 | business_signal_library | Product Innovation Toward MSME’s Market Performance On Creative Industry | 0.9 | False | duplicate_id:SIG-000634 | Rejected |
-| CAND-6A0CF7DA3E2D | DOC-AFB055C754E2 | MIS-20260819-735EE9 | SES-20260819-AA7C45 | business_signal_library | Expand Target Market in Business | 0.9 | False | duplicate_id:SIG-000633 | Rejected |
-| CAND-F171D967E9BC | DOC-23B61DA3B184 | MIS-20260819-735EE9 | SES-20260819-AA7C45 | business_signal_library | Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi | 0.9 | False | duplicate_id:SIG-000635 | Rejected |
+| CAND-7A4E83141B2D | DOC-8DEAD915EF6F | MIS-20260819-6D2307 | SES-20260819-9FB975 | business_signal_library | Product Innovation Toward MSME’s Market Performance On Creative Industry | 0.9 | False | duplicate_id:SIG-000639 | Rejected |
+| CAND-E776D55EBAB4 | DOC-23B61DA3B184 | MIS-20260819-6D2307 | SES-20260819-9FB975 | business_signal_library | Consumer Attitudes Toward Imported and Local Produce in Indonesia: The Role of Country of Origin and Perception in Shapi | 0.9 | False | duplicate_id:SIG-000640 | Rejected |
+| CAND-77FD8E8B9131 | DOC-AFB055C754E2 | MIS-20260819-6D2307 | SES-20260819-9FB975 | business_signal_library | Expand Target Market in Business | 0.9 | False | duplicate_id:SIG-000638 | Rejected |
+| CAND-36D22A24F30F | DOC-9CF2639B264C | MIS-20260819-6D2307 | SES-20260819-9FB975 | business_signal_library | Figure 1.18. Indonesia needs to expand its protected areas to reach the Aichi target | 0.9 | False | duplicate_id:SIG-000637 | Rejected |
+| CAND-0F29392DE13A | DOC-9C3FE7A510A0 | MIS-20260819-6D2307 | SES-20260819-9FB975 | business_signal_library | World Bank document | 0.92 | False | duplicate_id:SIG-000636 | Rejected |
 
 Total candidates: **5**

@@ -1,6 +1,6 @@
 # Provider Yield
 
-**Generated:** 2026-08-19T04:48:01+00:00
+**Generated:** 2026-08-19T05:41:31+00:00
 
 | Provider | Avg URLs/run | Avg accepted | Success yield | Runs (hist) |
 |----------|-------------:|-------------:|--------------:|------------:|
@@ -9,7 +9,7 @@
 | Sitemap Discovery | 12.0 | 12.0 | 1.0 | 1 |
 | RSS Discovery | 0.0 | 0.0 | 1.0 | 1 |
 | Atom Discovery | 0.0 | 0.0 | 1.0 | 1 |
-| Common Crawl Index | 0.0 | 0.0 | 0.0 | 1 |
+| Common Crawl Index | 40.0 | 30.0 | 1.0 | 1 |
 | OpenSearch Description | 0.0 | 0.0 | 0.0 | 1 |
 | Google Programmable Search | 0.0 | 0.0 | 1.0 | 1 |
 | Bing Web Search API | 0.0 | 0.0 | 1.0 | 1 |
