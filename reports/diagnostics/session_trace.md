@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-19T11:46:01+00:00
+**Generated:** 2026-08-19T13:10:06+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260819-5FDD78 |
+| session_id | SESSION-20260819-38D089 |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 1095.0 |
+| duration_seconds | 1102.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document |
-| start_time | 2026-08-19T11:27:38+00:00 |
-| end_time | 2026-08-19T11:45:53+00:00 |
+| start_time | 2026-08-19T12:51:36+00:00 |
+| end_time | 2026-08-19T13:09:58+00:00 |
 
 ## Pipeline stages
 
@@ -28,10 +28,10 @@
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
 | source_discovery | completed | 2.8 | — | — | connectors=[{'connector_id': 'CONN-OPENALEX-001', 'name': 'OpenAlex', 'source_id |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6188.8 | 77 | — |  |
+| document_discovery | completed | 6254.3 | 77 | — |  |
 | documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
-| document_download | completed | 345321.6 | 42 | — | downloaded=42 |
-| extraction | completed | 31.9 | — | 5 |  |
+| document_download | completed | 348442.3 | 42 | — | downloaded=42 |
+| extraction | completed | 74.5 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
