@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-19T20:43:45+00:00",
-  "mission_id": "MIS-20260819-8DB403",
-  "session_id": "SES-20260819-4F7B3D",
+  "started_at": "2026-08-19T21:40:41+00:00",
+  "mission_id": "MIS-20260819-E8F0CA",
+  "session_id": "SES-20260819-4EDB2F",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 24,
   "urls_remaining": 0,
   "duplicate_urls": 24,
-  "elapsed_ms": 747171.7,
+  "elapsed_ms": 744685.4,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 255.36,
-  "accepted_per_hour": 139.73,
+  "urls_per_hour": 256.22,
+  "accepted_per_hour": 140.19,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 40,
       "cache_hits": 0,
-      "elapsed_ms": 4593.6,
+      "elapsed_ms": 4624.2,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 69.425,
+      "rank_score": 69.481,
       "utilization": 0.2273
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 8,
       "cache_hits": 0,
-      "elapsed_ms": 461767.5,
+      "elapsed_ms": 465866.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -167,7 +167,7 @@
       "queries": 1,
       "urls": 5,
       "cache_hits": 0,
-      "elapsed_ms": 280770.1,
+      "elapsed_ms": 274156.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 407.8,
+      "elapsed_ms": 444.7,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 453.8,
+      "elapsed_ms": 322.1,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1411.8,
+      "elapsed_ms": 1368.5,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1086.3,
+      "elapsed_ms": 1083.2,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 1233.9,
+      "elapsed_ms": 1405.7,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 8,
-      "elapsed_ms": 461767.5
+      "elapsed_ms": 465866.0
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 5,
-      "elapsed_ms": 280770.1
+      "elapsed_ms": 274156.8
     }
   ],
   "reputation_top": [
@@ -706,12 +706,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 69.425,
+      "score": 69.481,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.919,
+        "latency": 0.923,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
