@@ -1,18 +1,18 @@
 # Provider Exhaustion
 
-**Generated:** 2026-08-18T23:35:02+00:00
+**Generated:** 2026-08-19T01:30:42+00:00
 
 **Stop reason (last run):** `runtime_budget_reached`
 
 | Provider | Queries | URLs | Exhausted | Reason |
 |----------|--------:|-----:|-----------|--------|
 | Tavily (primary) | 0 | 0 | False | ready |
-| Common Crawl Index | 5 | 60 | False | ready |
+| Common Crawl Index | 5 | 80 | False | ready |
 | Sitemap Discovery | 1 | 12 | False | ready |
-| Atom Discovery | 1 | 0 | True | empty_feed_results |
+| RSS Discovery | 1 | 0 | True | empty_feed_results |
 | Trusted Site Search (connector-backed) | 10 | 0 | False | ready |
-| RSS Discovery | 0 | 0 | False | ready |
 | OpenSearch Description | 5 | 0 | True | provider_exhausted_empty_results |
+| Atom Discovery | 0 | 0 | False | ready |
 | Google Programmable Search | 0 | 0 | False | disabled |
 | Bing Web Search API | 0 | 0 | False | disabled |
 | Brave Search API | 0 | 0 | False | disabled |
