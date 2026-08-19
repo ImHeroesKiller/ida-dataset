@@ -1,13 +1,13 @@
 # Publisher Trace
 
-**Generated:** 2026-08-19T10:49:40+00:00
+**Generated:** 2026-08-19T11:46:01+00:00
 
 | candidate_id | Publish attempted? | Decision | Reason | Integrity ok | dry_run | trace_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| CAND-2A4E62723F14 | YES | Rejected | integrity_guard:duplicate_id:SIG-000661 | False | False | published |
-| CAND-6D5BC54620FA | YES | Rejected | integrity_guard:duplicate_id:SIG-000665 | False | False | published |
-| CAND-FE7974DB6155 | YES | Rejected | integrity_guard:duplicate_id:SIG-000663 | False | False | published |
-| CAND-0DF6BAEC3528 | YES | Rejected | integrity_guard:duplicate_id:SIG-000662 | False | False | published |
-| CAND-44F8730B4350 | YES | Rejected | integrity_guard:duplicate_id:SIG-000664 | False | False | published |
+| CAND-B2674C0AD578 | YES | Rejected | integrity_guard:duplicate_id:SIG-000668 | False | False | published |
+| CAND-B0F0E39921F8 | YES | Rejected | integrity_guard:duplicate_id:SIG-000666 | False | False | published |
+| CAND-883317983864 | YES | Rejected | integrity_guard:duplicate_id:SIG-000669 | False | False | published |
+| CAND-8DF30E618420 | YES | Rejected | integrity_guard:duplicate_id:SIG-000670 | False | False | published |
+| CAND-3A368BEDB325 | YES | Rejected | integrity_guard:duplicate_id:SIG-000667 | False | False | published |
 
 Decisions: Published | Rejected | Queued | Manual Review | Skipped
