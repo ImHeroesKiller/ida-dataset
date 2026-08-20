@@ -1,24 +1,24 @@
 # Provider Statistics
 
-**Generated:** 2026-08-20T14:48:24+00:00
-**Session:** `SES-20260820-1035B8` · **Mission:** `MIS-20260820-C7A69A`
+**Generated:** 2026-08-20T15:47:20+00:00
+**Session:** `SES-20260820-DC5E08` · **Mission:** `MIS-20260820-C52618`
 
 Queries executed: **22**
-URLs discovered: **52**
-URLs accepted: **32**
-URLs rejected: **20**
+URLs discovered: **124**
+URLs accepted: **66**
+URLs rejected: **58**
 URLs remaining: **0**
 Stop reason: **runtime_budget_reached**
-URLs/hour: **303.53** · Accepted/hour: **186.79**
+URLs/hour: **604.74** · Accepted/hour: **321.88**
 
 | Provider | Type | Op status | Queries | URLs | Util | Exhausted | Cache | ms | Status |
 |----------|------|-----------|--------:|-----:|-----:|-----------|------:|---:|--------|
 | Tavily (primary) | tavily | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
-| Common Crawl Index | commoncrawl | ACTIVE | 5 | 40 | 0.2273 | False | 0 | 35047.3 | ready |
-| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0455 | False | 0 | 453585.9 | ready |
-| RSS Discovery | rss | ACTIVE | 1 | 0 | 0.0455 | True | 0 | 128078.2 | ready |
-| Atom Discovery | atom | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
+| Common Crawl Index | commoncrawl | ACTIVE | 5 | 100 | 0.2273 | False | 0 | 3666.7000000000003 | ready |
+| Sitemap Discovery | sitemap | ACTIVE | 1 | 12 | 0.0455 | False | 0 | 449945.4 | ready |
+| Atom Discovery | atom | ACTIVE | 1 | 12 | 0.0455 | False | 0 | 284275.2 | ready |
 | Trusted Site Search (connector-backed) | trusted_site | ACTIVE | 10 | 0 | 0.4545 | False | 0 | 0.0 | ready |
+| RSS Discovery | rss | ACTIVE | 0 | 0 | 0.0 | False | 0 | 0.0 | ready |
 | OpenSearch Description | opensearch | ACTIVE | 5 | 0 | 0.2273 | True | 0 | 0.0 | ready |
 | Google Programmable Search | google_cse | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
 | Bing Web Search API | bing | DISABLED | 0 | 0 | 0.0 | False | 0 | 0.0 | disabled |
