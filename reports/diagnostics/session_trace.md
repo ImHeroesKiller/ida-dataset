@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-20T14:07:42+00:00
+**Generated:** 2026-08-20T14:54:27+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260820-16A718 |
+| session_id | SESSION-20260820-8FD4D5 |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 1095.0 |
+| duration_seconds | 973.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
-| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document |
-| start_time | 2026-08-20T13:49:19+00:00 |
-| end_time | 2026-08-20T14:07:34+00:00 |
+| summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=31 entity=World Bank document |
+| start_time | 2026-08-20T14:38:06+00:00 |
+| end_time | 2026-08-20T14:54:19+00:00 |
 
 ## Pipeline stages
 
@@ -26,24 +26,24 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
-| source_discovery | completed | 3.1 | — | — | connectors=[{'connector_id': 'CONN-OPENALEX-001', 'name': 'OpenAlex', 'source_id |
+| source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-WB-001', 'name': 'World Bank', 'source_id': ' |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6431.4 | 75 | — |  |
-| documents_skipped | completed | — | 33 | — | duplicates_or_skips=33 |
-| document_download | completed | 339061.2 | 42 | — | downloaded=42 |
-| extraction | completed | 34.1 | — | 5 |  |
+| document_discovery | completed | 6196.8 | 43 | — |  |
+| documents_skipped | completed | — | 12 | — | duplicates_or_skips=12 |
+| document_download | completed | 348311.0 | 31 | — | downloaded=31 |
+| extraction | completed | 33.3 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
-| end_session | completed | — | — | — | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entit |
+| end_session | completed | — | — | — | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=31 entit |
 
 ## Funnel
 
 | Metric | Value |
 | --- | --- |
 | documents_discovered | 11 |
-| documents_downloaded | 42 |
-| documents_duplicates | 33 |
+| documents_downloaded | 31 |
+| documents_duplicates | 12 |
 | candidates_extracted | 5 |
 | candidates_validated | 5 |
 | candidates_rejected | 0 |

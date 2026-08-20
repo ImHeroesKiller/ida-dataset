@@ -1,6 +1,6 @@
 # Repository / Open Access Statistics
 
-**Generated:** 2026-08-20T14:07:34+00:00
+**Generated:** 2026-08-20T14:54:19+00:00
 
 | Channel | Count |
 |---------|------:|
