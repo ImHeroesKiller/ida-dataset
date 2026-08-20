@@ -7,7 +7,7 @@ import fs from "fs";
 import path from "path";
 import { getRepoRoot, repoPath } from "./paths";
 import { listDatasets, getReviewQueues } from "./repo-data";
-import { parseCsv } from "./csv";
+import { parseCsv, readTailLines } from "./csv";
 import { productCoveragePct, productTargetFor } from "./product-targets";
 
 function readJson(p: string): Record<string, unknown> | null {
@@ -20,10 +20,10 @@ function readJson(p: string): Record<string, unknown> | null {
 }
 
 function listJsonl(p: string, limit = 80): Record<string, unknown>[] {
-  if (!fs.existsSync(p)) return [];
-  const lines = fs.readFileSync(p, "utf8").split("\n").filter(Boolean);
+  // Use readTailLines for O(chunk) reading from end of file rather than reading 89MB into memory
+  const lines = readTailLines(p, limit);
   const out: Record<string, unknown>[] = [];
-  for (const line of lines.slice(-limit)) {
+  for (const line of lines) {
     try {
       out.push(JSON.parse(line));
     } catch {

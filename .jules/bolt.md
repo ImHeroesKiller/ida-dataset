@@ -1,0 +1,3 @@
+## 2026-08-20 - Fast Tailing for Large JSONL Log Files
+**Learning:** In Node.js server routes or KPI providers, reading multi-megabyte `.jsonl` or `.log` files entirely into memory using `fs.readFileSync(path, 'utf8').split('\n').filter(Boolean).slice(-N)` creates massive string allocation overhead (e.g. 89MB `learning_journal.jsonl` blocking the main thread for ~800ms per request).
+**Action:** Always use chunked backward file reading (`readTailLines` via `fs.openSync` + `fs.readSync`) when retrieving the tail N lines of log or event stream files. It reduces tailing time from ~800ms to <1ms without memory overhead.

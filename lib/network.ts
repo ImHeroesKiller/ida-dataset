@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import { spawnSync } from "child_process";
 import { getRepoRoot, repoPath } from "./paths";
+import { readTailLines } from "./csv";
 
 function readJson(p: string): unknown {
   try {
@@ -88,18 +89,13 @@ export function getNetworkDashboard() {
   const eventsPath = repoPath("automation/connectors/cache/events.jsonl");
   let events: unknown[] = [];
   if (fs.existsSync(eventsPath)) {
-    events = fs
-      .readFileSync(eventsPath, "utf8")
-      .split("\n")
-      .filter(Boolean)
-      .slice(-50)
-      .map((l) => {
-        try {
-          return JSON.parse(l);
-        } catch {
-          return { detail: l };
-        }
-      });
+    events = readTailLines(eventsPath, 50).map((l) => {
+      try {
+        return JSON.parse(l);
+      } catch {
+        return { detail: l };
+      }
+    });
   }
 
   const queue = {

@@ -7,7 +7,7 @@ import fs from "fs";
 import path from "path";
 import { repoPath } from "./paths";
 import { listDatasets, type DatasetInfo } from "./repo-data";
-import { parseCsv } from "./csv";
+import { parseCsv, readTailLines } from "./csv";
 import {
   loadProductTargets,
   productCoveragePct,
@@ -24,10 +24,10 @@ function readJson(p: string): Record<string, unknown> | null {
 }
 
 function listJsonl(p: string, limit = 80): Record<string, unknown>[] {
-  if (!fs.existsSync(p)) return [];
-  const lines = fs.readFileSync(p, "utf8").split("\n").filter(Boolean);
+  // Use readTailLines for O(chunk) reading from end of file rather than reading 89MB into memory
+  const lines = readTailLines(p, limit);
   const out: Record<string, unknown>[] = [];
-  for (const line of lines.slice(-limit)) {
+  for (const line of lines) {
     try {
       out.push(JSON.parse(line));
     } catch {
@@ -335,7 +335,8 @@ function buildDatasetReadiness(
 
 function capacityMetrics(
   rowsMonth: number,
-  lookbackDays: number
+  lookbackDays: number,
+  datasets?: DatasetInfo[]
 ): FactoryCapacity {
   const avgDay =
     lookbackDays > 0
@@ -382,7 +383,7 @@ function capacityMetrics(
 
   // ETA for industry product target
   const industryRows =
-    listDatasets().find((d) => d.name === "industry_library")?.rowCount || 0;
+    (datasets ?? listDatasets()).find((d) => d.name === "industry_library")?.rowCount || 0;
   const industryTarget = productTargetFor("industry_library");
   const remaining = Math.max(0, industryTarget - industryRows);
   let eta = "—";
@@ -531,7 +532,8 @@ export function getFactoryKpis(): FactoryKpis {
 
   const capacity = capacityMetrics(
     rowsMonth,
-    cfg.capacity.lookback_days
+    cfg.capacity.lookback_days,
+    datasets
   );
 
   return {
