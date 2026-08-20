@@ -1,6 +1,6 @@
 # Adaptive Budget
 
-**Generated:** 2026-08-20T16:49:58+00:00
+**Generated:** 2026-08-20T17:43:33+00:00
 
 Budgets scale with mission priority, knowledge gap, queue health, provider health, worker capacity, and runtime.
 
