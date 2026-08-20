@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-20T22:42:03+00:00",
-  "mission_id": "MIS-20260820-A81CF2",
-  "session_id": "SES-20260820-1924BC",
+  "started_at": "2026-08-20T23:39:31+00:00",
+  "mission_id": "MIS-20260820-B4BAC5",
+  "session_id": "SES-20260820-8231BD",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 28,
   "urls_remaining": 0,
   "duplicate_urls": 28,
-  "elapsed_ms": 741861.3,
+  "elapsed_ms": 743191.2,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -60,10 +60,10 @@
   "providers_exhausted": 1,
   "provider_utilization": {
     "DISC-TAVILY": 0.0,
+    "DISC-COMMONCRAWL": 0.2273,
     "DISC-SITEMAP": 0.0455,
     "DISC-ATOM": 0.0455,
     "DISC-RSS": 0.0,
-    "DISC-COMMONCRAWL": 0.2273,
     "DISC-TRUSTED-SITE": 0.4545,
     "DISC-OPENSEARCH": 0.2273,
     "DISC-GOOGLE-CSE": 0.0,
@@ -74,10 +74,10 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
+    "DISC-COMMONCRAWL": 40,
     "DISC-SITEMAP": 12,
     "DISC-ATOM": 12,
     "DISC-RSS": 0,
-    "DISC-COMMONCRAWL": 40,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
     "DISC-GOOGLE-CSE": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 310.57,
-  "accepted_per_hour": 174.7,
+  "urls_per_hour": 310.01,
+  "accepted_per_hour": 174.38,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -112,6 +112,28 @@
       "utilization": 0.0
     },
     {
+      "provider_id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "api_type": "commoncrawl",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "toggle"
+      },
+      "queries": 5,
+      "urls": 40,
+      "cache_hits": 0,
+      "elapsed_ms": 4989.1,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 69.431,
+      "utilization": 0.2273
+    },
+    {
       "provider_id": "DISC-SITEMAP",
       "name": "Sitemap Discovery",
       "api_type": "sitemap",
@@ -123,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 453399.4,
+      "elapsed_ms": 453597.1,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -145,7 +167,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 283591.9,
+      "elapsed_ms": 284391.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -176,28 +198,6 @@
       "exhaustion_reason": "",
       "rank_score": 44.0,
       "utilization": 0.0
-    },
-    {
-      "provider_id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "api_type": "commoncrawl",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "toggle"
-      },
-      "queries": 5,
-      "urls": 40,
-      "cache_hits": 0,
-      "elapsed_ms": 4842.9,
-      "status": "ready",
-      "operational_status": "ACTIVE",
-      "credentials_available": true,
-      "disable_reason": "ready",
-      "exhausted": false,
-      "exhaustion_reason": "",
-      "rank_score": 43.635,
-      "utilization": 0.2273
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 433.2,
+      "elapsed_ms": 554.4,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 251.0,
+      "elapsed_ms": 385.4,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1338.4,
+      "elapsed_ms": 1321.0,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1404.9,
+      "elapsed_ms": 1281.4,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 1415.4,
+      "elapsed_ms": 1446.9,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 453399.4
+      "elapsed_ms": 453597.1
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 283591.9
+      "elapsed_ms": 284391.8
     }
   ],
   "reputation_top": [
@@ -704,6 +704,22 @@
       }
     },
     {
+      "id": "DISC-COMMONCRAWL",
+      "name": "Common Crawl Index",
+      "score": 69.431,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.35,
+        "success_rate": 1.0,
+        "latency": 0.919,
+        "freshness": 0.7,
+        "trust": 0.95,
+        "coverage": 0.75,
+        "relevance": 0.4,
+        "config_priority": 0.55
+      }
+    },
+    {
       "id": "DISC-SITEMAP",
       "name": "Sitemap Discovery",
       "score": 51.6,
@@ -749,22 +765,6 @@
         "coverage": 0.6,
         "relevance": 0.4,
         "config_priority": 0.7
-      }
-    },
-    {
-      "id": "DISC-COMMONCRAWL",
-      "name": "Common Crawl Index",
-      "score": 43.635,
-      "status": "ACTIVE",
-      "components": {
-        "yield": 0.0,
-        "success_rate": 0.2,
-        "latency": 0.895,
-        "freshness": 0.5,
-        "trust": 0.95,
-        "coverage": 0.75,
-        "relevance": 0.4,
-        "config_priority": 0.55
       }
     },
     {
