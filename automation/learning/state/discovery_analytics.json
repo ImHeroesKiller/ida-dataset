@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-20T15:47:20+00:00",
-  "mission_id": "MIS-20260820-C52618",
-  "session_id": "SES-20260820-DC5E08",
+  "started_at": "2026-08-20T16:49:57+00:00",
+  "mission_id": "MIS-20260820-CAEE4F",
+  "session_id": "SES-20260820-105549",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -52,7 +52,7 @@
   "urls_rejected": 58,
   "urls_remaining": 0,
   "duplicate_urls": 58,
-  "elapsed_ms": 738172.2,
+  "elapsed_ms": 740971.7,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -63,8 +63,8 @@
     "DISC-COMMONCRAWL": 0.2273,
     "DISC-SITEMAP": 0.0455,
     "DISC-ATOM": 0.0455,
-    "DISC-TRUSTED-SITE": 0.4545,
     "DISC-RSS": 0.0,
+    "DISC-TRUSTED-SITE": 0.4545,
     "DISC-OPENSEARCH": 0.2273,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
@@ -77,8 +77,8 @@
     "DISC-COMMONCRAWL": 100,
     "DISC-SITEMAP": 12,
     "DISC-ATOM": 12,
-    "DISC-TRUSTED-SITE": 0,
     "DISC-RSS": 0,
+    "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
     "DISC-GOOGLE-CSE": 0,
     "DISC-BING": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 604.74,
-  "accepted_per_hour": 321.88,
+  "urls_per_hour": 602.45,
+  "accepted_per_hour": 320.66,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 100,
       "cache_hits": 0,
-      "elapsed_ms": 3666.7000000000003,
+      "elapsed_ms": 2196.4,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 63.391,
+      "rank_score": 69.667,
       "utilization": 0.2273
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 449945.4,
+      "elapsed_ms": 454945.5,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -167,15 +167,37 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 284275.2,
+      "elapsed_ms": 283420.4,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 43.92,
+      "rank_score": 51.44,
       "utilization": 0.0455
+    },
+    {
+      "provider_id": "DISC-RSS",
+      "name": "RSS Discovery",
+      "api_type": "rss",
+      "health": {
+        "ok": true,
+        "status": "healthy",
+        "message": "feed_discovery"
+      },
+      "queries": 0,
+      "urls": 0,
+      "cache_hits": 0,
+      "elapsed_ms": 0.0,
+      "status": "ready",
+      "operational_status": "ACTIVE",
+      "credentials_available": true,
+      "disable_reason": "ready",
+      "exhausted": false,
+      "exhaustion_reason": "",
+      "rank_score": 44.0,
+      "utilization": 0.0
     },
     {
       "provider_id": "DISC-TRUSTED-SITE",
@@ -198,28 +220,6 @@
       "exhaustion_reason": "",
       "rank_score": 41.1,
       "utilization": 0.4545
-    },
-    {
-      "provider_id": "DISC-RSS",
-      "name": "RSS Discovery",
-      "api_type": "rss",
-      "health": {
-        "ok": true,
-        "status": "healthy",
-        "message": "feed_discovery"
-      },
-      "queries": 0,
-      "urls": 0,
-      "cache_hits": 0,
-      "elapsed_ms": 0.0,
-      "status": "ready",
-      "operational_status": "ACTIVE",
-      "credentials_available": true,
-      "disable_reason": "ready",
-      "exhausted": false,
-      "exhaustion_reason": "",
-      "rank_score": 32.0,
-      "utilization": 0.0
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 679.8,
+      "elapsed_ms": 621.8,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 362.6,
+      "elapsed_ms": 316.4,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 1752.5,
+      "elapsed_ms": 546.1,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 409.3,
+      "elapsed_ms": 346.3,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 20,
-      "elapsed_ms": 462.5,
+      "elapsed_ms": 365.8,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 449945.4
+      "elapsed_ms": 454945.5
     },
     {
       "provider_id": "DISC-ATOM",
       "query": "atom:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 284275.2
+      "elapsed_ms": 283420.4
     }
   ],
   "reputation_top": [
@@ -706,12 +706,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 63.391,
+      "score": 69.667,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.416,
+        "latency": 0.939,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -738,7 +738,23 @@
     {
       "id": "DISC-ATOM",
       "name": "Atom Discovery",
-      "score": 43.92,
+      "score": 51.44,
+      "status": "ACTIVE",
+      "components": {
+        "yield": 0.12,
+        "success_rate": 1.0,
+        "latency": 0.0,
+        "freshness": 0.7,
+        "trust": 0.95,
+        "coverage": 0.6,
+        "relevance": 0.4,
+        "config_priority": 0.68
+      }
+    },
+    {
+      "id": "DISC-RSS",
+      "name": "RSS Discovery",
+      "score": 44.0,
       "status": "ACTIVE",
       "components": {
         "yield": 0.0,
@@ -748,7 +764,7 @@
         "trust": 0.95,
         "coverage": 0.6,
         "relevance": 0.4,
-        "config_priority": 0.68
+        "config_priority": 0.7
       }
     },
     {
@@ -765,22 +781,6 @@
         "coverage": 0.75,
         "relevance": 0.4,
         "config_priority": 0.95
-      }
-    },
-    {
-      "id": "DISC-RSS",
-      "name": "RSS Discovery",
-      "score": 32.0,
-      "status": "ACTIVE",
-      "components": {
-        "yield": 0.0,
-        "success_rate": 0.2,
-        "latency": 0.0,
-        "freshness": 0.5,
-        "trust": 0.95,
-        "coverage": 0.6,
-        "relevance": 0.4,
-        "config_priority": 0.7
       }
     },
     {

@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-08-20T15:53:50+00:00",
+  "updated_at": "2026-08-20T16:55:41+00:00",
   "sessions": [
+    {
+      "session_id": "SESSION-20260820-ACDD2B",
+      "path": "automation/sessions/2026-08-20/SESSION-20260820-ACDD2B.json",
+      "start_time": "2026-08-20T16:37:36+00:00",
+      "end_time": "2026-08-20T16:55:41+00:00",
+      "duration_seconds": 1085.0,
+      "status": "completed",
+      "mission": "Produce Industry Dataset — expand industry_library toward product target",
+      "knowledge_added": 5,
+      "knowledge_updated": 0,
+      "knowledge_rejected": 0,
+      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document",
+      "trigger": "schedule",
+      "dry_run": false,
+      "events": 253,
+      "github": {
+        "run_id": "32392947557",
+        "run_number": "624",
+        "workflow": "Learn",
+        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
+        "actor": "ImHeroesKiller",
+        "event_name": "schedule",
+        "sha": "03ae4b85f251875250b51e75d967a63f286f1599",
+        "ref": "refs/heads/main",
+        "repository": "ImHeroesKiller/ida-dataset",
+        "server_url": "https://github.com"
+      }
+    },
     {
       "session_id": "SESSION-20260820-C0F818",
       "path": "automation/sessions/2026-08-20/SESSION-20260820-C0F818.json",
@@ -1312,34 +1340,6 @@
         "actor": "ImHeroesKiller",
         "event_name": "schedule",
         "sha": "dc751313eb771c48bd65c2fa3ef37475a2954f6e",
-        "ref": "refs/heads/main",
-        "repository": "ImHeroesKiller/ida-dataset",
-        "server_url": "https://github.com"
-      }
-    },
-    {
-      "session_id": "SESSION-20260818-AE917E",
-      "path": "automation/sessions/2026-08-18/SESSION-20260818-AE917E.json",
-      "start_time": "2026-08-18T07:39:31+00:00",
-      "end_time": "2026-08-18T07:52:31+00:00",
-      "duration_seconds": 780.0,
-      "status": "completed",
-      "mission": "Produce Industry Dataset — expand industry_library toward product target",
-      "knowledge_added": 5,
-      "knowledge_updated": 0,
-      "knowledge_rejected": 0,
-      "summary": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document",
-      "trigger": "schedule",
-      "dry_run": false,
-      "events": 253,
-      "github": {
-        "run_id": "32112403936",
-        "run_number": "567",
-        "workflow": "Learn",
-        "workflow_ref": "ImHeroesKiller/ida-dataset/.github/workflows/learn.yml@refs/heads/main",
-        "actor": "ImHeroesKiller",
-        "event_name": "schedule",
-        "sha": "f5eacbf30804bd1ccae86ea7ba9b248d98000cb4",
         "ref": "refs/heads/main",
         "repository": "ImHeroesKiller/ida-dataset",
         "server_url": "https://github.com"
