@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-21T09:56:24+00:00
+**Generated:** 2026-08-21T10:50:34+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260821-8FF67F |
+| session_id | SESSION-20260821-D786DB |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 1074.0 |
+| duration_seconds | 1067.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document |
-| start_time | 2026-08-21T09:38:22+00:00 |
-| end_time | 2026-08-21T09:56:16+00:00 |
+| start_time | 2026-08-21T10:32:39+00:00 |
+| end_time | 2026-08-21T10:50:26+00:00 |
 
 ## Pipeline stages
 
@@ -26,12 +26,12 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
-| source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-CROSSREF-001', 'name': 'Crossref', 'source_id |
+| source_discovery | completed | 3.0 | — | — | connectors=[{'connector_id': 'CONN-CROSSREF-001', 'name': 'Crossref', 'source_id |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6210.0 | 77 | — |  |
-| documents_skipped | completed | — | 35 | — | duplicates_or_skips=35 |
-| document_download | completed | 323867.9 | 42 | — | downloaded=42 |
-| extraction | completed | 35.5 | — | 5 |  |
+| document_discovery | completed | 6173.3 | 73 | — |  |
+| documents_skipped | completed | — | 31 | — | duplicates_or_skips=31 |
+| document_download | completed | 314172.1 | 42 | — | downloaded=42 |
+| extraction | completed | 35.4 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
@@ -43,7 +43,7 @@
 | --- | --- |
 | documents_discovered | 11 |
 | documents_downloaded | 42 |
-| documents_duplicates | 35 |
+| documents_duplicates | 31 |
 | candidates_extracted | 5 |
 | candidates_validated | 5 |
 | candidates_rejected | 0 |
