@@ -1,6 +1,6 @@
 # Validation — Before / After
 
-**Generated:** 2026-08-21T01:42:09+00:00
+**Generated:** 2026-08-21T03:22:52+00:00
 
 | Metric | Before (Audit 002) | After (framework session) |
 |--------|-------------------:|--------------------------:|
