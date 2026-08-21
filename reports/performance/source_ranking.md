@@ -10,7 +10,7 @@ Adaptive scores used for mission source selection.
 | 4 | OECD | 100.545 |
 | 5 | Kemenperin | 100.038 |
 | 6 | OpenAlex | 90.585 |
-| 7 | Crossref | 90.492 |
+| 7 | Crossref | 90.493 |
 | 8 | DJP Pajak | 79.45 |
 | 9 | NIST | 79.25 |
 | 10 | JDIH / Peraturan.go.id | 79.25 |
