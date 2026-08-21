@@ -78,6 +78,71 @@ export function parseCsv(text: string): { headers: string[]; rows: Record<string
   return { headers, rows };
 }
 
+/**
+ * Fast metadata extractor for CSV files.
+ * Extracts headers and total row count without creating and allocating row objects for every record.
+ * Expected performance impact: ~5-10x faster dataset catalog listing and memory reduction.
+ */
+export function readCsvHeaderAndCount(filePath: string): {
+  headers: string[];
+  rowCount: number;
+  exists: boolean;
+  error?: string;
+} {
+  if (!fs.existsSync(filePath)) {
+    return {
+      headers: [],
+      rowCount: 0,
+      exists: false,
+      error: "File not found",
+    };
+  }
+  try {
+    const text = fs.readFileSync(filePath, "utf8");
+    const firstLineEnd = text.search(/\r?\n/);
+    const headerLine = firstLineEnd === -1 ? text : text.slice(0, firstLineEnd);
+    const headers = headerLine ? parseCsv(headerLine).headers : [];
+
+    let rowCount = 0;
+    if (firstLineEnd !== -1) {
+      let idx = firstLineEnd;
+      let inQuotes = false;
+      let lineHasChars = false;
+
+      for (let i = idx; i < text.length; i++) {
+        const ch = text[i];
+        if (ch === '"') {
+          inQuotes = !inQuotes;
+          lineHasChars = true;
+        } else if (ch === "\n" && !inQuotes) {
+          if (lineHasChars) {
+            rowCount++;
+            lineHasChars = false;
+          }
+        } else if (ch !== "\r" && ch !== " " && ch !== "\t") {
+          lineHasChars = true;
+        }
+      }
+      if (lineHasChars) {
+        rowCount++;
+      }
+    }
+
+    return {
+      headers,
+      rowCount,
+      exists: true,
+    };
+  } catch (err) {
+    return {
+      headers: [],
+      rowCount: 0,
+      exists: true,
+      error: err instanceof Error ? err.message : "Failed to read CSV header",
+    };
+  }
+}
+
 export function readCsvFile(filePath: string): CsvTable {
   if (!fs.existsSync(filePath)) {
     return {
