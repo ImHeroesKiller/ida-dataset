@@ -1,6 +1,6 @@
 # Validation Statistics
 
-**Generated:** 2026-08-21T08:01:45+00:00
+**Generated:** 2026-08-21T09:00:17+00:00
 **Total candidates:** 5
 **Integrity blocked:** 5
 **Integrity passed:** 0
