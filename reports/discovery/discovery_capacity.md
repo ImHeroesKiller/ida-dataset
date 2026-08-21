@@ -1,6 +1,6 @@
 # Discovery Capacity
 
-**Generated:** 2026-08-21T14:49:31+00:00
+**Generated:** 2026-08-21T15:48:06+00:00
 
 | Dimension | Value |
 |-----------|------:|
