@@ -1,12 +1,12 @@
 {
   "status": "idle",
-  "session_id": "SESSION-20260821-D786DB",
-  "mission_id": "MIS-20260821-3B0E20",
+  "session_id": "SESSION-20260821-4DBFBD",
+  "mission_id": "MIS-20260821-422EF7",
   "progress": 100,
   "current_thought": "Session completed · published=5 extracted=5 validated=5 rejected=0 docs=42 entity=World Bank document",
   "current_task": "Idle",
   "last_learned": "World Bank document",
-  "updated_at": "2026-08-21T10:50:26+00:00",
+  "updated_at": "2026-08-21T11:46:06+00:00",
   "execution_model": "github_actions",
   "last_error": null
 }

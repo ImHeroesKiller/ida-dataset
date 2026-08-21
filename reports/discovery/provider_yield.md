@@ -1,6 +1,6 @@
 # Provider Yield
 
-**Generated:** 2026-08-21T10:45:06+00:00
+**Generated:** 2026-08-21T11:40:52+00:00
 
 | Provider | Avg URLs/run | Avg accepted | Success yield | Runs (hist) |
 |----------|-------------:|-------------:|--------------:|------------:|
