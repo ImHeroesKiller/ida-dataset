@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-22T05:41:51+00:00",
-  "mission_id": "MIS-20260822-9537F0",
-  "session_id": "SES-20260822-DB6F6E",
+  "started_at": "2026-08-22T06:54:54+00:00",
+  "mission_id": "MIS-20260822-131A31",
+  "session_id": "SES-20260822-F94F64",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -47,12 +47,12 @@
   },
   "queries_generated": 10,
   "queries_executed": 22,
-  "urls_discovered": 124,
-  "urls_accepted": 66,
+  "urls_discovered": 120,
+  "urls_accepted": 62,
   "urls_rejected": 58,
   "urls_remaining": 0,
   "duplicate_urls": 58,
-  "elapsed_ms": 733142.3,
+  "elapsed_ms": 747553.7,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -76,7 +76,7 @@
     "DISC-TAVILY": 0,
     "DISC-COMMONCRAWL": 100,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 12,
+    "DISC-RSS": 8,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 608.89,
-  "accepted_per_hour": 324.08,
+  "urls_per_hour": 577.88,
+  "accepted_per_hour": 298.57,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -123,14 +123,14 @@
       "queries": 5,
       "urls": 100,
       "cache_hits": 0,
-      "elapsed_ms": 1289.1,
+      "elapsed_ms": 1810.9,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 69.254,
+      "rank_score": 70.142,
       "utilization": 0.2273
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 450826.0,
+      "elapsed_ms": 460071.9,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -165,9 +165,9 @@
         "message": "feed_discovery"
       },
       "queries": 1,
-      "urls": 12,
+      "urls": 8,
       "cache_hits": 0,
-      "elapsed_ms": 280983.3,
+      "elapsed_ms": 285631.3,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 328.9,
+      "elapsed_ms": 438.8,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 153.1,
+      "elapsed_ms": 287.4,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 242.0,
+      "elapsed_ms": 398.7,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 20,
-      "elapsed_ms": 248.9,
+      "elapsed_ms": 316.1,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 20,
-      "elapsed_ms": 316.2,
+      "elapsed_ms": 369.9,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 450826.0
+      "elapsed_ms": 460071.9
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
-      "urls": 12,
-      "elapsed_ms": 280983.3
+      "urls": 8,
+      "elapsed_ms": 285631.3
     }
   ],
   "reputation_top": [
@@ -706,12 +706,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 69.254,
+      "score": 70.142,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.904,
+        "latency": 0.979,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -1252,30 +1252,6 @@
       "source_id": "SRC-OWASP",
       "provider_id": "DISC-SITEMAP",
       "title": ""
-    },
-    {
-      "url": "http://owasp.org/blog/2026/07/06/cve-lite-cli-lab.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-RSS",
-      "title": "OWASP CVE Lite CLI Graduates to Lab Project Status"
-    },
-    {
-      "url": "http://owasp.org/blog/2026/06/18/greenberg-statement.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-RSS",
-      "title": "Community update regarding Richard Greenberg"
-    },
-    {
-      "url": "http://owasp.org/blog/2026/06/18/aikido-agentic-code-audit.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-RSS",
-      "title": "Aikido and OWASP bring agentic Code Audit to the global AppSec community"
-    },
-    {
-      "url": "http://owasp.org/blog/2026/06/09/dependency-track-v5.html",
-      "source_id": "SRC-OWASP",
-      "provider_id": "DISC-RSS",
-      "title": "OWASP Dependency-Track 5.0 Is Now Generally Available"
     }
   ],
   "rejected_urls": [
