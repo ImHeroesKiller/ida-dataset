@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-22T22:36:01+00:00",
-  "mission_id": "MIS-20260822-ABF613",
-  "session_id": "SES-20260822-D846DF",
+  "started_at": "2026-08-22T23:34:51+00:00",
+  "mission_id": "MIS-20260822-90D25B",
+  "session_id": "SES-20260822-D588B9",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -47,12 +47,12 @@
   },
   "queries_generated": 10,
   "queries_executed": 22,
-  "urls_discovered": 124,
-  "urls_accepted": 66,
-  "urls_rejected": 58,
+  "urls_discovered": 64,
+  "urls_accepted": 36,
+  "urls_rejected": 28,
   "urls_remaining": 0,
-  "duplicate_urls": 58,
-  "elapsed_ms": 736920.6,
+  "duplicate_urls": 28,
+  "elapsed_ms": 737416.2,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -74,7 +74,7 @@
   },
   "rows_per_provider": {
     "DISC-TAVILY": 0,
-    "DISC-COMMONCRAWL": 100,
+    "DISC-COMMONCRAWL": 40,
     "DISC-SITEMAP": 12,
     "DISC-RSS": 12,
     "DISC-ATOM": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 605.76,
-  "accepted_per_hour": 322.42,
+  "urls_per_hour": 312.44,
+  "accepted_per_hour": 175.75,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -121,16 +121,16 @@
         "message": "toggle"
       },
       "queries": 5,
-      "urls": 100,
+      "urls": 40,
       "cache_hits": 0,
-      "elapsed_ms": 2216.4,
+      "elapsed_ms": 5894.5,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 69.703,
+      "rank_score": 69.957,
       "utilization": 0.2273
     },
     {
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 450711.8,
+      "elapsed_ms": 449491.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -167,7 +167,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 283946.7,
+      "elapsed_ms": 281989.7,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 571.3,
+      "elapsed_ms": 655.8,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 311.2,
+      "elapsed_ms": 489.0,
       "cached": false,
       "live_search": true
     },
@@ -470,8 +470,8 @@
       "query": "site:worldbank.org industry",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
-      "urls": 20,
-      "elapsed_ms": 648.5,
+      "urls": 0,
+      "elapsed_ms": 1475.4,
       "cached": false,
       "live_search": true
     },
@@ -480,8 +480,8 @@
       "query": "site:worldbank.org intitle:industry industry",
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
-      "urls": 20,
-      "elapsed_ms": 339.6,
+      "urls": 0,
+      "elapsed_ms": 1628.4,
       "cached": false,
       "live_search": true
     },
@@ -490,8 +490,8 @@
       "query": "site:kemenperin.go.id industry",
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
-      "urls": 20,
-      "elapsed_ms": 345.8,
+      "urls": 0,
+      "elapsed_ms": 1645.9,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,13 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 450711.8
+      "elapsed_ms": 449491.0
     },
     {
       "provider_id": "DISC-RSS",
       "query": "rss:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 283946.7
+      "elapsed_ms": 281989.7
     }
   ],
   "reputation_top": [
@@ -706,12 +706,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 69.703,
+      "score": 69.957,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.942,
+        "latency": 0.963,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -1002,186 +1002,6 @@
       "title": ""
     },
     {
-      "url": "http://www5.worldbank.org/",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org:443/",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://worldbank.org",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://www.worldbank.org",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://www.worldbank.org:80/",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/%E3%80%80",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "source_id": "SRC-000004",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://ammdes.kemenperin.go.id/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://ammdes.kemenperin.go.id/kolaborasi/beranda/pilot_project",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://ammdes.kemenperin.go.id/robots.txt",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "http://ammdes.kemenperin.go.id/robots.txt",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/https:/bbkb.kemenperin.go.id/post/read/visi_dan_misi_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/category/berita/0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/pengumuman_naskah_diterima_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/perpanjangan_waktu_submit_naskah_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/index.php/post/read/resmikan_galeri_untuk_kerajinan_dan_batik__kemenperin_ingin_berikan_manfaat_yang_luas_bagi_industri_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/information/answer/response/198/hascaryo",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/perpus/index/",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/perpus/index/70",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/dukung_industri_halal_bbspjikb__kemenperin_kolaborasi_dengan_dinas_koperasi__usaha_kecil_dan_menengah_kabupaten_sleman_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/layanan_konsultansi_teknis_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/optimalkan_binaan_ikm_batik_tuban_pt__pln_nusantara_power_up_tanjung_awar_awar_menandatangani_nota_kesepahaman_dengan_bbspjikb_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/pengumuman_naskah_diterima_snikb_2023_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
-      "url": "https://bbkb.kemenperin.go.id/post/read/perkuat_ekosistem_produksi_hijau_kemenperin_serahkan_sertifikat_industri_hijau_kepada_pt_dan_liris_0",
-      "source_id": "SRC-000007",
-      "provider_id": "DISC-COMMONCRAWL",
-      "title": ""
-    },
-    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "source_id": "SRC-CROSSREF",
       "provider_id": "DISC-SITEMAP",
@@ -1400,186 +1220,6 @@
       "provider_id": "DISC-COMMONCRAWL"
     },
     {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "http://www5.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org:443/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "http://worldbank.org",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "http://www.worldbank.org",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "http://www.worldbank.org:80/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/%20en/country/madagascar/overview",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/%E2%80%A6/global-action-urgently-needed-t%E2%80%A6",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/%E3%80%80",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.worldbank.org/404_response.htm",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
       "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
       "reason": "duplicate_url",
       "host": null,
@@ -1633,7 +1273,7 @@
     "misses": 10,
     "stores": 10,
     "cached_queries": 10,
-    "cached_urls": 50
+    "cached_urls": 20
   },
   "note": "Search engines are discovery tools only; knowledge comes from trusted sources."
 }
