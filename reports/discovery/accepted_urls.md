@@ -36,5 +36,3 @@ Only domains present in Trusted Source Registry.
 | https://owasp.org/blog/2025/03/06/owasp-education-and-training-committee-update.html | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/projects/ | SRC-OWASP | DISC-SITEMAP |  |
 | https://owasp.org/www-project-top-ten/ | SRC-OWASP | DISC-SITEMAP |  |
-| https://www.crossref.org/jobs/2023-02-08-contract-software-development/ | SRC-CROSSREF | DISC-RSS |  |
-| https://www.ifrs.org/groups/trustees-of-the-ifrs-foundation/ | SRC-ISSB | DISC-RSS |  |

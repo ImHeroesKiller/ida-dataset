@@ -1,14 +1,14 @@
 # Throughput
 
-**Session:** `SES-20260822-C93B2F`
-**Mission:** `MIS-20260822-3B3992`
-**Elapsed (s):** 1089.648
+**Session:** `SES-20260822-1A5612`
+**Mission:** `MIS-20260822-10DBB5`
+**Elapsed (s):** 934.842
 
 | Metric | Value |
 |--------|------:|
 | Documents | 31 |
 | Rows | 5 |
-| Documents/hour | 102.42 |
-| Rows/hour | 16.52 |
-| Documents/second | 0.028 |
+| Documents/hour | 119.38 |
+| Rows/hour | 19.25 |
+| Documents/second | 0.033 |
 | Rows/second | 0.005 |

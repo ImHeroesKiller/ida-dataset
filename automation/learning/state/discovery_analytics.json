@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-08-22T01:30:27+00:00",
-  "mission_id": "MIS-20260822-3B3992",
-  "session_id": "SES-20260822-C93B2F",
+  "started_at": "2026-08-22T03:05:54+00:00",
+  "mission_id": "MIS-20260822-10DBB5",
+  "session_id": "SES-20260822-1A5612",
   "instruction": "Produce Industry Dataset — expand industry_library toward product target",
   "dataset": "industry_library",
   "knowledge_gap": {
@@ -46,13 +46,13 @@
     "one_discovery_multi_dataset": true
   },
   "queries_generated": 10,
-  "queries_executed": 22,
-  "urls_discovered": 62,
-  "urls_accepted": 34,
-  "urls_rejected": 28,
+  "queries_executed": 21,
+  "urls_discovered": 52,
+  "urls_accepted": 32,
+  "urls_rejected": 20,
   "urls_remaining": 0,
-  "duplicate_urls": 28,
-  "elapsed_ms": 746357.0,
+  "duplicate_urls": 20,
+  "elapsed_ms": 609297.2,
   "stop_reason": "runtime_budget_reached",
   "providers_active": 7,
   "providers_misconfigured": 0,
@@ -60,12 +60,12 @@
   "providers_exhausted": 1,
   "provider_utilization": {
     "DISC-TAVILY": 0.0,
-    "DISC-COMMONCRAWL": 0.2273,
-    "DISC-SITEMAP": 0.0455,
-    "DISC-RSS": 0.0455,
+    "DISC-COMMONCRAWL": 0.2381,
+    "DISC-SITEMAP": 0.0476,
+    "DISC-RSS": 0.0,
     "DISC-ATOM": 0.0,
-    "DISC-TRUSTED-SITE": 0.4545,
-    "DISC-OPENSEARCH": 0.2273,
+    "DISC-TRUSTED-SITE": 0.4762,
+    "DISC-OPENSEARCH": 0.2381,
     "DISC-GOOGLE-CSE": 0.0,
     "DISC-BING": 0.0,
     "DISC-BRAVE": 0.0,
@@ -76,7 +76,7 @@
     "DISC-TAVILY": 0,
     "DISC-COMMONCRAWL": 40,
     "DISC-SITEMAP": 12,
-    "DISC-RSS": 10,
+    "DISC-RSS": 0,
     "DISC-ATOM": 0,
     "DISC-TRUSTED-SITE": 0,
     "DISC-OPENSEARCH": 0,
@@ -86,8 +86,8 @@
     "DISC-SERPAPI": 0,
     "DISC-YANDEX": 0
   },
-  "urls_per_hour": 299.05,
-  "accepted_per_hour": 164.0,
+  "urls_per_hour": 307.24,
+  "accepted_per_hour": 189.07,
   "providers": [
     {
       "provider_id": "DISC-TAVILY",
@@ -123,15 +123,15 @@
       "queries": 5,
       "urls": 40,
       "cache_hits": 0,
-      "elapsed_ms": 8986.6,
+      "elapsed_ms": 155052.2,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 70.058,
-      "utilization": 0.2273
+      "rank_score": 68.603,
+      "utilization": 0.2381
     },
     {
       "provider_id": "DISC-SITEMAP",
@@ -145,7 +145,7 @@
       "queries": 1,
       "urls": 12,
       "cache_hits": 0,
-      "elapsed_ms": 455829.8,
+      "elapsed_ms": 454110.8,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
@@ -153,7 +153,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 51.6,
-      "utilization": 0.0455
+      "utilization": 0.0476
     },
     {
       "provider_id": "DISC-RSS",
@@ -164,18 +164,18 @@
         "status": "healthy",
         "message": "feed_discovery"
       },
-      "queries": 1,
-      "urls": 10,
+      "queries": 0,
+      "urls": 0,
       "cache_hits": 0,
-      "elapsed_ms": 281489.4,
+      "elapsed_ms": 0.0,
       "status": "ready",
       "operational_status": "ACTIVE",
       "credentials_available": true,
       "disable_reason": "ready",
       "exhausted": false,
       "exhaustion_reason": "",
-      "rank_score": 51.52,
-      "utilization": 0.0455
+      "rank_score": 51.0,
+      "utilization": 0.0
     },
     {
       "provider_id": "DISC-ATOM",
@@ -219,7 +219,7 @@
       "exhausted": false,
       "exhaustion_reason": "",
       "rank_score": 41.1,
-      "utilization": 0.4545
+      "utilization": 0.4762
     },
     {
       "provider_id": "DISC-OPENSEARCH",
@@ -241,7 +241,7 @@
       "exhausted": true,
       "exhaustion_reason": "provider_exhausted_empty_results",
       "rank_score": 32.0,
-      "utilization": 0.2273
+      "utilization": 0.2381
     },
     {
       "provider_id": "DISC-GOOGLE-CSE",
@@ -451,7 +451,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 469.5,
+      "elapsed_ms": 427.1,
       "cached": false,
       "live_search": true
     },
@@ -461,7 +461,7 @@
       "domain": "bps.go.id",
       "source_id": "SRC-000001",
       "urls": 20,
-      "elapsed_ms": 4688.1,
+      "elapsed_ms": 473.0,
       "cached": false,
       "live_search": true
     },
@@ -471,7 +471,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1273.2,
+      "elapsed_ms": 31330.9,
       "cached": false,
       "live_search": true
     },
@@ -481,7 +481,7 @@
       "domain": "worldbank.org",
       "source_id": "SRC-000004",
       "urls": 0,
-      "elapsed_ms": 1250.2,
+      "elapsed_ms": 61566.5,
       "cached": false,
       "live_search": true
     },
@@ -491,7 +491,7 @@
       "domain": "kemenperin.go.id",
       "source_id": "SRC-000007",
       "urls": 0,
-      "elapsed_ms": 1305.6,
+      "elapsed_ms": 61254.7,
       "cached": false,
       "live_search": true
     },
@@ -549,13 +549,7 @@
       "provider_id": "DISC-SITEMAP",
       "query": "sitemap:trusted_feeds",
       "urls": 12,
-      "elapsed_ms": 455829.8
-    },
-    {
-      "provider_id": "DISC-RSS",
-      "query": "rss:trusted_feeds",
-      "urls": 10,
-      "elapsed_ms": 281489.4
+      "elapsed_ms": 454110.8
     }
   ],
   "reputation_top": [
@@ -706,12 +700,12 @@
     {
       "id": "DISC-COMMONCRAWL",
       "name": "Common Crawl Index",
-      "score": 70.058,
+      "score": 68.603,
       "status": "ACTIVE",
       "components": {
         "yield": 0.35,
         "success_rate": 1.0,
-        "latency": 0.972,
+        "latency": 0.85,
         "freshness": 0.7,
         "trust": 0.95,
         "coverage": 0.75,
@@ -738,10 +732,10 @@
     {
       "id": "DISC-RSS",
       "name": "RSS Discovery",
-      "score": 51.52,
+      "score": 51.0,
       "status": "ACTIVE",
       "components": {
-        "yield": 0.12,
+        "yield": 0.1,
         "success_rate": 1.0,
         "latency": 0.0,
         "freshness": 0.7,
@@ -1072,18 +1066,6 @@
       "source_id": "SRC-OWASP",
       "provider_id": "DISC-SITEMAP",
       "title": ""
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2023-02-08-contract-software-development/",
-      "source_id": "SRC-CROSSREF",
-      "provider_id": "DISC-RSS",
-      "title": ""
-    },
-    {
-      "url": "https://www.ifrs.org/groups/trustees-of-the-ifrs-foundation/",
-      "source_id": "SRC-ISSB",
-      "provider_id": "DISC-RSS",
-      "title": ""
     }
   ],
   "rejected_urls": [
@@ -1206,54 +1188,6 @@
       "reason": "duplicate_url",
       "host": null,
       "provider_id": "DISC-COMMONCRAWL"
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2026-03-05-technical-support-specialist/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2025-11-13-communications-manager/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.crossref.org/members-area/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.crossref.org/jobs/2023-04-24-contract-member-support/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/managing-director/michel-madelain/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/monitoring-board/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
-    },
-    {
-      "url": "https://www.ifrs.org/groups/monitoring-board/correspondence-between-trustees-and-monitoring-board/",
-      "reason": "duplicate_url",
-      "host": null,
-      "provider_id": "DISC-RSS"
     }
   ],
   "cache": {
