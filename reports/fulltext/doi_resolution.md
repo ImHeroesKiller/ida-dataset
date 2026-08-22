@@ -1,6 +1,6 @@
 # DOI Resolution
 
-**Generated:** 2026-08-22T13:51:14+00:00
+**Generated:** 2026-08-22T14:41:01+00:00
 
 | Metric | Value |
 |--------|------:|
