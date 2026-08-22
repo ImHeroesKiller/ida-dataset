@@ -15,7 +15,7 @@
     "skipped_duplicate": 7,
     "failed": 32,
     "bytes": 1734761,
-    "elapsed_ms": 49087.200000000004,
+    "elapsed_ms": 41861.1,
     "retries": 12,
     "max_workers": 4,
     "adaptive_workers": 4,
@@ -47,14 +47,14 @@
     "documents_fast": 33,
     "documents_medium": 8,
     "documents_deep": 1,
-    "avg_ms": 0.72,
-    "average_extraction_ms": 0.72,
-    "total_ms": 30.28,
+    "avg_ms": 0.73,
+    "average_extraction_ms": 0.73,
+    "total_ms": 30.76,
     "path_ms": {
-      "fast": 4.08,
-      "medium": 6.37,
-      "deep": 5.22,
-      "signal_fallback": 14.57
+      "fast": 4.06,
+      "medium": 6.44,
+      "deep": 5.2,
+      "signal_fallback": 15.01
     },
     "target_dataset": "industry_library",
     "llm_required_but_unavailable": false
