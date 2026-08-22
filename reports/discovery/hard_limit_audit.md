@@ -1,6 +1,6 @@
 # Hard Limit Audit
 
-**Generated:** 2026-08-22T09:40:58+00:00
+**Generated:** 2026-08-22T10:37:48+00:00
 **Occurrences found:** 303
 
 Search covers acquisition, config, learning, search, and CI paths.
@@ -230,67 +230,67 @@ Search covers acquisition, config, learning, search, and CI paths.
 | `automation/learning/session_store.py` | 41 | `return f"SESSION-{day}-{uuid4().hex[:6].upper()}"` |
 | `automation/learning/first_cycle.py` | 145 | `limit=3,` |
 | `automation/learning/first_cycle.py` | 187 | `seed["Last Updated"] = utc_now_iso()[:10]` |
-| `automation/learning/state/manufacturing_state.json` | 78 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 97 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 115 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 126 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 145 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 163 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 174 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 193 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 211 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 222 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 241 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 259 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 270 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 289 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 307 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 318 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 337 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 355 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 366 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 385 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 403 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 414 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 433 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 451 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 462 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 481 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 499 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 510 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 529 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 547 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 558 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 577 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 595 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 606 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 625 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 643 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 654 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 673 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 691 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 702 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 721 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 739 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 750 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 769 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 787 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 798 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 817 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 835 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 846 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 865 | `"hard_limit": null` |
-| `automation/learning/state/manufacturing_state.json` | 883 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 898 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 921 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 944 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 967 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 990 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 1013 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 1036 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 1059 | `"hard_limit": null,` |
-| `automation/learning/state/manufacturing_state.json` | 1083 | `"hard_limit": null,` |
-| `automation/learning/state/acquisition_performance.json` | 659 | `"process_budget": 77,` |
+| `automation/learning/state/manufacturing_state.json` | 77 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 96 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 114 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 125 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 144 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 162 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 173 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 192 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 210 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 221 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 240 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 258 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 269 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 288 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 306 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 317 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 336 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 354 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 365 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 384 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 402 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 413 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 432 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 450 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 461 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 480 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 498 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 509 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 528 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 546 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 557 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 576 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 594 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 605 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 624 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 642 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 653 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 672 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 690 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 701 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 720 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 738 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 749 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 768 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 786 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 797 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 816 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 834 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 845 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 864 | `"hard_limit": null` |
+| `automation/learning/state/manufacturing_state.json` | 882 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 897 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 920 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 943 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 966 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 989 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 1012 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 1035 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 1058 | `"hard_limit": null,` |
+| `automation/learning/state/manufacturing_state.json` | 1082 | `"hard_limit": null,` |
+| `automation/learning/state/acquisition_performance.json` | 659 | `"process_budget": 47,` |
 | `automation/search/orchestrator.py` | 52 | `connectors, preferred_types=preferred_types, limit=8` |
 | `automation/search/query_planner.py` | 54 | `limit=5,` |
 | `automation/search/query_planner.py` | 63 | `limit=max(1, min(limit, 50)),` |
