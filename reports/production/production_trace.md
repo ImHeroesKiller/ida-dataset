@@ -1,28 +1,28 @@
 # Production Trace
 
-**Generated:** 2026-08-22T11:39:55+00:00
+**Generated:** 2026-08-22T12:59:23+00:00
 **Mission:** Produce Industry Dataset — expand industry_library toward product target
-**Mission ID:** `MIS-20260822-3EBA16`
-**Session ID:** `SES-20260822-34B9F3`
-**Started:** 2026-08-22T11:22:27+00:00
-**Finished:** 2026-08-22T11:39:55+00:00
+**Mission ID:** `MIS-20260822-953427`
+**Session ID:** `SES-20260822-56DDCB`
+**Started:** 2026-08-22T12:41:48+00:00
+**Finished:** 2026-08-22T12:59:23+00:00
 
 ## Pipeline timeline
 
 | Stage | Status | Duration (ms) | Docs | Rows | Errors |
 |-------|--------|--------------:|-----:|-----:|--------|
 | mission | completed | 1.1 | 0 | 0 | — |
-| source_discovery | completed | 3.0 | 0 | 0 | — |
-| connector | completed | 6196.9 | 77 | 0 | — |
-| document_discovery | completed | 6197.0 | 77 | 0 | — |
-| document_download | completed | 309199.5 | 42 | 0 | — |
-| extraction | completed | 36.6 | 0 | 5 | — |
-| candidate_validation | completed | 18.1 | 0 | 5 | — |
-| publish_queue | completed | 18.2 | 0 | 5 | — |
-| append_dataset | completed | 23.3 | 0 | 5 | — |
-| export | skipped | 1.0 | 0 | 0 | — |
+| source_discovery | completed | 2.9 | 0 | 0 | — |
+| connector | completed | 6184.0 | 73 | 0 | — |
+| document_discovery | completed | 6184.1 | 73 | 0 | — |
+| document_download | completed | 305127.7 | 42 | 0 | — |
+| extraction | completed | 38.2 | 0 | 5 | — |
+| candidate_validation | completed | 18.3 | 0 | 5 | — |
+| publish_queue | completed | 18.4 | 0 | 5 | — |
+| append_dataset | completed | 23.8 | 0 | 5 | — |
+| export | skipped | 0.3 | 0 | 0 | — |
 | git_commit | skipped | 0.3 | 0 | 0 | — |
-| push | skipped | 0.3 | 0 | 0 | — |
+| push | skipped | 0.4 | 0 | 0 | — |
 
 ## Summary
 
