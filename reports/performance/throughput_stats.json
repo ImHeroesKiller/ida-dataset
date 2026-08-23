@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-23T15:42:51+00:00",
+  "generated_at": "2026-08-23T16:45:43+00:00",
   "queues": {
     "pending": 0,
     "approved": 5,
     "rejected": 0,
     "total": 5,
-    "measured_at": "2026-08-23T15:42:51+00:00"
+    "measured_at": "2026-08-23T16:45:43+00:00"
   },
   "publish_policy": {
     "auto_publish_confidence": 0.55,
@@ -22,74 +22,74 @@
   "session_stage_timings": {
     "mission_setup": {
       "count": 1,
-      "total_ms": 0.002163000004884452,
-      "max_ms": 0.002163000004884452,
-      "min_ms": 0.002163000004884452,
+      "total_ms": 0.001662000045143941,
+      "max_ms": 0.001662000045143941,
+      "min_ms": 0.001662000045143941,
       "avg_ms": 0.0
     },
     "discovery": {
       "count": 1,
-      "total_ms": 6208.5002290000375,
-      "max_ms": 6208.5002290000375,
-      "min_ms": 6208.5002290000375,
+      "total_ms": 6177.471620999995,
+      "max_ms": 6177.471620999995,
+      "min_ms": 6177.471620999995,
       "meta": {
         "discovered": 77,
         "connectors": 7
       },
-      "avg_ms": 6208.5
+      "avg_ms": 6177.47
     },
     "prioritize": {
       "count": 1,
-      "total_ms": 1.860639000028641,
-      "max_ms": 1.860639000028641,
-      "min_ms": 1.860639000028641,
+      "total_ms": 1.8922419999398699,
+      "max_ms": 1.8922419999398699,
+      "min_ms": 1.8922419999398699,
       "meta": {
         "budget": 77,
         "queued": 77,
         "pre_dup": 0
       },
-      "avg_ms": 1.86
+      "avg_ms": 1.89
     },
     "download": {
       "count": 1,
-      "total_ms": 333601.67785300006,
-      "max_ms": 333601.67785300006,
-      "min_ms": 333601.67785300006,
+      "total_ms": 308871.8771690001,
+      "max_ms": 308871.8771690001,
+      "min_ms": 308871.8771690001,
       "meta": {
         "documents": 42,
-        "workers": 2,
+        "workers": 4,
         "duplicates": 35
       },
-      "avg_ms": 333601.68
+      "avg_ms": 308871.88
     },
     "extraction": {
       "count": 1,
-      "total_ms": 34.011276999990514,
-      "max_ms": 34.011276999990514,
-      "min_ms": 34.011276999990514,
+      "total_ms": 33.52242100004332,
+      "max_ms": 33.52242100004332,
+      "min_ms": 33.52242100004332,
       "meta": {
         "candidates": 5,
         "llm_skipped": 42,
-        "avg_ms": 0.8
+        "avg_ms": 0.78
       },
-      "avg_ms": 34.01
+      "avg_ms": 33.52
     },
     "validation": {
       "count": 1,
-      "total_ms": 22.375480999926367,
-      "max_ms": 22.375480999926367,
-      "min_ms": 22.375480999926367,
+      "total_ms": 22.16445199996997,
+      "max_ms": 22.16445199996997,
+      "min_ms": 22.16445199996997,
       "meta": {
         "published": 5,
         "rejected": 0,
         "manual_review": 0
       },
-      "avg_ms": 22.38
+      "avg_ms": 22.16
     }
   },
   "session_workers": {
-    "adaptive": 2,
-    "avg_latency_ms": 3133.8142857142852
+    "adaptive": 4,
+    "avg_latency_ms": 2444.214285714286
   },
   "session_process_ratio": 54.5,
   "session_extraction": {
@@ -103,14 +103,14 @@
     "documents_fast": 33,
     "documents_medium": 8,
     "documents_deep": 1,
-    "avg_ms": 0.8,
-    "average_extraction_ms": 0.8,
-    "total_ms": 33.42,
+    "avg_ms": 0.78,
+    "average_extraction_ms": 0.78,
+    "total_ms": 32.94,
     "path_ms": {
-      "fast": 4.33,
-      "medium": 6.46,
-      "deep": 5.22,
-      "signal_fallback": 17.34
+      "fast": 4.25,
+      "medium": 6.39,
+      "deep": 5.12,
+      "signal_fallback": 17.1
     },
     "target_dataset": "industry_library",
     "llm_required_but_unavailable": false
@@ -123,27 +123,27 @@
     "threshold": 0.55,
     "decisions": [
       {
-        "candidate_id": "CAND-8E10B3A5E4CE",
+        "candidate_id": "CAND-FE76EE409855",
         "confidence": 0.92,
         "action": "publish"
       },
       {
-        "candidate_id": "CAND-F5A5544E7E67",
+        "candidate_id": "CAND-BAB85E661C5B",
         "confidence": 0.9,
         "action": "publish"
       },
       {
-        "candidate_id": "CAND-F50E83FE4967",
+        "candidate_id": "CAND-9F977E7A8FE3",
         "confidence": 0.9,
         "action": "publish"
       },
       {
-        "candidate_id": "CAND-07ACA3827BD9",
+        "candidate_id": "CAND-A8D6F837F0CC",
         "confidence": 0.9,
         "action": "publish"
       },
       {
-        "candidate_id": "CAND-BD0BB2C49A27",
+        "candidate_id": "CAND-375C1D713A77",
         "confidence": 0.9,
         "action": "publish"
       }
