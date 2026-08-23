@@ -1,22 +1,22 @@
 # Session Trace
 
-**Generated:** 2026-08-23T08:50:11+00:00
+**Generated:** 2026-08-23T09:47:52+00:00
 
 ## Session summary
 
 | Field | Value |
 | --- | --- |
-| session_id | SESSION-20260823-A14FDA |
+| session_id | SESSION-20260823-DD71D7 |
 | status | completed |
 | mission | Produce Industry Dataset — expand industry_library toward product target |
 | trigger | schedule |
 | dry_run | False |
-| duration_seconds | 1052.0 |
+| duration_seconds | 1056.0 |
 | knowledge_added | 5 |
 | knowledge_rejected | 0 |
 | summary | Session completed · published=5 extracted=5 validated=5 rejected=0 docs=31 entity=World Bank document |
-| start_time | 2026-08-23T08:32:31+00:00 |
-| end_time | 2026-08-23T08:50:03+00:00 |
+| start_time | 2026-08-23T09:30:08+00:00 |
+| end_time | 2026-08-23T09:47:44+00:00 |
 
 ## Pipeline stages
 
@@ -26,12 +26,12 @@
 | knowledge_gap_evaluation | completed | — | — | — | mode={'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_d |
 | dependency_evaluation | completed | — | — | — | see mission_trace eligible flags |
 | mission_eligible | completed | — | — | — | mode=BOOTSTRAP · gap_score=0.0 · stretch_cov=0.4% · priority=100 · deps_met · so |
-| source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-CROSSREF-001', 'name': 'Crossref', 'source_id |
+| source_discovery | completed | 2.9 | — | — | connectors=[{'connector_id': 'CONN-WB-001', 'name': 'World Bank', 'source_id': ' |
 | connector_calls | completed | — | 11 | — | discovered=11 |
-| document_discovery | completed | 6181.4 | 47 | — |  |
+| document_discovery | completed | 6215.1 | 47 | — |  |
 | documents_skipped | completed | — | 16 | — | duplicates_or_skips=16 |
-| document_download | completed | 310111.8 | 31 | — | downloaded=31 |
-| extraction | completed | 36.9 | — | 5 |  |
+| document_download | completed | 308216.9 | 31 | — | downloaded=31 |
+| extraction | completed | 38.0 | — | 5 |  |
 | validation | completed | — | — | 5 |  |
 | publish | completed | — | — | 5 |  |
 | commit | skipped | — | — | — | ['Deferred to CI'] |
