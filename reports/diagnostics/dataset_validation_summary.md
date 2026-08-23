@@ -1,7 +1,7 @@
 # Dataset Validation Summary
 
-**Generated:** 2026-08-23T10:43:36+00:00
+**Generated:** 2026-08-23T11:40:10+00:00
 
 | Dataset | Candidates | Published | Rejected | Top rejection rule | Avg confidence |
 | --- | --- | --- | --- | --- | --- |
-| business_signal_library | 5 | 0 | 5 | duplicate_id:SIG-001111 | 0.904 |
+| business_signal_library | 5 | 0 | 5 | duplicate_id:SIG-001116 | 0.904 |
