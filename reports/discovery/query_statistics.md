@@ -1,6 +1,6 @@
 # Query Statistics
 
-**Session:** `SES-20260822-D588B9`
+**Session:** `SES-20260823-E6D596`
 
 | Provider | Query | URLs | ms | Cached |
 |----------|-------|-----:|---:|--------|
@@ -14,15 +14,15 @@
 | DISC-TRUSTED-SITE | `site:adb.org intitle:industry industry` | 0 | 0 | False |
 | DISC-TRUSTED-SITE | `site:oecd.org industry` | 0 | 0 | False |
 | DISC-TRUSTED-SITE | `site:oecd.org intitle:industry industry` | 0 | 0 | False |
-| DISC-COMMONCRAWL | `site:bps.go.id industry` | 20 | 655.8 | False |
-| DISC-COMMONCRAWL | `site:bps.go.id intitle:industry industry` | 20 | 489.0 | False |
-| DISC-COMMONCRAWL | `site:worldbank.org industry` | 0 | 1475.4 | False |
-| DISC-COMMONCRAWL | `site:worldbank.org intitle:industry industry` | 0 | 1628.4 | False |
-| DISC-COMMONCRAWL | `site:kemenperin.go.id industry` | 0 | 1645.9 | False |
+| DISC-COMMONCRAWL | `site:bps.go.id industry` | 20 | 553.6 | False |
+| DISC-COMMONCRAWL | `site:bps.go.id intitle:industry industry` | 20 | 570.1 | False |
+| DISC-COMMONCRAWL | `site:worldbank.org industry` | 20 | 566.9 | False |
+| DISC-COMMONCRAWL | `site:worldbank.org intitle:industry industry` | 20 | 421.1 | False |
+| DISC-COMMONCRAWL | `site:kemenperin.go.id industry` | 20 | 419.1 | False |
 | DISC-OPENSEARCH | `site:bps.go.id industry` | 0 | 0.0 | False |
 | DISC-OPENSEARCH | `site:bps.go.id intitle:industry industry` | 0 | 0.0 | False |
 | DISC-OPENSEARCH | `site:worldbank.org industry` | 0 | 0.0 | False |
 | DISC-OPENSEARCH | `site:worldbank.org intitle:industry industry` | 0 | 0.0 | False |
 | DISC-OPENSEARCH | `site:kemenperin.go.id industry` | 0 | 0.0 | False |
-| DISC-SITEMAP | `sitemap:trusted_feeds` | 12 | 449491.0 | False |
-| DISC-RSS | `rss:trusted_feeds` | 12 | 281989.7 | False |
+| DISC-SITEMAP | `sitemap:trusted_feeds` | 12 | 453358.0 | False |
+| DISC-RSS | `rss:trusted_feeds` | 12 | 283114.5 | False |
