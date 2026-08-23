@@ -1,6 +1,6 @@
 # Knowledge Gap Trace
 
-**Generated:** 2026-08-23T07:52:36+00:00
+**Generated:** 2026-08-23T08:50:11+00:00
 **Mode:** `{'mode': 'BOOTSTRAP', 'reason': 'empty_or_below_minimum_datasets', 'empty_datasets': ['company_profile', 'solution_library', 'pain_point_library', 'case_study_library', 'opportunity_analysis', 'competitor_library', 'buyer_persona_library', 'product_catalog', 'service_library', 'framework_library', 'decision_maker_library', 'regulation_library', 'risk_library', 'trend_library', 'discovery_question_library'], 'below_minimum': ['company_profile', 'solution_library', 'pain_point_library', 'case_study_library', 'opportunity_analysis', 'competitor_library', 'buyer_persona_library', 'product_catalog', 'service_library', 'framework_library', 'decision_maker_library', 'regulation_library', 'risk_library', 'trend_library', 'discovery_question_library', 'industry_library']}`
 **Selected mission:** `company_profile`
 
@@ -24,6 +24,6 @@ Sorted by knowledge_gap_score descending.
 | trend_library | 0 | — | 1.0 | 0.2 | — | 500 | 125.25 |
 | discovery_question_library | 0 | — | 1.0 | 0.2 | — | 500 | 125.25 |
 | industry_library | 19 | — | 0.0 | 0.2 | — | 250 | 87.568 |
-| business_signal_library | 1100 | — | 0.0 | 0.2 | — | 1000 | 67.406 |
+| business_signal_library | 1105 | — | 0.0 | 0.2 | — | 1000 | 67.4 |
 
-Summary: `{'highest_gap_dataset': 'company_profile', 'highest_gap_score': 134.25, 'total_universe_remaining': 415081}`
+Summary: `{'highest_gap_dataset': 'company_profile', 'highest_gap_score': 134.25, 'total_universe_remaining': 415076}`
