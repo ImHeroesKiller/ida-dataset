@@ -1,39 +1,39 @@
 # Connector Summary
 
-**Session:** `SES-20260824-B1B906` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
+**Session:** `SES-20260824-8BCB13` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
 
 | Connector | Status | HTTP | Elapsed (ms) | Discovered | Downloaded | Skipped | Rejected | Retries | Error |
 |-----------|--------|------|-------------:|-----------:|-----------:|--------:|---------:|--------:|-------|
-| OpenAlex | no_updates | 200 | 466.0 | 0 | 0 | 0 | 0 | 0 | — |
-| World Bank | ok | 200 | 508.7 | 1 | 1 | 0 | 0 | 0 | — |
-| Crossref | ok | 200 | 702.7 | 10 | 0 | 0 | 0 | 0 | — |
-| Kemenperin | no_updates | 200 | 3104.5 | 0 | 0 | 0 | 0 | 0 | — |
-| Asian Development Bank | no_updates | 200 | 3146.9 | 0 | 0 | 0 | 0 | 0 | — |
-| OECD | no_updates | 200 | 3151.2 | 0 | 0 | 0 | 0 | 0 | — |
-| BPS Indonesia | no_updates | 200 | 6194.1 | 0 | 0 | 0 | 0 | 0 | — |
+| World Bank | ok | 200 | 630.5 | 1 | 0 | 0 | 0 | 0 | — |
+| Crossref | ok | 200 | 2529.1 | 10 | 0 | 0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 3158.7 | 0 | 0 | 0 | 0 | 0 | — |
+| Kemenperin | no_updates | 200 | 3161.7 | 0 | 0 | 0 | 0 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 3169.2 | 0 | 0 | 0 | 0 | 0 | — |
+| OpenAlex | no_updates | 200 | 3283.6 | 0 | 0 | 0 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 6223.3 | 0 | 0 | 0 | 0 | 0 | — |
 
 ## Details
-
-### OpenAlex
-
-- connector_id: `CONN-OPENALEX-001`
-- source_id: `SRC-OPENALEX`
-- last_successful_sync: —
-- urls_sample: —
 
 ### World Bank
 
 - connector_id: `CONN-WB-001`
 - source_id: `SRC-000004`
-- last_successful_sync: 2026-08-24T07:14:03+00:00
+- last_successful_sync: 2026-08-24T09:03:20+00:00
 - urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
 
 ### Crossref
 
 - connector_id: `CONN-CROSSREF-001`
 - source_id: `SRC-CROSSREF`
-- last_successful_sync: 2026-08-24T07:14:04+00:00
+- last_successful_sync: 2026-08-24T09:03:22+00:00
 - urls_sample: https://api.crossref.org/works/10.1787/888933931335, https://api.crossref.org/works/10.23917/benefit.v10i1.8214, https://api.crossref.org/works/10.34010/icobest.v1i.49
+
+### OECD
+
+- connector_id: `CONN-OECD-001`
+- source_id: `SRC-000005`
+- last_successful_sync: —
+- urls_sample: —
 
 ### Kemenperin
 
@@ -49,10 +49,10 @@
 - last_successful_sync: —
 - urls_sample: —
 
-### OECD
+### OpenAlex
 
-- connector_id: `CONN-OECD-001`
-- source_id: `SRC-000005`
+- connector_id: `CONN-OPENALEX-001`
+- source_id: `SRC-OPENALEX`
 - last_successful_sync: —
 - urls_sample: —
 
