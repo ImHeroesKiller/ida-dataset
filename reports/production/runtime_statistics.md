@@ -1,23 +1,23 @@
 # Runtime Statistics
 
-**Session:** `SES-20260824-F3840C`
+**Session:** `SES-20260824-1D0D2E`
 **Mission:** Produce Industry Dataset — expand industry_library toward product target
-**Total stage time (ms):** 340785.0
+**Total stage time (ms):** 332355.1
 
 ## Stage durations
 
 | Stage | ms | Status |
 |-------|---:|--------|
-| mission | 1.0 | completed |
-| source_discovery | 2.6 | completed |
-| connector | 6221.2 | completed |
-| document_discovery | 6221.4 | completed |
-| document_download | 328229.3 | completed |
-| extraction | 38.7 | completed |
-| candidate_validation | 25.6 | completed |
-| publish_queue | 25.6 | completed |
-| append_dataset | 18.7 | completed |
-| export | 0.3 | skipped |
+| mission | 1.1 | completed |
+| source_discovery | 2.9 | completed |
+| connector | 6201.9 | completed |
+| document_discovery | 6202.0 | completed |
+| document_download | 319841.7 | completed |
+| extraction | 39.9 | completed |
+| candidate_validation | 20.5 | completed |
+| publish_queue | 20.5 | completed |
+| append_dataset | 23.6 | completed |
+| export | 0.4 | skipped |
 | git_commit | 0.3 | skipped |
 | push | 0.3 | skipped |
 
@@ -29,9 +29,9 @@
     "connectors_ok": 7,
     "connectors_failed": 0,
     "documents_discovered": 11,
-    "documents_downloaded": 31,
+    "documents_downloaded": 42,
     "documents_failed": 0,
-    "documents_duplicates": 15,
+    "documents_duplicates": 35,
     "candidates_extracted": 5,
     "candidates_validated": 5,
     "candidates_rejected": 0,
@@ -54,9 +54,9 @@
   "document_queue": {
     "queued": 0,
     "processing": 0,
-    "completed": 31,
+    "completed": 42,
     "failed": 0,
-    "duplicates": 15
+    "duplicates": 35
   },
   "exports": {
     "jsonl": false,
