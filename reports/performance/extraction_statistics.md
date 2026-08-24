@@ -16,10 +16,10 @@
   "average_extraction_ms": 0.79,
   "total_ms": 33.29,
   "path_ms": {
-    "fast": 4.13,
-    "medium": 6.44,
-    "deep": 5.34,
-    "signal_fallback": 17.29
+    "fast": 4.42,
+    "medium": 6.35,
+    "deep": 5.22,
+    "signal_fallback": 17.23
   },
   "target_dataset": "industry_library",
   "llm_required_but_unavailable": false
