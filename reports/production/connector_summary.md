@@ -1,16 +1,16 @@
 # Connector Summary
 
-**Session:** `SES-20260824-1D0D2E` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
+**Session:** `SES-20260824-50B488` · **Mission:** Produce Industry Dataset — expand industry_library toward product target
 
 | Connector | Status | HTTP | Elapsed (ms) | Discovered | Downloaded | Skipped | Rejected | Retries | Error |
 |-----------|--------|------|-------------:|-----------:|-----------:|--------:|---------:|--------:|-------|
-| Crossref | ok | 200 | 544.1 | 10 | 0 | 0 | 0 | 0 | — |
-| OpenAlex | no_updates | 200 | 545.5 | 0 | 1 | 0 | 0 | 0 | — |
-| World Bank | ok | 200 | 1046.1 | 1 | 0 | 0 | 0 | 0 | — |
-| Asian Development Bank | no_updates | 200 | 3090.3 | 0 | 0 | 0 | 0 | 0 | — |
-| OECD | no_updates | 200 | 3113.3 | 0 | 0 | 0 | 0 | 0 | — |
-| Kemenperin | no_updates | 200 | 3143.1 | 0 | 1 | 0 | 0 | 0 | — |
-| BPS Indonesia | no_updates | 200 | 6197.9 | 0 | 0 | 0 | 0 | 0 | — |
+| Crossref | ok | 200 | 161.7 | 10 | 0 | 0 | 0 | 0 | — |
+| World Bank | ok | 200 | 647.7 | 1 | 1 | 0 | 0 | 0 | — |
+| OpenAlex | no_updates | 200 | 2427.4 | 0 | 0 | 0 | 0 | 0 | — |
+| Asian Development Bank | no_updates | 200 | 3086.8 | 0 | 0 | 0 | 0 | 0 | — |
+| OECD | no_updates | 200 | 3108.9 | 0 | 0 | 0 | 0 | 0 | — |
+| Kemenperin | no_updates | 200 | 3139.7 | 0 | 0 | 0 | 0 | 0 | — |
+| BPS Indonesia | no_updates | 200 | 6192.7 | 0 | 0 | 0 | 0 | 0 | — |
 
 ## Details
 
@@ -18,8 +18,15 @@
 
 - connector_id: `CONN-CROSSREF-001`
 - source_id: `SRC-CROSSREF`
-- last_successful_sync: 2026-08-24T14:06:23+00:00
+- last_successful_sync: 2026-08-24T23:33:18+00:00
 - urls_sample: https://api.crossref.org/works/10.1787/888933931335, https://api.crossref.org/works/10.23917/benefit.v10i1.8214, https://api.crossref.org/works/10.34010/icobest.v1i.49
+
+### World Bank
+
+- connector_id: `CONN-WB-001`
+- source_id: `SRC-000004`
+- last_successful_sync: 2026-08-24T23:33:19+00:00
+- urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
 
 ### OpenAlex
 
@@ -27,13 +34,6 @@
 - source_id: `SRC-OPENALEX`
 - last_successful_sync: —
 - urls_sample: —
-
-### World Bank
-
-- connector_id: `CONN-WB-001`
-- source_id: `SRC-000004`
-- last_successful_sync: 2026-08-24T14:06:24+00:00
-- urls_sample: https://documents.worldbank.org/search?q=Produce+Industry+Dataset+—+expand+industry_library+toward+product+target+Indonesia
 
 ### Asian Development Bank
 
