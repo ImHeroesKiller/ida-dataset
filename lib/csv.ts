@@ -9,13 +9,19 @@ export type CsvTable = {
   error?: string;
 };
 
-/** Minimal RFC4180-ish CSV parser (handles quotes). */
+/** Minimal RFC4180-ish CSV parser (handles quotes). Optimized using segment slicing to eliminate character-by-character string concatenation. */
 export function parseCsv(text: string): { headers: string[]; rows: Record<string, string>[] } {
-  const raw = text.replace(/^\uFEFF/, "");
+  const raw = text.startsWith("\uFEFF") ? text.slice(1) : text;
+  const len = raw.length;
+  if (len === 0) {
+    return { headers: [], rows: [] };
+  }
+
   const records: string[][] = [];
   let current: string[] = [];
   let field = "";
   let inQuotes = false;
+  let segmentStart = 0;
 
   const pushField = () => {
     current.push(field);
@@ -31,34 +37,43 @@ export function parseCsv(text: string): { headers: string[]; rows: Record<string
     current = [];
   };
 
-  for (let i = 0; i < raw.length; i++) {
+  for (let i = 0; i < len; i++) {
     const ch = raw[i];
-    const next = raw[i + 1];
     if (inQuotes) {
-      if (ch === '"' && next === '"') {
-        field += '"';
-        i++;
-      } else if (ch === '"') {
-        inQuotes = false;
-      } else {
-        field += ch;
+      if (ch === '"') {
+        if (i + 1 < len && raw[i + 1] === '"') {
+          field += raw.slice(segmentStart, i) + '"';
+          i++;
+          segmentStart = i + 1;
+        } else {
+          field += raw.slice(segmentStart, i);
+          inQuotes = false;
+          segmentStart = i + 1;
+        }
       }
     } else {
       if (ch === '"') {
+        field += raw.slice(segmentStart, i);
         inQuotes = true;
+        segmentStart = i + 1;
       } else if (ch === ",") {
+        field += raw.slice(segmentStart, i);
         pushField();
+        segmentStart = i + 1;
       } else if (ch === "\n") {
+        field += raw.slice(segmentStart, i);
         pushField();
         pushRecord();
+        segmentStart = i + 1;
       } else if (ch === "\r") {
-        // ignore
-      } else {
-        field += ch;
+        field += raw.slice(segmentStart, i);
+        segmentStart = i + 1;
       }
     }
   }
+
   // last field
+  field += raw.slice(segmentStart, len);
   pushField();
   if (current.length > 1 || (current.length === 1 && current[0] !== "")) {
     pushRecord();
@@ -67,14 +82,25 @@ export function parseCsv(text: string): { headers: string[]; rows: Record<string
   if (records.length === 0) {
     return { headers: [], rows: [] };
   }
-  const headers = records[0].map((h) => h.trim());
-  const rows = records.slice(1).map((cols) => {
+
+  const headerRow = records[0];
+  const headerCount = headerRow.length;
+  const headers = new Array<string>(headerCount);
+  for (let i = 0; i < headerCount; i++) {
+    headers[i] = headerRow[i].trim();
+  }
+
+  const recordCount = records.length;
+  const rows: Record<string, string>[] = [];
+  for (let r = 1; r < recordCount; r++) {
+    const cols = records[r];
     const row: Record<string, string> = {};
-    headers.forEach((h, idx) => {
-      row[h] = (cols[idx] ?? "").trim();
-    });
-    return row;
-  });
+    for (let h = 0; h < headerCount; h++) {
+      row[headers[h]] = (cols[h] ?? "").trim();
+    }
+    rows.push(row);
+  }
+
   return { headers, rows };
 }
 
