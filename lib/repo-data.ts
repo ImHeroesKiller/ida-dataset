@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { execSync } from "child_process";
-import { listCsvFiles, readCsvFile, type CsvTable } from "./csv";
+import { listCsvFiles, readCsvFile, readCsvHeaderAndCount, type CsvTable } from "./csv";
 import { PATHS, getRepoRoot, repoPath } from "./paths";
 import { loadSimpleYaml } from "./simple-yaml";
 import type { ModuleStatus } from "./status";
@@ -84,17 +84,18 @@ export function listDatasets(): DatasetInfo[] {
     const parts = rel.split("/");
     const domain = parts[1] ?? "unknown";
     const name = path.basename(abs, ".csv");
-    const table = readCsvFile(abs);
+    // Use fast header & count scanner instead of parsing full CSV rows into objects
+    const meta = readCsvHeaderAndCount(abs);
     return {
       id: rel,
       name,
       domain,
       relativePath: rel,
       absolutePath: abs,
-      rowCount: table.rowCount,
-      columnCount: table.headers.length,
-      isPlaceholder: table.rowCount === 0,
-      headers: table.headers,
+      rowCount: meta.rowCount,
+      columnCount: meta.headers.length,
+      isPlaceholder: meta.rowCount === 0,
+      headers: meta.headers,
     };
   });
 }
