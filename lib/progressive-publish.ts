@@ -7,6 +7,7 @@ import fs from "fs";
 import path from "path";
 import { getRepoRoot, PATHS, repoPath } from "@/lib/paths";
 import { getLearningMode } from "@/lib/learning-mode";
+import { readTailLines } from "@/lib/csv";
 import type { FullCandidate } from "@/lib/review-actions";
 
 function nowIso(): string {
@@ -497,10 +498,10 @@ export async function runProgressiveDrain(
 
 export function readKnowledgeFeed(limit = 40): FeedItem[] {
   const p = knowledgeFeedPath();
-  if (!fs.existsSync(p)) return [];
-  const lines = fs.readFileSync(p, "utf8").split("\n").filter(Boolean);
+  // Use readTailLines for O(chunk) reading from end of file rather than reading into memory
+  const lines = readTailLines(p, limit);
   const out: FeedItem[] = [];
-  for (const line of lines.slice(-limit).reverse()) {
+  for (const line of lines.reverse()) {
     try {
       out.push(JSON.parse(line) as FeedItem);
     } catch {
@@ -512,10 +513,10 @@ export function readKnowledgeFeed(limit = 40): FeedItem[] {
 
 export function readJournalTail(limit = 50): Array<Record<string, unknown>> {
   const p = repoPath("automation/learning/state/learning_journal.jsonl");
-  if (!fs.existsSync(p)) return [];
-  const lines = fs.readFileSync(p, "utf8").split("\n").filter(Boolean);
+  // Use readTailLines for O(chunk) reading from end of file rather than reading 89MB into memory
+  const lines = readTailLines(p, limit);
   const out: Array<Record<string, unknown>> = [];
-  for (const line of lines.slice(-limit)) {
+  for (const line of lines) {
     try {
       out.push(JSON.parse(line));
     } catch {
