@@ -9,18 +9,31 @@ export type CsvTable = {
   error?: string;
 };
 
-/** Minimal RFC4180-ish CSV parser (handles quotes). */
+/**
+ * Minimal RFC4180-ish CSV parser (handles quotes).
+ * Optimized via index range slicing (`raw.slice(fieldStart, i)`) rather than
+ * character-by-character string concatenation (`field += ch`) to eliminate
+ * string allocations and garbage collection overhead in large dataset loads.
+ */
 export function parseCsv(text: string): { headers: string[]; rows: Record<string, string>[] } {
   const raw = text.replace(/^\uFEFF/, "");
   const records: string[][] = [];
   let current: string[] = [];
-  let field = "";
+  let fieldStart = 0;
   let inQuotes = false;
+  let hasQuotes = false;
+  const len = raw.length;
 
-  const pushField = () => {
-    current.push(field);
-    field = "";
+  // Process field substring with quote unescaping when quotes are present
+  const processField = (start: number, end: number, quoted: boolean): string => {
+    if (!quoted) return raw.slice(start, end);
+    let str = raw.slice(start, end);
+    if (str.startsWith('"') && str.endsWith('"')) {
+      str = str.slice(1, -1);
+    }
+    return str.replace(/""/g, '"');
   };
+
   const pushRecord = () => {
     // skip fully empty trailing lines
     if (current.length === 1 && current[0] === "" && records.length > 0) {
@@ -31,37 +44,48 @@ export function parseCsv(text: string): { headers: string[]; rows: Record<string
     current = [];
   };
 
-  for (let i = 0; i < raw.length; i++) {
-    const ch = raw[i];
-    const next = raw[i + 1];
+  for (let i = 0; i < len; i++) {
+    const ch = raw.charCodeAt(i);
+
     if (inQuotes) {
-      if (ch === '"' && next === '"') {
-        field += '"';
-        i++;
-      } else if (ch === '"') {
-        inQuotes = false;
-      } else {
-        field += ch;
+      if (ch === 34 /* " */) {
+        if (i + 1 < len && raw.charCodeAt(i + 1) === 34) {
+          i++; // skip escaped quote ("")
+        } else {
+          inQuotes = false;
+        }
       }
     } else {
-      if (ch === '"') {
+      if (ch === 34 /* " */) {
         inQuotes = true;
-      } else if (ch === ",") {
-        pushField();
-      } else if (ch === "\n") {
-        pushField();
+        hasQuotes = true;
+      } else if (ch === 44 /* , */) {
+        current.push(processField(fieldStart, i, hasQuotes));
+        fieldStart = i + 1;
+        hasQuotes = false;
+      } else if (ch === 10 /* \n */) {
+        let fieldEnd = i;
+        if (i > fieldStart && raw.charCodeAt(i - 1) === 13 /* \r */) {
+          fieldEnd--;
+        }
+        current.push(processField(fieldStart, fieldEnd, hasQuotes));
+        fieldStart = i + 1;
+        hasQuotes = false;
         pushRecord();
-      } else if (ch === "\r") {
-        // ignore
-      } else {
-        field += ch;
       }
     }
   }
-  // last field
-  pushField();
-  if (current.length > 1 || (current.length === 1 && current[0] !== "")) {
-    pushRecord();
+
+  // Handle final field and record if text doesn't end with a newline
+  if (fieldStart <= len) {
+    let fieldEnd = len;
+    if (fieldEnd > fieldStart && raw.charCodeAt(fieldEnd - 1) === 13 /* \r */) {
+      fieldEnd--;
+    }
+    if (fieldStart < fieldEnd || current.length > 0) {
+      current.push(processField(fieldStart, fieldEnd, hasQuotes));
+      pushRecord();
+    }
   }
 
   if (records.length === 0) {

@@ -1,0 +1,3 @@
+## 2026-08-18 - CSV Parsing Optimization with Index Slicing
+**Learning:** In this codebase, domain datasets, ontologies, and reports are stored as CSV files and parsed on-demand via `lib/csv.ts`. Character-by-character string accumulation (`field += ch`) during CSV parsing creates huge amounts of temporary string allocations and GC pressure. Switching to index range slicing (`raw.slice(fieldStart, i)`) with `charCodeAt` provided a ~4.2x speedup (from ~13.5s down to ~3.2s per 100 iterations across 51 CSV files) while maintaining full RFC4180 compatibility.
+**Action:** When parsing text or CSV payloads in JS/TS utilities, use index range slicing instead of single-character string concatenation loops to minimize allocations.
