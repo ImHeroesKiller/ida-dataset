@@ -1,11 +1,11 @@
 # Document Trace
 
-**Generated:** 2026-08-24T23:38:50+00:00
+**Generated:** 2026-09-13T23:16:22+00:00
 
-- Fingerprint URLs known: **23**
-- Fingerprint hashes known: **23**
-- Fingerprint stats: `{'skips': 9, 'adds': 23}`
-- Trace summary: discovered=11 downloaded=11 duplicates=12
+- Fingerprint URLs known: **19**
+- Fingerprint hashes known: **19**
+- Fingerprint stats: `{'skips': 8, 'adds': 19}`
+- Trace summary: discovered=11 downloaded=11 duplicates=8
 
 | Document ID | URL | Fingerprint | Already processed | Cache hit | 304 | Duplicate | Downloaded | Skip reason / status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,5 +18,5 @@
 | DOC-8C9B8E14F2A2 | https://api.crossref.org/works/10.1037/t52448-000 | 8c9b8e14f2a22b7d | True | False | False | False | True | completed |
 | DOC-350EA11C1DC8 | https://api.crossref.org/works/10.1037/t34363-000 | 350ea11c1dc837f7 | True | False | False | False | True | completed |
 | DOC-74F7181F3D6C | https://api.crossref.org/works/10.1037/e651502012-001 | 74f7181f3d6c0d7f | True | False | False | False | True | completed |
-| DOC-E96B9B477A4B | https://api.crossref.org/works/10.1037/t34495-000 | e96b9b477a4b9861 | True | False | False | False | True | completed |
+| DOC-42435589D8A0 | https://api.crossref.org/works/10.9790/487x-0925561 | 42435589d8a08efc | True | False | False | False | True | completed |
 | DOC-78214FD87922 | https://api.crossref.org/works/10.32832/jm-uika.v8i2.748 | 78214fd87922462e | True | False | False | False | True | completed |

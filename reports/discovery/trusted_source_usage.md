@@ -6,7 +6,6 @@ Accepted discovery URLs attributed to trusted registry sources.
 |-----------|--------------:|
 | SRC-CROSSREF | 4 |
 | SRC-ISSB | 4 |
-| SRC-OWASP | 4 |
 
 ## Knowledge gap
 
